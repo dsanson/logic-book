@@ -1,0 +1,107 @@
+---
+base-css:
+-   https://carnap.io/shared/dsanson@gmail.com/sanson-book.css
+-   https://cdn.plyr.io/3.6.8/plyr.css
+js: 
+-   https://cdn.plyr.io/3.6.8/plyr.polyfilled.js
+-   https://carnap.io/shared/dsanson@gmail.com/logic-book.js
+---
+
+
+# Derived Rules: Exercises
+
+::: {.auto-tally}
+:::
+
+The reading was about *enabling derived rules*. These exercises are about
+*using* those rules.
+
+:::{.hint .aside}
+E11.1 is much easier if you use the appropriate instance of DM on the first
+premise.
+:::
+
+```{.ProofChecker .Prop options="guides fonts indent tabindent resize" points=10}
+E11.1 ~(P\/Q), P\/R, S->Q :|-: R/\~S
+```
+
+:::{.hint .aside}
+Remember that you can use D-NC!
+:::
+
+```{.ProofChecker .Prop options="guides fonts indent tabindent resize" points=10}
+E11.2 P->Q, ~(P->R) :|-: Q
+```
+
+:::{.hint .aside}
+CDISJ make E11.3 trivial.
+:::
+
+```{.ProofChecker .Prop options="guides fonts indent tabindent resize" points=10}
+E11.3 P\/Q->R, Q\/P :|-: R
+```
+
+:::{.hint .aside}
+E11.4 is simpler if you use D-MCA.
+:::
+
+```{.ProofChecker .Prop options="guides fonts indent tabindent resize" points=10}
+E11.4 ~P, ~Q :|-: P<->Q
+```
+
+```{.ProofChecker .Prop options="guides fonts indent tabindent resize" points=10}
+E11.5 (P/\Q)->R :|-: ~(Q->R) -> ~P
+```
+
+The following derivation, E11.6, describes a pattern known as "Separation of Cases".
+This is the pattern of reasoning used by Sarah in the scene from the
+Labyrinth. As you may recall, she reasoned, in outline, as follows:
+
+::: standardform
+-   Either Lefty is lying or Lefty is telling the truth.
+-   If Lefty is lying, then the door on the right leads to the castle.
+-   If Lefty is telling the truth, then the door on the right leads to the
+    castle.
+-   The door on the right leads to the castle.
+:::
+
+You can complete E11.6 here, or you can derive it in the [rule
+builder](Rule-Builder), and then use the derived rule to trivially complete
+E11.6.
+
+```{.ProofChecker .Prop options="guides fonts indent tabindent resize" points=10}
+E11.6 P\/Q, P->R, Q->R :|-: R 
+```
+
+The next two derivations, E11.7 and E9.8, are variations on CDJ. Again, you might prefer to solve these in [the
+rule builder](Rule-Builder), saving them as derived rules.
+
+```{.ProofChecker .Prop options="guides fonts indent tabindent resize" points=10}
+E11.7 P->Q :|-: ~P\/Q
+E11.8 P\/Q :|-: ~P->Q
+```
+
+Our disjunction in inclusive. If you want to express exclusive disjunction,
+you can use the phrase "...or..., but not both", as in:
+
+::: displayed
+-   P or Q, but not both P and Q
+-   (P∨Q)∧¬(P∧Q)
+:::
+
+As has been mentioned before, an exclusive disjunction is also equivalent to
+the negation of a biconditional:
+
+::: displayed
+-   ¬(P↔Q)
+:::
+
+The next two derivations, E11.9 and E9.10, establish the logical equivalence of
+these two representations of exclusive disjunction:
+
+```{.ProofChecker .Prop options="guides fonts indent tabindent resize" points=10}
+E11.9 ~(P<->Q) :|-: (P\/Q)/\~(P/\Q)
+E11.10 (P\/Q)/\~(P/\Q) :|-: ~(P<->Q)
+```
+
+<!-- vim: set ft=carnap :-->

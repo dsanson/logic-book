@@ -1,0 +1,1129 @@
+---
+base-css:
+-   https://carnap.io/shared/dsanson@gmail.com/sanson-book.css
+-   https://cdn.plyr.io/3.6.8/plyr.css
+js: 
+-   https://cdn.plyr.io/3.6.8/plyr.polyfilled.js
+-   https://carnap.io/shared/dsanson@gmail.com/logic-book.js
+-   https://hypothes.is/embed.js
+---
+
+:::auto-tally
+:::
+
+::: cover
+
+# Validity
+
+![Valid](http://reggienet.illinoisstate.edu/access/content/user/desanso/public/img/valid.jpg){alt="Scrabble tiles arranged
+to spell the word 'VALID'"}
+[PD](attributions#valid.jpg){.attribution}
+
+:::: epigraph
+"Logic is not the knowledge of the use nor construction of arguments, but
+rather the knowledge of discerning and judging them correctly, namely why some
+are valid and some are invalid."
+
+[Peter Abelard, *Logica "Nostrorum petitioni sociorum"*, ca. 1124-1125]{.source}
+::::
+
+:::
+
+## Introduction
+
+In the previous unit, 
+ we introduced the concept of an *argument*, 
+ consisting of *premises* and a *conclusion*. 
+In this unit, 
+ we turn to the *evaluation* of arguments: 
+ what makes a *good* argument good, 
+ and a *bad* argument bad?
+We introduce three new concepts:
+ [validity]{.vocab},
+ [soundness]{.vocab},
+ and [strength]{.vocab}. 
+
+We introduce soundness and strength to put them aside.
+The rest of this book is a deep-dive exploration of validity. 
+Specifically, it is a deep-dive exploration of [formal validity]{.vocab},
+ that is,
+ validity that can be explained in terms of [logical form]{.vocab}.
+
+## Validity
+
+[Some arguments]{.newthought} are "airtight" or "secure",
+ while other arguments are not.
+The cookie jar argument from the last chapter is "airtight":
+
+::: standardform
+-   This jar contains both chocolate chip cookies and sugar cookies.
+-   If you take any two cookies at random from the jar, at least one of them
+    will be a sugar cookie.
+-   There is one chocolate chip cookie in the jar.
+:::
+
+The conclusion of this argument *follows* from the premises in an absolute
+way.
+That is, assuming the premises are true, 
+ it follows that there *must* be exactly one chocolate chip cookie in that jar.
+
+The Che Guevara t-shirt argument from the last chapter is not "airtight" in
+this sense:
+
+::: standardform
+-   That dude is wearing a Che Guevara t-shirt.
+-   That dude is a communist.
+:::
+
+The conclusion of this argument does not *follow* from the premise in an
+absolute way.
+That is, even assuming the premise is true,
+ the conclusion might be false.
+
+```{.QualitativeProblem .ShortAnswer give-credit="onSubmission" points=10}
+1 Can you describe a way that the premise could be true, but the conclusion false?
+```
+
+:::{.reaction .correct ex=1}
+Maybe the dude is wearing the t-shirt just because he's a hipster,
+ but he's not a communist.
+Or maybe he is wearing the t-shirt for some other reason.
+:::
+
+A [valid]{.vocab} argument is an "airtight" argument:
+ an argument for which there is no possible "gap" 
+ between the truth of the premises
+ and the truth of the conclusion;
+ if the premises are true, then the conclusion *must* be true too.
+An argument that is not "airtight" is invalid.
+
+In logic, 
+ 'valid' is a technical term,
+ with a carefully defined meaning.
+Outside of logic,
+ can mean other things:
+ a valid driver's license is one that has not expired;
+ a valid opinion is one that might be false,
+ but isn't beyond the pale.
+But in logic,
+ we never use the word 'valid' to describe an opinion.
+*Opinions* are either *true* or *false*.
+Only *arguments* can be *valid* or *invalid*.
+
+It is pretty easy to see that the t-shirt argument isn't valid.
+But the cookie jar argument is kind of complicated.
+It takes some reasoning to convince yourself that it is valid.
+But for some arguments, it is pretty easy to see that they are valid:
+
+:::standardform
+-   All cows moo.
+-   Bessie is a cow.
+-   Bessie moos.
+:::
+
+I don't know if it is true or not that all cows moo.
+Maybe some cows chose to be quiet?
+And I don't know who or what Bessie is, 
+ so I don't know if it is true that Bessie is a cow,
+ and I don't know if she moos.
+But I do know this:
+ *if* it is true that all cows moo,
+ *and* it is true that Bessie is a cow,
+ *then* it *must also* be true that Bessie moos.
+In other words,
+ I know that this argument is valid.
+
+By contrast,
+ this argument is *not* valid:
+
+:::standardform
+-   All cows moo.
+-   Bessie moos.
+-   Bessie is a cow.
+:::
+
+Again,
+ I don't know whether or not the premises are true.
+And I don't know whether or not the conclusion is true.
+But I can think of a way that the premises *could* be true,
+ without the conclusion also being true.
+So I know it's not valid.
+
+```{.QualitativeProblem .ShortAnswer give-credit="onSubmission" points=10}
+2 Can you describe a way that the premises of this argument could be true, without the conclusion also being true?
+```
+
+:::{.reaction .correct ex=2}
+Here is one way: suppose Bessie is a mooing moose. Or suppose she is a mooing
+preschooler, pretending to be a cow.
+:::
+
+Here is a silly argument:
+
+:::{.standardform}
+-  Babies are illogical.
+-  Nobody is despised who can manage a crocodile.
+-  Illogical persons are despised.
+-  Babies cannot manage crocodiles.
+:::
+
+:::aside
+This example is from Lewis Carroll (1896) *Symbolic Logic*, Book VIII, Ch 1, §9.
+Carroll's books on logic have many funny examples like this,
+ but also several racist, sexist, and anti-semitic examples.
+:::
+
+This argument is silly.
+But, if you think about it,
+ you can see that it is valid.
+The premises are ridiculous,
+ but it is not possible that the conclusion be false,
+ assuming the premises are true.
+Like the cookie jar argument,
+ this argument is kind of complicated.
+It might take some reasoning to convince yourself that it is valid.
+
+```{.QualitativeProblem .ShortAnswer give-credit="onSubmission" points=10}
+3 Try to reason from the premises of this argument to its conclusion, and convince yourself that the conclusion follows from the premises.
+```
+
+:::{.reaction .correct ex=3}
+Here is a stab at it:
+
+First step:
+
+-   Suppose it is true that illogical people are despised, and suppose it is also true babies are illogical.
+-   Then it follows that babies are despised.
+
+Second step:
+
+-   Suppose it is also true that nobody is despised who can manage a crocodile.
+-   Then it follows that babies, since they are despised, cannot manage crocodiles.
+
+So we can reasoning, in two steps, from the premises to the conclusion.
+:::
+
+[Validity]{.newthought} is a complicated concept.
+You cannot figure out whether or not an argument is valid
+ by figuring out whether or not its premises are true,
+ or whether or not its conclusion is true.
+Validity is a *hypothetical relationship* between the premises and conclusion:
+ *if* the premises *were* true, 
+ does the conclusion *have to be* true too?
+
+Here is another way of thinking about it:
+ to say that an argument is valid
+ is to say that it is *guaranteed* to *preserve truth*.
+That means that,
+ *necessarily*,
+ if the premises are true,
+ then the conclusion is also true.
+In other words, it means that
+ *it is impossible* for
+ all the premises to be true
+ and the conclusion false.
+
+:::stickywrapper
+:::{.vaside .sticky}
+Validity
+:   An argument is [valid]{.vocab} if and only if it is impossible for all of
+    its premises to be true and its conclusion false.
+:::
+
+This is our official definition of validity: an argument is
+[valid]{.vocab} if and only it is impossible for all of its premises to be
+true and its conclusion false.
+
+Consider the following argument:
+
+::: standardform
+-  Most dogs are well-behaved.
+-  Fletch is a dog.
+-  Fletch is well-behaved.
+:::
+
+```{.QualitativeProblem .MultipleChoice points=10}
+4 Is this argument valid?
+| Yes, it is valid.
+| *No, it is invalid.
+```
+
+:::{.reaction .correct ex=4}
+This argument is invalid.
+It is possible for both premises to be true and the conclusion false.
+For example, suppose most dogs are well-behaved,
+ but Fletch is one of the exceptions:
+ a dog who is not well-behaved.
+:::
+
+What about:
+
+::: standardform
+-  All dogs are well-behaved.
+-  Fletch is a dog.
+-  Fletch is well-behaved.
+:::
+
+```{.QualitativeProblem .MultipleChoice points=10}
+5 Is this argument valid?
+| *Yes, it is valid.
+| No, it is invalid.
+```
+
+:::{.reaction .correct ex=5}
+This argument is valid.
+It is not possible for both premises to be true and the conclusion false.
+If *all* dogs are well-behaved, 
+ and Fletch is a dog, then Fletch must be well-behaved.
+The difference between this and the previous argument is the
+difference between 'most' and 'all':
+ 'most' allows for exceptions;
+ 'all' does not.
+:::
+
+What about:
+
+::: standardform
+-  All dogs are well-behaved.
+-  Fletch is well-behaved.
+-  Fletch is a dog.
+:::
+
+```{.QualitativeProblem .MultipleChoice points=10}
+6 Is this argument valid?
+| Yes, it is valid.
+| *No, it is invalid.
+```
+
+:::{.reaction .correct ex=6}
+This argument is invalid. 
+Assume both premises are true.
+That does not guarantee that Fletch is a dog.
+Fletch might be a well-behaved cat,
+ or a well-behaved child.
+:::
+
+What about this argument?
+
+::: standardform
+-  Only dogs are well-behaved.
+-  Fletch is well-behaved.
+-  Fletch is a dog.
+:::
+
+```{.QualitativeProblem .MultipleChoice points=10}
+7 Is this argument valid?
+| *Yes, it is valid.
+| No, it is invalid.
+```
+
+:::{.reaction .correct ex=7}
+This argument is valid.
+If we assume that *only* dogs are well-behaved,
+ and we assume that Fletch is well-behaved,
+ then Fletch must be one of the dogs.
+He can't be a well-behaved cat:
+ if he were, then it would be false that *only* dogs are well-behaved.
+The difference between this and the previous argument is the difference
+between 'all' and 'only'.
+:::
+
+Here is another silly argument from Lewis Carroll. 
+Is it valid?
+
+:::{.standardform}
+-  All cats understand French.
+-  Some chickens are cats.
+-  Some chickens understand French.
+:::
+
+```{.QualitativeProblem .MultipleChoice points=10}
+8 Is this argument valid?
+| *Yes, it is valid.
+| No, it is invalid.
+```
+:::{.reaction .correct ex=8}
+This argument is valid.
+Both premises are actually false,
+ and it is absurd to imagine them to be true.
+But in the absurd situation where they are both true,
+ the conclusion must be true as well:
+ if all cats understand French,
+ and some chickens are cats,
+ then those cat-chickens must also be francophones.
+Imagine a world in which all the cats understand French. 
+Walk up to any cat and ask,
+ 'Parlez-vous Français?'
+That cat, if it is honest, will answer, 'Oui.'
+This includes any cats who also happen to be chickens.
+::::
+
+What about this argument:
+
+:::{.standardform}
+-  All cats understand French.
+-  Some chickens understand French.
+-  Some chickens are cats.
+:::
+
+```{.QualitativeProblem .ShortAnswer give-credit="onSubmission" points=10}
+9 Can you describe the "gap" that makes this argument invalid? That is, can you describe a way that the premises could be true without the conclusion being true?
+```
+
+:::{.reaction .correct ex=9}
+Here is one way: 
+ Suppose all the cats live in Paris, and speak French. 
+ And suppose all the chickens live in Canada, where some of them speak French,
+ but some of them don't.
+Nothing about these two assumptions forces us to posit chicken-cats.
+So this is a way that the premises could both be true, 
+ without the conclusion being true.
+:::
+
+What about this argument?
+
+:::{.standardform}
+-  All citrus are fruits.
+-  All lemons are fruits.
+-  All lemons are citrus.
+:::
+
+```{.QualitativeProblem .MultipleChoice points=10}
+10 Is this argument valid?
+| Yes, it is valid.
+| *No, it is invalid.
+```
+
+:::{.reaction .correct ex=10}
+One striking feature of this argument is that the premises are all true,
+ and the conclusion is true too.
+But that doesn't make it valid.
+Validity isn't about whether or not the premises and conclusion *happen* to be
+true together;
+ it is about whether they *must* be true together.
+Or, rather, it is about whether the conclusion *must* be true in any situation
+in which the premises are.
+
+To see the gap, 
+ imagine that scientists discovered lemons are not a type of citrus,
+ but are more closely related to figs,
+ and their apparent similarity to citrus is just the result of
+ convergent evolution.
+In this situation, both premises would be true,
+ but the conclusion would be false.
+:::
+
+What about:
+
+:::{.standardform}
+-  All citrus are fruits.
+-  All lemons are citrus.
+-  All lemons are fruits.
+:::
+
+```{.QualitativeProblem .MultipleChoice points=10}
+11 Is this argument valid?
+| *Yes, it is valid.
+| No, it is invalid.
+```
+
+:::{.reaction .correct ex=11}
+Again, all the premises are true,
+ and the conclusion is true too.
+But this time, the argument is valid,
+ because in this case,
+ the truth of the premises is enough to *guarantee* the truth of the
+ conclusion.
+:::
+
+## Soundness
+
+:::stickywrapper
+:::{.vaside .sticky}
+Validity
+:   An argument is [valid]{.vocab} if and only if it is impossible for all of its
+    premises to be true but its conclusion false.
+
+Soundness
+:   An argument is [sound]{.vocab} if and only if it is valid **and** all of its premises
+    are actually true.
+:::
+
+To say that an argument is valid is to say that, *if* the premises are all
+true, that is enough to *guarantee* that the conclusion is true too. 
+So *if* you start from true premises, and you reason in accordance
+with a valid argument, it is guaranteed that you will reach a true conclusion.
+
+But that's a big "if"! 
+
+Here is a valid argument for the existence of God:
+
+::: standardform
+-  If something that created the universe, God exists.
+-  Something that created the universe.
+-  God exists.
+:::
+
+We can all agree that this argument is valid:
+ necessarily, *if* the premises are both true, *then* the conclusion must be
+ true too.
+But are the premises both true?
+If not, then this argument gives us no reason to believe that God exists.
+
+When you are evaluating arguments,
+ with an eye to figuring out what you should believe,
+ you care about more than validity.
+You want to know whether or not the premises *actually are true*.
+If they are,
+ you also want to know whether or not the argument is valid.
+If both these conditions hold,
+ you can be confident that the conclusion is true.
+
+When both of these conditions hold,
+ we say that an argument is sound:
+
+Soundness
+:   An argument is [sound]{.vocab} if and only if it is valid **and** all of its premises
+    are true.
+:::
+
+That argument about cats and chickens speaking French is valid, 
+ but it isn't sound. 
+It isn't sound because the premises are false.
+And that argument about babies and alligators is valid,
+ but it also isn't sound.
+Perhaps it's true that babies are illogical,
+ but it is not generally true that illogical persons are despised.
+And, given what I know about Florida Man,
+ I suspect there are some rather despicable folks who know how to manage
+ crocodiles.
+
+The argument we were just looking at,
+ for the existence of God,
+ is also valid.
+But it is hard to say whether or not it is sound.
+Is it true that something created the universe?
+Is it true that, if something did, that thing is God?
+Until we know the answers to those questions,
+ we won't know whether or not the argument is sound.
+
+Soundness is validity **PLUS** something more. 
+So every sound argument is valid, but not vice versa. 
+Remember, validity is a *hypothetical* relationship
+ between the premises and conclusion: 
+ if the premises *were* true, 
+ the conclusion *would have to be* true too. 
+An argument is sound when that hypothetical relationship holds 
+ **AND** the premises *actually are* true. 
+So if you know that an argument is sound, 
+ you can infer that its conclusion is true:
+
+:::standardform
+-   Necessarily, if the premises of this argument are true, then the conclusion is true too.
+-   The premises of this argument are true.
+-   The conclusion of this argument is true.
+:::
+
+Suppose you have a roommate, Marco, who is a gossip.
+He tells you that Monte cheated on his boyfriend Charles.
+You aren't sure whether or not to believe Marco:
+ is he a reliable source?
+
+There are two dimensions to your worry about Marco.
+First, you might worry about the reliability of his *sources* of information:
+ How did he come upon this information?
+ Is there reason to think his sources were telling the truth?
+Second, you might worry about his reliability as a *transmitter* of information:
+ Is he prone to distorting or misreporting what his sources told him,
+ so that, even when his sources told him the truth,
+ there is no guarantee that what he is telling you is true?
+
+In the same way, there ar two dimensions you should worry about,
+ when faced with an argument.
+First, you should worry about the *truth of the premises*:
+ are they actually true?
+Or does this argument start from false assumptions?
+Second, you should worry about the *validity of the argument*:
+ supposing the premises were true,
+ can we trust this argument to preserve that truth,
+ so that the conclusion is true as well?
+
+An argument is *sound* when it passes muster on *both* of these dimensions.
+
+Just as two friends can feed you contradictory gossip,
+ two arguments can have contradictory conclusions.
+When two friends feed you contradictory gossip,
+ you know that one of them must be wrong,
+ and so you know that either they had faulty sources,
+ or they misreported what their sources said.
+When two arguments have contradictory conclusions,
+ you know that one them must not be sound:
+ either it has at least one false premise,
+ or it isn't valid.
+
+For example, here is an argument for the existence of God:
+
+::: standardform
+-  If something that created the universe, God exists.
+-  Something that created the universe.
+-  God exists.
+:::
+
+Here is an argument against the existence of God:
+
+:::standardform
+-   If God exists, then there is an omnipotent, omniscient, and morally
+    perfect being.
+-   If there is an omnipotent, omniscient, and morally perfect being,
+    then that being would prevent any evil from occurring in the world.
+-   Evil occurs in the world.
+-   God does not exist.
+:::
+
+Both arguments are valid. 
+But their conclusions cannot both be true. 
+So at least one of them has at least one false premise.
+
+If this were a philosophy textbook, 
+ rather than a logic book, 
+ we would now spend time exploring each premise,
+ trying to figure out which premise(s) are false.
+But this is a logic book. 
+Logic doesn't have much to say about what is or isn't actually true. 
+But it has a lot to say about what is or isn't valid.
+So, for the rest of this book,
+ we put aside *soundness*,
+ and focus only on *validity*.
+
+:::
+
+## Inductive Strength
+
+:::stickywrapper
+:::{.vaside .sticky}
+Inductive Strength
+:   An argument is [inductively strong]{.vocab} if and only if it is **not
+    valid**, but the premises, if true, would **provide a good reason** to accept
+    the conclusion.
+:::
+
+[Some arguments]{.newthought} are pretty good, even though they aren't valid. For example,
+
+::: standardform
+-   Most NBA players are tall.
+-   James Wiseman is an NBA player.
+-   James Wiseman is tall.
+:::
+
+This argument is pretty good, but it is not valid.
+It is not valid, because Wiseman might be one of the exceptions:
+ a short NBA player, like Muggsey Bogues,
+ who was only 5'3".
+It is pretty good because,
+ if all you know about Wiseman is that he is an NBA player,
+ then, given that *most* NBA players are tall,
+ it is a good bet that Wiseman is too.
+
+Validity is an *iron-clad guarantee*:
+ if the premises are true, the conclusion *must* be true as well.
+But most of our reasoning involves evidence that *supports* a conclusion,
+ but falls short of providing any such iron-clad guarantee.
+When the premises *support* the conclusion,
+ but don't *guarantee* the conclusion,
+ we say the argument is [inductively strong]{.vocab}.
+
+Sometimes, philosophers make a distinction 
+ between arguments that are meant to be inductively strong,
+ and arguments that are meant to be valid.
+Arguments that are meant to be inductively strong are said to be "inductive arguments".
+Arguments that are meant to be valid are said to be "deductive arguments".
+
+Sometimes, philosophers call the study of inductive strength,
+ and inductive arguments,
+ "inductive logic".
+And they call the study of validity,
+ and deductive arguments,
+ "deductive logic".
+Other philosophers argue that the study of inductive strength
+ is the domain not of logic,
+ but of probability theory and statistics.
+
+Whatever labels we use,
+ the important point is that the formal methods use to study validity
+ do not usefully extend to the study of inductive strength.
+So, for the rest of this book,
+ we put inductive strength aside.
+
+:::
+
+## Assessing Validity and Soundness
+
+If I give you an argument, and I ask you whether or not it is sound, I am
+really asking you two questions:
+
+-   Is it valid?
+-   Are all of its premises actually true?
+
+So, for example, is this argument sound?
+
+::: standardform
+-   All ducks are birds.
+-   All birds are dinosaurs.
+-   All ducks are dinosaurs.
+:::
+
+```{.QualitativeProblem .MultipleChoice points=10}
+12 Is this argument valid?
+| *Yes!
+| No!
+13 Are all of its premises true?
+| *Yes!
+| No!
+```
+
+:::{.reaction .correct ex=12}  
+The argument is valid. 
+If all the ducks are birds, 
+ and all the birds are dinosaurs,
+ then it must be that all the ducks are dinosaurs. 
+:::
+
+:::{.reaction .correct ex=13}  
+As a matter of fact,
+ both of these premises are true.
+Didn't know that birds are dinosaurs?
+See "[Are Birds Dinosaurs?](https://www.livescience.com/are-birds-dinosaurs.html){target="_blank" rel="noopener noreferrer"}"
+:::
+
+
+```{.QualitativeProblem .MultipleChoice points=10}
+14 Is this argument sound?
+| *Yes!
+| No!
+```
+
+:::{.reaction .correct ex=14}
+Since it is valid,
+ and all the premises are true,
+ the argument is sound.
+:::
+
+Here is another argument to consider:
+
+::: standardform
+-   If it is raining, then the streets are wet.
+-   The streets are wet
+-   It is raining.
+:::
+
+```{.QualitativeProblem .MultipleChoice points=10}
+15 Is this argument valid?
+| Yes!
+| * No!
+```
+
+:::{.reaction .correct ex=15}
+Remember, the way to show that an argument is no valid is to find a "gap":
+ a way that the premises could be true without making the conclusion true.
+In this case, there are several such gaps.
+Here is one:
+ suppose it has recently stopped raining, 
+ and the streets are still wet.
+Here is another:
+ suppose the snow melt in the mountains
+ has caused the river to overflow,
+ flooding the streets.
+Here is a third:
+ suppose the city is hosing down the streets,
+ to manage dust.
+These are all ways that the premises could both be true,
+ but the conclusion false.
+:::
+
+```{.QualitativeProblem .MultipleChoice points=10}
+16 Is this argument sound?
+| Yes!
+| * No!
+```
+
+:::{.reaction .correct ex=16}  
+Since the argument is not valid, 
+ it is not sound.
+Remember, soundness is validity **PLUS** something more.
+So any argument that is not valid is not sound.
+:::
+
+## Two Unexpected Consequences of Our Definition of Validity
+
+:::stickywrapper
+:::{.vaside .sticky}
+
+Validity
+:   An argument is valid if and only if it is *impossible* for all of its premises to be true
+    but its conclusion false.
+:::
+
+As we've seen, validity is *guaranteed truth preservation*: 
+ if all of the premises are true, 
+ and the argument is valid, 
+ there is an **absolute guarantee** that the conclusion is true too.
+In other words,
+ there is *no possible way* for the premises all to be true without the
+ conclusion also being true.
+Or, in the words of our official definition:
+ it is impossible for all the premises to be true but the conclusion false.
+
+With that in mind, consider this weird argument, with contradictory premises:
+
+::: standardform
+-  God exists.
+-  God does not exist.
+-  The moon is made of green cheese.
+:::
+
+```{.QualitativeProblem .MultipleChoice points=10}
+17 Is this argument valid?
+| *Yes!
+| No!
+```
+
+:::{.reaction .correct ex=17}  
+I imagine that right now,
+ you either quite satisifed with yourself for getting that right,
+ or you are very confused about how that can be the right answer.
+
+The premises of this argument are inconsistent:
+ it is impossible that they both be true.
+That means that there is no possible way for them to be true together.
+And since there is no possible way for them to be true together,
+ there is no possible way for them to be true together *and* the conclusion
+ false.
+So the argument is valid.
+
+By our definition, 
+ any argument with inconsistent premises is automatically valid.
+:::
+
+Here is another weird argument. 
+Notice that it's conclusion is a logical truth,
+ and cannot be false:
+
+::: standardform
+-  Grass is green
+-  Snow is white
+-  If it rains, it rains
+:::
+
+```{.QualitativeProblem .MultipleChoice points=10}
+18 Is this argument valid?
+| *Yes!
+| No!
+```
+
+:::{.reaction .correct ex=18}  
+The conclusion of this argument is a necessary truth:
+ there is no possible way that it could be false.
+That means that 
+ there is no possible way that it could be false 
+ when the premises are both true.
+So the argument is valid.
+
+By our definition,
+ any argument with a necessary truth as its conclusion is automatically
+ valid.
+:::
+
+These are two weird "degenerate" cases of validity:
+By our definition, 
+ any argument with inconsistent premises is automatically valid.
+And by our definition,
+ any argument with a necessary truth as its conclusion is automatically
+ valid.
+
+It might be helpful to remember that validity is about *preserving truth*:
+ a valid argument should never take us from true inputs,
+ to a false output.
+When the premises of an argument contradiction each other,
+ the inputs of that argument can never all be true.
+So that argument can never take us from true inputs
+ to any output, true or false.
+And when the conclusion of an argument is a necessary truth,
+ the output of that argument can never be false.
+So that argument can never take us to a false output
+ from any input, true or false.
+
+Suppose you are an engineer, 
+ tasked with building a machine 
+ that takes, as input, a colored card.
+ and gives, as output, a colored card.
+And suppose you are told that the machine must follow one rule:
+ it must preserve yellowness.
+That is, when the input card is yellow,
+ the output care must also be yellow,
+ in every possible situation.
+
+And suppose you are lazy.
+
+```{.QualitativeProblem .ShortAnswer give-credit="onSubmission" points=10}
+19 Describe the laziest possible implementation of such a machine, as best you can.
+```
+
+:::{.reaction .correct ex=19}
+Obviously, there are many possible answers.
+Here is one:
+
+> Place an empty cardboard box on your desk,
+>  and label it "INPUT".
+> Place another cardboard box on your desk,
+>  and label it "OUTPUT".
+> Fill the "OUTPUT" box with yellow cards.
+>
+> Directions to user: 
+>  place input card into the input box;
+>  remove output card from output box.
+
+Notice that this machine is guaranteed to preserve yellowness:
+ no matter what card you put into the input box,
+ you will receive a yellow card from the output box.
+So, when you put a yellow card into the input box,
+ you will receive a yellow card from the output box.
+
+This is analogous to the way in which an argument whose conclusion is a
+necessary truth is guaranteed to preserve truth.
+
+Here is a second design:
+
+> As before, place two cardboard boxes on your desk,
+> and label one "INPUT" and the other "OUTPUT".
+> Burn all yellow cards.
+> Fill the "OUTPUT" box with a random assortment of cards.
+
+This machine is also guaranteed to preserve yellowness,
+ but only because we have made it impossible to input a yellow card.
+This is analogous to the way in which 
+ an argument whose premises are inconsistent
+ is guaranteed to preserve truth.
+
+But the laziest solution of all is the one box solution:
+
+> Place one box on your desk.
+> Instruct users to place their card into the box,
+>  and then remove that card from the box.
+
+This machine also preserves yellowness. 
+It is analogous to an argument that preserves truth,
+ and so is valid,
+ because its conclusion is identical to its premise:
+
+:::standardform
+-   Grass is green.
+-   Grass is green.
+:::
+
+:::
+
+
+:::
+
+## Formal Validity
+
+::: aside
+Much of this section is adapted from the later parts of [Chapter
+1](/book/1#validity) and the earlier parts of [Chapter 2](/book/2) of the
+Carnap Book.
+:::
+
+Once you begin to think about validity, you may notice something
+interesting. Consider these two arguments:
+
+::: standardform
+-   If the mouse isn't in the trap, the cat ate it.
+-   The mouse isn't in the trap.
+-   The cat ate the mouse.
+:::
+::: standardform
+-   If the moose isn't in the trap, the wolf ate it.
+-   The moose isn't in the trap.
+-   The wolf ate the moose.
+:::
+
+These are both valid. As is this one:
+
+::: standardform
+-  If it isn't broken, I want to buy it.
+-  It isn't broken.
+-  I want to buy it.
+:::
+
+Do you see what these three arguments all have in common? They all have the
+same structure or *logical form*.
+
+:::vaside
+[Logical form]{.vocab}: very roughly, what similarly structured arguments have in common.
+:::
+
+One way of depicting the logical form of the three arguments above is as follows:
+
+:::liveshapes
+::: standardform
+-  If [ ]{.P}, then [ ]{.Q}.
+-  [ ]{.P}
+-  [ ]{.Q}
+:::
+
+Plug any declarative sentence into the [ ]{.P}, and any declarative sentence
+into the [ ]{.Q}, and the result is a valid argument.
+
+This form of argument is called *Modus Ponens*. Any argument with the form
+Modus Ponens is valid. Don't take my word for it. Give it a try yourself. Click on one of the [ ]{.P}'s, and type in a random
+declarative sentence. Then click on one of the [ ]{.Q}'s, and type in a random
+declarative sentence. Do you agree that the resulting argument is valid?
+:::
+
+```{.QualitativeProblem .ShortAnswer give-credit="onSubmission" points=10}
+20 What argument did you come up with?
+```
+
+When an argument is valid in virtue of its logcial form, we say that it is [formally valid]{.vocab}.
+
+:::vaside
+An argument is [formally valid]{.vocab} if and only if it is valid in virtue
+of its logical form.
+:::
+
+Recall this invalid argument:
+
+:::{.standardform .liveshapes}
+-  If [it is raining]{.P}, then [the streets are wet]{.Q}.
+-  [The streets are wet]{.Q}.
+-  [It is raining]{.P}.
+:::
+
+Before, we offered an *informal* explanation of its invalidity:
+ it is invalid because there are ways that the premises could be true,
+ without the conclusion being true.
+For example, 
+ we pointed out that 
+ it might have recently stopped raining, 
+ so the streets are still wet.
+
+But we can also offer a *formal* explanation of its invalidity. 
+First, notice that the form of this argument is not *Modus Ponens*.
+Instead, this is a form we call *Affirming the Consequent*:
+
+:::flex
+:::ruledisplay
+**Modus Ponens**
+
+:::{.standardform .liveshapes}
+-  If []{.P}, then []{.Q}.
+-  []{.P}.
+-  []{.Q}.
+:::
+:::
+
+:::ruledisplay
+**Affirming the Consequent**
+
+:::{.standardform .liveshapes}
+-   If []{.P}, then []{.Q}
+-   []{.Q}
+-   []{.P}
+:::
+:::
+:::
+
+Affirming the Consequent is not a valid form of argument.
+That is,
+ while there are some instances of this form that might happen to be valid,
+ no argument is valid in virtue of having this form.
+
+Here is an instance of Affirming the Consequent that obviously fails to
+preserve truth:
+
+:::{.standardform .liveshapes}
+-  If [St. Louis is in Illinios]{.P}, 
+   then [St. Louis is in the United States]{.Q}.
+-  [St. Louis is in the United States]{.Q}.
+-  [St. Louis is in Illinois]{.P}.
+:::
+
+The premises are both true, but the conclusion is false.
+This argument form is called *Affirming the Consequent*.
+
+Let's see if you can recognize the difference between the two forms. First,
+consider this argument:
+
+:::standardform
+-   If it itches, then it is healing.
+-   It is healing.
+-   It itches.
+:::
+
+```{.QualitativeProblem .MultipleChoice points=10}
+21 Is this argument an instance of Modus Ponens or Affirming the Consequent?
+| Modus Ponens
+| *Affirming the Consequent
+22 Is this argument valid or invalid?
+| Valid
+| *Invalid
+```
+
+
+:::{.reaction .correct ex=21}
+If you just guessed randomly to get the correct answer,
+ scroll up and try plugging the two component sentences,
+ "it itches" and "it is healing",
+ into the two patterns,
+ to confirm that this matches the pattern of Affirming the Consequent,
+ but does not match the pattern of Modus Ponens.
+:::
+
+What about this argument? Do you see how it differs in form?
+
+:::standardform
+-   If it itches, then it is healing.
+-   It itches.
+-   It is healing.
+:::
+
+```{.QualitativeProblem .MultipleChoice points=10}
+23 Is this argument an instance of Modus Ponens or Affirming the Consequent?
+| *Modus Ponens
+| *Affirming the Consequent
+24 Is this argument valid or invalid?
+| *Valid
+| Invalid
+```
+
+:::{.reaction .correct ex=21}
+If you just guessed randomly to get the correct answer,
+ scroll up and try plugging the two component sentences,
+ "it itches" and "it is healing",
+ into the two patterns,
+ to confirm that this matches the pattern of Modus Ponens
+ but does not match the pattern of Affirming the Consequent.
+:::
+
+This suggests a research project: 
+ let's find all the argument forms that make an argument valid.
+Better, let's not just make a long list.
+Let's work out the basic principles--
+ the principles that let us determine,
+ for any given argument,
+ whether it is formally valid.
+That is the plan for the rest of this book:
+ to construct a *theory* of formal validity.
+
+## Conclusion
+
+This chapter introduced the basic concepts used to evaluate arguments:
+ [validity]{.vocab}, [soundness]{.vocab}, and [inductive strength]{.vocab}.
+Going forward, we put aside soundness and inductive strength
+ and focus just on validity.
+More precisely,
+ we will focus on [formal validity]{.vocab}: validity that can be explained in
+ terms of [logical form]{.vocab}.
+ 
+
+<!-- vim: set ft=carnap :-->

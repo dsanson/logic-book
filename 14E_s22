@@ -1,0 +1,35 @@
+---
+base-css:
+-   https://carnap.io/shared/dsanson@gmail.com/sanson-book.css
+-   https://cdn.plyr.io/3.6.8/plyr.css
+js: 
+-   https://cdn.plyr.io/3.6.8/plyr.polyfilled.js
+-   https://carnap.io/shared/dsanson@gmail.com/logic-book.js
+---
+
+# Derivations in PL
+
+::: {.auto-tally}
+:::
+
+```{.ProofChecker .FirstOrder options="guides fonts indent tabindent resize" points=10}
+E14.1 Ax(F(x)/\G(x)) :|-: F(c)
+E14.2 Ax(F(x)), F(c) -> G(c) :|-: G(c)
+E14.3 Ax(F(x)), F(b)/\F(c) -> G(c) :|-: ExG(x)
+E14.4 AxAy(F(x) -> G(y)), F(c) :|-: G(d)
+E14.5 AxAy(F(x) <-> G(y)), F(c) :|-: F(d)
+E14.6 :|-: F(a)->ExF(x)
+E14.7 :|-: AxF(x)->EyF(y)
+E14.8 AxF(x), AxG(x) :|-: Ex(F(x)/\G(x))
+E14.9 G(b), G(b)->F(a), Ax(F(x)->G(x)) :|-: Ex(F(x)/\G(x))
+E14.10 Ax(F(x)->G(x)), AxF(x) :|-: AxG(x)
+E14.11 Ax(G(x)/\G(c)) :|-: AxG(x)
+E14.12 Ax-F(x), F(d) :|-: -AxF(x)
+E14.13 -ExF(x) :|-: Ax-F(x)
+E14.14 Ax(F(x)->G(x)), ExF(x) :|-: ExG(x)
+E14.15 Ax(F(x)->G(x)), -Ex(F(x)/\G(x)) :|-: -ExF(x)
+E14.16 Ex-F(x) :|-: -AxF(x)
+```
+
+<!-- vim: set ft=carnap :-->
+

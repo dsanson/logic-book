@@ -1,0 +1,77 @@
+---
+base-css:
+-   https://carnap.io/shared/dsanson@gmail.com/sanson-book.css
+-   https://cdn.plyr.io/3.6.8/plyr.css
+js: 
+-   https://cdn.plyr.io/3.6.8/plyr.polyfilled.js
+-   https://carnap.io/shared/dsanson@gmail.com/logic-book.js
+---
+
+# Translation in PL: Exercises
+
+::: {.auto-tally}
+:::
+
+:::wrapper
+:::soasticky
+| F: is a fool
+| G: is great
+| H: is happy
+| I: is a person
+| J: is a horse
+| a: Agnes
+| b: Bernice
+:::
+
+```{.Translate .FOL points=10}
+E13.1 AxG(x) : Everything is great
+E13.2 ExG(x) : Something is great
+E13.3 Ax(I(x)->G(x)) : Everyone is great
+E13.4 Ex(I(x)/\H(x)) : Somebody is happy
+E13.5 ~ExG(x)  : Nothing is great
+E13.6 ~Ex(I(x)/\H(x)) : Nobody is happy
+E13.7 H(b)->AxG(x) : If Bernice is happy, everything is great
+E13.8 H(a)<->ExH(x) : Agnes is happy if and only if something is happy
+E13.9 Ax(F(x)->I(x)) : All fools are people
+E13.10 Ax(I(x)->F(x)) : All people are fools
+E13.11 Ax(F(x)->I(x)) : Only people are fools
+E13.12 Ax(H(x)->F(x)) : Only fools are happy
+E13.13 Ex(F(x)/\H(x)) : Some fools are happy
+E13.14 Ex(F(x)/\~H(x)) : Some fools are not happy
+E13.15 ~Ex(F(x)/\G(x)) : No fools are great
+E13.16 ~Ex(F(x)/\~H(x)) : No fools are not happy
+E13.17 Ex(H(x)/\F(x)/\G(x)) : Some happy fools are great
+E13.18 Ex(H(x)/\F(x)/\~G(x)) : Some happy fools are not great
+E13.19 Ax(I(x)->H(x)\/F(x)) : Everyone is happy or a fool
+E13.20 Ax(I(x)->H(x)/\F(x)) : Everyone is happy and a fool
+E13.21 Ax(I(x)->(F(x)->H(x))) : Everyone is happy if a fool
+E13.22 Ax(G(x)/\F(x)->H(x)) : Every great fool is happy
+E13.23 Ax(F(x)\/J(x)->H(x)) : All fools and horses are happy 
+E13.24 Ax(H(x)->F(x)\/J(x)) : Only fools and horses are happy
+```
+:::
+
+:::wrapper
+:::soasticky
+| F: is a fish
+| G: is green
+| H: is a penguin
+| I: swims
+:::
+
+```{.Translate .FOL points=10}
+E13.25 ~Ex(H(x)/\F(x)) : No penguin is a fish
+E13.26 Ax(G(x)/\F(x)->I(x)) : Every green fish swims
+E13.27 Ax(F(x)\/H(x)->I(x)) : Every fish and penguin swims
+E13.28 ~Ex(F(x)\/H(x)/\I(x)) : No fish or penguin swims
+E13.29 ~Ex(F(x)\/H(x)/\~I(x)) : No fish or penguin doesn't swim
+E13.30 Ex(F(x)/\G(x))  : A fish is green
+E13.31 ∀x(I(x)->F(x)): Anything that swims is a fish
+E13.31 Ax(F(x)->I(x)) : If something is a fish, it swims
+E13.32 Ax(I(x)->F(x)) : If a thing swims, it is a fish
+E13.33 Ax(H(x)->I(x)\/G(x)) : Every penguin swims unless it is green
+```
+:::
+
+
+<!-- vim: set ft=carnap :-->

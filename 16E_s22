@@ -1,0 +1,72 @@
+---
+base-css:
+-   https://carnap.io/shared/dsanson@gmail.com/sanson-book.css
+-   https://cdn.plyr.io/3.6.8/plyr.css
+js: 
+-   https://cdn.plyr.io/3.6.8/plyr.polyfilled.js
+-   https://carnap.io/shared/dsanson@gmail.com/logic-book.js
+---
+
+# Relations and Identity
+
+::: {.auto-tally}
+:::
+
+:::wrapper
+:::soasticky
+| G(x,y): x sees y
+| H(x): x is a person
+| K(x,y): x kicks y
+| a: Amber
+| b: Beatrice
+:::
+
+```{.Translate .FOL points=10}
+E16.1 K(a,b) : Amber kicks Beatrice
+E16.2 G(b,a) : Beatrice sees Amber
+E16.3 G(a,a) : Amber sees herself
+E16.4 ~G(b,a) : Beatrice does not see Amber
+E16.5 ExK(x,b) : Something kicks Beatrice
+E16.6 ExK(a,x) : Amber kicks something
+E16.7 AxG(a,x) : Amber sees everything
+E16.8 AxG(x,a) : Everything sees Amber
+E16.9 Ax(H(x)->G(a,x)) : Amber sees everyone
+E16.10 Ax(H(x)->G(x,a)) : Everyone sees Amber
+E16.11 Ex(H(x)/\K(b,x)) : Beatrice kicks somebody
+E16.12 Ex(H(x)/\K(x,b)) : Somebody kicks Beatrice
+E16.13 ExAyG(x,y) : Something is such that it sees everything
+E16.14 AxEyG(x,y) : Everything is such that it sees something or other
+E16.15 EyAxG(x,y) : Something is such that everything sees it
+```
+
+:::
+
+:::wrapper
+:::soasticky
+| F(x): x is an actor
+| G(x): x is a politician
+| H(x): x is a person
+| a: Ted Cruz
+| b: the Zodiac Killer
+| c: Tom Cruise
+| d: Miles Fisher
+:::
+
+```{.Translate .FOL points=10}
+E16.16 a=b: Ted Cruz is the Zodiak Killer
+E16.17 ~a=b: Ted Cruz is not the Zodiak Killer
+E16.18 ~a=c: Ted Cruz is not Tom Cruise
+E16.19 a=c->F(a): If Ted Cruz is Tom Cruise, then Ted Cruz is an actor
+E16.20 ~d=c/\(F(c)/\F(d)): Miles Fisher is not Tom Cruise, but both are actors.
+E16.21 Ex(H(x)/\x=b): Someone is identical to the Zodiac Killer
+E16.22 Ax(G(x)->~x=c): No politician is identical to Tom Cruise 
+```
+
+:::
+
+::: {.auto-tally}
+:::
+
+
+<!-- vim: set ft=carnap :-->
+

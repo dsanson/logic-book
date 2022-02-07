@@ -1,0 +1,101 @@
+---
+base-css:
+-   https://carnap.io/shared/dsanson@gmail.com/sanson-book.css
+-   https://cdn.plyr.io/3.6.8/plyr.css
+js: 
+-   https://cdn.plyr.io/3.6.8/plyr.polyfilled.js
+-   https://carnap.io/shared/dsanson@gmail.com/logic-book.js
+---
+
+# Relations and Identity: Exercises
+
+::: {.auto-tally}
+:::
+
+:::wrapper
+:::soasticky
+| F(x): x is foolish
+| G(x): x is brave
+| H(x): x is a person
+| a: Alana
+| b: Benj
+:::
+
+```{.Translate .FOL points=10}
+R17.1 Ax(H(x)/\~x=a->F(x)) : Everyone but Alana is foolish.
+R17.2 Ax(H(x)/\~x=b->~G(x)) : Nobody other than Benj is brave.
+R17.3 Ax(G(x)->x=a\/x=b) : Only Benj and Alana are brave.
+```
+:::
+
+:::wrapper
+:::soasticky
+| F(x,y): x is bigger than y
+| I(x): x is a city in Illinois
+| a: Aurora
+| b: Rockford 
+| c: Chicago
+:::
+
+```{.Translate .FOL points=10}
+R17.4 Ax(I(x)/\~c=x->F(a,x)) : Aurora is bigger than every city in Illinois other than Chicago
+R17.5 ~Ex(I(x)/\F(x,b)/\~x=c/\~x=a) : No cities in Illinois are bigger than Rockford except Chicago and Aurora
+R17.6 Ex(I(x)/\~x=c/\F(x,b)) : Some city in Illinois other than Chicago is bigger than Rockford
+```
+:::
+
+:::wrapper
+:::soasticky
+| H(x): x is a person
+| L(x,y): x loves y
+| a: me
+| b: my baby
+:::
+
+```{.Translate .FOL points=10}
+R17.7 Ax(H(x)->L(x,b)): Everybody loves my baby 
+R17.8 Ax(H(x)/\~x=a->~L(b,x)) : My baby doesn't love anybody but me
+R17.9 a=b : I am my baby 
+```
+
+For more on these weird old song lyrics, see the end of [Chapter 18](18R).
+
+:::
+
+:::wrapper
+:::soasticky
+| F(x,y): x is bigger than y
+| G(x): x is a big city
+| I(x): x is in Illinois
+| c: Chicago
+:::
+
+```{.Translate .FOL points=10}
+R17.10 ExEy(G(x)/\I(x)/\G(y)/\I(y)/\~x=y) : There are at least two big cities in Illinois
+R17.11 AxAyAz(G(x)/\I(x)/\G(y)/\I(y)/\G(z)/\I(z)->x=y\/x=z\/y=z) : There are at most two big cities in Illinois
+R17.12 ExEy(G(x)/\I(x)/\G(y)/\I(y)/\~x=y)/\AxAyAz(G(x)/\I(x)/\G(y)/\I(y)/\G(z)/\I(z)->x=y\/x=z\/y=z), ExEy(G(x)/\I(x)/\G(y)/\I(y)/\Az(G(z)/\I(z)->z=x\/z=y)) : There are exactly two big cities in Illinois
+R17.13 Ex(G(x)/\F(x,c)) : There is at least one big city bigger than Chicago
+R17.14 ExEy(G(x)/\G(y)/\F(x,c)/\F(y,c)/\~x=y) : There are at least two big cities bigger than Chicago
+R17.15 ExEy(G(x)/\F(x,c)/\G(y)/\F(y,c)/\~x=y)/\AxAyAz(G(x)/\F(x,c)/\G(y)/\F(y,c)/\G(z)/\F(z,c)->x=y\/x=z\/y=x), ExEy(G(x)/\F(x,c)/\G(y)/\F(y,c)/\~x=y/\Az(G(z)/\F(z,c)->z=x\/z=y)) : There are exactly two big cities bigger than Chicago
+```
+:::
+
+:::wrapper
+::: soasticky
+| F(x) : x is a dog
+| G(x) : x is good
+| H(x) : x lives at the White House
+:::
+
+```{.Translate .FOL points=10}
+R17.16 ~Ex(F(x)/\G(x)/\H(x)) : No good dogs live at the White House
+R17.17 ExEy(F(x)/\H(x)/\F(y)/\H(y)/\~x=y/\G(x)/\G(y)) : At least two good dogs live at the White House 
+R17.18 Ex(F(x)/\H(x)/\Ay(F(y)/\H(y)->x=y)/\G(x)) : The dog who lives at the White House is good
+R17.19 ~Ex(F(x)/\H(x)/\Ay(F(y)/\H(y)->x=y)/\G(x)) : The dog who lives at the White House is not good (wide scope negation)
+R17.20 Ex(F(x)/\H(x)/\Ay(F(y)/\H(y)->x=y)/\~G(x)) : The dog who lives at the White House is not good (narrow scope negation)
+```
+
+:::
+
+
+<!-- vim: set ft=carnap :-->

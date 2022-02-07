@@ -1,0 +1,252 @@
+---
+base-css:
+-   https://carnap.io/shared/dsanson@gmail.com/sanson-book.css
+js: 
+-   https://carnap.io/shared/dsanson@gmail.com/logic-book.js
+---
+
+:::: cover
+
+# Mastering Symbolic Logic
+
+![Mountain Trail](http://reggienet.illinoisstate.edu/access/content/user/desanso/public/img/mountain-trail.jpg){alt="A
+steep trail with stairs runs up a mountain ridge. In the distance, a person is
+climbing the stairs."}
+
+::: author
+David Sanson
+:::
+
+::: license
+Copyright 2021, 2022
+
+
+This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/" target="_blank"
+rel="noopener noreferrer">Creative Commons Attribution 4.0 International License</a>.
+<a rel="license" href="http://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer">
+<img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" />
+</a>
+:::
+
+::::
+
+::: enrolled
+:::
+
+## Table of Contents
+
+::: {#tableofcontents}
+
+-  [Front Matter](Book_s22)
+
+Course Mechanics
+
+0.  Course Mechanics
+    -   [Reading (and Syllabus)](00R_s22)
+    -   [Exercises](00E_s22)
+    -   [Mastery Check](00M_s22){.enrolled}
+    -   [Supplements](00S_s22)
+
+Section I: Informal Logic
+
+1.  Logic and Arguments
+    -   [Reading](01R_s22)
+    -   [Exercises](01E_s22)
+    -   [Mastery Check](01M_s22){.enrolled}
+    -   [Supplements](01S_s22)
+2.  Validity, Soundness, and Strength
+    -   [Reading](02R_s22)
+    -   [Exercises](02E_s22)
+    -   [Mastery Check](02M_s22){.enrolled}
+    -   [Supplements](02S_s22)
+
+Section II: Sentential Logic
+
+3.  The Language of Sentential Logic
+    -   [Reading](03R_s22)
+    -   [Exercises](03E_s22)
+    -   [Mastery Check](03M_s22){.enrolled}
+    -   [Supplements](03S_s22)
+4.  Translation in SL
+    -   [Reading](04R_s22)
+    -   [Exercises](04E_s22)
+    -   [Mastery Check](04M_s22){.enrolled}
+    -   [Supplements](04S_s22)
+5.  Direct Derivations
+    -   [Reading](05R_s22)
+    -   [Exercises](05E_s22)
+    -   [Mastery Check](05M_s22){.enrolled}
+    -   [Supplements](05S_s22)
+6.  Derivations with Assumptions
+    -   [Reading](06R_s22)
+    -   [Exercises](06E_s22)
+    -   [Mastery Check](06M_s22){.enrolled} 
+    -   [Supplements](06S_s22)
+7.  Truth Tables for Sentences
+    -   [Reading](07R_s22)
+    -   [Exercises](07E_s22)
+    -   [Mastery Check](07M_s22){.enrolled}
+    -   [Supplements](07S_s22)
+8.  Truth Tables for Arguments
+    -   [Reading](08R_s22){.disabled}
+    -   [Exercises](08E_s22){.disabled}
+    -   [Mastery Check](08M_s22){.enrolled .disabled}
+    -   [Supplements](08S_s22){.disabled}
+9.  Translation in SL, continued
+    -   [Reading](09R_s22){.disabled}
+    -   [Exercises](09E_s22){.disabled}
+    -   [Mastery Check](09M_s22){.enrolled .disabled}
+    -   [Supplements](09S_s22){.disabled}
+10. Derivations with '∧', '∨', and '↔'
+    -   [Reading](10R_s22){.disabled}
+    -   [Exercises](10E_s22){.disabled}
+    -   [Mastery Check](10M_s22){.enrolled .disabled}
+    -   [Supplements](10S_s22){.disabled}
+
+11. Derived Rules
+    -   [Reading](11R_s22){.disabled}
+    -   [Exercises](11E_s22){.disabled}
+    -   [Mastery Check](11M_s22){.enrolled .disabled}
+    -   [Supplements](11S_s22){.disabled}
+
+Section III: Predicate Logic
+
+12. The Language of Predicate Logic (PL)
+    -   [Reading](12R_s22){.disabled}
+    -   [Exercises](12E_s22){.disabled}
+    -   [Mastery Check](12M_s22){.enrolled .disabled}
+    -   [Supplements](12S_s22){.disabled}
+13. Translation in PL
+    -   [Reading](13R_s22){.disabled}
+    -   [Exercises](13E_s22){.disabled}
+    -   [Mastery Check](13M_s22){.enrolled .disabled}
+    -   [Supplements](13S_s22){.disabled}
+14. Derivations in PL
+    -   [Reading](14R_s22){.disabled}
+    -   [Exercises](14E_s22){.disabled}
+    -   [Mastery Check](14M_s22){.enrolled .disabled}
+    -   [Supplements](14S_s22){.disabled}
+15. Truth and Countermodels
+    -   [Reading](15R_s22){.disabled}
+    -   [Exercises](15E_s22){.disabled}
+    -   [Mastery Check](15M_s22){.enrolled .disabled}
+    -   [Supplements](15S_s22){.disabled}
+16. Relations and Identity
+    -   [Reading](16R_s22){.disabled}
+    -   [Exercises](16E_s22){.disabled}
+    -   [Mastery Check](16M_s22){.enrolled .disabled}
+    -   [Supplements](16S_s22){.disabled}
+17. Identity, continued
+    -   [Reading](17R_s22){.disabled}
+    -   [Exercises](17E_s22){.disabled}
+    -   [Mastery Check](17M_s22){.enrolled .disabled}
+    -   [Supplements](17S_s22){.disabled}
+18. Derivations with Relations and Identity
+    -   [Reading](18R_s22){.disabled}
+    -   [Exercises](18E_s22){.disabled}
+    -   [Mastery Check](18M_s22){.enrolled .disabled}
+    -   [Supplements](18S_s22){.disabled}
+
+Appendices
+
+-  [Derivation Playgrounds](Playground)
+-  [Derived Rule Builders](Rule-Builder)
+
+:::
+
+
+## About
+
+This is yet another introductory logic textbook, 
+ designed for a first course in symbolic logic.
+Section I provides an informal introduction to the basic concepts of logic and argument analysis. 
+Section II covers propositional logic, including translation, truth tables, and derivations.
+Section III covers predicate logic, including translations, countermodels, and derivations.
+
+The book uses the [Carnap variant of the Kalish-Montague system](https://carnap.io/srv/doc/montague.md){target="_blank"
+rel="noopener noreferrer"} for natural deduction.
+
+This book is different from other logic textbooks.
+It is designed from the beginning to be online and interactive.
+Each chapter is divided into three parts:
+ Reading, which includes embedded videos and exercises;
+ Exercises, meant to provide students with additional practice;
+ Mastery Checks, meant to test the student's mastery of the chapter.
+Some chapters also include a "supplement",
+ offering further practice exercises, videos, 
+ and other forms of enrichment.
+It is also designed to be used with a "mastery grading scheme",
+ where a student's grade is based upon 
+ how many chapters they complete by the end of the term.
+
+## Adopting this book for your own courses
+
+Because the design of this "book" is tightly tied to the design of my course,
+ anyone considering using this book in their own courses will need to
+ make modifications.
+For example, Chapter 0 would need to be modified.
+It offers an introduction to the mechanics of my course,
+ and includes my course syllabus.
+
+Modifications would also need to be made to the custom javascript and CSS:
+
+-   <https://github.com/dsanson/carnap-css>
+-   <https://github.com/dsanson/carnap-custom-js>
+
+Both include some code that is specific to my courses.
+Both are generated from more verbose sources:
+ the CSS using SASS,
+ and the javascript using webpack.
+
+Unfortunately, at this time, both are a bit of a mess.
+
+The content of the "book" is not currently available to share.
+Again, I am working on cleaning it up,
+ and separating out the course specific stuff,
+ in a way that makes it easier to share.
+
+## Acknowledgments
+
+The design of this book was made possible by 
+ [Graham Leach-Krause](https://www.k-state.edu/philos/people/faculty/leachkrouse.html){target="_blank"
+    rel="noopener noreferrer"}'s 
+ [carnap.io](https://carnap.io){target="_blank" rel="noopener noreferrer"} project,
+ an open-source "framework for teaching and studying formal logic." 
+I can't say enough good things about Carnap,
+ and about Graham.
+
+The content of book borrows heavily in places from 
+
+-   Graham Leach-Krause, [*The Carnap Book*](https://carnap.io/book/1){target="_blank" rel="noopener noreferrer"}
+
+This book began life as a fork of Graham's book.
+
+Before I used Carnap, I spent several years using
+David Kaplan's [Logic 2010](https://logiclx.humnet.ucla.edu/){target="_blank" rel="noopener noreferrer"},
+and the textbook bundled with Logic 2010,
+
+-   [Terry Parsons](https://philosophy.ucla.edu/?p=3734){target="_blank"
+    rel="noopener noreferrer"}, *An Exposition of Symbolic Logic*.
+
+Those who have used this book will likely see its influence here.
+
+In the background of both of these books is the classic textbook,
+
+-   [Donald Kalish](https://en.wikipedia.org/wiki/Donald_Kalish){target="_blank"
+    rel="noopener noreferrer"},
+    [Richard Montague](https://en.wikipedia.org/wiki/Richard_Montague){target="_blank"
+    rel="noopener noreferrer"}, and
+    [Gary
+    Mar](https://www.stonybrook.edu/commcms/philosophy/people/_faculty/mar.php){target="_blank"
+    rel="noopener noreferrer"}, [*Logic: Techniques of Formal
+    Reasoning*](http://www.worldcat.org/oclc/1113548568){target="_blank"
+    rel="noopener noreferrer"}.
+
+For a nice account of how 
+ Kalish and Montague's text is related to other classic logic texts, 
+ see Francis Pelletier, "[A History of Natural Deduction and Elementary Logic
+Textbooks](https://www.sfu.ca/~jeffpell/papers/pelletierNDtexts.pdf){target="_blank"
+rel="noopener noreferrer"}".
+
+
+<!-- vim: set ft=carnap :-->

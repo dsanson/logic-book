@@ -1,0 +1,137 @@
+---
+base-css:
+-   https://carnap.io/shared/dsanson@gmail.com/sanson-book.css
+-   https://cdn.plyr.io/3.6.8/plyr.css
+js: 
+-   https://cdn.plyr.io/3.6.8/plyr.polyfilled.js
+-   https://carnap.io/shared/dsanson@gmail.com/logic-book.js
+-   https://hypothes.is/embed.js
+---
+
+# Translation in SL, continued: Supplements
+
+These are supplemental exercises. They are not for credit, and are not worth
+any points. But they are a great way to get more practice!
+
+In the Reading, Exercises, and Mastery Check, we focus on going all the way
+from English to SL. But it might be useful to just focus on the hardest step:
+figuring out how to translate the connectives.
+
+## 'if', 'only if', and 'if and only if' Drills
+
+First, some drills on 'if' vs. 'only if' vs. 'if and only if'
+
+There is no "check" button. But you can hit "enter" or "return", as usual, to
+check your answer.
+
+``` {.Translate .Prop options="check" submission=none}
+S9.1 P->Q:  Q if P
+S9.2 P->Q:  if P Q
+S9.3 P->Q:  P only if Q
+S9.4 P<->Q: P if and only if Q
+S9.5 R->Q:  R only if Q
+S9.6 Q->S:  S if Q
+S9.7 T->Q:  if T Q
+S9.8 T<->R: T if and only if R
+S9.9 S->Q:  S only if Q
+S9.10 S->Q: Only if Q, S
+S9.11 R->Q: Q if R
+S9.12 P->S: P only if S
+```
+
+## Stylistic Variants Drills
+
+Second, some drills on stylistic variants of our connectives.
+
+``` {.Translate .Prop submission=none}
+S9.13 P->Q:    Provided that P, Q
+S9.14 P->Q:    P only on the condition that Q
+S9.15 P/\~Q:   P but not Q
+S9.16 P\/Q:    P unless Q
+S9.17 Q->P:    P if Q
+S9.18 P<->Q:   P just in case Q
+S9.19 Q<->P:   Q if and only if P
+S9.20 R/\S:    R and S
+S9.21 S\/Q:    Unless S, Q
+S9.22 P/\R:    P even though R
+S9.23 R->Q:    Q only on the assumption that R
+S9.24 R<->Q:   R just in case Q
+S9.25 ~(P\/Q): Neither P nor Q
+S9.26 ~Q/\P:   not Q, but P
+S9.27 P->Q:    Only if Q, P
+S9.28 P->Q:    Q if P
+S9.29 S->R:    Assuming R, S
+S9.30 ~(R\/S): Neither R nor S
+S9.31 Q/\S:    Q but S
+S9.32 Q\/S:    Q unless S
+S9.33 Q->R:    R on the assumption that Q
+S9.34 P<->Q:   P provided that and only provided that Q
+S9.35 Q/\S:    Q but S
+```
+
+## Comma Rule Drills
+
+Commas indicate the bigger break!
+
+``` {.Translate .Prop submission=none}
+S6.36 (P/\Q)\/R:        P and Q, or R
+S6.37 P/\(Q\/R):        P, and Q or R
+S6.38 R->(Q->P):        P if Q, if R
+S6.39 P->(Q/\R):        P, only if Q and R
+S6.40 (P->Q)/\R:        Q if P, but R
+S6.41 (Q->P)\/(R/\~S):  Unless P if Q, R but not S
+S6.42 R->(Q->P):        P provided that Q, assuming R
+S6.43 Q->(Q->P):        Q, only provided that P if Q
+S6.44 (P<->Q)\/~(R\/S): P just in case Q, unless neither R nor S
+```
+
+## Compound Subjects and Predicates
+
+:::soawrapper
+:::soasticky
+| P: I like dollars
+| Q: I like diamonds
+| R: I like stunting
+| S: I like shining
+| T: You like dollars
+| U: You like diamonds
+| V: You like stunting
+| W: You like shining
+:::
+
+``` {.Translate .Prop submission=none}
+S6.42 T/\P : You and I like dollars
+S6.43 V/\R->U\/Q : If you and I like stunting, then you or I like diamonds
+S6.44 P/\Q /\ ~(R\/S) : I like dollars and diamonds but I don't like stunting or shining.
+S6.45 V/\R\/~V : You and I like stunting unless you don't like stunting.
+S6.46 Q/\P<->V/\W : I like diamonds and dollars just in case you like stunting and shining.
+S6.47 Q/\S->V/\T : I like diamonds and shining only provided that you like stunting and dollars
+S6.48 V/\T->Q/\S : I like diamonds and shining provided that you like stunting and dollars
+S6.49 V/\T<->Q/\S : I like diamonds and shining just in case you like stunting and dollars
+S6.50 ~(Q\/U)/\(P\/T) : Neither of us likes diamonds but one of us likes dollars
+```
+:::
+
+:::soawrapper
+:::soasticky
+| P: Jada attends ISU
+| Q: Luke attends ISU
+| R: Terrell attends ISU
+
+We are Jada, Luke, and Terrell
+:::
+
+Suppose we are Jada, Luke, and Terrell.
+
+``` {.Translate .Prop submission=none}
+S6.51 P/\Q/\R : All of us attend ISU
+S6.52 P\/Q\/R : At least one of us attends ISU
+S6.53 P\/Q\/R : Some of us attend ISU
+S6.54 ~(P/\Q/\R) : Not all of us attend ISU 
+S6.56 ~(P\/Q) : Neither Jada nor Luke attend ISU
+S6.55 ~(P\/Q\/R) : None of attend ISU
+S6.57 P\/Q\/R->P/\Q/\R : All of us attend ISU if any of us attend ISU
+S6.58 ~(P\/Q\/R)\/R : None of us attend ISU unless Terrell does
+```
+
+<!-- vim: set ft=carnap :-->

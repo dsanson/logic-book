@@ -1,0 +1,1127 @@
+---
+base-css:
+-   https://carnap.io/shared/dsanson@gmail.com/sanson-book.css
+-   https://cdn.plyr.io/3.6.8/plyr.css
+js: 
+-   https://cdn.plyr.io/3.6.8/plyr.polyfilled.js
+-   https://carnap.io/shared/dsanson@gmail.com/logic-book.js
+-   https://hypothes.is/embed.js
+---
+
+::: cover
+
+# Derivations in PL
+
+:::
+
+::: {.auto-tally}
+:::
+
+This unit extends our system of derivation from Sentential Logic to
+cover the new complications introduced by Predicate Logic. The specific
+learning objectives for this unit are:
+
+a.  I can complete derivations using UI, EG, and QN
+b.  I can complete derivations using UD and ED
+c.  I can complete derivations containing overlapping quantifiers
+
+# Three New Rules
+
+PL introduces quantifiers. So we need to extend our system of derivation to
+handle quantifiers. To do this, we introduce three new rules and two new methods.
+
+## Universal Instantiation (UI) and Existential Generalization (EG)
+
+:::wrapper
+:::soasticky
+| G: is green
+| a: Kermit
+| b: Big Bird
+:::
+
+Recall that *generalizations* have *instances*. An instance is a singular
+claim, like
+
+::: displayed
+-   G(a): Kermit is green
+:::
+
+This is an instance of the universal generalization,
+
+::: displayed
+-   ∀xG(x): Everything is green
+:::
+
+It is also an instance of the existential generalization,
+
+::: displayed
+-   ∃xG(x): Something is green
+:::
+
+How are these three claims logically related? What follows from what?
+
+::: standardform
+-   ∀xG(x): Everything is green
+-   G(a): Kermit is green
+:::
+
+This is valid. If everything is green, as the premise says, then Kermit, being
+one of the things, must also be green. You can always infer an instance from a universal
+generalization. So this is also valid:
+
+::: standardform
+-   ∀xG(x): Everything is green
+-   G(b): Big Bird is green
+:::
+
+We call this pattern [Universal Instantiation (UI)]{.vocab}. *Instantiation*
+is the process of moving *from* a generalization *to* an instance. UI is
+our first new rule: from a universal generalization, you can infer any of its
+instances.
+
+What about [Existential Instantiation (EI)]{.vocab}? Is this a valid form of
+inference too?
+
+::: {.standardform .xed}
+-   ∃xG(x): Something is green
+-   G(b): Big Bird is green
+:::
+
+This is not valid. The premise tells us that at least one thing is green, but
+it doesn't tell us *which* thing is green. So we can't infer that *Big Bird*
+specifically is is green. We can't infer *any* specific instance from the
+generalization.
+
+*Instantiation* is the process of moving from a generalization to an instance.
+The process of moving from an instance to a generalization is called
+*Generalization*. So this pattern of inference is called [Existential
+Generalization (EG)]{.vocab}:
+
+::: standardform
+-   G(a): Kermit is green 
+-   ∃xG(x): Something is green
+:::
+
+Existential Generalization is valid, and EI is our second new rule. If Kermit is green, it follows that at
+least one thing is green. And that conclusion follows from *any* instance: if
+Big Bird is green, it also follows that something is green:
+
+::: standardform
+-   G(b): Big Bird is green 
+-   ∃xG(x): Something is green
+:::
+
+What about [Universal Generalization (UG)]{.vocab}? Can we infer a universal
+generalization from its instance?
+
+::: {.standardform .xed}
+-   G(a): Kermit is green 
+-   ∃xG(x): Everything is green
+:::
+
+:::
+
+No, we cannot. The fact that a single thing is green does not show that
+everything is green.
+
+So, we have two new rules:
+
+Universal Instantiation (UI)
+:   From a universal generalization, each of its instances follows.
+
+Existential Generalization (EG)
+:   An existential generalization follows from each of its instances.
+
+:::aside
+Note that we are using 'generalization' in two related but importantly
+different ways. In the first sense, a generalization is a kind of sentence, a
+sentence whose main connective is a quantifier phrase. In the second sense, a
+generalization is the process of moving from an instance to a generalization.
+:::
+
+Here are some simple examples of UI in action:
+
+```{.Playground .FirstOrder options="guides fonts indent tabindent resize" init=now submission=none}
+|1.AxF(x)     :PR
+|2.F(a)       :UI 2
+|3.F(b)       :UI 2
+|4.F(c)       :UI 2
+|5.F(x)       :UI 2
+|6.F(y)       :UI 2
+|7.F(z)       :UI 2
+```
+
+Note that, from '∀xF(x)', we can infer *any* instance. That includes instances
+using constants, like 'a', 'b', and 'c', etc., and it also includes instances
+using free variables, like 'x', 'y', and 'z', etc.
+
+Here are some simple examples of EG in action: 
+
+```{.Playground .FirstOrder options="guides fonts indent tabindent resize" init=now submission=none}
+|1.F(a)       :PR
+|2.ExF(x)     :EG 1
+|3.EyF(y)     :EG 1
+|4.G(x)       :PR
+|5.ExG(x)     :EG 4
+|6.EyG(y)     :EG 4
+|7.EyF(a)     :EG 1
+```
+
+That last one, on line 7, is kinda weird. But remember, an instance is what you get
+by removing the quantifier phrase, and replacing all the once-bound variables
+with a term. When we remove the quantifier phrase from '∃xF(a)', we are left
+with 'F(a)'. Since 'F(a)' doesn't contain any once-bound variables, there is
+nothing more for us to do: we have an instance of our generalization.
+
+Let's see an example with a real derivation:
+
+```{.ProofChecker .FirstOrder options="guides fonts indent tabindent resize" init=now submission=none}
+Example. AxF(x) :|-: F(a)/\F(b)
+|1.Show F(a)/\F(b)
+|2. AxF(x) :PR
+|3. F(a) :UI 2
+|4. F(b) :UI 2
+|5. F(a)/\F(b) :ADJ 3,4
+|6.:DD 5
+```
+
+Suppose 'F' stands for 'is a frog', 'a' stands for 'Alfred' and 'b' stands for
+'Bertha'. In this example, our premise says that everything is a frog. We
+apply UI twice, first inferring that Alfred is frog, and then inferring that
+Bertha is a frog. Then we use ADJ to put those two claims together, arriving
+at our conclusion: Alfred and Bertha are both frogs.
+
+```{.ProofChecker .FirstOrder options="guides fonts indent tabindent resize" init=now submission=none}
+Example. G(b) :|-: EyG(y)
+|1.Show EyG(y)
+|2. G(b) :PR
+|3. EyG(y) :EG 2
+|4.:DD 3
+```
+
+Suppose 'G' stands for 'is green'. Our premise says that Bertha is green. From
+that, we infer, by EG, that something is green. That's our conclusion, so we
+are done.
+
+Now try one yourself. In this case, the premises say, first, that everything
+is green, and second, that Bertha is a frog. The conclusion says that Calvin
+is a green and something is a frog:
+
+```{.ProofChecker .FirstOrder options="guides fonts indent tabindent resize" points=10}
+R14.1 AyG(y),F(b) :|-: G(c)/\ExF(x)
+```
+
+::: youtube
+<https://youtu.be/I1bDmxkIh-U>
+:::
+
+Now let's consider some more complicated examples. Can you see why lines (3)
+and (5) are wrong?
+
+```{.Playground .FirstOrder options="guides fonts indent tabindent resize" init=now submission=none}
+|1.∀x(F(x)∧G(x)→H(x)) :PR
+|2.F(a)∧G(a)→H(a)  :UI 1
+|3.F(a)∧G(b)→H(c)  :UI 1
+|4.F(x)∧G(x)→H(x)  :UI 1
+|5.F(x)∧G(y)→H(z)  :UI 1
+```
+
+Remember, when you use UI, you need to infer an instance. That means you need
+to *uniformly* replace all the once-bound variables with your choice of term.
+On lines (3) and (5), the replacement was not uniform.
+
+EG works the same way, but backwards: you infer a generalization from an
+instance. This can be a bit confusing. These are all valid inferences by EG:
+
+::: displayed
+-   F(a)∧G(a) ⊢ ∃y(F(y)∧G(y))
+-   F(a)∧G(a) ⊢ ∃y(F(y)∧G(b))
+-   F(a)∧G(a) ⊢ ∃y(F(a)∧G(y))
+:::
+
+To see this, work backwards, and convince yourself that in each case, the
+premise is an instance of the conclusion. So, when a formula has more than one
+occurrence of the same term, you can generalize over *all* those occurrences, or
+over *just some*:
+
+```{.Playground .FirstOrder options="guides fonts indent tabindent resize" init=now submission=none}
+|1.F(a)∧G(b)∧H(a) :PR
+|2.∃x(F(x)∧G(b)∧H(x)) :EG 1 
+|3.∃x(F(x)∧G(b)∧H(a)) :EG 1 
+|4.∃x(F(a)∧G(b)∧H(x)) :EG 1 
+|5.∃x(F(x)∧G(x)∧H(x)) :EG 1 
+```
+
+That last line is a mistake. We can't generalize over both 'a's and 'b's at the
+same time. The resulting generalization doesn't have the premise as an
+instance.
+
+When a sentence has more than one quantifier, you need to remember two things:
+
+-   Only replace the once-bound variables; don't replace any variables that
+    are still bound!
+-   If you replace the once-bound variables with variables, make sure none of those
+    variables are *captured*. That is, make sure they all remain free.
+
+
+```{.Playground .FirstOrder options="guides fonts indent tabindent resize" init=now submission=none}
+|1.∀x(F(x)→∃xG(x))  :PR
+|2.F(a)→∃xG(x) :UI 1
+|3.F(x)→∃xG(x) :UI 1
+|4.F(y)→∃xG(x) :UI 1
+|5.F(a)→∃xG(a) :UI 1
+```
+
+The last line is a mistake, because I replaced the 'x' in 'G(x)', and that 'x'
+is still bound. And,
+
+```{.Playground .FirstOrder options="guides fonts indent tabindent resize" init=now submission=none}
+|1.∀x∃y(F(x)∧G(y)) :PR
+|3.∃y(F(a)∧G(y))  :UI 2
+|4.∃y(F(x)∧G(y)) :UI 2
+|5.∃y(F(y)∧G(y)) :UI 
+```
+
+The last lines is a mistake, because my variable 'y' was captured by the
+quantifier, '∃y'.
+
+## Derivations using UI and EG
+
+Derivations still work exactly the way they used to. We've just added two new
+rules, UI and EG. Here is an example, illustrating how the rules can be used
+in the context of a derivation:
+
+:::displayed
+-   ∀x(F(x)∧G(x)), ∀x(G(x)→H(x)) ⊢ ∃xH(x)
+:::
+
+The first premise says that everything is both an F and a G. So, for example,
+it might say that everything is both a frog and green. The second premise says
+that every G is H. So, if you like, every green thing hops. The conclusion says that
+something is H. So, something hops. So, think about that for a moment in
+English:
+
+::: standardform
+-  Everything is both a frog and green.
+-  Every green thing hops.
+-  Something hops.
+:::
+
+The premises are obviously false. But the reasoning from those premises to the
+conclusion is valid. Here is what it looks like, as a derivation:
+
+~~~
+1.  Show ExH(x)
+2.    Ax(F(x)/\G(x)) :PR
+3.    Ax(G(x)->H(x)) :PR
+~~~
+
+So far, we have done nothing new. We entered our show line and brought down
+our premises. Lines (2) and (3) are both universal generalizations, which
+means we can apply UI to them:
+
+~~~
+4.    F(a)/\G(a)     :UI 2
+5.    G(a)->H(a)     :UI 3
+~~~
+
+But why stop there? UI lets us infer *any* instance, so we can also infer
+instances involving b, c, etc:
+
+~~~
+6.   F(b)/\G(b)      :UI 2
+7.   G(b)->H(b)      :UI 3
+8.   F(c)/\G(c)      :UI 2
+9.   G(c)->H(c)      :UI 3
+~~~
+
+There is nothing wrong with doing this. I haven't broken any rules. But it is
+not what I would recommend doing. You are better off introducing name letters
+sparingly, to avoid generating noise. So, let's go back to:
+
+~~~
+1.  Show ExH(x)
+2.    Ax(F(x)/\G(x)) :PR
+3.    Ax(G(x)->H(x)) :PR
+4.    F(a)/\G(a)     :UI 2
+5.    G(a)->H(a)     :UI 3
+~~~
+
+Recall what we are up to. Our premises, on lines (2) and (3), say that
+everything is a frog and green, and that every green thing hops. On lines (4)
+and (5), we've introduced a new name, "a" ("Agatha"). Since (2) and (3)
+are about everything, they are, among other things, about Agatha: Agatha is
+both a frog and green; if Agatha is green, she hops.
+
+From these two facts about Agatha, expressed on lines (4) and (5), we can
+infer that Agatha hops. The inference makes use of two of our old rules:
+
+~~~
+6.    G(a)           :S 4
+7.    H(a)           :MP 5,6
+~~~
+
+Now we know that *Agatha* hops. But our conclusion is that *Something* hops.
+So we use EG, to infer that something hops, because Agatha hops:
+
+~~~
+8.    ExH(x)         :EG 7
+9.  :DD 8
+~~~
+
+Line (8) is our conclusion. So this is a direct derivation, and we finish it
+off in the usual way. So here is the whole derivation:
+
+~~~
+1.  Show ExH(x)
+2.    Ax(F(x)/\G(x)) :PR
+3.    Ax(G(x)->H(x)) :PR
+4.    F(a)/\G(a)     :UI 2
+5.    G(a)->H(a)     :UI 3
+6.    G(a)           :S 4
+7.    H(a)           :MP 5,6
+8.    ExH(x)         :EG 7
+9.  :DD 8
+~~~
+
+And here is what it looks like, using Carnap:
+
+```{.ProofChecker .FirstOrder options="guides fonts indent tabindent resize" submission=none}
+ Ax(F(x)/\G(x)),Ax(G(x)->H(x)) :|-: ExH(x)
+|1.Show ExH(x)
+|2.  Ax(F(x)/\G(x)) :PR
+|3.  Ax(G(x)->H(x)) :PR
+|4.  F(a)/\G(a)     :UI 2
+|5.  G(a)->H(a)     :UI 3
+|6.  G(a)           :S 4
+|7.  H(a)           :MP 5,6
+|8.  ExH(x)         :EG 7
+|9.:DD 8
+```
+
+Here is another derivation. I've done most of it. Can you finish it?
+
+~~~{.ProofChecker .FirstOrder options="guides fonts indent tabindent resize" points=10}
+R14.2 Ax(F(x)\/G(x)) :|-: ~F(a)->G(a)
+|1.Show ~F(a)->G(a)
+|2. ~F(a) :AS
+|3. Ax(F(x)\/G(x)) :PR
+|4. 
+|5. G(a)  :MTP 2,4
+|6.:CD 5
+~~~
+
+<div class=youtube>
+<https://youtu.be/pxOzKG7729M>
+</div>
+
+Here is another to try:
+
+```{.ProofChecker .FirstOrder options="guides fonts indent tabindent resize" points=10}
+R14.3 Ax(F(x)), F(b)/\F(c) -> G(c) :|-: ExG(x)
+```
+
+<div class=youtube>
+<https://youtu.be/iHR5fW4gqik>
+</div>
+
+# Two New Methods: UD and ED
+
+Universal Instantiation lets us reason *from* a universal statement.
+Existential Generalization lets us reason *to* an existential statement. But
+how do go about reasoning *to* a universal statement, or *from* an existential
+statement?
+
+Both cases are tricky. You can't prove a universal by showing one instance, or
+two instances, or even a billion instances. No matter how many black ravens
+you have observed, it remains possible that not all ravens are black. And
+suppose God reveals to you that something must be done, but tells you nothing
+more. How are you supposed to act on that information, given that you have no
+idea *what* must be done?
+
+We handle these two tricky cases by introducing two new methods of derivation.
+The first, Universal Derivation, gives us a way to prove universal
+generalizations. The second, Existential Derivation, gives us a way to use
+existential generalizations.
+
+## Universal Derivation (UD)
+
+How can we prove a universal? Suppose you are a Nihilist, and think that
+everything is meaningless. Is that something you can prove? Or suppose you are
+a mathematician, and you think that all natural numbers are odd or even. Is
+that something you can prove?
+
+Remember, 'prove', for us, is a term of art. We don't just want strong
+evidence that everything is meaningless, or strong evidence that all natural
+numbers are odd or even. We want a *valid* argument for our conclusion: an
+argument such that, if the premises are true, the conclusion *must* be true as
+well.
+
+Let's start with an intuitive informal example of an argument that is valid,
+and has a universal generalization as its conclusion:
+
+<div class=standardform>
+
+| [Everyone who deliberates believes they are free.]{.premise}
+| [Everyone deliberates.]{.premise}
+| [Everyone believes they are free.]{.conclusion}
+
+</div>
+
+This is an interesting argument. If it is sound, then it establishes that so-called
+*Hard Determinists*---philosophers who claim that, since everything is
+determined, we have no free will---are hypocrites, who don't actually believe
+what they claim. Of course, this is a logic class, so we aren't going to worry
+about whether or not the argument is *sound*. Our task to is articulate why it
+is *valid*.
+
+Notice that, from the premises, we can show that Beyoncé believes that she is
+free:
+
+<div class=standardform>
+
+| 1. [Beyoncé believes she is free.]{.show}
+| 2. [Everyone who deliberates believes they are free. [:PR]{.just}]{.indent}
+| 3. [Everyone deliberates. [:PR]{.just}]{.indent}
+| 4. [If Beyoncé deliberates, then Beyoncé believes she is free. [:UI
+     2]{.just}]{.indent}<label for="sn-0" class="margin-toggle
+     sidenote-number"></label><input type="checkbox" id="sn-0"
+     class="margin-toggle"/>[To keep things simple, I ignore the fact that
+     'everyone' introduces a further restriction to persons.]{.sidenote}
+| 5. [Beyoncé deliberates. [:UI 3]{.just}]{.indent}
+| 6. [Beyoncé believes she is free. [:MP 4,5]{.just}]{.indent}
+| 7. [:DD 6]{.premise}
+
+</div>
+
+Notice that you can run this same line of reasoning on *anyone*. The fact that
+we happened to consider Beyoncé made no real difference to how we reasoned.
+For example, we can run *exactly the same line of reasoning*, replacing
+'Beyoncé' with 'Justin Bieber' throughout:
+
+::: {.standardform}
+| 1. [Justin Bieber believes he is free.]{.show}
+| 2. [Everyone who deliberates believes they are free. [:PR]{.just}]{.indent}
+| 3. [Everyone deliberates. [:PR]{.just}]{.indent}
+| 4. [If Justin Bieber deliberates, then Justin Bieber believes he is free.
+  [:UI 2]{.just}]{.indent}
+| 5. [Justin Bieber deliberates. [:UI 3]{.just}]{.indent}
+| 6. [Justin Bieber believes he is free. [:MP 4,5]{.just}]{.indent}
+| 7. [:DD 6]{.premise}
+:::
+
+Now, we all know a fair bit about Beyoncé, and we all know a fair bit about
+Justin Bieber. But consider some arbitrary person. Call them 'J. Doe'. The
+line of reasoning applies equally well to J. Doe, whoever they might be:
+
+::: {.standardform}
+| 1. [J. Doe believes they are free.]{.show}
+| 2. [Everyone who deliberates believes they are free. [:PR]{.just}]{.indent}
+| 3. [Everyone deliberates. [:PR]{.just}]{.indent}
+| 4. [If J. Doe deliberates, then J. Doe believes they are free. [:UI
+  2]{.just}]{.indent}
+| 5. [J. Doe deliberates. [:UI 3]{.just}]{.indent}
+| 6. [J. Doe believes they are free. [:MP 4,5]{.just}]{.indent}
+| 7. [:DD 6]{.premise}
+:::
+
+So, given our premises, we can prove, of an arbitrarily chosen
+individual, that they believe that they are free. But since that individual is
+arbitrarily chosen, they could be *anyone*. So we have, in effect, shown that
+*everyone* believes they are free.
+
+So here is the idea behind Universal Derivation: to derive a universal
+generalization, it suffices to derive an *arbitrary* instance of that
+generalization. An arbitrary instance is an instance involving a [fresh
+constant]{.vocab}:
+
+Fresh Constant
+:   A constant is *fresh* at a certain point in a proof if it does not appear
+    in the premises of the proof, or on any earlier line of the proof
+    (including show lines).
+
+The idea is this: since a fresh constant is unrelated to anything from before,
+it can be interpreted as referring to anything at all. So, anything we can
+prove using this constant, we could have proven about anything at all.
+
+Here, then, is our proof:
+
+::: {.standardform}
+| 1. [Everyone believes they are free]{.show}
+| 2. [Everyone who deliberates believes they are free. [:PR]{.just}]{.indent}
+| 3. [Everyone deliberates. [:PR]{.just}]{.indent}
+| 4. [If *a* deliberates, then *a* believes they are free. [:UI
+  2]{.just}]{.indent}
+| 5. [*a* deliberates. [:UI 3]{.just}]{.indent}
+| 6. [*a* believes they are free. [:MP 4,5]{.just}]{.indent}
+| 7. [:UD 6]{.premise}
+:::
+
+As you can see, our show line not a claim about Beyoncé, or about Justin
+Bieber, or about J. Doe. It is the universal generalization that everyone
+believes they are free.
+
+And the derivation makes use of the fresh constant 'a', ensuring that we are
+making no assumptions about who are what *a* is. So that means that, when we
+have established on line (6) that *a* believes that they are free, what we've
+established holds equally well of everyone. Which entitles us on line (7), to
+conclude that everyone believes they are free.
+
+Let's symbolize the argument, and see what the derivation looks like in
+symbols. (For simplicity, we continue to ignore the fact that the argument uses
+restricted personal quantifiers ("everyone").)
+
+Scheme of Abbreviation:
+
+::: soa
+| F = "believes oneself to be free"
+| G = "deliberates"
+:::
+
+So,
+
+::: displayed
+| Everyone who deliberates believes they are free: ∀x(G(x)->F(x))
+| Everyone deliberates: ∀xG(x)
+| Therefore, everyone believes they are free: ∀xF(x)
+:::
+
+We set up the derivation by entering a show line and bringing down the two
+premises:
+
+~~~
+1. Show AxF(x)
+2.   Ax(G(x)->F(x)) :PR
+3.   AxG(x) :PR
+~~~
+
+Unlike CD and ID, UD doesn't allow us to make any assumptions. So now we need
+to reason from what we have to an arbitrary instance. We do this by using UI,
+instantiating to a fresh constant:
+
+~~~
+1. Show AxF(x)
+2.   Ax(G(x)->F(x)) :PR
+3.   AxG(x) :PR
+4.   G(c)->F(c) :UI 2
+5.   G(c) :UI 3
+~~~
+
+Note that we have to choose *constant* (i.e. name letter), not a variable.
+That is, we need to choose a lowercase letter between 'a' and 'e'.
+
+Now we can apply MP to lines (4) and (5):
+
+~~~
+1. Show AxF(x)
+2.   Ax(G(x)->F(x)) :PR
+3.   AxG(x) :PR
+4.   G(c)->F(c) :UI 2
+5.   G(c) :UI 3
+6.   F(c) :MP 4,5
+~~~
+
+At this point, we have established the c is F, without making any assumptions
+about who or what c is. So we have derived an *arbitrary instance* of our show
+line. So we can now finish the derivation by UD:
+
+~~~
+1. Show AxF(x)
+2.   Ax(G(x)->F(x)) :PR
+3.   AxG(x) :PR
+4.   G(c)->F(c) :UI 2
+5.   G(c) :UI 3
+6.   F(c) :MP 4,5
+7. :UD 6
+~~~
+
+Here it is in Carnap:
+
+~~~{.ProofChecker .FirstOrder options="guides fonts indent tabindent resize" submission=none}
+ Ax(G(x)->F(x)), AxG(x) :|-: AxF(x)
+|1. Show AxF(x)
+|2.   Ax(G(x)->F(x)) :PR
+|3.   AxG(x) :PR
+|4.   G(c)->F(c) :UI 2
+|5.   G(c) :UI 3
+|6.   F(c) :MP 4,5
+|7. :UD 6
+~~~
+
+So far, we have been ignoring the complication that our original argument used
+personal quantifiers. Let's see what happens when we respect that
+complication. First, we need to extend our scheme of abbreviation:
+
+::: soa
+| F = "believes oneself to be free"
+| G = "deliberates"
+| H = "is a person"
+:::
+
+Now, we need to symbolize our argument appropriately:
+
+| Everyone who deliberates believes they are free: ∀x(H(x)∧G(x)→F(x))
+| Everyone deliberates: ∀x(H(x)→G(x))
+| Therefore, everyone believes they are free: ∀x(H(x)→F(x))
+
+So this gets us:
+
+```{.ProofChecker .FirstOrder options="guides fonts indent tabindent resize" points=10}
+R14.4 Ax(H(x)/\G(x)->F(x)), Ax(H(x)->G(x)) :|-: Ax(H(x)->F(x))
+```
+
+::: {.youtube}
+<https://youtu.be/gDMRF3dgheM>
+:::
+
+
+Here is another derivation for you to try:
+
+```{.ProofChecker .FirstOrder options="guides fonts indent tabindent resize" points=10}
+R14.5 Ax(F(x)->G(x)), Ax(G(x)->H(x)) :|-: Ax(F(x)->H(x))
+```
+
+::: {.youtube}
+<https://youtu.be/lgF8rx3_iZA>
+:::
+
+## Existential Derivation (ED)
+
+UD gives us a method for proving universal claims. ED gives us a method
+for using existential claims.
+
+Here is an informal example:
+
+<div class=standardform>
+
+| [Something is in my pocket. ]{.premise}
+| [Everything in my pocket is either a knife or a ring. ]{.premise}
+| [Nothing in my pocket is a knife.]{.premise}
+| [Something in my pocket is a ring.]{.conclusion}
+
+</div>
+
+This argument is valid. But how can we go about reasoning from the premises to
+the conclusion?
+
+The key idea again involves a "fresh constant", thought of as referring to an
+arbitrary individual. We know that *something* is in my pocket. So let's call
+it *a*. What else can we infer about *a*? Well, we can infer that *a* is
+either a knife or a ring, and we can infer that *a* is not a knife. So we can
+infer that *a* must be a ring. So, we can conclude that something---*a*,
+whatever it is---is both in my pocket and a ring.
+
+Here's what that looks like a bit more formally:
+
+<div class=standardform>
+
+| 1. [Something in my pocket is a ring.]{.show}
+| 2. [Something is in my pocket. [:PR]{.just}]{.indent}
+| 3. [*a* is in my pocket.
+  [:AS]{.just}]{.indent}<label for="sn-0" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-0" class="margin-toggle"/>["let's
+  call the thing in my pocket, whatever it is, '*a*'"]{.sidenote}
+| 4. [Everything in my pocket is either a knife or a ring.
+  [:PR]{.just}]{.indent}
+| 5. [If *a* is in my pocket, then *a* is either a knife or a ring. [:UI
+  4]{.just}]{.indent}
+| 6. [Nothing in my pocket is a knife [:PR]{.just}]{.indent}
+| 7. [If *a* is in my pocket, then *a* is not a knife. [:UI
+  6]{.just}]{.indent}
+| 8. [*a* is a ring. [:MP 3,5; MP 3,7; MTP]{.just}]{.indent}
+| 9. [*a* is in my pocket and a ring. [:ADJ 3,8]{.just}]{.indent}
+| 10. [Something in my pocket is a ring. [:EG 9]{.just}]{.indent}
+| 11. [:ED 2, 3, 10]{.premise}
+
+</div>
+
+The key moves occur on lines (3) and (11). On line (3), we introduced an
+assumption, in effect giving an arbitrary name to the thing---whatever it
+is---that is in my pocket. It is important here that we make *no assumptions
+about who or what *a\* is\*. That is, it is important that "*a*" is a "fresh
+constant".
+
+On line (11), we entered a QED line, counting our proof as complete. When we
+did that, we pointed to *three* lines: line (2), which contains the
+existential generalization we are *using*; line (3), which contains the
+assumption---an arbitrary instance of line (2); and line (10), where we
+established our conclusion---the formula on our show line.
+
+This is complicated, and not that easy to describe. But here is the idea:
+
+Existential Derivation (ED)
+:   You can show any statement, ▢, by *assuming* an instance of an available
+    existential generalization using a fresh constant, and then *deriving* ▢.
+
+Here is a formal example.
+
+```{.ProofChecker .FirstOrder options="guides fonts indent tabindent resize" init=now submission=none}
+Example. ExF(x), Ax(F(x)->G(x)) :|-: ExG(x)
+|1. Show:ExG(x)
+|2.   ExF(x):PR
+|3.   Ax(F(x)->G(x)):PR
+|4.   F(c):AS
+|5.   F(c)->G(c):UI 3
+|6.   G(c):MP 4,5
+|7.   ExG(x):EG 6
+|8. :ED 2 4 7
+```
+
+We want to show that something is green. Our first premise says that something is
+a frog, and our second premise says that every frog is green.
+
+We begin by bringing down our premises. One of them, on line (2), is an
+existential generalization. So, we decide to attempt this as a derivation by
+ED. That allows us to assume an arbitrary instance of line (2): Charlie is a
+frog. We then reason from this assumption, and our other premises, to the fact
+that something is green (line (7)). That allows us to conclude that
+something---namely, Charlie, whoever or whatever they might be---is green
+(line (8)).
+
+Other forms of derivation are named after what they allow us to *show*: a
+Conditional Derivation allows us to show a conditional; a Universal Derivation
+allows us to show a universal. But ED is different. It is named after what it
+allows us to *use*. 
+
+Also, with other forms of derivation, we only cite the lines that contain our
+*accomplishment*: for DD, we cite the line that contains our conclusion; for
+CD, the line that contains the consequent; for ID, the lines that contain our
+contradiction; for UD, the line that contains our arbitrary instance. But ED
+is different. We have to cite *three lines*: the existential generalization we
+want to *use*; the arbitrary instance that we *assumed*; and our
+*accomplishment*: the line that contains the conclusion of our argument.
+
+Not every derivation by ED will be a derivation *of* an existential
+generalization. What makes it an Existential Derivation is not the line we are
+trying to *show*, but the line we are trying to *use*. The next example will
+illustrate this point.
+
+Here is a derivation that contains a mistake:
+
+```{.ProofChecker .FirstOrder options="guides fonts indent tabindent resize" points=10}
+R14.6 Ex(F(x)/\G(a)) :|-: G(a)
+|1.Show G(a)
+|2. Ex(F(x)/\G(a)) :PR
+|3. F(a)/\G(a) :AS
+|4. G(a) :S 3
+|5.:ED 2,3,4
+```
+
+Can you find the mistake? Can you fix it? 
+
+::: {.youtube}
+<https://youtu.be/UHzaSCeXpN4>
+:::
+
+This example illustrates a couple of important points. First, it illustrates
+the restriction on your assumption:
+
+-   You must assume an *arbitrary instance* of the existential generalization
+    you are trying to use. That means you must choose a *fresh constant*.
+
+Second, it illustrates the point that you can use ED to derive show lines of
+any sort. In this case, our show line was $G(a)$, which is atomic. In our
+other examples, our show lines have been existential generalizations. In other
+cases, the show line might be something else. ED is called *Existential*
+Derivation *not* because it is used to derive existential generalizations, but
+because it gives us a way to *use* existential generalizations to derive other
+claims.
+
+Try another:
+
+```{.ProofChecker .FirstOrder options="guides fonts indent tabindent resize" points=10}
+R14.7 Ax(F(x)->G(x)), Ex(F(x)/\H(x)) :|-: Ex(G(x)/\H(x))
+```
+
+::: {.youtube}
+<https://youtu.be/F0Da_PUEDIM>
+:::
+
+
+# Constructing Derivations in Predicate Logic
+
+To review, we have two new rules, and two new methods:
+
+Universal Instantiation (UI)
+:   From a universal generalization, each of its instances follows.
+
+Existential Generalization (EG)
+:   An existential generalization follows from each of its instances.
+
+Universal Derivation
+:   To show a universal generalization, derive an arbitrary instance.
+
+Existential Derivation
+:   To use an existential generalization, assume an arbitrary instance, and
+    then derive your conclusion.
+
+Recall that an *arbitrary instance* of a generalization is an instance that
+uses a *fresh constant*---a constant that does not appear on or above the show
+line, and does not appear in any of the premises.
+
+Every formula in our language is either atomic, or has a main connective. Our
+rules and methods depend on what that main connective is. Some of our rules
+and methods are for *using* formulas with that main connective; the rest are
+for *getting* formulas with that main connective:
+
+<table style ="margin-left:auto;margin-right:auto;border: 1px solid
+black;border-spacing:2em 0;border-collapse: separate">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Kind</th>
+<th style="text-align: left;">Form</th>
+<th style="text-align: left;">Use</th>
+<th style="text-align: left;">Get</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Atomic</td>
+<td style="text-align: left;">P, F(a), F(x)</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Negation</td>
+<td style="text-align: left;">¬▢</td>
+<td style="text-align: left;">ID, MT, DNE, MTP</td>
+<td style="text-align: left;">ID, DNI</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Conditional</td>
+<td style="text-align: left;">(▢ → ◯)</td>
+<td style="text-align: left;">MP, MT</td>
+<td style="text-align: left;">CD</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Conjunction</td>
+<td style="text-align: left;">(▢ ∧ ◯)</td>
+<td style="text-align: left;">S</td>
+<td style="text-align: left;">ADJ</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Disjunction</td>
+<td style="text-align: left;">(▢ ∨ ◯)</td>
+<td style="text-align: left;">MTP</td>
+<td style="text-align: left;">ADD</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Biconditional</td>
+<td style="text-align: left;">(▢ ↔ ◯)</td>
+<td style="text-align: left;">BC</td>
+<td style="text-align: left;">CB</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Universal Generalization</td>
+<td style="text-align: left;">∀x▢</td>
+<td style="text-align: left;">UI</td>
+<td style="text-align: left;">UD</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Existential Generalization</td>
+<td style="text-align: left;">∃x▢</td>
+<td style="text-align: left;">ED</td>
+<td style="text-align: left;">EG</td>
+</tr>
+</tbody>
+</table>
+
+|
+|
+
+A few things to note about this:
+
+-   we don't have any special rules or methods for using or getting atomic formulas.
+-   we probably have more rules and methods than we need for negations and
+    conditionals.
+-   some of our rules and methods involve other connectives (like MT, MTP, CB, and BC),
+    while others are "pure"---they just involve that connective (like DN, MP,
+    S, ADJ, ADD, CD, and ID, and all four of our new rules and methods)
+
+In fact, in a "pure" system of derivation, all of our rules and methods would
+be "pure", and we would have *exactly* one rule or method for using each
+connective, and *exactly* one rule or method for getting each connective. Our
+system is not a pure system, and so lacks a certain elegance.
+
+## Quantifier Negation
+
+Looking back at the table, you might be surprised to see that ID is listed as
+a method both for using and for getting negations. It is clear enough why it
+is a method for getting negations, but might not be obvious why it is a
+method for using negations. But recall our recurring problem:
+
+-   How to use ¬(...)?
+
+In our basic system, without derived the rules, the most fundamental way to
+use ¬(...) is as one half of a contradiction, for ID. So, when you need to
+use ¬(...), you need to find a way to get its unnegation, '...', so you have a
+contradiction.
+
+But also, this is where our derived rules can make our lives much easier. 
+
+But you might also recall that we find it much easier to use derived rules for
+this purpose, and so we have derived rules for every kind of formula in
+Sentential Logic: 
+
+<table style ="margin-left:auto;margin-right:auto;border: 1px solid black;border-spacing:2em 0;border-collapse: separate">
+<thead>
+<tr class="header">
+<th style="text-align: left;">...</th>
+<th style="text-align: left;">¬(...)</th>
+<th style="text-align: left;">Derived Rule</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Conditional</td>
+<td style="text-align: left;">¬(▢ → ◯)</td>
+<td style="text-align: left;">NC</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Conjunction</td>
+<td style="text-align: left;">¬(▢ ∧ ◯)</td>
+<td style="text-align: left;">DMA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Disjunction</td>
+<td style="text-align: left;">¬(▢ ∨ ◯)</td>
+<td style="text-align: left;">DMO</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Biconditional</td>
+<td style="text-align: left;">¬(▢ ↔ ◯)</td>
+<td style="text-align: left;">NB</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Universal Generalization</td>
+<td style="text-align: left;">¬∀x▢</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Existential Generalization</td>
+<td style="text-align: left;">¬∃x▢</td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+
+|
+|
+
+Shouldn't we also have a derived rule that handles the last two cases, when
+the main connective is a quantifier?
+
+We do! And---SURPRISE!---it is already enabled, so you can start using it now.
+The rule is called Quantifier Negation (QN), and it has four forms:
+
+::: {.displayed}
+-   ¬∀x▢ ⊢ ∃x¬▢
+-   ∃x¬▢ ⊢ ¬∀x▢
+-   ¬∃x▢ ⊢ ∀x¬▢
+-   ∀x¬▢ ⊢ ¬∃x▢
+:::
+
+The rule reflects an important equivalence between our two quantifiers, which
+we might express most succinctly as:
+
+::: {.displayed}
+-   ∃x▢↔¬∀x¬▢
+-   ∀x▢↔¬∃x¬▢
+:::
+
+Think about concrete examples:
+
+-   "Something is in the basement" is equivalent to "Not everything is not in
+    the basement"
+-   "Everything is awesome" is equivalent to "It is not the case that there is
+    something that is not awesome".
+
+So, here is our complete chart:
+
+<table style ="margin-left:auto;margin-right:auto;border: 1px solid black;border-spacing:2em 0;border-collapse: separate">
+<thead>
+<tr class="header">
+<th style="text-align: left;">...</th>
+<th style="text-align: left;">¬(...)</th>
+<th style="text-align: left;">Derived Rule</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Conditional</td>
+<td style="text-align: left;">¬(▢ → ◯)</td>
+<td style="text-align: left;">NC</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Conjunction</td>
+<td style="text-align: left;">¬(▢ ∧ ◯)</td>
+<td style="text-align: left;">DMA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Disjunction</td>
+<td style="text-align: left;">¬(▢ ∨ ◯)</td>
+<td style="text-align: left;">DMO</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Biconditional</td>
+<td style="text-align: left;">¬(▢ ↔ ◯)</td>
+<td style="text-align: left;">NB</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Universal Generalization</td>
+<td style="text-align: left;">¬∀x▢</td>
+<td style="text-align: left;">QN</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Existential Generalization</td>
+<td style="text-align: left;">¬∃x▢</td>
+<td style="text-align: left;">QN</td>
+</tr>
+</tbody>
+</table>
+
+And here is an example of a derivation using QN:
+
+~~~{.ProofChecker .FirstOrder options="guides fonts indent tabindent resize" submission=none}
+ ~ExF(x), ~ExG(x) :|-: Ax~(F(x)\/G(x))
+|1.Show Ax~(F(x)vG(x))
+|2.  ~ExF(x) :PR
+|3.  ~ExG(x) :PR
+|4.  Ax~F(x) :QN 2
+|5.  Ax~G(x) :QN 3
+|6.  ~F(a) :UI 4
+|7.  ~G(a) :UI 5
+|8.  Show ~(F(a)\/G(a))
+|9.    F(a)\/G(a) :AS
+|10.    G(a) :MTP 6,9
+|11.  :ID 7,10 
+|12.:UD 8
+~~~
+
+Can you follow the proof? Big picture, the proof asks us to show that, from
+the premises that nothing is F, and nothing is G, it follows that everything
+is neither F nor G.
+
+Because our conclusion is a universal generalization, our goal is to complete
+a universal derivation. That doesn't allow us to make any assumptions, but it
+does give us a goal: we need to derive an arbitrary instance of the show line.
+
+On lines (2) and (3), we bring down the premises. As they are, they aren't
+very useful. But by applying QN to them, we get two universal generalizations.
+Universal generalizations are very useful, as we can use UI on them. So we do
+that, UI-ing to a fresh constant, "a". Unfortunately, that still leaves us
+short of our goal---an arbitrary instance of the show line, like ¬(F(a)∨G(a)).
+So we enter a show line for our goal. That allows us to make an assumption for
+ID, and from there, getting the contradiction involves one application of MTP.
+
+Try using QN to solve this problem:
+
+```{.ProofChecker .FirstOrder options="guides fonts indent tabindent resize" points=10}
+R14.8 ~AxF(x), Ex~F(x)->AyG(y) :|-: G(a) 
+```
+
+::: {.youtube}
+<https://youtu.be/bZEtzZ3_GNE>
+:::
+
+
+<!-- vim: set ft=carnap :-->

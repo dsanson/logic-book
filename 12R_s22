@@ -1,0 +1,1345 @@
+---
+base-css:
+-   https://carnap.io/shared/dsanson@gmail.com/sanson-book.css
+-   https://cdn.plyr.io/3.6.8/plyr.css
+js: 
+-   https://cdn.plyr.io/3.6.8/plyr.polyfilled.js
+-   https://carnap.io/shared/dsanson@gmail.com/logic-book.js
+-   https://hypothes.is/embed.js
+---
+
+::: cover
+
+# Predicate Logic (PL)
+
+::: illustration
+![Everything
+Is](https://reggienet.illinoisstate.edu/access/content/user/desanso/public/img/everything_is.gif){alt='Benny
+the spaceman from the Lego Movie screams. Caption says "Everything Is".'}
+:::
+
+:::epigraph
+Some are born great, some achieve greatness,
+and some have greatness thrown upon 'em.
+
+[Shakespeare, [Twelfth Night](https://shakespeare.folger.edu/?p=984){target="_blank"
+rel="noopener noreferrer"}]{.source}
+:::
+:::
+
+::: {.auto-tally}
+:::
+
+This chapter introduces [Predicate Logic (PL)]{.vocab}, an extension of the [Sentential
+Logic (SL)]{.vocab} we've studied in earlier chapters. The specific learning objectives for
+this chapter are:
+
+a.  I can parse symbolic formulas, identifying the main connective, and
+    identifying the scope of each connective.
+b.  I can identify which variables in a formula are free and which are
+    bound
+c.  I can identify instances of generalizations, and generalizations of
+    instances
+
+# Quantification
+
+In Sentential Logic, the basic unit of logical form is an atomic sentence, and
+these units are glued together using truth-functional connectives, to form
+more complex molecular sentences. But this approach to logical form is
+limited.
+
+Consider the argument:
+
+::: standardform
+-   Everything is awesome
+-   Benny is awesome
+:::
+
+This argument is valid, and it is valid in virtue of its logical form. That
+is, any argument of this form will be valid. For example, 
+
+::: standardform
+-   Everything is cool
+-   Lucy is cool
+:::
+
+
+```{.QualitativeProblem .ShortAnswer give-credit="onSubmission" points=10}
+R12.1 Can you give another example of an argument of the same form?
+```
+
+:::spoiler
+I am curious: did you use a singular term or a general term in your
+conclusion? A singular term is a noun, or noun phrase, that refers to a single
+object. Examples include proper names and place names, like 'Taylor Swift' and
+'Normal, IL'. A general term is a noun, or noun phrase, that refers to a type
+of thing, or activity, or stuff. Examples include common nouns like 'frog',
+'mud', and 'dancing'.
+
+Here is an example with a proper name:
+
+:::standardform
+-   Everything is weird.
+-   Normal, IL is weird.
+:::
+
+Here are a few examples with common nouns:
+
+:::standardform
+-   Everything is weird.
+-   Frogs are weird.
+:::
+
+:::standardform
+-   Everything is weird.
+-   Water is weird.
+:::
+
+:::standardform
+-   Everything is weird.
+-   Dancing is weird.
+:::
+
+In English, these examples all look like they share the same basic form:
+
+:::standardform
+-   Everything is A
+-   \_\_\_ is A
+:::
+
+In our logic, it will turn out that they do *not* have the same logical form.
+:::
+
+Can we capture the validity of these arguments in SL?
+
+Remember how we handled phrases like 'all of us' and 'some of us' in [Chapter
+9](09R#quantificational-claims)? Given a list of who *we* are, we could
+symbolize the claim a like 'All of us are awesome' as a conjunction: 'I am
+awesome and you are awesome and...'.
+
+We can apply the same trick here. But now we need to give a list of
+*everything*. What I mean isn't every *kind* of thing (water, mud, cows,
+etc.). I mean each *individual* thing: Benny, Lucy, Emmet, Unikitty,
+Batman, etc. That is going to be a very long list. But to make things simple,
+let's suppose it's not. Let's suppose that Benny, Lucy, Emmet, Unikitty, and
+Batman are the only five things there are.
+
+In that situation, 'Everything is awesome' is equivalent to the conjunction:
+
+:::displayed
+-   Benny is awesome and Lucy is awesome and Emmet is awesome and Unikitty is
+    awesome and Batman is awesome.
+:::
+
+So, let's translate our argument into SL using this trick.
+
+:::wrapper
+:::soasticky
+| P: Benny is awesome
+| Q: Lucy is awesome
+| R: Emmet is awesome
+| S: Batman is awesome
+| U: Unikitty is awesome
+:::
+
+::: standardform
+-   Everything is awesome
+-   Benny is awesome
+:::
+
+:::standardform
+-   P∧Q∧R∧S∧U
+-   P
+:::
+
+We can now construct a derivation to show that this argument is valid. (Notice
+how all the parentheses make this a bit more complicated than a simple
+application of **S**.)
+
+```{.ProofChecker .Prop options="guides fonts indent tabindent resize" points=10}
+R12.2 P/\Q/\R/\S/\U :|-: P
+```
+
+:::
+
+This method will work well enough, as long as we have a complete list of
+each individual thing, and that list is not too long. In other words, it really
+doesn't work very well at all, since we don't have a complete list of each
+individual thing in the universe, and, even if we did, that list would be very long indeed.
+
+Suppose your stoner friend, late one night, says,
+
+::: displayed
+-   Everything is so cosmic, man.
+:::
+
+When your stoner friend says this, she means to be expansive. She doesn't just
+have a small list of characters from the Lego Movie in mind. She has
+*everything* in mind: each individual molecule, atom, subatomic particle; each
+individual person, living or dead; each event, past, present, or future; each
+individual geometric shape; each natural number, but also each rational
+number, and each irrational number, and so on.
+
+A complete list of all these things that are, according to your friend,
+so cosmic, would be infinitely long. So we will need infinitely many sentence
+letters. That's okay: we can use numeric subscripts:
+
+:::soa
+| P<sub>1</sub>: The number 1 is so cosmic.
+| P<sub>2</sub>: The number 2 is so cosmic.
+| P<sub>3</sub>: The number 3 is so cosmic.
+| P<sub>4</sub>: The number 4 is so cosmic.
+| ⋮
+:::
+
+So, already, our conjunction is infinitely long:
+
+:::displayed
+-   P<sub>1</sub>∧P<sub>2</sub>∧P<sub>3</sub>...
+:::
+
+The syntax of SL doesn't allow for infinitely long conjunctions.
+To see this, consider the question: what would be the main connective? Given
+our "lefty rule", the main connective would the connective furthest to the
+right. But for this infinite conjunction we are imagining, there is no
+connective furthest to the right. So it has no main connective.
+
+We can fix *that* problem by constructing our conjunction backwards:
+
+:::displayed
+-   ...P<sub>3</sub>∧P<sub>2</sub>∧P<sub>1</sub>
+:::
+
+But this is still not well-formed. Imaging trying to construct the syntactic
+tree for this sentence. You will never reach bottom. But until you reach
+bottom, you are not in a position to verify that the sentence at the top is a
+sentence. All you can say is that *if* the pieces below it are sentences, it
+is too. But you have no way of knowing whether or not that antecedent is true.
+
+These conjunctions are not just really long. They are also
+really repetitive. Every conjunct has the same logical form. The idea is that
+we have the predicate,
+
+::: {.displayed}
+-   \_\_\_ is so cosmic.
+:::
+
+And then we have a long list of singular terms. We generate each conjunct
+by plugging in one of those singular terms into the blank:
+
+::: {.displayed}
+-   The number 1 is so cosmic.
+-   The number 2 is so cosmic.
+-   Taylor Swift is so cosmic.
+-   The Lego Movie is so cosmic.
+:::
+
+We can also fill in that blank with a [variable]{.vocab} instead of a
+[constant]{.vocab}:
+
+::: displayed
+-   *x* is so cosmic.
+:::
+
+:::vaside
+A [constant]{.vocab} is a singular term that always refers to the same object. In
+English, proper names and place names, like 'Taylor Swift', 'Cardi B', and 'North
+America' are constants in this sense. Some phrases, like 'The number 1', 'The
+Pacific Ocean', and 'The first female President of ISU', are also constants.
+
+A [variable]{.vocab} is a term that can be assigned different values in
+different contexts. In English, pronouns like 'they', 'she', 'he', 'this',
+etc., often behave like variables.
+:::
+
+The difference between a variable, like '*x*', and a singular term, like
+'Taylor Swift', is that we can *vary* the value of the variable. In other
+words, we can *assign* different values to '*x*', and think about whether or
+not '*x* is so cosmic' is true or false for each different value. 
+
+```{.QualitativeProblem .ShortAnswer give-credit="onSubmission" points=10}
+R12.3 So, what do you think, are there some values of 'x' for which 'x is so cosmic' is true, and some for which it is false?
+R12.4 And what does your stoner friend think about that?
+```
+
+This gives us a way of capturing what your stoner friend was saying, without
+resorting to an infinite conjunction. When she said, 'Everything is so
+cosmic', she meant that the formula, '*x* is so cosmic', is true *for every
+value of x*. That is, no matter what value we assign to the variable '*x*',
+the formula '*x* is so cosmic' is true for that value. This is the idea we
+will pursue. The logical form of 'Everything is so cosmic' is:
+
+:::displayed
+-   For every *x*, *x* is cosmic.
+:::
+
+And if you disagree with your stoner friend, and think that some things are
+rather mundane, you might say 'Something is not cosmic':
+
+:::displayed
+-   For some *x*, *x* is not cosmic.
+:::
+
+But to chase this idea, we need to extend our artificial language. We need
+symbols for predicates, constants, and variables. And we need *quantifiers*:
+symbols that correspond to the use of 'every' and 'some' in English.
+
+## Predicates and Names
+
+We start with an overly simplified idea about the structure of simple
+sentences in natural languages. The idea is that each simple sentence has two
+parts: a subject, and a predicate. The subject of a simple sentence is
+always a constant: a singular term that always refers to the same thing, like
+'Taylor Swift', 'the Pacific Ocean', and 'the first female president of ISU'.
+
+The predicate is a verb or verb phrase. It is used to say what the subject is like, or what
+the subject is doing. So,
+
+::: displayed
+-   Thundercat is sleepy.
+:::
+
+Here, the subject is 'Thundercat', and the predicate is 'is sleepy'. Again,
+
+::: displayed
+-   Thundercat plays bass.
+:::
+
+The subject is 'Thundercat', and the predicate is 'plays bass'.
+
+In our artificial language, we use lowercase letters to represent constants,
+and capital letters to represent predicates. We are already using capital
+letters 'P' through 'W' as sentence letters. And we will save some capital
+letters aside for other future uses. So, for predicates, we will use capital
+letters 'F' through 'O'. For constants, we will use lowercase letters 'a'
+through 'e', holding aside the other lowercase letters for other uses.
+
+:::vaside
+-   [Predicate letters]{.vocab} are capital letters '*F*' through '*O*',
+    optionally with numerical subscripts.
+-   [Constants]{.vocab} are lowercase letters, '*a*' through '*e*', optionally
+    with numerical subscripts.
+:::
+
+So, suppose we give ourselves the following scheme of abbreviation:
+
+:::wrapper
+:::soasticky
+| F: is sleepy
+| G: plays bass
+| a: Thundercat
+| b: Taylor Swift
+:::
+
+Using this scheme, we can translate:
+
+::: displayed
+-   Thundercat is sleepy: F(a)
+-   Taylor Swift plays bass: G(b)
+:::
+
+Notice the syntax. We put the predicate letter first, followed by the
+subject in parentheses. This syntax is meant to suggest familiar notation from
+mathematics, for applying a *function* to an *argument*.
+
+
+
+```{.Translate .FOL points=10}
+R12.5 G(a): Thundercat plays bass.
+R12.6 F(b): Taylor Swift is sleepy.
+```
+
+:::spoiler
+![](https://reggienet.illinoisstate.edu/access/content/user/desanso/public/vid/R12.5.mp4)
+:::
+
+:::spoiler
+![](https://reggienet.illinoisstate.edu/access/content/user/desanso/public/vid/R12.6.mp4)
+:::
+
+Simple sentences constructed from a predicate and a constant, like 'F(a)', are
+atomic. That is, they can be glued together, using our connectives, just like
+'P's and 'Q's:
+
+::: displayed
+-   Thundercat is not sleepy: ¬F(a)
+-   Both Thundercat and Taylor Swift play bass: G(a)∧G(b)
+:::
+:::
+
+:::wrapper
+:::soasticky
+| F: is sleepy
+| G: stayed up all night dancing
+| a: Liam
+| b: Harry
+| c: Zayn
+:::
+
+
+```{.Translate .FOL points=10}
+R12.7 G(a)/\G(b)/\G(c): Liam, Harry, and Zayn stayed up all night dancing
+R12.8 F(a)/\~F(b) : Liam is sleepy but Harry is not
+R12.9 G(a)->F(a): If Liam stayed up all night dancing, then Liam is sleepy
+R12.10 ~G(c)->~F(c): Zayn is not sleepy if he didn't stay up all night dancing 
+```
+
+:::spoiler
+![](https://reggienet.illinoisstate.edu/access/content/user/desanso/public/vid/R12.7.mp4)
+:::
+
+:::spoiler
+![](https://reggienet.illinoisstate.edu/access/content/user/desanso/public/vid/R12.8.mp4)
+:::
+
+:::spoiler
+![](https://reggienet.illinoisstate.edu/access/content/user/desanso/public/vid/R12.9.mp4)
+:::
+
+:::spoiler
+![](https://reggienet.illinoisstate.edu/access/content/user/desanso/public/vid/R12.10.mp4)
+:::
+
+:::
+
+## Variables and Formulas
+
+:::vaside
+[Variables]{.vocab} are lowercase letters, '*v*' through '*z*', optionally
+with numeric subscripts.
+:::
+
+For variables, we use lowercase letters '*v*' through '*z*'. So,
+
+::: displayed
+-   F(x): x is tired
+-   G(y): y stayed up all night partying
+:::
+
+We don't call these sentences, because it doesn't make sense to ask whether or
+not they are true, full stop. Instead, it only makes sense to ask whether or
+not they are true *for a given assignment of some value to the variable*:
+
+
+
+
+```{.QualitativeProblem .MultipleChoice points=10}
+R12.11 Normal is in Illinois
+| *True
+| False
+| Not a sentence
+R12.12 x is in Illinois
+| True
+| False
+| *Not a sentence
+R12.13 San Francisco is in Illinois
+| True
+| *False
+| Not a sentence
+R12.14 x is less than 4
+| True
+| False
+| *Not a sentence
+R12.15 x is less than 4, where x is assigned 2 as its value
+| *True
+| False
+| Not a sentence
+```
+
+Again, we can use our connectives to build more complex formulas from these
+simple formulas.
+
+:::wrapper
+:::soasticky
+| F: is a frog
+| G: is green
+:::
+
+
+```{.Translate .FOL points=10}
+R12.16 F(x)/\G(x): x is a frog and x is green
+R12.17 F(x)/\G(y): x is a frog and y is green
+R12.18 ~F(x)/\~F(y): x is not a frog and y is not a frog 
+R12.19 F(x)->G(x): If x is a frog then x is green
+```
+
+:::spoiler
+![](https://reggienet.illinoisstate.edu/access/content/user/desanso/public/vid/R12.16.mp4)
+:::
+:::spoiler
+![](https://reggienet.illinoisstate.edu/access/content/user/desanso/public/vid/R12.17.mp4)
+:::
+:::spoiler
+![](https://reggienet.illinoisstate.edu/access/content/user/desanso/public/vid/R12.18.mp4)
+:::
+:::spoiler
+![](https://reggienet.illinoisstate.edu/access/content/user/desanso/public/vid/R12.19.mp4)
+:::
+
+:::
+
+## Quantifiers
+
+In addition to variables, we introduce two [quantifiers]{.vocab}. The
+[universal quantifier]{.vocab}, '∀', can be read as 'for all' or 'for every'. The
+[existential quantifier]{.vocab}, '∃', can be read as 'for some' or 'there
+exists'.
+
+:::vaside
+'∀' is the [universal quantifier]{.vocab}. It can be read as 'for all'
+or 'for every'. It looks like an upside down capital 'A'. You can think of the
+'A' as standing for 'all'.
+
+'∃' is the [existential quantifier]{.vocab}. It can be read as 'for
+some' or 'there exists'. It looks like a backwards capital 'E'. You can think
+of the 'E' as standing for 'exists'.
+
+A [quantifier phrase]{.vocab} is a quantifier followed by a variable. We say
+that the quantifier "quantifies over" the variable that is attached to it. So, in the
+phrase '∀x', the quantifier quantifies over 'x'.
+:::
+
+A quantifier always combines with a variable to form a [quantifier
+phrase]{.vocab}. For example, '∀x', which can be read as 'for all x', or 'for
+every x'. And, '∃y', which can be read as 'for some y', or 'there exists a y
+such that'. Or, to be more clunky but more precise, the canonical English for
+'∀y' is 'Every y is such that...'. And the canonical English for '∃x' is 'Some x
+is such that...'.
+
+:::wrapper
+:::soasticky
+| G: is good
+:::
+
+we can symbolize these sentences as follows:
+
+::: displayed
+-   ∀xG(x): Every x is such that x is good.
+-   ∃x¬G(x): Some x is such that x is not good.
+:::
+
+These sentences aren't quite English. They are English, but augmented by
+variables. In unaugmented English, we can use pronouns instead of variables:
+
+::: displayed
+-   ∀xG(x): Every thing is such that *it* is good.
+-   ∃x¬G(x): Some thing is such that *it* is not good.
+:::
+
+:::aside
+Note that the use of the word 'thing', and the corresponding neuter pronoun,
+'it', are both meant to be interpreted in a very broad way. Often, in
+English, we use 'thing' and 'it' to draw a contrast between persons and
+things. And we use personal pronouns, typically gendered. But in sweeping
+generalizations, meant to include both persons and things, we use 'thing' and
+'it'.
+:::
+
+These renderings are English, but they aren't idiomatic English. Here is the
+idiomatic English:
+
+::: displayed
+-   ∀xG(x): Everything is good.
+-   ∃xG(x): Something is good.
+:::
+
+Notice that, from our perspective, idiomatic English *hides* the logical form.
+'Everything is good' looks like it has the same form as 'Bridger is good'. But
+'Everything is good' is a universal generalization, '∀xG(x)', while Bridger is
+good is a simple atomic sentence, 'G(b)'. The canonical translation displays
+this difference, rather than hiding it.
+
+:::
+
+Scheme of abbreviation:
+
+:::wrapper
+:::soasticky
+| F: is funny
+| G: is goofy
+:::
+
+(To enter the existential quantifier, you can just type the letter "E", and to
+enter the universal quantifier, you can just type the letter "A".)
+
+
+```{.Translate .FOL points=10} 
+R12.20 AxF(x) : Every thing is such that it is funny.
+R12.21 ExG(x) : Some thing is such that it is goofy.
+R12.22 ~AxF(x) : Not every thing is such that it is funny.
+R12.23 AxG(x) : All things are goofy.
+R12.24 Ex~F(x) : Some things are not funny.
+R12.25 ExF(x)/\Ex~F(x): Some things are funny and some things aren't.
+```
+:::
+
+
+:::spoiler
+![](https://reggienet.illinoisstate.edu/access/content/user/desanso/public/vid/R12.20.mp4)
+:::
+:::spoiler
+![](https://reggienet.illinoisstate.edu/access/content/user/desanso/public/vid/R12.21.mp4)
+:::
+:::spoiler
+![](https://reggienet.illinoisstate.edu/access/content/user/desanso/public/vid/R12.22.mp4)
+:::
+:::spoiler
+![](https://reggienet.illinoisstate.edu/access/content/user/desanso/public/vid/R12.23.mp4)
+:::
+:::spoiler
+![](https://reggienet.illinoisstate.edu/access/content/user/desanso/public/vid/R12.24.mp4)
+:::
+:::spoiler
+![](https://reggienet.illinoisstate.edu/access/content/user/desanso/public/vid/R12.25.mp4)
+:::
+
+## Official Syntax 
+
+We've introduced some more symbols, and we've introduced some more ways of
+putting symbols together to construct sentences. We call our expanded language
+PL, for "Predicate Logic". 
+
+The symbols of PL are:
+
+1. [Sentence letters]{.vocab}, '$P,Q,\ldots,W'$ 
+2. [Terms]{.vocab}, which come in two types:
+    -  [constants]{.vocab}: "$a,b,c,d,e$"
+    -  [variables]{.vocab}: "$v,w,x,y,z$"
+3. [Predicate letters]{.vocab}: $F,G,\ldots,O,$
+4. [Sentential connectives]{.vocab}: '¬, ∧, ∨, →, ↔'
+5. [Quantifiers]{.vocab}: '∀' and '∃'
+6. Left and right parentheses.
+
+Officially, sentence letters, terms, and predicates can all have numerical
+subscripts, so we don't have to worry about not having enough of them.
+
+The [atomic formulas]{.vocab} of PL come in two types:
+
+-   Each sentence letter is an atomic formula.
+-   Any predicate letter followed by any term in parentheses is an atomic
+    formula.
+
+So 'P' and 'Q' are still with us as atomic formulas, but now we also have
+subject/predicate form atomic formulas, like 'F(a)' or 'G(x)'.
+
+Our [molecular formulas]{.vocab} are, as before, built from our atomic
+formulas, according to a small set of fixed rules:
+
+:::liveshapes
+
+1.  Every atomic formula is a formula.
+2.  If []{.P} and []{.Q} are both formulas, then:
+    a.  ¬[]{.P} is a formula,
+    b.  ([]{.P} ∧ []{.Q}) is a formula,
+    c.  ([]{.P} ∨ []{.Q}) is a formula,
+    d.  ([]{.P} → []{.Q}) is a formula,
+    e.  ([]{.P} ↔ []{.Q}) is a formula,
+3.  If []{.S} is a quantifier phrase, and []{.P} is a formula, []{.S}[]{.P} is a formula. 
+:::
+
+Clauses (1) and (2) should be familiar. Clause (3) is new, and requires a
+definition of 'quantifier phrase':
+
+A [quantifier phrase]{.vocab} is a quantifer ('∀' or '∃') followed by a
+variable, e.g., '∀x' or '∃z'.
+
+So, based on these rules,
+
+::: {.displayed}
+-   ¬∃x¬F(x)
+:::
+
+is a formula by (2a) because
+
+::: displayed
+-   ∃x¬F(x)
+:::
+
+is a formula by (3) because
+
+::: displayed
+-   ¬F(x)
+:::
+
+is a formula by (2a) because
+
+::: displayed
+-   F(x)
+:::
+
+is a formula by (1).
+
+Again, based on these rules,
+
+::: {.displayed}
+-   ∀y(P ∧ Q) 
+:::
+
+is a formula by (3) because
+
+::: {.displayed}
+-   (P ∧ Q) 
+:::
+
+is a formula by (2b) because both 'P' and 'Q' are formulas, by (1).
+
+As always, the [main connective]{.vocab} of a formula is the last thing added. What's
+new is that, in some cases, the main connective is a 
+quantifier phrase instead of a sentential connective. For example, here the
+main connective is '∀x': 
+
+::: {.displayed}
+-   ∀x(F(x) ∨ G(x))
+:::
+
+By contrast, here the main connective is '∨':
+
+::: {.displayed}
+-   ∀xF(x) ∨ ∃yG(y)
+:::
+
+When the main connective of a formula is a quantifier phrase, we call that
+formula a [generalization]{.vocab}. Specifically, if the main connective is an
+existential quantifier phrase, '∃', we call the formula an [existential
+generalization]{.vocab}, and if it is a universal quantifier phrase, '∀', we
+call the formula a [universal generalization]{.vocab}.
+
+
+
+```{.QualitativeProblem .MultipleChoice points=10}
+R12.26 The formula '∀xF(x)∧G(x)' is a
+| universal generalization
+| existential generalization
+| *conjunction
+R12.27 The formula '∀x(F(x)∧G(x))' is a
+| *universal generalization
+| existential generalization
+| conjunction
+R12.28 The formula '¬∃x(F(x)→G(x))' is a
+| universal generalization
+| existential generalization
+| *negation
+| conditional
+R12.29 The formula '∃x(F(x)∨G(x))' is a
+| universal generalization
+| *existential generalization
+| disjunction
+```
+
+::: youtube
+<https://youtu.be/LAQK4OBpd1Y>
+:::
+
+## Informal Notation
+
+Our conventions for informal notation remain the same, and remain in force.
+So, for example,
+
+:::displayed
+-   ∀(x)(F(x)∧G(x)→H(x)∨I(x))
+:::
+
+is informal notation for,
+
+:::displayed
+-   ∀(x)((F(x)∧G(x))→(H(x)∨I(x)))
+:::
+
+## Scope 
+
+A complex formula can have several connectives and quantifier phrases. One
+is the *main connective*, and it governs the whole
+sentence. But also, each connective or quantifier phrase is the main
+connective of some part of the formula, and it governs that part of the
+sentence. For example, in the sentence,
+
+:::displayed
+-   P ∧ Q → R ∨ S
+:::
+
+the '→' is the main connective for the whole sentence, the '∧' is the main
+connective of the antecedent, and the '∨' is the main connective of the
+consequent.
+
+One useful way to talk about this in terms of [vocab]{.scope}.
+
+Scope
+:   The [scope]{.vocab} of a connective or quantifier phrase is the part of
+    the sentence for which it is the main connective.
+
+So, in our example, the scope of ‘→’ is the whole sentence, while the
+scope of the '∧' is 'P ∧ Q', and the scope of the '∨' is 'P ∨ Q'.
+
+Scope gives us a nice way to talk about the difference between these two
+sentences:
+
+:::displayed
+-   ¬P → Q
+-   ¬(P → Q)
+:::
+
+The difference has to do with the scope of the negation. In the first
+sentence, the negation has a narrow scope: it just negates the 'P', and its
+scope is '¬P'. In the second sentence, the negation has a wide scope, that
+includes within it the conditional. In fact, its scope is the entire sentence.
+
+Scope also gives us a nice way to talk about quantifiers. Consider the
+formula,
+
+:::displayed
+-   ∀x(F(x) → ∃yG(y))
+:::
+
+In this case, the scope of '∀x' is the whole sentence, while the scope of '∃y'
+is just '∃yG(y)'.
+
+
+```{.QualitativeProblem .MultipleChoice points=10}
+R12.30 In the formula, '¬(P∧Q)', the scope of the '¬' is:
+| *'¬(P∧Q)'
+| 'P∧Q'
+| '¬P'
+R12.31 In the formula, '¬P∧Q', the scope of the '¬' is:
+| '¬(P∧Q)'
+| 'P∧Q'
+| *'¬P'
+R12.32 In the formula, 'F(x)↔∀xG(x)', the scope of '∀x' is:
+| 'F(x)↔∀xG(x)'
+| *'∀xG(x)'
+| 'G(x)'
+R12.33 In the formula, '∀x(F(x)↔G(x))', the scope of '∀x' is:
+| *'∀x(F(x)↔G(x))'
+| '∀xF(x)
+| '(F(x)↔G(x))'
+```
+
+::: {.youtube}
+<https://youtu.be/NKqbAiBiH80>
+:::
+
+``` {.Translate .FOL .Exact points="10"}
+R12.34 AxH(x): What is the scope of the '∀x' in 'P∨∀xH(x)'?
+R12.35 EyF(y): What is the scope of the '∃y' in '∃yF(y)∨∀xH(x)'?
+R12.36 Ey(F(y)\/AxH(x)): What is the scope of the '∃y' in '∃y(F(y)∨∀xH(x))'?
+R12.37 AyExF(x): What is the scope of the '∀y' in '∃z∀y∃xF(x)'?
+```
+
+:::spoiler
+![](https://reggienet.illinoisstate.edu/access/content/user/desanso/public/vid/R12.34-37.mp4)
+:::
+
+## Scope and Binding
+
+Scope also gives us a way of talking about how quantifier phrases interact with
+variables. Remember that each quantifier phrase involves a quantifier and a
+variable, and we say that the quantifier *quantifies over* that variable. This
+allows us to introduce the concept of *binding*:
+
+Binding
+:   A quantifier phrase [binds]{.vocab} every occurrence of the variable that
+    it quantifies over, that is within its scope, and that isn't already bound
+    by another quantifier phrase.
+
+That's a bit complicated. Let's work through each piece of the definition in
+turn.
+
+First, a quantifier phrase can only bind occurrences of the variable that it
+quantifies over. So, in the formula,
+
+:::displayed
+-   ∀[x]{.wavy}(F(y) ∧ G([x]{.wavy}))
+:::
+
+the quantifier phrase ∀x binds the occurrence of 'x' in G(x), but not
+the occurrence of 'y' in F(y).
+
+Second, a quantifier phrase can only bind occurrences of a variable that
+are within its scope. So, in the formula,
+
+:::displayed
+-   ∀[x]{.wavy}F([x]{.wavy}) ∧ G(x)
+:::
+
+the '∧' is the main connective, and the scope of the quantifier phrase
+is just the first conjunct, '∀xF(x)'. So the quantifier phrase only
+binds the 'x' in 'F(x)'. It does not bind the 'x' that occurs in 'G(x)',
+since that 'x' does not occur within its scope. 
+
+Finally, a quantifier phrase can only bind variables that have not already
+been bound. So, for example, if I start with the formula,
+
+:::displayed
+-   F(x) ∧ ∃[x]{.wavy}G([x]{.wavy})
+:::
+
+and then create a new formula by adding the quantifier phrase '∀x', giving
+me, I get:
+
+:::displayed
+-   ∀[x]{.wavy}(F([x]{.wavy})∧∃xG(x))
+:::
+
+In this formula, the quantifier phrase '∀x' binds the 'x' in 'F(x)', but it does not bind
+the 'x' in 'G(x)', because that 'x' is already bound by '∃x'.
+
+Two final points of definition. 
+
+First, we say that a variable occurrence that is not bound by any quantifier
+phrase is [free]{.vocab}. So the first occurrence of 'x' in the following
+sentence is free, while the second and third occurrences are bound:
+
+:::displayed
+-   F(x) ∧ ∃[x]{.wavy}G([x]{.wavy})
+:::
+
+Second, recall that we call something a formula, rather than a sentence, when
+it isn't the sort of thing that can be true or false full stop, but is only
+true or false relative to an assignment of a value of a variable. For example,
+it makes no sense to ask whether this is true or false, full stop:
+
+:::displayed
+-   I(x): x is in Illinois
+:::
+
+It only makes sense to ask whether it is true or false, relative to an
+assignment of a value to the variable 'x'. It is true when the value of 'x' is
+Watterson Towers, but false when the value of 'x' is the Epcot Center.
+
+:::wrapper
+:::soasticky
+| I: is in Illinois
+| a: Watterson Towers
+| e: The Epcot Center
+:::
+
+So, how can we tell when something is a sentence, and not just a formula? A
+natural first thought is that formulas have variables, and sentences don't. So
+the first is a sentence, and the second is not:
+
+:::displayed
+-    I(e): The Epcot Center is in Illinois
+-    I(x): x is in Illinois
+:::
+
+But this isn't quite right. Consider,
+
+:::displayed
+-   ∃xI(x): Something is in Illinois
+:::
+
+This is true, full stop. So it is a sentence, not a formula. But it contains
+variables. The difference is, the variables it contains are all bound. The
+reason 'I(x)' is a formula, and not a sentence, is that it contains a *free*
+variable.
+
+:::
+
+In other words, a [sentence]{.vocab} is a formula that contains no free
+occurrences of variables.
+
+
+```{.QualitativeProblem .MultipleChoice points=10}
+R12.38 'F(x)∧G(x)' is
+| a sentence but not a formula
+| *a formula but not a sentence
+| both a formula and a sentence
+R12.39 '∃xF(x)∧G(x)' is
+| a sentence but not a formula
+| *a formula but not a sentence
+| both a formula and a sentence
+R12.40 '∃xF(x)∧∃xG(x)' is
+| a sentence but not a formula
+| a formula but not a sentence
+| *both a formula and a sentence
+```
+
+:::spoiler
+Note that every sentence is a formula, but not every formula is a sentence. So
+for each of these questions, the first option, 'a sentence but not a formula',
+is off the table.
+:::
+
+::: youtube
+<https://youtu.be/VEsDYjx7BOo>
+:::
+
+
+## Instances
+
+Suppose we have the following scheme of abbreviation:
+
+:::wrapper
+:::soasticky
+| F:  is flat.
+| G:  is real.
+| a:  Kansas
+| b:  Earth
+:::
+
+Now consider this argument:
+
+::: standardform
+-   F(a): Kansas is flat.
+-   ∃xF(x): Something is flat.
+:::
+
+Do you see that the conclusion follows from the premise? Do you also see how
+the premise is an *instance* of the conclusion? The conclusion says that
+*something* is flat. The premise says that *Kansas* is flat. So that's
+something that is flat. Or, thinking about it more formally, the conclusion
+says that 'F(x)' is true for at least one value of x. And we know, from the
+premise, that 'F(x)' is true when x is Kansas. So the conclusion follows from
+the premise.
+
+Compare that argument to this argument, which is *not* valid:
+
+::: standardform
+-   F(a): Kansas is flat.
+-   ∀xF(x): Everything is flat.
+:::
+
+As with the previous argument, the conclusion is a generalization, and the
+premise is an *instance* of that generalization. But this time, the conclusion
+is a *universal* generalization: it says that 'F(x)' is true for *every* value
+of x. We know from the premise that 'F(x)' is true for *at least one* value
+of x, but we can't infer that it is true for *every* value of x. So the
+conclusion doesn't follow.
+
+On the other hand, this argument is valid:
+
+::: standardform
+-   ∀xF(x): Everything is flat.
+-   F(a): Kansas is flat.
+:::
+
+In the previous two examples, we were trying to infer a generalization from an
+instance. Here, we infer an instance from a generalization. Since 'F(x)' is
+true of *every* value of x, it follows that it is true of Kansas.
+
+So we can infer an instance from a universal generalization. But we cannot
+infer an instance from an existential generalization.  This argument is *not*
+valid:
+
+::: standardform
+-   ∃xF(x): Something is flat.
+-   F(a): Kansas is flat.
+:::
+
+The premise tells us that 'F(x)' is true for *at least one* value of x. But we
+can't infer from this that it is true of *Kansas* in particular.
+
+:::
+
+The point of these examples is to give you a feel for the relationship between
+*generalizations* and their *instances*. Later, when we get to derivations, we
+will introduce two rules. **Existential Generalization (EG)** is the rule that
+lets us infer an existential generalization from an instance. **Universal
+Instantiation (UI)** is the rule that lets us infer an instance from a
+universal generalization.
+
+## Constructing an instance from a generalization
+
+Remember, a [generalization]{.vocab} is a formula whose main connective is a
+quantifier phrase. We construct an [instance]{.vocab} of a generalization by
+removing that quantifier phrase, and uniformally replacing the variable
+occurrences that were bound by that quantifier phrase with a term.
+
+For example, given the generalization,
+
+::: displayed
+-   ∀x(F(x) ∧ G(x))
+:::
+
+we construct an instance by removing the quantifier phrase,
+
+::: displayed
+-   (F(x) ∧ G(x))
+:::
+
+and then replacing both occurrences of 'x' with any term we like:
+
+::: displayed
+-   (F(a) ∧ G(a))
+-   (F(b) ∧ G(b))
+-   (F(c) ∧ G(c))
+-   (F(y) ∧ G(y))
+-   (F(z) ∧ G(z))
+:::
+
+Remember, a [term]{.vocab} is a constant or variable. So we can replace the
+'x's with a constant, like 'a', or a variable, like 'y'. Also, we can replace
+the 'x's with *any* term, and 'x' is a term. So we can replace the 'x's with
+'x's:
+
+::: displayed
+-   (F(x) ∧ G(x))
+:::
+
+Our replacement must be *uniform*. That is, we can't replace some of the 'x's
+with one term, and other 'x's with another term. So these are not instances of
+our generalization:
+
+:::{.displayed}
+-   [(F(a) ∧ G(b))]{.xed}
+-   [(F(x) ∧ G(y))]{.xed}
+:::
+
+There are a couple of complications. First, you must make sure that you *only*
+replace the variables that were bound by the quantifier phrase you've removed. For
+example, if our generalization is:
+
+::: displayed
+-   ∃y(F(a) → G(y))
+:::
+
+we can only replace the 'y', not the 'a', because the 'a' isn't a variable
+that was bound by '∃y'. So this is not an instance:
+
+::: {.displayed} 
+-   [F(b) → G(b)]{.xed}
+:::
+
+But these are all instances:
+
+::: displayed
+-   F(a) → G(a)
+-   F(a) → G(b)
+-   F(a) → G(x)
+:::
+
+This can get confusing when you have more than one overlapping quantifier
+phrase:
+
+::: displayed
+-   ∀x(F(x) → ∃xG(x))
+:::
+
+First, we remove the quantifier phrase:
+
+::: displayed
+-   (F(x) → ∃xG(x))
+:::
+
+Only the first 'x' was bound by the quantifier phrase we removed. The other
+two 'x's are within the scope of '∃x', and so are bound, and remain bound, by that quantifier
+phrase. So we are only allowed to replace that first 'x':
+
+::: displayed
+-   F(a)→∃xG(x)
+-   F(b)→∃xG(x)
+-   F(x)→∃xG(x)
+-   F(y)→∃xG(x)
+:::
+
+But not these:
+
+::: {.displayed} 
+-   [F(a)→∃aG(a)]{.xed}
+-   [F(b)→∃xG(b)]{.xed}
+-   [F(y)→∃yG(y)]{.xed}
+:::
+
+There is a second complication, also caused by quantifier phrases with
+overlapping scope. Consider:
+
+:::displayed
+-   ∀x(F(x) → ∃y(G(y) ∧ H(x)))
+:::
+
+The main connective is the '∀x'. So we remove it:
+
+:::displayed
+-   F(x) → ∃y(G(y) ∧ H(x))
+:::
+
+Both 'x's are now free, and we can replace them with any term we want:
+
+:::displayed
+-   F(a) → ∃y(G(y) ∧ H(a))
+-   F(b) → ∃y(G(y) ∧ H(b))
+-   F(x) → ∃y(G(y) ∧ H(x))
+-   F(z) → ∃y(G(y) ∧ H(z))
+:::
+
+But there is one term that we can't use:
+
+:::{.displayed} 
+-   [F(y) → ∃y(G(y) ∧ H(y))]{.xed}
+:::
+
+Notice that, when replace that second 'x' with 'y', it gets "captured" by the
+quantifier, '∃y', and so is bound, not free. When constructing an instance,
+if you choose to replace the once-bound variables with another variable, you
+must make sure that the new variable is remains free, and is not captured by
+some other quantifier.
+
+```{.QualitativeProblem .MultipleSelection points=10}
+R12.41 Select all of the instances of the generalization, '∃xF(x)'.
+| *'F(a)'
+| '∃aF(a)'
+| *'F(x)'
+R12.42 Select all of the instances of the generalization, '∃x(F(x)∨G(x))'?
+| *'F(a)∨G(a)'
+| 'F(a)∨G(b)'
+| 'F(b)∨G(a)'
+| *'F(x)∨G(x)'
+| *'F(y)∨G(y)'
+| 'F(x)∨G(y)'
+R12.43 Select all of the instances of the generalization, '∀x(F(x)∨G(a))'?
+| 'F(a)∨G(b)'
+| *'F(b)∨G(a)'
+| *'F(a)∨G(a)'
+| *'F(x)∨G(a)'
+| 'F(a)∨G(x)'
+R12.44 Select all of the instances of the generalization, '∀x∃y(F(x)→G(y)∨G(x))'?
+| *'∃y(F(x)→G(y)∨G(x))'
+| *'∃y(F(a)→G(y)∨G(a))'
+| '∃y(F(y)→G(y)∨G(y))'
+| '∃x(F(y)→G(x)∨G(y))'
+| *'∃y(F(z)→G(y)∨G(z))'
+```
+
+::: {.youtube}
+<https://youtu.be/Q7lsLOu4_yI>
+:::
+
+::: {.youtube }
+<https://youtu.be/0C1CE8wBl-8>
+:::
+
+
+``` {.Translate .FOL .Exact points="10"}
+R12.45 F(a),F(b),F(c),F(d),F(e),F(v),F(w),F(x),F(y),F(z): Provide an instance of the generalization, '∀xF(x)'
+R12.46 F(a)/\G(a), F(b)/\G(a), F(c)/\G(a), F(d)/\G(a), F(e)/\G(a), F(v)/\G(a), F(w)/\G(a), F(x)/\G(a), F(y)/\G(a), F(z)/\G(a): Provide an instance of the generalization, '∀x(F(x)/\G(a))'
+```
+
+:::spoiler
+![](https://reggienet.illinoisstate.edu/access/content/user/desanso/public/vid/R12.45-46.mp4)
+:::
+
+## Constructing a generalization from an instance
+
+Now we flip the process from the previous section on its head, and consider
+what happens when we want to construct a generalization from an instance.
+
+Consider the sentence,
+
+::: displayed
+-   F(a) ∧ G(a)
+:::
+
+What generalizations is this an instance of? Here is one:
+
+::: displayed
+-   ∀x(F(x) ∧ G(x))
+:::
+
+Removing the quantifier frees both of the 'x's, which we can uniformly replace
+with 'a's, getting us 'F(a) ∧ G(a)'. So 'F(a) ∧ G(a)' is an instance of this
+generalization.
+
+It is also an instance of these generalizations, for the same reason:
+
+::: displayed
+-   ∀y(F(y) ∧ G(y))
+-   ∃x(F(x) ∧ G(x))
+:::
+
+What about this one?
+
+::: displayed
+-   ∃y(F(a) ∧ G(y))
+:::
+
+Yes: when we drop the quantifier phrase, '∃y', we are left with 'F(a) ∧ G(y)'.
+We can then replace the 'y' with any term we like. Replacing it with 'a' gets
+us 'F(a) ∧ G(a)'.
+
+When you are constructing an instance, you need to *uniformly* replace the
+once-bound variables with the same term. But when you flip that on its head,
+and consider the process of generalizing from an instance, you are allowed to
+pick and choose which terms to replace with a now-bound variable. This isn't
+because there are two different underlying rules about what counts as an
+instance. It's just because a uniform replacement, when moving from a
+generalization to an instance, can look like "picking and choosing" when ran
+in reverse, from instance to generalization.
+
+Although you can "pick and choose", you have to always pick instances of the
+same term. You cannot replace both an 'a' and a 'b' with a bound variable. So
+you can't generalize from the first formula below to the second:
+
+:::{.displayed }
+-   F(a) ↔ G(b)
+-   [∀x(F(x) ↔ G(x))]{.xed}
+:::
+
+To see this, try to work it backwards, from the generalization to the
+instance: you remove the quantifier phrase, '∀x'. You are then required to
+*uniformly* replace the now-free 'x's with some term. You cannot replace one
+of them with an 'a' and the other with a 'b'.
+
+Here is a weird example. Suppose we start with:
+
+::: displayed
+-   F(a) ∨ G(a)
+:::
+
+One generalization that this is an instance of is:
+
+::: displayed
+-   ∀x(F(a) ∨ G(a))
+:::
+
+What? How does that work? Let's walk through the process. First, we remove the
+quantifier phrase, giving us:
+
+::: displayed
+-   F(a) ∨ G(a)
+:::
+
+Now we are allowed to replace all occurrences of once-bound variables with any
+term we like. But there are no once-bound variables. The only 'x' bound by
+'∀x' was the 'x' in the quantifier phrase itself, and we just stripped that
+away. So we are done: 'F(a) ∨ G(a)' is an instance (in fact, the only
+instance) of '∀x(F(a) ∨ G(a))'.
+
+So, when you are generalizing from an instance, you can pick and choose which
+terms to replace with a now-bound variable. And one extreme choice you can
+make is to replace *none* of the terms, like we did here.
+
+So, when constructing a generalization from an instance, the process looks
+like this:
+
+-   Uniformly replace some or all or none(!) of the occurrences of a term in
+    the formula with a variable. (Be sure to choose a variable that remains free, and doesn't get
+    captured.)
+-   Add a quantifier phrase over that variable to the beginning of the
+    formula.
+
+Some more examples:
+
+-   F(a) → G(b) ∧ H(a) is an instance of:
+    -   ∀x(F(x) → G(b) ∧ H(x))
+    -   ∀x(F(a) → G(b) ∧ H(x))
+    -   ∀x(F(a) → G(x) ∧ H(a))
+-   ∃y(F(y) ↔ G(b)) is an instance of:
+    -   ∀x∃y(F(y) ↔ G(x))
+    -   ∃x∃y(F(y) ↔ G(x))
+
+
+```{.QualitativeProblem .MultipleSelection points=10}
+R12.47 Select all of the generalizations that have 'F(a)' as an instance.
+| *∀xF(x)
+| *∀zF(z)
+| ∀aF(a)
+| *∃xF(a)
+R12.48 Select all of the generalizations that have '~(F(a)↔G(a))' as an instance.
+| *'∀x~(F(a)↔G(a))'
+| *'∀x~(F(x)↔G(a))'
+| *'∀x~(F(x)↔G(x))'
+| '∀x~(F(y)↔G(y))'
+| *'∀y~(F(y)↔G(y))'
+```
+
+<!-- vim: set ft=carnap :-->
+

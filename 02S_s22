@@ -1,0 +1,273 @@
+---
+base-css:
+-   https://carnap.io/shared/dsanson@gmail.com/sanson-book.css
+-   https://cdn.plyr.io/3.6.8/plyr.css
+js: 
+-   https://cdn.plyr.io/3.6.8/plyr.polyfilled.js
+-   https://carnap.io/shared/dsanson@gmail.com/logic-book.js
+-   https://hypothes.is/embed.js
+---
+
+# Validity, Soundness, and Strength: Supplementary Exercises
+
+This is a supplement. Supplements are not required, and do not figure in the
+calculation of your course grade. These exercises are for students looking for
+more practice.
+
+## Definitions
+
+```{.QualitativeProblem .ShortAnswer submission=none}
+1 Try to write down the definition of validity without looking it up. Then check your answer.
+2 Try to write down the definition of soundness without looking it up. Then check your answer.
+3 Try to write down the definition of inductive strength without looking it up. Then check your answer.
+```
+
+## Applying the Definitions
+
+```{.QualitativeProblem .ShortAnswer submission=none}
+4 Come up with your own example of an argument that is sound.
+5 Come up with your own example of an argument that is valid, but not sound.
+6 Come up with your own example of an argument that is not valid, but is inductively strong.
+7 Come up with your own example of an argument that is neither valid nor inductively strong.
+8 Come up with your own example of an argument that is neither valid nor inductively strong, but has true premises and a true conclusion.
+9 Come up with your own example of an argument that is valid, but has a false conclusion.
+10 Come up with your own example of an argument that is not valid, but has a true conclusion.
+11 Come up with your own example of an argument that is valid, even though the conclusion doesn't seem to have anything to do with the premises.
+12 Come up with your own example of an argument that is valid, but has all true premises and a false conclusion.
+```
+
+## Recognizing Validity and Soundness
+
+These exercises simply don't lend themselves to being set up as problems on
+Carnap. So I give them to you as exercises to do on paper, with some answers,
+hints, and comments hidden behind spoiler boxes.
+
+For each of the following, mark each premise and conclusion as true (T), false
+(F), or don't know (?). Then decide whether or not the argument is valid,
+whether or not it is sound, and whether or not it is inductively strong. If
+you think an argument is *invalid*, try to describe for yourself a possible
+situation in which the premises are true and the conclusion is false.
+
+::: standardform
+-   If it rains, it pours.
+-   It rains.
+-   It pours.
+:::
+
+:::spoiler
+::: standardform
+-   False: If it rains, it pours.
+-   ?: It rains.
+-   ?: It pours.
+:::
+
+The first premise is false. Sometimes, when it rains, it just sprinkles. 
+
+As I write this, where I am, the second premise is false too. But it might be
+true where you are, as you solve this problem. The same goes for the
+conclusion.
+
+The argument is valid, but it isn't sound. It is valid because if the premises
+are true, the conclusion has to be true too. It isn't sound, because at least
+one of its premises is false. 
+:::
+
+::: standardform
+-   If you live in Normal, you live in Illinois.
+-   You live in Illinois.
+-   Your live in Normal.
+:::
+
+::: spoiler
+::: standardform
+-   True: If you live in Normal, you live in Illinois.
+-   True?: You live in Illinois.
+-   ?: Your live in Normal.
+:::
+
+The first premise is true. I suspect that the second premise is true too, but
+you are in a better position to know that than I am. I don't know whether or
+not the conclusion is true: I know  you are a student at ISU, but you might
+live in another town.
+
+The argument is not valid. To see this, suppose you lived in Chicago: then both premises
+would be true, but the conclusion is false. 
+
+And since it is not valid, it is not sound.
+
+Is it inductively strong? No: most people who live in Illinois do not live in
+Normal. So if the only thing I knew about you was that you lived in Illinois,
+and the only thing I knew about Normal was that Normal was in Illinois, that
+wouldn't provide me with a good reason to think that you live in Normal.
+:::
+
+::: standardform
+| [If you live in Illinois, you live in Normal.]{.premise .nn}
+| [You live in Illinois.]{.premise .nn}
+| [Your live in Normal.]{.conclusion}
+:::
+
+:::spoiler
+
+| Premise 1: False (?)
+| Premise 2: True (I am guessing)
+| Premise 3: ?
+
+This argument is valid. The premises might not actually be true, but if they
+*were* true, the conclusion would have to be true too.
+:::
+
+::: standardform
+| [All dogs go to heaven.]{.premise .nn}
+| [Fido is a dog.]{.premise .nn}
+| [Fido goes to heaven.]{.conclusion}
+:::
+
+:::spoiler
+This is valid. I doubt the first premise is true. I don't know who or what
+Fido is, so I am not in a position to assess the truth of the second premise
+or the conclusion.
+:::
+
+::: standardform
+| [All dogs go to heaven.]{.premise .nn}
+| [Fido goes to heaven.]{.premise .nn}
+| [Fido is a dog.]{.conclusion}
+:::
+
+:::spoiler
+This is not valid. Suppose all dogs and cats go to heaven, and Fido is a cat.
+:::
+
+::: standardform
+| [Most dogs go to heaven.]{.premise .nn}
+| [Fido goes to heaven.]{.premise .nn}
+| [Fido is a dog.]{.conclusion}
+:::
+
+:::spoiler
+Not valid. Suppose the premises are both true, and Fido is a cat. Also not
+inductively strong. The first premise says that most dogs go to heaven, it
+doesn't say that most who go to heaven are dogs. It could be that most dogs go
+to heaven, and most ants go to heaven too. There are far more ants than dogs,
+so in that situation, the fact that Fido goes to heaven doesn't give you much
+reason to think he is a dog rather than an ant.
+:::
+
+::: standardform
+| [Most dogs go to heaven.]{.premise .nn}
+| [Fido is a dog.]{.premise .nn}
+| [Fido goes to heaven.]{.conclusion}
+:::
+
+:::spoiler
+Not valid. Fido could be an exception: one of the dogs who doesn't go to
+heaven.
+
+But the argument is inductively strong: if most dogs go to heaven, and Fido is
+a dog, then, in absence of specific reasons to think that Fido is an
+exception, it is a good bet that Fido is probably going to heaven.
+:::
+
+::: standardform
+| [Any book in the library is worth reading.]{.premise .nn}
+| [Moby Dick is a book in the library.]{.premise .nn}
+| [Moby Dick is worth reading.]{.conclusion}
+:::
+
+:::spoiler
+Valid. I leave it to you to assess the actual truth or falsehood of the
+premises and the conclusion.
+:::
+
+::: standardform
+| [Any book in the library is worth reading.]{.premise .nn}
+| [Moby Dick is worth reading.]{.premise .nn}
+| [Moby Dick is a book in the library.]{.conclusion}
+:::
+
+:::spoiler
+Not valid. The first premise says that all the books in the library are worth
+reading. It doesn't say that all the books worth reading are in the library.
+:::
+
+::: standardform
+| [There is no good evidence that the Loch Ness Monster exists.]{.premise .nn}
+| [The Loch Ness Monster does not exist.]{.conclusion}
+:::
+
+:::spoiler
+The premise is true, and the conclusion is true. The argument is not valid: it
+is *possible* that, despite the lack of evidence, Nessie exists. But the
+argument is inductively strong, I think, especially given how much effort has
+gone into to trying to find such evidence over the years.
+:::
+
+::: standardform
+| [There is no good evidence that the Loch Ness Monster doesn't exist.]{.premise .nn}
+| [The Loch Ness Monster exists.]{.conclusion}
+:::
+
+::: spoiler
+Is this one inductively strong also? Does the lack of evidence *against* the
+existence of Nessie count in support of Nessie's existence?
+:::
+
+
+::: standardform
+| [Every human action has a cause.]{.premise .nn}
+| [If an action has a cause, then it isn't free.]{.premise .nn}
+| [No human action is free.]{.conclusion}
+:::
+
+:::spoiler
+Valid! I leave it to you to assess the truth or falsity of the premises.
+:::
+
+::: standardform
+-   It is possible that your older self will have interests and values that
+    your current self despises.
+-   You shouldn't plan to give your money to someone who might have
+    interests and values that you despise.
+-   To save for the future is to plan to give your money to your older self.
+-   You should not save for the future.
+:::
+
+:::spoiler
+Valid! The first premise is true. The second is harder to assess: what do you
+think? And the third is also hard to assess, but seems pretty plausible. But
+if you agree that all three premises are true, I am afraid that working
+through this supplement may lead to your eventual financial ruin.
+:::
+
+::: standardform
+| [Every physical event has a physical cause.]{.premise .nn}
+| [Mental events are not physical events.]{.premise .nn}
+| [No mental event has a physical cause.]{.conclusion}
+:::
+
+::: spoiler
+Not valid! Do you see why?
+:::
+
+::: standardform
+| [Every event has a physical cause.]{.premise .nn}
+| [Every mental event has a physical cause.]{.conclusion}
+:::
+
+:::spoiler
+Valid!
+:::
+
+::: standardform
+| [Every duck is alive.]{.premise .nn}
+| [Every rubber duck is alive.]{.conclusion}
+:::
+
+:::spoiler
+Not valid! A rubber duck is not a duck. Maybe this means that the previous
+argument was not valid, unless we add the additional implicit premise that a
+mental event is an event.
+:::
+
+<!-- vim: set ft=carnap :-->

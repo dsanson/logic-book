@@ -1,0 +1,485 @@
+---
+base-css:
+-   https://carnap.io/shared/dsanson@gmail.com/sanson-book.css
+-   https://cdn.plyr.io/3.6.8/plyr.css
+js: 
+-   https://cdn.plyr.io/3.6.8/plyr.polyfilled.js
+-   https://carnap.io/shared/dsanson@gmail.com/logic-book.js
+-   https://hypothes.is/embed.js
+---
+
+::: cover
+
+# Truth Tables for Arguments
+
+!["And the truth shall set you free!"](https://dsanson.github.io/logic/img/truth-set-you-free.gif){target="_blank"
+rel="noopener noreferrer" alt="Animated GIF of Jim Carey exclaiming 'And the
+truth shall set you free!' while tossing papers into the air."}
+
+:::
+
+## Introduction
+
+::: {.auto-tally}
+:::
+
+In the last chapter, we introduced truth tables, and learned how to use them
+to explore the truth-functional properties of individual sentences. In this
+chapter, we use truth tables to explore logical relations *between* sentences.
+Here are the specific learning objectives:
+
+a.  I can use truth tables to determine whether or not two or more
+    sentences are truth-functionally equivalent, and whether or not two
+    or more sentences are truth-functionally consistent
+b.  I can use truth tables to determine whether or not an argument is
+    truth-functionally valid.
+
+## Truth-Functional Equivalence
+
+:::aside
+Here is a short video lecture on truth-functional equivalence. Note that, in
+the video, I refer to truth-functional equivalence as "logical equivalence in
+Sentential Logic".
+
+:::youtube
+<https://youtu.be/7NGMspHN1H8>
+:::
+:::
+
+To say that two sentences are [truth-functionally equivalent]{.vocab} is to
+say that, on every possible assignment, their truth values agree. In other
+words, on each row of the truth table, they both have the same truth value.
+
+::: vaside
+Two or more sentences are [truth-functionally equivalent]{.vocab} iff, on each
+row of their truth table, they agree in truth value.
+:::
+
+We've already encountered this relationship. In our discussion of DNI and DNE,
+we discussed the fact that every sentence is [logically equivalent]{.vocab} to
+its double negation. In our discussion of exclusive disjunction, we discussed
+the fact that 'P $\veebar$ Q' is [logically equivalent]{.vocab} to '(P ∨ Q) ∧
+¬(P ∨ Q)', and also equivalent to '¬(P ↔ Q)'. Truth-functional equivalence is
+a specific kind of logical equivalence: logical equivalence in virtue of the
+sorts of logical forms considered in SL. Later, when we introduce *Predicate
+Logic*, we will introduce a richer set of logical forms, which will allow us
+to account for other sorts of logical equivalences.
+
+::: {.vaside .liveshapes}
+Two sentences, []{.P} and []{.Q}, are [logically equivalent]{.vocab} iff
+necessarily, they have the same truth value. Truth-functional equivalence is
+logical equivalence in Sentential Logic.
+:::
+
+So, what are some examples of sentences that are truth-functionally equivalent?
+
+The simplest way to "flip" a conditional is to just swap antecedent and
+consequent. This gets you the [converse]{.vocab} of the conditional. So, for
+example, 'Q → P' the converse of 'P → Q'.  Is the converse of a conditional
+truth-functionally equivalent to that conditional? Let's check:
+
+
+```{.TruthTable .Simple options="nocounterexample immutable nocheck display" submission=none}
+ P->Q, Q->P
+|T TT  T TT 
+|T FF  F TT
+|F TT  T FF
+|F TF  F TF
+```
+
+This is just like other truth tables you've seen, but instead of calculating
+the truth values for one sentence, we are calculating the truth values for two
+sentences. The two sentences are separated by a comma.
+
+Again, truth tables can be hard to read. You need to remember to look at the
+columns *under the main connectives*, and look past all the other columns.
+Each column represents the truth values of a *part* of the whole sentence.
+Only the column under the main connective represents the truth values of the
+*whole sentence*.
+
+In this case, the table tells us that the truth values of each sentence on
+each row are:
+
+::: {.itt rows="2"}
+   P → Q   Q → P
+  ------- ---------
+     T        T
+     F        T
+     T        F
+     T        T
+:::
+
+As you can see, the two sentences disagree in truth value on rows two and
+three. So these two sentences are not truth-functionally equivalent. More
+generally, a conditional is *not* truth-functionally equivalent to its
+converse.
+
+A more sophisticated way to "flip" a conditional is to swap antecedent and
+consequent, while also negating each one. This gets you the
+[contrapositive]{.vocab} of the conditional. For example, '¬Q → ¬P' is the
+contrapositive of 'P → Q'. A conditional *is* truth-functionally equivalent to
+its contrapositive, as this table shows:
+
+```{.TruthTable .Simple options="nocounterexample immutable nocheck display" submission=none}
+ P->Q, ~Q->~P
+|T TT  FT TFT
+|T FF  TF FFT
+|F TT  FT TTF
+|F TF  TF TTF
+```
+
+Again, pulling out just the columns under the main connectives, here are the
+truth values, on each row, for the two sentences:
+
+::: {.itt rows="2"}
+   P → Q   ¬Q → ¬P
+  ------- ---------
+     T        T
+     F        F
+     T        T
+     T        T
+:::
+
+As you can see, on each row, they agree, proving that these two sentences are
+truth-functionally equivalent.
+
+:::.aside
+It is worth knowing that a conditional is equivalent to its contrapositive.
+Often, one will more clearly communicate an important relationship than the
+other. For example, suppose a teacher put the following conditional into her
+course syllabus:
+
+:::example
+| If you pass the class, you take the final
+:::
+
+The force of this isn't very clear. Compare that to the force of the
+truth-functionally equivalent contrapositive:
+
+:::example
+| If you don't take the final, you don't pass the class.
+:::
+
+These two conditionals *say the same thing*. But the force of the second is
+*much clearer*.
+:::
+
+## Truth-Functional Consistency
+
+
+Even though 'P → Q' and 'Q → P' are not truth-functionally equivalent, as we
+saw above, they
+are [truth-functionally consistent]{.vocab}. That is, it is, it is *possible* for
+them to be true together. We can see this on the first and fourth rows of their
+truth table, where they are both assigned T together.
+
+:::vaside
+Two or more sentences are [truth-functionally consistent]{.vocab} iff there is
+at least one assignment that makes them all true.
+:::
+
+```{.TruthTable .Simple options="nocounterexample immutable nocheck display" submission=none}
+ P->Q, Q->P
+|T TT  T TT 
+|T FF  F TT
+|F TT  T FF
+|F TF  F TF
+```
+
+:::vaside
+Two or more sentences are [truth-functionally inconsistent]{.vocab} iff there
+is no assignment that makes them all true.
+:::
+
+But not sentences are truth-functionally consistent. Some
+sentences cannot be true together, because they are [truth-functionally
+inconsistent]{.vocab}. For these sentences, there is no assignment that makes
+them all true. For example,
+
+```{.TruthTable .Simple options="nocounterexample immutable nocheck display" submission=none}
+ P, P->Q, P->~Q
+|T  TT T  TF FT
+|T  TF F  TT TF
+|F  FT T  FT FT
+|F  FT F  FT TF
+```
+
+Again, pulling out just the truth values under the main connectives, we see:
+
+::: {.itt rows="3"}
+   P   P → Q   P → ¬Q
+  --- ------- --------
+   T     T       F
+   T     F       T
+   F     T       T
+   F     T       T
+:::
+
+There is no row where all three sentences are true together. These sentences
+are truth-functionally inconsistent.
+
+:::.aside
+Notice that, although they cannot all be true together, any two of them taken
+as a pair are truth-functionally consistent. This is what is known as an
+[inconsistent triad]{.vocab}.
+:::
+
+```{.TruthTable .Simple options="nocounterexample" points=10}
+R8.1 P->Q, ~Q\/P
+```
+
+```{.QualitativeProblem .MultipleSelection points=10}
+R8.2 These two sentences are:
+| truth-functionally equivalent
+| *not truth-functionally equivalent
+| *truth-functionally consistent
+| truth-functionally inconsistent
+```
+
+::: {.youtube .manual style="width:252px;height:200px"}
+<https://youtu.be/JIM9D9h4mdA>
+:::
+
+```{.TruthTable .Simple options="nocounterexample" points=10}
+R8.3 P->(Q->R), Q->(P->R)
+```
+
+```{.QualitativeProblem .MultipleSelection points=10}
+R8.4 These two sentences are:
+| *truth-functionally equivalent
+| not truth-functionally equivalent
+| *truth-functionally consistent
+| truth-functionally inconsistent
+```
+
+::: {.youtube .manual style="width:360px;height:204px"}
+<https://youtu.be/_fH1KaUo_dw>
+:::
+
+## Validity
+
+:::aside
+Here is a short video lecture about using truth tables to determine
+truth-functional validity.
+
+:::youtube
+<https://youtu.be/d_8-zP-LsgE>
+:::
+:::
+
+Equivalence and consistency are relations between sentences. Validity is too:
+it is a relation between premises and conclusion. Recall our definition:
+
+Validity
+:   An argument is valid iff it is impossible for all of its premises to be
+    true but its conclusion false.
+
+An assignment—a row of a truth table—represents a truth-functional
+possibility. So an argument is [truth-functionally valid]{.vocab} when there
+is no assignment—no row of its truth table—that assigns truth to every
+premise, but falsehood to the conclusion.
+
+::: vaside
+An argument is [truth-functionally valid]{.vocab} iff there is no assignment
+on which all the premises are true, and the conclusion is false.
+:::
+
+Is this argument truth-functionally valid?
+
+```{.TruthTable .Validity options="nocounterexample turnstilemark nocheck display immutable" submission=none}
+ ~(P/\Q), Q->~Q :|-: P
+| F TT T   TF FT T   T
+| T TF F   FT TF T   T
+| T FF T   TF FT T   F
+| T FF F   FT TF F   F
+```
+
+Ignore, for the moment, the column under the turnstile ('⊢'). Remember, it is
+not a connective. It means 'therefore', and marks the sentence that come
+before it as premises, and the sentence that comes after it as the conclusion.
+
+Looking at the columns under each main connective, we see:
+
+::: {.itt rows="3"}
+   ¬(P∧Q)   Q → ¬Q   P
+  -------- -------- ---
+     F        F      T
+     T        T      T
+     F        F      F
+     T        T      F
+:::
+
+Is there an assignment that makes the premises both true, but the conclusion
+false? Yes: it is on the fourth row, where the premises are both true, and the
+conclusion is false. So the argument is not truth-functionally valid.
+
+And this is what is represented by the column under the turnstile:
+
+```{.TruthTable .Validity options="nocounterexample turnstilemark nocheck display immutable" submission=none}
+ ~(P/\Q), Q->~Q :|-: P
+| F TT T   TF FT T   T
+| T TF F   FT TF T   T
+| T FF T   TF FT T   F
+| T FF F   FT TF F   F
+```
+
+On the first three rows, you see
+a checkmark ('✓'), indicating that, on those rows, the argument has passed the
+test for validity. But on the fourth row, you see an '✗', indicating that, on
+that row, the argument has failed the test for validity. To be valid, the argument has to
+pass the test on *every row*. So, since it fails on the fourth row, it is not
+truth-functionally valid.
+
+Here is a second example. This time, I've left the column under the turnstile
+for you to fill in:
+
+```{.TruthTable .Validity options="nocounterexample turnstilemark" points=10}
+R8.5 P<->Q, ~Q :|-: ~P
+|    T T T  FT  -   FT
+|    T F F  TF  -   FT
+|    F F T  FT  -   TF
+|    F T F  TF  -   TF
+```
+
+:::spoiler
+You should have checkmarks on each row. The argument passes the test on every
+row. Remember, to fail the test, all the premises must be true, and the
+conclusion false. So you are looking for the pattern: "T T F". If you don't
+find that pattern, the argument passes the test. If it passes the test on
+every row, it is truth-functionally valid.
+:::
+
+Here is a curious example to consider. Complete the table, by filling in the
+column under the turnstile:
+
+```{.TruthTable .Validity options="nocounterexample turnstilemark " points=10}
+R8.6 P, ~P :|-: Q
+|T  FT  -   T
+|T  FT  -   F
+|F  TF  -   T
+|F  TF  -   F
+```
+
+:::spoiler
+You should have checkmarks on each row. 
+
+This argument also passes the test on every row, so is truth-functionally valid.
+:::
+
+This example is interesting for two reasons. First, the premises aren't about
+Q at all. It is weird that Q would somehow follow from two claims involving
+some unrelated sentence, P. But we've seen this weirdness before. We saw it
+when we [first introduced the concept of
+validity](02R#two-unexpected-consequences-of-our-definition-of-validity){target="_blank"
+rel="noopener noreferrer"}. We've even seen this very argument: you were asked
+to [construct a derivation to show that it was valid in the supplement to
+Chapter 6](06S#exercise-S6.19){target="_blank" rel="noopener noreferrer"}.
+
+In Chapter 2, I explained the validity of such arguments by appeal to our
+definition of validity. An argument is valid if it can never take us from true
+premises to a false conclusion. So when the premises of an argument are
+inconsistent---that is, when they cannot be true together---that means that
+the argument is valid. It can't take us from true premises to a false
+conclusion, because it can't start with true premises to begin with.
+
+Here, we can be a bit more precise. The argument is truth-functionally valid
+because its premises are truth-functionally inconsistent. That is, there is no
+row on which the premises are both true, so there is no row on which the
+premises are both true *and* the conclusion false.
+
+This is a remarkable feature of our treatment of validity. It is known as the
+"[Principle of Explosion]{.vocab}": from a contradiction, anything follows.
+Some argue that this is not just a feature, but a bug, a sign that something
+has gone wrong. This has led to the development of "non-classical" logics,
+that work to avoid this feature, including [relevance
+logic](https://en.wikipedia.org/wiki/Relevance_logic){target="_blank"
+rel="noopener noreferrer"}, and other forms of [paraconsistent
+logics](https://en.wikipedia.org/wiki/Paraconsistent_logic){target="_blank"
+rel="noopener noreferrer"}.
+
+::: aside
+How can there be different *truth-functional logics* that *disagree* about
+which arguments are truth-functionally valid? That's like having different
+*arithmetics* that disagree about how addition works, or different
+*geometries* that disagree about the shape of space. Different logics
+*disagree* about the nature and structure of the *following* relation that
+holds between pieces of information. Logical monists reject this, an insist
+that there is one true logic. Logical pluralists embrace it, and claim that
+there are many different logics, and no fact of the matter about which one is
+correct. It is kind of mind-bending to think about how one is meant to
+continue on, if there is no fact of the matter about the nature and structure
+of reasoning itself. But that problem is above our pay grade. We won't try to
+address it in this class.
+:::
+
+To see the force of Explosion, notice that, as long as your premises are $P$
+and $\neg P$, you can choose whatever conclusion you like, and the truth table
+will still show that the argument is valid:
+
+```{.TruthTable .Validity options="nocounterexample strictGivens turnstilemark" submission=none}
+ P, ~P :|-: ~Q 
+|T  FT  -   --
+|T  FT  -   --
+|F  TF  -   --
+|F  TF  -   --
+ P, ~P :|-: ~(P<->Q)\/(Q/\P) 
+|T  FT  -   - - - -  - - --
+|T  FT  -   - - - -  - - --
+|F  TF  -   - - - -  - - --
+|F  TF  -   - - - -  - - --
+```
+
+What happens to left of the turnstile is enough to guarantee that, on every
+row, the argument will pass the test.
+
+Here are a couple of sample problems, with video solutions:
+
+```{.TruthTable .Validity options="nocounterexample turnstilemark" points=10}
+R8.7 P\/Q, ~Q :|-: P
+```
+
+```{.QualitativeProblem .MultipleChoice points=10}
+R8.8 This argument is:
+| *truth-functionally valid
+| not truth-functionally valid
+```
+
+::: {.youtube .manual style="width:234px;height:200px"}
+<https://youtu.be/iBfu4XeK95Q>
+:::
+
+
+```{.TruthTable .Validity options="nocounterexample turnstilemark" points=10}
+R8.9 ~(~P/\~~Q), Q->R :|-: ~(R\/P)
+```
+
+```{.QualitativeProblem .MultipleChoice points=10}
+R8.10 This argument is:
+| truth-functionally valid
+| *not truth-functionally valid
+```
+
+::: {.youtube .manual style="width:468px;height:218px"}
+<https://youtu.be/BY83gh0Ui5w>
+:::
+
+
+
+
+
+------
+
+::: {.auto-tally}
+:::
+
+-----
+
+::: {#myunitfoot}
+-   [Reading]{.thispage}
+-   [Exercises](U6E)
+-   [Supplements](U6S)
+-   [Quiz](U6Q)
+-   [Test](U6T){.timed}
+:::
+
+

@@ -1,0 +1,718 @@
+---
+base-css:
+-   https://carnap.io/shared/dsanson@gmail.com/sanson-book.css
+-   https://cdn.plyr.io/3.6.8/plyr.css
+js: 
+-   https://cdn.plyr.io/3.6.8/plyr.polyfilled.js
+-   https://carnap.io/shared/dsanson@gmail.com/logic-book.js
+-   https://hypothes.is/embed.js
+---
+
+::: cover
+
+# Derivations in PL with Relations and Identity
+
+:::
+
+::: {.auto-tally}
+:::
+
+In this unit, we extend our system of derivation to handle multi-place
+predicates, including the relation of identity. The specific learning objectives for this unit are:
+
+a.  I can complete derivations involving multi-place predicates and
+    overlapping quantifiers
+b.  I can complete derivations involving identity
+
+## What Needs to Be Added?
+
+Since we last discussed derivations, we've extended our language in two ways.
+First, we added multi-place predicates. Second, we added a special predicate
+for identity.
+
+Our system of derivation can already handle multi-place predicates, using our
+existing rules and methods. For that, nothing needs to be added.
+
+To handle identity, we add three new rules, each reflecting an important "law"
+of identity.
+
+## Derivations with Multi-Place Predicates
+
+:::wrapper
+:::soasticky
+| F(x,y): x is y's friend
+| G(x,y): x rats on y
+:::
+
+Consider the argument:
+
+:::standardform
+-   Nobody rats on their friend
+-   Everyone is their own friend
+-   Nobody rats on themself
+:::
+
+Before we get into the weeds, take a moment to convince yourself that this
+argument is valid.
+
+```{.QualitativeProblem .ShortAnswer give-credit="onSubmission" points=10}
+R18.1 Explain why this argument is valid, by reasoning from the premises to the conclusion.
+```
+
+Now let's translate the premises and conclusion into PL. (Technically, given
+the use of 'nobody' and 'everyone', we should translate these as
+generalizations restricted to persons. But for the sake of simplicity, let's
+ignore that complication here.)
+
+``` {.Translate .FOL points="10"}
+R18.2 AxAy(F(x,y)->~G(x,y)) : Nobody rats on their friend.
+R18.3 AxF(x,x) : Everyone is their own friend.
+R18.4 ~ExG(x,x) : Nobody rats on themself.
+```
+
+:::spoiler
+Here is how I translated the argument into PL:
+
+:::standardform
+-  ∀x∀y(F(x,y)->~G(x,y))
+-  ∀xF(x,x)
+-  ¬∃xG(x,x)
+:::
+
+The first premise is "Nobody rats on their friend." Unpacking my
+translation, it says:
+
+:::displayed
+-   ∀x∀y(F(x,y)->~G(x,y))
+-   For any x and y, if x is y's friend, then x doesn't rat on y. 
+:::
+
+The second premise is "Everyone is their own friend". So:
+
+:::displayed
+-  ∀xF(x,x)
+-  Every x is friends with x.
+:::
+
+And the conclusion is "Nobody rats on themself". So:
+
+:::displayed
+-   ¬∃xG(x,x)
+-   It is not the case that something rats on itself
+:::
+
+:::
+
+
+Now lets consider how we might construct a derivation. There are two big picture strategies we can take. One idea is to take advantage of the fact that our show line is equivalent, by QN, to a universal derivation. This means that we can use UD, and then QN, to complete the derivation. Here is what that looks like, in outline:
+
+```
+1. Show ~ExG(x,x)
+2.   Show Ax~G(x,x)
+3.     ⋮
+4.   :UD
+5.   Ex~G(x,x) :QN 2
+6. :DD 5
+```
+
+Another idea is to make an assumption for ID. That yields an existential generalization, so then we'll have to do an ED:
+
+```
+1. Show ~ExG(x,x)
+2.   ExG(x,x) :AS
+3.   Show ?
+4.     G(a,a) :AS
+5.     ⋮
+6.     ?
+7.   :ED
+8.   ⋮
+9. :ID
+```
+
+I find the first strategy much easier to implement, so that's what I
+recommend. But I either strategy will work.
+
+```{.ProofChecker .FirstOrder options="guides fonts indent tabindent resize" points=10}
+R18.5 AxAy(F(x,y)->~G(x,y)), AxF(x,x) :|-: ~ExG(x,x)
+```
+
+:::youtube
+<https://youtu.be/azTF_rxtojc>
+:::
+
+:::
+
+## Rules for Identity 
+
+To handle identity, we introduce three new rules. The first, which comes in
+two forms, is based on an important law of identity, known as Leibniz's Law.
+The other two rules are based on two important facts about the identity
+relation: that it is symmetric and it is reflexive.
+
+### Leibniz's Law
+
+Here is the scene from the movie *Fight Club* where (**SPOILER ALERT!**) the
+Narrator ("Jack", played by Edward Norton), realizes that he *is* Tyler Durden
+(played by Brad Pitt):
+
+::: youtube
+<https://youtu.be/WKVxKrrbz1E>
+:::
+
+The central drama of the scene involves a logical inference: *since* Jack 
+= Tyler Durden, *it follows* that all the horrible things *Tyler* did were
+horrible things that *Jack* did:
+
+:::standardform
+-   Tyler did horrible things.
+-   Jack = Tyler
+-   Jack did horrible things.
+:::
+
+Or, in PL:
+
+:::standardform
+-   H(a)
+-   a=b
+-   H(b)
+:::
+
+Drama built around this form of inference is also a staple of superhero
+narratives. When Spiderman is unmasked, Mary Jane discovers that Spiderman =
+Peter Parker. So she realizes that when she kissed Spiderman, she kissed
+Peter:
+
+:::standardform
+-   Mary Jane kissed Spiderman
+-   Spiderman = Peter Parker
+-   Mary Jane kissed Peter Parker
+:::
+
+Or, in PL:
+
+:::standardform
+-   K(a,b)
+-   b=c
+-   K(a,c)
+:::
+
+In the 1980 version of Superman, Lois discovers that Clark is Superman when he
+stumbles into a fire pit:
+
+::: youtube
+<https://youtu.be/rMH3omIA15k>
+:::
+
+Lois covers it well, but perhaps the dramatic tension here lies not just in
+her discovery that, since Clark = Superman, it follows that every time
+*Superman* saved her, *Clark* saved her, but also in her discovery that every
+time *Clark* gaslit her, *Superman* gaslit her too:
+
+:::standardform
+-   Lois was gaslit by Superman
+-   Superman = Clark Kent
+-   Lois was gaslit by Clark Kent
+:::
+
+One more example: consider what happens when Miley Stewart's secret identity
+as Hannah Montana is revealed to her best friend, Lily:
+
+::: youtube
+<https://youtu.be/DARByjEn9rI>
+:::
+
+Why the shock on Lily's face? It comes as the result of a flood of logical
+inferences, all triggered by the revealed identity. What were, for Lily, two
+separate file folders of information---facts about Miley in folder, facts
+about Hannah in the other folder---have been merged into one folder, once she
+learns that Miley = Hannah.
+
+The principle behind all of these examples is known as [Leibniz's
+Law]{.vocab}, after the philosopher and logician, Gottfried Wilhem Leibniz.
+
+Leibniz's Law
+:   If α=β, then everything true of α is also true of β.
+
+(Here I am using the Greek letters, 'α' (alpha) and 'β' (beta), to stand in for
+any *terms*---that is, any name letters or variables.)
+
+::: {.sep-inset }
+
+![Photo of Gottfried Wilhelm Leibniz](https://reggienet.illinoisstate.edu/access/content/user/desanso/public/img/leibniz.jpg)
+
+:::sep-header
+![](https://plato.stanford.edu/symbols/sep-man-red.png) Stanford Encyclopedia of Philosophy
+:::
+
+# [Gottfried Wilhem Leibniz](https://plato.stanford.edu/entries/leibniz/){.attribution target="_blank" rel="noopener noreferrer"}
+
+::: {#preamble}
+Gottfried Wilhelm Leibniz (1646\--1716) was one of the great thinkers of
+the seventeenth and eighteenth centuries and is known as the last
+\"universal genius\". He made deep and important contributions to the
+fields of metaphysics, epistemology, logic, philosophy of religion, as
+well as mathematics, physics, geology, jurisprudence, and history. Even
+the eighteenth-century French atheist and materialist Denis Diderot,
+whose views were very often at odds with those of Leibniz, could not
+help being awed by his achievement, writing in his entry on Leibniz in
+the *Encyclopedia*, \"Perhaps never has a man read as much, studied as
+much, meditated more, and written more than Leibniz\... What he has
+composed on the world, God, nature, and the soul is of the most sublime
+eloquence. If his ideas had been expressed with the flair of Plato, the
+philosopher of Leipzig would cede nothing to the philosopher of Athens\"
+(*Oeuvres complètes*, vol. 7, p. 709). Indeed, Diderot was almost moved
+to despair in this piece: \"When one compares the talents one has with
+those of a Leibniz, one is tempted to throw away one\'s books and go die
+quietly in the dark of some forgotten corner\" (*Oeuvres complètes*,
+vol. 7, p. 678). More than a century later, Gottlob Frege, who
+fortunately did not cast his books away in despair, expressed similar
+admiration, declaring that \"in his writings, Leibniz threw out such a
+profusion of seeds of ideas that in this respect he is virtually in a
+class of his own\" (\"Boole\'s logical Calculus and the Concept-script\"
+in *Posthumous Writings*, p. 9). The aim of this entry is primarily to
+introduce Leibniz\'s life and summarize and explicate his views in the
+realms of metaphysics, epistemology, and philosophical theology.
+:::
+:::
+
+There are two sorts of inference one can make based on Leibniz's Law. All of
+our examples so far have followed this pattern:
+
+::: {.standardform}
+| [...α...]{.premise .nn}
+| [α=β]{.premise .nn}
+| [...β...]{.conclusion}
+:::
+
+That is, our first premise is some claim about α. Our second premise states
+that α is identical to β. And our conclusion is obtained from the first
+premise, replacing some or all occurrences of 'α' with 'β'.
+
+For example:
+
+::: standardform
+-   Tyler blew up my apartment building
+-   I = Tyler
+-   I blew up my apartment building
+:::
+
+:::wrapper
+::: soasticky
+| F(x,y): x blew up y's apartment building
+| a: Tyler
+| b: me
+:::
+
+
+::: standardform
+-   F(a,b)
+-   a=b
+-   F(a,a)
+:::
+:::
+
+Our first premise is a claim about Tyler. Our second premise says that I am
+identical to Tyler. Our conclusion is our first premise, but replacing 'Tyler'
+with 'me'.
+
+Or, again,
+
+::: standardform
+-   Miley Stewart is my best friend
+-   Miley Stewart = Hannah Montana
+-   Hannah Montana is my best friend
+:::
+
+:::wrapper
+::: soasticky
+| F(x,y): x is y's best friend
+| a: Miley Stewart
+| b: Hannah Montana
+| c: me
+:::
+
+::: standardform
+-  F(a,c)
+-  a=b
+-  F(b,c)
+:::
+:::
+
+Our first premise is a claim about Miley. Our second premise says that Miley
+is identical to Hannah. Our conclusion is our first premise, but replacing
+'Miley' with 'Hannah'.
+
+Here is more complicated example:
+
+::: {.standardform}
+-   Superman wears a cape and he wears underpants over tights
+-   Superman = Clark Kent
+-   Clark Kent wears a cape, and he wears underpants over tights
+:::
+
+:::wrapper
+:::soasticky
+| F(x,y): x wears y
+| G(x,y,z): x wears y over z
+| H(x): x is a cape
+| I(x): x is underpants
+| J(x): x is a pair of tights
+| a: Superman
+| b: Clark Kent
+:::
+
+
+::: {.standardform}
+-  ∃x(H(x)∧F(a,x))∧∃y∃z(I(y)∧J(z)∧F(a,y,z))
+-  a=b
+-  ∃x(H(x)∧F(b,x))∧∃y∃z(I(y)∧J(z)∧F(b,y,z))
+:::
+:::
+
+In this case, our first premise is (among other things) a claim about
+Superman. Our second premise states that Superman is identical to Clark Kent.
+And our conclusion is our first premise, but replacing each occurrence of
+'Superman' with 'Clark Kent'.
+
+We adopt this pattern of inference as a rule of inference:
+
+Leibniz's Law (LL)
+:   ...α...α..., α=β ⊢ ...α...β...
+
+Here, 'α' and 'β' stand for any two terms (name letters or variables).
+'...α...α...' represents a formula with one or more free occurrences of 'α'. And
+'...α...β...' represents that same formula, replacing some (or all, or none!)
+of the occurrences of 'α' with 'β'.
+
+We also allow a slightly different pattern:
+
+Leibniz's Law (LL)
+:   ...α...α..., β=α ⊢ ...α...β...
+
+(The only difference here is in the order of the terms in the second
+premise.)
+
+Here is an example of LL in action:
+
+```{.Playground .FirstOrder options="guides fonts indent tabindent resize" init=now submission=none}
+|1.F(a) :PR
+|2.a=b  :PR
+|3.F(b) :LL 1,2
+```
+
+Here is an example of LL in an actual derivation. Can you complete the
+derivation?
+
+```{.ProofChecker .FirstOrder options="guides fonts indent tabindent resize" init="now" points=10}
+R18.6 F(a)->G(c), G(b)/\F(b), a=b :|-: G(c)
+|1.Show G(c)
+|2. F(a)->G(c) :PR
+|3. G(b)/\F(b) :PR
+|4. a=b        :PR
+|5. G(a)/\F(a) :LL 3,4
+```
+
+::: youtube
+<https://youtu.be/iJnsUXMCY1Q>
+:::
+
+Note that, in the example above, on line (5), I substituted both occurrences
+of 'b', in line (3), with 'a'. But I didn't have to do that. When you apply LL,
+you are not required to substitute *all* occurrences of the original term. You
+can substitute all, or some, or even none. So these are all correct applications of LL:
+
+```{.Playground .FirstOrder options="guides fonts indent tabindent resize" init=now}
+|1.G(b)/\F(b) :PR
+|2.a=b        :PR
+|3.G(a)/\F(a) :LL 1,2 
+|4.G(b)/\F(a) :LL 1,2 
+|5.G(a)/\F(b) :LL 1,2 
+|6.G(b)/\F(b) :LL 1,2 
+```
+
+Note line (6), which is a degenerate case, where we didn't replace *any* of
+the 'b's with 'a's. That still counts as a correct application of LL.
+
+When you apply LL to examples involving variables, any variables you replace must be
+*free*. And any variables you replace them with must also be free. Can you spot the mistakes? 
+
+```{.Playground .FirstOrder options="guides fonts indent tabindent resize"}
+|1.x=y          :PR
+|2.F(x)->F(y)   :PR
+|3.F(y)->F(y)   :LL 1,2
+|4.Ax(F(x)->F(y)) :PR
+|5.Ax(F(y)->F(y)) :LL 1,4
+|6.G(x)->Ey(F(y)/\H(x)) :PR
+|7.G(y)->Ey(F(y)/\H(y)) :LL 1,6
+|8.G(y)->Ey(F(y)/\H(x)) :LL 1,6
+```
+
+Leibniz's Law states:
+
+Leibniz's Law
+:   If α=β, then everything true of α is also true of β.
+
+Often, it is useful instead to consider the [contrapositive](U8R#contrapositive) of Leibniz's Law:
+
+Leibniz's Law (contrapositive)
+:   If something is true of α but not true of β, then α≠β.
+
+For example, in a famous scene from *The Maltese Falcon*, Kasper Gutman discovers that the
+stolen statue is made of lead. From this, he infers that it is not the statue he was
+after, since the statue he was after was made of gold:
+
+::: youtube
+<https://youtu.be/7Xuw-XKP1sI>
+:::
+
+Here is his inference:
+
+:::standardform
+-   The Maltese Falcon is made of gold.
+-   This is not made of gold.
+-   This is not identical to the Maltese Falcon.
+:::
+
+Or, in PL:
+
+:::standardform
+-   G(a)
+-   ¬G(b)
+-   ¬a=b
+:::
+
+Similarly, viewers of the eighties classic TV show, Knight Rider, knew that
+Garthe Knight was *not* identical to Michael Knight, because Garthe
+had a svelte mustache and soul patch, while Michael was clean shaven:
+
+::: youtube
+<https://youtu.be/ChUa3k4vHeQ>
+:::
+
+So, here is the inference viewers made:
+
+::: standardform
+-   Garthe has a mustache
+-   Michael does not have a mustache
+-   Garthe is not Michael
+:::
+
+::: standardform
+-  M(a)
+-  ¬M(b)
+-  ¬a=b
+:::
+
+We also adopt this pattern of inference as a rule of inference, which we also
+call Leibniz's Law:
+
+Leibniz's Law (LL)
+:   ...α...α..., ¬...β...β... ⊢ ¬α=β
+
+Here, as before, '...β...β...' is the result of replacing all or some (or none!)
+of the free occurrences of 'α' in '...α...α...' with free occurrences of 'β'.
+
+As before, we also allow a slight variation of this pattern:
+
+Leibniz's Law (LL)
+:   ...α...α..., ¬...β...β... ⊢ ¬β=α
+
+(The only difference here is the order of the terms in the conclusion.)
+
+Here is an example of this form of LL in action:
+
+```{.ProofChecker .FirstOrder options="guides fonts indent tabindent resize" submission=none init=now}
+Example. G(a)\/G(b), ~G(b) :|-: ~a=b
+|1.Show ~a=b
+|2. G(a)\/G(b) :PR
+|3. ~G(b)      :PR
+|4. G(a)       :MTP 2,3
+|5. ~a=b       :LL 3,4
+|6.:DD 5
+```
+
+Consider this argument:
+
+> Every frog is green. Something is a frog. Something is not green. So, there are at least two things.
+
+In standard form:
+
+:::standardform
+-   Every frog is green.
+-   Something is a frog.
+-   Something is not green.
+-   There are at least two things
+:::
+
+Can you see why this is valid?
+
+```{.QualitativeProblem .ShortAnswer give-credit="onSubmission" points=10}
+R18.7 Try to explain, as best you can, how the conclusion follows from these premises.
+```
+
+:::spoiler
+Here is my attempt at an informal explanation: If every frog is green, then the thing that is
+not green must not be a frog. So there must be something that is a frog, and
+something that is not a frog. Those two things cannot be identical, since one
+is a frog, and one isn't. So there must be at least two things.
+:::
+
+Here is the argument in PL:
+
+::: standardform
+-  Ax(F(x)->G(x))
+-  ExF(x)
+-  Ex~G(x)
+-  ExEy(~x=y)
+:::
+
+Now try to complete the derivation, using LL:
+
+```{.ProofChecker .FirstOrder options="guides fonts indent tabindent resize" points=10}
+R18.8 Ax(F(x)->G(x)),ExF(x),Ex~G(x):|-: ExEy(~x=y)
+```
+
+:::youtube
+<https://youtu.be/SeO0tJAEHfw>
+:::
+
+### Identity and Symmetry
+
+Identity is *reflexive*. That is, everything is identical to itself. So here
+is our second rule for identity:
+
+Identity (Id)
+:   ⊢ α=α
+
+This rule *has no premises*. Here are some examples of Id in use:
+
+```{.Playground .FirstOrder options="guides fonts indent tabindent resize" init=now submission=none}
+|1. a=a :Id
+|2. b=b :Id
+|3. c=c :Id
+|4. x=x :Id
+|5. y=y :Id
+```
+
+Notice that the name for the rule is 'Id', not 'ID'. The lowercase 'd' helps
+to distinguish it from 'ID', which is indirect derivation.
+
+Here is a partially completed derivation, demonstrating the use of this new rule. Can you complete it? 
+
+```{.ProofChecker .FirstOrder options="guides fonts indent tabindent resize" init=now points=10}
+R18.9 :|-: Exx=x
+|1.Show Exx=x
+|2. a=a  :Id
+```
+
+::: youtube
+<https://youtu.be/eO1SRBFHAas>
+:::
+
+Identity is also *symmetric*. That is, 'a=b' is logically equivalent to 'b=a'.
+So here is our third and last rule for identity:
+
+Symmetry (Sm)
+:   α=β ⊢ β=α
+
+Here are some examples of Sm in use:
+
+```{.Playground .FirstOrder options="guides fonts indent tabindent resize" init=now}
+|1. a=b :PR
+|2. b=a :Sm 1
+|3. x=y :PR
+|4. y=x :Sm 1
+```
+
+Again, notice that the name is 'Sm', not 'SM'.
+
+Here is a partially completed derivation, demonstrating the use of this new
+rule. Can you complete it? 
+
+```{.ProofChecker .FirstOrder options="guides fonts indent tabindent resize" points=10 init=now}
+R18.10 :|-: a=b<->b=a
+|1.Show a=b<->b=a
+|2. Show a=b->b=a
+|3.  a=b :AS
+|4.  b=a :Sm 3
+|5. :CD 4
+|6. Show b=a->a=b
+```
+
+::: youtube
+<https://youtu.be/5KMCsVyT6Kk>
+:::
+
+## Some More Derivations
+
+We now have our full system of derivation for PL with multi-place predicates and
+identity. The system is also known as [First-Order Logic]{.vocab}.
+
+:::aside
+[Second-Order Logic]{.vocab} is what we get when we introduce
+variables that replace *predicate letters*, and quantifiers over those
+variables, allowing for formulas like '∀X(X(a)<->X(b))', which expresses the
+claim (roughly) that a and b have exactly the same properties.
+:::
+
+First-Order Logic has sufficient expressive power to model complex arguments.
+Consider:
+
+:::standardform
+-   Everybody loves Alex and only loves Alex
+-   If Alex loves Bennie, then Alex is Bennie
+:::
+
+For simplicity, let's ignore the restriction to people, and imagine that the
+premise is just 'Everything loves Alex and only loves Alex'. Then our
+argument, in PL, looks like this:
+
+:::standardform
+-   ∀x(L(x,a) ∧ ∀y(L(x,y)→y=a))
+-   L(a,b) → a=b
+:::
+
+Now try to derive the conclusion from the premise:
+
+```{.ProofChecker .FirstOrder options="guides fonts indent tabindent resize" points=10}
+R18.11 Ax(L(x,a)/\Ay(L(x,y)->y=a)):|-:L(a,b)->a=b
+```
+
+:::youtube
+<https://youtu.be/mOusTdNm1Wk>
+:::
+
+Here is a fun example. There is an old song with the lyrics:
+
+> | Everybody loves my baby
+> | But my baby don't love nobody but me, nobody but me
+
+
+:::aside
+Here is the Fats Waller version of "Everybody Loves My Baby"
+
+:::youtube
+<https://youtu.be/d_gHFNDb0Fo>
+:::
+:::
+
+Now consider the following argument:
+
+:::standardform
+-  Everybody loves my baby
+-  My baby doesn't love anybody but me
+-  I am my baby
+:::
+
+That's a surprising conclusion! Do you see why it follows? 
+
+```{.ProofChecker .FirstOrder options="guides fonts indent tabindent resize" points=10}
+R18.12 AxL(x,b),~Ex(L(b,x)/\~x=a):|-:a=b
+```
+
+:::youtube
+<https://youtu.be/PS1_iiiTIDo>
+:::
+
+
+<!-- vim: set ft=carnap :-->

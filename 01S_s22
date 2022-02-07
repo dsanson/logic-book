@@ -1,0 +1,720 @@
+---
+base-css:
+-   https://carnap.io/shared/dsanson@gmail.com/sanson-book.css
+-   https://cdn.plyr.io/3.6.8/plyr.css
+js: 
+-   https://cdn.plyr.io/3.6.8/plyr.polyfilled.js
+-   https://carnap.io/shared/dsanson@gmail.com/logic-book.js
+-   https://hypothes.is/embed.js
+---
+
+# Logic and Arguments: Supplements
+
+This is a supplement. 
+It is not worth any points, and cannot affect your grade.
+It is an opportunity to review the material from Unit 1,
+ and provide more practice.
+
+## Premise Indicators and Conclusion Indicators
+
+As you learned in the reading, some words and phrases are often used to indicate a
+premise, and some words and phrases are often used to indicate a conclusion. 
+You can use these words to help identify premises and conclusions.
+
+```{.QualitativeProblem .ShortAnswer submission=none options="check"}
+1 List as many premise-indicating words and phrases as you can.
+2 List as many conclusion-indicating words and phrases as you can.
+```
+
+:::spoiler
+Premise indicating words and phrases include:
+
+-   since, because, given that, for, it follows from the fact that, the reason
+    being...
+
+Conclusion indicating words and phrases include:
+
+-   so, therefore, hence, ergo, thus, consequently, which proves that, I
+    conclude that, which allows us to infer that, it follows that,...
+
+Did you come up with other examples? Share and discuss on Discord!
+:::
+
+## Practice
+
+What follows are a bunch of passages, meant to give you practice in
+identifying premises and conclusions, and reconstructing arguments in standard
+form. For an extra challenge, attempt to identify implicit premises as well.
+
+::: example
+> Given that the universe is very big and you are very small, your life is
+> meaningless.
+:::
+
+:::aside
+For a nice discussion of arguments like this one and the next, see Nagel,
+"[The Absurd](https://www.jstor.org/stable/2024942)", *Journal of Philosophy*
+1971.
+:::
+
+```{.QualitativeProblem .MultipleSelection submission=none options=check}
+3 The premises of this argument are:
+| *The universe is very big
+| *You are very small
+| Your life is meaningless
+```
+```{.QualitativeProblem .MultipleChoice submission=none options=check}
+4 The conclusion of this argument is:
+| The universe is very big
+| You are very small
+| *Your life is meaningless
+```
+```{.QualitativeProblem .ShortAnswer submission=none}
+5 Rewrite this argument in standard form.
+```
+
+:::spoiler
+The key to unpacking this passage is noting that 'given that' can be used to
+mark a premise.
+:::
+
+::: example
+> Personal projects and relationships are what give your life meaning, not
+> your size relative to the universe, so your life is not meaningless, since
+> you have personal projects and relationships.
+:::
+
+```{.QualitativeProblem .MultipleSelection submission=none options=check}
+6 The premises of this argument are:
+| *Personal projects and relationships are what give your life meaning, not your size relative to the universe
+| Your life is not meaningless
+| *You have personal projects and relationships
+```
+
+```{.QualitativeProblem .MultipleChoice submission=none options=check}
+7 The conclusion of this argument is:
+| Personal projects and relationships are what give your life meaning, not your size relative to the universe
+| *Your life is not meaningless
+| You have personal projects and relationships
+```
+
+```{.QualitativeProblem .ShortAnswer submission=none}
+8 Rewrite this argument in standard form.
+```
+
+:::spoiler
+The word 'so' marks the conclusion, and the word 'since' marks one of the
+premises.
+:::
+
+
+::: example
+> Playing video games is not always a waste of time, since some video games
+> are important works of art, and the only way you can appreciate them is by
+> playing them.
+:::
+
+:::aside
+For an in-depth treatment of video games as works of art, see Grant Tavinor,
+*The Art of Videogames*, Wiley-Blackwell 2009. For a broader treatment of
+games as works of art, see Thi Nguyen, *Games: Agency as Art*, Oxford
+University Press, 2020.
+:::
+
+```{.QualitativeProblem .ShortAnswer submission=none}
+9 Rewrite the argument in standard form.
+```
+
+```{.QualitativeProblem .MultipleChoice submission=none options=check}
+10 'Some video games are important works of art' is: 
+| the conclusion.
+| * a premise 
+```
+
+```{.QualitativeProblem .MultipleSelection submission=none options=check}
+11 The premises of this argument are:
+| Playing video games is not always a waste of time
+| *Some video games are important works of art
+| *The only way you can appreciate a video game as a work of art is by playing it
+```
+
+::: spoiler
+'Since' marks some video games are important works of art as a premise. Beyond
+that, it is up to you as a reader to work out the logical form of the
+argument.
+:::
+
+
+:::example
+> You can't judge a book by its cover, since authors often don't have any
+> control over cover design.
+:::
+
+```{.QualitativeProblem .ShortAnswer submission=none}
+12 Rewrite the argument in standard form.
+```
+
+```{.QualitativeProblem .MultipleChoice submission=none options=check}
+13 'You can't judge a book by its cover' is: 
+| *the conclusion.
+| a premise 
+```
+
+```{.QualitativeProblem .MultipleSelection submission=none options=check}
+14 The premises of this argument are:
+| You can't judge a book by its cover
+| *Authors often don't have any control over cover design
+```
+
+:::spoiler
+Again, the key here is the use of the word 'since', which lets you know that
+what follows is a reason in support of the conclusion, and so a premise.
+:::
+
+::: example
+> Because it is not wrong to kill somebody in self-defense, killing is not always wrong.
+:::
+
+``` {.QualitativeProblem .MultipleChoice submission=none options=check}
+15 The conclusion of this argument is: 
+| Because it is not wrong to kill somebody in self-defense, killing is not always wrong.
+| It is not wrong to kill somebody in self-defense
+| *Killing is not always wrong.
+| Killing is sometimes wrong.
+```
+
+```{.QualitativeProblem .MultipleSelection submission=none options=check}
+16 The premises of this argument are:
+| Because it is not wrong to kill somebody in self-defense, killing is not always wrong.
+| *It is not wrong to kill somebody in self-defense
+| Killing is not always wrong.
+| Killing is sometimes wrong.
+```
+
+```{.QualitativeProblem .ShortAnswer submission=none}
+17 Rewrite the argument in standard form.
+```
+
+:::example
+> I conclude that killing is not always wrong, the reason being that it is not wrong to kill somebody in
+self-defense.
+:::
+
+``` {.QualitativeProblem .MultipleChoice submission=none options=check}
+18 The conclusion of this argument is: 
+| It is not wrong to kill somebody in self-defense
+| *Killing is not always wrong.
+| Killing is sometimes wrong.
+```
+
+```{.QualitativeProblem .MultipleSelection submission=none options=check}
+19 The premises of this argument are:
+| *It is not wrong to kill somebody in self-defense
+| Killing is not always wrong.
+| Killing is sometimes wrong.
+```
+
+```{.QualitativeProblem .ShortAnswer submission=none}
+20 Rewrite the argument in standard form.
+```
+
+
+
+::: example
+> Science tells us that objects that appear solid, like tables and chairs, are
+mostly empty space. From this it follows that they aren't really solid.
+:::
+
+::: aside
+For discussion of arguments of this sort, see Bertrand Russell, *[The Problems
+of Philosophy](http://ditext.com/russell/rus1.html)*, 1912, chapter 1.
+:::
+
+``` {.QualitativeProblem .MultipleChoice submission=none options=check}
+21 The conclusion of this argument is: 
+| Science tells us that objects that appear solid, like tables and chairs, are mostly empty space.
+| Objects that appear solid, like tables and chairs, are mostly empty space.
+| *Objects that appear solid, like tables and chairs, aren't really solid.
+```
+
+```{.QualitativeProblem .MultipleSelection submission=none options=check}
+22 The premises of this argument are (select all correct answers):
+| Science tells us that objects that appear solid, like tables and chairs, are mostly empty space.
+| *Objects that appear solid, like tables and chairs, are mostly empty space.
+| Objects that appear solid, like tables and chairs, aren't really solid.
+```
+
+```{.QualitativeProblem .ShortAnswer submission=none}
+23 Rewrite the argument in standard form.
+```
+
+:::spoiler 
+Note that 'science tells us that' isn't part of the premise.
+The premise is the given information, and here, the given information is that
+objects that appear solid are mostly empty space. 'Science tells us that'
+indicates the *source* of this information.
+:::
+
+:::example
+>Science tells us that solid objects, like tables and chairs, are mostly
+empty space. This establishes that a thing can be solid even though it is mostly empty space.
+:::
+
+``` {.QualitativeProblem .MultipleChoice submission=none options=check}
+24 The conclusion of this argument is: 
+| Since tells us that solid objects, like tables and chairs, are mostly empty space
+| *A thing can be solid even though it is mostly empty space
+| Solid objects, like tables and chairs, are mostly empty space
+```
+
+``` {.QualitativeProblem .MultipleSelection submission=none options=check}
+25 The premises of this argument are:
+| Since tells us that solid objects, like tables and chairs, are mostly empty space
+| A thing can be solid even though it is mostly empty space
+| *Solid objects, like tables and chairs, are mostly empty space
+```
+
+```{.QualitativeProblem .ShortAnswer submission=none}
+26 Rewrite the argument in standard form.
+```
+
+::: example
+> People disagree about what is beautiful. Hence, beauty is subjective.
+:::
+
+``` {.QualitativeProblem .MultipleChoice submission=none options=check}
+27 The conclusion of this argument is: 
+| People disagree about what is beautiful, hence beauty is subjective.
+| People disagree about what is beautiful.
+| *Beauty is subjective.
+```
+
+``` {.QualitativeProblem .MultipleSelection submission=none options=check}
+28 The premises of this argument are:
+| People disagree about what is beautiful, hence beauty is subjective.
+| *People disagree about what is beautiful.
+| Beauty is subjective.
+```
+
+```{.QualitativeProblem .ShortAnswer submission=none}
+29 Rewrite the argument in standard form.
+```
+
+:::spoiler
+In this example, the word 'so' is the key, as it tells you that 'beauty is
+subjective' is the conclusion.
+:::
+
+::: example
+> Beauty is subjective, so people disagree about what is beautiful.
+:::
+
+This is probably not an argument. What is being offered here is not a reason
+in support of the claim that people disagree about what is beautiful, but an
+*explanation of why* they disagree. Remember that many of our keywords are
+only *sometimes* used to indicate premises or conclusions. They can also be
+used for other purposes.
+
+::: example
+> It may be inferred from the fact that people disagree about the shape of
+the earth, that the shape of the earth is subjective.
+:::
+
+``` {.QualitativeProblem .MultipleChoice submission=none options=check}
+30 The conclusion of this argument is: 
+| People disagree about the shape of the earth, 
+| *The shape of the earth is subjective.
+```
+
+``` {.QualitativeProblem .MultipleSelection submission=none options=check}
+31 The premises of this argument are:
+| Since people disagree about the shape of the earth, the shape of the earth is subjective.
+| *People disagree about the shape of the earth, 
+| The shape of the earth is subjective.
+```
+
+```{.QualitativeProblem .ShortAnswer submission=none}
+32 Rewrite the argument in standard form.
+```
+
+::: example
+> We shouldn't defund the police. After all, we need the police to keep our
+communities safe.
+:::
+
+``` {.QualitativeProblem .MultipleChoice submission=none options=check}
+33 The conclusion of this argument is: 
+| We shouldn't defund the police, after all, we need the police to keep our communities safe.
+| *We shouldn't defund the police.
+| We need the police to keep our communities safe.
+```
+
+``` {.QualitativeProblem .MultipleSelection submission=none options=check}
+34 The premises of this argument are:
+| We shouldn't defund the police, after all, we need the police to keep our communities safe.
+| We shouldn't defund the police.
+| *We need the police to keep our communities safe.
+```
+
+```{.QualitativeProblem .ShortAnswer submission=none}
+35 Rewrite the argument in standard form.
+```
+
+::: example
+> The police are harming our communities, and, most especially, communities
+of color. This implies that we should defund the police.
+:::
+
+``` {.QualitativeProblem .MultipleChoice submission=none options=check}
+36 The conclusion of this argument is: 
+| *We should defund the police
+| The police are harming our communities, and, most especially, communities of color
+```
+
+``` {.QualitativeProblem .MultipleSelection submission=none options=check}
+37 The premises of this argument are:
+| Given that the police are harming our communities, we should defund the police.
+| We should defund the police
+| *The police are harming our communities.
+```
+
+```{.QualitativeProblem .ShortAnswer submission=none}
+38 Rewrite the argument in standard form.
+```
+
+::: example
+> We ought to do what God tells us to do, since she created us.
+:::
+
+``` {.QualitativeProblem .MultipleChoice submission=none options=check}
+39 The conclusion of this argument is: 
+| We ought to do what God tells us to do, since she created us
+| *We ought to do what God tells us to do
+| God created us
+```
+
+``` {.QualitativeProblem .MultipleSelection submission=none options=check}
+40 A premise of this argument is: 
+| We ought to do what God tells us to do, since she created us
+| We ought to do what God tells us to do
+| *God created us
+```
+
+```{.QualitativeProblem .ShortAnswer submission=none}
+41 Rewrite the argument in standard form.
+```
+
+:::example
+> The world is full of suffering. From this, I infer that either God does not
+exist, or she is a cruel and vicious God, unworthy of my worship.
+:::
+
+``` {.QualitativeProblem .MultipleChoice submission=none options=check}
+42 The conclusion of this argument is: 
+| The world is full of suffering
+| God does not exist
+| God is cruel and vicious, and unworthy of my worship
+| *Either God does not exist, or God is cruel and vicious and unworthy of my worship
+```
+
+``` {.QualitativeProblem .MultipleSelection submission=none options=check}
+43 A premise of this argument is: 
+| *The world is full of suffering
+| God does not exist
+| God is cruel and vicious, and unworthy of my worship
+| Either God does not exist, or God is cruel and vicious and unworthy of my worship
+```
+
+```{.QualitativeProblem .ShortAnswer submission=none}
+44 Rewrite the argument in standard form.
+```
+
+::: example
+> The most essential and fundamental aspect of culture is the study of
+> literature, since this is an education in how to picture and understand
+> human situations.
+:::
+
+:::aside
+A quote from the philosopher Iris Murdoch, *The Sovereignty of the Good* (London: Ark, 1970), p. 34
+:::
+
+``` {.QualitativeProblem .MultipleChoice submission=none options=check}
+45 The conclusion of this argument is: 
+| *The most essential and fundamental aspect of culture is the study of literature.
+| The study of literature is an education in how to picture and understand human situations.
+```
+
+``` {.QualitativeProblem .MultipleSelection submission=none options=check}
+46 A premise of this argument is: 
+| The most essential and fundamental aspect of culture is the study of literature.
+| *The study of literature is an education in how to picture and understand human situations.
+```
+
+```{.QualitativeProblem .ShortAnswer submission=none}
+47 Rewrite the argument in standard form.
+```
+
+::: example
+> I am quite certain that I exist. And I need not quail before the Skeptics
+> when they say: "What if you should be mistaken?" For a man who does not
+> exist can surely not be mistaken either. Therefore, I exist.
+:::
+
+:::aside
+Adapted from Augustine, *City of God*, Bk 11, ch. 26
+:::
+
+``` {.QualitativeProblem .MultipleChoice submission=none options=check}
+48 The conclusion of this argument is: 
+| I am quite certain that I exist.
+| I need not quail before the Skeptics when they say: "What if you should be mistaken?" 
+| A man who does not exist can surely not be mistaken either.
+| *I exist.
+```
+
+``` {.QualitativeProblem .MultipleSelection submission=none options=check}
+49 The premises of this argument are:
+| I am quite certain that I exist.
+| I need not quail before the Skeptics when they say: "What if you should be mistaken?" 
+| *A man who does not exist can surely not be mistaken either.
+| I exist.
+```
+
+```{.QualitativeProblem .ShortAnswer submission=none}
+50 Rewrite the argument in standard form.
+```
+
+::: spoiler
+Maybe "I am quite certain that I exist" is also a premise here? It seems like
+this argument must have, at the very least, the premise that I *believe* that
+I exist.
+:::
+
+::: example
+> I think, therefore I am.
+:::
+
+::: aside
+The "Cogito": An argument made famous by Descartes. See his *Meditations*,
+Book II.
+:::
+
+``` {.QualitativeProblem .MultipleChoice submission=none options=check}
+51 The conclusion of this argument is: 
+|  I think.
+|  Therefore I am.
+|  *I am.
+52 The premise of this argument is: 
+|  *I think.
+|  Therefore I am.
+|  I am.
+```
+
+```{.QualitativeProblem .ShortAnswer submission=none}
+53 Rewrite the argument in standard form.
+```
+
+::: spoiler
+Does this argument have an implicit premise? If so, what is it? Famously,
+Descartes insisted that he was not offering an argument, and that attempts to
+reconstruct his reasoning as an argument misconstrued his purposes.
+:::
+
+
+::: example
+> Only fruit evolved to be eaten, and, in Genesis 1, God only says it is okay
+> to eat fruit, so it is morally impermissible to eat anything but
+> fruit.
+:::
+
+::: aside
+See Genesis 1:29-30: "I have given you every herb bearing seed, which is upon
+the face of all the earth, and every tree, in the which is the fruit of a tree
+yielding seed; to you it shall be for meat."
+:::
+
+``` {.QualitativeProblem .MultipleSelection submission=none options=check}
+54 The premises of this argument are: 
+|  *Only fruit evolved to be eaten.
+|  It is morally impermissible to eat anything but fruit.
+|  *In Genesis 1, God only says it is okay to eat fruit.
+```
+
+``` {.QualitativeProblem .MultipleChoice submission=none options=check}
+55 The conclusion of this argument is: 
+|  Only fruit evolved to be eaten.
+|  *It is morally impermissible to eat anything but fruit.
+|  In Genesis 1, God only says it is okay to eat fruit.
+```
+
+```{.QualitativeProblem .ShortAnswer submission=none}
+56 Rewrite the argument in standard form.
+```
+
+::: example
+> It is permissible for humans to eat animals because humans evolved to eat animals.
+:::
+
+```{.QualitativeProblem .ShortAnswer submission=none}
+57 Rewrite the argument in standard form.
+```
+
+::: example
+> If the money supply were to increase at less than 5% the rate of inflation
+would come down. Since the money supply is increasing at about 10%, inflation
+will not come down.
+:::
+
+::: example
+If the civil population cannot be defended in the event of a nuclear war,
+we do not need a civil defence policy. But we *do* need a civil defence policy
+if 'deterrence' is to be a convincing strategy. Therefore, deterrence is *not*
+a convincing strategy.
+:::
+
+```{.QualitativeProblem .ShortAnswer submission=none}
+57 Rewrite the argument in standard form.
+```
+
+::: example
+> The materials of nature (air, earth, water) that remain untouched by human
+> effort belong to no-one and are not property. It follows that a thing can
+> become someone's property only if he works and labours to change its natural
+> state.
+:::
+
+::: aside
+Based on the arguments found in John Locke, *Two Treatises of Government*,
+Book II, "[Of
+Property](https://www.gutenberg.org/files/7370/7370-h/7370-h.htm)"
+:::
+
+
+```{.QualitativeProblem .ShortAnswer submission=none}
+58 Rewrite the argument in standard form.
+```
+
+::: example
+> A good knife is a knife that performs its function---cutting---well. And a
+> good horse is a horse that performs its function---riding---well. So a good
+> human is a human that performs their function well.
+:::
+
+:::aside
+A riff on Aristotle, *Nicomachean Ethics*, 1.7
+:::
+
+```{.QualitativeProblem .ShortAnswer submission=none}
+59 Rewrite the argument in standard form.
+```
+
+::: example
+> There is only one thing. This follows from the fact that there is only
+being, and no non-being. After all, if there were two or more things, then one
+thing would *not be* the other.
+:::
+
+:::aside
+For one famous version of this argument, see Parmenides, "[On
+Nature](http://philoctetes.free.fr/parmenidesunicoe.htm)".
+:::
+
+```{.QualitativeProblem .ShortAnswer submission=none}
+60 Rewrite the argument in standard form.
+```
+
+
+::: example
+> Learning outcomes that cannot be measured are meaningless, and most of the
+traditional learning outcomes of a liberal education cannot be measured. Thus,
+we must reform the University curriculum, so our graduates can learn the
+skills they need to contribute in industry.
+:::
+
+```{.QualitativeProblem .ShortAnswer submission=none}
+61 Rewrite the argument in standard form.
+```
+
+::: example
+> There is only one thing. This follows from the fact that there is only
+being, and no non-being. After all, if there were two or more things, then one thing would *not be* the other.
+:::
+
+::: example
+> Many of the traditional learning outcomes of a liberal education cannot be
+measured. But this is true of most of our deeply held values. So it would be
+folly to abandon these outcomes, and only focus on measurable outcomes.
+:::
+
+```{.QualitativeProblem .ShortAnswer submission=none}
+62 Rewrite the argument in standard form.
+```
+
+
+::: example
+> There is no "world" or "reality" independent of our ways of thinking,
+because the conceptual categories we use to describe the world are socially
+constructed and culturally relative.
+:::
+
+```{.QualitativeProblem .ShortAnswer submission=none}
+63 Rewrite the argument in standard form.
+```
+
+::: example
+> There is only one thing. This follows from the fact that there is only
+being, and no non-being. After all, if there were two or more things, then one thing would *not be* the other.
+:::
+
+```{.QualitativeProblem .ShortAnswer submission=none}
+64 Rewrite the argument in standard form.
+```
+
+
+
+
+::: example
+> Many of the traditional learning outcomes of a liberal education cannot be
+measured. But this is true of most of our deeply held values. So it would be
+folly to abandon these outcomes, and only focus on measurable outcomes.
+:::
+
+```{.QualitativeProblem .ShortAnswer submission=none}
+65 Rewrite the argument in standard form.
+```
+
+
+::: example
+> There is only one thing. This follows from the fact that there is only
+being, and no non-being. After all, if there were two or more things, then one thing would *not be* the other.
+:::
+
+```{.QualitativeProblem .ShortAnswer submission=none}
+66 Rewrite the argument in standard form.
+```
+
+::: example
+> Many of the traditional learning outcomes of a liberal education cannot be
+measured. But this is true of most of our deeply held values. So it would be
+folly to abandon these outcomes, and only focus on measurable outcomes.
+:::
+
+```{.QualitativeProblem .ShortAnswer submission=none}
+67 Rewrite the argument in standard form.
+```
+
+
+:::example
+There is no "world" or "reality" independent of our ways of thinking,
+because the conceptual categories we use to describe the world are socially
+constructed and culturally relative.
+:::
+
+
+```{.QualitativeProblem .ShortAnswer submission=none}
+68 Rewrite the argument in standard form.
+```
+
+
+<!-- vim: set ft=carnap :-->

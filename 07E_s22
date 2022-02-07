@@ -1,0 +1,130 @@
+---
+base-css:
+-   https://carnap.io/shared/dsanson@gmail.com/sanson-book.css
+-   https://cdn.plyr.io/3.6.8/plyr.css
+js: 
+-   https://cdn.plyr.io/3.6.8/plyr.polyfilled.js
+-   https://carnap.io/shared/dsanson@gmail.com/logic-book.js
+---
+
+:::auto-tally
+:::
+
+# Truth Tables for Sentences: Exercises
+
+## Fix the Errors
+
+Each of the following truth tables contains at least one mistake. Find and fix
+the mistake(s).
+
+```{.TruthTable .Simple options="nocounterexample" points=10}
+1 P/\Q
+|    T TT
+|    T FF
+|    F FT
+|    T TT
+2 P->Q
+|    T TT
+|    T FF
+|    F FT
+|    F FF
+3 P\/Q
+|    T FT
+|    T TF
+|    F TT
+|    F FF
+4 P<->Q
+|    T T T
+|    T F F
+|    F F T
+|    F F F
+5 ~(P->Q)
+|    F T T T
+|    F T F F
+|    T F T T
+|    T F T F
+6 ~P->Q
+|    F T T T
+|    F T F F
+|    T F T T
+|    T F T F
+```
+
+For each of the following, complete the truth table, and then answer the
+associated question.
+
+Note that on the test, error checking will be enabled for the truth tables,
+since it is so easy to make a "typo". But error checking will not be enabled
+for the associated multiple choice questions. Also, on the test, as here, you
+will get equal points for both.
+
+
+```{.TruthTable .Simple options="nocounterexample" points=10}
+7 ~(P<->~P)
+```
+
+```{.QualitativeProblem .MultipleChoice points=10}
+8 This is:
+| *truth-functionally true
+| truth-functionally false
+| truth-functionally contingent
+```
+
+```{.TruthTable .Simple options="nocounterexample" points=10}
+9 ~(~P/\~Q)
+```
+
+```{.QualitativeProblem .MultipleChoice points=10}
+10 This is:
+| truth-functionally true
+| truth-functionally false
+| *truth-functionally contingent
+```
+
+```{.TruthTable .Simple options="nocounterexample" points=10}
+11 ~P->(Q/\P)
+```
+
+```{.QualitativeProblem .MultipleChoice points=10}
+12 This is:
+| truth-functionally true
+| truth-functionally false
+| *truth-functionally contingent
+```
+
+```{.TruthTable .Simple options="nocounterexample" points=10}
+13 ~P->(Q\/~P)
+```
+
+```{.QualitativeProblem .MultipleChoice points=10}
+14 This is:
+| *truth-functionally true
+| truth-functionally false
+| truth-functionally contingent
+```
+
+```{.TruthTable .Simple options="nocounterexample" points=10}
+15 (P<->Q)/\(~P<->Q)
+```
+
+```{.QualitativeProblem .MultipleChoice points=10}
+16 This is:
+| truth-functionally true
+| *truth-functionally false
+| truth-functionally contingent
+```
+
+```{.TruthTable .Simple options="nocounterexample" points=10}
+17 (R<->P)->((Q/\P)<->(R/\Q))
+```
+
+```{.QualitativeProblem .MultipleChoice points=10}
+18 This is:
+| *truth-functionally true
+| truth-functionally false
+| truth-functionally contingent
+```
+
+
+
+<!-- vim: set ft=carnap :-->

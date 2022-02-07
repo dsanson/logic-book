@@ -1,0 +1,853 @@
+---
+base-css:
+-   https://carnap.io/shared/dsanson@gmail.com/sanson-book.css
+-   https://cdn.plyr.io/3.6.8/plyr.css
+js: 
+-   https://cdn.plyr.io/3.6.8/plyr.polyfilled.js
+-   https://carnap.io/shared/dsanson@gmail.com/logic-book.js
+-   https://hypothes.is/embed.js
+---
+
+::: cover
+
+# Translation in SL, continued
+
+![](http://reggienet.illinoisstate.edu/access/content/user/desanso/public/img/natural-language.jpg){ alt="Two men are
+riding in a bus. One is flamboyantly dressed in pink feathers and rose tinted
+glasses, labeled 'Natural Language'. The other is dressed in a plain black
+jacket, labeled 'Formal Logic'."}
+
+::: epigraph
+In any case, the origin of language did not happen logically, and the whole
+substance in which and with which the person of truth, the researcher, the
+philosopher fashion and build comes, if not from
+[Cuckoonebulopolis](https://en.wikipedia.org/wiki/Cloud_cuckoo_land){target="\_blank"
+rel="noopener noreferrer"}, then in any case not from the essence of
+things.  [Nietzsche, "On Truth and Lie in an Extra-moral Sense" [p. 5 of this
+edition](https://archive.org/details/NietzscheOnTruthAndLie){target="_blank"
+rel="noopener noreferrer"}]{.source}
+:::
+
+:::
+
+## Introduction
+
+::: {.auto-tally}
+:::
+
+In this chapter, we return to the project we began in [Chapter 4](04R), of
+translating between English and SL. The specific learning objectives for
+this unit are:
+
+a.  I can use commas to disambiguate structurally complex sentences, and
+    guide my symbolization of those sentences
+b.  I can symbolize sentences with compound subjects and predicates
+c.  I can symbolize sentences involving restricted quantifier phrases
+    using disjunctions and conjunctions
+
+## Ambiguity Again 
+
+:::sep-inset
+::: sep-header
+<img src="https://plato.stanford.edu/symbols/sep-man-red.png" />
+[Stanford Encyclopedia of Philosophy](https://plato.stanford.edu){target="_blank" rel="noopener noreferrer"}
+:::
+
+# [Friedrich Nietzsche](https://plato.stanford.edu/entries/nietzsche/){target="_blank" rel="noopener noreferrer"}
+
+<div id="preamble">
+
+<p>
+Friedrich Nietzsche (1844&ndash;1900) was a German philosopher and
+cultural critic who published intensively in the 1870s and 1880s. He
+is famous for uncompromising criticisms of traditional European
+morality and religion, as well as of conventional philosophical ideas
+and social and political pieties associated with modernity. Many of
+these criticisms rely on psychological diagnoses that expose false
+consciousness infecting people&rsquo;s received ideas; for that
+reason, he is often associated with a group of late modern thinkers
+(including Marx and Freud) who advanced a &ldquo;hermeneutics of
+suspicion&rdquo; against traditional values (see Foucault [1964] 1990,
+Ricoeur [1965] 1970, Leiter 2004). Nietzsche also used his
+psychological analyses to support original theories about the nature
+of the self and provocative proposals suggesting new values that he
+thought would promote cultural renewal and improve social and
+psychological life by comparison to life under the traditional values
+he criticized.</p>
+</div>
+:::
+
+Natural languages are among the most fascinating of all human artifacts.
+Nietzsche, quoted above in the epigraph, where he complains that "the origin
+of language did not happen logically", also famously described language as an
+unwieldy pile of metaphor, poetry, rhetoric:
+
+> A mobile army of metaphors,
+> [metonyms](https://www.merriam-webster.com/dictionary/metonymy){target="_blank"
+> rel="noopener noreferrer"}, anthropomorphisms, in short a totality of human
+> relations which have been poetically and rhetorically intensified,
+> transferred, and decorated, and which after long use people think are fixed,
+> canonical, and binding. ("On Truth and Lie in an Extra-moral Sense"
+> [p. 6](https://archive.org/details/NietzscheOnTruthAndLie){target="_blank"
+> rel="noopener noreferrer"}).
+
+And yet, with a bit of work, we can uncover the hidden logical form
+communicated by a sentence. And we can capture and display that form in our
+artificial language, SL, a language that is emphatically *not* a creature of
+metaphor or metonym; a language that is devoid of poetry and rhetorically
+limp. In other words, a language that most certainly is above all else
+*logical* in its origin.
+
+The last time we discussed translation, we confined ourselves to the basic
+building blocks. We noted that 'if' marks an antecedent, 'only if' marks a
+consequent, and 'if and only if', which puts them together, indicates a
+biconditional. We discussed all the ways we have of expressing *surprising*
+conjunctions: 'but', 'however', 'nevertheless', and so on. And this short
+review would be incomplete unless we mentioned that 'unless' means 'or' and
+the awkwardness in translating 'neither...nor...' into symbols.
+
+In this chapter, we take a step further into the messiness of English as a
+natural language. First, we consider the way that a comma can be used to
+indicate, if not force, one reading over another. Then we look at compound
+subjects ('Cardi and Megan') and compound predicates ('rich and famous'), some
+of the trouble they cause, and some of the problems they solve. Finally, we
+turn to consider quantificational phases, like 'all of us' and 'some of us',
+and how we might try to capture what they mean using our sentential
+connectives.
+
+## Ambiguity in Sentences involving 'if' and 'not'
+
+Ambiguity is the
+[bugbear](https://en.wikipedia.org/wiki/Bugbear){target="_blank"
+rel="noopener noreferrer"} of the Logician! If only natural languages were as
+clean and precise as our artificial language!
+
+This sentence has two readings:
+
+::: {.transl}
+| It is not the case that the pot will boil if you watch it.
+:::
+
+'It is not the case that' expresses a negation, and it negates the complete
+grammatical sentence that begins with the word after 'that'. But in this case,
+there are two equally good candidates. We can read it as negating 'the pot will boil':
+
+::: {.transl}
+| It is not the case that [the pot will boil]{.wavy} if you watch it.
+:::
+
+But we can also read it as attaching to the entire conditional:
+
+::: {.transl}
+| It is not the case that [the pot will boil if you watch it]{.wavy}.
+:::
+
+There is nothing in this English sentence to decide between these two
+readings.
+
+Can you see how the two readings differ in meaning? The first is an instance
+of the old adage: *a watched pot never boils*. The second denies you the
+superpower of being able to boil water with your eyes.
+
+:::soawrapper
+:::soasticky
+| W: You watch the pot
+| P: The pot will boil
+:::
+
+We can use parentheses to disambiguate the English, or we can translate into
+SL:
+
+::: {.transl}
+| (It is not the case that the pot will boil) if you watch it.
+| $W\rightarrow\neg P$
+
+| It is not the case that (the pot will boil if you watch it).
+| $\neg(W\rightarrow P)$
+:::
+
+We can also rewrite the English sentence into "Canonical"
+English, and so remove the ambiguity:
+
+::: {.transl}
+| (If you watch the pot, then it is not the case that the pot will boil)
+| $W\rightarrow\neg P$
+
+| It is not the case that (if you watch the pot, then the pot will boil)
+| $\neg(W\rightarrow P)$
+:::
+
+The canonical English renderings remain unambiguous when we drop
+the parentheses. Specifically, notice the difference between:
+
+::: {.transl}
+| It is not the case that (the pot will boil if you watch it).
+| It is not the case that (if you watch the pot, then the pot will boil)
+:::
+
+The first becomes ambiguous when the parentheses are dropped, but the second
+does not. This is because of the way that the phrase 'it is not the case'
+interacts with the 'if'. Remember, 'it is not the case that' negates the
+complete grammatical sentence that begins with the word after 'that'. In the
+second sentence, the only such *complete* grammatical sentence is 'if you
+watch the pot, then the pot will boil'. The phrase 'if you watch the pot'
+*contains* a complete sentence, but is not itself complete, since it needs
+another clause, expressing a consequent, to complete it.
+
+We can also use our old trick of moving the negation down next to the verb:
+
+::: {.transl}
+| (It is not the case that the pot will boil) if you watch it.
+| The pot will not boil if you watch it.
+| $W\rightarrow\neg P$
+:::
+
+But this only works for the one reading, where the negation negates a simple
+sentence. We can't use this trick when we *want* to express the negation of
+a conditional.
+
+Here are some examples, meant to give you a chance to stop and think through
+what you've just read.
+
+
+```{.QualitativeProblem .ShortAnswer give-credit="onSubmission" points=10}
+R9.1  <div class="transl"> <div class="line-block">It is not the case that you listen if I talk.</div> </div> <p>Can you explain, briefly, why this sentence is ambiguous, and what the two readings are?</p>
+```
+
+```{.QualitativeProblem .ShortAnswer give-credit="onSubmission" points=10}
+R9.2 <div class="transl"> <div class="line-block">It is not the case that if I talk you listen.</div> </div> <p>Can you explain, briefly, why this sentence is not ambiguous, and what the correct reading is?</p>
+```
+
+```{.QualitativeProblem .ShortAnswer give-credit="onSubmission" points=10}
+R9.3 <div class="transl"> <div class="line-block">If it is not the case that I talk you listen.</div> </div> <p>Can you explain, briefly, why this sentence is not ambiguous, and what the correct reading is?</p>
+```
+
+```{.QualitativeProblem .ShortAnswer give-credit="onSubmission" points=10}
+R9.4 <div class="transl"> <div class="line-block">If I don’t talk you listen.</div> </div> <p>Can you explain, briefly, why this sentence is not ambiguous, and what the correct reading is?</p>
+```
+
+------
+
+:::soawrapper
+:::soasticky
+| P: You are a Packers fan
+| R: You hate the Bears
+| W: You grew up in Wisconsin
+:::
+
+Here is another structurally ambiguous sentence in English:
+
+::: {.transl}
+| If you are a Packers fan if you grew up in Wisconsin you hate the Bears.
+:::
+
+This sentence has two 'if's in it. Each 'if' marks an antecedent. So the
+sentence involves two conditionals, one inside the other. But there is more
+than one way to assign antecedents to each 'if'.
+
+Focus just on the first 'if'. One option is that the antecedent it introduces
+is 'You are a Packers fan':
+
+::: {.transl}
+| If [you are a Packers fan]{.wavy} if you grew up in Wisconsin you hate the Bears
+:::
+
+But another option is that the ancedent it introduces is 'You are a Packers
+fan if you grew up in Wisconsin':
+
+::: {.transl}
+| If [you are a Packers fan if you grew up in Wisconsin]{.wavy} you hate the Bears
+:::
+
+Those are both grammatically complete sentences. Nothing in the English tells
+us which one is marked as antecedent by that first 'if'.
+
+What about the second 'if'? Again, there are two sentences it might mark as
+antecedents:
+
+::: {.transl}
+| If you are a Packers fan if [you grew up in Wisconsin]{.wavy} you hate the Bears
+| If you are a Packers fan if [you grew up in Wisconsin you hate the Bears]{.wavy}
+:::
+
+So we get two possible readings:
+
+::: {.transl}
+| If you are a Packers fan (if you grew up in Wisconsin you hate the Bears)
+| $P\rightarrow(W\rightarrow R)$
+
+| If (you are a Packers fan if you grew up in Wisconsin) you hate the Bears
+| $(W\rightarrow P)\rightarrow R$
+:::
+
+We can translate back out to "Canonical" English, which yields two unambiguous
+English sentences:
+
+::: {.transl}
+| (If you are a Packers fan, then (if you grew up in Wisconsin, then you hate
+  the Bears))
+| $P\rightarrow(W\rightarrow R)$
+
+| (If (if you grew up in Wisconsin, then you are a Packers fan), then you hate
+  the Bears)
+| $(W\rightarrow P)\rightarrow R$
+:::
+
+And, again, we can drop the parentheses in the Canonical English, and our
+sentences remain unambiguous.
+
+Can you see the difference in meaning between these two claims? The first says, roughly,
+that you hate the Bears if you are a Packers fan who grew up in Wisconsin.
+That is probably true, right? The second says, roughly, that you hate the
+Bears if you would have been a Packers fan had you grown up in Wisconsin.
+That' probably false, right? Lots of Bears fans who grew up in Chicago *would
+have been* Packers fans *if they'd grown up in Wisconsin*. But that doesn't
+mean that they actually hate the Bears!
+
+Is this ambiguous?
+
+::: {.transl}
+| If you are a Packers fan *then* if you grew up in Wisconsin you
+  hate the Bears.
+:::
+
+It is not. The first reading is available:
+
+::: {.transl}
+| If [you are a Packers fan]{.wavy} *then* if you grew up in Wisconsin you
+  hate the Bears.
+:::
+
+But the 'then' blocks the other reading: 
+
+::: {.transl}
+| If [you are a Packers fan *then* if you grew up in Wisconsin]{.wavy} you
+  hate the Bears.
+:::
+
+'You are a Packers fan then if you grew up in Wisconsin' is not a grammatical
+sentence. So the only possible reading is the first reading:
+
+::: {.transl}
+| If [you are a Packers fan]{.wavy} *then* if you grew up in Wisconsin you
+  hate the Bears.
+| $P\rightarrow (W\rightarrow R)$
+:::
+
+Is this ambiguous?
+
+::: transl
+| If [you are a Packers fan]{.wavy} if you grew up in Wisconsin *then* you
+  hate the Bears.
+:::
+
+It is. In this case, the 'then' doesn't block either reading, so both readings
+remain available:
+
+::: {.transl}
+| If [you are a Packers fan]{.wavy} if you grew up in Wisconsin *then* you
+  hate the Bears.
+| If [you are a Packers fan if you grew up in Wisconsin]{.wavy} *then* you
+  hate the Bears.
+:::
+
+Another tool we can use to indicate structure is a comma. Notice how the comma
+guides you in each case to one reading rather than the other:
+
+::: {.transl}
+| If you are a Packers fan, if you grew up in Wisconsin you hate the Bears.
+| $(P\rightarrow (W\rightarrow R)$
+
+| If you are a Packers fan if you grew up in Wisconsin, you hate the Bears.
+| $(W\rightarrow P)\rightarrow R$
+:::
+:::
+
+There is no hard and fast rule in English about the use of commas to indicate
+logical structure. But now that you are aware of this problem, *you should
+always use commas in this way when you can.* It will make you a better writer.
+
+::: vaside
+The Comma Rule: When a sentence would otherwise be ambiguous, a comma
+indicates a bigger structural break.
+:::
+
+For the purpose of translation into SL in this class, we will treat this as a
+hard and fast rule, and we call it the [Comma Rule]{.vocab}.
+
+:::aside
+Here is a short video lecture, going over the Comma Rule:
+
+:::youtube
+<https://youtu.be/oVyo06XMEDQ>
+:::
+:::
+
+
+
+:::soawrapper
+:::soasticky
+| P: People talk.
+| Q: Questions are asked.
+| R: Rumors spread.
+:::
+
+```{.Translate .Prop points=10}
+R9.5 (Q->P)->R : If people talk if questions are asked, rumors spread.
+```
+
+<div class=youtube>
+https://youtu.be/jh6rTbPWC-g
+</div>
+
+```{.Translate .Prop points=10}
+R9.6 P->(Q->R) : If people talk, if questions are asked rumors spread.
+```
+
+<div class=youtube>
+https://youtu.be/f5vtFywaSkE
+</div>
+
+```{.Translate .Prop points=10}
+R9.7 ~Q->~R : Rumors don't spread if questions aren't asked.
+```
+
+<div class=youtube>
+https://youtu.be/PLWI0nhHhLs
+</div>
+
+```{.Translate .Prop points=10}
+R9.8 ~(Q->R) : It is not the case that if questions are asked, rumors spread.
+```
+
+<div class=youtube>
+https://youtu.be/3FXS-6CSGJE
+</div>
+
+:::
+
+## Ambiguity in Sentences Involving 'And', 'Or', and 'If and Only If'
+
+The comma rule is also helpful for resolving ambiguities in sentences
+involving our other connectives too. For example, this sentence is ambiguous:
+
+::: {.transl}
+| People talk and rumors spread unless questions are asked.
+:::
+
+The two readings, disambiguated with commas, are:
+
+::: {.transl}
+| People talk and rumors spread, unless questions are asked.
+| $(P\wedge R)\vee Q$
+
+| People talk, and rumors spread unless questions are asked.
+| $P\wedge (R\vee Q)$
+:::
+
+Do you see that these two sentences mean very different things, and how the
+commas help disambiguate?
+
+Again, this is ambiguous:
+
+::: {.transl}
+| She wins the prize if and only if she eats the most hot peppers and she has
+  a high tolerance for spicy food.
+:::
+
+The two readings, disambiguated with commas, are:
+
+::: {.transl}
+| She wins the prize, if and only if she eats the most hot peppers and she has
+  a high tolerance for spicy food.
+| $P\leftrightarrow (Q\wedge S)$
+| She wins the prize if and only if she eats the most hot peppers, and she has
+  a high tolerance for spicy food.
+| $(P\leftrightarrow Q)\wedge S$
+:::
+
+Only the second reading tells us that she has a high tolerance for spicy food,
+full stop, and so gives us a reason to put our money on her to win the prize.
+Paying careful attention to commas can save you money when gambling on eating
+contests at bars.
+
+## Compound Subjects and Predicates
+
+:::aside
+Here is a short video lecture covering the material from this section:
+
+:::youtube
+<https://youtu.be/EnqdZMmdgLc>
+:::
+:::
+
+These sentences mean the same thing:
+
+::: {.transl}
+| Desiree and Malik talked to the press,
+| Desiree talked to the press and Malik talked to the press.
+:::
+
+English craves brevity. When we want to apply the same predicate to more than one subject,
+it is more convenient, and shorter, to apply the predicate ('talked to the press') once to a grammatically compound
+subject ('Desiree and Malik'), instead of applying it twice, and then
+combining the resulting sentences with a sentential connective.
+
+The same thing happens when we want to apply two predicates to the same
+subject:
+
+::: {.transl}
+| Desiree is imposing and tall,
+| Desiree is imposing and Desiree is tall.
+:::
+
+But traps lurk. Do these sentences mean the same thing?
+
+::: {.transl}
+| Desiree and Malik are in love.
+| Desiree is in love and Malik is in love.
+:::
+
+Perhaps on one reading of the first sentence, they do. But on the most natural
+reading of the first sentence, it means that they are *in love with each
+other*. The second sentence doesn't say that.
+
+Here is an even more blatant example:
+
+::: {.transl}
+| Desiree and Malik are two people.
+| Desiree is two people and Malik is two people.
+:::
+
+These are not equivalent at all! The first is reasonable. It says, of the two people
+together, that taken as a pair, they are two. The second says of each person
+separately that they are two, in the same sense that Vincent Adultman is not
+one adult, but three kids stacked in a coat.
+
+:::youtube
+https://youtu.be/iMV8btPW4wU
+:::
+
+## Compound Subjects, Predicates, and Ambiguity
+
+:::soawrapper
+:::soasticky
+| P: The alarm went off
+| Q: Desiree is awake
+| R: Malik is awake
+:::
+
+One nice thing about compound subjects and predicates is that they can be used
+to help clarify structure. For example,
+
+::: {.transl}
+| [Desiree and Malik are awake]{.wrap} if the alarm went off.
+| $P\rightarrow (Q\wedge R)$
+:::
+
+There is no temptation to read this as:
+
+::: {.transl}
+| $Q\wedge (P\rightarrow R)$
+:::
+
+This is because, in English, compound subjects and predicates "group more
+tightly" than sentential connectives. The use of the compound subject forces
+the two parts of the conjunction to be grouped together.
+
+:::
+
+:::soawrapper
+:::soasticky
+| P: Polly squawks.
+| Q: Polly wants a cracker.
+| R: Rosie squawks.
+| S: Rosie wants a cracker.
+:::
+
+```{.Translate .Prop points=10}
+R9.9 R->(Q->P) : Polly squawks if she wants a cracker, if Rosie squawks
+```
+
+<div class=youtube>
+https://youtu.be/SxysShw1NKg
+</div>
+
+```{.Translate .Prop points=10}
+R9.10 ~(R->S) : It is not the case that if Rosie squawks, she wants a cracker.
+```
+
+<div class=youtube>
+https://youtu.be/gCUAQEJskI4
+</div>
+
+```{.Translate .Prop points=10}
+R9.11 (R/\P)\/~S : Rosie and Polly squawk unless Rosie doesn't want a cracker.
+```
+
+<div class=youtube>
+https://youtu.be/5MejNYx7zog
+</div>
+
+```{.Translate .Prop points=10}
+R9.12 (R/\S)<->(P\/Q) : Rosie squawks and wants a cracker if and only if Polly squawks or wants a cracker.
+```
+
+<div class=youtube>
+https://youtu.be/DRNUk5zkWJE
+</div>
+
+:::
+
+## Quantificational Claims
+
+:::aside
+::: youtube
+<https://youtu.be/yDdGXYIAt4A>
+:::
+:::
+
+:::soawrapper
+::: soasticky
+| R: Ruth liked the movie
+| S: Sonia liked the movie
+| T: Clarence liked the movie
+
+We are Ruth, Sonia, and Clarence.
+:::
+
+Suppose there are exactly three of us: Ruth, Sonia, and Clarence.
+Suppose we all go to watch a movie together. Did we all like the movie? Did
+none of us like the movie? Or maybe some of us liked it, and same of us
+didn't? Let's consider how we might symbolize these different claims.
+
+::: {.transl}
+| All of us liked the movie.
+:::
+
+The trick is to see that 'all of us' is equivalent to 'Ruth and Sonia and
+Clarence'. So we can unpack the sentence into a conjunction:
+
+::: {.transl}
+| All of us liked the movie.
+| Ruth and Sonia and Clarence liked the movie.
+| Ruth liked the movie and Sonia liked the movie and Clarence liked the movie.
+| $R\wedge S\wedge T$
+:::
+
+Suppose we didn't *all* like the movie. How can we symbolize that? The trick is
+to see that 'not all of us liked the movie' is the negation of 'all of us
+liked the movie'. So we can piggyback on our symbolization of 'all of us
+liked the movie':
+
+::: transl
+| Not all of us liked the movie.
+| $\neg (R\wedge S\wedge T)$
+:::
+
+Notice the distinction between that and:
+
+::: transl
+| All of us did not like the movie.
+| Ruth and Sonia and Clarence didn't like the movie.
+| Ruth didn't like the movie and Sonia didn't like the movie and Clarence didn't like the movie.
+| ¬R ∧ ¬S ∧ ¬T
+:::
+
+The claim that not all of us liked the movie isn't the same as the claim that
+all of us didn't like the movie. Maybe not all of us liked it, but some of us
+did. What about:
+
+::: transl
+| At least one of us liked the movie.
+:::
+
+Here, the trick is to see that 'at least one of us' is equivalent, in
+this situation, to 'Ruth or Sonia or Clarence'. So:
+
+::: transl
+| At least one of us liked the movie.
+| Ruth or Sonia or Clarence liked the movie,
+| Ruth liked the movie or Sonia liked the movie or Clarence liked the movie.
+| R ∨ S ∨ T
+:::
+
+What about the possibility that *none of us* liked the movie? How can we
+symbolize that?
+
+::: transl
+| None of us liked the movie.
+:::
+
+There are two ways to think about this. You can think of it as equivalent to
+'All of us didn't like the movie', which we already translated above:
+
+::: transl
+| All of us did not like the movie.
+| Ruth and Sonia and Clarence didn't like the movie.
+| Ruth didn't like the movie and Sonia didn't like the movie and Clarence didn't like the movie.
+| ¬R ∧ ¬S ∧ ¬T
+:::
+
+Or, we can think of 'none of us' as the *negation of* 'at least one of us'.
+
+::: transl
+| None of us liked the movie.
+| It is not the case that at least one of us liked the movie.
+| It is not the case that (Ruth or Sonia or Clarence liked the movie).
+| $\neg (R\vee S\vee T)$
+:::
+
+Notice that these two ways of handling 'none of us' mirror the two ways we
+have to handle 'neither...nor...':
+
+::: transl
+| Neither Ruth nor Clarence liked the movie
+| $\neg R\wedge \neg T$
+| $\neg (R\vee T)$
+:::
+
+We've considered four sentences:
+
+::: transl
+| All of us liked the movie.
+| Not all of us liked the movie.
+| At least one of us liked the movie.
+| None of us liked the movie.
+:::
+
+What about,
+
+::: transl
+| Some of us liked the movie.
+:::
+
+We will treat this as equivalent to "at least one of us liked the movie"
+
+::: transl
+| Some of us liked the movie.
+| R ∨ S ∨ T
+:::
+
+There are two common objections to this. First, in many situations, 'some'
+implies *more than one*:
+
+> A: "Did any of your friends show up to your birthday party?" 
+>
+> B: "Some of them did." 
+>
+> A: "Oh! Good! How many?" 
+>
+> B: "Well, actually, just Gary."
+
+At a minimum, B's initial response was misleading, suggesting that more than
+one of their friends came to the party.
+
+Second, in many situations, 'some' implies *not all*:
+
+> A: "Did any of your friends show up to your birthday party?"
+>
+> B: "Some of them did." 
+> 
+> A: "Oh! Good! How many?" 
+>
+> B: "Well, actually, all of them did."
+
+Again, at a minimum, B's initial response was misleading.
+
+But notice that we have in English the phrase 'some
+but not all'. That suggests that 'some' doesn't already mean 'not all'.
+Otherwise, the phrase would be redundant. 
+
+And imagine this dialogue:
+
+> A: "How did you do on the test?"
+>
+> B: "I've only checked my scores on the first two questions. I got those
+> correct. So I know that I got some of the questions correct."
+
+Notice that B's use of 'some' clearly does not imply *not all* in this
+context. So it seems like if 'some' implies 'not all', it does so in
+some but not all contexts.
+
+In the 1970s, Paul Grice, a philosopher of language, provided a compelling
+account of what is going on here. This account is part of his theory
+of "Conversational Implicature". Grice thinks that in conversation, we expect
+speakers to be generally cooperative, and follow a few basic "maxims". One of
+his maxims is:
+
+
+Maxim of Quantity
+:   Be as informative as required.
+
+
+When B said "Some of my friends came to the party" even though all of them
+came to the party, she violated this maxim. She ought to have been more
+infomrative, and said that all of them came. It isn't that what she said was
+*false*, even though it was misleading.
+
+Again, when B said "Some of my friends came to the party" even though only
+Gary showed up, she violated this maxim. She ought to have been more
+informative, and said that just one came. It isn't that what she said was
+*false*, even though it was misleading. 
+
+On the other hand, when B said, "I got some of the problems correct," it was
+clear that B was in no position to know whether or not she got all of them
+correct, and so this was as informative as she could be. In that context, the
+felt implication, that 'some' means 'not all', disappears entirely.
+
+:::aside
+See the [SEP article on
+Implicature](https://plato.stanford.edu/entries/implicature/) for more
+details.
+:::
+
+So that's a bit of theory. But the key takeaway is that, for us in this course, 'some' just
+means 'at least one'.
+
+:::soawrapper
+::: soasticky
+| P: John sings.
+| Q: Paul sings.
+| R: Ringo sings.
+| S: George sings.
+:::
+
+Assume that we are the Beatles: John, Paul, Ringo, and George.
+
+
+```{.Translate .Prop points=10}
+R9.13 P/\Q/\R/\S : All of us sing.
+```
+
+<div class=youtube>
+https://youtu.be/Rxyc5j4fvYA
+</div>
+
+```{.Translate .Prop points=10}
+R9.14 P\/Q\/R\/S : Some of us sing.
+```
+
+<div class=youtube>
+https://youtu.be/vN2sYaGR2OQ
+</div>
+
+```{.Translate .Prop points=10}
+R9.15 ~(P\/Q\/R\/S) : None of us sing.
+```
+
+<div class=youtube>
+https://youtu.be/WFbqXVt392w
+</div>
+
+```{.Translate .Prop points=10}
+R9.16 P->(P/\Q/\R/\S) : If John sings, all of us sing.
+```
+
+<div class=youtube>
+https://youtu.be/CA9aiUzEiAg
+</div>
+:::
+
+
+<!-- vim: set ft=carnap :-->

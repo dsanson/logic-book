@@ -1,0 +1,280 @@
+---
+base-css:
+-   https://carnap.io/shared/dsanson@gmail.com/sanson-book.css
+-   https://cdn.plyr.io/3.6.8/plyr.css
+js: 
+-   https://cdn.plyr.io/3.6.8/plyr.polyfilled.js
+-   https://carnap.io/shared/dsanson@gmail.com/logic-book.js
+---
+
+# Validity, Soundness, and Strength: Exercises
+
+:::auto-tally
+:::
+
+## Recognizing Validity and Soundness
+
+::: standardform
+| [Normal is a city in Illinois]{.premise .nn}
+| [Chicago is a city in Illinois]{.premise .nn}
+| [Illinois is in the Midwest]{.conclusion}
+:::
+
+```{.QualitativeProblem .MultipleChoice points=10}
+1 Are all the premises of this argument actually true?
+| *Yes
+| No
+```
+
+```{.QualitativeProblem .MultipleChoice points=10}
+2 Is the conclusion of this argument actually true?
+| *Yes
+| No
+```
+
+
+```{.QualitativeProblem .MultipleChoice points=10}
+3 Is this argument valid?
+| Yes
+| *No
+```
+
+```{.QualitativeProblem .MultipleChoice points=10}
+4 Is this argument sound?
+| Yes
+| *No
+```
+
+:::{.reaction .correct ex=4}
+This argument has true premises and a true conclusion, but the
+conclusion does not follow from the premises. More specifically, in terms
+of our definition of validity, the premises could both be true, but the
+conclusion false. 
+
+To see this, imagine a possibility in which the premises are
+true but the conclusion false. For example, imagine that US westward expansion ended in the early 19th
+century, making the western border of Illinois the western border of the US.
+So the conclusion is false. But suppose that, in this possible situation,
+Chicago and Normal develop more or less the same way they actually did. So
+both the premises are true.
+
+Since the argument is not valid, it is not sound: to be sound, an argument
+must both be valid AND have all true premises.
+:::
+
+::: standardform
+| [Normal is a city in Indiana]{.premise .nn}
+| [Chicago is a city in Indiana]{.premise .nn}
+| [Indiana is a state]{.premise .nn}
+| [Normal and Chicago are both cities in the same state]{.conclusion}
+:::
+
+
+```{.QualitativeProblem .MultipleChoice points=10}
+5 Are all the premises of this argument actually true?
+| Yes
+| *No
+```
+
+```{.QualitativeProblem .MultipleChoice points=10}
+6 Is the conclusion of this argument actually true?
+| *Yes
+| No
+```
+
+```{.QualitativeProblem .MultipleChoice points=10}
+7 Is this argument valid?
+| *Yes
+| No
+```
+
+```{.QualitativeProblem .MultipleChoice points=10}
+8 Is this argument sound?
+| Yes
+| *No
+```
+
+:::{.reaction .correct ex=8}
+This argument has a true conclusion, but its first two premises are false. But that
+doesn't tell us whether or not it is valid. To figure that out, we need to
+think about whether the conclusion *follows* from the premises, in the sense
+defined by our definition of validity: is it *possible* for the premises to
+all be true, but the conclusion false?
+
+No, this is not possible: any possibility that makes it true that Normal and
+Chicago are both cities in Indiana, and holds true the fact that Indiana is a
+state, is also going to make it true that Normal and Chicago are cities in the
+same state. So the argument is valid, because it is impossible for the
+premises to all be true, but the conclusion false.
+
+The argument is not sound, because it has false premises. In order for an
+argument to be sound, it must both be valid AND have all true premises.
+:::
+
+::: standardform
+| [Biden is President]{.premise .nn}
+| [If Biden is President, a Democrat is President]{.premise .nn}
+| [A Democrat is President]{.conclusion}
+:::
+
+```{.QualitativeProblem .MultipleChoice points=10}
+9 Are all the premises of this argument actually true?
+| *Yes
+| No
+```
+
+```{.QualitativeProblem .MultipleChoice points=10}
+10 Is the conclusion of this argument actually true?
+| *Yes
+| No
+```
+
+```{.QualitativeProblem .MultipleChoice points=10}
+11 Is this argument valid?
+| *Yes
+| No
+```
+
+```{.QualitativeProblem .MultipleChoice points=10}
+12 Is this argument sound?
+| *Yes
+| No
+```
+
+:::{.reaction .correct ex=12}
+This argument is valid, and the premises are all true. So it is also sound.
+:::
+
+::: standardform
+| [Trump is President]{.premise .nn}
+| [If Trump is President, a Republican is President]{.premise .nn}
+| [A Republican is President]{.conclusion}
+:::
+
+```{.QualitativeProblem .MultipleChoice points=10}
+13 Are all the premises of this argument actually true?
+| Yes
+| *No
+```
+
+```{.QualitativeProblem .MultipleChoice points=10}
+14 Is the conclusion of this argument actually true?
+| Yes
+| *No
+```
+
+```{.QualitativeProblem .MultipleChoice points=10}
+15 Is this argument valid?
+| *Yes
+| No
+```
+
+```{.QualitativeProblem .MultipleChoice points=10}
+16 Is this argument sound?
+| Yes
+| *No
+```
+
+:::{.reaction .correct ex=16}
+This argument is also valid. Notice that it has the same logical form as the
+previous argument, about Biden. Arguments with this logical form are valid in
+virtue of their form---that is, they are formally valid. But in this case, the
+first premise is false. So the argument is not sound.
+:::
+
+::: standardform
+| [A Democrat is President]{.premise .nn}
+| [If Biden is President, a Democrat is President]{.premise .nn}
+| [Biden is President]{.conclusion}
+:::
+
+```{.QualitativeProblem .MultipleChoice points=10}
+17 Are all the premises of this argument actually true?
+| *Yes
+| No
+```
+
+```{.QualitativeProblem .MultipleChoice points=10}
+18 Is the conclusion of this argument actually true?
+| *Yes
+| No
+```
+
+```{.QualitativeProblem .MultipleChoice points=10}
+19 Is this argument valid?
+| Yes
+| *No
+```
+
+```{.QualitativeProblem .MultipleChoice points=10}
+20 Is this argument sound?
+| Yes
+| *No
+```
+
+:::{.reaction .correct ex=20}
+This argument is not valid. Compare its form to the form of the previous two
+arguments. Those arguments had this logical form:
+
+::: standardform
+| [$P$]{.premise .nn}
+| [If $P$, $Q$]{.premise .nn}
+| [$Q$]{.conclusion}
+:::
+
+This argument has a similar, but importantly different, logical form:
+
+::: standardform
+| [$P$]{.premise .nn}
+| [If $Q$, $P$]{.premise .nn}
+| [$Q$]{.conclusion}
+:::
+
+Arguments with first form are formally valid. Arguments with this second form
+are not formally valid.
+
+Do you see why the argument is not valid? Imagine that some other Democrat had
+won the primary, and then won the election. Then the premises would both still
+be true, but the conclusion would be false.
+:::
+
+::: standardform
+| [Biden is President]{.premise .nn}
+| [Biden is not President]{.premise .nn}
+| [Grass is green]{.conclusion}
+:::
+
+```{.QualitativeProblem .MultipleChoice points=10}
+21 Are all the premises of this argument actually true?
+| Yes
+| *No
+```
+
+```{.QualitativeProblem .MultipleChoice points=10}
+22 Is the conclusion of this argument actually true?
+| *Yes
+| No
+```
+
+```{.QualitativeProblem .MultipleChoice points=10}
+23 Is this argument valid?
+| *Yes
+| No
+```
+
+```{.QualitativeProblem .MultipleChoice points=10}
+24 Is this argument sound?
+| Yes
+| *No
+```
+
+:::{.reaction .correct ex=24}
+This is one of those degenerate cases of validity. The argument is valid
+because it is impossible for both of the premises to be true together.
+
+Note that arguments that are valid for this reason can never be sound, because
+it can never be the case that all their premises are true.
+:::
+
+
+<!-- vim: set ft=carnap :-->
