@@ -12,6 +12,11 @@ js:
 
 # Truth Tables for Arguments: Exercises
 
+**HEADS UP!**: Currently, your work on truth tables will not be saved across
+page reloads, because the results were too buggy to be useful. Your
+*submissions* will still be saved. But if you reload the page, any work you've
+done on a truth table will be reset.
+
 ## Fix the Errors
 
 Truth tables are error prone: so many little boxes, and so many Ts and Fs.

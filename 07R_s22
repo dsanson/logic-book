@@ -26,10 +26,13 @@ table, from
 
 :::
 
+**HEADS UP!**: Currently, your work on truth tables will not be saved across
+page reloads, because the results were too buggy to be useful. Your
+*submissions* will still be saved. But if you reload the page, any work you've
+done on a truth table will be reset.
 
 
 ## Introduction
-
 
 In previous chapters, we explored derivations. We can use derivations to show
 that an argument is valid. We can also use derivations to show that a sentence
@@ -848,7 +851,7 @@ sentence, given the truth values assigned to its parts:
 
 ```{.TruthTable .Partial options="strictGivens nocounterexample" points=10}
 6 P/\Q
-|    T -F
+| T -F
 ```
 
 Video walkthrough:
