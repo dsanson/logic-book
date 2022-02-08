@@ -7,15 +7,20 @@ js:
 -   https://carnap.io/shared/dsanson@gmail.com/logic-book.js
 ---
 
-# Truth Tables for Arguments: Exercises
-
 :::auto-tally
 :::
 
-# Fix the Errors
+# Truth Tables for Arguments: Exercises
+
+## Fix the Errors
+
+Truth tables are error prone: so many little boxes, and so many Ts and Fs.
+So you need to be able to look over a table, spot the errors, and fix them.
+These first several exercises give you a chance to practice this.
+
 
 ```{.TruthTable .Validity options="nocounterexample turnstilemark" points=10}
-E8.1 P, Q :|-: R
+1 P, Q :|-: R
 |    T  T  T   T
 |    T  T  T   F
 |    T  F  F   T
@@ -24,22 +29,22 @@ E8.1 P, Q :|-: R
 |    F  T  F   F
 |    F  F  F   T
 |    F  F  F   F
-E8.2 P, Q :|-: P
+2 P, Q :|-: P
 |    T  T  T   T
 |    T  F  F   T
 |    F  T  T   F
 |    F  F  F   F
-E8.3 P->Q, Q :|-: P
+3 P->Q, Q :|-: P
 |    TT T  T  T   T
 |    TF F  F  F   T
 |    FT T  T  T   F
 |    FT F  F  F   F
-E8.4 P\/Q, Q :|-: ~P
+4 P\/Q, Q :|-: ~P
 |    TF T  T  T   FT
 |    TT F  F  T   FT
 |    FT T  T  T   TF
 |    FF F  F  T   TF
-E8.5 ~(P/\Q) :|-: ~(P<->Q)
+5 ~(P/\Q) :|-: ~(P<->Q)
 |    F T TT   F   F T T T
 |    T T FF   T   T T F F
 |    T F FT   T   T F F T
@@ -49,10 +54,10 @@ E8.5 ~(P/\Q) :|-: ~(P<->Q)
 # Equivalence and Consistency
 
 ```{.TruthTable .Simple options="nocounterexample" points=10}
-E8.6 ~P->~Q, Q->P
+6 ~P->~Q, Q->P
 ```
 ```{.QualitativeProblem .MultipleSelection points=10}
-E8.7 These two sentences are:
+7 These two sentences are:
 | *truth-functionally equivalent
 | not truth-functionally equivalent
 | *truth-functionally consistent
@@ -60,32 +65,48 @@ E8.7 These two sentences are:
 ```
 
 ```{.TruthTable .Simple options="nocounterexample" points=10}
-E8.8 ~P->~Q, P->Q
+8 ~P->~Q, P->Q
 ```
 ```{.QualitativeProblem .MultipleSelection points=10}
-E8.9 These two sentences are:
+9 These two sentences are:
 | truth-functionally equivalent
 | *not truth-functionally equivalent
 | *truth-functionally consistent
 | truth-functionally inconsistent
 ```
 
+:::{.reaction .correct ex=9}
+Do you see how (6) and (8) differ from each other? 
+(6) is another example of contraposition:
+ the sentence '¬P → ¬Q' is the contrapositive of 'Q → P'.
+As we saw in the reading, a conditional is always truth-functionally equivalent to its contrapositive.
+
+Contraposition requires flipping the order of antecedent and consequent *and* negating both.
+(8) is *not* an example of contraposition: we've negated both, but we haven't flipped them.
+:::
+
+
 ```{.TruthTable .Simple options="nocounterexample" points=10}
-E8.10 ~(P/\Q), ~P/\~Q
+10 ~(P/\Q), ~P/\~Q
 ```
 ```{.QualitativeProblem .MultipleSelection points=10}
-E8.11 These two sentences are:
+11 These two sentences are:
 | truth-functionally equivalent
 | *not truth-functionally equivalent
 | *truth-functionally consistent
 | truth-functionally inconsistent
 ```
 
+:::{.reaction .correct ex=10}
+If you've ever been tempted to "distribute" a negation over a conjunction,
+ the truth table for (10) shows why that would be mistake!
+:::
+
 ```{.TruthTable .Simple options="nocounterexample" points=10}
-E8.12 P<->Q, P/\~Q
+12 P<->Q, P/\~Q
 ```
 ```{.QualitativeProblem .MultipleSelection points=10}
-E8.13 These two sentences are:
+13 These two sentences are:
 | truth-functionally equivalent
 | *not truth-functionally equivalent
 | truth-functionally consistent
@@ -93,74 +114,93 @@ E8.13 These two sentences are:
 ```
 
 ```{.TruthTable .Simple options="nocounterexample" points=10}
-E8.14 ~(P/\Q), ~(P\/Q)
+14 ~(P/\Q), ~(P\/Q)
 ```
 ```{.QualitativeProblem .MultipleSelection points=10}
-E8.15 These two sentences are:
+15 These two sentences are:
 | truth-functionally equivalent
 | *not truth-functionally equivalent
 | *truth-functionally consistent
 | truth-functionally inconsistent
 ```
 
+:::{.reaction .correct ex=15}
+(14) looks a lot like (10). But there is an important difference! 
+You cannot "distribute" a negation over a conjunction,
+ but you can "distribute" and "flip": distribute the negation, but replace the '∧' with an '∨'.
+This is one of several equivalences known as "De Morgan's Laws".
+We will come back to them, in the context of derivations, in Unit 11.
+:::
+
 ```{.TruthTable .Simple options="nocounterexample" points=10}
-E8.16 ~(~P\/~Q), ~P/\~Q 
+16 ~(~P\/~Q), ~P/\~Q 
 ```
 ```{.QualitativeProblem .MultipleSelection points=10}
-E8.17 These two sentences are:
+17 These two sentences are:
 | truth-functionally equivalent
 | *not truth-functionally equivalent
 | truth-functionally consistent
 | *truth-functionally inconsistent
 ```
 
+
 ```{.TruthTable .Simple options="nocounterexample" points=10}
-E8.18 P\/Q, ~Q->P
+18 P\/Q, ~Q->P
 ```
 ```{.QualitativeProblem .MultipleSelection points=10}
-E8.19 These two sentences are:
+19 These two sentences are:
 | *truth-functionally equivalent
 | not truth-functionally equivalent
 | *truth-functionally consistent
 | truth-functionally inconsistent
 ```
 
+:::{.reaction .correct ex=19}
+This is surprising. Our conditional is truth-functionally equivalent to a disjunction!
+Remember how we translate 'unless' as 'or', even though it is tempting to translate it as 'if not'?
+This table establishes that, if you are careful, both translations will be equivalent.
+:::
 
 # Validity
 
 
 ```{.TruthTable .Validity options="nocounterexample turnstilemark" points=10}
-E8.20 P->Q, ~Q :|-: ~P
+20 P->Q, ~Q :|-: ~P
 ```
 ```{.QualitativeProblem .MultipleChoice points=10}
-E8.21 This argument is:
+21 This argument is:
+| *truth-functionally valid
+| not truth-functionally valid
+```
+
+:::{.reaction .correct ex=21}
+This, of course, is our old friend Modus Tollens.
+:::
+
+
+```{.TruthTable .Validity options="nocounterexample turnstilemark" points=10}
+22 P->Q :|-: Q\/~P
+```
+```{.QualitativeProblem .MultipleChoice points=10}
+23 This argument is:
 | *truth-functionally valid
 | not truth-functionally valid
 ```
 
 ```{.TruthTable .Validity options="nocounterexample turnstilemark" points=10}
-E8.22 P->Q :|-: Q\/~P
+24 P->(Q->R), ~(P/\Q) :|-: ~(R\/Q)
 ```
 ```{.QualitativeProblem .MultipleChoice points=10}
-E8.23 This argument is:
-| *truth-functionally valid
-| not truth-functionally valid
-```
-
-```{.TruthTable .Validity options="nocounterexample turnstilemark" points=10}
-E8.25 P->(Q->R), ~(P/\Q) :|-: ~(R\/Q)
-```
-```{.QualitativeProblem .MultipleChoice points=10}
-E8.26 This argument is:
+25 This argument is:
 | truth-functionally valid
 | *not truth-functionally valid
 ```
 
 ```{.TruthTable .Validity options="nocounterexample turnstilemark" points=10}
-E8.27 (~Q/\~R)<->P :|-: ~P->~(Q\/R)
+26 (~Q/\~R)<->P :|-: ~P->~(Q\/R)
 ```
 ```{.QualitativeProblem .MultipleChoice points=10}
-E8.28 This argument is:
+27 This argument is:
 | truth-functionally valid
 | *not truth-functionally valid
 ```

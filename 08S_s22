@@ -20,57 +20,57 @@ These are simple truth tables, meant to help those who are struggling to
 remember how to apply the characteristic truth tables.
 
 ```{.TruthTable .Partial options="nocounterexample strictGivens" submission=none}
-S8.1 P/\Q
+1 P/\Q
 |    T -T
-S8.2 S->U
+2 S->U
 |    T -F
-S8.3 P\/Q
+3 P\/Q
 |    F -T
-S8.4 Q/\P
+4 Q/\P
 |    F -F
-S8.5 P->Q
+5 P->Q
 |    F -T
-S8.6 S<->U
+6 S<->U
 |    F - T
-S8.7 P\/P
+7 P\/P
 |    T -T
-S8.8 P<->Q
+8 P<->Q
 |    F - F
-S8.9 Q\/R
+9 Q\/R
 |    T -F
-S8.10 Q->P
+10 Q->P
 |    F -F
-S8.11 R/\P
+11 R/\P
 |    F -T
-S8.12 R\/Q
+12 R\/Q
 |    F -F
-S8.13 Q<->P
+13 Q<->P
 |    T - T
-S8.14 P<->Q
+14 P<->Q
 |    T - F
-S8.15 Q\/Q
+15 Q\/Q
 |    F -F
-S8.16 R<->S
+16 R<->S
 |    F - F
-S8.17 Q/\P
+17 Q/\P
 |    T -T
-S8.18 R\/S
+18 R\/S
 |    F -T
-S8.19 P->Q
+19 P->Q
 |    T -F
-S8.20 P/\Q
+20 P/\Q
 |    F -F
-S8.21 Q->R
+21 Q->R
 |     T F-
-S8.22 P\/P
+22 P\/P
 |     T --
-S8.23 Q\/R
+23 Q\/R
 |     - F-
-S8.24 P/\Q
+24 P/\Q
 |     - T-
-S8.25 P->Q
+25 P->Q
 |     - F-
-S8.27 R<->Q
+27 R<->Q
 |     - - F
 ```
 
@@ -82,25 +82,25 @@ given part of the sentence. Here are some drills meant to help you work on
 this skill.
 
 ```{.TruthTable .Partial options="nocounterexample strictGivens" submission=none}
-S8.28 ~(P->Q)
+28 ~(P->Q)
 |     - FTF
-S8.29 ~P->Q
+29 ~P->Q
 |     TF-F
-S8.30 ~(P\/Q)
+30 ~(P\/Q)
 |     - F TT
-S8.31 ~P\/~Q
+31 ~P\/~Q
 |     FT -FT
-S8.32 ~(P/\Q)->(~Q\/~R)
+32 ~(P/\Q)->(~Q\/~R)
 |     F T TT -  FT FFT
-S8.33 P\/Q\/(R->P)
+33 P\/Q\/(R->P)
 |     T TF - FTT
-S8.34 P\/(Q\/(R->P))
+34 P\/(Q\/(R->P))
 |     F-  F T FT F
-S8.35 ~(~(P<->Q/\R)->~P)
+35 ~(~(P<->Q/\R)->~P)
 |     - F F T T FF T TF
-S8.36 ~(Q/\P/\R/\S/\T/\U)
+36 ~(Q/\P/\R/\S/\T/\U)
 |     - T TT TT TT TT FF
-S8.37 ~(Q/\P)/\~(R/\S)
+37 ~(Q/\P)/\~(R/\S)
 |     F TTT  - T T FF
 ```
 
@@ -114,12 +114,12 @@ the mistake yourself. (This is true on the *test* too.) So here are some truth
 tables with mistakes. Your job is to find and fix the mistakes.
 
 ```{.TruthTable .Simple options="nocounterexample" submission=none}
-S8.38 ~(P->Q)
+38 ~(P->Q)
 |     F TT T
 |     F TF F
 |     T FT T
 |     T FF F
-S8.39 P/\Q->R
+39 P/\Q->R
 |     T TT FF
 |     T TT TT
 |     T FF FT
@@ -128,7 +128,7 @@ S8.39 P/\Q->R
 |     F FT TF
 |     F TF FT
 |     F TF FF
-S8.40 ~(P/\Q)<->~Q\/~P
+40 ~(P/\Q)<->~Q\/~P
 |     F T TT  T FT FFT
 |     F T TF  T FF FFT
 |     T F FT  F FT FFT
@@ -136,12 +136,12 @@ S8.40 ~(P/\Q)<->~Q\/~P
 ```
 
 ```{.TruthTable .Validity options="nocounterexample turnstilemark" submission=none}
-S8.41 P->Q, Q\/P :|-: Q
+41 P->Q, Q\/P :|-: Q
 |     T TT  T TT  T   T
 |     T TF  F TT  F   F
 |     F TT  T TF  F   T
 |     F TF  F FF  T   F
-S8.42 P\/Q, ~P :|-: Q
+42 P\/Q, ~P :|-: Q
 |     TTT   FT  F   T
 |     TTF   FT  F   F
 |     FTT   TF  T   T
@@ -165,7 +165,7 @@ of that answer was correct.
 
 
 ```{.TruthTable .Validity options="nocounterexample turnstilemark immutable" submission=none}
-S8.43 P/\Q :|-: P
+43 P/\Q :|-: P
 |     TTT   T   T
 |     TFF   T   T
 |     FFT   T   F
@@ -173,11 +173,11 @@ S8.43 P/\Q :|-: P
 ```
 
 ```{.QualitativeProblem .ShortAnswer submission=none}
-S8.44 What does this table show? Why?
+44 What does this table show? Why?
 ```
 
 ```{.QualitativeProblem .MultipleSelection options="check" submission=none}
-S8.45 This table shows that the argument is
+45 This table shows that the argument is
 | truth-functionally true
 | truth-functionally false
 | truth-functionally contingent
@@ -189,7 +189,7 @@ S8.45 This table shows that the argument is
 ```
 
 ```{.TruthTable .Validity options="nocounterexample turnstilemark immutable" submission=none}
-S8.46 P->Q, R->Q, P :|-: R 
+46 P->Q, R->Q, P :|-: R 
 |     TTT   TTT   T  T   T     
 |     TTT   FTT   T  F   F
 |     TFF   TFF   T  T   T
@@ -201,11 +201,11 @@ S8.46 P->Q, R->Q, P :|-: R
 ```
 
 ```{.QualitativeProblem .ShortAnswer submission=none}
-S8.47 What does this table show? Why?
+47 What does this table show? Why?
 ```
 
 ```{.QualitativeProblem .MultipleSelection options="check" submission=none}
-S8.48 This table shows that the argument is
+48 This table shows that the argument is
 | truth-functionally true
 | truth-functionally false
 | truth-functionally contingent
@@ -217,7 +217,7 @@ S8.48 This table shows that the argument is
 ```
 
 ```{.TruthTable .Simple options="nocounterexample immutable" submission=none}
-S8.48 P->Q, Q->P
+48 P->Q, Q->P
 |     TTT   TTT
 |     TFF   FTT
 |     FTT   TFF
@@ -225,11 +225,11 @@ S8.48 P->Q, Q->P
 ```
 
 ```{.QualitativeProblem .ShortAnswer submission=none}
-S8.49 What does this table show? Why?
+49 What does this table show? Why?
 ```
 
 ```{.QualitativeProblem .MultipleSelection options="check" submission=none}
-S8.50 This table shows that the these sentences are
+50 This table shows that the these sentences are
 | truth-functionally true
 | truth-functionally false
 | truth-functionally contingent
@@ -241,7 +241,7 @@ S8.50 This table shows that the these sentences are
 ```
 
 ```{.TruthTable .Simple options="nocounterexample immutable" submission=none}
-S8.51 P\/Q, Q\/P
+51 P\/Q, Q\/P
 |     TTT   TTT
 |     TTF   FTT
 |     FTT   TTF
@@ -249,11 +249,11 @@ S8.51 P\/Q, Q\/P
 ```
 
 ```{.QualitativeProblem .ShortAnswer submission=none}
-S8.52 What does this table show? Why?
+52 What does this table show? Why?
 ```
 
 ```{.QualitativeProblem .MultipleSelection options="check" submission=none}
-S8.53 This table shows that the these sentences are
+53 This table shows that the these sentences are
 | truth-functionally true
 | truth-functionally false
 | truth-functionally contingent
@@ -265,7 +265,7 @@ S8.53 This table shows that the these sentences are
 ```
 
 ```{.TruthTable .Simple options="nocounterexample immutable" submission=none}
-S8.54 ~(P<->Q)
+54 ~(P<->Q)
 |     F TTT
 |     T TFF
 |     T FFT
@@ -273,11 +273,11 @@ S8.54 ~(P<->Q)
 ```
 
 ```{.QualitativeProblem .ShortAnswer submission=none}
-S8.55 What does this table show? Why?
+55 What does this table show? Why?
 ```
 
 ```{.QualitativeProblem .MultipleSelection options="check" submission=none}
-S8.56 This table shows that the this sentence is
+56 This table shows that the this sentence is
 | truth-functionally true
 | truth-functionally false
 | *truth-functionally contingent
@@ -289,17 +289,17 @@ S8.56 This table shows that the this sentence is
 ```
 
 ```{.TruthTable .Simple options="nocounterexample immutable" submission=none}
-S8.57 ~(P\/~P)
+57 ~(P\/~P)
 |    F TTFT
 |    F FTTF
 ```
 
 ```{.QualitativeProblem .ShortAnswer submission=none}
-S8.58 What does this table show? Why?
+58 What does this table show? Why?
 ```
 
 ```{.QualitativeProblem .MultipleSelection options="check" submission=none}
-S8.59 This table shows that the this sentence is
+59 This table shows that the this sentence is
 | truth-functionally true
 | *truth-functionally false
 | truth-functionally contingent
@@ -315,11 +315,11 @@ S8.59 This table shows that the this sentence is
 These problems mimic the problems that will be on the Mastery Check.
 
 ```{.TruthTable .Simple options="nocounterexample" submission=none}
-S8.64 ~~P/\Q,~~Q/\P
+64 ~~P/\Q,~~Q/\P
 ```
 
 ```{.QualitativeProblem .MultipleSelection options="check" submission=none}
-S8.65 These sentences are
+65 These sentences are
 | *truth-functionally equivalent
 | not truth-functionally equivalent
 | *truth-functionally consistent
@@ -327,41 +327,41 @@ S8.65 These sentences are
 ```
 
 ```{.TruthTable .Validity options="nocounterexample turnstilemark" submission=none}
-S8.72 P->Q, ~(P->Q) :|-: Q/\P
+72 P->Q, ~(P->Q) :|-: Q/\P
 ```
 
 ```{.QualitativeProblem .MultipleChoice options="check" submission=none}
-S8.73 This argument is
+73 This argument is
 | *truth-functionally valid
 | not truth-functionally valid
 ```
 
 ```{.TruthTable .Validity options="nocounterexample turnstilemark" submission=none}
-S8.74 P :|-: ~(Q/\~Q)
+74 P :|-: ~(Q/\~Q)
 ```
 
 ```{.QualitativeProblem .MultipleChoice options="check" submission=none}
-S8.75 This argument is
+75 This argument is
 | *truth-functionally valid
 | not truth-functionally valid
 ```
 
 ```{.TruthTable .Validity options="nocounterexample turnstilemark" submission=none}
-S8.76 P\/Q, Q :|-: ~P
+76 P\/Q, Q :|-: ~P
 ```
 
 ```{.QualitativeProblem .MultipleChoice options="check" submission=none}
-S8.77 This argument is
+77 This argument is
 | truth-functionally valid
 | *not truth-functionally valid
 ```
 
 ```{.TruthTable .Validity options="nocounterexample turnstilemark" submission=none}
-S8.78 P\/Q, ~P :|-: Q
+78 P\/Q, ~P :|-: Q
 ```
 
 ```{.QualitativeProblem .MultipleChoice options="check" submission=none}
-S8.79 This argument is
+79 This argument is
 | *truth-functionally valid
 | not truth-functionally valid
 ```
