@@ -288,7 +288,7 @@ To see how this plays out as a derivation in SL,
 6 P->Q: If God exists, She controls everything.
 7 Q->R: If God controls everything, everything that happens is part of Her plan.
 8 T->S: We are free only if we can make our own choices.
-9 T->~S: If everything that happens is part of God's plan, then we cannot make our own choices.
+9 R->~S: If everything that happens is part of God's plan, then we cannot make our own choices.
 10 P->~T: If God exists, we are not free.
 ```
 
