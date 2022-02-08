@@ -116,7 +116,7 @@ The first step is to symbolize each premise,
 ```{.Translate .Prop points=10}
 2 P->Q: If she swallows a fly, then she swallows a spider.
 3 Q->R: If she swallows a spider, then she swallows a bird.
-4 P->Q: If she swallows a fly, then she swallows a bird.
+4 P->R: If she swallows a fly, then she swallows a bird.
 ```
 
 ::: solution
