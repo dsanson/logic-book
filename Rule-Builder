@@ -1,0 +1,28 @@
+---
+base-css:
+-   https://carnap.io/shared/dsanson@gmail.com/sanson-book.css
+js: 
+-   https://carnap.io/shared/dsanson@gmail.com/logic-book.js
+---
+
+# Derived Rule Builders
+
+
+This is not an assignment.  It is a place for you to prove and enable derived rules. For an introduction to derived rules, see [Chapter 12](12R).
+
+## Your Rules
+
+:::{.derived-rules .boxed .liveshapes}
+:::
+
+## Sentential Logic Derived Rule Builder
+
+```{.Playground .Prop options="guides fonts indent tabindent resize" submission=saveRule}
+```
+
+## Predicate Logic Derived Rule Builder
+
+
+```{.Playground .FirstOrder options="guides fonts indent tabindent resize" submission=saveRule}
+```
+

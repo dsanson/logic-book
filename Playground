@@ -1,0 +1,41 @@
+---
+base-css:
+-   https://carnap.io/shared/dsanson@gmail.com/sanson-book.css
+js: 
+-   https://carnap.io/shared/dsanson@gmail.com/logic-book.js
+---
+
+# Derivation Playgrounds
+
+This is not an assignment. It is a derivation playground. Or, rather, it is a
+page containing derivation playgrounds. A derivation playground is like a
+derivation exercise, but there is no set argument to derive. You can use it to
+try to derive anything you'd like.
+
+Start a derivation by entering a show line in the usual way. Since there is no
+set problem, you can enter a show line for whatever you want to try to derive.
+And, since there is no set problem, you can use whatever premises you want.
+
+When the derivation is complete, the playground will display the argument that
+you have derived. 
+
+## Sentential Logic Playground
+
+These two playgrounds are for Sentential Logic. Why two? In case you want to
+play with two different derivations at the same time.
+
+```{.Playground .Prop options="guides fonts indent tabindent resize" submission=none}
+```
+
+```{.Playground .Prop options="guides fonts indent tabindent resize" submission=none}
+```
+
+## Predicate Logic Playground
+
+These two playgrounds are for Predicate Logic.
+
+```{.Playground .FirstOrder options="guides fonts indent tabindent resize" submission=none}
+```
+
+```{.Playground .FirstOrder options="guides fonts indent tabindent resize" submission=none}
+```
