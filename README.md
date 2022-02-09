@@ -17,8 +17,7 @@ Section I provides an informal introduction to the basic concepts of logic and a
 Section II covers propositional logic, including translation, truth tables, and derivations.
 Section III covers predicate logic, including translations, countermodels, and derivations.
 
-The book uses the [Carnap variant of the Kalish-Montague system](https://carnap.io/srv/doc/montague.md){target="_blank"
-rel="noopener noreferrer"} for natural deduction.
+The book uses the [Carnap variant of the Kalish-Montague system](https://carnap.io/srv/doc/montague.md) for natural deduction.
 
 The book is designed to be online and interactive.
 "Reading" assignments include multiple choice and 
@@ -74,9 +73,8 @@ Unfortunately, at this time, both are a bit of a mess,
 ## Acknowledgments
 
 This is designed to be used with 
- [Graham Leach-Krause](https://www.k-state.edu/philos/people/faculty/leachkrouse.html){target="_blank"
-    rel="noopener noreferrer"}'s 
- [carnap.io](https://carnap.io){target="_blank" rel="noopener noreferrer"} project,
+ [Graham Leach-Krause](https://www.k-state.edu/philos/people/faculty/leachkrouse.html)'s 
+ [carnap.io](https://carnap.io) project,
  an open-source "framework for teaching and studying formal logic." 
 Carnap is responsible for machine grading all student work.
 Without Carnap, or something like it, a book and course of this design would
@@ -86,33 +84,27 @@ I can't say enough good things about Carnap,
 
 Before writing this book, I taught from Graham's book,
 
--   Graham Leach-Krause, [*The Carnap Book*](https://carnap.io/book/1){target="_blank" rel="noopener noreferrer"}
+-   Graham Leach-Krause, [*The Carnap Book*](https://carnap.io/book/1)
 
 Some of the chapters of this book began as forks of chapters of Graham's book.
 
 I also spent several years using
-David Kaplan's [Logic 2010](https://logiclx.humnet.ucla.edu/){target="_blank" rel="noopener noreferrer"},
+David Kaplan's [Logic 2010](https://logiclx.humnet.ucla.edu/),
 and the textbook bundled with Logic 2010,
 
--   [Terry Parsons](https://philosophy.ucla.edu/?p=3734){target="_blank"
-    rel="noopener noreferrer"}, *An Exposition of Symbolic Logic*.
+-   [Terry Parsons](https://philosophy.ucla.edu/?p=3734), *An Exposition of Symbolic Logic*.
 
 Those who have used this book will likely see its influence here.
 
 In the background of both of these books is the classic textbook,
 
--   [Donald Kalish](https://en.wikipedia.org/wiki/Donald_Kalish){target="_blank"
-    rel="noopener noreferrer"},
-    [Richard Montague](https://en.wikipedia.org/wiki/Richard_Montague){target="_blank"
-    rel="noopener noreferrer"}, and
+-   [Donald Kalish](https://en.wikipedia.org/wiki/Donald_Kalish),
+    [Richard Montague](https://en.wikipedia.org/wiki/Richard_Montague), and
     [Gary
-    Mar](https://www.stonybrook.edu/commcms/philosophy/people/_faculty/mar.php){target="_blank"
-    rel="noopener noreferrer"}, [*Logic: Techniques of Formal
-    Reasoning*](http://www.worldcat.org/oclc/1113548568){target="_blank"
-    rel="noopener noreferrer"}.
+    Mar](https://www.stonybrook.edu/commcms/philosophy/people/_faculty/mar.php), [*Logic: Techniques of Formal
+    Reasoning*](http://www.worldcat.org/oclc/1113548568).
 
 For a nice account of how 
  Kalish and Montague's text is related to other classic logic texts, 
  see Francis Pelletier, "[A History of Natural Deduction and Elementary Logic
-Textbooks](https://www.sfu.ca/~jeffpell/papers/pelletierNDtexts.pdf){target="_blank"
-rel="noopener noreferrer"}".
+Textbooks](https://www.sfu.ca/~jeffpell/papers/pelletierNDtexts.pdf)".
