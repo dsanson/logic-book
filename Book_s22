@@ -154,8 +154,7 @@ Appendices
 
 :::
 
-
-## About
+## Content and Design
 
 This is yet another introductory logic textbook, 
  designed for a first course in symbolic logic.
@@ -166,62 +165,77 @@ Section III covers predicate logic, including translations, countermodels, and d
 The book uses the [Carnap variant of the Kalish-Montague system](https://carnap.io/srv/doc/montague.md){target="_blank"
 rel="noopener noreferrer"} for natural deduction.
 
-This book is different from other logic textbooks.
-It is designed from the beginning to be online and interactive.
-Each chapter is divided into three parts:
- Reading, which includes embedded videos and exercises;
- Exercises, meant to provide students with additional practice;
- Mastery Checks, meant to test the student's mastery of the chapter.
-Some chapters also include a "supplement",
- offering further practice exercises, videos, 
- and other forms of enrichment.
-It is also designed to be used with a "mastery grading scheme",
- where a student's grade is based upon 
- how many chapters they complete by the end of the term.
+The book is designed to be online and interactive.
+"Reading" assignments include multiple choice and 
+ short answer comprehension questions, 
+ meant to help the student actively engage.
+They also include practice exercises,
+ with embedded videos demonstrating solutions.
+
+"Exercise" assignments are meant to provide the student
+ the opportunity to practice the skills covered in the reading.
+
+"Mastery Checks" are short (3 to 6 question) tests of how well
+ the student has learned those skills.
+The are meant to be low stakes,
+ with a generous "retake" policy.
+
+Most chapters also include a "Supplement",
+ offering further practice, videos, and so on.
+
+I've designed the book to support my use of a "mastery grading scheme".
+The student's grade is based on how many units they complete and how many they
+master, where completion is defined as:
+
+-   Scoring 100% on the reading assignment
+-   Scoring 80+% on the exercises
+-   Scoring 60+% on the mastery check
+
+And mastery is defined as:
+
+-   Scoring 100% on the reading assignment
+-   Scoring 80+% on the exercises
+-   Scoring 80+% on the mastery check
 
 ## Adopting this book for your own courses
 
-Because the design of this "book" is tightly tied to the design of my course,
- anyone considering using this book in their own courses will need to
- make modifications.
-For example, Chapter 0 would need to be modified.
-It offers an introduction to the mechanics of my course,
- and includes my course syllabus.
+The design of this "book" is tightly tied to the design of my own courses.
+It includes embedded videos of me yammering on.
+It includes "progress bars" that are based on my grading scheme.
+"Unit 0" just is my course syllabus, presented as a reading assignment.
+
+So anyone considering using this book in their own course will likely need to
+make substantial modifications.
 
 Modifications would also need to be made to the custom javascript and CSS:
 
 -   <https://github.com/dsanson/carnap-css>
 -   <https://github.com/dsanson/carnap-custom-js>
 
-Both include some code that is specific to my courses.
-Both are generated from more verbose sources:
- the CSS using SASS,
- and the javascript using webpack.
-
-Unfortunately, at this time, both are a bit of a mess.
-
-The content of the "book" is not currently available to share.
-Again, I am working on cleaning it up,
- and separating out the course specific stuff,
- in a way that makes it easier to share.
+Both include code that is specific to my courses.
+Unfortunately, at this time, both are a bit of a mess,
+ but I do hope to clean them up over time.
 
 ## Acknowledgments
 
-The design of this book was made possible by 
+This is designed to be used with 
  [Graham Leach-Krause](https://www.k-state.edu/philos/people/faculty/leachkrouse.html){target="_blank"
     rel="noopener noreferrer"}'s 
  [carnap.io](https://carnap.io){target="_blank" rel="noopener noreferrer"} project,
  an open-source "framework for teaching and studying formal logic." 
+Carnap is responsible for machine grading all student work.
+Without Carnap, or something like it, a book and course of this design would
+not be possible.
 I can't say enough good things about Carnap,
  and about Graham.
 
-The content of book borrows heavily in places from 
+Before writing this book, I taught from Graham's book,
 
 -   Graham Leach-Krause, [*The Carnap Book*](https://carnap.io/book/1){target="_blank" rel="noopener noreferrer"}
 
-This book began life as a fork of Graham's book.
+Some of the chapters of this book began as forks of chapters of Graham's book.
 
-Before I used Carnap, I spent several years using
+I also spent several years using
 David Kaplan's [Logic 2010](https://logiclx.humnet.ucla.edu/){target="_blank" rel="noopener noreferrer"},
 and the textbook bundled with Logic 2010,
 
@@ -247,6 +261,18 @@ For a nice account of how
  see Francis Pelletier, "[A History of Natural Deduction and Elementary Logic
 Textbooks](https://www.sfu.ca/~jeffpell/papers/pelletierNDtexts.pdf){target="_blank"
 rel="noopener noreferrer"}".
+
+## Source
+
+Source for the readings, exercises, and supplements are available here:
+
+-   <https://github.com/dsanson/logic-book>
+
+Source for the CSS and javascript are available here:
+
+-   <https://github.com/dsanson/carnap-css>
+-   <https://github.com/dsanson/carnap-custom-js>
+
 
 
 <!-- vim: set ft=carnap :-->
