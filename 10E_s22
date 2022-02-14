@@ -7,19 +7,19 @@ js:
 -   https://carnap.io/shared/dsanson@gmail.com/logic-book.js
 ---
 
-
-# Derivations with all the connectives: Exercises
-
 :::auto-tally
 :::
 
-# Learning the Rules
+# Derivations with all the connectives: Exercises
+
+## Learning the Rules
 
 :::stickywrapper
 :::{.aside .sticky .flex .hideable}
 
 :::showwhenhidden
 Click to reveal the rules, if needed.
+Click again to hide them.
 :::
 
 
@@ -72,224 +72,70 @@ Click to reveal the rules, if needed.
 :::
 
 Here are some questions meant to help test your grasp of the rules. For
-additional exercises meant to help with this, please see the [supplements](Unit 8 Supplements).
-
-```{.QualitativeProblem .MultipleChoice points=10}
-E10.1 "P∧Q ⊢ Q" is an instance of:
-| Modus ponens (MP)
-| Modus tollens (MT)
-| Modus tollendo ponens (MTP)
-| Addition (ADD)
-| *Simplification (S)
-| Adjunction (ADJ)
-| Biconditional to Conditional (BC)
-| Conditional to Biconditional (CB)
-| None of the above
-E10.2 "P∨Q ⊢ P" is an instance of:
-| Modus ponens (MP)
-| Modus tollens (MT)
-| Modus tollendo ponens (MTP)
-| Addition (ADD)
-| Simplification (S)
-| Adjunction (ADJ)
-| Biconditional to Conditional (BC)
-| Conditional to Biconditional (CB)
-| *None of the above
-E10.3 "Q ⊢ P∨Q" is an instance of:
-| Modus ponens (MP)
-| Modus tollens (MT)
-| Modus tollendo ponens (MTP)
-| *Addition (ADD)
-| Simplification (S)
-| Adjunction (ADJ)
-| Biconditional to Conditional (BC)
-| Conditional to Biconditional (CB)
-| None of the above
-E10.4 "Q,P ⊢ P∧Q" is an instance of:
-| Modus ponens (MP)
-| Modus tollens (MT)
-| Modus tollendo ponens (MTP)
-| Addition (ADD)
-| Simplification (S)
-| *Adjunction (ADJ)
-| Biconditional to Conditional (BC)
-| Conditional to Biconditional (CB)
-| None of the above
-E10.5 "P ⊢ P∧Q" is an instance of:
-| Modus ponens (MP)
-| Modus tollens (MT)
-| Modus tollendo ponens (MTP)
-| Addition (ADD)
-| Simplification (S)
-| Adjunction (ADJ)
-| Biconditional to Conditional (BC)
-| Conditional to Biconditional (CB)
-| *None of the above
-E10.6 "Q∨P,~P ⊢ Q" is an instance of:
-| Modus ponens (MP)
-| Modus tollens (MT)
-| *Modus tollendo ponens (MTP)
-| Addition (ADD)
-| Simplification (S)
-| Adjunction (ADJ)
-| Biconditional to Conditional (BC)
-| Conditional to Biconditional (CB)
-| None of the above
-E10.7 "P→Q,~Q ⊢ P" is an instance of:
-| Modus ponens (MP)
-| Modus tollens (MT)
-| Modus tollendo ponens (MTP)
-| Addition (ADD)
-| Simplification (S)
-| Adjunction (ADJ)
-| Biconditional to Conditional (BC)
-| Conditional to Biconditional (CB)
-| *None of the above
-E10.8 "P∨Q, P ⊢ Q" is an instance of:
-| Modus ponens (MP)
-| Modus tollens (MT)
-| Modus tollendo ponens (MTP)
-| Addition (ADD)
-| Simplification (S)
-| Adjunction (ADJ)
-| Biconditional to Conditional (BC)
-| Conditional to Biconditional (CB)
-| *None of the above
-E10.9 "P↔Q ⊢ Q→P" is an instance of:
-| Modus ponens (MP)
-| Modus tollens (MT)
-| Modus tollendo ponens (MTP)
-| Addition (ADD)
-| Simplification (S)
-| Adjunction (ADJ)
-| *Biconditional to Conditional (BC)
-| Conditional to Biconditional (CB)
-| None of the above
-E10.10 "P↔Q,P ⊢ Q" is an instance of:
-| Modus ponens (MP)
-| Modus tollens (MT)
-| Modus tollendo ponens (MTP)
-| Addition (ADD)
-| Simplification (S)
-| Adjunction (ADJ)
-| Biconditional to Conditional (BC)
-| Conditional to Biconditional (CB)
-| *None of the above
-E10.11 "R∧S,P ⊢ R∧S∧P" is an instance of:
-| Modus ponens (MP)
-| Modus tollens (MT)
-| Modus tollendo ponens (MTP)
-| Addition (ADD)
-| Simplification (S)
-| *Adjunction (ADJ)
-| Biconditional to Conditional (BC)
-| Conditional to Biconditional (CB)
-| None of the above
-E10.12 "R∧S,P ⊢ R∧P∧S" is an instance of:
-| Modus ponens (MP)
-| Modus tollens (MT)
-| Modus tollendo ponens (MTP)
-| Addition (ADD)
-| Simplification (S)
-| Adjunction (ADJ)
-| Biconditional to Conditional (BC)
-| Conditional to Biconditional (CB)
-| *None of the above
-E10.13 "(P→Q)∨(Q→P), ¬(Q→P) ⊢ P→Q" is an instance of:
-| Modus ponens (MP)
-| Modus tollens (MT)
-| *Modus tollendo ponens (MTP)
-| Addition (ADD)
-| Simplification (S)
-| Adjunction (ADJ)
-| Biconditional to Conditional (BC)
-| Conditional to Biconditional (CB)
-| None of the above
-E10.14 "¬P→¬Q, Q ⊢ P" is an instance of:
-| Modus ponens (MP)
-| Modus tollens (MT)
-| Modus tollendo ponens (MTP)
-| Addition (ADD)
-| Simplification (S)
-| Adjunction (ADJ)
-| Biconditional to Conditional (BC)
-| Conditional to Biconditional (CB)
-| *None of the above
-E10.15 "~P→¬Q ⊢ (~P→¬Q)∨P" is an instance of:
-| Modus ponens (MP)
-| Modus tollens (MT)
-| Modus tollendo ponens (MTP)
-| *Addition (ADD)
-| Simplification (S)
-| Adjunction (ADJ)
-| Biconditional to Conditional (BC)
-| Conditional to Biconditional (CB)
-| None of the above
-E10.16 "P ⊢ P∧P" is an instance of:
-| Modus ponens (MP)
-| Modus tollens (MT)
-| Modus tollendo ponens (MTP)
-| Addition (ADD)
-| Simplification (S)
-| *Adjunction (ADJ)
-| Biconditional to Conditional (BC)
-| Conditional to Biconditional (CB)
-| None of the above
-```
+additional exercises meant to help with this, please see the
+[supplements](10S_s22).
 
 Many of the following questions have more than one correct answer. Just supply
 one of the correct answers.
 
 ``` {.Translate .Exact points="10"}
-E10.17 P,Q: What follows, by S, from 'P ∧ Q'?
-E10.18 Q: What follows, by MTP, from 'P ∨ Q' and '¬P'?
-E10.19 P: What follows, by MTP, from 'P ∨ Q' and '¬Q'?
-E10.20 P/\Q, Q/\P: What follows, by ADJ, from 'P' and 'Q'?
-E10.21 ~P: What follows, by MTP, from '¬P ∨ Q' and '¬Q'?
-E10.22 P->Q, Q->P: What follows, by BC, from 'P ↔ Q'?
-E10.23 P<->Q, Q<->P: What follows, by CB, from 'P → Q' and 'Q → P'?
-E10.24 Q: What follows, by MTP, from '¬P ∨ Q' and '¬¬P'?
-E10.25 P\/Q, R: What follows, by S, from '(P ∨ Q) ∧ R'?
-E10.26 P/\Q: What follows, by MTP, from '(P ∧ Q) ∨ (P → Q)' and '¬(P → Q)'?
-E10.27 ~(P/\Q): What follows, by MTP, from '¬(P ∧ Q) ∨ (P → Q)' and '¬(P → Q)'?
-E10.28 (P->Q)/\~(R/\T): What follows, by ADJ, from 'P → Q' and '¬(R ∧ T)'?
-E10.29 P,Q: What is a premise from which you can infer 'P ∨ Q' by ADD?
-E10.30 P,R: What is a premise from which you can infer 'P ∨ R' by ADD?
-E10.31 P,~~(R<->~~(P/\T)): What is a premise from which you can infer 'P ∨ ¬¬(R↔(P∧T))' by ADD?
-E10.32 ~S: Given 'R ∨ S' as a premise, what other premise do you need, to infer R?
-E10.33 ~R: Given 'R ∨ S' as a premise, what other premise do you need, to infer S?
-E10.34 ~~R,~~S: Provide a premise that allows me, along with '¬R ∨ ¬S', to apply MTP.
-E10.35 ~R,~~S: Provide a premise that allows me, along with 'R ∨ ¬S', to apply MTP.
-E10.36 ~~R,~S: Provide a premise that allows me, along with '¬R ∨ S', to apply MTP.
-E10.37 ~(P/\Q),~(R<->S): Provide a premise that allows me, along with '(P ∧ Q) ∨ (R ↔ S)', to apply MTP.
-E10.38 ~(R<->S)->P/\T,P/\T->~(R<->S): What follows from '¬(R ↔ S) ↔ (P∧T)' by BC?
+1 P/\Q, Q/\P: What follows, by ADJ, from 'P' and 'Q'?
+2 P->Q, Q->P: What follows, by BC, from 'P ↔ Q'?
+3 P<->Q, Q<->P: What follows, by CB, from 'P → Q' and 'Q → P'?
+4 Q: What follows, by MTP, from '¬P ∨ Q' and '¬¬P'?
+5 P\/Q, R: What follows, by S, from '(P ∨ Q) ∧ R'?
+6 P/\Q: What follows, by MTP, from '(P ∧ Q) ∨ (P → Q)' and '¬(P → Q)'?
+7 ~(P/\Q): What follows, by MTP, from '¬(P ∧ Q) ∨ (P → Q)' and '¬(P → Q)'?
+8 (P->Q)/\~(R/\T): What follows, by ADJ, from 'P → Q' and '¬(R ∧ T)'?
+9 P,~~(R<->~~(P/\T)): What is a premise from which you can infer 'P ∨ ¬¬(R↔(P∧T))' by ADD?
 ```
 
 # Derivations
 
 
 ```{.ProofChecker .Prop options="guides fonts indent tabindent resize" points=10}
-E10.39 P/\Q, Q->R :|-: R/\P
-E10.40 R, R\/S->P/\S :|-: S
-E10.41 P\/Q, ~Q\/~R :|-: R->P
-E10.42 R->P, R->Q :|-: R->(P/\Q)
-E10.43 R->P, R->Q :|-: R->(P\/Q)
-E10.44 P<->P/\Q, ~Q :|-: ~P
-E10.45 ~(P\/Q) :|-: Q\/S->S
+10 P/\Q, Q->R :|-: R/\P
+11 R, R\/S->P/\S :|-: S
+12 P\/Q, ~Q\/~R :|-: R->P
+13 R->P, R->Q :|-: R->(P/\Q)
+14 R->P, R->Q :|-: R->(P\/Q)
+15 P<->P/\Q, ~Q :|-: ~P
+16 ~(P\/Q) :|-: Q\/S->S
 ```
 :::
 
 :::hint
-The trick to E10.45 is figuring out how to use the premise. We don't have any
-rules that will "break it down", so we need to use it as it is, as a negation.
+The big trick to 16 is figuring out how to use the premise.
+We don't have any rules that will "break it down", or "distribute the negation". 
+So we need to use it as it as is.
 
-We have three rules that involve negation: DN, MT, and MTP. Reflection shows
-that DN isn't helpful here. Inferring '¬¬¬(P∨Q)' from '¬(P∨Q)' doesn't move us
-forward. MT isn't going to be useful either. We don't have a conditional of
-the form '[]{.P} → (P ∨ Q)'. For similar reasons, MTP won't help.
+We have three rules that involve negations: DN, MT, and MTP.
+Applying DNI to the premise, to get '¬¬¬(P∨Q)' will not be helpful.
+So put DNI aside.
+We don't have a conditional of the form '[]{.P} → (P ∨ Q)', so MT will not be
+helpful to us here. For similar reasons, MTP is also not helpful.
 
-So none of our rules are going to help. What about our methods? Do any of DD,
-CD, or ID involve negation?
+We have three methods of derivation. The one that involves negations in an
+interesting way is ID.
+If '¬(P ∨ Q)' was our *conclusion* on a show line, we could assume 'P ∨ Q'.
+But '¬(P ∨ Q)' is not a conclusion, it is a premise.
+
+We could enter a show line for '¬(P ∨ Q)'. But that's a bad idea. We already
+*have* '¬(P ∨ Q)' as a premise. Suppose we complete a subderivation, showing
+'¬(P ∨ Q)'. Then we will have shown something we already had. That doesn't
+move us forward.
+
+There is one last place where negations figure in our system:
+ to complete an ID, you need to get a contradiction.
+And a contradiction is any two sentences, one the negation of the other.
+
+Turns out, this is the *only* way you are going to be able to use '¬(P ∨ Q)'
+in this derivation. You need to set up an ID, and in the context of that ID,
+you need to derive 'P ∨ Q'. Then you can use that, together with your premise,
+to QED that subderivation.
+
+For more on this, see the section [Using Negations](10S_s22#using-negations)
+in the [Chapter 10 Supplement](10S_s22).
 :::
 
 <!-- vim: set ft=carnap :-->

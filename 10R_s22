@@ -8,6 +8,9 @@ js:
 -   https://hypothes.is/embed.js
 ---
 
+::: {.auto-tally}
+:::
+
 ::: cover
 
 # Derivations with '∧', '∨', and '↔︎'
@@ -24,11 +27,14 @@ go this way and he did not go that; therefore, he went the other.
 
 :::
 
-::: {.auto-tally}
-:::
+**NOTE: this reading is currently missing some videos. I will upload videos
+ASAP**
 
-In this unit, we expand the system of derivation to include rules for
-all of our connectives. The specific learning objectives for this unit
+
+In previous units, we covered derivations involving conditionals and
+negations.
+In this unit, we expand our system of derivation to include rules for
+all five connectives. The specific learning objectives for this unit
 are:
 
 a.  I can identify instances of all the basic rules of sentential logic
@@ -36,16 +42,34 @@ b.  I can complete simple derivations involving all the connectives
 c.  I can complete more complicated derivations involving all the
     connectives
 
-
 ## New Rules
 
 [Til now]{.newthought}, we have only considered derivations involving '→' and '¬'. 
 But we have three more connectives: '∧', '∨', and '↔'. To handle these, we
 introduce six more rules.
 
-As we introduce these rules, remember: each rule is tied to its connective.
-For example, MP and MT only work on conditionals. This is *not* an instance of
-MP, and it is *not* valid:
+In every case, the specific connective is an essential part of the rule. 
+For example, Modus Ponens and Modus Tollens **only work for conditionals**.
+This is Modus Ponens:
+
+:::standardform
+-   []{.P} **→** []{.Q}
+-   []{.P}
+-   []{.Q}
+:::
+
+To get an instance of MP, you plug in any two sentences to the boxes and
+circles, e.g.,
+
+:::standardform
+-   [It is sunny]{.P} **→** [I go for a walk]{.Q}
+-   [It is sunny]{.P}
+-   [I go for a walk]{.Q}
+:::
+
+But the connective, '→' is not a variable. You cannot "plug in" some other
+connective, and still claim that what you have is an instance of MP.
+For example, this is not an instance of MP:
 
 :::{.standardform .xed}
 -   P ∨ Q
@@ -54,17 +78,11 @@ MP, and it is *not* valid:
 :::
 
 ```{.QualitativeProblem .ShortAnswer give-credit="onSubmission" points=10}
-R10.1 Try to explain, as best you can, why this inference is not valid. What would be a situation in which the premises are true, but the conclusion is false? 
-R10.2 Explain why this isn't an instance of MP.
+1 Explain why this isn't an instance of MP.
 ```
 
-The *connective* is an essential part of the pattern that defines the rule.
-Remember, the rule is meant to be *obviously valid*. And that depends on the
-meanings of the connectives. In fact, some philosophers, called
-*inferentialists*, turn that idea on its head, and explain meaning in terms of
-inference rules. The point is, the relationship between a connective and its
-inference rules is intimate and monogamous. Don't go trying to stick a
-conjunction into an MP. That will just cause problems.
+So, as you learn the new rules, keep this in mind.
+Each rule is tied to a specific connective, and only works for the connective.
 
 ## Addition (ADD)
 
@@ -80,90 +98,110 @@ conjunction into an MP. That will just cause problems.
 :::
 :::
 
-We introduce two rules for disjunction ('∨'). The first is **Addition (ADD)**:
+We start with our two new rules for disjunction ('∨').
+
+The first is called "[Addition (ADD)]{.vocab}",
+and it actually comes in two forms:
 
 :::{.standardform .liveshapes}
 -   []{.P}
 -   []{.P} ∨ []{.Q}
 :::
 
-(By the way, I've added a new feature. You can now click on any box or circle,
-and edit its content. This is a good way to "play" with the pattern, and get a
-feel for how it works.)
-
-Actually, Addition comes in two forms. The first form is above. The second
-form is:
-
 :::{.standardform .liveshapes}
 -   []{.P}
 -   []{.Q} ∨ []{.P}
 :::
 
-Do you see how they differ? 
 
 ```{.QualitativeProblem .ShortAnswer give-credit="onSubmission" points=10}
-R10.3 Briefly explain how the two forms of ADD differ.
+2 Can you spot the difference between these two forms of ADD? What is it? 
 ```
 
-:::spoiler
-In the first form, we add a disjunct to the right of our premise. So, from
-'P', we infer 'P ∨ Q'. In the second form, we add a disjunct to the left of
-our premise. So, from 'P', we infer 'Q ∨ P'.
+:::{.reaction .correct ex=2}
+It's about the order of the disjuncts in the conclusion.
+In the first form, we added []{.Q} to the right, giving us []{.P} ∨ []{.Q}.
+In the second form, we added []{.Q} to the left, giving us []{.Q} ∨ []{.P}.
 :::
 
-The rule ADD is intimately tied to the meaning of '∨'. Remember, '∨' expresses an
-*inclusive* disjunction. If it were an exclusive disjunction, ADD would not be
-valid.
-
-
-
 ```{.QualitativeProblem .ShortAnswer give-credit="onSubmission" points=10}
-R10.4 Give your own example of an English instance of ADD. That is, choose two English sentences, and fit them into the argument form.
-R10.5 Explain, as best you can, why ADD is valid.
-R10.6 Briefly explain why the validity of ADD depends on the inclusivity of '∨'
+3 Give your own example of an English instance of ADD. That is, choose two English sentences, and fit them into the argument form.
 ```
 
-:::spoiler
+:::{.reaction .correct ex=3}
+Obviously, there are lots of possible correct answers. Here is one:
 
-Here is an example:
+:::{.standardform .liveshapes}
+-   [Normal is in Illinois]{.P}.
+-   [Normal is in Illinois]{.P} ∨ [Normal is in Wisconsin]{.Q}.
+:::
+
+Do you see why this is valid?
+:::
+
+```{.QualitativeProblem .ShortAnswer give-credit="onSubmission" points=10}
+4 Can you explain why the form ADD is valid? Remember, our connective, '∨', expresses an inclusive disjunction.
+```
+
+:::{.reaction .correct ex=4}
+'∨' expresses an *inclusive* disjunction.
+If you know that 'P' is true, that is enough to guarantee that 'P ∨ Q' is true.
+And it is also enough to guarantee that 'Q ∨ P' is true.
+If '∨' expressed exclusive disjunction, this wouldn't be valid.
+:::
+
+Here is another instance of ADD:
 
 ::: standardform
--   Normal is in Illinois
--   Either Normal is in Illinois or I'm a rooster's uncle
+-   Normal is in Illinois.
+-   Normal is in Illinois or I'm a rooster's uncle.
 :::
 
-I do have a pet parrot, and my sister keeps chickens, but I am not a rooster's
-uncle. Still, from the premise, that Normal is Illinois, we can safely infer
-that *either* Normal is in Illinois *or* I'm a rooster's uncle.
+Again, assuming the premise is true, that is enough to make the conclusion
+true, whether or not it is true that I'm a rooster's uncle.
 
-Actually, I only recently learned that the phrase, "Well I'll be a [monkey's
+I do have a pet parrot, and my sister keeps chickens, including roosters.
+Does that make me a rooster's uncle? I dunno. But I do know that *either*
+Normal is in Illinois *or* I'm a rooster's uncle, because I know that Normal
+is in Illinois.
+
+(It turns out the phrase, "Well I'll be a [monkey's
 uncle](https://en.wikipedia.org/wiki/Monkey%27s_uncle){target="_blank"
 rel="noopener noreferrer"}' comes from the 1920s, and was used by creationists
-to make fun of the idea that we share a common evolutionary ancestor with
-monkeys. Upon reflection, I suppose I am a monkey's (very distant) uncle. And
-I am also a rooster's (even more distant) uncle.
+to mock the evolution. 
+Given that I do share a common evolutionary ancestor with monkeys,
+I suppose in original intended sense, I am a monkey's (very distant) uncle. 
+So I suppose that, in the same sense, I am also a rooster's (even more
+distant) uncle.)
 
-Happily, since the disjunction is inclusive, the discovery that I am a
-rooster's uncle after all does not undermine the validity of the inference.
-Given the premise, that Normal is in Illinois, we can safely infer that
-either Normal is in Illinois or I'm a roosters uncle, without worrying about
-whether or not it is true that I'm a roosters uncle. The premise by itself does all the
-work needed to make the conclusion true.
-:::
-
-Another way to think about what is going on with ADD is to consider the truth
-table for an argument of this form:
+Another way to think through the validity of ADD is to construct its truth
+table, and verify that it is truth-functionally valid:
 
 ```{.TruthTable .Validity options="nocounterexample turnstilemark" points=10}
-R10.7 P :|-: P\/Q
+5 P :|-: P\/Q
 ```
 
-After you have completed the truthtable, examine it. On every row where 'P' is
-true, 'P ∨ Q' is true too. When assessing the validity of this argument, the
-truth value of 'Q' is irrelevant. It is literally just an add-on, a hanger-on,
-a groupie. P's got this, and doesn't need Q's help.
+:::{.reaction .correct ex=5}
 
-Here is another example:
+```{.TruthTable .Partial options="strictGivens nocounterexample immutable nocheck display" submission=none}
+5 P :|-: P\/Q
+| T  T   T TT
+| T  T   T TF
+| F  T   F TT
+| F  T   F FF
+```
+Looking at the first two rows of the truth table, 
+ we can the truth of the premise, 'P', 
+ is enough to guarantee the truth of the conclusion, 'P ∨ Q'.
+
+So it really doesn't matter what the added disjunct, 'Q', says:
+ it might be true, or it might be false;
+ it might be obvious, or it might be wildly off.
+Either way, when it comes to the truth of 'P ∨ Q',
+ the truth of 'P' can hold down the fort on its own.
+:::
+
+One more example:
 
 ::: standardform
 -   The state bird of Illinois is the Northern Cardinal
@@ -171,39 +209,20 @@ Here is another example:
     President is constipated.
 :::
 
-I don't know anything about the current state of our President's digestion,
-but I know that the state bird of Illinois is the Northern Cardinal. And so I
-am confident that the conclusion of this argument is true too. 
-
-My confidence in the truth of the disjunction has nothing to do with any
-judgment about the President. I have *exactly the same* confidence in the
-truth of the conclusion of this argument:
-
-::: standardform
--   The state bird of Illinois is the Northern Cardinal
--   Either the state bird of Illinois is the Northern Cardinal or the state
-    bird of Hawaii is the Emu.
-:::
-
-::: aside
-As a matter of fact, the state bird of Hawaii is the
-[Nene](https://en.wikipedia.org/wiki/Nene_(bird)){target="_blank"
-rel="noopener noreferrer"}.
-:::
-
-So this is our first new rule, which we call **Addition (ADD)**.
+Again, assuming the premise is true, that is enough to make the conclusion
+true, regardless of our President's current digestive state.
 
 ```{.QualitativeProblem .MultipleSelection points=10}
-R10.8 Which of the following follows, by ADD, from P?
+6 Which of the following follows, by ADD, from P?
 | *P ∨ Q
 | *Q ∨ P
 | *P ∨ (R ↔ S)
 | *¬(P ∧ Q) ∨ P
 ```
 
-:::spoiler
+:::{.reaction .correct ex=6}
 Those are all instances of ADD! ADD lets you add *any sentence* to your
-premise, to create a disjunction.
+premise, to create a disjunction:
 
 :::{.standardform .liveshapes}
 -   [P]{.P}
@@ -226,32 +245,21 @@ premise, to create a disjunction.
 :::
 :::
 
-Here is an example of ADD in action:
+ADD is an inference rule that we can use in derivations.
+Let's first consider an informal example, and then see what it looks like in
+our system of derivation.
 
-```{.ProofChecker .Prop options="guides fonts indent tabindent resize" submission=none}
-Ex1 Q, P\/Q->R :|-: R
-|1.Show R
-|2.  Q         :PR
-|3.  P\/Q->R   :PR
-|4.  P\/Q      :ADD 2
-|5.  R         :MP 3,4
-|:DD 5
-```
+Consider the following argument, from a pessimistic Bears fan at the start of
+the 2021 season:
 
-Do you see how this derivation works? I need to find a way to reason to R. I
-know that Q is true, and I know that, if either P or Q is true, then R is
-true too. So I use ADD to infer, from Q, that P or Q. And then I use MP to
-infer R.
-
-:::soa
-| P: Justin Fields will start.
-| Q: Andy Dalton will start.
-| R: The Bears will probably lose.
+:::standardform
+-   Andy Dalton will start.
+-   If either Justin Fields or Andy Dalton will start, the Bears will probably
+    lose.
+-   The Bears will probably lose.
 :::
 
-Suppose I know that Andy Dalton will start for the
-Bears. And suppose I know that, if either Justin or Andy starts, the Bears
-will probably lose. Then I reason as follows:
+Does that conclusion follow from those premises. Yes it does. Here is a proof:
 
 ::: proof
 1.   [The Bears will probably lose]{.show}
@@ -263,16 +271,64 @@ will probably lose. Then I reason as follows:
 6.   [DD 5]{.just} 
 :::
 
-And here is an example for you to try:
+See how we use ADD, to put ourselves in a position to use MP?
+We know that *Dalton will start*, and we know that if *Dalton or Fields
+will start*, the Bears will probably lose. So we use ADD to infer that *Dalton or
+Fields will start*, so we can then use MP to infer that the Bears will
+probably lose.
 
-```{.ProofChecker .Prop options="guides fonts indent tabindent resize" points=10}
-R10.9 P->Q, P :|-: R\/Q
+In order to see what this looks like in our system, we first need to translate
+the premises and conclusion into SL.
+
+:::wrapper
+:::soa
+| P: Justin Fields will start.
+| Q: Andy Dalton will start.
+| R: The Bears will probably lose.
+:::
+
+The first premise and conclusion are both atomic. What about the second
+premise?
+
+```{.Translate .Prop points=10}
+7 P\/Q->R : If either Justin or Andy starts, the Bears will probably lose.
 ```
 
+ADD VIDEO
+
+:::{.reaction .correct ex=7}
+So the argument is:
+
+:::standardform
+-   Q
+-   Q∨P → R
+-   R
+:::
+:::
+
+Here then is the derivation:
+
+```{.ProofChecker .Prop options="guides fonts indent tabindent resize" points=10}
+8 Q, P\/Q->R :|-: R
+```
+
+ADD VIDEO
+
+
+Here is another derivation for you to try:
+
+
+```{.ProofChecker .Prop options="guides fonts indent tabindent resize" points=10}
+9 P->Q, P :|-: R\/Q
+```
+
+:::solution
 ::: youtube
 <https://youtu.be/u0mXFRb3GX4>
 :::
+:::
 
+:::
 :::
 
 ## Modus Tollendo Ponens (MTP)
@@ -289,28 +345,11 @@ R10.9 P->Q, P :|-: R\/Q
 :::
 :::
 
-ADD is a rule for *getting* a disjunction when you need one. But when you
-*have* a disjunction, and need to *use* it, you will use Modus Tollendo
-Ponens (MTP).
-
-'Modus Tollendo Ponens' is another funny Latin name. It's actually one of four
-classical rules of inference, all named according to the same scheme. The full
-names of Modus Ponens and Modus Tollens are actually:
-
--   *Modus Ponendo Ponens*, aka Modus Ponens
--   *Modus Tollendo Tollens*, aka Modus Tollens
-
-'Modus' means "way" or "method". "Ponendo" means "by putting" or "by
-asserting", and "tollendo" means "by taking" or "by denying".  "Ponens" and
-"Tollens" mean "putting/asserting" and "taking/denying".
-
-These full names are actually quite descriptive. With Modus Ponendo Ponens, you
-*put forth* the consequent of the conditional, *by putting forth* its
-antecedent. With Modus Tollendo Tollens, you *deny* the antecedent, *by
-denying* its consequent.
-
-And with Modus Tollendo Ponens, you get to *put forth* something, *by denying*
-something:
+ADD is a rule for *getting* a disjunction when you need one.
+Our next rule, [Modus Tollendo Ponens (MTP)]{.vocab} is a rule for *using* a disjunction
+as a premise. The basic idea is, if you know that a disjunction is true, and
+you know that one its disjuncts is false, you can infer that the other
+disjunct is true:
 
 :::{.standardform .liveshapes}
 -   []{.P} ∨ []{.Q}
@@ -318,16 +357,16 @@ something:
 -   []{.Q}
 :::
 
-While MP and MT are quite sensitive to which part you "put forth" or "deny",
-MTP is free and easy. If you have a disjunction, and you have the negation of
-either of its disjuncts, you can infer the other disjunct. So, like Addition,
-the rule has two forms:
+Like ADD, MTP comes in two forms:
 
 :::{.standardform .liveshapes}
 -   []{.P} ∨ []{.Q}
 -   ¬[]{.Q}
 -   []{.P}
 :::
+
+These forms differ only in whether we negate the left disjunct or the right
+disjunct.
 
 Suppose I'm looking for my phone, and I know that
 
@@ -366,35 +405,83 @@ Chrysippus argued, shows that dogs use logic. The dog's inference was:
 -   The rabbit went right
 :::
 
+Or, in SL:
+
+::: standardform
+-   T ∨ R
+-   ¬R
+-   T
+:::
+
 Again the basic idea is this: if you know that one or the other of two
 disjuncts is true, and you know that it is not one, then you can infer that it
 must be the other.
 
-As the name "Modus Tollendo Ponens" suggests, this form of reasoning is in
-some ways similar to Modus Ponens, and in some ways similar to Modus Tollens.
-But MP and MT are rules for using *conditionals*. MTP is a rule for using
-*disjunctions*.
+'Modus Tollendo Ponens' is yet another funny Latin name. It's actually one of four
+classical rules of inference---the "Modus" family of rules---all named according to the same scheme. 
+
+Here are all four, with their full Latin names:
+
+Modus Ponendo Ponens
+:   []{.P} → []{.Q}, []{.P} ⊢ []{.Q}
+
+Modus Tollendo Tollens
+:   []{.P} → []{.Q}, ¬[]{.Q} ⊢ ¬[]{.P}
+
+Modus Tollendo Ponens
+:   []{.P} ∨ []{.Q}, ¬[]{.P} ⊢ []{.Q}
+
+Modus Ponendo Tollens
+:   []{.P} $\∨eebar$ []{.Q}, []{.P} ⊢ ¬[]{.Q}
+
+
+Remember, 'Modus' means "way" or "method". "Ponendo" means "by putting" or "by
+asserting", while "tollendo" means "by taking" or "by denying". And "Ponens" and
+"Tollens" mean "putting/asserting" and "taking/denying".
+
+So, Modus Ponendo Ponens---our old friend MP---is the method that allows you
+to assert by asserting. More specifically, it allows you to assert the
+consequent by asserting the antecedent. 
+And Modus Tollendo Tollens---our old friend MT---is the method that allows you
+to deny by denying. More specifically, it allows you to deny the antecedent by
+denying the consequent.
+
+Meanwhile, our new rule, Modus Tollendo Ponens, is the method that allows you
+to assert by denying: in this case, you get to assert one disjunct by denying
+the other.
+
+The last rule, which we will not be using, is only valid for exclusive
+disjunctions. It allows us to deny by asserting. That is, deny one disjunct by
+asserting the other.
+
+MTP is in some ways similar to MP, and in some ways similar to MT.
+You might think of it as combining a bit of both.
+But it is important to understand that MP and MT are rules for
+**conditionals**, while MTP is a rule for **disjunctions**.
+You cannot mix and match, and try to apply MP or MT to a disjunction, or MTP
+to a conditional. That's not how this works. That's not how any of this works.
 
 ```{.QualitativeProblem .MultipleSelection points=10}
-R10.10 What follows, by MTP, from "It is raining or snowing" and "It is not snowing"?
+10 What follows, by MTP, from "It is raining or snowing" and "It is not snowing"?
 | *It is raining
 | It is not raining
 | It is raining and not snowing
 ```
 
 ``` {.Translate .Exact points="10"}
-R10.11 P/\Q : What follows, by MTP, from '(P ∧ Q) ∨ R' and '¬R'?
+11 P: What follows, by MTP, from 'Q ∨ P' and '¬Q'?
+12 Q: What follows, by MTP, from 'Q ∨ P' and '¬P'?
+13 ~P: What follows, by MTP, from 'Q ∨ ¬P' and '¬Q'?
+14 P/\Q : What follows, by MTP, from '(P ∧ Q) ∨ R' and '¬R'?
+15 R : What follows, by MTP, from '(P ∧ Q) ∨ R' and '¬(P ∧ Q)'?
 ```
 
-:::spoiler
-Remember to hit <enter> to check your answer. In this case, the answer is
-`P/\Q`.
-:::
+ADD VIDEO
 
 Here is an example of MTP in action:
 
 ```{.ProofChecker .Prop options="guides fonts indent tabindent resize" init=true submission=none}
-Ex2 P\/Q, ~P\/~R, ~Q :|-: ~R
+Ex P\/Q, ~P\/~R, ~Q :|-: ~R
 |1.Show ~R
 |2.  P\/Q     :PR
 |3.  ~Q       :PR
@@ -408,61 +495,22 @@ Ex2 P\/Q, ~P\/~R, ~Q :|-: ~R
 And here is an example for you to try:
 
 ```{.ProofChecker .Prop options="guides fonts indent tabindent resize" points=10}
-R10.12 P\/(Q\/R), ~P :|-: ~R->Q 
+16 P\/(Q\/R), ~P :|-: ~R->Q 
 ```
 
+:::solution
 ::: youtube
 <https://youtu.be/TnuYD3N-88A>
 :::
-
-## The Missing Modus
-
-I mentioned that there are *four* classic rules "Modus" rules. What is the
-fourth?
-
-The fourth has fallen out of fashion:
-
--   *Modus Ponendo Tollens*, the way of denying by asserting
-
-This is a rule for *exclusive* disjunctions:
-
-:::{.standardform .liveshapes}
--   []{.P} $\veebar$ []{.Q}
--   []{.Q}
--   ¬[]{.P}
 :::
 
-Again, order of disjuncts doesn't matter. You could also infer ¬[]{.Q} from
-[]{.P}. 
-
-Do you see why this rule only works for exclusive, and not inclusive,
-disjunction? This rule has fallen out of fashion because exclusive
-disjunction has fallen out of fashion, and is no longer treated as a basic
-connective. But it's kind of sad,
-because there is something satisfying about seeing all four moduses side by
-side. 
-
-Remember that 'P $\veebar$ Q' is truth-functionally equivalent to '¬(P ↔ Q)'. In the next chapter, we will introduce [derived rules]{.vocab}: extra
-rules that you can enable by producing a derivation to prove that they are
-valid. At that point, it will be possible to create a version of MPT that
-looks like this:
-
-:::{.standardform .liveshapes}
--   ¬([]{.P} ↔ []{.Q})
--   []{.P}
--   ¬[]{.Q}
 :::
-
-We will leave MPT in the dustbin of history.
-
-:::
-
 
 ## Simplification (S)
 
-We have two new rules for disjunctions: ADD and MTP. We also have two new
-rules for conjunctions: S And ADJ. The rules for conjunctions are the simplest
-rules of all. So simple that it can be confusing.
+Next, our two new rules for conjunction ('∧').
+
+
 
 :::stickywrapper
 :::{.aside .sticky .flex}
@@ -476,83 +524,117 @@ rules of all. So simple that it can be confusing.
 :::
 :::
 
-Our first rule for conjunctions is **Simplification (S)**. The idea behind
-Simplification is simple: from *both* P *and* Q, you can infer P by itself.
-And you can also infer Q by itself. A conjunction asserts that *both*
-conjuncts are true; so, from a conjunction, you can infer either conjunct
-on its own.
-
-In standard form, the rule looks like this:
+The first is called [Simplification (S)]{.vocab}:
 
 :::{.standardform .liveshapes}
 - []{.P} ∧ []{.Q}
 - []{.P}
 :::
 
-And since you can just as well infer the other conjunct too, the rule has two
-forms. The other form looks like this:
+Like ADD and MTP, S has two forms. The second form is:
 
 :::{.standardform .liveshapes}
 - []{.P} ∧ []{.Q}
 - []{.Q}
 :::
 
-```{.QualitativeProblem .ShortAnswer give-credit="onSubmission" points=10}
-R10.13 Briefly explain how the two forms of S differ.
-```
+Remember what '∧' means. 'P ∧ Q' says that both P *and* Q are true.
+Simplification allows you to infer from that that P is true, and it also
+allows you to infer that Q is true. In other words, given two pieces of
+information packed together into a
+conjunction, S allows you to infer each piece of information on its own.
 
-For example, suppose you are looking for a big dog to play the role of
-Secretariat in a biopic that you are directing. And suppose you know that,
+Suppose you are directing a biopic about the race horse Secretariat, 
+ and you want to cast a good dog in the lead role.
+And suppose you know that,
 
 ::: displayed
--   Mr. Peanut Butter is a big dog and he is a golden lab.
+-   Mr. Peanut Butter is a good dog and he is a golden lab.
 :::
 
-From this, you can infer that,
+From this, you can infer, by Simplification:
 
 ::: displayed
--   Mr. Peanut Butter is a big dog 
+-   Mr. Peanut Butter is a good dog 
 :::
 
 So, here is your argument:
 
 ::: {.standardform}
--   Mr. Peanut Butter is a big dog and he is a golden lab.
--   Mr. Peanut Butter is a big dog 
+-   Mr. Peanut Butter is a good dog and he is a golden lab.
+-   Mr. Peanut Butter is a good dog. 
 :::
 
-The inference is so obviously valid that you might struggle to see it as any
-inference at all. But it is. You've gone from making a complex claim to a simpler claim. You've
-inference a simpler piece of information from a more complex piece of
-information. You can do this because of what 'and' means. If your complex
-piece of information were a conditional or disjunction, this inference
-wouldn't be any good.
+This inference is *so obviously valid* that sometimes folks struggle to see it
+as an inference at all!
 
-When people first start learning derivations, they often try to think about
-the process as a process of "breaking down" or "breaking apart" or
-"simplifying" the premises. And they reach for their high school algebra tool
-kit for manipulating formulas. This is not a very helpful way of thinking about
-the application of rules like DN, MP, MT, or ADD. But it is *exactly* what we
-are doing with S! Simplify freely! Break complicated things into their simple
-parts! But *only* when you are working with conjunctions.
+``` {.Translate .Exact points="10"}
+17 R, P: What is something that follows, by S, from P ∧ R?
+18 ~P, ~Q: What is something that follows, by S, from ¬P ∧ ¬Q?
+19 P->Q,Q->P: What is something follows, by S, from '(P→Q) ∧ (Q→P)'?
+```
+
+ADD VIDEO
+
+Sometimes folks get so excited by the power and simplicity of S
+that they want to do it to everything, not just conjunctions.
+But S only works with conjunctions.
+You cannot validly infer 'P' from P ∨ Q', or from 'P → Q', or from 'P ↔ Q'.
+Remember, the connective, '∧', is an essential part of the rule.
+
+
+```{.QualitativeProblem .MultipleChoice points=10}
+20 What follows, by S, from 'P → Q'?
+| P
+| Q
+| *Nothing: simplification only works with conjunctions
+21 What follows, by S, from 'P ∨ Q'?
+| P
+| Q
+| *Nothing: simplification only works with conjunctions
+22 What follows, by S, from 'P ↔ Q'?
+| P
+| Q
+| *Nothing: simplification only works with conjunctions
+23 What follows, by S, from '¬(P ∧ Q)'?
+| P
+| Q
+| *Nothing: simplification only works with conjunctions
+```
+
+Here is a derivation for you to try, that requires simplification:
+
+```{.ProofChecker .Prop options="guides fonts indent tabindent resize" points=10}
+24 P/\Q,Q->R :|-: R
+```
+
+ADD VIDEO
 
 :::
 
-### Adjunction
+### Adjunction (ADJ)
 
-:::stickywrapper
-:::{.aside .sticky .flex}
-:::ruledisplay
+:::::::stickywrapper
+::::::{.aside .sticky .flex}
+:::::ruledisplay
 **Adjunction (ADJ)**
 
-:::{.displayed .liveshapes}
+::::{.displayed .liveshapes}
 | []{.P}, []{.Q} ⊢ []{.P} ∧ []{.Q}
-:::
-:::
-:::
+::::
+:::::
+:::::ruledisplay
+**Simplification (S)**
 
-Simplification is a rule that lets you take apart conjunctions. Adjunction
-lets you put them together. In standard form, it looks like this:
+::::{.displayed .liveshapes}
+| []{.P} ∧ []{.Q} ⊢ []{.P}
+| []{.P} ∧ []{.Q} ⊢ []{.Q}
+::::
+:::::
+::::::
+
+S lets us take apart conjunctions. [Adjunction (ADJ)]{.vocab}
+lets us join them together:
 
 :::{.standardform .liveshapes}
 -   []{.P}
@@ -570,29 +652,8 @@ For example,
 
 A conjunction allows us to express, in a single claim, the fact that two
 independent pieces of information are both true. Adjunction reflects this:
-given two separate pieces of information, you are allowed to join them
+given two separate pieces of information as premises, you are allowed to join them
 together into a conjunction.
-
-:::
-
-:::stickywrapper
-:::{.aside .sticky .flex}
-:::ruledisplay
-**Adjunction (ADJ)**
-
-:::{.displayed .liveshapes}
-| []{.P}, []{.Q} ⊢ []{.P} ∧ []{.Q}
-:::
-:::
-:::ruledisplay
-**Simplification (S)**
-
-:::{.displayed .liveshapes}
-| []{.P} ∧ []{.Q} ⊢ []{.P}
-| []{.P} ∧ []{.Q} ⊢ []{.Q}
-:::
-:::
-:::
 
 Here is a simple example, using both **S** and **Adjunction (ADJ)**:
 
@@ -606,14 +667,16 @@ Here is a simple example, using both **S** and **Adjunction (ADJ)**:
 |6.:DD 5
 ```
 
-Here is a problem for you to try.
+Here is a derivation for you to try:
 
 ```{.ProofChecker .Prop options="guides fonts indent tabindent resize" points=10}
-R10.14 P/\(P->Q) :|-: P/\Q 
+25 P/\(P->Q) :|-: P/\Q 
 ```
 
+:::solution
 ::: youtube
 <https://youtu.be/EesD8OIDaUQ>
+:::
 :::
 
 :::
@@ -674,7 +737,7 @@ information.
 | Q: You messed up
 :::
 
-Suppose we know that *I messed up*. From this, I can infer, by ADD, that *at least one of us messed up*:
+Suppose we both know that *I messed up*. From this, I can infer, by ADD, that *at least one of us messed up*:
 
 ::: proof
 5.   [P [PR]{.just}]{.indent}
@@ -685,8 +748,8 @@ We don't have to first figure out whether or not you messed up too. The fact
 that I messed up is enough to make it true that at least one of us did. *That*
 is Addition.
 
-On the other hand, suppose we know that *I messed up*,
-And then we discover that you messed up too.
+On the other hand, suppose we both know that *I messed up*,
+and then we discover that *you messed up too*.
 From these two pieces of information, we can infer that we both messed up:
 
 ::: proof
@@ -699,27 +762,28 @@ From these two pieces of information, we can infer that we both messed up:
 
 :::
 
-Here is a problem for you to try, that requires you to keep track of the
+Here is a derivation for you to try, that requires you to keep track of the
 difference between ADD and ADJ:
 
 ```{.ProofChecker .Prop options="guides fonts indent tabindent resize" points=10}
-R10.15 P, Q :|-: (P/\Q)\/W
+26 P, Q :|-: (P/\Q)\/W
 ```
-
+:::solution
 ::: youtube
 <https://youtu.be/isEp4x_Ly_s>
 :::
+:::
 
 :::
 
-## Rules for the Biconditional
+## Biconditional-to-Conditional (BC)
 
+We have introduced four new rules: ADD, MTP, S, and ADJ. We need two more, to
+handle biconditionals.
 
 Our rules for the biconditional are very similar to our rules for conjunction.
-We have one rule that allows us to "take apart", and one that
-allows us to "put together". 
-
-### Biconditional-to-Conditional (BC)
+We have one rule that allows us to "take apart" a biconditional, and one that
+allows us to "put together" a biconditional. 
 
 :::stickywrapper
 :::{.aside .sticky .flex}
@@ -733,18 +797,19 @@ allows us to "put together".
 :::
 :::
 
-Biconditional-to-Conditional (BC) is the rule we use to take apart a biconditional.
+Biconditional-to-Conditional (BC) is the rule we use to "take apart" a biconditional.
 If you think of a biconditional as two conditionals joined together, pointing
-in opposite directions, BC lets us infer either of of those conditionals from
-the biconditional. In standard form, we can infer the left-to-right
-conditional:
+in opposite directions, BC lets us infer either of those two conditionals from
+the biconditional. It has two forms.
+
+First, from the biconditional, we can infer the right-to-left conditional:
 
 :::{.standardform .liveshapes}
 -   []{.P} ↔ []{.Q} 
 -   []{.P} → []{.Q}  
 :::
 
-Or we can infer the right-to-left conditional:
+Second, we can infer the right-to-left conditional:
 
 :::{.standardform .liveshapes}
 -   []{.P} ↔ []{.Q} 
@@ -757,9 +822,18 @@ Or we can infer the right-to-left conditional:
 | R: Socrates is a rational animal
 :::
 
-For example, suppose we know that Socrates is human if and only if he is a
-rational animal. And suppose we know that he is a rational animal. We can use
-BC, followed by MP, to infer that he is human:
+For example, suppose we know that
+
+:::example
+-   S ↔ R: Socrates is human if and only if he is a rational animal. 
+:::
+
+And suppose we know that 
+
+:::example
+-   S: Socrates is a rational animal.
+
+We can use BC, followed by MP, to infer that he is human:
 
 ::: proof
 5.   [S ↔ R [PR]{.just}]{.indent}
@@ -768,54 +842,28 @@ BC, followed by MP, to infer that he is human:
 8.   [S [MP 6,7]{.just}]{.indent}
 :::
 
-One common mistake is to try to apply Modus Ponens or Modus Tollens directly to a
-biconditional. That isn't allowed, because MP and MT only apply to
-conditionals. When you have a biconditional, and you also have one of its
-parts or the negation of one of its parts, you first need to use BC, then
-apply MP or MT.
-
+One common mistake is to try to apply MP or MT directly to a
+biconditional.
+You can't do that: MP and MT only apply to conditionals.
+To use a biconditional, you first have to take it apart into its two
+conditionals.
+Then you can apply MP or MT to one or both of those conditionals.
 :::
 
 Here is a problem for you to try:
 
 ```{.ProofChecker .Prop options="guides fonts indent tabindent resize" points=10}
-R10.16 P<->Q, R<->Q, P :|-: R
+27 P<->Q, R<->Q, P :|-: R
 ```
-
+:::solution
 ::: youtube
 <https://youtu.be/FNbZRAExdiE>
+:::
 :::
 
 :::
 
 ### Conditionals-to-Biconditional (CB)
-
-:::stickywrapper
-:::{.aside .sticky .flex}
-:::ruledisplay
-**Conditionals-to-Biconditional (CB)**
-
-:::{.displayed .liveshapes}
-| []{.P} → []{.Q}, []{.Q} → []{.P} ⊢ []{.P} ↔ []{.Q}
-:::
-:::
-:::
-
-Conditionals-to-Biconditional (CB) is the rule that lets us "put together" a
-biconditional. In standard form, it looks like this:
-
-:::{.standardform .liveshapes}
--  []{.P} → []{.Q}
--  []{.Q} → []{.P}
--  []{.P} ↔ []{.Q}
-:::
-
-Again, the basic idea is that a biconditional is really two conditionals put
-together. So if you have both conditionals---the left-to-right conditional and
-the right-to-left conditional---as premises, you can put them together into a
-biconditional.
-
-:::
 
 :::stickywrapper
 :::{.aside .sticky .flex}
@@ -836,25 +884,40 @@ biconditional.
 :::
 :::
 
+Conditionals-to-Biconditional (CB) is the rule that lets us "put together" a
+biconditional:
+
+:::{.standardform .liveshapes}
+-  []{.P} → []{.Q}
+-  []{.Q} → []{.P}
+-  []{.P} ↔ []{.Q}
+:::
+
+Again, the basic idea is that a biconditional is really two conditionals put
+together. So if you have both conditionals---the left-to-right conditional and
+the right-to-left conditional---as premises, CB lets you put them together into a
+biconditional.
+
 Notice the mnemonic. "BC" is the rule that allows to you infer
 from a biconditional ("B") to a conditional ("C"). Hence the order of letters in
 the abbreviation of the rule's name: "BC". "CB" is the rule that allows you to infer
-from two conditionals ("C") to a biconditional ("B"), hence "CB". Another way to help
-remember this: always pronounce the 'to', even though it isn't part of the
-abbreviation. Pronounce "BC" as "B *to* C", and pronounce "CB" as "C *to* B".
+from two conditionals ("C") to a biconditional ("B"), hence "CB". 
+It is a good idea to get into the habit of pronouncing the "to", even though it is
+not part of the abbreviations: pronounce "BC" as "B *to* C", and "CB" as "C
+*to* B".
 
 Suppose you are reading the syllabus for a course that includes lots of
 homework and three exams, including one big final exam. As you read, you glean
 two important pieces of information:
 
--    If you can score 90% or above on the final, you will get an A in the
-     course.
--    You will get an A in the course only if you score 90% or above on the
+-    You will get an A in the course *if* you score 90% or above on the
+     final.
+-    You will get an A in the course *only if* you score 90% or above on the
      final.
 
 From these two pieces of information, you can infer that,
 
--    You will get an A in the course if and only if you score 90% or above on
+-    You will get an A in the course *if and only if* you score 90% or above on
      the final.
 
 :::{.soa .aside}
@@ -871,16 +934,15 @@ From these two pieces of information, you can infer that,
 That's what BC looks like in action. Here is a derivation that requires both BC and CB to complete:
 
 ```{.ProofChecker .Prop options="guides fonts indent tabindent resize" points=10}
-R10.17 P<->Q :|-: Q<->P
+29 P<->Q :|-: Q<->P
 ```
-
+:::solution
 ::: {.youtube}
 https://youtu.be/VaKe3icXeqY
 :::
 :::
+:::
 
-That example is a bit to clean to be instructive. So let's tackle
-something more challenging.
 
 :::stickywrapper
 :::{.aside .sticky .flex}
@@ -932,6 +994,10 @@ something more challenging.
 :::
 :::
 
+Here is a more challenging example.
+It requires using several of our new rules.
+And it illustrates something very important about how to use CB to prove a
+biconditional.
 
 ```{.ProofChecker .Prop options="guides fonts indent tabindent resize" submission=none}
  P->(Q/\R), Q->(R/\P) :|-: P<->Q
@@ -941,28 +1007,35 @@ something more challenging.
 |4.  ???
 ```
 
-What to do next? Often, it helps to think about what you need to complete the
-problem, and work backward from there. To complete the problem, we need to get
-$P\leftrightarrow Q$. And the only rule we have that is going to make that
-happen is CB. So we need to get $P\rightarrow Q$, and then get
-$Q\rightarrow P$, and then apply CB to $P\leftrightarrow Q$. Let's go ahead
-and see what that looks like:
+The answer: enter a show line.
+But a show line for what?
+A show line for something that will help you complete this derivation.
+But what is that?
+
+Note that our conclusion, 'P ↔ Q', is a biconditional.
+The only rule we have, that allows us to infer a biconditional, is CB.
+So we need to enter a show line that will help put us in position to apply CB.
+So, what premises would allow us, by applying CB, to infer 'P ↔ Q'?
+Answer: 'P → Q' and 'Q → P'.
 
 ```{.ProofChecker .Prop options="guides fonts indent tabindent resize" submission=none}
  P->(Q/\R), Q->(R/\P) :|-: P<->Q
 |1.Show P<->Q
 |2.  P->(Q/\R)   :PR
 |3.  Q->(R/\P)   :PR
-|4.  P->Q        :???
-|5.  Q->P        :???
+|4.  Show P->Q    
+|5.  Show Q->P   
 |6.  P<->Q       :CB 4,5
 |7.:DD 6
 ```
 
-Of course, this isn't yet a proper solution. Lines (4) and (5) aren't justified.
-And there isn't any rule we can apply to (2) or (3) to get lines (4) or (5).
-Still, when you know what you need, and you can't figure out how to get it, a
-good trick is to write it down as a show line:
+Of course, this isn't yet a proper solution. 
+Lines (4) and (5) are uncancelled show lines. 
+Before I can use them to get P ↔ Q by CB, I need to complete those
+subderivations.
+
+Since both show lines are show lines for conditionals, I can use CD:
+
 
 ```{.ProofChecker .Prop options="guides fonts indent tabindent resize" submission=none}
  P->(Q/\R), Q->(R/\P) :|-: P<->Q
@@ -981,22 +1054,21 @@ good trick is to write it down as a show line:
 |13.:DD 6
 ```
 
-Here, I transformed the two sentences I knew I needed into show lines, and,
-since they are both conditionals, I outlined conditional derivations for each
-one. Of course, this is still not done, since (6) and (10) are unjustified.
-But both of those subderivations can be completed, at which point we will have a
-complete derivation. Can you work it out?
+Of course, this is still not complete. I need to actually find a way to get
+from P on line (5) to Q, and I need to actually find a way to get from Q on
+line 9 to P. Can you figure it out?
 
 ```{.ProofChecker .Prop options="guides fonts indent tabindent resize" points=10}
-R10.18 P->(Q/\R), Q->(R/\P) :|-: P<->Q
+30 P->(Q/\R), Q->(R/\P) :|-: P<->Q
 |1.Show P<->Q
 |2.  P->(Q/\R)   :PR
 |3.  Q->(R/\P)   :PR
 |4.  Show P->Q 
 ```
-
+:::solution
 ::: {.youtube}
 https://youtu.be/UFRJ194wq0A
+:::
 :::
 
 
@@ -1120,45 +1192,59 @@ us 9 rules total:
 :::
 :::
 
-You need to *know* these rules. It is not enough to know *of* these rules,
-and then look them up every time you need to use them. You need to be
-able to use them as needed, which requires understanding them, and remembering
-them.
+You need to *know* these rules. It is not enough to know *that* these rules
+exist, and then look them up every time you need to use them. You want to have
+them ready to hand, so you can use them as needed, and use them to *think
+through* a derivation. For that, they need to be in your head.
 
 ## Strategies
 
-Solving a derivation is like solving a puzzle. I've given you three methods
-(DD, CD, and ID) and 9 rules (DNI, DNE, MP, MT, MTP, ADD, S, ADJ, BC, and
-CB). Your task is to discover a path from the premises to the conclusion,
-only using these methods and rules. 
+Derivations are puzzles.
+You are given 9 rules (DNI, DNE, MP, MT, MTP, ADD, S, ADJ, BC, and CB) and 3
+methods (DD, CD, and ID).
+There are countless derivations that can be completed using these rules and
+methods.
+Your task in each case is to discover a pathway from the premises to the conclusion,
+using these methods and rules. 
 
-There will *always* be more than one path available. Some will be long and
-winding. Some will be surprisingly quick. If you are stuck, I can show you a
-path. But the best path is the one you find for yourself.
+There is *always* more than one possible solution, more than one pathway.
+Some paths are short, some long.
+Some are methodical, and some involve surprising twists and turns.
 
-If you understand the rules and methods, and spend time working through
-several derivations, you will start to discover helpful strategies. In this
-way, getting good a derivations is like getting good at checkers
-or chess, or even tic-tac-toe. 
+If you are stuck, I can show you a path.
+And I can teach you strategies and methods that are guaranteed to work.
+But the best paths are the paths you find for yourself,
+ and the best strategies are the strategies you discover for yourself.
 
-The first time you played tic-tac-toe, how did it go? Someone drew up a board,
-told you the rules, and challenged you to a game. Probably, you lost that
-first game. You kinda knew the rules. But you had no idea how to play. With
-practice, you mastered the rules. And then you discovered the strategies. If
-you played it enough, you got to where you could never lose.
+In this way, getting good at derivations is much like getting good at checkers
+or chess or tic-tac-toe.
+First, you learn the rules.
+Then you spend some time playing the game.
+Then, maybe, you spend some time reading up on the best strategies.
 
-Learning derivations is like that. You are learning the rules. Once you have
-those down, with practice, you will start discovering the strategies.
+This chapter gave you the rules.
+I also highlighted one important strategy for proving biconditionals:
+ try entering a show line for each conditional.
+If you can complete both of those subderviations, then you can use CB to infer
+your conclusion.
+But I've left most of my helpful strategic advice out of the reading,
+ to give you the space to learn the rules and play the game.
 
-The [Supplement](10S) to this chapter contains lots of strategic advice. I
-encourage you to make use of it!
+But when you are ready for it, look to the [Supplement]{10S_s22}.
+In other chapters, the supplement has been an optional repository of
+additional examples and practice exercises.
+For this chapter, the supplement is that, but it is also the repository of a
+wealth of strategic advice, designed to help you get "unstuck", and master
+these derivations.
+
+```{.QualitativeProblem .MultipleSelection points=10}
+31 If I get stuck, or need more strategic advice on how to solve a given derivation, I should:
+| despair.
+| *take a look at the strategic advice in the supplement.
+| *ask for help in class, or in office hours, or over Discord.
+```
 
 :::
 
-## What Next?
-
--   [Exercises](10E)
--   [Mastery Check](10M)
--   [Supplements](10S)
 
 <!-- vim: set ft=carnap :-->

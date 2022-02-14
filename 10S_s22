@@ -12,22 +12,34 @@ js:
 
 This is a supplement. Exercises are not for credit.
 
-Stuck on derivations? Consider looking at the section of this supplement on [Strategic Advice](#strategic-advice).
+Stuck on a derivation?
+As mentioned in the reading, this is the place to come for strategies.
+For an extended discussion of each strategy, with examples:
+
+-   [Strategic Advice](#strategic-advice).
+
+For a quick summary of each strategy:
+
+-   [Summary of Strategies](#summary-of-strategies)
+
 
 ## Learning the Rules
 
-In the [Chapter 5 Supplement](05S), I linked to the AUC Logic [Argument
+In the [Chapter 5 Supplement](05S_s22), I linked to the AUC Logic [Argument
 Schemes](https://youtube.com/playlist?list=PLM9JGRr9zKYwhmuTlM-xk0mFVjzh3-9AI){target="_blank"
 rel="noopener noreferrer"} youtube playlist. As I explained then, they are
 using a slightly different system: 'A' and 'B' can be sentence letters, for example.
 
 They have a fun video about MTP, but they call it by one of its other traditional names, "Disjunctive Syllogism":
 
+:::solution
 :::youtube 
 https://youtu.be/-X9e1Y8lafk
 :::
+:::
 
-They don't have any videos for our other new rules.
+They don't have any videos for our other new rules. `:-(`.
+Someone needs to make more!
 
 ## Recognizing the Rules
 
@@ -37,7 +49,7 @@ They don't have any videos for our other new rules.
 -   Dogs go "woof" and cats go "meow"
 :::
 ``` {.QualitativeProblem .MultipleChoice submission=none options=check}
-S10.1 This an instance of:
+1 This an instance of:
 | DN
 | MP
 | MT
@@ -56,7 +68,7 @@ S10.1 This an instance of:
 -   Lake Michigan rises
 :::
 ``` {.QualitativeProblem .MultipleChoice submission=none options=check}
-S10.2 This an instance of:
+2 This an instance of:
 | DN
 | MP
 | MT
@@ -75,7 +87,7 @@ S10.2 This an instance of:
 -   Chicago doesn't flood
 :::
 ``` {.QualitativeProblem .MultipleChoice submission=none options=check}
-S10.3 This an instance of:
+3 This an instance of:
 | DN
 | MP
 | MT
@@ -94,7 +106,7 @@ S10.3 This an instance of:
 -   Lake Michigan doesn't rise
 :::
 ``` {.QualitativeProblem .MultipleChoice submission=none options=check}
-S10.4 This an instance of:
+4 This an instance of:
 | DN
 | MP
 | *MT
@@ -113,7 +125,7 @@ S10.4 This an instance of:
 -   Chicago floods
 :::
 ``` {.QualitativeProblem .MultipleChoice submission=none options=check}
-S10.5 This an instance of:
+5 This an instance of:
 | DN
 | *MP
 | MT
@@ -131,7 +143,7 @@ S10.5 This an instance of:
 -   Lake Michigan rises if Chicago floods
 :::
 ``` {.QualitativeProblem .MultipleChoice submission=none options=check}
-S10.6 This an instance of:
+6 This an instance of:
 | DN
 | MP
 | MT
@@ -149,7 +161,7 @@ S10.6 This an instance of:
 -   Lake Michigan rises only if Chicago floods
 :::
 ``` {.QualitativeProblem .MultipleChoice submission=none options=check}
-S10.7 This an instance of:
+7 This an instance of:
 | DN
 | MP
 | MT
@@ -168,7 +180,7 @@ S10.7 This an instance of:
 -   Chicago doesn't flood
 :::
 ``` {.QualitativeProblem .MultipleChoice submission=none options=check}
-S10.8 This an instance of:
+8 This an instance of:
 | DN
 | MP
 | MT
@@ -187,7 +199,7 @@ S10.8 This an instance of:
 -   Chicago floods
 :::
 ``` {.QualitativeProblem .MultipleChoice submission=none options=check}
-S10.9 This an instance of:
+9 This an instance of:
 | DN
 | MP
 | MT
@@ -206,7 +218,7 @@ S10.9 This an instance of:
 -   Lake Michigan doesn't rise
 :::
 ``` {.QualitativeProblem .MultipleChoice submission=none options=check}
-S10.10 This an instance of:
+10 This an instance of:
 | DN
 | MP
 | MT
@@ -225,7 +237,7 @@ S10.10 This an instance of:
 -   (Q ∧ R) ∧ (R ∧ S)
 :::
 ``` {.QualitativeProblem .MultipleChoice submission=none options=check}
-S10.11 This an instance of:
+11 This an instance of:
 | DN
 | MP
 | MT
@@ -243,7 +255,7 @@ S10.11 This an instance of:
 -   (Q ∧ R) ∨ (R ∧ S)
 :::
 ``` {.QualitativeProblem .MultipleChoice submission=none options=check}
-S10.12 This an instance of:
+12 This an instance of:
 | DN
 | MP
 | MT
@@ -261,7 +273,7 @@ S10.12 This an instance of:
 -   (Q ∧ R) ↔ (R ∧ S)
 :::
 ``` {.QualitativeProblem .MultipleChoice submission=none options=check}
-S10.13 This an instance of:
+13 This an instance of:
 | DN
 | MP
 | MT
@@ -279,7 +291,7 @@ S10.13 This an instance of:
 -   Either Chicago is in Illinois or Toronto is in Mexico
 :::
 ``` {.QualitativeProblem .MultipleChoice submission=none options=check}
-S10.14 This an instance of:
+14 This an instance of:
 | DN
 | MP
 | MT
@@ -298,7 +310,7 @@ S10.14 This an instance of:
 -   Chicago is in Illinois and Toronto is in Mexico
 :::
 ``` {.QualitativeProblem .MultipleChoice submission=none options=check}
-S10.15 This an instance of:
+15 This an instance of:
 | DN
 | MP
 | MT
@@ -317,7 +329,7 @@ S10.15 This an instance of:
 -   Chicago is in Illinois
 :::
 ``` {.QualitativeProblem .MultipleChoice submission=none options=check}
-S10.16 This an instance of:
+16 This an instance of:
 | DN
 | MP
 | MT
@@ -336,7 +348,7 @@ S10.16 This an instance of:
 -   Souls are not physical substances.
 :::
 ``` {.QualitativeProblem .MultipleChoice submission=none options=check}
-S10.17 This an instance of:
+17 This an instance of:
 | DN
 | MP
 | MT
@@ -354,7 +366,7 @@ S10.17 This an instance of:
 -   Animals are intelligent.
 :::
 ``` {.QualitativeProblem .MultipleChoice submission=none options=check}
-S10.18 This an instance of:
+18 This an instance of:
 | DN
 | MP
 | MT
@@ -373,7 +385,7 @@ S10.18 This an instance of:
 -   Tofu is tasty if and only if prepared well.
 :::
 ``` {.QualitativeProblem .MultipleChoice submission=none options=check}
-S10.19 This an instance of:
+19 This an instance of:
 | DN
 | MP
 | MT
@@ -397,7 +409,7 @@ rel="noopener noreferrer"}.
 > Translation)](https://www.biblegateway.com/passage/?search=John%2015%3A19&version=KJV)
 
 ``` {.QualitativeProblem .MultipleChoice submission=none options=check}
-S10.20 This an instance of:
+20 This an instance of:
 | DN
 | MP
 | MT
@@ -418,7 +430,7 @@ or be a cannonball. Then one day my uncle came out of the cannon, missed the net
 the Ferris whell. I decided to go to school.
 
 ``` {.QualitativeProblem .MultipleChoice submission=none options=check}
-S10.21 This an instance of:
+21 This an instance of:
 | DN
 | MP
 | MT
@@ -441,7 +453,7 @@ biology, to be understood through neuroscience. She writes,
 > be in love. [@jenkins2017, 63-4]
 
 ```{.QualitativeProblem .ShortAnswer submission=none}
-S10.22 Jenkins here suggests an argument by Modus Tollens. Can you reconstruct that argument?
+22 Jenkins here suggests an argument by Modus Tollens. Can you reconstruct that argument?
 ```
 
 ## Strategic Advice
@@ -1097,35 +1109,5 @@ Here is another example:
 |6.  :CD 2
 |7.:ID 3,4
 ```
-
-## Summary of Strategies
-
-[**Getting**](#using-and-getting):
-
--   [Show directly, if you can!](#getting-directly)
--   [Conditionals: use CD](#getting-conditionals)
--   [Negations: use ID](#getting-indirectly)
--   [Conjunctions: show both conjuncts, then use ADJ](#getting-conjunctions)
--   [Biconditionals: show both conditionals, then use
-    CB](#getting-biconditionals)
--   [Disjunctions: use ADD if you can, otherwise, show the double negation
-    using ID](#getting-disjunctions)
--   [Everything else: show the double negation using ID, use
-    DNE](#getting-indirectly)
-
-[**Using**](#using-and-getting):
-
--   [Conditionals: use MP or MT](#using-conditionals)
-    -   If you can't, consider trying to get what you need to use MP or MT,
-        following the appropriate strategy for getting
--   [Conjunctions: use S](#using-conjunctions)
--   [Disjunctions: use MTP](#using-disjunctions)
-    -   If you can't, consider trying to get what you need to use MTP,
-        following the appropriate strategy for getting
--   [Biconditionals: use BC](#using-biconditionals)
--   [Negations: use with MT or MTP if you can; otherwise, use as one half of a
-    contradiction with ID](#using-negations)
-
-
 
 
