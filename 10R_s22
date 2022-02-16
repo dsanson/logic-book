@@ -432,7 +432,7 @@ Modus Tollendo Ponens
 :   []{.P} ∨ []{.Q}, ¬[]{.P} ⊢ []{.Q}
 
 Modus Ponendo Tollens
-:   []{.P} $\∨eebar$ []{.Q}, []{.P} ⊢ ¬[]{.Q}
+:   []{.P} $\veebar$ []{.Q}, []{.P} ⊢ ¬[]{.Q}
 
 
 Remember, 'Modus' means "way" or "method". "Ponendo" means "by putting" or "by
