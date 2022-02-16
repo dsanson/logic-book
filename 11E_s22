@@ -8,21 +8,24 @@ js:
 ---
 
 
-# Derived Rules: Exercises
-
 ::: {.auto-tally}
 :::
 
-The reading was about *enabling derived rules*. These exercises are about
-*using* those rules.
+# Derived Rules: Exercises
+
+The reading was about *enabling derived rules*. 
+These exercises are mostly about *using* those rules.
+I've offered hints about what derived rules you might consider using.
+By default the hints are hidden, to give you the chance to figure it out for
+yourself.
 
 :::{.hint .aside}
-E11.1 is much easier if you use the appropriate instance of DM on the first
+1 is much easier if you use the appropriate instance of DM on the first
 premise.
 :::
 
 ```{.ProofChecker .Prop options="guides fonts indent tabindent resize" points=10}
-E11.1 ~(P\/Q), P\/R, S->Q :|-: R/\~S
+1 ~(P\/Q), P\/R, S->Q :|-: R/\~S
 ```
 
 :::{.hint .aside}
@@ -30,30 +33,45 @@ Remember that you can use D-NC!
 :::
 
 ```{.ProofChecker .Prop options="guides fonts indent tabindent resize" points=10}
-E11.2 P->Q, ~(P->R) :|-: Q
+2 P->Q, ~(P->R) :|-: Q
 ```
 
 :::{.hint .aside}
-CDISJ make E11.3 trivial.
+D-COMMDISJ makes 3 trivial.
 :::
 
 ```{.ProofChecker .Prop options="guides fonts indent tabindent resize" points=10}
-E11.3 P\/Q->R, Q\/P :|-: R
+3 P\/Q->R, Q\/P :|-: R
 ```
 
 :::{.hint .aside}
-E11.4 is simpler if you use D-MCA.
+4 is simpler if you use D-MCA.
 :::
 
 ```{.ProofChecker .Prop options="guides fonts indent tabindent resize" points=10}
-E11.4 ~P, ~Q :|-: P<->Q
+4 ~P, ~Q :|-: P<->Q
 ```
 
 ```{.ProofChecker .Prop options="guides fonts indent tabindent resize" points=10}
-E11.5 (P/\Q)->R :|-: ~(Q->R) -> ~P
+5 (P/\Q)->R :|-: ~(Q->R) -> ~P
 ```
 
-The following derivation, E11.6, describes a pattern known as "Separation of Cases".
+Remember MPT, the "Modus" rule that is only valid for *exclusive*
+disjunctions? And remember how the exclusive disjunction is truth-functionally
+equivalent to the negation of a biconditional? Put those two points together,
+and it is clear that 6 should be valid.
+
+:::{.hint .aside}
+Use D-NB and the appropriate form of Biconditional Tollens to complete (6)
+:::
+
+
+```{.ProofChecker .Prop options="guides fonts indent tabindent resize" points=10}
+6  ~(P<->Q), Q :|-: P
+```
+
+
+The following derivation, 6, describes a pattern known as "Separation of Cases".
 This is the pattern of reasoning used by Sarah in the scene from the
 Labyrinth. As you may recall, she reasoned, in outline, as follows:
 
@@ -65,20 +83,23 @@ Labyrinth. As you may recall, she reasoned, in outline, as follows:
 -   The door on the right leads to the castle.
 :::
 
-You can complete E11.6 here, or you can derive it in the [rule
-builder](Rule-Builder), and then use the derived rule to trivially complete
-E11.6.
+Separation of Cases is a natural way to reason about disjunctions.
+You can complete 6 here, or you can derive it in the [Rule
+Builder](Rule-Builder) and save it as a derived rule.
+If you do that, use your derived rule to complete (7).
 
 ```{.ProofChecker .Prop options="guides fonts indent tabindent resize" points=10}
-E11.6 P\/Q, P->R, Q->R :|-: R 
+7 P\/Q, P->R, Q->R :|-: R 
 ```
 
-The next two derivations, E11.7 and E9.8, are variations on CDJ. Again, you might prefer to solve these in [the
-rule builder](Rule-Builder), saving them as derived rules.
+The next two derivations, 8 and 9, are variations on CDJ. 
+You might prefer to solve these in [the rule builder](Rule-Builder) and save
+them as derived rules, and then use those derived rules to complete these
+exercises for points.
 
 ```{.ProofChecker .Prop options="guides fonts indent tabindent resize" points=10}
-E11.7 P->Q :|-: ~P\/Q
-E11.8 P\/Q :|-: ~P->Q
+8 P->Q :|-: ~P\/Q
+9 P\/Q :|-: ~P->Q
 ```
 
 Our disjunction in inclusive. If you want to express exclusive disjunction,
@@ -96,12 +117,12 @@ the negation of a biconditional:
 -   ¬(P↔Q)
 :::
 
-The next two derivations, E11.9 and E9.10, establish the logical equivalence of
+The next two derivations, 10 and 11, establish the logical equivalence of
 these two representations of exclusive disjunction:
 
 ```{.ProofChecker .Prop options="guides fonts indent tabindent resize" points=10}
-E11.9 ~(P<->Q) :|-: (P\/Q)/\~(P/\Q)
-E11.10 (P\/Q)/\~(P/\Q) :|-: ~(P<->Q)
+10 ~(P<->Q) :|-: (P\/Q)/\~(P/\Q)
+11 (P\/Q)/\~(P/\Q) :|-: ~(P<->Q)
 ```
 
 <!-- vim: set ft=carnap :-->
