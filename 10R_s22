@@ -934,7 +934,7 @@ From these two pieces of information, you can infer that,
 That's what BC looks like in action. Here is a derivation that requires both BC and CB to complete:
 
 ```{.ProofChecker .Prop options="guides fonts indent tabindent resize" points=10}
-29 P<->Q :|-: Q<->P
+28 P<->Q :|-: Q<->P
 ```
 :::solution
 ::: {.youtube}
@@ -1059,7 +1059,7 @@ from P on line (5) to Q, and I need to actually find a way to get from Q on
 line 9 to P. Can you figure it out?
 
 ```{.ProofChecker .Prop options="guides fonts indent tabindent resize" points=10}
-30 P->(Q/\R), Q->(R/\P) :|-: P<->Q
+29 P->(Q/\R), Q->(R/\P) :|-: P<->Q
 |1.Show P<->Q
 |2.  P->(Q/\R)   :PR
 |3.  Q->(R/\P)   :PR
@@ -1238,7 +1238,7 @@ wealth of strategic advice, designed to help you get "unstuck", and master
 these derivations.
 
 ```{.QualitativeProblem .MultipleSelection points=10}
-31 If I get stuck, or need more strategic advice on how to solve a given derivation, I should:
+30 If I get stuck, or need more strategic advice on how to solve a given derivation, I should:
 | despair.
 | *take a look at the strategic advice in the supplement.
 | *ask for help in class, or in office hours, or over Discord.
