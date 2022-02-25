@@ -7,10 +7,10 @@ js:
 -   https://carnap.io/shared/dsanson@gmail.com/logic-book.js
 ---
 
-# Introducing Predicate Logic
-
 ::: {.auto-tally}
 :::
+
+# Introducing Predicate Logic
 
 
 ## Translation
@@ -24,38 +24,38 @@ js:
 :::
 
 ```{.Translate .FOL points=10}
-E12.1 F(a) : Asmodeus is awesome
-E12.2 ExF(x) : Something is awesome
-E12.3 F(a)->ExF(x) : If Asmodeus is awesome, then something is awesome
-E12.4 AxF(x) : Everything is awesome
-E12.5 ~AxF(x) : Not everything is awesome
-E12.6 ExG(x) : Something is cool
-E12.7 Ex~G(x) : Something is not cool
-E12.8 ~G(b) : Baphomet is not cool
-E12.9 G(a)/\G(b) : Asmodeus and Baphomet are both cool
-E12.10 ~(F(a)\/F(b)),~F(a)/\~F(b): Neither Asmodeus nor Baphomet are awesome
+1 F(a) : Asmodeus is awesome
+2 ExF(x) : Something is awesome
+3 F(a)->ExF(x) : If Asmodeus is awesome, then something is awesome
+4 AxF(x) : Everything is awesome
+5 ~AxF(x) : Not everything is awesome
+6 ExG(x) : Something is cool
+7 Ex~G(x) : Something is not cool
+8 ~G(b) : Baphomet is not cool
+9 G(a)/\G(b) : Asmodeus and Baphomet are both cool
+10 ~(F(a)\/F(b)),~F(a)/\~F(b): Neither Asmodeus nor Baphomet are awesome
 ```
 :::
 
 ## Syntax
 
 ``` {.Translate .FOL .Exact points="10"}
-E12.11 ~(P->Q): What is the scope of '¬' in '¬(P→Q)↔R∨S'?
-E12.12 ~P: What is the scope of '¬' in '(¬P→Q)↔R∨S'?
-E12.13 AxF(x): What is the scope of '∀x' in 'F(a)→∀xF(x)'?
-E12.14 EyF(y): What is the scope of '∃y' in '∀x∃yF(y)→∀xF(x)'?
+11 ~(P->Q): What is the scope of '¬' in '¬(P→Q)↔R∨S'?
+12 ~P: What is the scope of '¬' in '(¬P→Q)↔R∨S'?
+13 AxF(x): What is the scope of '∀x' in 'F(a)→∀xF(x)'?
+14 EyF(y): What is the scope of '∃y' in '∀x∃yF(y)→∀xF(x)'?
 ```
 
 ```{.QualitativeProblem .MultipleSelection points=10}
-E12.15 Which occurences of 'x' are bound by '∀x' in '∀xF(x)→G(x)'?
+15 Which occurences of 'x' are bound by '∀x' in '∀xF(x)→G(x)'?
 | *the occurrence of 'x' in '∀x'
 | *the occurrence of 'x' in 'F(x)'
 | the occurrence of 'x' in 'G(x)'
-E12.16 Which occurences of 'y' are bound by '∃y' in '∀x(F(y)∧G(x)→∃yG(y))'?
+16 Which occurences of 'y' are bound by '∃y' in '∀x(F(y)∧G(x)→∃yG(y))'?
 | the occurrence of 'y' in 'F(y)'
 | *the occurrence of 'y' in '∃y'
 | *the occurrence of 'y' in 'G(y)'
-E12.17 Which occurences of 'x' are bound by '∃x' in '∃x(F(x)∧∀xG(x)∧H(x))'?
+17 Which occurences of 'x' are bound by '∃x' in '∃x(F(x)∧∀xG(x)∧H(x))'?
 | *the occurence of 'x' in '∃x'
 | the occurrence of 'x' in '∀x'
 | the occurrence of 'x' in 'G(x)'
@@ -65,23 +65,23 @@ E12.17 Which occurences of 'x' are bound by '∃x' in '∃x(F(x)∧∀xG(x)∧H(
 ## Instances
 
 ``` {.Translate .FOL .Exact points="10"}
-E12.18 F(a)\/G(a),F(b)\/G(b),F(c)\/G(c),F(d)\/G(d),F(e)\/G(e),F(v)\/G(v),F(w)\/G(w),F(x)\/G(x),F(y)\/G(y),F(z)\/G(z): Provide an instance of '∀z(F(z)∨G(z))'.
-E12.19 G(d) : Provide an instance of '∃yG(d)'.
-E12.20 Ey(F(a)/\G(y)), Ey(F(b)/\G(y)), Ey(F(c)/\G(y)), Ey(F(d)/\G(y)), Ey(F(e)/\G(y)), Ey(F(v)/\G(y)), Ey(F(w)/\G(y)), Ey(F(x)/\G(y)), Ey(F(y)/\G(y)), Ey(F(z)/\G(y)) : Provide an instance of '∀x∃y(F(x)∧G(y))'.
+18 F(a)\/G(a),F(b)\/G(b),F(c)\/G(c),F(d)\/G(d),F(e)\/G(e),F(v)\/G(v),F(w)\/G(w),F(x)\/G(x),F(y)\/G(y),F(z)\/G(z): Provide an instance of '∀z(F(z)∨G(z))'.
+19 G(d) : Provide an instance of '∃yG(d)'.
+20 Ey(F(a)/\G(y)), Ey(F(b)/\G(y)), Ey(F(c)/\G(y)), Ey(F(d)/\G(y)), Ey(F(e)/\G(y)), Ey(F(v)/\G(y)), Ey(F(w)/\G(y)), Ey(F(x)/\G(y)), Ey(F(y)/\G(y)), Ey(F(z)/\G(y)) : Provide an instance of '∀x∃y(F(x)∧G(y))'.
 ```
 
 ```{.QualitativeProblem .MultipleSelection points=10}
-E12.21 Select all the generalizations that have 'F(z)' as an instance.
+21 Select all the generalizations that have 'F(z)' as an instance.
 | *∀xF(x)
 | *∀xF(z)
 | *∃yF(y)
 | *∃zF(z)
-E12.22 Select all the generalizations that have '∃y(F(y)∧G(z))' as an instance
+22 Select all the generalizations that have '∃y(F(y)∧G(z))' as an instance
 | *∀x∃y(F(y)∧G(x))
 | *∃z∃y(F(y)∧G(z))
 | ∀y∃y(F(y)∧G(y))
 | *∃x∃y(F(y)∧G(z))
-E12.23 Select all the generalizations that have 'F(a)↔G(a)∨H(a)' as an instance.
+23 Select all the generalizations that have 'F(a)↔G(a)∨H(a)' as an instance.
 | *∃y(F(a)↔G(y)∨H(a))
 | *∃x(F(x)↔G(x)∨H(x))
 | ∀x(F(x)↔G(y)∨H(z))
