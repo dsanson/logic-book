@@ -8,19 +8,16 @@ js:
 -   https://hypothes.is/embed.js
 ---
 
+::: {.auto-tally}
+:::
+
 ::: cover
 
 # Translation in PL
 
 :::
 
-::: {.auto-tally}
-:::
-
-In the last chapter, we introduced PL. Along the way, we did some simple
-translation from English into PL. Here we take a closer look at the
-relationship between PL and English, and how to translate in both ways, from
-PL to English, and from English to PL. 
+In this unit, we take a closer look at the relationship between PL and English.
 
 The objectives for this unit:
 
@@ -34,12 +31,43 @@ d.  I can translate sentences involving anaphoric pronouns, and
     misleading uses of 'some' and 'any'.
 
 
-## From PL to English
+## PL to English
 
-Here we extend our methods from the beginning of [Chapter
-4](04R#canonical-english) for translating sentences from SL to English,
-extending the process to account for predicates, constants, and
-quantificational phrases.
+In [Chapter 4](04R_s22#canonical-english),
+we introduced a process for translating sentences from SL into "canonical English".
+We now extend that process to cover PL.
+
+As before, we work from *outside* in. 
+First, we rewrite the **main connective** in Canonical English. 
+Then we rewrite the main connectives of the remaining untranslated parts in
+Canonical English.
+We repeat this process until all the connectives are translated.
+This leaves us with atomic formulas,
+which we translate using the provided scheme of abbreviation.
+
+For example,
+
+::: displayed
+-   ¬(F(a) ∧ G(a))
+:::
+
+The main connective is '¬', so we translate that into Canonical English:
+
+::: displayed
+-   ¬(F(a) ∧ G(a))
+-   It is not the case that (F(a) ∧ G(a))
+:::
+
+The main connective of the untranslated part is '∧', so we translate that next:
+
+::: displayed
+-   ¬(F(a) ∧ G(a))
+-   It is not the case that (F(a) ∧ G(a))
+-   It is not the case that (both F(a) and G(a))
+:::
+
+There are no more connectives. So we translate the atomic formulas, 'F(a)' and
+'G(a)', using the provided scheme:
 
 :::wrapper
 ::: {.soasticky}
@@ -49,45 +77,15 @@ quantificational phrases.
 | b: Bertrand
 :::
 
-As always, when translating from symbols to English, we work from *outside* in. We
-start by rewriting the **main connective** in Canonical English, and then
-repeat that process for main connectives of each of the remaining parts, until
-we have translated everything but the atomic formulas. Then we replace the
-atomic formulas with their English equivalents, using our scheme of
-abbreviation.
-
-For example,
-
 ::: displayed
 -   ¬(F(a) ∧ G(a))
-:::
-
-Here, the main connective is the '¬', so first we render that into Canonical English:
-
-::: displayed
 -   It is not the case that (F(a) ∧ G(a))
-:::
-
-Now we consider the remaining untranslated part of the sentence. Its main
-connective is '∧'. So we render that into Canonical English:
-
-::: displayed
 -   It is not the case that (both F(a) and G(a))
-:::
-
-Remember, in Canonical English, 'and' is always paired with its helper word
-'both' (and 'or' with 'either', and 'if' with 'then').
-
-The remaining untranslated parts are atomic. So we translate them, using our
-scheme of abbreviation:
-
-::: displayed
 -   It is not the case that (both Arturo is a fox and Arturo is a goose)
 :::
 
-Obviously, you can't do this if you don't remember the Canonical English for
-each of our sentential connectives. We went over them back in Chapter. Here
-they are again:
+You should review the canonical translation for each connective,
+to refresh your memory:
 
   PL                                Canonical Translation
   --------------------------------- ----------------------------------------------
@@ -97,247 +95,263 @@ they are again:
   ([]{.P to="4"} ∨ []{.Q to="4"})   (either []{.P to="4"} or []{.Q to="4"})
   ([]{.P to="5"} ↔ []{.Q to="5"})   ([]{.P to="5"} if and only if []{.Q to="5"})
 
+Remember: our canonical translations retain all parentheses,
+and, where appropriate, include the "helper" words, 'both', 'either', and 'then'. 
 
-The main new complication introduced by PL is that, sometimes, the main
-connective is instead a quantifier phrase:
+Here is another example:
+
+::: displayed
+-   (F(a) ∨ F(b)) → ¬(G(a) ∧ G(b))
+-   (if (F(a) ∨ F(b)) then ¬(G(a) ∧ G(b)))
+-   (if (either F(a) or F(b)) then it is not the case that (G(a) ∧ G(b)))
+-   (if (either F(a) or F(b)) then it is not the case that (both G(a) and G(b)))
+-   (if (either Arturo is a fox or Bertrand is a fox) then it is not the case
+    that (both Arturo is a goose and Bertrand is a goose))
+:::
+
+```{.QualitativeProblem .ShortAnswer give-credit="onSubmission" points=10}
+1 Translate '¬(G(a) ↔ F(b))' into canonical English. Do it step by step, following the examples above.
+```
+
+How do we translate:
+
+::: displayed
+-   ∃y(F(y) ∨ G(y))
+:::
+
+Here, the main connective is the quantifier phrase, '∃y'.
+To translate this, 
+we need to know the canonical English translations of the quantifier phrases:
 
   PL                 Canonical Translation
   ------------------ -------------------------------
   ∀x[]{.P}           Every x is such that []{.P}
   ∃x[]{.P}           Some x is such that []{.P}
 
-
-So let's work through an example with a quantifier phrase:
+So, we translate '∃y' into English:
 
 ::: displayed
--   ∃y(F(y)∨G(y))
+-   ∃y(F(y) ∨ G(y))
+-   Some y is such that (F(y) ∨ G(y))
 :::
 
-The main connective is the quantifier phrase, '∃y'. So first, we replace that
-with its Canonical English:
+The main connective of the remaining part is the '∨', so we translate that:
 
 ::: displayed
--   Some y is such that (F(y)∨G(y))
-:::
-
-The main connective of the remaining part is the '∨', so we replace that:
-
-::: displayed
+-   ∃y(F(y) ∨ G(y))
+-   Some y is such that (F(y) ∨ G(y))
 -   Some y is such that (either F(y) or G(y))
 :::
 
-And the remaining parts are both atomic, so we replace them, according to the
-scheme of abbreviation:
+There are no more connectives,
+so we translate the atomic formulas,
+using the provided scheme:
 
 ::: displayed
+-   ∃y(F(y) ∨ G(y))
+-   Some y is such that (F(y) ∨ G(y))
+-   Some y is such that (either F(y) or G(y))
 -   Some y is such that (either y is a fox or y is a goose)
 :::
 
-That's it. Notice that the "Canonical English" translation still contains
-variables. That's because, in complicated cases, we need variables to express
-generalizations without ambiguity. We will talk about this more in the next
-section.
+We are done. Canonical English translations retain variables.
+In the next section,
+we explore the possibility of replacing variables with pronouns.
+But this is dangerous, as it can lead to ambiguity.
 
-Give it a try yourself.
+Here is another example:
+
+::: displayed
+-   (∃yF(y) ∨ ¬∀xG(x))
+-   (either ∃yF(y) or ¬∀xG(x))
+-   (either ∃yF(y) or it is not the case that ∀xG(x))
+-   (either some y is such that F(y) or it is not the case that every x is
+    such that G(x))
+-   (either some y is such that y is a fox or it is not the case that every x is
+    such that x is a goose)
+:::
 
 ```{.QualitativeProblem .ShortAnswer give-credit="onSubmission" points=10}
-R13.1 Translate ∀x(F(x)→G(x)) into canonical English. Show your steps.
-R13.2 Translate ∃xF(x)∧∀yG(y) into canonical English. Show your steps.
+2 Translate ∀x(F(x)→G(x)) into canonical English. Show your steps.
+3 Translate ∃xF(x)∧∀yG(y) into canonical English. Show your steps.
 ```
 
 ::: youtube
 <https://youtu.be/36KQZiGAl0c>
 :::
 
-:::
 
-## Bound Variables and Anaphoric Pronouns
+## Variables and Pronouns
 
-Canonical English isn't quite English because it uses variables. It uses
-variables because they make it possible to express complicated generalizations
-without ambiguity. But in less complicated cases, we can replace the variables
-with pronouns. 
-
-For example:
+[The closest thing to a variable]{.vocab} in English is a pronoun:
 
 ::: displayed
--   '∃y(F(y) ∨ G(y))':
--   Some y is such that (either y is a fox or y is a goose).
--   Something is such that (either *it* is a fox or *it* is a goose)
+-   ∃yF(y)
+-   Some y is such that y is a fox
+-   Some*thing* is such that *it* is a fox
 :::
 
-Here we have replaced both of the bound occurrences of 'y' with the pronoun
-'it'. Both of the 'it's are link back to the quantifier phrase "something",
-and so behave very much like bound variables. Linguists call this
-phenomena---where a pronoun is linked back to an earlier word or
-phrase---"anaphora". So pronouns used in this way are called "anaphoric
-pronouns".
+See how 'it' links back to 'something',
+in the same way that 'y' links back to 'some y'?
+Linguists call this 'anaphora', and call pronouns that link back to other words or phrases [anaphoric
+pronouns]{.vocab}. 
 
 Here is another example:
 
 ::: displayed
--   ∀y(F(y)→G(y))
--   Every $y$ is such that (if $y$ is a fox, then $y$ is not a goose)
--   Everything is such that (if *it* is a fox, then *it* is not a goose).
+-   ∀z(F(z) → G(z))
+-   Every z is such that (if z is a fox, then z is not a goose)
+-   Every*thing* is such that (if *it* is a fox, then *it* is not a goose).
 :::
 
-Anaphoric pronouns do not always behave like bound variables. For one thing,
-an anaphoric pronoun can also be linked back to a proper name:
+In PL, each bound variable is linked to the quantifier phrase that binds it.
+In English, anaphoric pronouns can be used to emulate this.
+But they can also be used in lots of other ways.
+For example:
 
 ::: displayed
--   Arturo is a fox and he is happy
+-   *Arturo* is a fox and *he* is happy
 :::
 
-If you try to translate this using a variable, it won't work:
-
-:::displayed
--   <del>F(a) ∧ H(x)</del>
-:::
-
-The trouble here is that the 'x' is not linked to 'a'. It is just a free
-variable. We don't have any way, in our symbolic language, to "bind" a
-variable to a constant.
-
-So how do we translate this sentence into PL? The trick is to notice that we
-can replace the pronoun, 'he', with the proper name, 'Arturo':
+Here, the pronoun links back to a proper name.
+When a pronoun links back to a proper name,
+Linguists call it a "pronoun of laziness",
+because you could instead just repeat the name:
 
 ::: displayed
--   Arturo is a fox and he is happy
+-   Arturo is a fox and *he* is happy
 -   Arturo is a fox and *Arturo* is happy
--   F(a) ∧ H(a)
 :::
 
-When an anaphoric pronoun can simply be replaced by the word or phrase it
-links back to, as in this case, linguists call it a "pronoun of laziness".
-Pronouns linked back to quantificational phrases are *not* pronouns of
-laziness:
+In PL, we do not use variables to represent pronouns of laziness.
+Instead, we just repeat the name:
 
 ::: displayed
--   Something is a fox and it is happy.
+-   F(a) ∧ H(a): Arturo is a fox and *he* is happy
+:::
+
+But when a pronoun links back to a quantifier phrase,
+it is not a pronoun of laziness,
+and you cannot instead just repeat the phrase:
+
+::: displayed
+-   Something is a fox and *it* is happy.
 -   Something is a fox and *something* is happy.
 :::
 
-These second sentence is *not* equivalent to the first. The first says that there is a single thing that is both a fox and
-happy:
+The first sentence says that the same thing is both a fox and happy.
+In PL, it looks like this:
 
 ::: displayed
--   ∃x(F(x) ∧ H(x)): Something is a fox and it is happy.
+-   ∃x(F(x)∧ H(x)): Something is a fox and *it* is happy.
 :::
 
-The second says that there is something that is a fox, and something that is
-happy, but does not say that they are the *same* thing:
+The second sentence says a thing is a fox, and a thing is happy.
+But it does not say that they are the *same* thing.
+In PL, it looks like this:
 
 ::: displayed
--   ∃xF(x) ∧ ∃yH(y): Something is a fox and something is happy.
+-   ∃xF(x) ∧ ∃xH(x): Something is a fox and *something* is happy.
 :::
 
-Again, these the second of these sentences is *not* equivalent to the first:
-
-::: displayed
--   If something is a fox, then it is not a goose.
--   If something is a fox, then *something* is not a goose.
-:::
-
-The second is true if something is a fox, and something else is not a goose.
-The first requires the thing that is a fox to also be the thing that is not a
-goose.
-
-So, we can replace bound variables with pronouns. But it is important to
-realize that these pronouns are not "pronouns of laziness", so we cannot take
-the further step of replacing these pronouns with the quantificational idioms
-they link back to.
 
 ```{.QualitativeProblem .ShortAnswer give-credit="onSubmission" points=10}
-R13.3 Translate ∀x(F(x)∧G(x)) into canonical English, and then replace the bound variables with pronouns. Show your steps.
-R13.4 Translate ∃xF(x)∧∀yG(y) into canonical English, and then replace the bound variables with anaphoric pronouns.
+4 Translate ∀x(F(x)∧G(x)) into canonical English, and then replace the bound variables with pronouns. Show your steps.
+5 Translate ∃xF(x)∧∀yG(y) into canonical English, and then replace the bound variables with anaphoric pronouns. Show your steps.
 ```
 
-## Anaphoric Pronouns and Ambiguity
+ADD VIDEO
 
-Canonical English isn't quite English because it uses variables. It uses
-variables because they make it possible to express complicated generalizations
-without ambiguity. In many cases, we can get by using pronouns
-instead. But in some cases, doing so leads to ambiguity.
+:::
 
-For example,
+
+## Pronouns and Ambiguity
+
+Pronouns are a common source of ambiguity in English:
 
 ::: displayed
--  Bill and Ted got in a fight. *He* punched *him* in the nose.
+-  Bill and Ted got in a fight, and *he* punched *him* in the nose.
 :::
 
-Who punched who? Was it Bill that punched Ted, or Ted that punched Bill? Or
-did one of the two punch themself in the nose?
+Who punched who?
+Did Bill punch Ted, or Ted punch Bill?
+The sentence is ambiguous: there is no way to tell.
 
-If the characters in our story happen to have different pronouns, this
-ambiguity can be avoided. Suppose Bill's pronouns are 'they/them' and Ted's
-pronouns are 'he/him'. Then we can unambiguously say,
+Sometimes, gendered pronouns can help disambiguate:
 
 ::: displayed
--   Bill and Ted got in a fight. They punched him in the nose.
+-  John and Mary got in a fight, and *she* punched *him* in the nose.
 :::
 
-Or we can rely on the phrases 'the former' and 'the latter':
+Here, we assume that 'she' links back to 'Mary', and 'he' links back to
+'John'. So Mary punched John.
+But assuming gender and pronouns based on gendered naming conventions
+is problematic.
+It is unfortunate that this has long been a primary mechanism for
+disambiguating anaphoric pronouns in English sentences.
+
+Another option is to use 'the former' and 'the latter':
 
 ::: displayed
--   Bill and Ted got in a fight. The latter punched the former in the nose.
+-   Bill and Ted went to a movie, and the latter enjoyed it but the former
+    did not.
 :::
 
-This unambiguously says that Ted punched Bill.
+This doesn't depend on gender,
+but it can be clunky and hard to follow.
 
-When the pronouns are pronouns of laziness, we can
-avoid ambiguity by not being lazy, and using the names instead of the
-pronouns:
+All these examples involve pronouns of laziness.
+So the easy way to avoid ambiguity is use proper names instead of pronouns:
 
 ::: displayed
--   Bill and Ted got in a fight. *Bill* punched *Ted* in the nose.
+-  Bill and Ted got in a fight, and Bill punched Ted in the nose.
 :::
 
-But when the pronouns are not pronouns of laziness, and we have several
-different people to keep track of, our options in English are limited:
+But what about this monstrosity:
 
 ::: displayed
--   Someone saw someone punch someone in the nose, and *they* called the cops
-    after *their* nose stopped bleeding, and when the cops arrived, *they*
-    punched *them* in the nose too.
+-   Someone saw someone punch someone in the nose, and *they* called the cops, and
+    when *they* arrived *they* arrested *them*.
 :::
 
-Or consider:
-
-::: {.displayed}
--   ∃x∀y(F(y) ↔ H(x))
--   Some x is such that ∀y(F(y) ↔ H(x))
--   Some x is such that every y is such that (F(y) ↔ H(x))
--   Some x is such that every y is such that (F(y) if and only if H(x))
--   Some x is such that every y is such that (y freaks out if and only if
-    x hollers)
-:::
-
-Can we go a step further, and replace the 'x's and 'y's with pronouns?
+Maybe you are inclined to read this as:
 
 ::: displayed
--   Something is such that everything is such that (*it* is freaks out if and
-    only if *it* hollers).
+-   Someone (the observer) saw someone (the puncher) punch someone (the
+    punchee) in the nose and *they* (the observer) called the cops, and when
+    *they* (the cops) arrived *they* (the cops) arrested *them* (the puncher).
 :::
 
-This is no good. We have no way of knowing that the first 'it' is meant to
-link back to 'everything' and the second back to 'something'. In this case, we
-could make use of 'the former' and 'the latter':
+You reach that interpretation by applying your background knowledge and making assumptions:
+that punching is against the law;
+that people who observe laws being broken are more likely to call the cops
+than people who break laws;
+that cops arrest people who break the law.
+
+But this is not the only possible interpretation. Suppose the cops are
+corrupt, the fight is a setup, and the observer works for the FBI:
 
 ::: displayed
--   Something is such that everything is such that (*the latter* freaks out if and only if
-    *the former* hollers).
+-   Someone (the observer) saw someone (the puncher) punch someone (the
+    punchee) in the nose and *they* (the punchee) called the cops, and when
+    *they* (the cops) arrived *they* (the observer) arrested *them* (the
+    cops).
 :::
 
-But even this is hard to follow as a reader, as you have to work out which is
-"the latter" and which "the former". The claim is much clearer when expressed
-with variables.
+The simplest way to eliminate these ambiguities is to replace the pronouns
+with variables:
 
-Here are some problems for you to try. In each case, try to render them
-in Canonical English, with bound variables. Then consider whether or not you
-can replace those variables with pronouns, without introducing ambiguity, and
-without making things too complicated.
-Finally, consider whether there is some other, more idiomatic way of
-expressing the same thing.
+::: displayed
+-   Some x saw some y punch some z in the nose and x called some ws and when
+    the ws arrived the ws arrested y.
+-   Some x saw some y punch some z in the nose and z called some ws and when
+    the ws arrived x arrested the ws.
+:::
+
+For each of the following three problems,
+translate into canonical English, showing your steps.
+Then consider whether or not you can replace those variables with anaphoric pronouns without introducing ambiguity,
+and do so if you can.
 
 ::: {.soa}
 | F: is a frog
@@ -345,160 +359,204 @@ expressing the same thing.
 :::
 
 ```{.QualitativeProblem .ShortAnswer give-credit="onSubmission" points=10}
-R13.5 ∀x(F(x)→G(x)) 
-R13.6 ∃x(F(x)∧G(x)) 
-R13.7 ∃x∀y(F(x)∧G(y)) 
+6 ∀x(F(x)→G(x)) 
+7 ∃x(F(x)∧G(x)) 
+8 ∃x∀y(F(x)∧G(y)) 
 ```
 
 ::: youtube
 <https://youtu.be/Deb0AWqaJ8E>
 :::
 
-# From English to Symbols
+## English to PL
 
-Translating from English into PL is messier than translating from PL into
-English. When we start with a sentence in PL, we start with a 
-completely clear and unambiguous structure and we have a simple procedure for
-translating it into clunky English. While the initial sentence might look like
-a meaningless pile of symbols, the procedure for unpacking what it means is
-systematic.
+Translating from PL to canonical English is formulaic:
+we start with a sentence in a well-defined artificial language,
+and we render it into PL step by step,
+replacing connectives with canonical translations,
+and replacing atomic formulas following a scheme of abbreviation.
 
-But when we start with a sentence of idiomatic English, we start from
-something whose meaning we already understand, but whose logical form is often
-completely opaque, and possibly ambiguous.
-
-We start with the easiest case: translating [sweeping
-generalizations]{.vocab}, bold claims about everything, something, or nothing.
-Then we consider a harder case: translating [restricted
-generalizations]{.vocab}: claims not about everything, but every *cookie*, for
-example. And we build out from there, considering challenges posed by 
-the quantificational idioms of English.
+Translating from English to PL isn't like that.
+English sentences are complicated and messy,
+and potentially ambiguous.
+English uses a variety of quantificational idioms,
+some singular and some plural,
+and employs various strategies for restricting quantificational claims.
+There is no simple *mapping* from English sentences to sentences in SL.
+Instead, you really must *translate*:
+that is, you must find a way to express in the austere language of PL
+what the English sentence expresses in its characteristically rich and messy
+way.
 
 ## Sweeping Generalizations
+
+The simplest quantificational claims in English are [sweeping
+generalizations]{.vocab}:
+bold claims about everything, something, or nothing:
+
+:::displayed
+-   Everything happens for a reason.
+-   Nothing is impossible.
+-   Something is out there.
+:::
+
+But most quantificational claims in English express [restricted
+generalizations]{.vocab}:
+
+:::displayed
+-   Every war takes a toll.
+-   No stone will go unturned.
+-   Some folks are confused by statistics.
+:::
+
+In this section, we work on translating sweeping generalizations.
+In the next section, we consider restricted generalizations.
 
 :::soawrapper
 :::soasticky
 | F: is funny
-| G: goes
+| H: happens for a reason
+| G: is allowed
 | O: is out there
 :::
 
-Let's review how quantifiers work. We begin with a formula, with free
-variables, like:
+PL is designed to express sweeping generalizations.
+We start with an atomic formula, like,
 
 ::: displayed
--   F(x): x is funny
+-   H(x): x happens for a reason
 :::
 
-We can then attach either of our two quantifier phrases to this formula:
+We can then attach quantifier phrases to this formula, to express one of two
+sweeping generalizations:
 
 ::: displayed
--   ∀xF(x): Every x is such that x is Funny.
--   ∃xF(x): Some x is such that x is Funny.
+-   ∀xH(x): Every x is such that x happens for a reason
+-   ∃xH(x): Some x is such that x happens for a reason
 :::
 
-The first is true if and only if the formula, 'x is funny', is true for every
-value of x. The second is true if and only if the formula, 'x is funny', is
-true for at least one value of x.
-
-So, more idiomatically, these two sentences of PL express two sweeping
-generalizations:
+Or, more idiomatically,
 
 ::: displayed
--   ∀xF(x): Everything is funny.
--   ∃xF(x): Something is funny.
+-   ∀xH(x): Everything happens for a reason
+-   ∃xH(x): Something happens for a reason
 :::
 
-What about:
+The first sentence in PL is true iff H(x) is true for every value of x:
+that is, iff it is true of every value of x that *it* happens for a reason.
+The second is true iff H(x) is true for at least one value of x:
+that is, iff it is true of at least one value of x that *it* happens for a
+reason.
+
+We can expand this to include *negative* sweeping generalizations, like:
 
 ::: displayed
--   Anything goes.
+-   ∀xH(x): Everything happens for a reason
+-   ¬∀xH(x): Not everything happens for a reason
+-   ∀x¬H(x): Everything does not happen for a reason
 :::
 
-This also expresses a sweeping universal generalization:
+Do you see the difference in meaning between these two sentences?
+The first, with the quantifier inside the scope of the negation,
+denies the claim that *everything* happens for a reason,
+so at least some things don't happen for a reason.
+The second, with the negation inside the scope of the quantifier,
+says that *nothing* happens for a reason.
+
+We can also apply negations to existential generalizations:
+
+::: displayed
+-   ∃xO(x): Something is out there.
+-   ¬∃xO(x): Nothing is out there.
+-   ∃x¬O(x): Something is not out there.
+:::
+
+Again, make sure you see the difference in meaning between the second and
+third sentences.
+
+Another word we have in English for expressing sweeping generalizations is
+'anything', as in:
 
 ::: displayed
 -   ∀xG(x): Anything goes.
 :::
 
+Think about what the sentence 'Anything goes' means in English. It means that
+*everything* is allowed.
 
-And here is another example of a sweeping existential generalization:
-
-::: displayed
--   ∃xO(x): Something is out there.
-:::
-
-Sweeping generalizations translate easily into PL, because PL is designed to
-express sweeping generalizations. The only question you need to worry about is
-which of the two quantifiers, '∀' or '∃', corresponds to the generalization
-expressed in English.
-
-We can combine sweeping generalizations using our other connectives:
-
-::: displayed
--   ∃xO(x) → ∃yF(y): If something is out there, then something is funny.
-:::
-
-Notice that this *doesn't* say that the thing out there is the thing that is
-funny. The conditional relates two independent generalizations, with separate
-bound variables.
+But 'anything' is a tricky word.
+For example, when someone asks, 'Is there anything out there?',
+they are asking if *something* is out there.
+So sometimes 'anything' means 'everything',
+and sometimes 'anything' means 'something'.
 
 ```{.Translate .FOL points=10}
-R13.8 AxF(x)\/~AxF(x) : Everything is funny or not everything is funny.
+9   ExG(x): Something is allowed.
+10   ~ExG(x): Nothing is allowed.
+11.  AxG(x): Everything is allowed.
 ```
 
-:::spoiler
-![](https://reggienet.illinoisstate.edu/access/content/user/desanso/public/vid/R13.8.mp4)
+:::solution
+ADD VIDEO
 :::
 
 ```{.Translate .FOL points=10}
-R13.9 ExO(x)->AxG(x) : If anything is out there, then anything goes.
+12  ExO(x)->AyH(y): If something is out there, then everything happens for a reason
+13  ExO(x)∧AyH(y): Something is out there and everything happens for a reason
+14  ~ExO(x)∧AyH(y): Nothing is out there and but everything happens for a reason
 ```
 
-:::spoiler
-Pay attention to what the sentence *means*. Don't just assume that the English
-word 'anything' always expresses a universal generalization!
-In fact, in this case, the 'anything' in the antecedent expresses an
-existential generalization: something is out there. But the 'anything' in the
-consequent expresses a universal generalization: everything goes. 
+:::solution
+ADD VIDEO
+:::
 
-'Anything' in English is a trickster: sometimes it means 'everything', and
-sometimes it means 'something'. In a linguistics class, we might spend
-time trying to unpack the rules that govern its tricks. But in this class, you
-will instead need to rely on your implicit grasp of these rules, as a speaker
-of English.
+```{.Translate .FOL points=10}
+15 AxG(x)\/~AxG(x) : Everything is allowed or not everything is allowed
+```
 
+:::solution
+ADD VIDEO
+:::
+
+```{.Translate .FOL points=10}
+16 ExO(x)->AxG(x) : If anything is out there, then anything goes.
+```
+
+:::hint
+Pay attention to what the sentence *means*.
+'Anything' in English is a trickster.
+Sometimes it means 'everything', but sometimes it means 'something'.
+:::
+
+:::solution
 ![](https://reggienet.illinoisstate.edu/access/content/user/desanso/public/vid/R13.9.mp4)
 :::
 
 ```{.Translate .FOL points=10}
-R13.10 ~AxF(x): Not everything is funny.
+17 ~AxF(x): Not everything is funny.
 ```
 
-:::spoiler
+:::solution
 ![](https://reggienet.illinoisstate.edu/access/content/user/desanso/public/vid/R13.10.mp4)
 :::
 
 ```{.Translate .FOL points=10}
-R13.11 Ex~F(x): Something is not funny.
+18 Ex~F(x): Something is not funny.
 ```
 
-:::spoiler
+:::solution
 ![](https://reggienet.illinoisstate.edu/access/content/user/desanso/public/vid/R13.11.mp4)
 :::
 
 ```{.QualitativeProblem .ShortAnswer give-credit="onSubmission" points=10}
-R13.12 'Not everything is funny' and 'Something is not funny' are actually logically equivalent. Try, as best as you can, to explain why.
+19 'Not everything is funny' and 'Something is not funny' are actually logically equivalent. Try, as best as you can, to explain why.
 ```
-
-
-
 
 ```{.Translate .FOL points=10}
-R13.13 ~ExF(x),Ax~F(x) : Nothing is funny
+20 ~ExF(x),Ax~F(x) : Nothing is funny
 ```
 
-:::spoiler
+:::hint
 Remember that 'F(x)' means 'x is funny'. So, if *nothing* is funny, that means
 'F(x)' isn't true for *any* value of x. There are two equivalent ways to capture this in
 PL:
@@ -507,112 +565,35 @@ PL:
 -   ∀x¬F(x): Everything is not funny.
 -   ¬∃xF(x): It is not the case that something is funny.
 :::
+:::
 
+:::solution
 ![](https://reggienet.illinoisstate.edu/access/content/user/desanso/public/vid/R13.13.mp4)
 :::
-:::
+
 
 ## Restricted Generalizations
 
-Our quantifiers in PL express sweeping generalizations. But most
-quantificational idioms in English involve restrictions. For example, only a
-weirdo would assert the obviously false sweeping generalization,
+A restricted generalization is a generalization that ranges over a restricted
+set of things:
 
 :::displayed
--   ∀xG(x): Everything is green.
+-   Every war takes a toll.
+-   No stone will go unturned.
+-   Some folks are confused by statistics.
 :::
 
-You are much more likely to encounter a universal generalization that is restricted
-to one kind of thing, like:
+The sentence 'Every war takes a toll' is not the claim that *everything* takes
+a toll, just the *wars*.
+The sentence 'No stone will go unturned' is not the claim that *nothing* will go
+unturned, just the *stones*.
+And the sentence 'Some folks are confused by statistics' isn't the claim
+*something* is confused by statistics, but the claim that some *people* are.
 
-::: displayed
--   Every *frog* is green.
-:::
+## Restricted Universal Generalizations
 
-Again, only a weirdo would make the obviously true claim that,
-
-::: displayed
--  ∃xG(x): Something is green.
-:::
-
-You are much more likely to encounter such a restricted existential 
-generalization, like:
-
-::: displayed
--   Some *frog* is green.
-:::
-
-```{.QualitativeProblem .ShortAnswer give-credit="onSubmission" points=10}
-R13.14 Is there a difference in meaning between 'Some frog is green' and 'Some frogs are green'? If so, what is it?
-```
-
-:::spoiler
-Plausibly, 'some frogs are green' means that *two or more* frogs are green,
-while 'some frog is green' means that *at least one* frog is green. But **we
-will be treating them as equivalent**, and we will take both of them to mean
-that *at least one* frog is green.
-:::
-
-Each of the three sweeping generalizations we discussed in the previous
-section has a restricted counterpart:
-
-  Sweeping Generalization   Restricted Generalization
-  ------------------------- ---------------------------
-  *Everything* is green.    *Every frog* is green.
-  *Something* is green.     *Some frog* is green.
-  *Nothing* is green.       *No frog* is green.
-
-Restricted generalizations can be expressed in the singular, as above, or in
-the plural:
-
-  Grammatically Plural Restricted Generalizations
-  -------------------------------------------------
-  *All frogs* are green.
-  *Some frogs* are green.
-  *No frogs* are green.
-
-
-Of course, we don't just restrict generalizations to frogs. We can restrict
-them to whatever we want. Here are a few examples:
-
-::: displayed
--   Every *house on my street* is painted gray.
--   Some *ISU students* are from Chicago.
--   No *philosophy classes* are offered before 8am.
--   All *prime numbers greater than 2* are odd.
-:::
-
-One especially common restriction is to persons. For this, we
-have at least two sets of purpose-built words: 'everybody', 'somebody', and
-'nobody'; and 'everyone', 'someone', and 'no one':
-
-::: displayed
--   Someone ate my burrito.
--   Everybody knows who did it.
--   Nobody has told me who it was.
-:::
-
-That is,
-
-::: displayed
--   Some *person* ate my burrito.
--   Every *person* knows who did it.
--   No *person* has told me who it was.
-:::
-
-```{.QualitativeProblem .ShortAnswer give-credit="onSubmission" points=10}
-R13.15 Suppose my dog ate my burrito. Did somebody eat my burrito? If so, does that mean that dogs are persons?
-```
-
-English has some other specialized restricted quantifiers. 'Always' and
-'Sometimes', for example, restrict quantification to times. 'Somewhere' and
-'Everywhere' restrict quantification to places. And words like 'Somehow' and
-'Somewhat' suggest quantification over ways and degrees.
-
-### Translating Restricted Universal Generalizations
-
-A restricted universal generalization is a sentence, in English, of one of the
-following two forms:
+English allows us to express restricted universal generalizations
+in both singular and plural forms:
 
 ::: displayed
 -   Every F is G.
@@ -629,56 +610,77 @@ For example,
 How do we translate these into PL? Here is a natural thought:
 
 ::: {.displayed}
--   ∀<sub>frogs</sub>xG(x)
+-   ∀<sub>F</sub>xG(x)
 :::
 
-The idea is to introduce a notation for restricting the range of the
-quantifier. Where '∀x' ranges over everything, '∀<sub>frogs</sub>' ranges over
-all frogs. In this way, we can expand PL to include restricted quantifier
-phrases.
+The notation is meant to suggest a restriction on the range of the quantifier.
+Instead of having it range over everything,
+restrict it to the things that are F, frogs.
+This is a lovely idea, but it is not the approach we will take.
 
-This is a lovely idea. But it is not what we are going to do. It complicates
-PL by introducing a new syntax for restricted quantifiers. Down the road, it
-would complicate derivations as well.
-
-Instead, we find a way to express restricted quantification using our
-unrestricted quantifiers. In this case, the trick is to focus on the formula,
+Consider the formula,
 
 ::: {.displayed}
 -   If $x$ is a frog, then $x$ is green.
 :::
 
-The claim that *every frog* is green is equivalent to the claim that this
-conditional formula is true for every value of x:
+If all frogs are green, then this formula will be true of every frog.
+But, also, if all frogs are green, this formula will be true of every
+non-frog. For example, this is true:
 
-::: {.displayed}
--   For every x, if x is a frog, then x is green.
+:::{.displayed}
+-   If Chicago is a frog, then Chicago is green.
 :::
 
-This might not be obvious. So let's think through some examples. Here is a
-table that you can use, to consider how the conditional formula fares for
-different values of x: 
+It is true, because 'Chicago is a frog' is false, and a conditional with a
+false antecedent is true.
 
-::: itt
+So, the claim that every *frog* is green is equivalent to the claim that this
+formula is true of every frog and (trivially) true of every non-frog. But
+everything is either a frog or a non-frog. So the claim that every frog is
+green is equivalent to the claim that this formula is true of everything:
+
+::: {.displayed}
+-   Every frog is green.
+-   For every x, if x is a frog, then x is green.
+-   ∀x(F(x) → G(x))
+:::
+
+::: liveshapes
+
+Below is a table that you can use to calculate the truth value of the
+conditional formula for various values of x. Think of some object, either a
+frog or not a frog, and then type its name into the box: []{.P}. Then fill in
+the truth values for antecedent, consequent, and the entire conditional:
+
+::: {.itt}
                               []{.P} is a frog                                                                  →                                                                  []{.P}is green
   ------------------------------------------------------------------------- ------------------------------------------------------------------------- -------------------------------------------------------------------------
    <select><option>-</option><option>T</option><option>F</option></select>   <select><option>-</option><option>T</option><option>F</option></select>   <select><option>-</option><option>T</option><option>F</option></select>
 :::
 
-Plug in Kermit as the value of x. That is, type 'Kermit' into the boxes in the
-table above. Then use what you know about Kermit, and what you know about the
-truth table for the conditional, to calculate the truth of the formula.
+:::
+
 
 ```{.QualitativeProblem .MultipleChoice points=10}
-R13.16 When Kermit is plugged in as the value of x, the formula is:
+21 Plug in Kermit as the value of x. What is the truth value of the conditional formula?
 | *True
 | False
 ```
 
-Now plug in your favorite musician as the value of x, and repeat the process.
+Remember Gabi, the pink poison dart frog from Rio 2? 
+Try plugging her in as the value of x:
 
 ```{.QualitativeProblem .MultipleChoice points=10}
-R13.17 When your favorite musician is plugged in as the value of x, the formula is:
+22 Plug in Gabi as the value of x. What is the truth value of the conditional formula?
+| True
+| *False
+```
+
+Now plug in your favorite (non-frog) musician as the value of x, and repeat the process.
+
+```{.QualitativeProblem .MultipleChoice points=10}
+23 When your favorite musician is plugged in as the value of x, the formula is:
 | *True
 | False
 ```
@@ -686,7 +688,7 @@ R13.17 When your favorite musician is plugged in as the value of x, the formula 
 Now plug in the Hulk as the value of x, and repeat the process.
 
 ```{.QualitativeProblem .MultipleChoice points=10}
-R13.18 When the Hulk is plugged in as the value of x, the formula is:
+24 When the Hulk is plugged in as the value of x, the formula is:
 | *True
 | False
 ```
@@ -695,59 +697,30 @@ Now plug in your left shoe as the value of x, and repeat the process.
 
 
 ```{.QualitativeProblem .MultipleChoice points=10}
-R13.19 When your left shoe is plugged in as the value of x, the formula is:
+25 When your left shoe is plugged in as the value of x, the formula is:
 | *True
 | False
 ```
 
-Are you getting a feel for this? When you plug in a green frog, like Kermit,
-the formula comes out true. When you plug in a non-frog, like your favorite
-musician (I assume), or the Hulk, or your left shoe, the formula also comes
-out true. Notice that it comes out true whether or not that non-frog happens
-to be green (the Hulk), or not.
-
-So, what happens when we plug in a pink frog as the value of x? Try it. Plug
-in Gabi, the pink poison dart from who plays a villain in the movie Rio 2.
-
-```{.QualitativeProblem .MultipleChoice points=10}
-R13.20 When Gabi is plugged in as the value of x, the formula is:
-| True
-| *False
-```
-
-To review: the formula comes out true when you plug in a green frog, true when
-you plug in a non-frog, regardless of color, and false when you plug in a
-non-green frog. In other words, if the formula is true for *every value of x*,
-it must be that *everything* is either a green frog, or a non-frog. That is,
-every *frog* must be green:
-
-::: {.displayed}
--   Every frog is green
--   Every $x$ is such that (if $x$ is a frog, then $x$ is green)
--   ∀x(F(x) → G(x))
-:::
+Are you getting a feel for this?
+When you plug in a green frog,
+like Kermit, the formula comes out true.
+When you plug in a pink frog,
+like Gabi, the formula comes out false.
+And when you plug in a non-frog, no matter its color,
+the formula comes out true.
 
 Here is another example:
 
 ::: {.soa}
-| F: is an even number
-| G: is divisible by two
+| H: is an even number
+| K: is divisible by two
 :::
 
 ::: displayed
 -   Every even number is divisible by two.
--   ∀x(F(x) → G(x))
+-   ∀x(H(x) → K(x))
 :::
-
-So, here is the pattern:
-
-::: displayed
--   ∀x(F(x)->G(x)): Every F is G
-:::
-
-The restriction to *F*s is achieved by putting 'F(x)' as the *antecedent* of
-the conditional formula. The thing we want to say about all the Fs, namely,
-'G(x)', is put in the consequent of the conditional formula.
 
 ::: {.soa}
 | F: is fabulous
@@ -755,7 +728,7 @@ the conditional formula. The thing we want to say about all the Fs, namely,
 :::
 
 ```{.Translate .FOL points=10}
-R13.21 Ax(G(x)->F(x)) : Every goose is fabulous
+26 Ax(G(x)->F(x)) : Every goose is fabulous
 ```
 
 ::: youtube
@@ -763,86 +736,78 @@ R13.21 Ax(G(x)->F(x)) : Every goose is fabulous
 :::
 
 
-### Restricted Existential Generalizations
+## Restricted Existential Generalizations
 
-We have seen how to translate 'Every F is G'. What about:
+English also allows us to express restricted existential generalizations
+in both singular and plural forms:
 
 ::: displayed
--   Some F is G
+-   Some F is G.
+-   Some Fs are Gs.
 :::
 
-Again, for the sake of concreteness, lets consider:
+For example,
+
+::: displayed
+-   Some frog is green
+-   Some frogs are green
+:::
+
+Again, we will treat these as equivalent.
+Perhaps, strictly speaking, 
+'Some frogs are green' says that at least *two* frogs are green.
+But we ignore this, and treat it as equivalent to the claim that at least *one* frog is
+green.
+
+The simplest idea would be to do exactly what we did above, for restricted
+universal generalizations, but swap the quantifier:
 
 ::: {.displayed}
+-   Some frog is green
+-   <del>∃x(F(x) → G(x))</del>
+:::
+
+But this is wrong.
+
+To see that it is wrong, consider some non-frog instances of the conditional
+formula:
+
+::: displayed
+-   True: If Chicago is a frog then Chicago is green.
+-   True: Something is such that if it is a frog then it is green.
+:::
+
+It is true that if Chicago is a frog, then Chicago is green, because it is
+false that Chicago is a frog.
+Imagine a world with Chicago, but no frogs.
+In that world, it is true that there is something such that, if it is a frog,
+then it is green, because this is true of Chicago. But it is false that some
+frog is green. So this isn't the right way to translate 'Some frog is green'
+into PL.
+
+So, step back. What needs to be true for it to be true that some frog is
+green? There needs to be at least one thing that is *both* a frog *and* green:
+
+
+::: displayed
+-   True: Kermit is a frog and Kermit is green.
+-   True: Something is such that it is a frog and it is green.
+:::
+
+So, our translation of 'Some frog is green' involves an existential
+generalization of a *conjunction*, not a conditional:
+
 -   Some frog is green.
-:::
-
-The obvious thing to do here is use the same pattern we used above, but this
-time, switching out the universal quantifier for an existential quantifier:
-
-::: {.displayed}
--   <del>∃x(F(x)→G(x))</del>: Some frog is green.
-:::
-
-But this is wrong. Why?
-
-Think about the truth table for the conditional formula,
-
-::: displayed
--   If x is a frog then x is green.
-:::
-
-Recall that this is true for any value of x that is not a frog. For example,
-it is true of your left shoe. So that is a thing that the formula is true of.
-So,
-
-::: displayed
--   There is at least one value of x such that, if x is a frog, then x is
-    green.
-:::
-
-This is true because your shoe is not a frog.
-
-The English sentence,
-
-::: displayed
--   Some frog is green.
-:::
-
-requires more for its truth than the existence of at least one non-frog. It
-requires, for its truth, the existence of at least one green frog. So it
-means:
-
-::: displayed
--   There is at least one x such that x is a frog *and* x is green.
 -   ∃x(F(x) ∧ G(x))
 :::
 
-So here is the pattern:
-
-::: {.displayed}
--   Some F is G
--   ∃x(F(x) ∧ G(x))
-:::
-
-How annoying! These English sentences have exactly
-the same surface grammar:
+So these two English sentences have the same surface grammar,
+but very different underlying logical forms:
 
 :::displayed
--   Every frog is green.
--   Some frog is green.
+-   ∀x(F(x) → G(x)): Every frog is green.
+-   ∃x(F(x) ∧ G(x)): Some frog is green.
 :::
-
-But when we translate them into PL, one contains a conditional, and the other
-a conjunction. How can this be?
-
-That is a hard question about English, and we won't try to answer it here. Just
-like we didn't try to provide an explanation for the tricky behavior of
-'anything' in the previous section. I am assuming you know English, and have a
-working grasp of whatever strange and mysterious implicit rules it has, so you
-can see that, upon reflection, the information expressed by 'Every frog is
-green' is best captured in the one way, while the information expressed by
-'Some frog is green' is best captured in the other.
 
 :::wrapper
 ::: {.soasticky}
@@ -851,7 +816,7 @@ green' is best captured in the one way, while the information expressed by
 :::
 
 ```{.Translate .FOL points=10}
-R13.22 Ex(H(x)/\F(x)) : Some heron is fabulous
+27 Ex(H(x)/\F(x)) : Some heron is fabulous
 ```
 
 :::spoiler
@@ -859,7 +824,7 @@ R13.22 Ex(H(x)/\F(x)) : Some heron is fabulous
 :::
 
 ```{.Translate .FOL points=10}
-R13.23 Ax(F(x)->H(x)) : Every fabulous thing is a heron.
+28 Ax(F(x)->H(x)) : Every fabulous thing is a heron.
 ```
 :::spoiler
 ![](https://reggienet.illinoisstate.edu/access/content/user/desanso/public/vid/R13.23.mp4)
@@ -869,50 +834,64 @@ R13.23 Ax(F(x)->H(x)) : Every fabulous thing is a heron.
 
 ### Negative Restricted Generalizations
 
+:::aside
+![No news is good news](https://youtu.be/wMZAm6FDgcw?t=45)
+:::
+
 A *negative* restricted generalization is a sentence of the form,
 
 ::: {.displayed}
+-   No F is G.
 -   No Fs are Gs.
 :::
 
 For example,
 
 ::: {.displayed}
+-   No frog is green.
 -   No frogs are green.
 :::
 
-Can you figure out how to translate this?
+See if you can work out the correct translation of this on your own (no
+worries if you cannot! Read on, and come back to this question):
+
 
 ```{.Translate .FOL points=10}
-R13.24 ~Ex(F(x)/\G(x)),Ax(F(x)->~G(x)) : No frogs are green
+29 ~Ex(F(x)/\G(x)),Ax(F(x)->~G(x)) : No frogs are green
 ```
 
-No worries of course if you didn't figure it out on your first try. Let's talk
-it through.
-
-There are two equally good ways of capturing 'No frogs are green' in PL. The
-first starts from the insight that 'No frogs are green' is the negation of
-'Some frogs are green': 
-
+There are two equivalent of translations of 'No frogs are green' into PL.
+First, notice that 'No frogs are green' is the negation of 'Some frogs are green': 
 
 ::: {.displayed}
 -   No frogs are green.
--   ¬(Some frogs are green)
+-   It is not the case that some frogs are green.
+:::
+
+Once you see this, you can translate 'No frogs are green' by translating 'Some
+frogs are green', and putting a negation in front of it:
+
+::: displayed
+-   No frogs are green.
 -   ¬∃x(F(x) ∧ G(x))
 :::
 
-Another way to think about this starts from the insight that 'No frogs are
-green' is a claim about *all frogs*, to the effect that they are *not green*:
+Second, notice that 'No frogs are green' is equivalent to 'All frogs are not
+green':
 
 ::: {.displayed}
 -   No frogs are green.
 -   All frogs are not green.
--   ∀x(F(x) → ¬G(x))
 :::
 
-Here, we've apply our usual pattern for rendering 'All Fs are Gs'. But in this
-case, what we want to say about all the Fs isn't that they *are* Gs, but that
-they are *not* Gs.
+Once you see this, you can translate 'No frogs are green' using the strategy
+you learned for translating 'All Fs are Gs'. Only, in this case, you want 'All
+Fs are *not* Gs':
+
+::: displayed
+-   No frogs are green.
+-   ∀x(F(x) → ¬G(x))
+:::
 
 :::wrapper
 ::: {.soasticky}
@@ -921,14 +900,14 @@ they are *not* Gs.
 :::
 
 ```{.Translate .FOL points=10}
-R13.25 Ax(I(x)->G(x)) : All iguanas are green 
+30 Ax(I(x)->G(x)) : All iguanas are green 
 ```
 :::spoiler
 ![](https://reggienet.illinoisstate.edu/access/content/user/desanso/public/vid/R13.25.mp4)
 :::
 
 ```{.Translate .FOL points=10}
-R13.26 Ax(I(x)->~G(x)) : All iguanas are not green
+31 Ax(I(x)->~G(x)) : All iguanas are not green
 ```
 
 :::spoiler
@@ -936,7 +915,7 @@ R13.26 Ax(I(x)->~G(x)) : All iguanas are not green
 :::
 
 ```{.Translate .FOL points=10}
-R13.27 Ax(I(x)->~G(x)),~Ex(I(x)/\G(x)) : No iguanas are green 
+32 Ax(I(x)->~G(x)),~Ex(I(x)/\G(x)) : No iguanas are green 
 ```
 
 :::spoiler
@@ -944,7 +923,7 @@ R13.27 Ax(I(x)->~G(x)),~Ex(I(x)/\G(x)) : No iguanas are green
 :::
 
 ```{.Translate .FOL points=10}
-R13.28 Ex(I(x)/\G(x)) : Some iguanas are green
+33 Ex(I(x)/\G(x)) : Some iguanas are green
 ```
 
 :::spoiler
@@ -952,7 +931,7 @@ R13.28 Ex(I(x)/\G(x)) : Some iguanas are green
 :::
 
 ```{.Translate .FOL points=10}
-R13.29 Ex(I(x)/\~G(x)) : Some iguanas are not green
+34 Ex(I(x)/\~G(x)) : Some iguanas are not green
 ```
 
 :::spoiler
@@ -960,7 +939,7 @@ R13.29 Ex(I(x)/\~G(x)) : Some iguanas are not green
 :::
 
 ```{.Translate .FOL points=10}
-R13.30 ~Ex(G(x)/\I(x)) : Nothing green is an iguana
+35 ~Ex(G(x)/\I(x)) : Nothing green is an iguana
 ```
 
 :::spoiler
@@ -976,7 +955,7 @@ R13.30 ~Ex(G(x)/\I(x)) : Nothing green is an iguana
 | I: is invited
 :::
 
-Suppose your friends are throwing a party, and they've invited you, and you
+Suppose your friends are throwing a party, they've invited you, and you
 ask if you can bring your little brother along. They say no, 
 
 ::: {.displayed}
@@ -985,91 +964,36 @@ ask if you can bring your little brother along. They say no,
 
 What does this mean? Obviously it doesn't mean that *all* adults are invited.
 That would be a big party! And it doesn't mean that *some* adults are invited.
-It means that *all* *non*-adults, like your little brother, are *not*
-invited. Or, equivalently, it means that all invitees are adults. 
+It means that *children* are *not* invited.
+Or, more specifically, it means means that *all* *non*-adults, like your little brother, are *not*
+invited:
 
-We captured the claim 'All adults are invited' by universally quantifying over the
-conditional formula:
-
-::: displayed
--   If x is an adult, then x is invited.
+::: {.displayed}
+-   Only adults are invited.
+-   All non-adults are not invited.
+-   ∀x(¬G(x) → ¬I(x))
 :::
 
-We can capture the claim that 'Only adults are invited' by universally quantifying over
-the converse conditional formula:
+Remember that a conditional is equivalent to its contrapositive,
+the result of swapping the order antecedent and consequent,
+while negating both. So this is equivalent to:
 
-::: displayed
--   If x is invited, then x is an adult.
+::: {.displayed}
+-   Only adults are invited.
+-   All invitees are adults.
+-   ∀x(I(x) → G(x))
 :::
 
-Or, equivalently,
-
-::: displayed
--   x is invited only if x is an adult.
-:::
-
-So, in symbols:
-
-:::displayed
--   Only adults are invited
--   ∀x(I(x)→G(x))
-:::
-
-This looks a lot like our pattern for 'All Fs are Gs', but the direction of
-the conditional has been reversed:
+So you can think of 'only' as working just like 'all',
+but with the conditional formula reversed:
 
 ::: {.displayed}
 -   ∀x(F(x)→G(x)): All Fs are Gs.
 -   ∀x(G(x)→F(x)): Only Fs are Gs.
 :::
 
-### Necessary and Sufficient Conditions
-
-My second best friend in 4th grade was a kid named Zach. His dad owned a
-nursery that specialized in succulents and cacti. One day, his dad came into
-school, taught us about succulents and cacti, and we each got to plant our
-baby succulent plant and take it home. I am pretty sure that plant is still going
-strong, 40 some years later, in my mom's garden.
-
-Why do I bring this up? I remember one thing his Dad emphasized to us:
-
-:::displayed
--   All cacti are succulents.
--   Not all succulents are cacti.
-:::
-
-In other words, to be a cactus is to be a kind of succulent, but there are
-other kinds of succulents to, which are not cacti. In other words, being a
-cactus is a *sufficient condition* for being a succulent, but it is not a
-*necessary condition*.
-
-So in general, the form of words,
-
-:::displayed
--   All Fs are Gs
-:::
-
-can be used to express the idea that being an F is a sufficient condition for
-being a G. If you want to say that being an F is a necessary condition for
-being a G, the most idiomatic form is:
-
-:::displayed
--   Only Fs are Gs
-:::
-
-And, as we've seen, the difference between these two claims, at the level of
-logical form, has to do with the direction of the embedded conditional:
-
-:::displayed
--   ∀x(F(x)→G(x)): All Fs are Gs
--   ∀x(G(x)→F(x)): Only Fs are Gs
-:::
-
-Here is another example. Suppose your friends are getting married, and they
-don't like kids, so *only* adults are invited. That means that being an adult
-is a *necessary condition* for being invited, but it doesn't mean that being
-an adult is a *sufficient condition* for being invited. If you are invited,
-you are an adult; but if you are an adult, you still may not be invited.
+Note the similarity between this use of 'only' as part of a quantifier phrase
+and the use of 'only' as part of the sentential connective, 'only if'.
 
 :::wrapper
 ::: {.soasticky}
@@ -1078,109 +1002,424 @@ you are an adult; but if you are an adult, you still may not be invited.
 :::
 
 ```{.Translate .FOL points=10}
-R13.31 Ax(I(x)->G(x)) : All chicken wings are good
-R13.32 Ax(G(x)->I(x)) : Only chicken wings are good
+36 Ax(I(x)->G(x)) : All chicken wings are good
+37 Ax(G(x)->I(x)) : Only chicken wings are good
 ```
 
 ::: youtube
 <https://youtu.be/CbmwCY9mm4I>
 :::
 
+## Necessary and Sufficient Conditions
+
+My friend in 4th grade was a kid named Zach.
+His dad owned a nursery that specialized in succulents and cacti.
+Our school invited him in to teach us a bit about succulents and cacti.
+We each got to plant a piece of a succulent, which grew into a large plant of
+its own.
+Last I knew, that plant was still growing, 
+40 some years later, in my mom's garden.
+
+I don't remember all the things he taught us about cacti and succulents, but I
+do remember that he taught us this:
+
+:::displayed
+-   All cacti are succulents.
+-   Not all succulents are cacti.
+:::
+
+A cactus is a *kind* of succulent, but there are other kinds of succulents,
+that are not cacti. Here is another way to put his point:
+
+:::displayed
+-   Being a cactus is a *sufficient condition* for being a succulent.
+-   Being a succulent is *not* a *sufficient* condition for being a cactus.
+:::
+
+Here is an illustration of the relationship.
+The purple circle represents the circle of cacti:
+imagine that every cactus is within that circle.
+The yellow circle represents the circle of succulents:
+imagine that every succulent is within that circle.
+
+:::illustration
+![All cacti are succulents](https://reggienet.illinoisstate.edu/access/content/user/desanso/public/img/AllCactiAreSucculents.gif){alt="An
+animated diagram. In the first frame, a purple circle labeled 'cacti' is
+beside a yellow circle labeled
+'succulents'. The purple circle then shrinks and moves inside the yellow
+circle, to visually represent the idea that the set of succulents contains the
+set of cacti."}
+:::
+
+Since all cacti are succulents, the set of cacti is contained within the set
+of succulents.
+
+But the reverse is *not* true: not all succulents are cacti. If they were,
+then the set of cacti would also contain the set of succulents:
+
+:::illustration
+![All succulents are
+cacti](https://reggienet.illinoisstate.edu/access/content/user/desanso/public/img/AllSucculentsAreCacti.gif){alt="An
+animated diagram. In the first frame, a purple circle labeled 'succulents' is
+beside a yellow circle labeled
+'cacti'. The purple circle then shrinks and moves inside the yellow
+circle, to visually represent the idea that the set of cacti contains the
+set of succulents. A red X is drawn across the diagram, to indicate that this
+is not true."}
+:::
+
+
+
+
+This sort of relationship shows up in any genus-species type taxonomy,
+where one kind of thing is included in another:
+
+:::displayed
+-   All birds are dinosaurs.
+-   Not all dinosaurs are birds.
+:::
+
+:::displayed
+-   All iPhones are smartphones.
+-   Not all smartphones are iPhones.
+:::
+
+:::displayed
+-   All electrons are particles.
+-   Not all particles are electrons.
+:::
+
+In general, we use restricted universal generalizations to express [sufficient
+conditions]{.vocab}:
+
+:::displayed
+-   All Fs are Gs: being F is sufficient for being G.
+:::
+
+Again, we can reinforce this visually, with a diagram:
+
+![All Fs are
+Gs](https://reggienet.illinoisstate.edu/access/content/user/desanso/public/img/AllFsAreGs.gif)
+{alt="An
+animated diagram. In the first frame, a purple circle labeled 'Fs' is
+beside a yellow circle labeled
+'Gs'. The purple circle then shrinks and moves inside the yellow
+circle, to visually represent the idea that the set of Gs contains the
+set of Fs."}
+
+
+Since the Gs contain the Fs,
+if you know that something is an F,
+that is *enough*, or *sufficient*, for you to know that it is also a G.
+
+For example, if it is true that *all dogs go to heaven*, then being a dog is a
+sufficient condition for being among those who go to heaven:
+
+:::illustration
+![All dogs go to
+heaven](https://reggienet.illinoisstate.edu/access/content/user/desanso/public/img/AllDogsGoToHeaven.gif){alt="The
+same animated diagram as above, but with the labels replaced with 'dogs' and
+'things that go to heaven'."}
+:::
+
+But suppose someone says instead,
+
+::: displayed
+-   Only dogs go to heaven.
+:::
+
+This says that being a dog is a [necessary condition]{.vocab} for going to heaven: no
+non-dogs are allowed. We already know how to translate this into PL:
+
+:::soa
+F: is a dog
+H: goes to heaven
+:::
+
+::: displayed
+-   Only dogs go to heaven.
+-   ∀x(H(x) → F(x))
+:::
+
+Visually, we can represent it as:
+
+:::illustration
+![Only dogs go to
+heaven](https://reggienet.illinoisstate.edu/access/content/user/desanso/public/img/OnlyDogsGoToHeaven.gif){alt="An
+animated diagram. In the first frame, a purple circle labeled 'dogs' is
+beside a yellow circle labeled
+'things that go to heaven'. This time, the yellow circle shrinks and moves
+inside the purple circle, to visually represent the idea that the set of dogs contains the
+set of things that go to heaven."}
+:::
+
+As you can see, necessary and sufficient conditions are two sides of the same
+coin: if F is a sufficient condition for G, then G is a necessary condition
+for F:
+
+:::displayed
+-   ∀x(F(x) → G(x): F is a sufficient condition for G
+-   ∀x(F(x) → G(x): G is a necessary condition for F
+:::
+
+:::wrapper
+:::soasticky
+F: is a free and fair election
+G: is a valid election
+:::
+
+
+```{.Translate .FOL points=10}
+38 Ax(F(x)->G(x)) :  Being a free and fair election is a sufficient condition for being a valid election.
+39 Ax(G(x)->F(x)) :  Being a free and fair election is a necessary condition for being a valid election.
+40 Ax(G(x)->F(x)) :  Being a valid election is a sufficient condition for being a free and fair election.
+41 Ax(F(x)->G(x)) :  Being a valid election is a necessary condition for being a free and fair election.
+```
+:::
+
 ## All and Only
+
+Spend a moment to consider the relationship between these three diagrams:
+
+:::illustration
+![All Fs are
+Gs](https://reggienet.illinoisstate.edu/access/content/user/desanso/public/img/AllFsAreGs.gif)
+{alt="An
+animated diagram. In the first frame, a purple circle labeled 'Fs' is
+beside a yellow circle labeled
+'Gs'. The purple circle then shrinks and moves inside the yellow
+circle, to visually represent the idea that the set of Gs contains the
+set of Fs."}
+
+![Only Fs are
+Gs](https://reggienet.illinoisstate.edu/access/content/user/desanso/public/img/OnlyFsAreGs.gif){alt="An
+animated diagram. In the first frame, a purple circle labeled 'Fs' is
+beside a yellow circle labeled
+'Gs'. This time, the yellow circle shrinks and moves
+inside the purple circle, to visually represent the idea that the set of Fs contains the
+set of Gs."}
+
+![All and only Fs are
+Gs](https://reggienet.illinoisstate.edu/access/content/user/desanso/public/img/AllAndOnlyFsAreGs.gif){alt="An
+animated diagram. The first frame is as before, two side-by-side circles, one purple and
+one yellow, labeled 'Fs' and 'Gs'. This time, the two circle move together, to
+occupy the same place, representing the idea that the set of Fs exactly
+coincides with the set of Gs.}
+:::
 
 Consider,
 
 ::: displayed
--   All and only chicken wings are good.
+-   All and only the meek inherit the earth
 :::
 
-You can treat this as a conjunction of two generalizations:
+We can treat this as the conjunction of two universal generalizations:
 
 ::: displayed
--   All chicken wings are good and only chicken wings are good.
--   ∀x(I(x)→G(x)) ∧ ∀x(G(x)→I(x))
-:::
+-   All the meek inherit the earth and only the meek inherit the earth
+-   ∀x(M(x) → I(x)) ∧ ∀x(I(x) → M(x))
+::: 
 
-But it is more economical to treat it as a generalization over a
-biconditional:
+Or, more economically, as a universal generalization of a biconditional:
 
 ::: displayed
--   ∀x(I(x) ↔ G(x))
+-   ∀x(M(x) ↔ I(x))
 :::
 :::
 
-What this says is that being a chicken wing is *both* a necessary *and*
-sufficient condition for being good.
+This says that being meek is both a necessary and sufficient condition for
+inheriting the earth.
+
+'All and only' is a quantificational relative of 'if and only if'.
+Recall that English provides a few other ways to say 'if and only if',
+including 'exactly on the condition that' and 'just in case'.
+This also extends to 'all and only'. All three of these sentences mean the
+same thing:
+
+:::displayed
+-   All and only the meek inherit the earth
+-   Exactly the meek inherit the earth
+-   Just the meek inherit the earth
+:::
 
 :::wrapper
 ::: {.soasticky}
-| F: is a fox
-| G: is glamorous
+| H: is a cow
+| M: moos
+| F: is friendly
 :::
 
 ```{.Translate .FOL points=10}
-R13.33 Ex(F(x)/\G(x)) : Some foxes are glamorous.
-R13.34 Ax(F(x)->G(x)) : All foxes are glamorous.
-R13.35 Ax(G(x)->F(x)) : Only foxes are glamorous.
-R13.36 Ax(F(x)<->G(x)): All and only foxes are glamorous.
-R13.37 Ax(F(x)->~G(x)): No foxes are glamorous.
+42 Ex(H(x)/\M(x)) : Some cows moo 
+43 Ax(H(x)->M(x)) : All cows moo
+44 Ax(M(x)->H(x)) : Only cows moo
+45 Ax(H(x)<->M(x)): All and only cows moo
+46 Ax(H(x)->~M(x)): No cows moo
+47 Ex(H(x)/\~M(x)): Some cows don't moo
+48 Ax(H(x)<->F(x)): Just the cows are friendly
 ```
+
+:::solution
+ADDVIDEO
 :::
+
+:::
+
+## People, Places, Times, and More
+
+Consider the sentence,
+
+:::displayed
+-   Someone knows what you did last summer
+:::
+
+This is a restricted existential generalization.
+The restriction is to *people*. So,
+
+:::soa
+| H: is a person
+| K: knows what you did last summer
+:::
+
+:::displayed
+-   Someone knows what you did last summer
+-   ∃x(H(x) ∧ K(x))
+:::
+
+English offers at least two sets of *personal* quantifiers: 'someone',
+'everyone', 'anyone', 'no one'; and 'somebody', 'everybody, 'anybody', 'nobody'.
+It also contains special words and phrases for quantifying over places:
+'everywhere', 'somewhere', 'anywhere', 'nowhere'. And it contains words and phrases for
+quantifying over times: 'sometimes', 'always', 'never'.
+It even includes words for quantifying over *ways* or *methods*, like
+'somehow', and, perhaps, 'anyhow'.
+For the most part, we can handle such words and phrases using the same methods
+we've already considered, for expressing restricted generalizations.
+
+
+:::wrapper
+:::soasticky
+| F: is fond of foxes
+| G: is good at sports
+| H: is a person
+:::
+
+```{.Translate .FOL points=10}
+49. Ex(H(x)/\F(x)): Someone is fond of foxes
+50. Ax(H(x)->F(x)): Everybody is fond of foxes
+51. Ax(H(x)->~G(x)),~Ex(H(x)/\G(x)): Nobody is good at sports
+```
+
+ADD VIDEO
 
 ## Complex Subjects and Predicates
 
-So far, we have considered restricted generalizations where the restriction
-was expressed with a single predicate, like,
-
-::: displayed
--   Every frog hops.
--   ∀x(F(x)→H(x))
+:::wrapper
+:::soasticky
+| F: is a frog
+| G: is green
+| H: hops
+| J: is a jackrabbit
+| K: kicks
 :::
 
-But restrictions are often more complex than this, and involve more than one
-predicate. For example,
+Consider:
 
 ::: displayed
 -   Every green frog hops.
 :::
 
-The restriction here is not just to frogs, but to *green* frogs. How do we
-capture this?
-
-We follow the same pattern: come up with a conditional formula, with the
-restriction expressed as antecedent, and what we want to say about all the
-things in the restricted class as the consequent. In this case, the formula
-is:
+This is a restricted universal generalization.
+The restriction is not to frogs, but to *green frogs*.
+To capture this restrict, we want a universal generalization over this
+conditional formula:
 
 :::displayed
--   If x is green and x is a frog, then x hops.
--   G(x) ∧ F(x) → H(x)
+-   If (*x is green and x is a frog*), then x hops.
+-   (G(x) ∧ F(x)) → H(x)
 :::
 
-To say that every green frog hops is to say that this conditional formula is
-true for every value of x. As before, the formula is trivially true when its
-antecedent is false. So the formula doesn't demand any hopping from things
-that are not both green and frogs. But when the value of x is something that
-is both green and a frog, the conditional formula is true only if that thing
-also hops. So,
+So:
 
 ::: displayed
 -   Every green frog hops.
 -   ∀x(G(x) ∧ F(x) → H(x))
 :::
 
-The same idea works for complex restricted existential generalizations,
-and negative generalizations, and for inverted universal generalizations
-expressed using 'only'. In each case, we follow the pattern from the last
-section, but express the restriction using a conjunction: 
+The general pattern is this:
 
 ::: displayed
--   Some green frog hops: ∃x((G(x) ∧ F(x)) ∧ H(x))
--   Only green frogs hop: ∀x(H(x) → G(x) ∧ F(x))
--   No green frog hops: ∀x(G(x) ∧ F(x) → ¬H(x))
+-   Every []{.F} is []{.G}.
+-   ∀x([]{.F} → []{.G})
 :::
 
-::: {.soa}
+The contents of []{.F} describe the restricted class. The contents of []{.G} is
+what you want to say about that restricted class of things. The restriction in
+[]{.F} can be a simple predicate, like 'is a frog', or it can
+be logically complex, like 'is both green and a frog'. It can even be a disjunction, as
+in:
+
+:::displayed
+-   Every frog or jackrabbit hops.
+-   ∀x(F(x) ∨ J(x) -> H(x))
+:::
+
+The contents of []{.F} can also be logically complex:
+
+:::displayed
+-   Every jackrabbit hops and kicks.
+-   ∀x(J(x) -> H(x) ∧ K(x))
+:::
+
+Similarly, we can extend our treatment of restricted existential
+generalizations to include sentences like,
+
+::: displayed
+-   Some green frog hops
+-   ∃x(G(x) ∧ F(x) ∧ H(x))
+:::
+
+The same holds for all forms of restricted generalization.
+
+::: displayed
+-   Some green frog hops
+-   ∃x((G(x) ∧ F(x)) ∧ H(x))
+:::
+
+Here, in the pattern is:
+
+::: displayed
+-   Some []{.F} is []{.G} 
+-   ∃x([]{.F} ∧ []{.G})
+:::
+
+Again, the []{.F} describes the restriction, and the []{.G} is what we want to
+say about the restricted class. Both can be logically simple or logically
+complex. In 'Some green frog hops', the restriction is the conjunction, 'is
+green and a frog'. But in this example, it is a disjunction:
+
+:::displayed
+-   Some frog or jackrabbit hops
+-   ∃x((F(x) ∨ J(x)) ∧ H(x))
+:::
+
+In the same way, we can extend our treatment of 'No Fs are Gs', 'Only Fs are
+Gs', and 'All and only Fs are Gs' to examples where the 'F' and 'G' slots are
+instead logically complex. For example:
+
+:::displayed
+-   Only green frogs hop
+-   ∀x(H(x) → G(x) ∧ F(x))
+-   No green frog hops
+-   ∀x(G(x) ∧ F(x) → ¬H(x))
+-   Every frog hops if startled.
+-   ∀x(F(x) → (N(x) → H(x))) 
+-   Some frogs hop or swim.
+-   ∃x(F(x) ∧ (H(x) ∨ M(x)))
+:::
+
+:::wrapper
+::: {.soasticky}
 | F: is freaky
 | G: is a ghost
 | H: is hopeful
@@ -1189,10 +1428,10 @@ section, but express the restriction using a conjunction:
 :::
 
 ```{.Translate .FOL points=10}
-R13.38 Ax(I(x)/\G(x)->F(x)) : Every invisible ghost is freaky
-R13.39 Ex(I(x)/\G(x)/\F(x)) : Some invisible ghosts are freaky
-R13.40 ~Ex(J(x)/\(H(x)\/I(x))) : No zombie is hopeful or invisible
-R13.41 Ax(G(x)\/J(x)->F(x)) : All ghosts and zombies are freaky
+52 Ax(I(x)/\G(x)->F(x)) : Every invisible ghost is freaky
+53 Ex(I(x)/\G(x)/\F(x)) : Some invisible ghosts are freaky
+54 ~Ex(J(x)/\(H(x)\/I(x))) : No zombie is hopeful or invisible
+55 Ax(G(x)\/J(x)->F(x)) : All ghosts and zombies are freaky
 ```
 
 ::: youtube
@@ -1203,216 +1442,140 @@ That last one is weird. English wouldn't be a natural language if it didn't thro
 curve balls. Consider:
 
 ::: {.displayed}
--   Every frog and lamb hops
+-   Every frog and jackrabbit hops
 :::
 
 It is tempting to symbolize this as follows:
 
 ::: {.displayed }
--   ~~∀x(F(x) ∧ L(x) → H(x))~~
+-   ~~∀x(F(x) ∧ J(x) → H(x))~~
 :::
 
-But this is wrong. This says that everything that is *both* a frog *and* a
-lamb hops. But that's not what the English sentence means. The English
-sentence doesn't mean 
-that every Frankenstein-monster-like stitched together frog-lamb chimera hops.
-It just means that everything that is *either* a frog *or* a lamb hops:
+But this is wrong.
+This says that everything that is *both* a frog *and* a jackrabbit hops.
+But that's not what the English sentence means.
+The English sentence doesn't mean that every
+Frankenstein-monster-like-stitched-together frog-jackrabbit chimera hops.
+
+The intended restriction is not to things that are both frogs and jackrabbits,
+but to things that are either frogs or jackrabbits:
 
 ::: {.displayed}
--   Every frog and lamb hops
--   ∀x(F(x) ∨ L(x) → H(x))
+-   Every frog and jackrabbit hops
+-   ∀x(F(x) ∨ J(x) → H(x))
 :::
 
-So the surface grammar of the English is wildly misleading. The underlying
-logical form is a *disjunction*, even though, in English, we use the word
-'and'.
+English here is wildly misleading.
+That 'and' is used, in this context, to express 'or'.
 
-Alternatively, we can think of the English sentence as shorthand for a
-conjunction of two universal generalizations:
-
-::: displayed
--   Every frog and lamb hops
--   Every frog hops and every lamb hops
--   ∀x(F(x) → H(x)) ∧ ∀x(L(x) → H(x))
-:::
-
-You might prefer this, because it allows us to translate the 'and' in English
-into a conjunction in in PL.
-
-Again, our goal is *translation*, not *transliteration*. Given a sentence
-of English, we want to find a sentence in PL that *means the same*.
-Or, if you like, given some information encoded in English, we want to find a
-way to encode that same information in PL. Given that English and PL are
-rather different languages, often the connectives and structures that show up
-in our translations won't correspond in any direct way to the words that show
-up in English.
-
-Here is another case to think about:
-
-:::displayed
--   Some frogs and lambs hop.
-:::
-
-It would be a mistake to translate this as:
-
-:::displayed
--   ∃x(F(x) ∧ L(x) ∧ H(x))
-:::
-
-This would be to once again introduce Franken-monster frog-lambs into the
-conversation. A better translation would be:
-
-:::displayed
--   ∃x((F(x) ∨ L(x)) ∧ H(x))
-:::
-
-This says that at least one thing is either a frog or a lamb, and it hops. But
-that doesn't seem quite true to the original English. Doesn't the original
-English require at least one frog *and* at least one lamb to hop? To capture
-that, we need to translate the sentence as a conjunction of existential
+If you HATE that so much that you just can't,
+there is an alternative:
+translate the sentence as a conjunction of two separate restricted universal
 generalizations:
 
-:::displayed
--   ∃x(F(x) ∧ H(x)) ∧ ∃y(L(y) ∧ H(y))
-:::
-
-Just as a restricted generalization can involve a logically complex
-restriction, it can involve a logically complex predication. For example,
-
-:::displayed
--   All frogs hop and swim.
-:::
-
-Here the conditional formula is:
-
-:::displayed
--   If x is a frog then x both hops and swims.
-:::
-
-So:
-
-:::displayed
--   ∀x(F(x) → (H(x) ∧ M(x)))
-:::
-
-The logical complexity in the predication doesn't need to be a simple
-conjunction:
-
 ::: displayed
--   Every frog hops if startled.
--   ∀x(F(x) → (N(x) → H(x))) 
--   Some frogs hop or swim.
--   ∃x(F(x) ∧ (H(x) ∨ M(x)))
+-   Every frog and jackrabbit hops
+-   Every frog hops and every jackrabbit hops
+-   ∀x(F(x) → H(x)) ∧ ∀x(J(x) → H(x))
 :::
 
-And we can combine both a complex restriction and a complex
-predicate:
+Here is a similar example:
 
-::: displayed
--   Some green frogs jump and swim.
--   ∃x(G(x) ∧ F(x) → J(x) ∧ M(x))
--   All green frogs hop if startled.
--   ∀x(G(x) ∧ F(x) → (N(x) → H(x))) 
--   All green frogs and white lambs hop if and only if startled.
--   ∀x((G(x) ∧ F(x)) ∨ (O(x) ∧ L(x)) → (H(x) ↔ N(x)))  
+:::displayed
+-   Some frogs and jackrabbits hop.
+:::
+
+We don't our translation to say that something is both a frog and a jackrabbit:
+
+:::{.displayed .xed}
+-   ∃x(F(x) ∧ J(x) ∧ H(x))
+:::
+
+A better translation is:
+
+:::displayed
+-   ∃x((F(x) ∨ J(x)) ∧ H(x))
+:::
+
+This avoids Frankenstein frog-jackrabbits,
+saying that at least one thing is either a frog or a jackrabbit, and it hops.
+
+But that still isn't quite right.
+The original English requires, for its truth, at least one hopping frog, and
+at least one hopping jackrabbit. But our translation is true if there is at
+least one frog or jackrabbit that hops.
+
+To capture the original English, we need to split the claim into two
+conjuncts:
+
+:::displayed
+-   ∃x(F(x) ∧ H(x)) ∧ ∃y(J(y) ∧ H(y))
 :::
 
 
 ## Generics
 
-A generic is a sentence in English that looks a lot like a restricted
-generalization, but with no quantifier. For example,
+Generics are sentences in English that look like restricted
+generalizations without quantifiers. For example,
 
 ::: {.displayed}
 -   Lying is wrong.
 :::
 
-Plausibly, this is shorthand for the restricted universal generalization,
+On the simplest naive reading, this expresses a restricted universal
+generalization:
 
 ::: {.displayed}
--   All lying is wrong.
+-   *All* lying is wrong.
 :::
 
-Or, again,
+Here is another:
 
 ::: displayed
 -   Accidents happen.
 :::
 
-Plausibly, this is shorthand for the restricted existential generalization,
+On the simplest naive reading, this expresses a restricted existential
+generalization:
 
 :::displayed
--   Some accidents happen.
+-   *Some* accidents happen.
 :::
 
-Notice that the sentences offer no clues for the difference in
-interpretation between these two sentences.
+It is not obvious that these readings are correct.
+Many people will agree that lying is wrong,
+but also say that there are exceptions,
+so not *all* lying is wrong.
+And when someone says 'Accidents happen',
+they likely mean something stronger than *some* accidents happen.
 
-Or consider the slogan,
-
-::: displayed
--   Black lives matter.
-:::
-
-Some critics seem to want to insist that this means,
-
-::: displayed
--   Only Black lives matter.
-:::
-
-But it is hard to see why they would think that. There is nothing about the
-sentence that suggests this interpretation of this generic rather than an
-interpretation as a universal or existential generalization. And, of course,
-the movement that embraces the slogan has repeatedly rejected this
-as an interpretation of what they mean by it.
-
-Here is a very simple account of generics. A generic sentence, 'F is G'
-or 'Fs are Gs', is shorthand for one of three things:
-
--   All Fs are Gs.
--   Some Fs are Gs.
--   Only Fs are Gs.
-
-On this account, generics are lazy and potentially ambiguous ways of 
-expressing ordinary restricted generalizations.
-
-But this simple account is wrong. Consider:
+So generics are tricky. Actually, they are really tricky.
+Consider:
 
 ::: displayed
 -   Chickens lay eggs.
 :::
 
-According to the simple account, this is short for one of three claims. Two of
-those claims are straightforwardly false:
+This doesn't just mean that some chickens lay eggs.
+But it certainly doesn't mean that *all* chickens lay eggs,
+since some chickens are roosters, and hens stop laying eggs after a certain
+age.
 
-::: displayed
--   All chickens lay eggs.
-:::
-
-This is false because roosters don't lay eggs, and older hens don't lay eggs.
-But roosters and older hens are chickens.
-
-::: displayed
--   Only chickens lay eggs.
-:::
-
-This is also false. Plenty of animals lay eggs other than chickens. So, on the
-simple account, it must be that:
+If you are tempted to retreat,
+and say that it means that *some* chickens lay eggs,
+note that you are happy to say both:
 
 ::: displayed
 -   Some chickens lay eggs.
+-   Some chickens don't lay eggs.
 :::
 
-This is true, but it is not what the original English sentence means. If it
-were, we should be equally happy to say,
+But you are not happy to say both:
 
 ::: displayed
+-   Chickens lay eggs.
 -   Chickens don't lay eggs.
 :::
-
-After all, it is true that some chickens lay eggs, and other chickens don't
-lay eggs. But even though it is true that *some chickens* don't lay eggs, it is
-pretty clearly false that *chickens* don't lay eggs.
 
 So what do we mean when we say "Chickens lay eggs"? Perhaps it helps to
 consider a contrast:
@@ -1427,49 +1590,61 @@ community of chickens, the members of the community who bear young do so by
 laying eggs. By contrast, when it comes to reproduction in the community of
 dogs, the members of the community who bear young do so via live birth.
 
-The point is, in most cases, generics are not simple restricted
-generalizations. This doesn't mean that they cannot be translated into PL, but
-it means that the translations will be much more complicated than anything
-we've considered so far, and will depend very much on our background knowledge
-about the content.
-
-Here is another example:
+Here is similar example:
 
 ::: displayed
 -   Dogs have four legs.
 :::
 
-This seems to be true, and it seems to be stronger than the claim that
+This seems to be true, 
+and it seems to be stronger than the claim that
 *some* dogs have four legs. But it can't be the claim that *all* dogs have
 four legs, since that's just not true: there are dogs who have lost some or
 all of their legs.
 
-Plausibly, part of what 'Dogs have four legs' means is that it is *normal* for
-dogs to have four legs, so a three legged dog is *abnormal*, because it is
-*missing* a leg. By contrast, while many stools have four legs, some have only
-three, and this is *by design*, so we don't say that such stools are
-*abnormal* or are *missing* a leg. And you probably wouldn't say, 'Stools have
-four legs'.
+Plausibly, part of what 'Dogs have four legs' means is that it is *normal* for dogs to have four legs,
+so a three legged dog is *abnormal*, because it is *missing* a leg.
+By contrast, while many stools have four legs,
+some have only three, and this is *by design*, so we don't say that such stools are *abnormal* or are *missing* a leg.
+And you probably wouldn't say, 'Stools have four legs'.
 
-Note that this feature of generics can easily turn nasty. Generics look like
-simple innocuous generalizations. But they can easily embed racist, sexist,
-transphobic, or abelist assumptions. So they can provide helpful "cover" for
-those who want to express such assumptions.
+This feature of generics can easily turn nasty.
+Generics look like simple innocuous generalizations.
+But they can easily embed racist,
+sexist, transphobic, or abelist assumptions.
+So they can provide helpful "cover" for those who want to express such assumptions.
 
-Or consider generics like,
+The ambiguity around generics also makes them easy to misunderstand,
+sometimes willfully. Consider,
 
 ::: displayed
 -   Men do less housework than women.
 :::
 
-And consider the defensive response, "#NotAllMen". This response trades on
-misrepresenting the generic. It doesn't mean *all* men do less housework than
-women, any more than 'dogs have four legs' means that *all* dogs have four
-legs.
+This is true, but it is not a universal generalization. So the defensive
+response, '#NotAllMen', misses the point.
 
-So generics are complicated. Their correct interpretation depends on context.
-Sometimes, they are plausibly interpreted as simple universal or existential
-generalizations. But, usually, they are more complicated than that, and their
+Or consider the slogan,
+
+::: displayed
+-   Black lives matter.
+:::
+
+Some folks seem to willfully misinterpret this,
+acting as though it means:
+
+::: displayed
+-   *Only* Black lives matter.
+:::
+
+It is hard to see why they would insist that *this* is what the generic means.
+But generics are tricky enough to give such folks a little bit of cover.
+
+Generics are complicated. 
+Their correct interpretation depends on context,
+background knowledge, and background assumptions.
+Maybe sometimes, they can be treated as simple universal or existential
+generalizations. But in most cases, they are more complicated than that, and their
 meaning cannot be captured with any simple formula of PL.
 
 ## Indefinite Articles
@@ -1548,8 +1723,8 @@ translate the English that you already understand into our symbolic language.
 :::
 
 ```{.Translate .FOL points=10}
-R13.42 Ax(F(x)/\G(x)->H(x)) :  A fish out of water soon dies
-R13.43 Ex(F(x)/\I(x)) :  A fish swam past us
+56 Ax(F(x)/\G(x)->H(x)) :  A fish out of water soon dies
+57 Ex(F(x)/\I(x)) :  A fish swam past us
 ```
 
 ::: {.youtube}
@@ -1679,10 +1854,10 @@ generalization.
 :::
 
 ```{.Translate .FOL points=10}
-R13.44 ExF(x)->ExG(x), Ax(F(x)->ExG(x)) :  If something is a frog, then something is green
-R13.45 Ax(F(x)->G(x)) : If something is a frog, then it is green.
-R13.46 Ax(F(x)/\G(x)->H(x)) : If some frog is green, it hops.
-R13.47 Ax(F(x)/\H(x)->G(x)) : If a frog is hops, it is green.
+58 ExF(x)->ExG(x), Ax(F(x)->ExG(x)) :  If something is a frog, then something is green
+59 Ax(F(x)->G(x)) : If something is a frog, then it is green.
+60 Ax(F(x)/\G(x)->H(x)) : If some frog is green, it hops.
+61 Ax(F(x)/\H(x)->G(x)) : If a frog is hops, it is green.
 ```
 :::
 
