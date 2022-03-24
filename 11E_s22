@@ -67,7 +67,7 @@ Use D-NB and the appropriate form of Biconditional Tollens to complete (6)
 
 
 ```{.ProofChecker .Prop options="guides fonts indent tabindent resize" points=10}
-6  ~(P<->Q), Q :|-: P
+6  ~(P<->Q), Q :|-: ~P
 ```
 
 
