@@ -353,7 +353,8 @@ translate into canonical English, showing your steps.
 Then consider whether or not you can replace those variables with anaphoric pronouns without introducing ambiguity,
 and do so if you can.
 
-::: {.soa}
+:::wrapper
+:::soasticky
 | F: is a frog
 | G: is green
 :::
@@ -366,6 +367,7 @@ and do so if you can.
 
 ::: youtube
 <https://youtu.be/Deb0AWqaJ8E>
+:::
 :::
 
 ## English to PL
