@@ -652,25 +652,24 @@ In SL, parentheses are mandatory, not optional.
 
 ## Ambiguity and the Idea of an Artificial Language
 
+An ambiguous sentence is a sentence that can be read in more than one way,
+with more than one meaning. English is chock-full of ambiguity.
+[This poem by Brain Bilston](https://wp.me/p46ZKl-92) uses this to wonderful
+effect:
 
-This argument appears to be valid, and it appears to be valid in virtue of its
-form:
+| you took
+| the last bus home
+| 
+| i still don’t know
+| how you got it through the door
+| 
+| but you’re always doing amazing stuff
+| 
+| like the time
+| when you caught that train
 
-::: standardform
--   A silver medal is better than a bronze medal.
--   A gold medal is better than a silver medal.
--   A gold medal is better than a bronze medal.
-:::
-
-The form, in virtue of which it is valid, would appear to be this:
-
-::: standardform
--  $B$ is better than $C$.
--  $A$ is better than $B$.
--  $A$ is better than $C$.
-:::
-
-But what about this argument?
+Playing with ambiguity can make for a good poem. But mixing ambiguity with
+arguments is a recipe for trouble. Consider:
 
 ::: standardform
 -  Nothing is better than world peace.
@@ -678,28 +677,32 @@ But what about this argument?
 -  Cold pizza is better than world peace.
 :::
 
-This argument is not valid. But it has the same form, doesn't it?
+This argument is not valid. But it appears to have a valid form:
 
-There are a few ways to explain this data. One possible explanation is that
-our original argument is not formally valid. But the more fruitful explanation
-is that our two arguments don't *really* have the same *logical* form.
-
-The first premises of each argument have the same *surface syntax*, as revealed by a
-naive grammatical analysis:
-
-:::example
--   A field goal is better than a safety.
--   Nothing is better than world peace.
--   [Noun Phrase] is better than [Noun Phrase].
+::: standardform
+-  $B$ is better than $C$.
+-  $A$ is better than $B$.
+-  $A$ is better than $C$.
 :::
 
-But it turns out that surface syntax is an unreliable guide to logical form.
+For example,
 
+::: standardform
+-   A silver medal is better than a bronze medal.
+-   A gold medal is better than a silver medal.
+-   A gold medal is better than a bronze medal.
+:::
+
+The trouble here is caused by the sentence "Nothing is better than world
+peace." On its surface, it looks like it has the same form as "A silver medal
+is better than a bronze medal."
+But the surface syntax of English is an unreliable guide to logical form.
+
+The logical form of an English sentence is something hidden,
+not something on the surface.
 English is chock-full of sentences that look, on their surface, to have the
 same structure, but are revealed, upon analysis, to have very different
-logical forms. The logical form of an English sentence is something hidden,
-not something on the surface.
-
+logical forms. 
 This is true of every [natural language]{.vocab}.
 
 ::: vaside
