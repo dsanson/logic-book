@@ -127,10 +127,10 @@ Section III: Predicate Logic
     -   [Mastery Check](14M_s22){.enrolled}
     <!-- -   [Supplements](14S_s22){.disabled} -->
 15. Truth and Countermodels
-    -   [Reading](15R_s22){.disabled}
-    -   [Exercises](15E_s22){.disabled}
-    -   [Mastery Check](15M_s22){.enrolled .disabled}
-    -   [Supplements](15S_s22){.disabled}
+    -   [Reading](15R_s22)
+    -   [Exercises](15E_s22)
+    -   [Mastery Check](15M_s22){.enrolled}
+    <!-- -   [Supplements](15S_s22){.disabled} -->
 16. Relations and Identity
     -   [Reading](16R_s22){.disabled}
     -   [Exercises](16E_s22){.disabled}
