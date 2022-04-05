@@ -268,7 +268,7 @@ Does that conclusion follow from those premises. Yes it does. Here is a proof:
 4.   [If either Justin or Andy starts, the Bears will probably lose
      [PR]{.just}]{.indent}
 5.   [The Bears will probably lose [MP 3,4]{.just}]{.indent}
-6.   [DD 5]{.just} 
+6.   [:DD 5]{.qed} 
 :::
 
 See how we use ADD, to put ourselves in a position to use MP?
@@ -294,9 +294,12 @@ premise?
 7 P\/Q->R : If either Justin or Andy starts, the Bears will probably lose.
 ```
 
-ADD VIDEO
-
+:::solution
+![Solution to
+7](https://reggienet.illinoisstate.edu/access/content/user/desanso/public/vid/ifeitherjustinorandystartsthebearswilllose.mp4)
+:::
 :::{.reaction .correct ex=7}
+
 So the argument is:
 
 :::standardform
@@ -312,8 +315,9 @@ Here then is the derivation:
 8 Q, P\/Q->R :|-: R
 ```
 
-ADD VIDEO
-
+:::solution
+![Solution to 8](https://reggienet.illinoisstate.edu/access/content/user/desanso/public/vid/der_Q_CVPQR_R.mp4)
+:::
 
 Here is another derivation for you to try:
 
@@ -470,13 +474,50 @@ to a conditional. That's not how this works. That's not how any of this works.
 
 ``` {.Translate .Exact points="10"}
 11 P: What follows, by MTP, from 'Q ∨ P' and '¬Q'?
+```
+
+::: solution
+![Solution to
+11](https://reggienet.illinoisstate.edu/access/content/user/desanso/public/vid/wf_MTP_VQP_NQ.mp4)
+:::
+
+``` {.Translate .Exact points="10"}
 12 Q: What follows, by MTP, from 'Q ∨ P' and '¬P'?
+```
+
+::: solution
+![Solution to
+12](https://reggienet.illinoisstate.edu/access/content/user/desanso/public/vid/wf_MTP_VQP_NP.mp4)
+:::
+
+``` {.Translate .Exact points="10"}
 13 ~P: What follows, by MTP, from 'Q ∨ ¬P' and '¬Q'?
+```
+
+::: solution
+![Solution to
+13](https://reggienet.illinoisstate.edu/access/content/user/desanso/public/vid/wf_MTP_VQNP_NQ.mp4)
+:::
+
+``` {.Translate .Exact points="10"}
 14 P/\Q : What follows, by MTP, from '(P ∧ Q) ∨ R' and '¬R'?
+```
+
+::: solution
+![Solution to
+14](https://reggienet.illinoisstate.edu/access/content/user/desanso/public/vid/wf_MTP_VKPQR_NR.mp4)
+:::
+
+``` {.Translate .Exact points="10"}
 15 R : What follows, by MTP, from '(P ∧ Q) ∨ R' and '¬(P ∧ Q)'?
 ```
 
-ADD VIDEO
+::: solution
+![Solution to
+15](https://reggienet.illinoisstate.edu/access/content/user/desanso/public/vid/wf_MTP_VKPQR_NKPQ.mp4)
+:::
+
+
 
 Here is an example of MTP in action:
 
@@ -570,11 +611,28 @@ as an inference at all!
 
 ``` {.Translate .Exact points="10"}
 17 R, P: What is something that follows, by S, from P ∧ R?
-18 ~P, ~Q: What is something that follows, by S, from ¬P ∧ ¬Q?
-19 P->Q,Q->P: What is something follows, by S, from '(P→Q) ∧ (Q→P)'?
 ```
 
-ADD VIDEO
+::: solution
+![Solution to
+17](https://reggienet.illinoisstate.edu/access/content/user/desanso/public/vid/wf_S_KPR.mp4)
+:::
+
+``` {.Translate .Exact points="10"}
+18 ~P, ~Q: What is something that follows, by S, from ¬P ∧ ¬Q?
+```
+::: solution
+![Solution to
+18](https://reggienet.illinoisstate.edu/access/content/user/desanso/public/vid/wf_S_KNPNQ.mp4)
+:::
+
+``` {.Translate .Exact points="10"}
+19 P->Q,Q->P: What is something follows, by S, from '(P→Q) ∧ (Q→P)'?
+```
+:::solution
+![Solution to 19](https://reggienet.illinoisstate.edu/access/content/user/desanso/public/vid/wf_S_KCPQCQP.mp4)
+:::
+
 
 Sometimes folks get so excited by the power and simplicity of S
 that they want to do it to everything, not just conjunctions.
@@ -604,11 +662,14 @@ Remember, the connective, '∧', is an essential part of the rule.
 
 Here is a derivation for you to try, that requires simplification:
 
-```{.ProofChecker .Prop options="guides fonts indent tabindent resize" points=10}
+``` {.ProofChecker .Prop options="guides fonts indent tabindent resize" points="10"}
 24 P/\Q,Q->R :|-: R
 ```
 
-ADD VIDEO
+::: solution
+![Solution to
+24](https://reggienet.illinoisstate.edu/access/content/user/desanso/public/vid/der_KPQ_CQR_R.mp4)
+:::
 
 :::
 
@@ -786,16 +847,16 @@ We have one rule that allows us to "take apart" a biconditional, and one that
 allows us to "put together" a biconditional. 
 
 :::stickywrapper
-:::{.aside .sticky .flex}
-:::ruledisplay
+::::{.aside .sticky .flex}
+:::::ruledisplay
 **Biconditional-to-Conditional (BC)**
 
-:::{.displayed .liveshapes}
+::::::{.displayed .liveshapes}
 | []{.P} ↔ []{.Q} ⊢ []{.P} → []{.Q}
 | []{.P} ↔ []{.Q} ⊢ []{.Q} → []{.P}
-:::
-:::
-:::
+::::::
+:::::
+::::
 
 Biconditional-to-Conditional (BC) is the rule we use to "take apart" a biconditional.
 If you think of a biconditional as two conditionals joined together, pointing
@@ -861,6 +922,7 @@ Here is a problem for you to try:
 :::
 :::
 
+:::
 :::
 
 ### Conditionals-to-Biconditional (CB)
