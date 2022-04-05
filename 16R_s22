@@ -165,15 +165,15 @@ And this allows us to go one step further. From 'Adam loves Billy', it follows t
 ----
 
 Two-place predicates are useful for expressing simple binary
-relations---relations that hold between two things. But some relations are
-more complicated. For example:
+relations---relations that hold between two things. But not all relations are
+binary. For example:
 
 :::displayed
 | Normal is between Chicago and St. Louis
 :::
 
 This doesn't describe a binary relations between two things. It describes a
-*ternary* relation, between three things, Normal, Chicago, and St. Louis.
+*ternary* relation between three things: Normal, Chicago, and St. Louis.
 
 :::wrapper
 ::: soasticky
@@ -220,7 +220,7 @@ And, again, we can go further, applying EG two or three times:
 
 :::
 
-We also allow four-place predicates, five-place predicates, and so on.
+We put no limit on the number of "places" a predicate can have.
 
 ## Official Syntax
 
@@ -248,42 +248,65 @@ the expressive power of our language. Here are a few examples:
 | c: Caesar
 :::
 
-```{.Translate .FOL points=10}
-R16.1 F(a,b): Alma sees Boris
-R16.2 F(b,a): Boris sees Alma
-R16.3 Ex(H(x)/\F(x,b)) : Someone sees Boris
-R16.4 Ex(H(x)/\F(b,x)) : Boris sees someone
-R16.5 Ax(H(x)->F(x,c)) : Everybody sees Caesar
-R16.6 Ax(F(c,x)/\H(x)->F(b,x)) : Boris sees everyone Caesar sees
+``` {.Translate .FOL points="10"}
+1 F(a,b): Alma sees Boris
 ```
 
-
-
-Solutions:
-
-<div class=youtube>
+::: solution
+::: youtube
 <https://youtu.be/h0BMR_LkukQ>
-</div>
+:::
+:::
 
-<div class=youtube>
+``` {.Translate .FOL points="10"}
+2 F(b,a): Boris sees Alma
+```
+
+::: solution
+::: youtube
 <https://youtu.be/aY1hIfwmSZc>
-</div>
+:::
+:::
 
-<div class=youtube>
+``` {.Translate .FOL points="10"}
+3 Ex(H(x)/\F(x,b)) : Someone sees Boris
+```
+
+::: solution
+::: youtube
 <https://youtu.be/kBgz8A93kL4>
-</div>
+:::
+:::
 
-<div class=youtube>
+``` {.Translate .FOL points="10"}
+4 Ex(H(x)/\F(b,x)) : Boris sees someone
+```
+
+::: solution
+::: youtube
 <https://youtu.be/FbCCg0fIzyU>
-</div>
+:::
+:::
 
-<div class=youtube>
+``` {.Translate .FOL points="10"}
+5 Ax(H(x)->F(x,c)) : Everybody sees Caesar
+```
+
+::: solution
+::: youtube
 <https://youtu.be/uSDTzztCpqc>
-</div>
+:::
+:::
 
-<div class=youtube>
+``` {.Translate .FOL points="10"}
+6 Ax(F(c,x)/\H(x)->F(b,x)) : Boris sees everyone Caesar sees
+```
+
+::: solution
+::: youtube
 <https://youtu.be/hjIC6h1Ff4U>
-</div>
+:::
+:::
 
 :::
 
@@ -296,25 +319,35 @@ Solutions:
 | c: 3
 :::
 
-```{.Translate .FOL points=10}
-R16.7 I(a,b,c) : 2 is between 1 and 3
-R16.8 Ex(N(x)/\I(a,x,c)) : Some natural number is between 1 and 3
-R16.9 ~Ex(N(x)/\I(a,x,b)) : No natural number is between 1 and 2.
+``` {.Translate .FOL points="10"}
+7 I(a,b,c) : 2 is between 1 and 3
 ```
 
-Solutions:
-
-<div class=youtube>
+::: solution
+::: youtube
 <https://youtu.be/2BqWspC4NV8>
-</div>
+:::
+:::
 
-<div class=youtube>
+``` {.Translate .FOL points="10"}
+8 Ex(N(x)/\I(a,x,c)) : Some natural number is between 1 and 3
+```
+
+::: solution
+::: youtube
 <https://youtu.be/u0a7hjAA81g>
-</div>
+:::
+:::
 
-<div class=youtube>
+``` {.Translate .FOL points="10"}
+9 ~Ex(N(x)/\I(a,x,b)) : No natural number is between 1 and 2.
+```
+
+::: solution
+::: youtube
 <https://youtu.be/oWRPM24GWFc>
-</div>
+:::
+:::
 
 :::
 
@@ -331,7 +364,7 @@ that there is as single universal cause of all things. On the other reading,
 it just means that everything has some cause or other.
 
 ```{.QualitativeProblem .ShortAnswer give-credit="onSubmission" points=10}
-R16.10 Describe as best you can the two readings of the sentence.
+10 Describe as best you can the two readings of the sentence.
 ```
 
 Here is another sentence, displaying a similar ambiguity:
@@ -448,21 +481,25 @@ Try it yourself!
 | N(x): x is a natural number
 :::
 
-```{.Translate .FOL points=10}
-R16.11 Ex(N(x)/\Ay(N(y)->G(x,y))) : Some number is such that it is greater than every number
-R16.12 Ax(N(x)->Ey(N(y)/\G(y,x))): Every number is such that some number is greater than it.
+``` {.Translate .FOL points="10"}
+11 Ex(N(x)/\Ay(N(y)->G(x,y))) : Some number is such that it is greater than every number
 ```
 
-Solutions:
-
+::: solution
 ::: youtube
 <https://youtu.be/G_aJBwf4Hx8>
 :::
+:::
 
+``` {.Translate .FOL points="10"}
+12 Ax(N(x)->Ey(N(y)/\G(y,x))): Every number is such that some number is greater than it.
+```
+
+::: solution
 ::: youtube
 <https://youtu.be/Ts1aph77F1E>
 :::
-
+:::
 :::
 
 ## Identity
@@ -484,7 +521,7 @@ Notice that, for this to be true, the number in question would have to be
 :::
 
 And, since that last claim is a universal generalization, it is true of
-*absolutely everything*, including a itself:
+*absolutely everything*, including a *itself*:
 
 ::: displayed
 -   G(a,a)
@@ -498,7 +535,7 @@ The same thing happened with our example about something causing everything:
 :::
 
 Again, call the thing that causes everything, whatever it is, 'a'. Then it will
-follow that a causes everything, including herself:
+follow that a causes everything, including *herself*:
 
 ::: displayed
 -   F(a,a)
@@ -549,7 +586,6 @@ It is used to express *identity*. 'a=b' should be pronounced as "a is
 identical to b", and '=' should be called the *identity sign*.
 
 What hangs on this? What is the distinction between *equality* and *identity*?
-
 The distinction can be neatly illustrated with a meme:
 
 :::illustration
@@ -558,23 +594,21 @@ Alike](https://reggienet.illinoisstate.edu/access/content/user/desanso/public/im
 meme showing a picture of Dwayne Johnson and a picture of the Rock, captioned,
 'Celebrities That Look Alike'"}
 :::
- 
 
 At the risk of spoiling the joke, I want you to explain it:
 
 ```{.QualitativeProblem .ShortAnswer give-credit="onSubmission" points=10}
-R16.13 Explain the joke. What is the actual relation between Dwayne Johnson and the Rock, and how does it differ from the suggested relation?
+13 Explain the joke. What is the actual relation between Dwayne Johnson and the Rock, and how does it differ from the suggested relation?
 ```
 
 When two distinct people look alike, we can say that they are *equal* in
 appearance. When two things are the same size, we can say they are *equal* in
-size. If two things are *equal in all ways*---that is, they are exactly
+size. When two things are *equal in all ways*---that is, they are exactly
 similar---then we can simply say that they are equal to each other.
 
-Now it is true that Dwayne Johnson is exactly similar to the Rock. And so it
-is true that he is, in this sense, equal to the Rock. But that's not because
-Dwayne and the Rock are two people who happen to be exactly alike. It's
-because Dwayne *is* the Rock: they are not two people, but one.
+No doubt Dwayne Johnson is, in this sense, equal to the Rock.
+But that's not because Dwayne and the Rock are two people who happen to be exactly alike.
+It's because Dwayne *is* the Rock: they are not two people, but one.
 
 This is related to an ambiguity, in English, with the word 'same'.
 Consider the sentence,
@@ -584,7 +618,7 @@ Consider the sentence,
 :::
 
 This can mean two things. It can mean that the dishes we ordered are exactly
-alike: perhaps each of us ordered a small pepperoni pizza. Or it can mean that
+alike: perhaps each of us ordered our own small pepperoni pizza. Or it can mean that
 we ordered a single thing: perhaps one large pepperoni pizza, to share.
 
 Again, consider the sentence,
@@ -594,7 +628,7 @@ Again, consider the sentence,
 :::
 
 This can mean that we are wearing distinct but matching sweaters. Or it can mean
-that we have (awkwardly) squeezed into a single sweater (#relationshipgoals?).
+that we have (awkwardly) squeezed into a single sweater (#questionablerelationshipgoals).
 
 :::illustration
 ![](https://reggienet.illinoisstate.edu/access/content/user/desanso/public/img/twosie.jpg){alt="A
@@ -637,13 +671,15 @@ be equivalent. We have the same number, described in two different ways.
 :::
 
 ```{.Translate .FOL points=10}
-R16.14 a=b : Superman is Clark Kent
-R16.15 a=b/\c=d : Superman is Clark Kent and Wonder Woman is Diana Prince
-R16.16 ~a=c : Superman is not Wonder Woman
+14 a=b : Superman is Clark Kent
+15 a=b/\c=d : Superman is Clark Kent and Wonder Woman is Diana Prince
+16 ~a=c : Superman is not Wonder Woman
 ```
 
+:::solution
 ::: youtube
 <https://youtu.be/vTDZvNmwAHo>
+:::
 :::
 
 :::
@@ -651,8 +687,6 @@ R16.16 ~a=c : Superman is not Wonder Woman
 In the next unit, we will explore some of the ways that identity extends the
 expressive power of our language.
 
-::: {.auto-tally}
-:::
 
 
 

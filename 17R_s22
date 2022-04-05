@@ -8,15 +8,14 @@ js:
 -   https://hypothes.is/embed.js
 ---
 
+::: {.auto-tally}
+:::
+
 ::: cover
 
 # Identity
 
 :::
-
-::: {.auto-tally}
-:::
-
 
 :::aside
 Portions of this chapter are adapted from the [Calgary Remix of *forall
@@ -105,28 +104,45 @@ Unpacking this, it says:
 :::
 
 
-```{.Translate .FOL points=10}
-R17.1 Ax(H(x)/\~x=a->I(x)): Everyone but Alex is invited to the party
-R17.2 Ax(I(x)->x=a): Only Alex is invited to the party
-R17.3 Ex(H(x)/\~x=a/\I(x)): Someone other than Alex is invited to the party
-R17.4 ~Ex(H(x)/\I(x)/\~x=a) : Nobody but Alex is invited to the party
+``` {.Translate .FOL points="10"}
+1 Ax(H(x)/\~x=a->I(x)): Everyone but Alex is invited to the party
 ```
 
+::: solution
 ::: youtube
 <https://youtu.be/mppouFJGRI8>
 :::
+:::
 
+``` {.Translate .FOL points="10"}
+2 Ax(I(x)->x=a): Only Alex is invited to the party
+```
+
+::: solution
 ::: youtube
 <https://youtu.be/9q3IBxsWDqA>
 :::
+:::
 
+``` {.Translate .FOL points="10"}
+3 Ex(H(x)/\~x=a/\I(x)): Someone other than Alex is invited to the party
+```
+
+::: solution
 ::: youtube
 <https://youtu.be/bFiJC0YUN_c>
 :::
+:::
 
+``` {.Translate .FOL points="10"}
+4 ~Ex(H(x)/\I(x)/\~x=a) : Nobody but Alex is invited to the party
+```
+::: solution
 ::: youtube
 <https://youtu.be/qeDeSP80crU>
 :::
+:::
+
 :::
 
 :::wrapper
@@ -137,7 +153,7 @@ R17.4 ~Ex(H(x)/\I(x)/\~x=a) : Nobody but Alex is invited to the party
 | b: Benny
 :::
 
-Sometimes, we want to exclude more than one specific named individuals from our
+Sometimes, we want to exclude more than one specific named individual from our
 generalization. For example:
 
 ::: {.displayed}
@@ -164,6 +180,27 @@ And sometimes, we want to exclude a whole *group* of individuals
 -   ∀x(H(x)∧¬F(x)→I(x))
 :::
 :::
+
+
+:::wrapper
+:::soasticky
+| F(x): x flies
+| H(x): x hops
+| b: Barry B. Benson
+| c: Charlotte
+:::
+
+``` {.Translate .FOL points="10"}
+5  ∀x(~b=x /\ ~c=x -> H(x)): Everyone other than Charlotte and Barry B. Benson hops
+```
+
+ADD VIDEO
+
+``` {.Translate .FOL points="10"}
+6  ∀x(~H(x) -> F(x)): Everyone who doesn't hop flies
+```
+
+ADD VIDEO
 
 ## At Least n
 
@@ -271,19 +308,31 @@ G(x): x is gross
 :::
 
 ```{.Translate .FOL points=10}
-R17.5 ExG(x) : There is at least one gross thing
-R17.6 ExEy(G(x)/\G(y)/\~x=y) : There are at least two gross things
-R17.7 ExEyEz(G(x)/\G(y)/\G(z)/\~x=y/\~x=z/\~y=z) : There are at least three gross things
+7 ExG(x) : There is at least one gross thing
 ```
-
+::: solution
 ::: youtube
 <https://youtu.be/LPQnl-R3Too>
 :::
+:::
+
+```{.Translate .FOL points=10}
+8 ExEy(G(x)/\G(y)/\~x=y) : There are at least two gross things
+```
+::: solution
 ::: youtube
 <https://youtu.be/UaVjdAGuPOk>
 :::
+:::
+
+```{.Translate .FOL points=10}
+9 ExEyEz(G(x)/\G(y)/\G(z)/\~x=y/\~x=z/\~y=z) : There are at least three gross things
+```
+
+::: solution
 ::: youtube
 <https://youtu.be/ydZevol7r10>
+:::
 :::
 
 :::
@@ -359,20 +408,34 @@ principle it is possible.
 G(x): x is a giraffe
 :::
 
-```{.Translate .FOL points=10}
-R17.8 AxAy(G(x)/\G(y)->y=x) : There is at most one giraffe
-R17.9 AxAyAz(G(x)/\G(y)/\G(z)->x=y\/x=z\/y=z) : There are at most two giraffes
-R17.10 AwAxAyAz(G(w)/\G(x)/\G(y)/\G(z)->w=x\/w=y\/w=z\/x=y\/x=z\/y=z) : There are at most three giraffes.
+``` {.Translate .FOL points="10"}
+10 AxAy(G(x)/\G(y)->y=x) : There is at most one giraffe
 ```
 
+::: solution
 ::: youtube
 <https://youtu.be/GktvxEPgtaE>
 :::
+:::
+
+``` {.Translate .FOL points="10"}
+11 AxAyAz(G(x)/\G(y)/\G(z)->x=y\/x=z\/y=z) : There are at most two giraffes
+```
+
+::: solution
 ::: youtube
 <https://youtu.be/XacDexMFTX0>
 :::
+:::
+
+``` {.Translate .FOL points="10"}
+12 AwAxAyAz(G(w)/\G(x)/\G(y)/\G(z)->w=x\/w=y\/w=z\/x=y\/x=z\/y=z) : There are at most three giraffes.
+```
+
+::: solution
 ::: youtube
 <https://youtu.be/PGwm33AwFRc>
+:::
 :::
 
 :::
@@ -451,19 +514,33 @@ H(x): x is hot
 :::
 
 ``` {.Translate .FOL points="10"}
-R17.11 Ex(H(x)/\Ay(H(y)->y=x)),ExH(x)/\AxAy(H(x)/\H(y)->x=y) : Exactly one thing is hot
-R17.12 ExEy(H(x)/\H(y)/\~x=y/\Az(H(z)->z=x\/z=y)),ExEy(H(x)/\H(y)/\~x=y)/\AxAyAz(H(x)/\H(y)/\H(z)->x=y\/x=z\/y=z): Exactly two things are hot
-R17.13 ExEyEz(H(x)/\H(y)/\H(z)/\~x=y/\~x=z/\~y=z/\Aw(H(w)->w=x\/w=y\/w=z)),ExEyEz(H(x)/\H(y)/\H(z)/\~x=y/\~x=z/\~y=z)/\AwAxAyAz(H(w)/\H(x)/\H(y)/\H(z)->w=x\/w=y\/w=z\/x=y\/x=z\/y=z) : Exactly three things are hot
+13 Ex(H(x)/\Ay(H(y)->y=x)),ExH(x)/\AxAy(H(x)/\H(y)->x=y) : Exactly one thing is hot
 ```
 
+::: solution
 ::: youtube
 <https://youtu.be/jFT6wvSbyRY>
 :::
+:::
+
+``` {.Translate .FOL points="10"}
+14 ExEy(H(x)/\H(y)/\~x=y/\Az(H(z)->z=x\/z=y)),ExEy(H(x)/\H(y)/\~x=y)/\AxAyAz(H(x)/\H(y)/\H(z)->x=y\/x=z\/y=z): Exactly two things are hot
+```
+
+::: solution
 ::: youtube
 <https://youtu.be/e10zB7wbk9E>
 :::
+:::
+
+``` {.Translate .FOL points="10"}
+15 ExEyEz(H(x)/\H(y)/\H(z)/\~x=y/\~x=z/\~y=z/\Aw(H(w)->w=x\/w=y\/w=z)),ExEyEz(H(x)/\H(y)/\H(z)/\~x=y/\~x=z/\~y=z)/\AwAxAyAz(H(w)/\H(x)/\H(y)/\H(z)->w=x\/w=y\/w=z\/x=y\/x=z\/y=z) : Exactly three things are hot
+```
+
+::: solution
 ::: youtube
 <https://youtu.be/7xa6dqUVZdc>
+:::
 :::
 
 :::
@@ -528,10 +605,34 @@ and we can translate them using constants.
 :::
 
 ```{.Translate .FOL points=10}
-R17.14 G(c,d): Margaret Cavendish was born in 1623.
-R17.15 G(a,d): The author of Observations upon Experimental Philosophy was born in 1623.
-R17.16 F(c,b): Margaret Cavendish wrote Observations upon Experimental Philosophy.
+16 G(c,d): Margaret Cavendish was born in 1623.
 ```
+
+:::spoiler
+Since 'c' names Margaret Cavendish, and 'd' names 1623, the answer is:
+
+:::displayed
+-   G(c,d)
+:::
+
+:::
+
+```{.Translate .FOL points=10}
+17 G(a,d): The author of Observations upon Experimental Philosophy was born in 1623.
+```
+
+:::spoiler
+-   G(a,d)
+:::
+
+
+```{.Translate .FOL points=10}
+18 F(c,b): Margaret Cavendish wrote Observations upon Experimental Philosophy.
+```
+
+:::spoiler
+-   F(c,b)
+:::
 
 But this way of handling definite descriptions fails to represent their
 content. For example, the following argument seems to be valid:
@@ -551,7 +652,7 @@ But when we render the argument into PL using our scheme, we get:
 
 And this has no chance of being valid. The *logical*
 relationship between the author, a, and the book, c, has been completely
-erased.
+elided.
 
 :::
 
@@ -698,12 +799,13 @@ before we did not.
 :::
 
 ```{.Translate .FOL points=10}
-R17.17 Ex(G(x)/\H(x)): A King of Norway is bald 
-R17.18 Ex(G(x)/\Ay(G(y)->y=x)/\H(x)) : The King of Norway is bald
+19 Ex(G(x)/\H(x)): A King of Norway is bald 
+20 Ex(G(x)/\Ay(G(y)->y=x)/\H(x)) : The King of Norway is bald
 ```
-
+:::solution
 ::: youtube
 <https://youtu.be/0I2QgDaiTRg>
+:::
 :::
 
 Note that on Russell's theory, the sentence, 'The King of Norway is bald' can
@@ -823,15 +925,17 @@ So there is no valid line of reasoning that gets us from (1) to (3).
 :::
 
 ```{.Translate .FOL points=10}
-R17.19 Ex(F(x)/\Ay(F(y)->x=y)/\G(x)): The main character in Friends is annoying
-R17.20 ~Ex(F(x)/\Ay(F(y)->x=y)/\G(x)): The main character in Friends is not annoying (wide scope negation)
-R17.21 Ex(F(x)/\Ay(F(y)->x=y)/\~G(x)): The main character in Friends is not annoying (narrow scope negation)
-R17.22 Ex(F(x)/\Ay(F(y)->x=y)/\x=b): The main character in Friends is Phoebe
-R17.23 Ex(F(x)/\Ay(F(y)->x=y)/\~x=b): The main character in Friends is not Phoebe (narrow scope negation)
+21 Ex(F(x)/\Ay(F(y)->x=y)/\G(x)): The main character in Friends is annoying
+22 ~Ex(F(x)/\Ay(F(y)->x=y)/\G(x)): The main character in Friends is not annoying (wide scope negation)
+23 Ex(F(x)/\Ay(F(y)->x=y)/\~G(x)): The main character in Friends is not annoying (narrow scope negation)
+24 Ex(F(x)/\Ay(F(y)->x=y)/\x=b): The main character in Friends is Phoebe
+25 Ex(F(x)/\Ay(F(y)->x=y)/\~x=b): The main character in Friends is not Phoebe (narrow scope negation)
 ```
 
+:::solution
 ::: youtube
 <https://youtu.be/vi9vBwYzP68>
+:::
 :::
 
 :::

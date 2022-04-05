@@ -22,21 +22,21 @@ js:
 :::
 
 ```{.Translate .FOL points=10}
-E16.1 K(a,b) : Amber kicks Beatrice
-E16.2 G(b,a) : Beatrice sees Amber
-E16.3 G(a,a) : Amber sees herself
-E16.4 ~G(b,a) : Beatrice does not see Amber
-E16.5 ExK(x,b) : Something kicks Beatrice
-E16.6 ExK(a,x) : Amber kicks something
-E16.7 AxG(a,x) : Amber sees everything
-E16.8 AxG(x,a) : Everything sees Amber
-E16.9 Ax(H(x)->G(a,x)) : Amber sees everyone
-E16.10 Ax(H(x)->G(x,a)) : Everyone sees Amber
-E16.11 Ex(H(x)/\K(b,x)) : Beatrice kicks somebody
-E16.12 Ex(H(x)/\K(x,b)) : Somebody kicks Beatrice
-E16.13 ExAyG(x,y) : Something is such that it sees everything
-E16.14 AxEyG(x,y) : Everything is such that it sees something or other
-E16.15 EyAxG(x,y) : Something is such that everything sees it
+1 K(a,b) : Amber kicks Beatrice
+2 G(b,a) : Beatrice sees Amber
+3 G(a,a) : Amber sees herself
+4 ~G(b,a) : Beatrice does not see Amber
+5 ExK(x,b) : Something kicks Beatrice
+6 ExK(a,x) : Amber kicks something
+7 AxG(a,x) : Amber sees everything
+8 AxG(x,a) : Everything sees Amber
+9 Ax(H(x)->G(a,x)) : Amber sees everyone
+10 Ax(H(x)->G(x,a)) : Everyone sees Amber
+11 Ex(H(x)/\K(b,x)) : Beatrice kicks somebody
+12 Ex(H(x)/\K(x,b)) : Somebody kicks Beatrice
+13 ExAyG(x,y) : Something is such that it sees everything
+14 AxEyG(x,y) : Everything is such that it sees something or other
+15 EyAxG(x,y) : Something is such that everything sees it
 ```
 
 :::
@@ -53,19 +53,17 @@ E16.15 EyAxG(x,y) : Something is such that everything sees it
 :::
 
 ```{.Translate .FOL points=10}
-E16.16 a=b: Ted Cruz is the Zodiak Killer
-E16.17 ~a=b: Ted Cruz is not the Zodiak Killer
-E16.18 ~a=c: Ted Cruz is not Tom Cruise
-E16.19 a=c->F(a): If Ted Cruz is Tom Cruise, then Ted Cruz is an actor
-E16.20 ~d=c/\(F(c)/\F(d)): Miles Fisher is not Tom Cruise, but both are actors.
-E16.21 Ex(H(x)/\x=b): Someone is identical to the Zodiac Killer
-E16.22 Ax(G(x)->~x=c): No politician is identical to Tom Cruise 
+16 a=b: Ted Cruz is the Zodiak Killer
+17 ~a=b: Ted Cruz is not the Zodiak Killer
+18 ~a=c: Ted Cruz is not Tom Cruise
+19 a=c->F(a): If Ted Cruz is Tom Cruise, then Ted Cruz is an actor
+20 ~d=c/\(F(c)/\F(d)): Miles Fisher is not Tom Cruise, but both are actors.
+21 Ex(H(x)/\x=b): Someone is identical to the Zodiac Killer
+22 Ax(G(x)->~x=c): No politician is identical to Tom Cruise 
 ```
 
 :::
 
-::: {.auto-tally}
-:::
 
 
 <!-- vim: set ft=carnap :-->

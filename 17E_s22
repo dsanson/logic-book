@@ -7,10 +7,11 @@ js:
 -   https://carnap.io/shared/dsanson@gmail.com/logic-book.js
 ---
 
-# Relations and Identity: Exercises
-
 ::: {.auto-tally}
 :::
+
+# Relations and Identity: Exercises
+
 
 :::wrapper
 :::soasticky
@@ -22,9 +23,9 @@ js:
 :::
 
 ```{.Translate .FOL points=10}
-R17.1 Ax(H(x)/\~x=a->F(x)) : Everyone but Alana is foolish.
-R17.2 Ax(H(x)/\~x=b->~G(x)) : Nobody other than Benj is brave.
-R17.3 Ax(G(x)->x=a\/x=b) : Only Benj and Alana are brave.
+1 Ax(H(x)/\~x=a->F(x)) : Everyone but Alana is foolish.
+2 Ax(H(x)/\~x=b->~G(x)) : Nobody other than Benj is brave.
+3 Ax(G(x)->x=a\/x=b) : Only Benj and Alana are brave.
 ```
 :::
 
@@ -38,9 +39,9 @@ R17.3 Ax(G(x)->x=a\/x=b) : Only Benj and Alana are brave.
 :::
 
 ```{.Translate .FOL points=10}
-R17.4 Ax(I(x)/\~c=x->F(a,x)) : Aurora is bigger than every city in Illinois other than Chicago
-R17.5 ~Ex(I(x)/\F(x,b)/\~x=c/\~x=a) : No cities in Illinois are bigger than Rockford except Chicago and Aurora
-R17.6 Ex(I(x)/\~x=c/\F(x,b)) : Some city in Illinois other than Chicago is bigger than Rockford
+4 Ax(I(x)/\~c=x->F(a,x)) : Aurora is bigger than every city in Illinois other than Chicago
+5 ~Ex(I(x)/\F(x,b)/\~x=c/\~x=a) : No cities in Illinois are bigger than Rockford except Chicago and Aurora
+6 Ex(I(x)/\~x=c/\F(x,b)) : Some city in Illinois other than Chicago is bigger than Rockford
 ```
 :::
 
@@ -53,9 +54,9 @@ R17.6 Ex(I(x)/\~x=c/\F(x,b)) : Some city in Illinois other than Chicago is bigge
 :::
 
 ```{.Translate .FOL points=10}
-R17.7 Ax(H(x)->L(x,b)): Everybody loves my baby 
-R17.8 Ax(H(x)/\~x=a->~L(b,x)) : My baby doesn't love anybody but me
-R17.9 a=b : I am my baby 
+7 Ax(H(x)->L(x,b)): Everybody loves my baby 
+8 Ax(H(x)/\~x=a->~L(b,x)) : My baby doesn't love anybody but me
+9 a=b : I am my baby 
 ```
 
 For more on these weird old song lyrics, see the end of [Chapter 18](18R).
@@ -71,12 +72,12 @@ For more on these weird old song lyrics, see the end of [Chapter 18](18R).
 :::
 
 ```{.Translate .FOL points=10}
-R17.10 ExEy(G(x)/\I(x)/\G(y)/\I(y)/\~x=y) : There are at least two big cities in Illinois
-R17.11 AxAyAz(G(x)/\I(x)/\G(y)/\I(y)/\G(z)/\I(z)->x=y\/x=z\/y=z) : There are at most two big cities in Illinois
-R17.12 ExEy(G(x)/\I(x)/\G(y)/\I(y)/\~x=y)/\AxAyAz(G(x)/\I(x)/\G(y)/\I(y)/\G(z)/\I(z)->x=y\/x=z\/y=z), ExEy(G(x)/\I(x)/\G(y)/\I(y)/\Az(G(z)/\I(z)->z=x\/z=y)) : There are exactly two big cities in Illinois
-R17.13 Ex(G(x)/\F(x,c)) : There is at least one big city bigger than Chicago
-R17.14 ExEy(G(x)/\G(y)/\F(x,c)/\F(y,c)/\~x=y) : There are at least two big cities bigger than Chicago
-R17.15 ExEy(G(x)/\F(x,c)/\G(y)/\F(y,c)/\~x=y)/\AxAyAz(G(x)/\F(x,c)/\G(y)/\F(y,c)/\G(z)/\F(z,c)->x=y\/x=z\/y=x), ExEy(G(x)/\F(x,c)/\G(y)/\F(y,c)/\~x=y/\Az(G(z)/\F(z,c)->z=x\/z=y)) : There are exactly two big cities bigger than Chicago
+10 ExEy(G(x)/\I(x)/\G(y)/\I(y)/\~x=y) : There are at least two big cities in Illinois
+11 AxAyAz(G(x)/\I(x)/\G(y)/\I(y)/\G(z)/\I(z)->x=y\/x=z\/y=z) : There are at most two big cities in Illinois
+12 ExEy(G(x)/\I(x)/\G(y)/\I(y)/\~x=y)/\AxAyAz(G(x)/\I(x)/\G(y)/\I(y)/\G(z)/\I(z)->x=y\/x=z\/y=z), ExEy(G(x)/\I(x)/\G(y)/\I(y)/\Az(G(z)/\I(z)->z=x\/z=y)) : There are exactly two big cities in Illinois
+13 Ex(G(x)/\F(x,c)) : There is at least one big city bigger than Chicago
+14 ExEy(G(x)/\G(y)/\F(x,c)/\F(y,c)/\~x=y) : There are at least two big cities bigger than Chicago
+15 ExEy(G(x)/\F(x,c)/\G(y)/\F(y,c)/\~x=y)/\AxAyAz(G(x)/\F(x,c)/\G(y)/\F(y,c)/\G(z)/\F(z,c)->x=y\/x=z\/y=x), ExEy(G(x)/\F(x,c)/\G(y)/\F(y,c)/\~x=y/\Az(G(z)/\F(z,c)->z=x\/z=y)) : There are exactly two big cities bigger than Chicago
 ```
 :::
 
@@ -88,11 +89,11 @@ R17.15 ExEy(G(x)/\F(x,c)/\G(y)/\F(y,c)/\~x=y)/\AxAyAz(G(x)/\F(x,c)/\G(y)/\F(y,c)
 :::
 
 ```{.Translate .FOL points=10}
-R17.16 ~Ex(F(x)/\G(x)/\H(x)) : No good dogs live at the White House
-R17.17 ExEy(F(x)/\H(x)/\F(y)/\H(y)/\~x=y/\G(x)/\G(y)) : At least two good dogs live at the White House 
-R17.18 Ex(F(x)/\H(x)/\Ay(F(y)/\H(y)->x=y)/\G(x)) : The dog who lives at the White House is good
-R17.19 ~Ex(F(x)/\H(x)/\Ay(F(y)/\H(y)->x=y)/\G(x)) : The dog who lives at the White House is not good (wide scope negation)
-R17.20 Ex(F(x)/\H(x)/\Ay(F(y)/\H(y)->x=y)/\~G(x)) : The dog who lives at the White House is not good (narrow scope negation)
+16 ~Ex(F(x)/\G(x)/\H(x)) : No good dogs live at the White House
+17 ExEy(F(x)/\H(x)/\F(y)/\H(y)/\~x=y/\G(x)/\G(y)) : At least two good dogs live at the White House 
+18 Ex(F(x)/\H(x)/\Ay(F(y)/\H(y)->x=y)/\G(x)) : The dog who lives at the White House is good
+19 ~Ex(F(x)/\H(x)/\Ay(F(y)/\H(y)->x=y)/\G(x)) : The dog who lives at the White House is not good (wide scope negation)
+20 Ex(F(x)/\H(x)/\Ay(F(y)/\H(y)->x=y)/\~G(x)) : The dog who lives at the White House is not good (narrow scope negation)
 ```
 
 :::
