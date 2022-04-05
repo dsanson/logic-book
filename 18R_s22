@@ -8,13 +8,13 @@ js:
 -   https://hypothes.is/embed.js
 ---
 
+::: {.auto-tally}
+:::
+
 ::: cover
 
 # Derivations in PL with Relations and Identity
 
-:::
-
-::: {.auto-tally}
 :::
 
 In this unit, we extend our system of derivation to handle multi-place
@@ -56,18 +56,17 @@ Before we get into the weeds, take a moment to convince yourself that this
 argument is valid.
 
 ```{.QualitativeProblem .ShortAnswer give-credit="onSubmission" points=10}
-R18.1 Explain why this argument is valid, by reasoning from the premises to the conclusion.
+1 Explain why this argument is valid, by reasoning from the premises to the conclusion.
 ```
-
 Now let's translate the premises and conclusion into PL. (Technically, given
 the use of 'nobody' and 'everyone', we should translate these as
 generalizations restricted to persons. But for the sake of simplicity, let's
 ignore that complication here.)
 
 ``` {.Translate .FOL points="10"}
-R18.2 AxAy(F(x,y)->~G(x,y)) : Nobody rats on their friend.
-R18.3 AxF(x,x) : Everyone is their own friend.
-R18.4 ~ExG(x,x) : Nobody rats on themself.
+2 AxAy(F(x,y)->~G(x,y)) : Nobody rats on their friend.
+3 AxF(x,x) : Everyone is their own friend.
+4 ~ExG(x,x) : Nobody rats on themself.
 ```
 
 :::spoiler
@@ -130,10 +129,10 @@ Another idea is to make an assumption for ID. That yields an existential general
 ```
 
 I find the first strategy much easier to implement, so that's what I
-recommend. But I either strategy will work.
+recommend. But either strategy will work.
 
 ```{.ProofChecker .FirstOrder options="guides fonts indent tabindent resize" points=10}
-R18.5 AxAy(F(x,y)->~G(x,y)), AxF(x,x) :|-: ~ExG(x,x)
+5 AxAy(F(x,y)->~G(x,y)), AxF(x,x) :|-: ~ExG(x,x)
 ```
 
 :::youtube
@@ -155,8 +154,10 @@ Here is the scene from the movie *Fight Club* where (**SPOILER ALERT!**) the
 Narrator ("Jack", played by Edward Norton), realizes that he *is* Tyler Durden
 (played by Brad Pitt):
 
+:::solution
 ::: youtube
 <https://youtu.be/WKVxKrrbz1E>
+:::
 :::
 
 The central drama of the scene involves a logical inference: *since* Jack 
@@ -199,8 +200,10 @@ Or, in PL:
 In the 1980 version of Superman, Lois discovers that Clark is Superman when he
 stumbles into a fire pit:
 
+:::solution
 ::: youtube
 <https://youtu.be/rMH3omIA15k>
+:::
 :::
 
 Lois covers it well, but perhaps the dramatic tension here lies not just in
@@ -217,8 +220,10 @@ time *Clark* gaslit her, *Superman* gaslit her too:
 One more example: consider what happens when Miley Stewart's secret identity
 as Hannah Montana is revealed to her best friend, Lily:
 
+:::solution
 ::: youtube
 <https://youtu.be/DARByjEn9rI>
+:::
 :::
 
 Why the shock on Lily's face? It comes as the result of a flood of logical
@@ -302,7 +307,6 @@ For example:
 | a: Tyler
 | b: me
 :::
-
 
 ::: standardform
 -   F(a,b)
@@ -404,7 +408,7 @@ Here is an example of LL in an actual derivation. Can you complete the
 derivation?
 
 ```{.ProofChecker .FirstOrder options="guides fonts indent tabindent resize" init="now" points=10}
-R18.6 F(a)->G(c), G(b)/\F(b), a=b :|-: G(c)
+6 F(a)->G(c), G(b)/\F(b), a=b :|-: G(c)
 |1.Show G(c)
 |2. F(a)->G(c) :PR
 |3. G(b)/\F(b) :PR
@@ -412,8 +416,10 @@ R18.6 F(a)->G(c), G(b)/\F(b), a=b :|-: G(c)
 |5. G(a)/\F(a) :LL 3,4
 ```
 
+:::solution
 ::: youtube
 <https://youtu.be/iJnsUXMCY1Q>
+:::
 :::
 
 Note that, in the example above, on line (5), I substituted both occurrences
@@ -461,8 +467,10 @@ For example, in a famous scene from *The Maltese Falcon*, Kasper Gutman discover
 stolen statue is made of lead. From this, he infers that it is not the statue he was
 after, since the statue he was after was made of gold:
 
+:::solution
 ::: youtube
 <https://youtu.be/7Xuw-XKP1sI>
+:::
 :::
 
 Here is his inference:
@@ -485,8 +493,10 @@ Similarly, viewers of the eighties classic TV show, Knight Rider, knew that
 Garthe Knight was *not* identical to Michael Knight, because Garthe
 had a svelte mustache and soul patch, while Michael was clean shaven:
 
+:::solution
 ::: youtube
 <https://youtu.be/ChUa3k4vHeQ>
+:::
 :::
 
 So, here is the inference viewers made:
@@ -547,7 +557,7 @@ In standard form:
 Can you see why this is valid?
 
 ```{.QualitativeProblem .ShortAnswer give-credit="onSubmission" points=10}
-R18.7 Try to explain, as best you can, how the conclusion follows from these premises.
+7 Try to explain, as best you can, how the conclusion follows from these premises.
 ```
 
 :::spoiler
@@ -569,11 +579,13 @@ Here is the argument in PL:
 Now try to complete the derivation, using LL:
 
 ```{.ProofChecker .FirstOrder options="guides fonts indent tabindent resize" points=10}
-R18.8 Ax(F(x)->G(x)),ExF(x),Ex~G(x):|-: ExEy(~x=y)
+8 Ax(F(x)->G(x)),ExF(x),Ex~G(x):|-: ExEy(~x=y)
 ```
 
+:::solution
 :::youtube
 <https://youtu.be/SeO0tJAEHfw>
+:::
 :::
 
 ### Identity and Symmetry
@@ -600,13 +612,14 @@ to distinguish it from 'ID', which is indirect derivation.
 Here is a partially completed derivation, demonstrating the use of this new rule. Can you complete it? 
 
 ```{.ProofChecker .FirstOrder options="guides fonts indent tabindent resize" init=now points=10}
-R18.9 :|-: Exx=x
+9 :|-: Exx=x
 |1.Show Exx=x
 |2. a=a  :Id
 ```
-
+:::solution
 ::: youtube
 <https://youtu.be/eO1SRBFHAas>
+:::
 :::
 
 Identity is also *symmetric*. That is, 'a=b' is logically equivalent to 'b=a'.
@@ -630,7 +643,7 @@ Here is a partially completed derivation, demonstrating the use of this new
 rule. Can you complete it? 
 
 ```{.ProofChecker .FirstOrder options="guides fonts indent tabindent resize" points=10 init=now}
-R18.10 :|-: a=b<->b=a
+10 :|-: a=b<->b=a
 |1.Show a=b<->b=a
 |2. Show a=b->b=a
 |3.  a=b :AS
@@ -639,8 +652,10 @@ R18.10 :|-: a=b<->b=a
 |6. Show b=a->a=b
 ```
 
+:::solution
 ::: youtube
 <https://youtu.be/5KMCsVyT6Kk>
+:::
 :::
 
 ## Some More Derivations
@@ -675,11 +690,13 @@ argument, in PL, looks like this:
 Now try to derive the conclusion from the premise:
 
 ```{.ProofChecker .FirstOrder options="guides fonts indent tabindent resize" points=10}
-R18.11 Ax(L(x,a)/\Ay(L(x,y)->y=a)):|-:L(a,b)->a=b
+11 Ax(L(x,a)/\Ay(L(x,y)->y=a)):|-:L(a,b)->a=b
 ```
 
+:::solution
 :::youtube
 <https://youtu.be/mOusTdNm1Wk>
+:::
 :::
 
 Here is a fun example. There is an old song with the lyrics:
@@ -691,8 +708,10 @@ Here is a fun example. There is an old song with the lyrics:
 :::aside
 Here is the Fats Waller version of "Everybody Loves My Baby"
 
+:::solution
 :::youtube
 <https://youtu.be/d_gHFNDb0Fo>
+:::
 :::
 :::
 
@@ -707,11 +726,13 @@ Now consider the following argument:
 That's a surprising conclusion! Do you see why it follows? 
 
 ```{.ProofChecker .FirstOrder options="guides fonts indent tabindent resize" points=10}
-R18.12 AxL(x,b),~Ex(L(b,x)/\~x=a):|-:a=b
+12 AxL(x,b),~Ex(L(b,x)/\~x=a):|-:a=b
 ```
 
+:::solution
 :::youtube
 <https://youtu.be/PS1_iiiTIDo>
+:::
 :::
 
 
