@@ -186,21 +186,24 @@ And sometimes, we want to exclude a whole *group* of individuals
 :::soasticky
 | F(x): x flies
 | H(x): x hops
+| I(x): x is a bug
 | b: Barry B. Benson
 | c: Charlotte
 :::
 
 ``` {.Translate .FOL points="10"}
-5  ∀x(~b=x /\ ~c=x -> H(x)): Everyone other than Charlotte and Barry B. Benson hops
+5  ∀x(I(x) /\ ~x=b /\ ~x=c -> H(x)): Every bug other than Charlotte and Barry B. Benson hops
 ```
-
-ADD VIDEO
+:::solution
+![Solution to 5](https://reggienet.illinoisstate.edu/access/content/user/desanso/public/vid/everybugotherthancharlotteandbarryhops.mp4)
+:::
 
 ``` {.Translate .FOL points="10"}
-6  ∀x(~H(x) -> F(x)): Everyone who doesn't hop flies
+6  ∀x(I(x) /\ ~H(x) -> F(x)): Every bug that doesn't hop flies
 ```
-
-ADD VIDEO
+:::solution
+![Solution to 6](https://reggienet.illinoisstate.edu/access/content/user/desanso/public/vid/everybugthatdoesnthopflies.mp4)
+:::
 
 :::
 

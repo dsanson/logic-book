@@ -240,7 +240,9 @@ Then try it for yourself:
 1 Ay~G(y) :|-: ~G(c)/\~G(d)
 ```
 
-ADD VIDEO
+:::solution
+![Solution to 1](https://reggienet.illinoisstate.edu/access/content/user/desanso/public/vid/der_AyNGy_KNGcGd.mp4)
+:::
 
 Here is a derivation that uses EG:
 
@@ -282,8 +284,10 @@ Then try another derivation yourself:
 2 AyG(y),F(b) :|-: G(c)/\ExF(x)
 ```
 
+:::solution
 ::: youtube
 <https://youtu.be/I1bDmxkIh-U>
+:::
 :::
 
 Can you fix the mistakes below:
@@ -499,9 +503,11 @@ Here is another derivation. I've done most of it. Can you finish it?
 |6.:CD 5
 ~~~
 
-<div class=youtube>
+::: solution
+::: youtube
 <https://youtu.be/pxOzKG7729M>
-</div>
+:::
+:::
 
 Here is another to try:
 
@@ -509,9 +515,11 @@ Here is another to try:
 4 Ax(F(x)), F(b)/\F(c) -> G(c) :|-: ExG(x)
 ```
 
-<div class=youtube>
+::: solution
+::: youtube
 <https://youtu.be/iHR5fW4gqik>
-</div>
+:::
+:::
 
 ## Universal Derivation (UD) 
 
@@ -633,8 +641,10 @@ for 'H'.
 5 Ax(F(x)->G(x)), Ax(G(x)->H(x)) :|-: Ax(F(x)->H(x))
 ```
 
-::: {.youtube}
+::: solution
+::: youtube
 <https://youtu.be/lgF8rx3_iZA>
+:::
 :::
 
 ## Existential Derivation (ED)
@@ -762,8 +772,10 @@ Here is a derivation that contains a mistake:
 
 Can you find the mistake? Can you fix it? 
 
-::: {.youtube}
+::: solution
+::: youtube
 <https://youtu.be/UHzaSCeXpN4>
+:::
 :::
 
 This example illustrates a couple of important points. First, it illustrates
@@ -785,9 +797,10 @@ Try another:
 ```{.ProofChecker .FirstOrder options="guides fonts indent tabindent resize" points=10}
 7 Ax(F(x)->G(x)), Ex(F(x)/\H(x)) :|-: Ex(G(x)/\H(x))
 ```
-
+:::solution
 ::: {.youtube}
 <https://youtu.be/F0Da_PUEDIM>
+:::
 :::
 
 ## Summary so far
@@ -917,8 +930,10 @@ Here is a problem for you to try, using QN:
 8 ~AxF(x), Ex~F(x)->AyG(y) :|-: G(a) 
 ```
 
+:::solution
 ::: {.youtube}
 <https://youtu.be/bZEtzZ3_GNE>
+:::
 :::
 
 

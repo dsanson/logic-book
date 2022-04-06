@@ -695,7 +695,7 @@ It makes some derivations *a lot* simpler. For example:
 18 ~(R->S),R->T,P->S :|-: ~P/\T
 ```
 
-:::spoiler
+:::solution
 ![](https://reggienet.illinoisstate.edu/access/content/user/desanso/public/vid/R11.18.mp4)
 :::
 
@@ -747,7 +747,7 @@ Tollens.
 19 ~(P<->Q), ~(R<->Q) :|-: P->R
 ```
 
-:::spoiler
+:::solution
 ![](https://reggienet.illinoisstate.edu/access/content/user/desanso/public/vid/R11.19.mp4)
 :::
 
@@ -838,7 +838,7 @@ other derivations much easier. For this one, use D-DMNC on the premise:
 23 ~(P\/Q), R->P, S->Q :|-: ~R/\~S
 ```
 
-:::spoiler
+:::solution
 ![](https://reggienet.illinoisstate.edu/access/content/user/desanso/public/vid/R11.23.mp4)
 :::
 
@@ -848,7 +848,7 @@ Try completing this one using ID:
 24 P->Q, ~P->R:|-: Q\/R
 ```
 
-:::spoiler
+:::solution
 ![](https://reggienet.illinoisstate.edu/access/content/user/desanso/public/vid/R11.24.mp4)
 :::
 
