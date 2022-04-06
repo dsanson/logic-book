@@ -255,12 +255,23 @@ In PL, it looks like this:
 :::
 
 
-```{.QualitativeProblem .ShortAnswer give-credit="onSubmission" points=10}
+``` {.QualitativeProblem .ShortAnswer give-credit="onSubmission" points="10"}
 4 Translate ∀x(F(x)∧G(x)) into canonical English, and then replace the bound variables with pronouns. Show your steps.
+```
+
+::: solution
+![Solution to
+4](https://reggienet.illinoisstate.edu/access/content/user/desanso/public/vid/trans_AxKFxGx.mp4)
+:::
+
+``` {.QualitativeProblem .ShortAnswer give-credit="onSubmission" points="10"}
 5 Translate ∃xF(x)∧∀yG(y) into canonical English, and then replace the bound variables with anaphoric pronouns. Show your steps.
 ```
 
-ADD VIDEO
+::: solution
+![Solution to
+5](https://reggienet.illinoisstate.edu/access/content/user/desanso/public/vid/trans_KExFxAyGy.mp4)
+:::
 
 :::
 
@@ -492,24 +503,48 @@ they are asking if *something* is out there.
 So sometimes 'anything' means 'everything',
 and sometimes 'anything' means 'something'.
 
-```{.Translate .FOL points=10}
+``` {.Translate .FOL points="10"}
 9   ExG(x): Something is allowed.
-10   ~ExG(x): Nothing is allowed.
-11.  AxG(x): Everything is allowed.
 ```
 
 :::solution
-ADD VIDEO
+![Solution to 9](https://reggienet.illinoisstate.edu/access/content/user/desanso/public/vid/somethingisallowed.mp4)
 :::
 
-```{.Translate .FOL points=10}
+``` {.Translate .FOL points="10"}
+10   ~ExG(x): Nothing is allowed.
+```
+:::solution
+![Solution to 10](https://reggienet.illinoisstate.edu/access/content/user/desanso/public/vid/nothingisallowed.mp4)
+:::
+
+``` {.Translate .FOL points="10"}
+11.  AxG(x): Everything is allowed.
+```
+:::solution
+![Solution to 11](https://reggienet.illinoisstate.edu/access/content/user/desanso/public/vid/everythingisallowed.mp4)
+:::
+
+``` {.Translate .FOL points="10"}
 12  ExO(x)->AyH(y): If something is out there, then everything happens for a reason
+```
+:::solution
+![Solution to 12](https://reggienet.illinoisstate.edu/access/content/user/desanso/public/vid/ifsomethingisouttheretheneverythinghappensforareason.mp4)
+:::
+
+``` {.Translate .FOL points="10"}
 13  ExO(x)∧AyH(y): Something is out there and everything happens for a reason
-14  ~ExO(x)∧AyH(y): Nothing is out there and but everything happens for a reason
+```
+:::solution
+![Solution to 13](https://reggienet.illinoisstate.edu/access/content/user/desanso/public/vid/somethingisoutthereandeverythinghappensforareason.mp4)
+:::
+
+``` {.Translate .FOL points="10"}
+14  ~ExO(x)∧AyH(y): Nothing is out there but everything happens for a reason
 ```
 
 :::solution
-ADD VIDEO
+![Solution to 14](https://reggienet.illinoisstate.edu/access/content/user/desanso/public/vid/nothingisouttherebuteverythinghappensforareason.mp4)
 :::
 
 ```{.Translate .FOL points=10}
@@ -517,7 +552,7 @@ ADD VIDEO
 ```
 
 :::solution
-ADD VIDEO
+![Solution to 15](https://reggienet.illinoisstate.edu/access/content/user/desanso/public/vid/everythingisallowedornoteverythingisallowed.mp4)
 :::
 
 ```{.Translate .FOL points=10}
@@ -531,7 +566,7 @@ Sometimes it means 'everything', but sometimes it means 'something'.
 :::
 
 :::solution
-![](https://reggienet.illinoisstate.edu/access/content/user/desanso/public/vid/R13.9.mp4)
+![Solution to 16](https://reggienet.illinoisstate.edu/access/content/user/desanso/public/vid/ifanythingisoutthereanythinggoes.mp4)
 :::
 
 ```{.Translate .FOL points=10}
@@ -996,6 +1031,7 @@ but with the conditional formula reversed:
 
 Note the similarity between this use of 'only' as part of a quantifier phrase
 and the use of 'only' as part of the sentential connective, 'only if'.
+:::
 
 :::wrapper
 ::: {.soasticky}
@@ -1251,19 +1287,76 @@ same thing:
 | F: is friendly
 :::
 
-```{.Translate .FOL points=10}
+``` {.Translate .FOL points="10"}
 42 Ex(H(x)/\M(x)) : Some cows moo 
+```
+
+::: solution
+![Solution to
+42](https://reggienet.illinoisstate.edu/access/content/user/desanso/public/vid/somecowsmoo.mp4)
+:::
+
+``` {.Translate .FOL points="10"}
 43 Ax(H(x)->M(x)) : All cows moo
+```
+
+::: solution
+![Solution to
+43](https://reggienet.illinoisstate.edu/access/content/user/desanso/public/vid/allcowsmoo.mp4)
+:::
+
+``` {.Translate .FOL points="10"}
 44 Ax(M(x)->H(x)) : Only cows moo
+```
+
+::: solution
+![Solution to
+44](https://reggienet.illinoisstate.edu/access/content/user/desanso/public/vid/onlycowsmoo.mp4)
+:::
+
+``` {.Translate .FOL points="10"}
 45 Ax(H(x)<->M(x)): All and only cows moo
+```
+
+::: solution
+![Solution to
+45](https://reggienet.illinoisstate.edu/access/content/user/desanso/public/vid/allandonlycowsmoo.mp4)
+:::
+
+``` {.Translate .FOL points="10"}
 46 Ax(H(x)->~M(x)): No cows moo
+```
+
+::: solution
+![Solution to
+46](https://reggienet.illinoisstate.edu/access/content/user/desanso/public/vid/nocowsmoo.mp4)
+:::
+
+``` {.Translate .FOL points="10"}
 47 Ex(H(x)/\~M(x)): Some cows don't moo
+```
+
+::: solution
+![Solution to
+47](https://reggienet.illinoisstate.edu/access/content/user/desanso/public/vid/somecowsdontmoo.mp4)
+:::
+
+``` {.Translate .FOL points="10"}
 48 Ax(H(x)<->F(x)): Just the cows are friendly
 ```
 
-:::solution
-ADDVIDEO
+::: solution
+![Solution to
+48](https://reggienet.illinoisstate.edu/access/content/user/desanso/public/vid/justthecowsarefriendly.mp4)
 :::
+
+
+
+
+
+
+
+
 
 :::
 
@@ -1306,13 +1399,34 @@ we've already considered, for expressing restricted generalizations.
 | H: is a person
 :::
 
-```{.Translate .FOL points=10}
+``` {.Translate .FOL points="10"}
 49. Ex(H(x)/\F(x)): Someone is fond of foxes
+```
+
+::: solution
+![Solution to
+49](https://reggienet.illinoisstate.edu/access/content/user/desanso/public/vid/someoneisfondoffoxes.mp4)
+:::
+
+``` {.Translate .FOL points="10"}
 50. Ax(H(x)->F(x)): Everybody is fond of foxes
+```
+
+::: solution
+![Solution to
+50](https://reggienet.illinoisstate.edu/access/content/user/desanso/public/vid/everybodyisfondoffoxes.mp4)
+:::
+
+``` {.Translate .FOL points="10"}
 51. Ax(H(x)->~G(x)),~Ex(H(x)/\G(x)): Nobody is good at sports
 ```
 
-ADD VIDEO
+::: solution
+![Solution to
+51](https://reggienet.illinoisstate.edu/access/content/user/desanso/public/vid/nobodyisgoodatsports.mp4)
+:::
+
+:::
 
 ## Complex Subjects and Predicates
 
@@ -1419,6 +1533,7 @@ instead logically complex. For example:
 -   Some frogs hop or swim.
 -   ∃x(F(x) ∧ (H(x) ∨ M(x)))
 :::
+:::
 
 :::wrapper
 ::: {.soasticky}
@@ -1438,6 +1553,7 @@ instead logically complex. For example:
 
 ::: youtube
 <https://youtu.be/-87R9H7jl4Q>
+:::
 :::
 
 That last one is weird. English wouldn't be a natural language if it didn't throw us a couple of
@@ -1684,6 +1800,7 @@ existential generalization:
 ::: displayed
 -   A dog barked.
 -   ∃x(F(x) → G(x))
+:::
 :::
 
 So indefinite articles express existential generalizations. Except when they
