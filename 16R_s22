@@ -161,6 +161,7 @@ And this allows us to go one step further. From 'Adam loves Billy', it follows t
 ::: displayed
 -   L(a,b) ⊢ ∃x∃yL(x,y)
 :::
+:::
 
 ----
 

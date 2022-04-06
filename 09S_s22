@@ -133,5 +133,5 @@ Suppose we are Jada, Luke, and Terrell.
 57 P\/Q\/R->P/\Q/\R : All of us attend ISU if any of us attend ISU
 58 ~(P\/Q\/R)\/R : None of us attend ISU unless Terrell does
 ```
-
+:::
 <!-- vim: set ft=carnap :-->

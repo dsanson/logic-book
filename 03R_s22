@@ -540,7 +540,6 @@ We know by rule (1) that 'P' and 'Q' are sentences. And we know by rule (2)
 that, since they are, so are '¬P' and '¬Q'. And now we know that, since those
 are both sentences, so are '(¬Q ∧ ¬P)', '(¬Q ∨ ¬P)', '(¬Q → ¬P)' and '(¬ Q↔
 ¬P)'.
-:::
 
 As we saw with rule (2), we can iterate. Once we've used rule (3) to generate
 a new sentence, we can use rule (3) again on *that* sentence to generate yet
