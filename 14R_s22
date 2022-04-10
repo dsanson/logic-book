@@ -1,9 +1,9 @@
 ---
 base-css:
 -   https://carnap.io/shared/dsanson@gmail.com/sanson-book.css
--   https://cdn.plyr.io/3.6.8/plyr.css
+-   https://cdn.plyr.io/3.6.12/plyr.css
 js: 
--   https://cdn.plyr.io/3.6.8/plyr.polyfilled.js
+-   https://cdn.plyr.io/3.6.12/plyr.polyfilled.js
 -   https://carnap.io/shared/dsanson@gmail.com/logic-book.js
 -   https://hypothes.is/embed.js
 ---
@@ -236,13 +236,10 @@ Our reasoning looks like this:
 Stop and make sure that makes sense to you, as a line of reasoning.
 Then try it for yourself:
 
-```{.ProofChecker .FirstOrder options="guides fonts indent tabindent resize" points=10}
+```{.ProofChecker .FirstOrder options="guides fonts indent tabindent resize" points=10 video="der_AyNGy_KNGcGd.mp4"}
 1 Ay~G(y) :|-: ~G(c)/\~G(d)
 ```
 
-:::solution
-![Solution to 1](https://reggienet.illinoisstate.edu/access/content/user/desanso/public/vid/der_AyNGy_KNGcGd.mp4)
-:::
 
 Here is a derivation that uses EG:
 

@@ -1,9 +1,9 @@
 ---
 base-css:
 -   https://carnap.io/shared/dsanson@gmail.com/sanson-book.css
--   https://cdn.plyr.io/3.6.8/plyr.css
+-   https://cdn.plyr.io/3.6.12/plyr.css
 js: 
--   https://cdn.plyr.io/3.6.8/plyr.polyfilled.js
+-   https://cdn.plyr.io/3.6.12/plyr.polyfilled.js
 -   https://carnap.io/shared/dsanson@gmail.com/logic-book.js
 -   https://hypothes.is/embed.js
 ---
@@ -191,19 +191,13 @@ And sometimes, we want to exclude a whole *group* of individuals
 | c: Charlotte
 :::
 
-``` {.Translate .FOL points="10"}
+``` {.Translate .FOL points="10" video="everybugotherthancharlotteandbarryhops.mp4"}
 5  ∀x(I(x) /\ ~x=b /\ ~x=c -> H(x)): Every bug other than Charlotte and Barry B. Benson hops
 ```
-:::solution
-![Solution to 5](https://reggienet.illinoisstate.edu/access/content/user/desanso/public/vid/everybugotherthancharlotteandbarryhops.mp4)
-:::
 
-``` {.Translate .FOL points="10"}
+``` {.Translate .FOL points="10" video="everybugthatdoesnthopflies.mp4"}
 6  ∀x(I(x) /\ ~H(x) -> F(x)): Every bug that doesn't hop flies
 ```
-:::solution
-![Solution to 6](https://reggienet.illinoisstate.edu/access/content/user/desanso/public/vid/everybugthatdoesnthopflies.mp4)
-:::
 
 :::
 

@@ -1,9 +1,9 @@
 ---
 base-css:
 -   https://carnap.io/shared/dsanson@gmail.com/sanson-book.css
--   https://cdn.plyr.io/3.6.8/plyr.css
+-   https://cdn.plyr.io/3.6.12/plyr.css
 js: 
--   https://cdn.plyr.io/3.6.8/plyr.polyfilled.js
+-   https://cdn.plyr.io/3.6.12/plyr.polyfilled.js
 -   https://carnap.io/shared/dsanson@gmail.com/logic-book.js
 -   https://hypothes.is/embed.js
 ---
@@ -135,8 +135,10 @@ recommend. But either strategy will work.
 5 AxAy(F(x,y)->~G(x,y)), AxF(x,x) :|-: ~ExG(x,x)
 ```
 
+:::solution
 :::youtube
 <https://youtu.be/azTF_rxtojc>
+:::
 :::
 
 :::

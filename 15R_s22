@@ -1,9 +1,9 @@
 ---
 base-css:
 -   https://carnap.io/shared/dsanson@gmail.com/sanson-book.css
--   https://cdn.plyr.io/3.6.8/plyr.css
+-   https://cdn.plyr.io/3.6.12/plyr.css
 js: 
--   https://cdn.plyr.io/3.6.8/plyr.polyfilled.js
+-   https://cdn.plyr.io/3.6.12/plyr.polyfilled.js
 -   https://carnap.io/shared/dsanson@gmail.com/logic-book.js
 -   https://hypothes.is/embed.js
 ---
@@ -491,9 +491,11 @@ Let's work through another example:
 11 Ax(F(x)\/G(x))
 ```
 
-<div class=youtube>
+::: solution
+::: youtube
 <https://youtu.be/EmnLFUa8SBk>
-</div>
+:::
+:::
 
 The sentence says 'Everything is either F or G'. We want a model that makes
 this *false*. The simplest model is this:
@@ -541,25 +543,28 @@ countermodel, that is, a model in which the sentence is false:
 ``` {.CounterModeler .Simple counterexample-to=tautology points="10"}
 12 F(a)->F(c)
 ```
-
+:::solution
 ::: youtube
 <https://youtu.be/qbkWxs_992s>
+:::
 :::
 
 ``` {.CounterModeler .Simple counterexample-to=tautology points="10"}
 13 ~AxF(x)
 ```
-
+:::solution
 ::: youtube
 <https://youtu.be/i0fvWo1oCDQ>
+:::
 :::
 
 ``` {.CounterModeler .Simple counterexample-to=tautology points="10"}
 14 Ax(F(x)->G(x))
 ```
-
+:::solution
 ::: youtube
 <https://youtu.be/Y05KRK4_8mQ>
+:::
 :::
 
 It bears repeating: we can use countermodels to show that a sentence is *not*
@@ -600,9 +605,10 @@ Here is an example:
 ``` {.CounterModeler .Validity points="10"}
 15 Ax(F(x)->G(x)), ExG(x) :|-: ExF(x)
 ```
-
+:::solution
 ::: {.youtube}
 <https://youtu.be/9ku5F0AbU8c>
+:::
 :::
 
 Here is an English version of the argument:
@@ -666,28 +672,30 @@ to construct a countermodel to the validity of the argument:
 ```{.CounterModeler .Validity points=10}
 16 F(a), F(b) :|-: AxF(x)
 ```
-
-<div class=youtube>
+::: solution
+::: youtube
 <https://youtu.be/_4GFL1qtR0s>
-</div>
+:::
+:::
 
-```{.CounterModeler .Validity points=10}
+``` {.CounterModeler .Validity points="10"}
 17 ExF(x), ExG(x) :|-: Ex(F(x)/\G(x))
 ```
 
-<div class=youtube>
+::: solution
+::: youtube
 <https://youtu.be/0Yedf20XtOc>
-</div>
+:::
+:::
 
-```{.CounterModeler .Validity points=10}
+``` {.CounterModeler .Validity points="10"}
 18 Ex(F(x)/\G(x)), Ex(G(x)/\H(x)) :|-: Ex(F(x)/\H(x))
 ```
 
-<div class=youtube>
+::: solution
+::: youtube
 <https://youtu.be/uaofAwr7tUs>
-</div>
-
-
-
+:::
+:::
 
 <!-- vim: set ft=carnap :-->
