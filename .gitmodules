@@ -1,3 +1,6 @@
 [submodule "css"]
 	path = css
 	url = https://github.com/dsanson/logic-book-css
+[submodule "js"]
+	path = js
+	url = https://github.com/dsanson/logic-book-js
