@@ -4,3 +4,6 @@
 [submodule "js"]
 	path = js
 	url = https://github.com/dsanson/logic-book-js
+[submodule "media"]
+	path = media
+	url = https://github.com/dsanson/logic-materials
