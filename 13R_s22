@@ -1207,8 +1207,7 @@ Spend a moment to consider the relationship between these three diagrams:
 
 :::illustration
 ![All Fs are
-Gs](https://reggienet.illinoisstate.edu/access/content/user/desanso/public/img/AllFsAreGs.gif)
-{alt="An
+Gs](https://reggienet.illinoisstate.edu/access/content/user/desanso/public/img/AllFsAreGs.gif){alt="An
 animated diagram. In the first frame, a purple circle labeled 'Fs' is
 beside a yellow circle labeled
 'Gs'. The purple circle then shrinks and moves inside the yellow
@@ -1228,7 +1227,7 @@ Gs](https://reggienet.illinoisstate.edu/access/content/user/desanso/public/img/A
 animated diagram. The first frame is as before, two side-by-side circles, one purple and
 one yellow, labeled 'Fs' and 'Gs'. This time, the two circle move together, to
 occupy the same place, representing the idea that the set of Fs exactly
-coincides with the set of Gs.}
+coincides with the set of Gs."}
 :::
 
 Consider,
