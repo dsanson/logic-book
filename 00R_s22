@@ -492,6 +492,7 @@ on the mastery check, we say that you have not just *completed* the unit, but
         D         at least 10 units completed
 :::
 
+:::xed
 Revised 3/3/22:
 
    Course Grade                        Requirement
@@ -500,8 +501,17 @@ Revised 3/3/22:
         B         at least 14 units completed, at least 8 of which are also mastered
         C         at least 12 units completed
         D         at least 8 units completed
+:::
 
-I may adjust these standards to be more generous if needed.
+Revised 4/12/22:
+
+   Course Grade                        Requirement
+  -------------- -----------------------------------------------------------------------
+        A         at least 14 units completed, at least 10 of which are also mastered
+        B         at least 12 units completed, at least 8 of which are also mastered
+        C         at least 10 units completed
+        D         at least 8 units completed
+
 
 ```{.QualitativeProblem .MultipleChoice points=10}
 9 To complete a unit,
