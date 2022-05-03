@@ -927,14 +927,49 @@ So there is no valid line of reasoning that gets us from (1) to (3).
 21 Ex(F(x)/\Ay(F(y)->x=y)/\G(x)): The main character in Friends is annoying
 22 ~Ex(F(x)/\Ay(F(y)->x=y)/\G(x)): The main character in Friends is not annoying (wide scope negation)
 23 Ex(F(x)/\Ay(F(y)->x=y)/\~G(x)): The main character in Friends is not annoying (narrow scope negation)
-24 Ex(F(x)/\Ay(F(y)->x=y)/\x=b): The main character in Friends is Phoebe
-25 Ex(F(x)/\Ay(F(y)->x=y)/\~x=b): The main character in Friends is not Phoebe (narrow scope negation)
 ```
 
 :::solution
 ::: youtube
 <https://youtu.be/vi9vBwYzP68>
 :::
+:::
+
+```{.Translate .FOL points=10}
+24 Ex(F(x)/\Ay(F(y)->x=y)/\x=b): The main character in Friends is Phoebe
+25 Ex(F(x)/\Ay(F(y)->x=y)/\~x=b): The main character in Friends is not Phoebe (narrow scope negation)
+```
+
+:::spoiler
+For 24, we want to say:
+
+| There is a main character in Friends,
+| and it is the only main character in Friends,
+| and it is Phoebe.
+
+So:
+
+| ∃x(
+| F(x)
+| ∧ Ay(F(y) → x=y
+| ∧ x=b
+| )
+
+For 25, we want to say the same, but this time, we want to say that it is
+*not* Phoebe:
+
+| There is a main character in Friends,
+| and it is the only main character in Friends,
+| and it is not Phoebe.
+
+so:
+
+| ∃x(
+| F(x)
+| ∧ Ay(F(y) → x=y
+| ∧ ¬x=b
+| )
+
 :::
 
 :::
