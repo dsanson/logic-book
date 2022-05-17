@@ -1,0 +1,43 @@
+---
+base-css:
+-   https://carnap.io/shared/dsanson@gmail.com/sanson-book.css
+-   https://cdn.plyr.io/3.6.12/plyr.css
+js: 
+-   https://cdn.plyr.io/3.6.12/plyr.polyfilled.js
+-   https://carnap.io/shared/dsanson@gmail.com/logic-book.js
+---
+
+:::cover
+
+# Introduction
+
+:::
+
+In my classes, I use Unit 00 as the syllabus, and as an opportunity to
+introduce the students to how Carnap works, and how each unit of the class is
+constructed. So the syllabus includes integrated required reading questions,
+and is followed by a few "exercises", and a "mastery check", which is
+essentially just a syllabus quiz.
+
+Here are some examples:
+
+-   [Fall 2022](00R_f22) (draft)
+-   [Spring 2022](00R_s22)
+
+I am only now figuring out how to manage multiple concurrent "versions" of the
+same course on Carnap. I need this primarily to manage students who take an
+"incomplete" in one term, and so still need access to the previous term's
+version of the course.
+
+My current solution is to use the following naming scheme for uploaded course files:
+
+-   01R: 01R_s22, 01R_f22
+
+For Fall 2022, I also plan to take advantage of the option in Carnap of
+specifying a "title" for each assignment that is distinct from the uploaded
+file name, and so `01R_f22`, for example, will be assigned the title, `01R`.
+The URL for an assignment on Carnap uses the "title", not the filename, so
+this will present students with cleaner URLs.
+
+
+<!-- vim: set ft=carnap :-->
