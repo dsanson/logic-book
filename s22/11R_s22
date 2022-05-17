@@ -1,0 +1,1008 @@
+---
+base-css:
+-   https://carnap.io/shared/dsanson@gmail.com/sanson-book.css
+-   https://cdn.plyr.io/3.6.12/plyr.css
+js: 
+-   https://cdn.plyr.io/3.6.12/plyr.polyfilled.js
+-   https://carnap.io/shared/dsanson@gmail.com/logic-book.js
+-   https://hypothes.is/embed.js
+---
+
+::: {.auto-tally}
+:::
+
+::: cover
+
+# Derived Rules
+
+![Explosion](http://reggienet.illinoisstate.edu/access/content/user/desanso/public/img/explosion.jpg)
+
+:::
+
+We continue our exploration of the expanded system of derivation,
+introducing [derived rules]{.vocab}. The specific learning objectives
+for this unit are:
+
+
+a.  I can complete yet more complicated derivations, involving all the
+    connectives, using strategies like showing the negation, showing the
+    antecedent, and showing the double negation
+b.  I have enabled several derived rules, including all the derived
+    rules for using complex negations (NC, DM, NB), and I can use these
+    rules to solve derivations
+
+## Redundant Rules
+
+Consider the following two derivations:
+
+```{.ProofChecker .Prop options="guides fonts indent tabindent resize" init=now submission=none}
+ P->Q, ~Q :|-: ~P
+|1.Show ~P
+|2. P->Q :PR
+|3. ~Q   :PR
+|4. ~P   :MT 2,3
+|5:DD 4
+```
+
+```{.ProofChecker .Prop options="guides fonts indent tabindent resize" init=now submission=none}
+ P->Q, ~Q :|-: ~P
+|1.Show ~P
+|2.  P        :AS
+|3.  P->Q     :PR
+|4.  Q        :MP 2,3
+|5.  ~Q       :PR
+|6.:ID 4,5
+```
+
+Both derivations prove that the same argument---a simple instance of MT---is valid. One does it directly,
+using five lines. The other does it indirectly, using six lines.
+
+But the second, more roundabout derivation shows something important.
+It shows that **we don't need MT**. 
+Every time you use MT, you could use ID and MP instead.
+
+Here is another derivation that uses MT:
+
+```{.ProofChecker .Prop options="guides fonts indent tabindent resize" init=now submission=none}
+ (R->S)->P :|-: ~P->~(R->S) 
+|1.Show ~P->~(R->S)
+|2.  ~P              :AS
+|3.  (R->S)->P       :PR
+|4.  ~(R->S)         :MT 2,3
+|5.:CD 4
+```
+
+Can you complete this derivation without using MT?
+
+```{.ProofChecker .Prop options="guides fonts indent tabindent resize" points=10}
+1 (R->S)->P :|-: ~P->~(R->S) 
+```
+:::spoiler
+
+Here is the trick: instead of applying MT on line (4), enter a show line for
+what you could have inferred by MT. Then make your assumption for ID, and use
+MP:
+
+```{.ProofChecker .Prop options="guides fonts indent tabindent resize" init=now submission=none}
+ (R->S)->P :|-: ~P->~(R->S) 
+|1.Show ~P->~(R->S)
+|2.  ~P              :AS
+|3.  (R->S)->P       :PR
+|4.  Show ~(R->S)
+|5.    R->S          :AS
+|6.    P             :MP 3,5
+|7.  :ID 2,6
+|8.:CD 4
+```
+:::
+
+Everything we can do with MT we can do instead just using MP and ID.
+So MT is a *redundant rule*: a rule that we don't *need* in our system.
+
+DNI is also redundant. Can you complete this derivation without using DNI?
+(Hint: use ID.)
+
+```{.ProofChecker .Prop options="guides fonts indent tabindent resize" points=10}
+2 P :|-: ~~P
+```
+
+:::spoiler
+
+The trick again is to use ID instead:
+
+```{.ProofChecker .Prop options="guides fonts indent tabindent resize" init=now submission=none}
+ P :|-: ~~P
+|1.Show ~~P
+|2. ~P   :AS
+|3. P    :PR
+|4.:ID 2,3
+```
+:::
+
+Everything we do with DNI, we can do with ID instead.
+
+Suppose we eliminated MT and DNI from our system of derivation.
+Then our system would get a bit simpler: there would be fewer rules to
+remember.
+But our derivations would get a bit longer and complex: we'd have to use more
+subderivations, and make more use of ID than before.
+So, when constructing a system of derivation, there is a trade off to
+consider.
+Our system has a few redundant rules, which make some of our derivations a bit
+less complicated.
+
+<!--
+
+## Redundant Connectives
+
+Our system has redundant rules, and our language has redundant connectives.
+Remember how we chose not to have a connective for exclusive
+disjunction, and pointed out that it wasn't needed, because 'P $\veebar$ Q' is
+logically equivalent to '¬(P ↔ Q)'? Doesn't that reason apply with equal force
+to '↔', given that 'P ↔ Q' is logically equivalent to '(P→Q) ∧ (Q→P)'?
+
+Notice that, if we eliminated '↔' from our language, and instead used a
+conjunction of conditionals, we would also eliminate BC and CB, and instead
+use S and ADJ.
+
+Are any of our other connectives redundant? Yes. It turns out that they *all*
+are, except for negation. Disjunctions and conjunctions can both be eliminated
+in favor of more complicated expressing, using just '¬' and '→'. So a language
+containing just '¬' and '→' is [truth-functionally complete]: that is, we can
+express every truth function, using just those two connectives.
+
+But we can just as well do it the other way around. A language containing just
+'¬' and '∨' is also truth-functionally complete. As is a language containing
+just '¬' and '∧'.
+
+Notice what this means about our rules. If we eliminate a connective from our
+language, we eliminate its rules and methods too. Suppose we eliminate '→' and
+'∨' in favor of '¬' and '∧'. Then we also eliminate MP, MT, CD, MTP, and ADD.
+We are left with S, ADJ, DNE, DD, and ID.
+
+::: aside
+Our version of ID can only show negations. So we still need DNE and DD. If we
+introduced a form of ID that allowed us to show a sentence by assuming its
+negation, we could then eliminate both DD and DNE.
+:::
+
+In fact, there are two connectives, each truth-functionally complete all on
+its own, without the need for '¬':
+
+::: displayed
+-   NAND: 'P↑Q': not both (P and Q)
+-   NOR: 'P↓Q': not either (P or Q)
+:::
+
+So the simplest truth-functionally complete language has just one of these
+connectives.
+
+These languages are the simplest. But they are hard to read. For example, 
+
+::: {.displayed .liveshapes}
+-   '¬[]{.P}' is truth-functionally equivalent to '[]{.P}↑[]{.P}'.
+:::
+
+:::wrapper
+::: soasticky
+| P: It rains
+| Q: It snows
+:::
+
+So, in a language without '¬', here is how we translate "It is not raining":
+
+::: displayed
+-   It is not raining
+-   It is not the case that both (it is raining and it is raining)
+-   P↑P
+:::
+
+Remember, '↑' means 'not both'. And the negation of 'not both' is 'not not both', which is equivalent to
+'both'. So,
+
+:::displayed
+-   It is raining and it is snowing.
+-   (P↑Q)↑(P↑Q)
+:::
+:::
+
+This is icky. It is all but impossible for us to read information encoded in
+this simplest of all languages.
+
+-->
+
+## Derived Rules
+
+Once we notice that some of our rules are redundant,
+ there are two directions we might go.
+On the one hand, we might try to eliminate all redundant rules,
+ and construct the simplest system of derivation, with the fewest rules and
+ methods, that still allows us to
+ derive all the truth-functionally valid arguments.
+Of course, in that system, our derivations will be longer and more complex.
+
+On the other hand, we might try to add more redundant rules,
+ making our system less simple,
+ but allowing our derivations to be shorter and less complicated.
+This is the direction we are going to take here.
+
+Our [basic rules]{.vocab} were justified by the fact that they are obviously valid.
+We could introduce more basic rules, justified in the same way.
+But if we do that, our system becomes less simple,
+ and *its foundation* becomes less *secure*.
+
+Instead, our new rules will be [derived rules]{.vocab},
+ which we justify and enable by constructing an appropriate derivation.
+
+:::vaside
+A [basic rule]{.vocab} is one of the 9 rules in our system: DN, MP, MT, S,
+ADJ, ADD, MTP, BC, or CB. These rules where justified, when they were
+introduced, by the fact that they were obviously valid.
+
+A [derived rule]{.vocab} is a rule that is justified by the construction of a
+derivation that shows that it is redundant, and so any use of the rule could,
+in principle, be replaced by a longer derivation, just using the basic rules.
+:::
+
+## QNI
+
+:::liveshapes
+
+We start with a simple if somewhat silly example. Occasionally, a derivation will ask you
+to infer the quadruple negation of a sentence. For example,
+
+```{.ProofChecker .Prop options="guides fonts indent tabindent resize" points=10}
+3 P, ~~~~P->Q :|-: ~~~~Q
+```
+
+:::spoiler
+To complete this problem, apply DNI twice to P, then apply MP, then apply DNI
+twice to Q. For the solution, click on the spoiler inside this spoiler!
+
+:::spoiler
+```
+1.Show ~~~~Q
+2.  P          :PR
+3.  ~~P        :DNI 2
+4.  ~~~~P      :DNI 3
+5.  ~~~~P->Q   :PR
+6.  Q          :MP 4,5
+7.  ~~Q        :DNI 6
+8.  ~~~~~Q     :DNI 7
+9.:DD 8
+```
+:::
+
+:::
+
+That's kind of annoying.
+Imagine how much quicker this derivation would be if we had a single rule that
+allowed us to introduce a *quadruple* negation all at once!
+
+Complete the following derivation using DNI, 
+ and then save your new rule, giving it the name *QNI*:
+
+```{.ProofChecker .Prop options="guides fonts indent tabindent resize" submission=saveRule}
+QNI P :|-: ~~~~P
+```
+:::
+
+:::wrapper
+:::{.aside .sticky .derived-rules .boxed .liveshapes}
+:::
+
+Once you have saved your rule, it should appear
+in your list of derived rules. Notice that, in the list of rules, the 'P's have all been replaced by
+[]{.P}'s. You can use this derived rule to infer the quadruple negation
+of *any* sentence. Assuming you named the rule QNI, you reference it as
+'D-QNI'. The 'D-' prefix indicates that it is a derived rule. 
+
+Try it:
+
+```{.ProofChecker .Prop options="guides fonts indent tabindent resize" init=now points=10}
+4 P/\Q :|-: ~~~~P/\~~~~Q
+|1.Show ~~~~P/\~~~~Q
+|2. P/\Q   :PR
+|3. P      :S 2
+|4. ~~~~P  :D-QNI 3
+```
+
+If Carnap is showing an error on line (4), you may need to trigger it to
+recheck the derivation. Try putting your cursor at the end of line (4), and
+pressing enter to create a new line. If Carnap still shows an error on line
+(4), double-check that you have enabled QNI, by completed the derivation
+above, and saving the rule as QNI.
+
+Once you have QNI working, you can use it in any derivation:
+
+```{.ProofChecker .Prop options="guides fonts indent tabindent resize" points=10}
+5 P->~~~Q, Q :|-: ~~~~~P
+```
+
+:::solution
+![](https://reggienet.illinoisstate.edu/access/content/user/desanso/public/vid/R11.5.mp4)
+:::
+
+I know what you are thinking: this is silly. The need to quadruple negate is
+rare, and applyng DNI twice is easy. Agreed. I suggest you delete QNI.
+
+![](https://reggienet.illinoisstate.edu/access/content/user/desanso/public/vid/deleting-derived-rules.mp4)
+
+## Hypothetical Syllogism (D-HS)
+
+Now let's enable a rule that is actually useful.
+Complete the following derivation, and save it as "HS", short for
+"Hypothetical Syllogism".
+
+```{.ProofChecker .Prop options="guides fonts indent tabindent resize"  submission=saveRule}
+HS P->Q, Q->R :|-: P->R
+```
+
+Up until now, 
+ every derivation in the reading has been accompanied by a solution.
+But for this one, you are on your own.
+If you want to use D-HS, 
+ you need to complete this derivation, 
+ and save it as HS.
+
+Once you have enabled D-HS, try using to simplify this derivation:
+
+```{.ProofChecker .Prop options="guides fonts indent tabindent resize" points=10}
+6 Q->S, R->Q, ~S :|-: ~R
+```
+:::solution
+![](https://reggienet.illinoisstate.edu/access/content/user/desanso/public/vid/R11.6.mp4)
+:::
+
+D-HS isn't ground-breaking.
+You could have just used MT twice to solve the problem.
+But D-HS gives you a different intuitive way to think through the derivation.
+
+## Biconditionals
+
+It is slightly annoying that we cannot use MP directly on a biconditional.
+Clearly, if 'P ↔ Q' is true and 'P' is true, then 'Q' must also be true.
+For that matter,
+clearly, if 'P ↔ Q' is true and 'Q' is true, then 'P' must also be true.
+
+Complete the following two derivations,
+ and save them as 'BPLR' ("Biconditional Ponens Left-to-Right")
+ and 'BPRL' ("Biconditional Ponens Right-to-Left"):
+
+```{.ProofChecker .Prop options="guides fonts indent tabindent resize" submission=saveRule}
+BPLR P<->Q, P :|-: Q
+BPRL P<->Q, Q :|-: P
+```
+
+While you are at it, 
+ why not enable Biconditional Tollens (D-BTLR and D-BTRL) too?
+
+```{.ProofChecker .Prop options="guides fonts indent tabindent resize" submission=saveRule}
+BTLR P<->Q, ~P :|-: ~Q
+BTRL P<->Q, ~Q :|-: ~P
+```
+
+Can you now complete (7) without using BC?
+
+```{.ProofChecker .Prop options="guides fonts indent tabindent resize" points=10}
+7 Q<->S, ~Q<->~R, ~S :|-: ~R
+```
+
+:::solution
+![](https://reggienet.illinoisstate.edu/access/content/user/desanso/public/vid/R11.7.mp4)
+:::
+
+Maybe you'd also like to enable Biconditional Syllogism (D-BS)? It's just like
+hypothetical syllogism, but with biconditionals:
+
+:::displayed
+-   P↔Q, Q↔R ⊢ P↔R
+:::
+
+In practice, for this class, Biconditional Syllogism isn't that useful: 
+ we just won't find ourselves having to do this too often.
+But in some contexts, it is a nice shortcut to have on hand.
+If you'd like, complete the derivation necessary to enable D-BS below:
+
+(This is actually a rule-saving *playground*:
+ since no derivation has been set as your goal,
+ you can construct any derivation you like,
+ and save it as a new rule.
+In this case,
+ enter a show line for 'P↔R',
+ and give yourself 'P↔Q' and 'Q↔R' as premises.
+Then complete the derivation, and as it as BS, to enable D-BS.)
+
+```{.Playground .Prop options="guides fonts indent tabindent resize" submission=saveRule}
+```
+
+Remember, every derived rule is redundant.
+Any derivation you can complete using a derived rule,
+ you could instead complete just with the basic rules.
+At the end of the day,
+ it is up to you what derived rules you decide to enable,
+ and what derived rules you decide to use.
+
+For your convenience, 
+ there is a [Rule Builder Page](Rule-Builder),
+ listed in the [table of contents](Book_s22#table-of-contents) as an appendix. 
+You can use that page to create more rules, 
+ and manage the rules you have enabled.
+
+## Explosion (D-EXP) 
+
+In [Unit 8](08R_s22), when talking about truth tables,
+ we introduced the Principle of Explosion---
+ the idea that, from a contradiction, anything follows. 
+
+Let's make that into a rule:
+
+```{.ProofChecker .Prop options="guides fonts indent tabindent resize" init=now submission=saveRule}
+EXP P, ~P :|-: Q
+```
+
+:::hint
+There are at least two ways to complete this derivation. One involves creating
+a subderivation for ¬¬Q as using ID. Another involves a clever use of ADD.
+:::
+
+Once you have enabled D-EXP, 
+ whenever you stumble across a contradiction in derivation,
+ you can *immediately* infer absolutely anything you want.
+That can be handy!
+Think about how you would complete this derivation without D-EXP,
+ then complete it using D-EXP:
+
+```{.ProofChecker .Prop options="guides fonts indent tabindent resize" points=10}
+8 ~P :|-: P->Q
+```
+
+:::solution
+![](https://reggienet.illinoisstate.edu/access/content/user/desanso/public/vid/R11.8.mp4)
+:::
+
+## Material Conditional (D-MCA and D-MCC)
+
+In [Chapter 7](08R_s22), we discussed the truth-table for our conditional.
+One consequence of that truth table is this:
+ a conditional with a false consequent is true.
+What does that look like if we treat it as a rule of inference?
+
+```{.ProofChecker .Prop options="guides fonts indent tabindent resize" init=now submission=saveRule}
+MCA ~P :|-: P->Q
+```
+
+"MCA" stands for "Material Conditional, Antecedent". 
+
+A closely related consequent of the truth table for our conditional is that
+ a conditional with a true consequent is true:
+
+```{.ProofChecker .Prop options="guides fonts indent tabindent resize" init=now submission=saveRule}
+MCC Q :|-: P->Q
+```
+
+"MCC" stnads for "Material Conditional, Consequent".
+
+Here is a derivation that is simpler if you use of MCC:
+
+```{.ProofChecker .Prop options="guides fonts indent tabindent resize" points=10}
+9 P, R<->(Q->P) :|-: R
+```
+
+:::solution
+![](https://reggienet.illinoisstate.edu/access/content/user/desanso/public/vid/R11.9.mp4)
+:::
+
+## Commutativity
+
+Many of the techniques you learned in Algebra for manipulating mathematical
+formulas are based on facts about which mathematical operations are or are not
+commutative, distributive, and associative.
+Many of you have been tempted to apply those algebraic manipulations to sentences in SL,
+ by distributing negations or flipping the order of sentences. 
+But as you've learned, that doesn't work!
+
+To say that a function is [commutative]{.vocab} is to say that its output
+doesn't depend on the order of its inputs. Addition is commutative,
+subtraction is not:
+
+:::centered
+| x + y = y + x
+| x - y ≠ y - x
+:::
+
+Conjunction, disjunction, and the biconditional are all [commutative]{.vocab}
+too, but the conditional is not. We can verify this with truth tables:
+
+```{.TruthTable .Simple options="nocounterexample" points=10}
+10 P/\Q, Q/\P
+11 P\/Q, Q\/P
+12 P<->Q, Q<->P
+13 P->Q, Q->P
+```
+
+We can enable these facts as rules, too.
+To do so, we need to complete the appropriate derivations:
+
+```{.ProofChecker .Prop options="guides fonts indent tabindent resize" init=now submission=saveRule}
+COMCONJ P/\Q :|-: Q/\P
+COMBICON P<->Q :|-: Q<->P
+```
+
+The proof that disjunction is commutative is much more difficult. This is
+because we don't have a rule like S or BC that lets us "take apart" a
+disjunction. Instead, we need to use ID and MTP. Stick with it, and if you get stuck,
+click on the spoiler for some hints.
+
+```{.ProofChecker .Prop options="guides fonts indent tabindent resize" init=now submission=saveRule}
+COMDISJ P\/Q :|-: Q\/P
+```
+
+:::spoiler
+You need to use the power of ID here. So your first step should be to enter a
+show line for ¬¬(Q ∨ P).
+
+:::spoiler
+The only way to use your assumption, ¬(Q ∨ P), is as one half of a
+contradiction. That means you need to find a way to get Q ∨ P. But the only
+way to get Q ∨ P is by ADD.
+
+:::spoiler
+The only way to get Q ∨ P by ADD is by having Q by itself, or P by itself. So enter a show line for Q. But that won't quite
+work, right?
+
+:::spoiler
+So enter a show line for ¬¬Q instead. That allows you to make use of the power
+of ID.
+:::
+:::
+:::
+:::
+
+## Contraposition
+
+The conditional is not commutative.
+But, as we learned in [Unit 8](08R_s22),
+ a conditional is equivalent to its contrapositive:
+
+```{.ProofChecker .Prop options="guides fonts indent tabindent resize" submission=saveRule}
+CPOS P->Q :|-: ~Q->~P
+```
+
+If you want to be able to go in the other direction, you'll need to complete
+this derivation too:
+
+```{.ProofChecker .Prop options="guides fonts indent tabindent resize" submission=saveRule}
+CPOSN ~P->~Q :|-: Q->P
+```
+
+In practice, these derived rules are usually not that helpful.
+Think about it:
+
+:::proof
+4.   ¬Q
+5.   P → Q
+6.   ¬P     [MT 4,5]{.just}
+7.   ¬Q → ¬P [D-CPOS 5]{.just} 
+8.   ¬P      [MP 4,7]{.just}
+:::
+
+You *can* use D-CPOS to transform (5) into its contrapositive,
+ and then apply MP.
+But it is simpler to just use MT.
+
+## "Distributing" Negations
+
+Multiplication *distributes* over addition:
+
+:::centered
+$x\times (y + z) = (x \times y) + (x \times z)$
+:::
+
+As a special case of this, multiplication by -1 distributes over addition:
+
+:::centered
+$-(y + z) = -y + -z$
+:::
+
+Many of us, 
+ when we first learn SL, 
+ assume that we can extend this pattern, 
+ and distribute negations over our connectives as well.
+But, as you know, that doesn't work.
+
+We can show that negation does **not** distribute over *any* of our connectives
+by constructing the truth tables:
+
+```{.TruthTable .Simple options="nocounterexample" points=10}
+14 ~(P/\Q),~P/\~Q
+15 ~(P\/Q),~P\/~Q
+16 ~(P->Q),~P->~Q
+17 ~(P<->Q),~P<->~Q
+```
+
+Examine each truth table, 
+and verify that each one shows that the two sentences are **not** truth-functionally equivalent. 
+This is why you can't "distribute" negations.
+
+You *can* distribute *some* of our binary connectives over *some* of our other
+binary connectives.
+For example, conjunction distributes over disjunction.
+Derive this is you like, and enable the rule.
+But it is unlikely to prove useful in future derivations!
+
+```{.ProofChecker .Prop options="guides fonts indent tabindent resize" submission="saveRule"}
+DISTCONDISJ P/\(Q\/R) :|-: (P/\Q)\/(P/\R)
+```
+
+## Negations of Conditionals
+
+If we can't *distribute* negations,
+ what *can* we infer from a sentence with a negation outside parentheses?
+That depends on the connective inside the parentheses.
+So we have to consider each possibility in turn.
+
+First, the negation of a conditional: '¬(P → Q)'.
+Consider the truth table:
+
+```{.TruthTable .Simple options="nocounterexample immutable nocheck display" submission=none}
+NegCond ~(P->Q)
+|       F TTT
+|       T TFF
+|       F FTT
+|       F FTF
+```
+
+Note that the negation of the conditional is only true on the second row:
+ when its antecedent is true *and* its consequent is false.
+So how can we express that as a rule?
+
+```{.ProofChecker .Prop options="guides fonts indent tabindent resize" submission=saveRule}
+NC ~(P->Q) :|-: P/\~Q
+```
+
+:::spoiler
+When you need to show a conjunction, you need to show each conjunct
+separately, so you can put them together using ADJ. So, in outline:
+
+```
+Show P/\~Q
+  Show ~~P
+    ⋮
+  :ID
+  Show ~Q
+    ⋮
+  :ID
+  P  DNE
+  P/\~Q :ADJ
+:DD
+```
+
+(I am showing ¬¬P instead of P, because that allows me to use ID.)
+
+:::spoiler
+To complete those sub-derivations, you need to use the premise, ¬(P → Q). The
+only way to use that is as one half of a contradiction. So you need to get P →
+Q. You can do that by creating another subderivation, or you might consider
+using one or the other forms of D-MC.
+:::
+:::
+
+D-NC ("Negation of a Conditional") is a powerful derived rule.
+It makes some derivations *a lot* simpler. For example:
+
+```{.ProofChecker .Prop options="guides fonts indent tabindent resize" points=10}
+18 ~(R->S),R->T,P->S :|-: ~P/\T
+```
+
+:::solution
+![](https://reggienet.illinoisstate.edu/access/content/user/desanso/public/vid/R11.18.mp4)
+:::
+
+D-NC is *kind of like* a distribution rule for conditionals:
+ the negation "distributes" to the consequent,
+ and the '→' becomes an '∧'.
+
+## Negations of Biconditionals
+
+What about the negation of a biconditional?
+Again, let's start by thinking about the truth table:
+
+```{.TruthTable .Simple options="nocounterexample immutable nocheck display" submission=none}
+¬Biconditional ~(P<->Q)
+|             F TTT
+|             T TFF
+|             T FFT
+|             F FTF
+```
+
+The biconditional is true when its two parts *agree* in truth value.
+So its negation is true when its two parts *disagree* in truth value.
+But that means that the first part *agrees* in truth value with the *negation* of the second
+part:
+
+```{.ProofChecker .Prop options="guides fonts indent tabindent resize" submission=saveRule}
+NB ~(P<->Q) :|-: P<->~Q
+```
+
+:::spoiler
+This one is not easy.
+Since you are trying to show a conditional,
+ you will need to show both conditionals separately, and then use CB to put
+them together. And, you will need to use ¬(P ↔ Q) as one half of a
+contradiction. That means you will need to show P ↔ Q, probably more than
+once.
+
+One way to shorten the derivation is to remember to use some of your new
+derived rules. D-MC is especially useful here, and will allow you to
+avoid *some* of the subderivations.
+:::
+
+That derivation was challenging. But it makes dealing with negations of
+biconditionals *so much* easier. Complete this problem by applying D-NB to
+each premise. You can make it even shorter by using Biconditional Ponens and
+Tollens.
+
+```{.ProofChecker .Prop options="guides fonts indent tabindent resize" points=10}
+19 ~(P<->Q), ~(R<->Q) :|-: P->R
+```
+
+:::solution
+![](https://reggienet.illinoisstate.edu/access/content/user/desanso/public/vid/R11.19.mp4)
+:::
+
+D-NB is *kind of like* a distribution rule for biconditionals. 
+The negation only "distributes" to the second part, not the first.
+
+## DeMorgan's Laws
+
+Recall that there are two equally good answers to this translation problem:
+
+:::soa
+| R: It rains
+| S: It snows
+:::
+
+```{.Translate .Prop points=10}
+20 ~R/\~S, ~(R\/S): It neither rains nor snows
+```
+
+:::spoiler
+The two equally good answers are:
+
+::: displayed
+-   ¬(R ∨ S)
+-   ¬R ∧ ¬S)
+:::
+:::
+
+There are two equally good answers, because '¬(P∨Q)' and '¬P∧¬Q' are
+truth-functionally equivalent, as established by this truth table:
+
+```{.TruthTable .Simple options="nocounterexample" points=10}
+21 ~(P\/Q), ~P/\~Q
+```
+
+This is one of several equivalences known as "DeMorgan's Laws", after [Augustus De
+Morgan](https://en.wikipedia.org/wiki/Augustus_De_Morgan){target="_blank"
+rel="noopener noreferrer"}, a 19th century
+logician. 
+
+Here is another truth-functional equivalence:
+
+```{.TruthTable .Simple options="nocounterexample" points=10}
+22 ~(P/\Q), ~P\/~Q
+```
+
+DeMorgan's Laws are also kind of like distribution laws.
+You can "distribute" a negation to the two parts of a conjunction,
+ but you also need to "flip" the conjunction to a disjunction.
+And you can "distribute" a negation to the two parts of a disjunction,
+ but you need to "flip" the disjunction ot a conjunction.
+
+```{.ProofChecker .Prop options="guides fonts indent tabindent resize" submission="saveRule"}
+DMNC ~(P\/Q) :|-: ~P/\~Q
+```
+
+:::spoiler
+Remember, when your show line is a conjunction, as with DMNC, you need to show
+each conjunct separately, and then use ADJ to put them together. You will use
+premise, '¬(P ∨ Q)', as one half of a contradiction. Remember the power of
+ADD!
+:::
+
+Heads up: this next derivation is significantly more challenging!
+
+```{.ProofChecker .Prop options="guides fonts indent tabindent resize" submission="saveRule"}
+DMND ~(P/\Q) :|-: ~P\/~Q
+```
+
+:::spoiler
+You need to give yourself the power of ID to solve this problem. So your very
+first move should be to start a subderivation, to show '¬¬(¬P ∨ ¬Q)', and make
+your assumption for ID.
+
+:::spoiler
+You will use your premise, '¬(P ∧ Q)', as one half of a contradiction. That
+means you need to get 'P ∧ Q'. So you will want to show P (or, rather, ¬¬P),
+and then Q (or, rather, ¬¬Q), and put them together using ADJ.
+:::
+:::
+
+The suggested names for these two rules are meant to help you remember which
+is which: "D-DMNC" = DeMorgan's, Negation *to* Conjunction; "D-DMND" = DeMorgan's,
+Negation *to* Disjunction. Those derivations were a bit rough, but they make
+other derivations much easier. For this one, use D-DMNC on the premise:
+
+```{.ProofChecker .Prop options="guides fonts indent tabindent resize" points=10}
+23 ~(P\/Q), R->P, S->Q :|-: ~R/\~S
+```
+
+:::solution
+![](https://reggienet.illinoisstate.edu/access/content/user/desanso/public/vid/R11.23.mp4)
+:::
+
+Try completing this one using ID:
+
+```{.ProofChecker .Prop options="guides fonts indent tabindent resize" points=10}
+24 P->Q, ~P->R:|-: Q\/R
+```
+
+:::solution
+![](https://reggienet.illinoisstate.edu/access/content/user/desanso/public/vid/R11.24.mp4)
+:::
+
+Together, D-NC, D-NB, D-DMNC, and D-DMND allow us to handle every case in
+which a negation is outside parentheses.
+In each case, we can do something that is kind of like distribution.
+But in each case, it is not quite distribution:
+ sometimes, the negation just goes to one of the two parts;
+ sometimes, the connective needs to be swapped out for a different connective.
+
+It can also be helpful to move in the other direction, and "pull negations out
+front". If you like, complete the following derivations to enable these
+reverse forms. But you are much less likely to have need of these reverse
+forms, and you can skip them if you wish.
+
+``` {.ProofChecker .Prop options="guides fonts indent tabindent resize" submission="saveRule"}
+CN P/\~Q :|-: ~(P->Q)
+BN P<->~Q :|-: ~(P<->Q)
+DMCN ~P/\~Q :|-: ~(P\/Q)
+DMDN ~P\/~Q :|-: ~(P/\Q)
+```
+
+## Conditionals and Disjunctions
+
+Remember when we introduced the idea that 'unless' means 'or',
+ and you had the sense that really, 'unless' meant 'if not'.
+You weren't wrong.
+Because 'if not' and 'or' are truth-functionally equivalent:
+
+```{.TruthTable .Simple options="nocounterexample" points=10}
+25 (~P->Q), P\/Q
+```
+
+Again, we can transform this into a rule:
+
+
+```{.ProofChecker .Prop options="guides fonts indent tabindent resize" submission=saveRule}
+CDJ ~P->Q :|-: P\/Q
+```
+
+:::spoiler
+You will want to show ¬¬(P ∨ Q), and give yourself the assumption for ID. Then
+you'll want to apply the relevant form of DM...
+:::
+
+:::aside
+You may also wish to enable some variants in the [Rule Builder](Rule-Builder):
+
+:::displayed
+-   P ∨ Q ⊢ ~P → Q
+-   P → Q ⊢ ~P ∨ Q
+-   ~P ∨ Q ⊢ P → Q
+:::
+:::
+
+D-CDJ is especially useful for us, 
+ because it allows us to leverage the power of CD to prove disjunctions.
+Here is an example:
+
+```{.ProofChecker .Prop options="guides fonts indent tabindent resize" submission=none}
+Ex2 P\/Q :|-: Q\/P
+|1.Show Q\/P
+|2. Show ~Q->P
+|3.  ~Q :AS
+|4.  P\/Q :PR
+|5.  P :MTP 3,4
+|6. :CD 5
+|7. Q\/P :D-CDJ 2
+|8.:DD 7
+```
+
+Note that you already constructed a derivation of this problem, when you
+enabled D-COMMDISJ. Presumably this was not the method you used!
+
+## Managing Your Newfound Freedom
+
+You are free to create and use any derived rules you want.
+That is what the [Rule Builder Page](Rule-Builder) is for.
+
+You can manage your rules by going to the
+Rule Builder page, or you can manage them at the bottom of your [User
+Page](/user). Note that, on your User Page, the rules are represented using
+greek letters instead of boxes and circles.
+
+But there are dangers.
+Often, students newly empowered by derived rules will end up spinning their wheels, 
+ endlessly transforming one sentence into another equivalent sentence, 
+ but not really making forward progress.
+I already showed you an example of this when illustrating why D-CPOS is often
+not that useful.
+
+Here is another example of derived rules poorly used:
+
+```{.Playground options="guides fonts indent tabindent resize"}
+|1. ~Q :PR
+|2. P\/Q :PR
+|3. ~P->Q :CDJ 2
+|4. ~~P :MT 1,3
+|5. P :DN 4
+```
+
+It is so much simpler to just use MTP:
+
+```{.Playground options="guides fonts indent tabindent resize"}
+|1. ~Q :PR
+|2. P\/Q :PR
+|3. P :MTP 1,2 
+```
+
+So, avoid using derived rules willy-nilly.
+Instead, use them in specific situations, where they help solve specific
+problems.
+
+For example, using premises of the form '¬(blah blah blah)' is a problem.
+Use the appropriate derived rule to "distribute" the negation,
+ giving you a premise that is easier to use:
+
+:::displayed
+-   D-NC, D-NB, D-DMNC, D-DMND
+:::
+
+And D-EXP is super-powerful.
+If you find a contradiction,
+ and you aren't working on an indirect derivation,
+ use D-EXP to immediately get yourself whatever you need.
+
+D-MCA and D-MCC are convenient shortcuts,
+ when you need a conditional, and you already have
+ the negation of its antecedent, or you already have the consequent.
+
+And the four forms of Biconditional Ponens and Tollens are convenient
+shortcuts, if you don't want to bother with BC.
+
+Other rules are worth knowing, but rarely worth using. 
+D-CPOS is a good example. 
+It tells you something really neat about conditionals.
+But unless you happen to *need* the contrapositive of a conditional,
+ it is not useful.
+
+
+<!--end of wrapper-->
+:::
+
+## Lectures
+
+Here are two video lectures, based on an earlier version of this chapter. 
+
+::: youtube
+<https://youtu.be/4brtWGX1d1g>
+:::
+
+::: youtube
+<https://youtu.be/nr7pnLFrmpk>
+:::
+
+
+<!-- vim: set ft=carnap :-->

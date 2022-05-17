@@ -1,0 +1,1429 @@
+---
+base-css:
+-   https://carnap.io/shared/dsanson@gmail.com/sanson-book.css
+-   https://cdn.plyr.io/3.6.12/plyr.css
+js: 
+-   https://cdn.plyr.io/3.6.12/plyr.polyfilled.js
+-   https://carnap.io/shared/dsanson@gmail.com/logic-book.js
+-   https://hypothes.is/embed.js
+---
+
+:::auto-tally
+:::
+
+::: cover
+
+# Logic and Arguments
+
+![Tweedledum and
+Tweedledee](http://reggienet.illinoisstate.edu/access/content/user/desanso/public/img/tweedledum.png){alt="Alice
+approaches Tweedledum and Tweedledee (an illustration from Alice in
+Wonderland)"}
+[PD](attributions#tweedledum.png){.attribution target="_blank" rel="noopener noreferrer"}
+
+:::: epigraph
+"Contrariwise," continued Tweedledee, "if it was so, it might be; and if it
+were so, it would be; but as it isn't, it ain't. That's logic." 
+
+[Lewis Carroll, *Through the Looking
+Glass*](https://www.gutenberg.org/files/12/12-h/12-h.htm#link2HCH0004){.source target="_blank" rel="noopener noreferrer"}
+::::
+:::
+
+## Introduction
+
+This unit introduces our topic, logic, 
+ and introduces several key concepts that will play a central role in what
+ follows.
+
+The learning objectives for this unit are:
+
+-   You have a basic understanding of what [logic]{.vocab} is.
+-   You can apply the concepts of an [argument]{.vocab}, a [premise]{.vocab}, and a
+    [conclusion]{.vocab} to short argumentative passages in English.
+-   You can apply the concepts of [validity]{.vocab}, [soundness]{.vocab}, and [inductive
+    strength]{.vocab} to simple arguments in standard form.
+
+## A Logic Puzzle
+
+Watch the following clip from the movie
+[Labyrinth](https://www.imdb.com/title/tt0091369/){target="_blank"
+rel="noopener noreferrer"}.
+In this clip, Sarah (played by Jennifer Connelly) attempts to solve a logic puzzle.
+She is given some information,
+and she reasons from that information to a conclusion.
+As you watch, see if you can follow Sarah's reasoning.
+
+![Sarah's Puzzle](https://dsanson.github.io/logic-materials/vid/labyrinth-clip.mp4)
+
+`````{.QualitativeProblem .MultipleChoice points=10}
+1 Which of the following best express Sarah's conclusion?
+| One of the doors leads to the castle, and the other leads to certain death.
+| The door on her left leads to the castle.
+| One of the guards always tells the truth and the other always lies.
+| *The door on her right leads to the castle.
+| The guard on her left says that the guard on her right would say that the left door leads to the castle.
+`````
+
+:::{.reaction .default ex=1}
+Remember to click the "Submit" button!
+It is impossible to submit an incorrect answer. 
+If your answer is incorrect, you will be prompted to try again.
+:::
+
+:::{.reaction .correct ex=1}
+Yes, that is indeed her conclusion!
+:::
+
+:::{.reaction .incorrect ex=1 ans="0 2"}
+What you've selected is actually one of the pieces of information she reasoned
+*from*, not her conclusion, which is the piece of information she reasoned
+*to*.
+:::
+
+:::{.reaction .incorrect ex=1 ans="1"}
+That's actually the opposite of what she concluded.
+:::
+
+:::{.reaction .incorrect ex=1 ans="4"}
+What you've selected is the piece of information she acquired by asking her
+question. This is a piece of information she reasoned *from*, not her
+conclusion, which is the piece of information she reasoned *to*.
+:::
+
+
+`````{.QualitativeProblem .MultipleSelection points=10}
+2 Which of the following best express information that Sarah reasoned from?
+| *One of the doors leads to the castle, and the other leads to certain death.
+| The door on her left leads to the castle.
+| *One of the guards always tells the truth and the other always lies.
+| The door on her right leads to the castle.
+| *The guard on her left says that the guard on her right would say that the left door leads to the castle.
+`````
+
+:::{.reaction .default ex=2}
+Select *all* the correct answers!
+:::
+
+:::{.reaction .incorrect ex=2 ans="0 2 4 02 04 24"}
+You are right about the answer(s) you selected. But those aren't the only pieces
+of information she reasoned from.
+
+If you are struggling to find the right answer, and find that you are just
+randomly trying different combinations, stop, take a breath, and read the
+spoiler below.
+:::
+
+:::{.reaction .incorrect ex=2 ans="1"}
+That isn't one of the pieces of information she reasoned from. That's actually
+the opposite of the conclusion she drew.
+
+If you are struggling to find the right answer, and find that you are just
+randomly trying different combinations, stop, take a breath, and read the
+spoiler below.
+
+:::
+
+:::{.reaction .incorrect ex=2 ans="3"}
+That is the conclusion she drew, not the information she relied on, in order
+to draw that conclusion.
+
+If you are struggling to find the right answer, and find that you are just
+randomly trying different combinations, stop, take a breath, and read the
+spoiler below.
+:::
+
+
+:::{.reaction .incorrect ex=2 ans="other"}
+Your answer includes at least one item that is not one of the pieces of
+information she reasoned from.
+
+If you are struggling to find the right answer, and find that you are just
+randomly trying different combinations, stop, take a breath, and read the
+spoiler below.
+:::
+
+:::{.reaction .correct ex=2}
+You got it! Be sure to still click on the "spoiler" below, and see if the
+explanation offered there fits with your own understanding.
+:::
+
+When you click on a "spoiler" box, it will give you the answer, or part of the
+answer, along with an explanation.
+So don't click on a "spoiler" box until you've given the question an honest try.
+We all learn best by trying, getting confused, and then seeking explanation.
+
+:::spoiler
+In the clip, the guards give Sarah two pieces of information:
+
+-   One of the doors leads to the castle, and the other leads to certain death.
+-   One of the guards always tells the truth and the other always lies.
+
+She then asks the guard on her left a question, and from his answer, learns one additional
+piece of information:
+
+-   The guard on her left says that the guard on her right would say that the left door leads to the castle.
+
+These are the three pieces of information she reasons from.
+
+Her conclusion is the piece of information she reasons to:
+
+-   The door on her right leads to the castle.
+
+Acting on that conclusion, she walks confidently through the door on her
+right, only to fall screaming into a pit.
+:::
+
+## Logic and Reasoning
+
+[[Logic]{.vocab} is the study of *reasoning*, and, more specifically, the
+study of what makes *good* reasoning good and *bad* reasoning bad.]{.def}
+In the clip you just watched,
+Sarah *reasoned* from some information to a conclusion.
+Her reasoning was complicated, and she spoke quickly.
+You may not be sure whether her reasoning was *good* or *bad*.
+
+::: {.illustration style="float:right"}
+![Picture of a cookie jar with a question
+mark](http://reggienet.illinoisstate.edu/access/content/user/desanso/public/img/cookie-jar.png){width="162"
+height="230"} [CC](attributions#cookie-jar.png){.attribution}
+:::
+
+Here is an easier example to think about.
+Suppose I tell you that:
+
+-   This jar contains both chocolate chip cookies and sugar cookies,
+-   If you select any two cookies at random from this jar, at least one of them
+    will be a sugar cookie.
+
+From these two pieces of information,
+you should be able to figure out how many chocolate chip cookies are in the jar.
+
+
+```{.QualitativeProblem .MultipleSelection points=10}
+3 How many chocolate chip cookies are in the jar?
+| *At least one
+| *At most one
+| *Exactly one
+```
+
+:::{.reaction .incorrect ex=3 ans=0}
+You are right that there is at least one chocolate chip cookie in the jar,
+since we know the jar contains both chocolate chip cookies and sugar cookies,
+so it has to have at least one chocolate chip cookie.
+
+But think more about what the second piece of information tells you.
+:::
+
+:::{.reaction .incorrect ex=3 ans=1}
+You are right that there is at most one chocolate chip cookie in the jar.
+Otherwise, when picking two at random, you could end up with two chocolate
+chip cookies and no sugar cookie.
+
+But, based on the information you were given, 
+could there be *no* chocolate chip cookies in the jar?
+:::
+
+:::{.reaction .incorrect ex=3 ans="01 02 12"}
+Think about how 'at least', 'at most' and 'exactly' are related.
+:::
+
+:::{.reaction .correct ex=3}
+That's right! At least one, and at most one, so exactly one!
+:::
+
+```{.QualitativeProblem .ShortAnswer give-credit="onSubmission" points=10}
+4 Try to explain, as clearly as possible, how this answer follows from the two given pieces of information. 
+```
+
+:::{.reaction .correct ex=2}
+If you aren't comfortable with the answer you just gave, that's okay! 
+We are just getting started.
+This isn't a test;
+ it's just a mental exercise, 
+ meant to help you start to think about *what reasoning is* and *how it works*.
+:::
+
+Here is a third example. This one is different. Suppose I tell you that:
+
+
+
+## Arguments, Premises, Conclusions
+
+We've just looked at two examples that involve reasoning.
+Reasoning is a form of *information processing*:
+you start from some informational inputs,
+and reason to some informational output.
+
+We call the information you reason from your [premises]{.vocab}; 
+we call the information you reason to your [conclusion]{.vocab}; 
+we call the two together your [argument]{.vocab}.
+
+We can represent this visually using a flow chart:
+
+<!--
+:::illustration
+```graphviz
+digraph {
+  graph [layout = dot, rankdir = TB, fontname = "Georgia"];
+  node [shape = box, fontname = "Georgia", fontsize = "10pt"];
+  pr [label = "The jar contains both chocolate chip cookies and sugar cookies.\nIf you select any two, at least one will be a sugar cookie."];
+  conc [label = "Exactly one cookie is in the jar."];
+  pr -> conc; 
+}
+```
+:::
+-->
+
+:::illustration
+<!-- Generated by graphviz version 2.47.3 (20210619.1520)
+ -->
+<!-- Pages: 1 -->
+<svg width="303pt" height="116pt"
+ viewBox="0.00 0.00 303.00 116.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 112)">
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-112 299,-112 299,4 -4,4"/>
+<!-- pr -->
+<g id="node1" class="node">
+<title>pr</title>
+<polygon fill="none" stroke="black" points="295,-108 0,-108 0,-72 295,-72 295,-108"/>
+<text text-anchor="middle" x="147.5" y="-93" font-family="Georgia" font-size="10.00">The jar contains both chocolate chip cookies and sugar cookies.</text>
+<text text-anchor="middle" x="147.5" y="-82" font-family="Georgia" font-size="10.00">If you select any two, at least one will be a sugar cookie.</text>
+</g>
+<!-- conc -->
+<g id="node2" class="node">
+<title>conc</title>
+<polygon fill="none" stroke="black" points="224,-36 71,-36 71,0 224,0 224,-36"/>
+<text text-anchor="middle" x="147.5" y="-15.5" font-family="Georgia" font-size="10.00">Exactly one cookie is in the jar.</text>
+</g>
+<!-- pr&#45;&gt;conc -->
+<g id="edge1" class="edge">
+<title>pr&#45;&gt;conc</title>
+<path fill="none" stroke="black" d="M147.5,-71.7C147.5,-63.98 147.5,-54.71 147.5,-46.11"/>
+<polygon fill="black" stroke="black" points="151,-46.1 147.5,-36.1 144,-46.1 151,-46.1"/>
+</g>
+</g>
+</svg>
+:::
+
+The premises are in the top box.
+The conclusion is in the box below.
+The arrow represents the direction of your reasoning.
+The reasoning itself---the steps that get us from the premises to the
+conclusion---is not represented.
+
+So this is the general structure of an argument:
+
+<!--
+:::illustration
+```graphviz
+digraph {
+  graph [layout = dot, rankdir = TB, fontname = "Georgia"];
+  node [shape = box, fontname = "Georgia", fontsize = "10pt"];
+  pr [label = "premises"];
+  conc [label = "conclusion"];
+  pr -> conc; 
+}
+```
+:::
+-->
+
+:::illustration
+<!-- Generated by graphviz version 2.47.3 (20210619.1520)
+ -->
+<!-- Pages: 1 -->
+<svg width="72pt" height="116pt"
+ viewBox="0.00 0.00 72.00 116.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 112)">
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-112 68,-112 68,4 -4,4"/>
+<!-- pr -->
+<g id="node1" class="node">
+<title>pr</title>
+<polygon fill="none" stroke="black" points="60,-108 4,-108 4,-72 60,-72 60,-108"/>
+<text text-anchor="middle" x="32" y="-87.5" font-family="Georgia" font-size="10.00">premises</text>
+</g>
+<!-- conc -->
+<g id="node2" class="node">
+<title>conc</title>
+<polygon fill="none" stroke="black" points="64,-36 0,-36 0,0 64,0 64,-36"/>
+<text text-anchor="middle" x="32" y="-15.5" font-family="Georgia" font-size="10.00">conclusion</text>
+</g>
+<!-- pr&#45;&gt;conc -->
+<g id="edge1" class="edge">
+<title>pr&#45;&gt;conc</title>
+<path fill="none" stroke="black" d="M32,-71.7C32,-63.98 32,-54.71 32,-46.11"/>
+<polygon fill="black" stroke="black" points="35.5,-46.1 32,-36.1 28.5,-46.1 35.5,-46.1"/>
+</g>
+</g>
+</svg>
+:::
+
+We call this sort of visual representation of an argument an Argument
+Map. [An [argument map]{.vocab} is a visual representation of an argument as a flow
+chart, with the conclusion flowing from the premises.]{.def} Argument maps are
+especially useful for visualizing structure of complex debates, involving
+multiple interrelated arguments and objections. 
+[Philmaps.com](philmaps.com){target="_blank"
+rel="noopener noreferrer"} is neat online tool for constructing argument maps.
+
+But we will not be using argument maps in this course.
+I've introduced them here as a visual reinforcement of the idea that 
+an argument represents the inputs and output of a reasoning process: *from*
+the premises as inputs, and *to* the conclusion as output.
+
+[An [argument]{.vocab} is a set of sentences, which we call the
+[premises]{.vocab}, followed by a sentence, which we call the
+[conclusion]{.vocab}.]{.def}
+
+Here are a few more examples of arguments. 
+
+Suppose you see some dude wearing a Che Guevara
+t-shirt, and infer that he is a communist.
+Here is your argument, 
+ represented as an argument map:
+
+<!--
+:::illustration
+```graphviz
+digraph {
+  graph [layout = dot, rankdir = TB, fontname = "Georgia"];
+  node [shape = box, fontname = "Georgia", fontsize = "10pt"];
+  pr [label = "That dude is wearing a Che Guevara t-shirt."];
+  conc [label = "That dude is a communist."];
+  pr -> conc;
+}
+```
+:::
+-->
+
+
+:::illustration
+<!-- Generated by graphviz version 2.47.3 (20210619.1520)
+ -->
+<!-- Pages: 1 -->
+<svg width="216pt" height="116pt"
+ viewBox="0.00 0.00 216.00 116.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 112)">
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-112 212,-112 212,4 -4,4"/>
+<!-- pr -->
+<g id="node1" class="node">
+<title>pr</title>
+<polygon fill="none" stroke="black" points="208,-108 0,-108 0,-72 208,-72 208,-108"/>
+<text text-anchor="middle" x="104" y="-87.5" font-family="Georgia" font-size="10.00">That dude is wearing a Che Guevara t&#45;shirt.</text>
+</g>
+<!-- conc -->
+<g id="node2" class="node">
+<title>conc</title>
+<polygon fill="none" stroke="black" points="171,-36 37,-36 37,0 171,0 171,-36"/>
+<text text-anchor="middle" x="104" y="-15.5" font-family="Georgia" font-size="10.00">That dude is a communist.</text>
+</g>
+<!-- pr&#45;&gt;conc -->
+<g id="edge1" class="edge">
+<title>pr&#45;&gt;conc</title>
+<path fill="none" stroke="black" d="M104,-71.7C104,-63.98 104,-54.71 104,-46.11"/>
+<polygon fill="black" stroke="black" points="107.5,-46.1 104,-36.1 100.5,-46.1 107.5,-46.1"/>
+</g>
+</g>
+</svg>
+:::
+
+Another example. Suppose you see me walking a dog through the neighborhood just
+north of campus, and infer that I probably live in that neighborhood. Here is
+your reasoning, represented as an argument map:
+
+<!--
+:::illustration
+```graphviz
+digraph {
+  graph [layout = dot, rankdir = TB, fontname = "Georgia"];
+  node [shape = box, fontname = "Georgia", fontsize = "10pt"];
+  pr [label = "David is walking a dog in this neighborhood."];
+  conc [label = "David probably lives in this neighborhood."];
+  pr -> conc;
+}
+
+```
+:::
+-->
+
+:::illustration
+<!-- Generated by graphviz version 2.47.3 (20210619.1520)
+ -->
+<!-- Pages: 1 -->
+<svg width="221pt" height="116pt"
+ viewBox="0.00 0.00 221.00 116.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 112)">
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-112 217,-112 217,4 -4,4"/>
+<!-- pr -->
+<g id="node1" class="node">
+<title>pr</title>
+<polygon fill="none" stroke="black" points="213,-108 0,-108 0,-72 213,-72 213,-108"/>
+<text text-anchor="middle" x="106.5" y="-87.5" font-family="Georgia" font-size="10.00">David is walking a dog in this neighborhood.</text>
+</g>
+<!-- conc -->
+<g id="node2" class="node">
+<title>conc</title>
+<polygon fill="none" stroke="black" points="208.5,-36 4.5,-36 4.5,0 208.5,0 208.5,-36"/>
+<text text-anchor="middle" x="106.5" y="-15.5" font-family="Georgia" font-size="10.00">David probably lives in this neighborhood.</text>
+</g>
+<!-- pr&#45;&gt;conc -->
+<g id="edge1" class="edge">
+<title>pr&#45;&gt;conc</title>
+<path fill="none" stroke="black" d="M106.5,-71.7C106.5,-63.98 106.5,-54.71 106.5,-46.11"/>
+<polygon fill="black" stroke="black" points="110,-46.1 106.5,-36.1 103,-46.1 110,-46.1"/>
+</g>
+</g>
+</svg>
+:::
+
+As I said, we will not be using argument maps in this class.
+Instead, we will represent arguments by putting the in [standard
+form]{.vocab}.
+
+:::vaside
+[Standard Form]{.vocab}: a way of representing an argument, by listing each
+premise, followed by the conclusion. The conclusion is marked as the
+conclusion using the '∴' ("therefore") symbol.
+:::
+
+Here is the cookie-jar argument, in standard form:
+
+::: standardform
+-   This jar contains both chocolate chip cookies and sugar cookies.
+-   If you take any two cookies at random from the jar, at least one of them
+    will be a sugar cookie.
+-   There is one chocolate chip cookie in the jar.
+:::
+
+To put an argument in standard form, you list each premise, 
+followed by the conclusion. 
+And you mark the conclusion using the '∴' symbol,
+which is read as "therefore". 
+Optionally, you may include a horizontal line below the premises and above the conclusion. 
+If you want, you can number the premises:
+
+::: standardform
+1.   This jar contains both chocolate chip cookies and sugar cookies.
+2.   If you take any two cookies at random from the jar, at least one of them
+    will be a sugar cookie.
+3.   There is one chocolate chip cookie in the jar.
+:::
+
+Can you put the Che Guevara t-shirt argument in standard form?
+It has one premise: "That dude is wearing a Che Guevara t-shirt."
+It's conclusion is: "That dude is a communist."
+(Tip: it is hard to type the '∴' symbol. So type a period followed by a colon, '.:')
+
+```{.QualitativeProblem .ShortAnswer give-credit="onSubmission" points=10}
+4 Rewrite the Che Guevara t-shirt argument in standard form.
+```
+
+:::{.reaction .correct ex=4}
+Here is what your answer should look like:
+
+::: standardform
+-   That dude is wearing a Che Guevara t-shirt.
+-   That dude is a communist.
+:::
+
+Does that match what you wrote down? If not, what were you confused about?
+:::
+
+
+
+
+
+[When you reason]{.newthought},
+ you reason *from* some given pieces of information,
+ *to* a new piece of information.
+So reasoning is a form of *information processing*.
+We will return to the *process* in a moment.
+But first, what is a "piece of information"?
+
+:::vaside
+[Declarative sentence]{.vocab}: the kind of sentence that can be true or
+false, because it is used to express a piece of information. Other kinds of
+sentences are used to ask questions, or issue commands, and are not true or
+false.
+:::
+
+A piece of information is what you communicate when you make a statement,
+using a [declarative sentence]{.vocab}. For example, the declarative sentence 'Snow is
+white' can be used to make the statement that snow is white, which
+communicates a piece of information about the color of snow.
+
+Not all sentences are used to express information in this way. 
+For example, the interrogative sentence, 'Is snow white?', is used not to make a
+statement, but to ask a question. That is, not to communicate information, but
+to request information. And the imperative sentence, 'Eat the snow!', is used
+to issue a command.
+
+So there is a close connection between a piece of information and the
+declarative sentence used to express it. 
+But it would be a mistake to say that a declarative sentence *is* the piece of information it expresses, 
+much like it would be wrong to say that the name, 'Chicago' *is* the city it
+refers to. A name is a *word*, a piece of language. Chicago is a *city*, a
+piece of the world.
+
+:::aside
+For entertainment purposes only:
+
+:::youtube
+<https://youtu.be/0XlO39kCQ-8>
+:::
+:::
+
+Notice that the same city can have more that one name: Istanbul, for
+example, has also gone by the name 'Constantinople'. This helps to show that
+the name is not the city.
+
+In the same way, the same piece of information can be expressed by more than
+one declarative sentence. Each of these sentences expresses the same piece
+information, about the color of snow:
+
+::: example
+| Snow is white.
+| La nieve es blanca.
+| Schnee ist weiß.
+:::
+
+The link between a name and the object it names is conventional: 
+ the fact that 'Chicago' refers to the city it does depends on a convention, 
+ established by the people who gave it that name,
+ and upheld by everyone who continues to use that name for it.
+In the same way, the link between a declarative sentence and the piece of
+information it expresses is conventional: 
+ the fact that 'Snow is white' expresses the piece of information it does, 
+ about the color of snow, 
+ depends on the conventions of the English language,
+ established and upheld by those who speak the language.
+
+This doesn't mean that the information itself is conventional. 
+The fact that 'La nieve es blanca' expresses the information that snow is white depends on the
+conventions of Spanish. And the fact that 'Snow is white' expresses the
+information that snow is white depends on the conventions of English. But this
+doesn't mean that the information itself depends on either the conventions of
+Spanish or English, or any linguistic conventions at all.
+
+:::vaside
+[Proposition]{.vocab}: a piece of information, true or false.
+:::
+
+We've been talking about pieces of information, and how they can be expressed
+by declarative sentences, but are not themselves linguistic items.
+But then what are they?
+In logic and philosophy, we call a "piece of information" a
+[proposition]{.vocab}. This doesn't answer our question, but it gives us an
+easy way to ask our question. Philosophers argue about what propositions are,
+and whether or not they even exist.
+But those debates go beyond the scope of this class. 
+
+```{.QualitativeProblem .ShortAnswer give-credit="onSubmission" points=10}
+3  What kind of thing do you think a proposition is? Consider the true proposition that cows moo. Where is it? What is it made of? And what about the false proposition that cows meow? Where is that? What is it made of?
+```
+
+:::{.reaction .correct ex=3}
+Philosophers have written whole books trying to answer these questions.
+
+One idea is that propositions are states of affairs in the world.
+On this view, the proposition that cows moo is located wherever the mooing cows are located,
+ and is made up of those mooing cows.
+One objection to this view is that it cannot handle false propositions:
+ there are no meowing cows,
+ so a proposition made up of meowing cows isn't made up of anything,
+ and isn't located anywhere.
+
+Another idea is that propositions are judgments in our minds.
+One objection to this view is that,
+ if the proposition that cows moo is in *my* mind,
+ it cannot also be in *your* mind.
+So it seems like only one of us can think about it.
+Another objection is that,
+ even if nobody was thinking about cows mooing,
+ it would still be true that cows moo.
+So that truth---that proposition---cannot be something
+ that only exists in our minds.
+
+Another idea is that propositions are abstract objects,
+ that exist outside of space and time.
+Many philosophers think that numbers are like this:
+ the number 3, for example, exists,
+ but it doesn't exist in space or time;
+ it isn't something you can go visit.
+One objection to this view is that it is spooky to think that there are things that exist,
+ but don't exist anywhere.
+:::
+
+Pieces of information might be,
+ we can agree that not all information is *good* information.
+If someone tells you that there was widespread election fraud in the 2020 Presidential election, 
+ that is *false*.
+ *False* information is *bad* information.
+And if someone tells you that COVID-19 vaccines have proved effective,
+ that is *true*.
+ *True* information is *good* information.
+So propositions are either good or bad.
+That is, they are either true or false.
+
+## Arguments
+
+[Reasoning]{.newthought} is a form of information processing:
+ you reason *from* some given propositions, 
+ *to* a new proposition.
+In the cookie jar example, 
+ you began with the propositions you had been given about the jar, 
+ and you reasoned to the proposition that there was exactly one chocolate chip cookie in the jar.
+
+We can represent this visually using a flow chart:
+
+<!--
+:::illustration
+```graphviz
+digraph {
+  graph [layout = dot, rankdir = TB, fontname = "Georgia"];
+  node [shape = box, fontname = "Georgia", fontsize = "10pt"];
+  pr [label = "The jar contains both chocolate chip cookies and sugar cookies.\nIf you select any two, at least one will be a sugar cookie."];
+  conc [label = "Exactly one cookie is in the jar."];
+  pr -> conc; 
+}
+```
+:::
+-->
+
+:::illustration
+<!-- Generated by graphviz version 2.47.3 (20210619.1520)
+ -->
+<!-- Pages: 1 -->
+<svg width="303pt" height="116pt"
+ viewBox="0.00 0.00 303.00 116.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 112)">
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-112 299,-112 299,4 -4,4"/>
+<!-- pr -->
+<g id="node1" class="node">
+<title>pr</title>
+<polygon fill="none" stroke="black" points="295,-108 0,-108 0,-72 295,-72 295,-108"/>
+<text text-anchor="middle" x="147.5" y="-93" font-family="Georgia" font-size="10.00">The jar contains both chocolate chip cookies and sugar cookies.</text>
+<text text-anchor="middle" x="147.5" y="-82" font-family="Georgia" font-size="10.00">If you select any two, at least one will be a sugar cookie.</text>
+</g>
+<!-- conc -->
+<g id="node2" class="node">
+<title>conc</title>
+<polygon fill="none" stroke="black" points="224,-36 71,-36 71,0 224,0 224,-36"/>
+<text text-anchor="middle" x="147.5" y="-15.5" font-family="Georgia" font-size="10.00">Exactly one cookie is in the jar.</text>
+</g>
+<!-- pr&#45;&gt;conc -->
+<g id="edge1" class="edge">
+<title>pr&#45;&gt;conc</title>
+<path fill="none" stroke="black" d="M147.5,-71.7C147.5,-63.98 147.5,-54.71 147.5,-46.11"/>
+<polygon fill="black" stroke="black" points="151,-46.1 147.5,-36.1 144,-46.1 151,-46.1"/>
+</g>
+</g>
+</svg>
+:::
+
+I've put the propositions you reasoned from in the top box, and the
+proposition you reasoned to in the box below it. The arrow represents the
+direction of your reasoning: *from* the given propositions, to the new
+proposition. The reasoning itself---the steps that get us from the top box to the
+bottom box---is not represented by this simple flow chart.
+
+We can abstract from this example, and represent the general idea that
+reasoning is always from some given information to some new information:
+
+<!--
+:::illustration
+```graphviz
+digraph {
+  graph [layout = dot, rankdir = TB, fontname = "Georgia"];
+  node [shape = box, fontname = "Georgia", fontsize = "10pt"];
+  pr [label = "(some given information)"];
+  conc [label = "(some new information)"];
+  pr -> conc; 
+}
+```
+:::
+-->
+
+:::illustration
+<!-- Generated by graphviz version 2.47.3 (20210619.1520)
+ -->
+<!-- Pages: 1 -->
+<svg width="137pt" height="116pt"
+ viewBox="0.00 0.00 137.00 116.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 112)">
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-112 133,-112 133,4 -4,4"/>
+<!-- pr -->
+<g id="node1" class="node">
+<title>pr</title>
+<polygon fill="none" stroke="black" points="129,-108 0,-108 0,-72 129,-72 129,-108"/>
+<text text-anchor="middle" x="64.5" y="-87.5" font-family="Georgia" font-size="10.00">(some given information)</text>
+</g>
+<!-- conc -->
+<g id="node2" class="node">
+<title>conc</title>
+<polygon fill="none" stroke="black" points="126,-36 3,-36 3,0 126,0 126,-36"/>
+<text text-anchor="middle" x="64.5" y="-15.5" font-family="Georgia" font-size="10.00">(some new information)</text>
+</g>
+<!-- pr&#45;&gt;conc -->
+<g id="edge1" class="edge">
+<title>pr&#45;&gt;conc</title>
+<path fill="none" stroke="black" d="M64.5,-71.7C64.5,-63.98 64.5,-54.71 64.5,-46.11"/>
+<polygon fill="black" stroke="black" points="68,-46.1 64.5,-36.1 61,-46.1 68,-46.1"/>
+</g>
+</g>
+</svg>
+:::
+
+Time for some more vocabulary.
+
+:::vaside
+| [Premises]{.vocab}: the propositions you reason from.
+| [Conclusion]{.vocab}: the proposition you reason to.
+| [Argument]{.vocab}: some premises and a conclusion.
+:::
+
+In logic, we call the information you reason from your [premises]{.vocab}, and
+we call the information you reason to your [conclusion]{.vocab}. We call the
+whole thing—the premises together with the conclusion—an
+[argument]{.vocab}. So:
+
+<!--
+:::illustration
+```graphviz
+digraph {
+  graph [layout = dot, rankdir = TB, fontname = "Georgia"];
+  node [shape = box, fontname = "Georgia", fontsize = "10pt"];
+  pr [label = "premises"];
+  conc [label = "conclusion"];
+  pr -> conc; 
+}
+```
+:::
+-->
+
+:::illustration
+<!-- Generated by graphviz version 2.47.3 (20210619.1520)
+ -->
+<!-- Pages: 1 -->
+<svg width="72pt" height="116pt"
+ viewBox="0.00 0.00 72.00 116.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 112)">
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-112 68,-112 68,4 -4,4"/>
+<!-- pr -->
+<g id="node1" class="node">
+<title>pr</title>
+<polygon fill="none" stroke="black" points="60,-108 4,-108 4,-72 60,-72 60,-108"/>
+<text text-anchor="middle" x="32" y="-87.5" font-family="Georgia" font-size="10.00">premises</text>
+</g>
+<!-- conc -->
+<g id="node2" class="node">
+<title>conc</title>
+<polygon fill="none" stroke="black" points="64,-36 0,-36 0,0 64,0 64,-36"/>
+<text text-anchor="middle" x="32" y="-15.5" font-family="Georgia" font-size="10.00">conclusion</text>
+</g>
+<!-- pr&#45;&gt;conc -->
+<g id="edge1" class="edge">
+<title>pr&#45;&gt;conc</title>
+<path fill="none" stroke="black" d="M32,-71.7C32,-63.98 32,-54.71 32,-46.11"/>
+<polygon fill="black" stroke="black" points="35.5,-46.1 32,-36.1 28.5,-46.1 35.5,-46.1"/>
+</g>
+</g>
+</svg>
+:::
+
+And we call this sort of visual representation of an argument an [Argument
+Map]{.vocab}.
+
+::: vaside
+[Argument map]{.vocab}: a visual representation of an argument or several related
+arguments. Especially useful for visualizing the logical structure of a
+complex debate. [philmaps.com](philmaps.com){target="_blank"
+rel="noopener noreferrer"} is provides some cool free online tools for
+constructing argument maps.
+:::
+
+We will not be using argument maps in this course. I've introduced them here
+as visual reinforcement for the idea we have been exploring: that an argument
+always starts from some given premises, and leads to a conclusion.
+
+Here are a few more examples of arguments. 
+
+Suppose you see some dude wearing a Che Guevara
+t-shirt, and infer that he is a communist.
+Here is your argument, 
+ represented as an argument map:
+
+<!--
+:::illustration
+```graphviz
+digraph {
+  graph [layout = dot, rankdir = TB, fontname = "Georgia"];
+  node [shape = box, fontname = "Georgia", fontsize = "10pt"];
+  pr [label = "That dude is wearing a Che Guevara t-shirt."];
+  conc [label = "That dude is a communist."];
+  pr -> conc;
+}
+```
+:::
+-->
+
+
+:::illustration
+<!-- Generated by graphviz version 2.47.3 (20210619.1520)
+ -->
+<!-- Pages: 1 -->
+<svg width="216pt" height="116pt"
+ viewBox="0.00 0.00 216.00 116.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 112)">
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-112 212,-112 212,4 -4,4"/>
+<!-- pr -->
+<g id="node1" class="node">
+<title>pr</title>
+<polygon fill="none" stroke="black" points="208,-108 0,-108 0,-72 208,-72 208,-108"/>
+<text text-anchor="middle" x="104" y="-87.5" font-family="Georgia" font-size="10.00">That dude is wearing a Che Guevara t&#45;shirt.</text>
+</g>
+<!-- conc -->
+<g id="node2" class="node">
+<title>conc</title>
+<polygon fill="none" stroke="black" points="171,-36 37,-36 37,0 171,0 171,-36"/>
+<text text-anchor="middle" x="104" y="-15.5" font-family="Georgia" font-size="10.00">That dude is a communist.</text>
+</g>
+<!-- pr&#45;&gt;conc -->
+<g id="edge1" class="edge">
+<title>pr&#45;&gt;conc</title>
+<path fill="none" stroke="black" d="M104,-71.7C104,-63.98 104,-54.71 104,-46.11"/>
+<polygon fill="black" stroke="black" points="107.5,-46.1 104,-36.1 100.5,-46.1 107.5,-46.1"/>
+</g>
+</g>
+</svg>
+:::
+
+Another example. Suppose you see me walking a dog through the neighborhood just
+north of campus, and infer that I probably live in that neighborhood. Here is
+your reasoning, represented as an argument map:
+
+<!--
+:::illustration
+```graphviz
+digraph {
+  graph [layout = dot, rankdir = TB, fontname = "Georgia"];
+  node [shape = box, fontname = "Georgia", fontsize = "10pt"];
+  pr [label = "David is walking a dog in this neighborhood."];
+  conc [label = "David probably lives in this neighborhood."];
+  pr -> conc;
+}
+
+```
+:::
+-->
+
+:::illustration
+<!-- Generated by graphviz version 2.47.3 (20210619.1520)
+ -->
+<!-- Pages: 1 -->
+<svg width="221pt" height="116pt"
+ viewBox="0.00 0.00 221.00 116.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 112)">
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-112 217,-112 217,4 -4,4"/>
+<!-- pr -->
+<g id="node1" class="node">
+<title>pr</title>
+<polygon fill="none" stroke="black" points="213,-108 0,-108 0,-72 213,-72 213,-108"/>
+<text text-anchor="middle" x="106.5" y="-87.5" font-family="Georgia" font-size="10.00">David is walking a dog in this neighborhood.</text>
+</g>
+<!-- conc -->
+<g id="node2" class="node">
+<title>conc</title>
+<polygon fill="none" stroke="black" points="208.5,-36 4.5,-36 4.5,0 208.5,0 208.5,-36"/>
+<text text-anchor="middle" x="106.5" y="-15.5" font-family="Georgia" font-size="10.00">David probably lives in this neighborhood.</text>
+</g>
+<!-- pr&#45;&gt;conc -->
+<g id="edge1" class="edge">
+<title>pr&#45;&gt;conc</title>
+<path fill="none" stroke="black" d="M106.5,-71.7C106.5,-63.98 106.5,-54.71 106.5,-46.11"/>
+<polygon fill="black" stroke="black" points="110,-46.1 106.5,-36.1 103,-46.1 110,-46.1"/>
+</g>
+</g>
+</svg>
+:::
+
+As I said, we will not be using argument maps in this class.
+Instead, we will represent arguments by putting the in [standard
+form]{.vocab}.
+
+:::vaside
+[Standard Form]{.vocab}: a way of representing an argument, by listing each
+premise, followed by the conclusion. The conclusion is marked as the
+conclusion using the '∴' ("therefore") symbol.
+:::
+
+Here is the cookie-jar argument, in standard form:
+
+::: standardform
+-   This jar contains both chocolate chip cookies and sugar cookies.
+-   If you take any two cookies at random from the jar, at least one of them
+    will be a sugar cookie.
+-   There is one chocolate chip cookie in the jar.
+:::
+
+To put an argument in standard form, you list each premise, 
+followed by the conclusion. 
+And you mark the conclusion using the '∴' symbol,
+which is read as "therefore". 
+Optionally, you may include a horizontal line below the premises and above the conclusion. 
+If you want, you can number the premises:
+
+::: standardform
+1.   This jar contains both chocolate chip cookies and sugar cookies.
+2.   If you take any two cookies at random from the jar, at least one of them
+    will be a sugar cookie.
+3.   There is one chocolate chip cookie in the jar.
+:::
+
+Can you put the Che Guevara t-shirt argument in standard form?
+It has one premise: "That dude is wearing a Che Guevara t-shirt."
+It's conclusion is: "That dude is a communist."
+(Tip: it is hard to type the '∴' symbol. So type a period followed by a colon, '.:')
+
+```{.QualitativeProblem .ShortAnswer give-credit="onSubmission" points=10}
+4 Rewrite the Che Guevara t-shirt argument in standard form.
+```
+
+:::{.reaction .correct ex=4}
+Here is what your answer should look like:
+
+::: standardform
+-   That dude is wearing a Che Guevara t-shirt.
+-   That dude is a communist.
+:::
+
+Does that match what you wrote down? If not, what were you confused about?
+:::
+
+## Identifying Premises and Conclusions
+
+Suppose someone says:
+
+:::example
+You shouldn't major in philosophy, since philosophy is a useless major.
+:::
+
+They are offering you a *reason* not to major in philosophy: philosophy is a useless major. 
+
+What is a reason? A reason is a piece of information, or several pieces of
+information, which is meant, or are meant, to support a conclusion. 
+In this case, 
+you are being invited to infer that you shouldn't major in philosophy *from* the
+premise that philosophy is a useless major. 
+
+This is an argument. We can represent it in standard form:
+
+::: standardform
+-   Philosophy is a useless major.
+-   You shouldn't major in philosophy.
+:::
+
+Later we will consider whether or not this a *good* argument. 
+(Spoiler alert! I don't think it is!)
+But for now I want to focus on a different question:
+how did we extract this argument from what the person said? 
+What tells us that 'Philosophy is a useless major' was their *premise*, and
+'You shouldn't major in philosophy' was their *conclusion*?
+
+One clue is the word 'since'. 
+'Since' is often used as a [premise indicator]{.vocab}.
+That is, it often marks what follows as a reason, or part of a reason, in
+support of something else.
+
+::: vaside
+[Premise indicator]{.vocab}: a word or phrase that marks what follows as a
+premise. Common premise indicators include 'since', 'because', and 'for'.
+:::
+
+Here I have put 'since' in
+bold, and put [colored]{.wavy} the premise it indicates:
+
+:::example
+You shouldn't major in philosophy, **since** [philosophy is a useless
+major]{.wavy}
+:::
+
+Do you see how that works?
+Does it fit with your sense of what this sentence means?
+
+Here is another example:
+
+::: example
+**Since** [you can't always get what you want]{.wavy}, you should be happy with what you get.
+:::
+
+Again, we have an argument. Here it is in standard form:
+
+::: standardform
+-   You can't always get what you want.
+-   You should be happy with what you get.
+:::
+
+Notice that in English, express the premise first, followed by the conclusion,
+or we can express the conclusion first, followed by the premise:
+
+:::example
+-   **Since** [you can't always get what you want]{.wavy}, you should be happy with what you get.
+-   You should be happy with what you get, **since** [you can't always get what you want]{.wavy}, 
+:::
+
+These are the same argument, expressed in two different ways.
+The logical form of the argument is not communicated by the order in which
+the two claims are made.
+It is communicated by marking one of the claims with the word 'since',
+ indicating that it is the premise,
+ so the other must be the conclusion.
+
+Another premise indicator in English is is 'because':
+
+:::example
+We need to address carbon emissions, **because** [if we don't, the effects of
+global warming will only get worse]{.wavy}.
+:::
+
+Again, don't take my word for it.
+Stop for a moment, and think about what this sentence means,
+ and what the word 'because' is doing here.
+
+```{.QualitativeProblem .ShortAnswer give-credit="onSubmission" points=10}
+5 Rewrite the argument in standard form.
+```
+:::{.reaction .correct ex=5}
+::: standardform
+-   If we don't address carbon emissions, the effects of global warming will
+    only get worse.
+-   We need to address carbon emissions.
+:::
+:::
+
+::: aside
+'Since' and 'because' don't always mark premises. When the Beatles sing,
+'Because the sky is blue, it makes me cry', they are not saying that the color
+of the sky provides a reason to infer that they are in tears. Instead, they
+are explaining *why* they cry. And when Kelly Clarkson says, 'Since you've
+been gone, I can breathe for the first time,' she is not offering an argument;
+she is describing a causal-temporal order of events.
+:::
+
+So far, we've looked at examples where a special word is used to mark a
+premise. But we also have words in English that are used to mark conclusions.
+
+::: vaside
+[Conclusion marker]{.vocab}: a word or phrase that marks what follows as a
+conclusion. Common conclusion markers include 'therefore', 'so', and 'hence'.
+:::
+
+For example, consider the use of 'so' in the following sentence:
+
+:::example
+Other animals eat meat, **so** [it is okay for humans to eat meat]{.wavy}.
+:::
+
+Here the speaker makes a claim—other animals eat meat—and then invites you
+to draw a conclusion from that claim—that it is okay for humans to eat meat.
+What tells you that you are supposed to infer the second claim from the first?
+The use of the word 'so'.
+
+```{.QualitativeProblem .ShortAnswer give-credit="onSubmission" points=10}
+6 Rewrite the argument in standard form.
+```
+
+:::{.reaction .correct ex=6}
+::: standardform
+-   Other animals eat meat.
+-   It is okay for humans to eat meat.
+:::
+:::
+
+When an argument has more than one premise, 
+ things can get more complicated.
+Still, you can use the same clues to tease apart premises from conclusion. 
+
+For example,
+
+:::example
+Morality is objective, so God exists, since, after all, without God, there
+  would be no objective right or wrong.
+:::
+
+Can you unpack the structure of this argument? It has two premises.
+
+```{.QualitativeProblem .ShortAnswer give-credit="onSubmission" points=10}
+7 Rewrite the argument in standard form.
+```
+:::{.reaction .correct ex=7}  
+The word 'so' marks 'God exists' as the conclusion, and the phrase 'since,
+after all'
+marks 'Without God, there would be no objective right or wrong' as a premise:
+
+:::example
+Morality is objective, **so** [God exists]{.wavy}, **since, after all**,
+  [without God, there would be no objective right or wrong]{.wavy}.
+:::
+
+What about 'Morality is objective'? It is another premise, even though no
+special word marks it. That's something you, as a reader, just have to
+figure out from context. So:
+
+::: standardform
+-   Morality is objective.
+-   Without God, morality would not be objective.
+-   God exists.
+:::
+:::
+
+## Implicit Premises
+
+Often, when someone presents an argument, they don't actually give you the
+*complete* argument. For example, if someone says,
+
+::: example
+You shouldn't major in philosophy because philosophy is a useless major,
+:::
+
+what they've offered as a reason is incomplete: they've left a crucial premise unstated. Presumably, the argument they have
+in mind is something like this:
+
+::: standardform
+1.   Philosophy is a useless major.
+2.   You should major in something useful.
+3.   You shouldn't major in philosophy.
+:::
+
+We call unstated premises like this [implicit premises]{.vocab}.
+
+:::vaside
+[Implicit Premise]{.vocab}: an unstated assumption that is required to make
+sense of the idea that the explicitly stated premises support the conclusion.
+:::
+
+How can we know that there is an implicit premise?
+In this example, we can see that, without some unstated assumption, the stated
+premise provides no support for the conclusion.
+Since we know that the speaker intends the stated premise to
+provide support for the conclusion, we can infer that they are relying
+on some such unstated assumption. 
+
+If you want to understand the logic of an argument,
+you need to make any implicit premises explicit. 
+For example, once we see that this
+argument relies on these two premises, we can agree that the reasoning is
+good: *given* the premises, the conclusion
+follows. 
+But we can also worry about whether those premises are actually true. 
+
+I think premise (1) is actually false: philosophy majors [do as well as most
+other majors on the job market](http://53eig.ht/1NKNeQ9){target="_blank"
+rel="noopener noreferrer"}.
+They are able to use the skills they develop studying philosophy in a wide range of careers.
+I also think premise (2) is actually false: ["being
+useful" is not the only value in play when choosing a major](https://www.academia.edu/2454947/Liberal_Arts_and_the_Advantages_of_Being_Useless){target="_blank"
+rel="noopener noreferrer"}.
+
+You might disagree. The actual truth or falsehood premise (1) depends in part on what we count as
+"useful"—a difficult conceptual question!—and in part on empirical
+facts about what philosophy majors do graduation,
+and how well their major serves them. 
+The actual truth or falsehood of premise (2) is tied up with complicated
+questions about what it is to be happy, to thrive, and to live a meaningful
+life. (By the way: if you wish to think more
+carefuly about such important and complicated topics, you may find that
+studying philosophy is useful for that!)
+
+Sometimes, when we make an implicit premise explicit, the implicit premise is
+so *obviously* false that the argument collapses of its own weight.
+
+I think that's what happens with:
+
+::: example
+Other animals eat meat, so it is okay for humans to eat meat.
+:::
+
+See for yourself. What's the implicit premise? Is it true?
+
+```{.QualitativeProblem .ShortAnswer give-credit="onSubmission" points=10}
+8 Rewrite the argument in standard form, identifying the implicit premise.
+```
+
+:::{.reaction .correct ex=8}
+There is no one correct answer to this question. 
+But maybe you came up with something like this:
+
+::: standardform
+1.  Other animals eat meat.
+2.  It is okay for humans to do something if other animals do it.
+3.  It is okay for humans to eat meat.
+:::
+
+If this is the argument, 
+ premise (2) is obviously false. 
+Cats torture mice,
+dogs hump in the park and poop on the street. 
+[Male sea otters will kidnap pups, 
+ and hold them underwater, 
+ forcing the mother to give up her food to save her baby from drowning.](https://www.iflscience.com/plants-and-animals/animals-can-be-giant-jerks/){target="_blank"
+rel="noopener noreferrer"} 
+These are all things animals do, 
+ but that doesn't mean that they are things its okay for humans to do.
+If you agree,
+ then you agree that (2) is false.
+And if you agree that (2) is false,
+ you cannot take this argument to be a good reason for thinking that it is okay to eat meat.
+
+(For an example of someone who might have accepted (2), and thought it was fine
+for humans to hump in the park or poop on the neighbor's lawn, see [Diogenes
+the Cynic](https://en.wikipedia.org/wiki/Diogenes){target="_blank"
+rel="noopener noreferrer"}, an ancient Greek philosopher who took the idea
+that one should "act according to nature" to surprising extremes.)
+:::
+
+Sometimes, it can be quite hard to figure out what the relevant implicit
+premise is meant to be. That's how I feel, at least, about the argument:
+
+:::example
+Given that the universe is very big and you are very small, your life is
+meaningless.
+:::
+
+Here it is, in standard form:
+
+::: standardform
+1.  The universe is very big.
+2.  You are very small.
+3.  Your life is meaningless.
+:::
+
+Do you see that there is something missing here? Some further claim being
+assumed? What is the implicit premise? Or perhaps there is more than one?
+
+```{.QualitativeProblem .ShortAnswer give-credit="onSubmission" points=10}
+9 Rewrite the argument in standard form, identifying the implicit premise(s).
+```
+
+:::{.reaction .correct ex=9}  
+Perhaps the argument is meant to go something like this:
+
+::: standardform
+1.  The universe is very big.
+2.  You are very small.
+3.  The lives of small things are meaningless.
+4.  Your life is meaningless.
+:::
+
+Notice that (3),
+ as stated, isn't comparative.
+The original argument suggests that,
+ by comparing ourselves to the universe,
+ we can see that our lives are meaningless.
+But on this reconstruction,
+ the argument just says that your life is meaningless because you are small,
+ not because the universe is big,
+ and you are small.
+
+Here is another attempt to render the argument explicitly:
+
+::: standardform
+1.  The universe is very big.
+2.  You are very small.
+3.  A life is meaningful only if it makes a big impact on the universe.
+4.  The life of a very small thing cannot have a big impact on a very big
+    universe.
+5.  Your life is meaningless.
+:::
+
+Here we've added to implicit premises.
+Premise (3) says something about what it takes for a life to be meaningful.
+Premise (4) explains why, being small, your life doesn't have what it takes.
+
+Suppose that's the argument.
+Do you agree that the premises are true?
+I'm inclined to think that (3) is false,
+ in part because I think that even a small impact can be meaningful.
+argument. But I suspect (3) is false.
+:::
+
+
+[In any case]{.newthought}, our task here is not to address deep questions
+about the meaning of life. This is a logic class. Our task is to understand
+arguments, and, more specifically, what makes good arguments good and bad
+arguments bad. This is the task we turn to in the next chapter.
+
+:::illustration
+[![](https://imgs.xkcd.com/comics/nihilism.png)](https://xkcd.com/167/){target="_blank"
+rel="noopener noreferrer"}
+:::
+
+## Sarah's Puzzle, Again
+
+Let's return to consider Sarah's puzzle. She is given some information, and
+she reasons from that information, to the conclusion that the right door leads
+to the castle. What is her given information? That is, what are her premises?
+
+First, the guards volunteer two pieces of information:
+
+1.  One of the doors leads to the castle, and the other leads to certain
+    death.
+2.  One of the guards always tells the truth, and the other one always lies.
+
+Call someone who always tells the truth a *knight*, and someone who always
+tells lies a *knave*. Sarah's puzzle is an example of a [Knights and Knaves
+Puzzle](https://en.wikipedia.org/wiki/Knights_and_Knaves){target="_blank"
+rel="noopener noreferrer"}. There are lots of neat Knights and Knaves puzzles.
+
+And call the guard on Sarah's left "Lefty" and the guard on her right "Righty."
+
+Sarah asks Lefty a question. From his answer, she gleans another piece of
+information:
+
+3.  Lefty says that Righty would say that the left door leads to the castle.
+
+These are her three premises. So here is her argument, in standard form:
+
+::: standardform
+1.  One of the doors leads to the castle, and the other leads to certain
+    death.
+2.  One of Righty and Lefty is a knight, and the other is a knave.
+3.  Lefty says that Righty would say that the left door leads to the castle.
+4.  The right door leads to the castle.
+:::
+
+This gives us her argument, but it doesn't represent her *reasoning*: the
+steps she took to reason from (1), (2), and (3) to (4). Can you reconstruct
+it?
+
+Remember that, by premise (3), Lefty says that Righty would say that the left
+door leads to the castle. Sarah's reasons by considering two possibilities:
+
+-   Suppose Lefty is a knave and Righty is a knight. Then what do we know about what Lefty
+    says? And so what do we know about what Righty would say?
+-   Suppose Lefty is a knight and Righty is a knave. Then what do we know about what Lefty
+    says? And so what do we know about about Righty would say?
+
+:::illustration
+![Two
+dogs](https://reggienet.illinoisstate.edu/access/content/user/desanso/public/img/two_dogs.jpg)
+:::
+
+## Wrapping Up
+
+By now, you should have some sense of what [logic]{.vocab} is—the study of reasoning, and, more
+specifically, the study of arguments. You should also know what an
+[argument]{.vocab} is: it consists of some [premises]{.vocab} that are meant
+to support a [conclusion]{.vocab}. And you should understand that premises and
+conclusions are declarative sentences that express [propositions]{.vocab}---that is,
+pieces of information, that are either true or false. Finally, you should be able to
+identify the premises and conclusion of an argument, making use of [premise
+markers]{.vocab} and [conclusion markers]{.vocab}, put the argument in
+standard form, and worry about whether or not the argument has any [implicit
+premises]{.vocab}, and if so, what they might be.
+
+:::defs
+:::
+
+<!-- vim: set ft=carnap :-->
+

@@ -1,0 +1,1113 @@
+---
+base-css:
+-   https://carnap.io/shared/dsanson@gmail.com/sanson-book.css
+-   https://cdn.plyr.io/3.6.12/plyr.css
+js: 
+-   https://cdn.plyr.io/3.6.12/plyr.polyfilled.js
+-   https://carnap.io/shared/dsanson@gmail.com/logic-book.js
+-   https://hypothes.is/embed.js
+---
+
+# Derivations with '∧', '∨', and '↔︎': Supplement
+
+This is a supplement. Exercises are not for credit.
+
+Stuck on a derivation?
+As mentioned in the reading, this is the place to come for strategies.
+For an extended discussion of each strategy, with examples:
+
+-   [Strategic Advice](#strategic-advice).
+
+For a quick summary of each strategy:
+
+-   [Summary of Strategies](#summary-of-strategies)
+
+
+## Learning the Rules
+
+In the [Chapter 5 Supplement](05S_s22), I linked to the AUC Logic [Argument
+Schemes](https://youtube.com/playlist?list=PLM9JGRr9zKYwhmuTlM-xk0mFVjzh3-9AI){target="_blank"
+rel="noopener noreferrer"} youtube playlist. As I explained then, they are
+using a slightly different system: 'A' and 'B' can be sentence letters, for example.
+
+They have a fun video about MTP, but they call it by one of its other traditional names, "Disjunctive Syllogism":
+
+:::solution
+:::youtube 
+https://youtu.be/-X9e1Y8lafk
+:::
+:::
+
+They don't have any videos for our other new rules. `:-(`.
+Someone needs to make more!
+
+## Recognizing the Rules
+
+:::standardform
+-   Dogs go "woof"
+-   Cats go "meow"   
+-   Dogs go "woof" and cats go "meow"
+:::
+``` {.QualitativeProblem .MultipleChoice submission=none options=check}
+1 This an instance of:
+| DN
+| MP
+| MT
+| ADD
+| MTP
+| S
+| *ADJ
+| BC
+| CB
+| None of the above
+```
+
+:::standardform
+-   Chicago floods if Lake Michigan rises
+-   Chicago floods
+-   Lake Michigan rises
+:::
+``` {.QualitativeProblem .MultipleChoice submission=none options=check}
+2 This an instance of:
+| DN
+| MP
+| MT
+| ADD
+| MTP
+| S
+| ADJ
+| BC
+| CB
+| *None of the above
+```
+
+:::standardform
+-   Chicago floods if Lake Michigan rises
+-   Lake Michigan doesn't rise
+-   Chicago doesn't flood
+:::
+``` {.QualitativeProblem .MultipleChoice submission=none options=check}
+3 This an instance of:
+| DN
+| MP
+| MT
+| ADD
+| MTP
+| S
+| ADJ
+| BC
+| CB
+| *None of the above
+```
+
+:::standardform
+-   Chicago floods if Lake Michigan rises
+-   Chicago doesn't flood
+-   Lake Michigan doesn't rise
+:::
+``` {.QualitativeProblem .MultipleChoice submission=none options=check}
+4 This an instance of:
+| DN
+| MP
+| *MT
+| ADD
+| MTP
+| S
+| ADJ
+| BC
+| CB
+| None of the above
+```
+
+:::standardform
+-   Chicago floods if Lake Michigan rises
+-   Lake Michigan rises
+-   Chicago floods
+:::
+``` {.QualitativeProblem .MultipleChoice submission=none options=check}
+5 This an instance of:
+| DN
+| *MP
+| MT
+| ADD
+| MTP
+| S
+| ADJ
+| BC
+| CB
+| None of the above
+```
+
+:::standardform
+-   Chicago floods if and only if Lake Michigan rises
+-   Lake Michigan rises if Chicago floods
+:::
+``` {.QualitativeProblem .MultipleChoice submission=none options=check}
+6 This an instance of:
+| DN
+| MP
+| MT
+| ADD
+| MTP
+| S
+| ADJ
+| *BC
+| CB
+| None of the above
+```
+
+:::standardform
+-   Chicago floods if and only if Lake Michigan rises
+-   Lake Michigan rises only if Chicago floods
+:::
+``` {.QualitativeProblem .MultipleChoice submission=none options=check}
+7 This an instance of:
+| DN
+| MP
+| MT
+| ADD
+| MTP
+| S
+| ADJ
+| *BC
+| CB
+| None of the above
+```
+
+:::standardform
+-   Chicago floods or Lake Michigan rises
+-   Lake Michigan doesn't rise
+-   Chicago doesn't flood
+:::
+``` {.QualitativeProblem .MultipleChoice submission=none options=check}
+8 This an instance of:
+| DN
+| MP
+| MT
+| ADD
+| MTP
+| S
+| ADJ
+| BC
+| CB
+| *None of the above
+```
+
+:::standardform
+-   Chicago floods or Lake Michigan rises
+-   Lake Michigan doesn't rise
+-   Chicago floods
+:::
+``` {.QualitativeProblem .MultipleChoice submission=none options=check}
+9 This an instance of:
+| DN
+| MP
+| MT
+| ADD
+| *MTP
+| S
+| ADJ
+| BC
+| CB
+| None of the above
+```
+
+:::standardform
+-   Chicago floods or Lake Michigan rises
+-   Chicago floods
+-   Lake Michigan doesn't rise
+:::
+``` {.QualitativeProblem .MultipleChoice submission=none options=check}
+10 This an instance of:
+| DN
+| MP
+| MT
+| ADD
+| MTP
+| S
+| ADJ
+| BC
+| CB
+| *None of the above
+```
+
+:::standardform
+-   Q ∧ R
+-   R ∧ S
+-   (Q ∧ R) ∧ (R ∧ S)
+:::
+``` {.QualitativeProblem .MultipleChoice submission=none options=check}
+11 This an instance of:
+| DN
+| MP
+| MT
+| ADD
+| MTP
+| S
+| *ADJ
+| BC
+| CB
+| None of the above
+```
+
+:::standardform
+-   Q ∧ R
+-   (Q ∧ R) ∨ (R ∧ S)
+:::
+``` {.QualitativeProblem .MultipleChoice submission=none options=check}
+12 This an instance of:
+| DN
+| MP
+| MT
+| *ADD
+| MTP
+| S
+| ADJ
+| BC
+| CB
+| None of the above
+```
+
+:::standardform
+-   Q ∧ R
+-   (Q ∧ R) ↔ (R ∧ S)
+:::
+``` {.QualitativeProblem .MultipleChoice submission=none options=check}
+13 This an instance of:
+| DN
+| MP
+| MT
+| ADD
+| MTP
+| S
+| ADJ
+| BC
+| CB
+| *None of the above
+```
+
+:::standardform
+-   Chicago is in Illinois
+-   Either Chicago is in Illinois or Toronto is in Mexico
+:::
+``` {.QualitativeProblem .MultipleChoice submission=none options=check}
+14 This an instance of:
+| DN
+| MP
+| MT
+| *ADD
+| MTP
+| S
+| ADJ
+| BC
+| CB
+| None of the above
+```
+
+:::standardform
+-   Chicago is in Illinois
+-   Toronto is in Mexico
+-   Chicago is in Illinois and Toronto is in Mexico
+:::
+``` {.QualitativeProblem .MultipleChoice submission=none options=check}
+15 This an instance of:
+| DN
+| MP
+| MT
+| ADD
+| MTP
+| S
+| *ADJ
+| BC
+| CB
+| None of the above
+```
+
+:::standardform
+-   Chicago is in Illinois unless Toronto is in Mexico
+-   Toronto is not in Mexico
+-   Chicago is in Illinois
+:::
+``` {.QualitativeProblem .MultipleChoice submission=none options=check}
+16 This an instance of:
+| DN
+| MP
+| MT
+| ADD
+| *MTP
+| S
+| ADJ
+| BC
+| CB
+| None of the above
+```
+
+:::standardform
+-   Souls are either physical substances or spiritual substances. 
+-   Souls are spiritual substances.
+-   Souls are not physical substances.
+:::
+``` {.QualitativeProblem .MultipleChoice submission=none options=check}
+17 This an instance of:
+| DN
+| MP
+| MT
+| ADD
+| MTP
+| S
+| ADJ
+| BC
+| CB
+| *None of the above
+```
+
+:::standardform
+-   Animals cannot talk but they are intelligent.
+-   Animals are intelligent.
+:::
+``` {.QualitativeProblem .MultipleChoice submission=none options=check}
+18 This an instance of:
+| DN
+| MP
+| MT
+| ADD
+| MTP
+| *S
+| ADJ
+| BC
+| CB
+| None of the above
+```
+
+:::standardform
+-   If prepared well, tofu is tasty.
+-   Tofu is tasty only if prepared well.
+-   Tofu is tasty if and only if prepared well.
+:::
+``` {.QualitativeProblem .MultipleChoice submission=none options=check}
+19 This an instance of:
+| DN
+| MP
+| MT
+| ADD
+| MTP
+| S
+| ADJ
+| BC
+| *CB
+| None of the above
+```
+
+:::aside 
+This and the following example are adapted from Pospesel and Marans, [Arguments: Deductive Logic Exercises](http://arguments.dss.ucdavis.edu/){target="_blank"
+rel="noopener noreferrer"}.
+:::
+
+> If ye were of the world, the world would love his own: but because ye are
+> not of the world, but I have chosen you out of the world, therefore the
+> world hateth you. [John 15:19 (King James
+> Translation)](https://www.biblegateway.com/passage/?search=John%2015%3A19&version=KJV)
+
+``` {.QualitativeProblem .MultipleChoice submission=none options=check}
+20 This an instance of:
+| DN
+| MP
+| MT
+| ADD
+| MTP
+| S
+| ADJ
+| BC
+| CB
+| *None of the above
+```
+
+From a January 17, 1972 issue of Newsweek, quoting Miami Dolphin's guard Bob
+Keuchenberg:
+
+> My father and uncle were human cannonballs in carnivals," Kuechenberg says. "My father told me, go to college
+or be a cannonball. Then one day my uncle came out of the cannon, missed the net and hit
+the Ferris whell. I decided to go to school.
+
+``` {.QualitativeProblem .MultipleChoice submission=none options=check}
+21 This an instance of:
+| DN
+| MP
+| MT
+| ADD
+| *MTP
+| S
+| ADJ
+| BC
+| CB
+| None of the above
+```
+
+In her 2017 book, *What Love Is --- and What it Could Be*, the Philospher
+Carrie Jenkins considers the view that romantic love is a feature of human
+biology, to be understood through neuroscience. She writes,
+
+> What about aliens? Or what about designer life forms that didn't evolve at
+> all but were brought into existence through direct human agency? If love is
+> indeed a feature of human biology, then all these other creatures can never
+> be in love. [@jenkins2017, 63-4]
+
+```{.QualitativeProblem .ShortAnswer submission=none}
+22 Jenkins here suggests an argument by Modus Tollens. Can you reconstruct that argument?
+```
+
+## Strategic Advice
+
+This section is about strategic advice. You might not be ready for it right
+now. But you will want to come back to it. When you get stuck on a problem,
+this is your guide toward a solution.
+
+### Summary of Strategies
+
+[**Getting**](#using-and-getting):
+
+-   [Show directly, if you can!](#getting-directly)
+-   [Conditionals: use CD](#getting-conditionals)
+-   [Negations: use ID](#getting-indirectly)
+-   [Conjunctions: show both conjuncts, then use ADJ](#getting-conjunctions)
+-   [Biconditionals: show both conditionals, then use
+    CB](#getting-biconditionals)
+-   [Disjunctions: use ADD if you can, otherwise, show the double negation
+    using ID](#getting-disjunctions)
+-   [Everything else: show the double negation using ID, use
+    DNE](#getting-indirectly)
+
+[**Using**](#using-and-getting):
+
+-   [Conditionals: use MP or MT](#using-conditionals)
+    -   If you can't, consider trying to get what you need to use MP or MT,
+        following the appropriate strategy for getting
+-   [Conjunctions: use S](#using-conjunctions)
+-   [Disjunctions: use MTP](#using-disjunctions)
+    -   If you can't, consider trying to get what you need to use MTP,
+        following the appropriate strategy for getting
+-   [Biconditionals: use BC](#using-biconditionals)
+-   [Negations: use with MT or MTP if you can; otherwise, use as one half of a
+    contradiction with ID](#using-negations)
+
+Read on for more details.
+
+
+### **Using** vs. **Getting**
+
+:::aside
+There are two kinds of strategies:
+
+-   Strategies for **Using**
+-   Strategies for **Getting**
+:::
+
+My first big piece of advice is about how to *think* about derivations. A
+derivation is a journey. You are given some premises to use (if you are lucky)
+and your task is to get to the conclusion. So a derivation is about **using**
+what you have to **get** what you need.
+
+:::aside
+Strategies for **Getting** come first: start by thinking about **what you need to get** and **how you are going to
+get it**.
+:::
+
+And here is my second big piece of advice: strategies for getting come first.
+Always begin a problem by thinking about what you need to get, and how you
+plan to get it. It is easy to get caught up in *using* what you have. But you
+need to be sure that you are using what you have in order to make progress to
+where you need to get. I mean, sometimes it is fun to just get in your car and
+drive, without knowing where you are going. But usually, its best to first
+figure out where you are going, and how you are going to get there, before you
+start driving.
+
+### Strategies for Getting
+
+Strategies for *getting* come first. Before you get lost in the question of
+how to use what you have, spend some time figuring out what you need to get,
+and how you are going to get it.
+
+#### Getting **Directly**
+
+This is the simplest strategy of all. Look at the sentence you need
+to get. Try to derive it *directly*, by applying rules to what you have:
+
+``` {.ProofChecker .Prop options="guides fonts indent tabindent resize" submission="none"}
+ P->Q, Q->R, P :|-: R
+```
+
+Two applications of MP should get you directly to your conclusion. Again,
+
+``` {.ProofChecker .Prop options="guides fonts indent tabindent resize" submission="none"}
+ (P->Q)/\R :|-: P->Q
+```
+
+A simple application of S gets you the conclusion.
+
+This is a great strategy! The trouble is that it doesn't always work. It is
+always a good place to start, but don't expect it to work out, and be ready to
+consider other options.
+
+#### Getting Conditionals
+
+:::aside
+To **get** a conditional, use CD
+:::
+
+99% of the time, the best way to get a conditional is to use CD. This is what
+you should do to complete this problem, for example:
+
+``` {.ProofChecker .Prop options="guides fonts indent tabindent resize" submission="none"}
+ P->Q, Q->R :|-: P->R
+```
+
+Sometimes, you need a conditional, but it isn't already on a show line. In
+these cases, using CD means starting a subderivation:
+
+``` {.ProofChecker .Prop options="guides fonts indent tabindent resize" submission="none"}
+Ex1 Q->(R->P) :|-: R->(Q->P)
+|1. Show R->(Q->P)
+|2.   R  :AS
+|3.   Show Q->P
+```
+
+Once you realize, after line (2), that Q → P is what you need to get, it
+should be almost automatic that you enter a show line for it, so you can get
+it by CD.
+
+#### Getting Biconditionals
+
+If you need to get a biconditional, then you need to get two conditionals, so
+you can put them together using CB.
+
+If you are really lucky, you will have some easy way to get both conditionals
+directly:
+
+``` {.ProofChecker .Prop options="guides fonts indent tabindent resize" submission="none"}
+Ex1 (Q->P)/\(P->Q) :|-: Q<->P
+```
+
+But usually, you will need to [use CD to get the
+conditionals](#getting-conditionals). This means constructing two *separate*
+subderivations, one for each conditional:
+
+``` {.ProofChecker .Prop options="guides fonts indent tabindent resize" submission="none"}
+ P,Q :|-: P<->Q
+|1.Show P<->Q
+|2.  Show P->Q
+|3.    P   :AS
+|4.    Q   :PR
+|5.  :CD 4
+|6.  Show Q->P
+|7.    Q   :AS
+|8.    P   :PR
+|9.  :CD 8
+|10.  P<->Q :CB 2,6
+|11.:DD 10
+```
+
+Ultimately, this is a direct derivation. But to get there, you needed to do
+two conditional derivations as subderivations.
+
+#### Getting Conjunctions
+
+Getting conjunctions is a lot like getting biconditionals: you need to get
+each conjunct separately, so you can put them together, using ADJ.
+
+Sometimes, you will be able to get each conjunct directly:
+
+``` {.ProofChecker .Prop options="guides fonts indent tabindent resize" submission="none"}
+Ex1 P/\Q, P->R, Q->S :|-: R/\S
+```
+
+But often, you will need to do something more complicated. How to do that?
+Depends. Figure out what kind of sentence it is, and follow the advice for
+getting that kind of sentence.
+
+#### Getting Indirectly
+
+Taking stock: 
+
+-   Get conditionals by CD
+-   Get biconditionals by CB (using CD to get both conditionals, if needed)
+-   Get conjunctions by ADJ (using whatever means necessary to get both
+    conjunts)
+
+For most everything else,
+
+-   Get it using ID
+
+If what you need isn't a negation, this will mean using a subderivation to get
+its *double negation* by ID. For example,
+
+``` {.ProofChecker .Prop options="guides fonts indent tabindent resize" submission="none"}
+ Q,~Q :|-: P
+|1.Show P
+|2.  Show ~~P
+|3.    ~P    :AS
+|4.    Q     :PR
+|5.    ~Q    :PR
+|6.  :ID 4,5
+|7.  P       :DNE 2
+|8.:DD 7
+```
+
+I needed to get 'P'. But I didn't really have much to work with, and couldn't
+see any way to get 'P' directly. So I entered a show line for '¬¬P', and
+attempted an indirect derivation. That allowed me to get '¬¬P'. So then DNE
+allowed me to get 'P'.
+
+Here is an example involving a conjunction:
+
+``` {.ProofChecker .Prop options="guides fonts indent tabindent resize" submission="none"}
+ Q,~Q :|-: P/\R
+```
+
+We know that we need to get P and R separately, so we can join them together
+using ADJ. But how should we go about getting P? There is no obvious way to do
+so directly, so we enter a show line for its double negation, ¬¬P, and use ID:
+
+``` {.ProofChecker .Prop options="guides fonts indent tabindent resize" submission="none"}
+ Q,~Q :|-: P/\R
+|1.Show P/\R
+|2.  Show ~~P
+|3.    ~P    :AS
+|4.    Q     :PR
+|5.    ~Q    :PR
+|6.  :ID 4,5
+|7.  P       :DNE 2
+```
+
+Can you complete the problem, by getting R in the same way?
+
+(Actually, it is possible to complete this derivation in fewer lines, with only
+a single subderivation. Can you see how?)
+
+#### Getting Disjunctions
+
+We get disjunctions using ADD. This can be deceptively easy:
+
+``` {.ProofChecker .Prop options="guides fonts indent tabindent resize" submission=none}
+ ~((P<->Q)/\(R->(S->T))) :|-: ~((P<->Q)/\(R->(S->T)))\/P
+```
+
+But often, you will need to get a disjunction, but you won't have either
+disjunct. What then?
+
+``` {.ProofChecker .Prop options="guides fonts indent tabindent resize" submission=none}
+ :|-: S\/~S
+|1.Show S\/~S
+```
+
+What to do? Here is one idea: I could try to show one of the disjuncts, and
+then use ADD to finish the derivation off:
+
+``` {.ProofChecker .Prop options="guides fonts indent tabindent resize" submission=none}
+ :|-: S\/~S
+|1.Show S\/~S
+|2. Show S 
+```
+
+But now what? I can't make any assumptions, because my show line on line (2)
+isn't a conditional or a negation. But I can get around that by showing the
+double negation of S instead:
+
+``` {.ProofChecker .Prop options="guides fonts indent tabindent resize" submission=none}
+ :|-: S\/~S
+|1.Show S\/~S
+|2. Show ~~S 
+|3.  ~S   :AS
+```
+
+This looks promising! I can now using ADD to get 'S∨¬S':
+
+``` {.ProofChecker .Prop options="guides fonts indent tabindent resize" submission=none}
+ :|-: S\/~S
+|1.Show S\/~S
+|2. Show ~~S 
+|3.  ~S   :AS
+|4.  S\/~S :ADD 3
+```
+
+But now I'm stuck. I got what I wanted, 'S∨¬S', but I only got it *inside* a
+subderivation. To complete the subderivation, I need to find a contradiction.
+But I don't have the materials for a contradiction in lines (3) and (4).
+
+Stepping back, perhaps you can see the bigger problem. I wanted to show that
+either you are sitting or you are not sitting. My strategy, on line (2), was
+to attempt to show that you are not not sitting. But how do I expect to prove
+that from no premises at all? It isn't a logical truth. It is, at best, a
+contingent fact about your current situation.
+
+The same issue would arise if we attempted to show '¬S' instead, and for the same
+reason. It is a fool's mission to try to prove that you are not
+sitting from no premises at all.
+
+So let's go back to the drawing board:
+
+``` {.ProofChecker .Prop options="guides fonts indent tabindent resize" submission=none}
+ :|-: S\/~S
+|1.Show S\/~S
+|2. 
+```
+
+I cannot use CD, since my show line isn't a conditional. And I cannot use ID,
+since my show line isn't a negation. That leaves me with
+one last option: try to show its double negation:
+
+``` {.ProofChecker .Prop options="guides fonts indent tabindent resize" submission=none}
+ :|-: S\/~S
+|1.Show S\/~S
+|2.  Show ~~(S\/~S)
+|3.    ~(S\/~S)    :AS
+```
+
+Is this progress? That depends on whether or not we can figure out something to do
+with line (3). In the next section, we will discuss [strategies for using
+negations](#using-negations). There are four strategies. Here are the first
+three:
+
+-   If it is a double negation, use DNE to eliminate the double negations.
+-   Use it, together with a conditional, to apply MT
+-   Use it, together with a disjunction, to apply MTP
+
+In this case, these three strategies get us nowhere. The fourth strategy is:
+
+-   Use it as one half of a contradiction, to finish up an ID
+
+This is what we have to do here. But how? To get the
+disjunction, 'S ∨ ¬S', we need to get one of the disjuncts, and
+use ADD. So let's try showing 'S'. Or, rather, as above, the double negation
+of 'S', so we can use ID:
+
+``` {.ProofChecker .Prop options="guides fonts indent tabindent resize" submission=none}
+ :|-: S\/~S
+|1.Show S\/~S
+|2.  Show ~~(S\/~S)
+|3.    ~(S\/~S) :AS
+|4.    Show ~~S
+|5.      ~S :AS
+|6.      S\/~S :ADD 5
+```
+
+We are back where we were before. We have what we ultimately
+want---'S\/~S'---but we have it trapped inside a subderivation. To complete
+that subderivation, we need to find a contradiction. Are we stuck again?
+
+This time we are not! We have a contradiction, on lines (3) and (6). So we can
+finish our subderivation, by ID:
+
+``` {.ProofChecker .Prop options="guides fonts indent tabindent resize" submission=none}
+ :|-: S\/~S
+|1.Show S\/~S
+|2.  Show ~~(S\/~S)
+|3.    ~(S\/~S) :AS
+|4.    Show ~~S
+|5.      ~S :AS
+|6.      S\/~S :ADD 5
+|7.    :ID 3,6
+|8.    S :DNE 4
+```
+
+Now we need to remember why we wanted 'S'. We wanted 'S' so we could get
+'S∨¬¬S', by ADD. And we wanted 'S∨¬¬S' because it contradicts line (3):
+
+
+``` {.ProofChecker .Prop options="guides fonts indent tabindent resize" submission=none}
+ :|-: S\/~S
+|1.Show S\/~S
+|2.  Show ~~(S\/~S)
+|3.    ~(S\/~S) :AS
+|4.    Show ~~S
+|5.      ~S :AS
+|6.      S\/~S :ADD 5
+|7.    :ID 3,6
+|8.    S :DNE 4
+|9.    S\/~S :ADD 8
+|10.  :ID 3,9
+```
+
+This unlocks the show line on line (2), which is the double negation of our
+conclusion. So a simple DNE allows us to get what we need to complete the
+derivation by DD:
+
+``` {.ProofChecker .Prop options="guides fonts indent tabindent resize" submission=none}
+ :|-: S\/~S
+|1.Show S\/~S
+|2.  Show ~~(S\/~S)
+|3.    ~(S\/~S)    :AS
+|4.    Show ~~S
+|5.      ~S        :AS
+|6.      S\/~S     :ADD 5
+|7.    :ID 3,6
+|8.    S           :DNE 4
+|9.    S\/~S       :ADD 8
+|10.  :ID 3,9
+|11.  S\/~S         :DNE 2
+|12.:DD 11
+```
+
+Phew. That was not easy. When it isn't trivial, getting disjunctions is one of
+the nastiest tasks in our system. In the next unit, we will introduce some
+shortcuts to make this easier.
+
+### Strategies for **Using**
+
+#### Using Conditionals
+
+:::aside
+To **use** a conditional, apply Modus Ponens or Modus Tollens
+:::
+
+If you have a conditional and you need to use it, look for ways to apply MP or
+MT. Continuing our example from above, when we bring down our premise, we have
+a conditional, on line 5, that we need to use:
+
+``` {.ProofChecker .Prop options="guides fonts indent tabindent resize" submission="none"}
+Ex3 Q->(R->P) :|-: R->(Q->P)
+|1. Show R->(Q->P)
+|2.   R  :AS
+|3.   Show Q->P
+|4.     Q :AS
+|5.     Q->(R->P)  :PR
+```
+
+From here, I can get to P in two steps, both using MP. Do you see it?
+
+:::spoiler
+
+``` {.ProofChecker .Prop options="guides fonts indent tabindent resize" submission="none"}
+Ex4 Q->(R->P) :|-: R->(Q->P)
+|1. Show R->(Q->P)
+|2.   R  :AS
+|3.   Show Q->P
+|4.     Q :AS
+|5.     Q->(R->P)  :PR
+|6.     R->P :MP 4,5
+|7.     P  :MP 2,6
+|8.   :CD 7
+|9. :CD 3
+```
+:::
+
+Sometimes, before you can use MP or MT on a conditional, you need to use DN to
+get your other premise into the right form. In this example, one application
+of DN will put you in position to MT:
+
+
+``` {.Playground .Prop options="guides fonts indent tabindent resize" submission="none"}
+Ex5 
+|1. P -> ~Q   :PR
+|2. Q         :PR
+```
+
+:::spoiler
+``` {.Playground .Prop options="guides fonts indent tabindent resize" submission="none"}
+Ex6 
+|1. P -> ~Q   :PR
+|2. Q         :PR
+|3. ~~Q       :DN 2
+|4. ~P        :MT 1,3
+```
+:::
+
+That example should be familiar from earlier chapters. Now we have lots of
+other connectives, and so lots of other things  you might do to put yourself
+into a position to apply MP or MT. See if you can solve these puzzles:
+
+
+``` {.Playground .Prop options="guides fonts indent tabindent resize" submission="none"}
+Ex7 
+|1. P -> ~Q   :PR
+|2. R/\P      :PR
+```
+
+:::spoiler
+
+``` {.Playground .Prop options="guides fonts indent tabindent resize" submission="none"}
+Ex8 
+|1. P -> ~Q   :PR
+|2. R/\P      :PR
+|3. P         :S 2
+|4. ~Q        :MP 1,3
+```
+:::
+
+
+``` {.Playground .Prop options="guides fonts indent tabindent resize" submission="none"}
+Ex9 
+|1. (P/\Q)->R  :PR
+|2. P      :PR
+|3. Q      :PR
+```
+
+:::spoiler
+``` {.Playground .Prop options="guides fonts indent tabindent resize" submission="none"}
+Ex10 
+|1. (P/\Q)->R  :PR
+|2. P      :PR
+|3. Q      :PR
+|4. P/\Q   :ADJ 2,3
+|5. R      :MP 1,4
+```
+:::
+
+
+``` {.Playground .Prop options="guides fonts indent tabindent resize" submission="none"}
+Ex11 
+|1. (P\/R)->R  :PR
+|2. P      :PR
+```
+
+:::spoiler
+``` {.Playground .Prop options="guides fonts indent tabindent resize" submission="none"}
+Ex12 
+|1. (P\/R)->R  :PR
+|2. P      :PR
+|3. P\/R   :ADD 2
+|4. R      :MP 1,3
+```
+:::
+
+Sometimes, you might need to enter a show line, to get what you need to apply
+MP or MT. Consider:
+
+``` {.Playground .Prop options="guides fonts indent tabindent resize" submission="none"}
+Ex13 
+|1. (P->Q)->R  :PR
+|2. Q      :PR
+```
+
+:::spoiler
+``` {.Playground .Prop options="guides fonts indent tabindent resize" submission="none"}
+Ex14 
+|1. (P->Q)->R  :PR
+|2. Q      :PR
+|3. Show P->Q
+|4.   P    :AS
+|5. :CD 2
+|6. R      :MP 1,3
+```
+:::
+
+
+#### Using Conjunctions
+
+This one is simple. Use Simplification (S). Simplification breaks the
+conjunction into its two conjuncts. Once you've broken the conjunction into
+its conjuncts, see what you can do with those
+conjuncts. Here is a simple example illustrating this strategy:
+
+``` {.ProofChecker .Prop options="guides fonts indent tabindent resize" submission="none"}
+ P/\(P->Q) :|-: Q
+|1.Show Q
+|2.  P/\(P->Q) :PR
+|3.  P         :S 2
+|4.  P->Q      :S 2
+|5.  Q         :MP 3,4
+|6.:DD 5
+```
+
+Once we broke the conjunction on line (2) into its conjuncts, we were able to
+do MP with those conjuncts, and thereby reach our conclusion.
+
+#### Using **Disjunctions**
+
+Getting disjunctions was rough. Using disjunctions is straightforward: use
+MTP. Sometimes will need to enter a show line to get what you need to apply
+MTP:
+
+``` {.ProofChecker .Prop options="guides fonts indent tabindent resize" submission="none"}
+ P\/Q, Q->~Q :|-: P
+|1.Show P
+|2.  P\/Q     :PR
+|3.  Q->~Q    :PR
+|4.  Show ~Q
+```
+
+Why did I enter a show line for '¬Q' on line (4)? In hopes of using it, with
+line (2), to MTP.
+
+``` {.ProofChecker .Prop options="guides fonts indent tabindent resize" submission="none"}
+ P\/Q, Q->~Q :|-: P
+|1.Show P
+|2.  P\/Q     :PR
+|3.  Q->~Q    :PR
+|4.  Show ~Q
+|5.    Q      :AS
+|6.    ~Q     :MP 3,5
+|7.  :ID 5,6
+|8.  P        :MTP 2,4
+|9.:DD 8
+```
+
+#### Using **Biconditionals**
+
+Our rule for using biconditionals is BC. We use a biconditional by breaking it
+apart into the two conditionals. Then we use those conditionals in the usual
+way (by using MP or MT). For example,
+
+``` {.ProofChecker .Prop options="guides fonts indent tabindent resize" submission="none"}
+ P<->Q, Q :|-: P
+|1.Show P
+|2.  P<->Q    :PR
+|3.  Q->P     :BC 2
+|4.  Q        :PR
+|5.  P        :MP 3,4
+|6.:DD 5
+```
+
+Of course, you might not have what you need to do MP or MT with the
+conditional. But that's not a new problem. That's part of the trouble with
+figuring out how to use conditionals, which we've already discussed.
+
+#### Using **Negations**
+
+Using negations is tricky. Sometimes, you can use a negation, together with a
+conditional, by applying MT. Sometimes, you can use a negation, together with
+a disjunction, by applying MTP. But those are special cases. An especially
+special case is when you happen to have a *double*-negation: then you can
+apply DNE.
+
+But how do you use a negation when it isn't a double-negation, and you don't
+have an appropriate conditional or disjunction? For example, how should you
+use the premise in this derivation?
+
+``` {.ProofChecker .Prop options="guides fonts indent tabindent resize" submission="none"}
+ ~(P\/Q) :|-: ~P
+|1.Show ~P
+|2.  P         :AS
+|3.  ~(P\/Q)   :PR
+```
+
+The trick is to remember how ID works. To complete an Indirect Derivation, you
+need a contradiction. So use line (3) as one half of a contradiction:
+
+``` {.ProofChecker .Prop options="guides fonts indent tabindent resize" submission="none"}
+ ~(P\/Q) :|-: ~P
+|1.Show ~P
+|2.  P         :AS
+|3.  ~(P\/Q)   :PR
+|4.  P\/Q      :ADD 2
+|5.:ID 3,4
+```
+
+Notice that we don't attempt to "crack open" the negation on
+line (3). We don't have any rules that let us "crack open" complex negations.
+Instead, we use line (3) indirectly, by constructing a sentence that
+contradicts it.
+
+Here is another example:
+
+``` {.ProofChecker .Prop options="guides fonts indent tabindent resize" submission="none"}
+ ~(P->Q) :|-: ~Q
+|1.Show ~Q
+|2.  Q       :AS
+|3.  ~(P->Q) :PR
+|4.  Show P->Q
+|5.    P     :AS
+|6.  :CD 2
+|7.:ID 3,4
+```
+
+

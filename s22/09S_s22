@@ -1,0 +1,137 @@
+---
+base-css:
+-   https://carnap.io/shared/dsanson@gmail.com/sanson-book.css
+-   https://cdn.plyr.io/3.6.12/plyr.css
+js: 
+-   https://cdn.plyr.io/3.6.12/plyr.polyfilled.js
+-   https://carnap.io/shared/dsanson@gmail.com/logic-book.js
+-   https://hypothes.is/embed.js
+---
+
+# Translation in SL, continued: Supplements
+
+These are supplemental exercises. They are not for credit, and are not worth
+any points. But they are a way to get more practice.
+
+## 'if', 'only if', and 'if and only if'
+
+'if', 'only if', and 'if and only if' are not new in this chapter.
+But they are one of the easiest things to mess up from Chapter 4.
+So let's start with review of that:
+
+(There is no "check" button. But you can hit "enter" or "return", as usual, to
+check your answer.)
+
+``` {.Translate .Prop options="check" submission=none}
+1 P->Q:  Q if P
+2 P->Q:  if P Q
+3 P->Q:  P only if Q
+4 P<->Q: P if and only if Q
+5 R->Q:  R only if Q
+6 Q->S:  S if Q
+7 T->Q:  if T Q
+8 T<->R: T if and only if R
+9 S->Q:  S only if Q
+10 S->Q: Only if Q, S
+11 R->Q: Q if R
+12 P->S: P only if S
+```
+
+## Stylistic Variants Drills
+
+Again, this is review from Chapter 4.
+
+``` {.Translate .Prop submission=none}
+13 P->Q:    Provided that P, Q
+14 P->Q:    P only on the condition that Q
+15 P/\~Q:   P but not Q
+16 P\/Q:    P unless Q
+17 Q->P:    P if Q
+18 P<->Q:   P just in case Q
+19 Q<->P:   Q if and only if P
+20 R/\S:    R and S
+21 S\/Q:    Unless S, Q
+22 P/\R:    P even though R
+23 R->Q:    Q only on the assumption that R
+24 R<->Q:   R just in case Q
+25 ~(P\/Q): Neither P nor Q
+26 ~Q/\P:   not Q, but P
+27 P->Q:    Only if Q, P
+28 P->Q:    Q if P
+29 S->R:    Assuming R, S
+30 ~(R\/S): Neither R nor S
+31 Q/\S:    Q but S
+32 Q\/S:    Q unless S
+33 Q->R:    R on the assumption that Q
+34 P<->Q:   P provided that and only provided that Q
+35 Q/\S:    Q but S
+```
+
+## Comma Rule Drills
+
+Commas indicate the bigger break!
+
+``` {.Translate .Prop submission=none}
+36 (P/\Q)\/R:        P and Q, or R
+37 P/\(Q\/R):        P, and Q or R
+38 R->(Q->P):        P if Q, if R
+39 P->(Q/\R):        P, only if Q and R
+40 (P->Q)/\R:        Q if P, but R
+41 (Q->P)\/(R/\~S):  Unless P if Q, R but not S
+42 R->(Q->P):        P provided that Q, assuming R
+43 Q->(Q->P):        Q, only provided that P if Q
+44 (P<->Q)\/~(R\/S): P just in case Q, unless neither R nor S
+```
+
+## Compound Subjects and Predicates
+
+:::soawrapper
+:::soasticky
+| P: I like dollars
+| Q: I like diamonds
+| R: I like stunting
+| S: I like shining
+| T: You like dollars
+| U: You like diamonds
+| V: You like stunting
+| W: You like shining
+:::
+
+``` {.Translate .Prop submission=none}
+42 T/\P : You and I like dollars
+43 V/\R->U\/Q : If you and I like stunting, then you or I like diamonds
+44 P/\Q /\ ~(R\/S) : I like dollars and diamonds but I don't like stunting or shining.
+45 V/\R\/~V : You and I like stunting unless you don't like stunting.
+46 Q/\P<->V/\W : I like diamonds and dollars just in case you like stunting and shining.
+47 Q/\S->V/\T : I like diamonds and shining only provided that you like stunting and dollars
+48 V/\T->Q/\S : I like diamonds and shining provided that you like stunting and dollars
+49 V/\T<->Q/\S : I like diamonds and shining just in case you like stunting and dollars
+50 ~(Q\/U)/\(P\/T) : Neither of us likes diamonds but one of us likes dollars
+```
+:::
+
+## Quantification
+
+:::soawrapper
+:::soasticky
+| P: Jada attends ISU
+| Q: Luke attends ISU
+| R: Terrell attends ISU
+
+We are Jada, Luke, and Terrell
+:::
+
+Suppose we are Jada, Luke, and Terrell.
+
+``` {.Translate .Prop submission=none}
+51 P/\Q/\R : All of us attend ISU
+52 P\/Q\/R : At least one of us attends ISU
+53 P\/Q\/R : Some of us attend ISU
+54 ~(P/\Q/\R) : Not all of us attend ISU 
+56 ~(P\/Q) : Neither Jada nor Luke attend ISU
+55 ~(P\/Q\/R) : None of attend ISU
+57 P\/Q\/R->P/\Q/\R : All of us attend ISU if any of us attend ISU
+58 ~(P\/Q\/R)\/R : None of us attend ISU unless Terrell does
+```
+:::
+<!-- vim: set ft=carnap :-->

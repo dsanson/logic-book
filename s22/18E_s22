@@ -1,0 +1,29 @@
+---
+base-css:
+-   https://carnap.io/shared/dsanson@gmail.com/sanson-book.css
+-   https://cdn.plyr.io/3.6.12/plyr.css
+js: 
+-   https://cdn.plyr.io/3.6.12/plyr.polyfilled.js
+-   https://carnap.io/shared/dsanson@gmail.com/logic-book.js
+---
+
+::: {.auto-tally}
+:::
+
+# Derivations with Relations and Identity: Exercises
+
+
+```{.ProofChecker .FirstOrder options="guides fonts indent tabindent resize" points=10}
+1 :|-: Axx=x
+2 :|-: Exx=a
+3 :|-: ExEyx=y
+4 ExF(x), Ex~F(x) :|-: ExEy~x=y
+5 AxAy(F(x,y)->x=y), G(a)/\F(b,a) :|-: G(b)
+6 Ax(F(x)->Ay(F(y)->x=y)), F(a)/\G(a) :|-: F(b)->G(b) 
+7 :|-: AxAy(x=y<->y=x)
+8 AxAy(F(x,y)->F(y,x)), F(a,b), b=c :|-: F(c,a)
+9 ~ExEyL(x,y) :|-: ~ExL(x,x)
+```
+
+
+<!-- vim: set ft=carnap :-->

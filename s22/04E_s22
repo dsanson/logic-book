@@ -1,0 +1,69 @@
+---
+base-css:
+-   https://carnap.io/shared/dsanson@gmail.com/sanson-book.css
+js: 
+-   https://carnap.io/shared/dsanson@gmail.com/logic-book.js
+---
+
+# Translation in SL: Exercises
+
+:::auto-tally
+:::
+
+:::wrapper
+::: soasticky
+| P: I wear pants.
+| Q: I attend class.
+| R: Class is on Zoom.
+:::
+
+``` {.Translate .Prop points="10"}
+1 Q->P : If I attend class, then I wear pants.
+2 Q/\P : Both I attend class and I wear pants.
+3 ~(Q/\P) : It is not the case that (both I attend class and I wear pants).
+4 Q\/P : Either I attend class or I wear pants.
+5 ~(Q\/P) : I neither I attend class nor wear pants.
+6 Q->P : I attend class only if I wear pants.
+7 Q<->P : I attend class if and only if I wear pants.
+8 R->(P/\Q): If class is on Zoom then (I wear pants and I attend class).
+9 (~Q/\P)\/(R/\~P): Either (both I don't attend class and I wear pants) or (both class is on Zoom and I don't wear pants).
+10 ~(R->P) : It is not the case that (if class is on Zoom, I wear pants).
+11 Q->(R->~P) : If I attend class then (if class is on Zoom then I don't wear pants.)
+```
+:::
+
+:::wrapper
+::: soasticky
+| P: It is hot.
+| Q: I stay inside.
+| R: I go for a run.
+:::
+
+``` {.Translate .Prop points="10"}
+12 P->Q : I stay inside if it is hot.
+13 Q->P : I stay inside only if it is hot.
+14 Q<->P : I stay inside if and only if it is hot. 
+15 P/\R : It is hot but I go for a run.
+16 ~P->R : I go for a run provided that it isn't hot.
+17 P->(Q\/R) : If it is hot, then (I stay inside unless I go for a run).
+18 R<->~P : I go for a run just in case it isn't hot. 
+19 ~P/\Q: It is not hot; nevertheless I stay inside.
+```
+:::
+:::wrapper
+::: soasticky
+| V: I can vote in the election.
+| R: I am registered to vote.
+:::
+
+``` {.Translate .Prop points="10"}
+20 R/\~V: I am registered to vote, however I cannot vote in the election.
+21 V->R : I can vote in the election only provided that I am registered to vote.
+22 R->V : Assuming I am registered to vote, I can vote in the election.
+23 ~V\/R : I can't vote in the election unless I am registered to vote.
+24 V<->V : I can vote in the election just in case I can vote in the election.
+```
+:::
+
+
+<!-- vim: set ft=carnap :-->

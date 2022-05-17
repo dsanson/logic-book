@@ -1,0 +1,694 @@
+---
+base-css:
+-   https://carnap.io/shared/dsanson@gmail.com/sanson-book.css
+-   https://cdn.plyr.io/3.6.12/plyr.css
+js: 
+-   https://cdn.plyr.io/3.6.12/plyr.polyfilled.js
+-   https://carnap.io/shared/dsanson@gmail.com/logic-book.js
+-   https://hypothes.is/embed.js
+---
+
+::: cover
+
+# Relations and Identity
+
+:::
+
+::: {.auto-tally}
+:::
+
+In this unit, we extend PL to allow for multi-place
+predicates, which allow us to express relations between things. The
+specific learning objectives for this unit are:
+
+a.  I can translate sentences involving multi-place predicates into
+    canonical English
+b.  I can symbolize sentences involving multi-place predicates
+c.  I can symbolize sentences involving identity
+
+ 
+## Multi-place Predicates
+
+A single-place or *monadic* predicate is a predicate that takes a single
+argument. Examples include '\_\_\_ is a frog', '\_\_\_ is green', '\_\_\_
+hops', and so on. So far, in our treatment of PL, we have
+confined ourselves to single-place predicates.
+
+A multi-place or *polyadic* predicate is a predicate that takes more than one
+argument. Examples include '\_\_\_ loves \_\_\_', '\_\_\_ is greater than
+\_\_\_', and '\_\_\_ is between \_\_\_ and \_\_\_'. In this chapter, we extend
+our treatment of PL to include multi-place predicates.
+
+Single-place predicates are well-suited for ascribing *properties*
+or *features* to a thing, e.g.,
+
+::: displayed
+-   Kermit *is green*.
+-   Dwayne Johnson *is strong*.
+-   2 *is even*.
+:::
+
+They can also be used to describe what *kind* of thing something is:
+
+::: displayed
+-   Kermit *is a frog*.
+-   Dwayne Johnson *is a celebrity*.
+-   2 *is a natural number*.
+:::
+
+Multi-place predicates are well-suited for expressing *relations* between
+things:
+
+::: displayed
+-   Dwayne Johnson *is stronger than* Kermit.
+-   Taylor Swift *is better than* Justin Bieber.
+-   3 *is greater than* 2.
+:::
+
+We *can* try to express relations using single-place predicates. But when we
+do, we fail to capture important features of their logical form. For example,
+each of the following arguments is valid:
+
+::: standardform
+| [Adam loves Billy]{.premise .nn}
+| [Some x is such that x loves Billy.]{.conclusion}
+:::
+
+::: standardform
+| [Adam loves Billy]{.premise .nn}
+| [Some y is such that Adam loves y.]{.conclusion}
+:::
+
+Suppose we try to capture what is going on here using single-place predicates:
+
+:::wrapper
+:::soasticky
+| F(x): $x$ loves Billy
+| G(y): Adam loves $y$
+| a: Adam
+| b: Billy
+:::
+
+This scheme of abbreviation forces us to make an awkward choice, when it comes
+to symbolizing the premise of our two arguments. Is it:
+
+::: displayed
+-   F(a): Adam *loves Billy*.
+:::
+
+Or is it:
+
+::: displayed
+-   G(b): *Adam loves* Billy.
+:::
+
+If we opt for the first, our first argument is valid:
+
+::: standardform
+-   F(a): Adam loves Billy.
+-   ∃xF(x): Some x is such that x loves Billy.
+:::
+
+But our second argument is not valid:
+
+::: standardform
+-   F(a): Adam loves Billy.
+-   ∃yG(y): Some y is such that Adam loves y.
+:::
+
+And if we opt for the second, our second argument is valid:
+
+::: standardform
+-   G(b): Adam loves Billy.
+-   ∃yG(y): Some y is such that Adam loves y.
+:::
+
+But our first argument is not valid:
+
+::: standardform
+-   G(b): Adam loves Billy.
+-   ∃xF(x): Some x is such that x loves Billy.
+:::
+
+:::
+
+These are bad results. We want a representation of 'Adam loves Billy' that
+makes both arguments valid. The solution is to treat 'loves' as a *two-place*
+predicate:
+
+:::wrapper
+:::soasticky
+| L(x,y): $x$ loves $y$
+| a: Adam
+| b: Billy
+:::
+
+::: {.displayed}
+-   L(a,b): Adam loves Billy
+:::
+
+Now we can offer a single representation of our premise, that allows us to
+validly infer both conclusions:
+
+::: {.displayed}
+-   L(a,b) ⊢ ∃xL(x,b)
+-   L(a,b) ⊢ ∃yL(a,y)
+:::
+
+And this allows us to go one step further. From 'Adam loves Billy', it follows that
+*something* loves *something*:
+
+::: displayed
+-   L(a,b) ⊢ ∃x∃yL(x,y)
+:::
+:::
+
+----
+
+Two-place predicates are useful for expressing simple binary
+relations---relations that hold between two things. But not all relations are
+binary. For example:
+
+:::displayed
+| Normal is between Chicago and St. Louis
+:::
+
+This doesn't describe a binary relations between two things. It describes a
+*ternary* relation between three things: Normal, Chicago, and St. Louis.
+
+:::wrapper
+::: soasticky
+| I(x,y,z) : $y$ is between $x$ and $z$
+| a: Normal
+| b: St Louis
+| c: Chicago
+:::
+
+::: displayed
+| Normal is between Chicago and St Louis
+| $I(c,a,b)$
+:::
+
+Given this representation, we can see that each of the following arguments
+is a valid instance of EG:
+
+::: {.standardform}
+-   I(c,a,b): Normal is between Chicago and St Louis
+-   ∴ ∃xI(c,x,b): Something is between Chicago and St Louis
+:::
+
+::: {.standardform}
+-   I(c,a,b): Normal is between Chicago and St Louis
+-   ∴ ∃xI(x,a,b): Normal is between something and St Louis
+:::
+
+::: {.standardform}
+-   I(c,a,b): Normal is between Chicago and St Louis
+-   ∴ ∃xI(c,a,x): Normal is between Chicago and something
+:::
+   
+And, again, we can go further, applying EG two or three times:
+
+::: {.standardform}
+-   I(c,a,b): Normal is between Chicago and St Louis
+-   ∴ ∃x∃yI(y,x,b): Something is between something and St Louis
+:::
+
+::: {.standardform}
+-   I(c,a,b): Normal is between Chicago and St Louis
+-   ∴ ∃x∃y∃zI(y,x,z): Something is between something and something
+:::
+
+:::
+
+We put no limit on the number of "places" a predicate can have.
+
+## Official Syntax
+
+We extend our language to allow multi-place predicates. This involves tweaking
+[our definition of an [atomic formula]{.vocab}](12R#official-syntax) from
+Chapter 12:
+
+-   Each sentence letter is an atomic formula.
+-   Any predicate letter followed by a single term in parentheses is an atomic
+    formula.
+-   Any predicate letter followed by a comma-separated list of terms in
+    parentheses is an atomic formula.
+
+## Multi-place Predicates and Relations
+
+The ability to express relations significantly increases
+the expressive power of our language. Here are a few examples:
+
+:::wrapper
+::: soasticky
+| F(x,y): x sees y
+| H(x): x is a person
+| a: Alma
+| b: Boris
+| c: Caesar
+:::
+
+``` {.Translate .FOL points="10"}
+1 F(a,b): Alma sees Boris
+```
+
+::: solution
+::: youtube
+<https://youtu.be/h0BMR_LkukQ>
+:::
+:::
+
+``` {.Translate .FOL points="10"}
+2 F(b,a): Boris sees Alma
+```
+
+::: solution
+::: youtube
+<https://youtu.be/aY1hIfwmSZc>
+:::
+:::
+
+``` {.Translate .FOL points="10"}
+3 Ex(H(x)/\F(x,b)) : Someone sees Boris
+```
+
+::: solution
+::: youtube
+<https://youtu.be/kBgz8A93kL4>
+:::
+:::
+
+``` {.Translate .FOL points="10"}
+4 Ex(H(x)/\F(b,x)) : Boris sees someone
+```
+
+::: solution
+::: youtube
+<https://youtu.be/FbCCg0fIzyU>
+:::
+:::
+
+``` {.Translate .FOL points="10"}
+5 Ax(H(x)->F(x,c)) : Everybody sees Caesar
+```
+
+::: solution
+::: youtube
+<https://youtu.be/uSDTzztCpqc>
+:::
+:::
+
+``` {.Translate .FOL points="10"}
+6 Ax(F(c,x)/\H(x)->F(b,x)) : Boris sees everyone Caesar sees
+```
+
+::: solution
+::: youtube
+<https://youtu.be/hjIC6h1Ff4U>
+:::
+:::
+
+:::
+
+:::wrapper
+::: soasticky
+| I(x,y,z): y is between x and z
+| N(x): x is a natural number
+| a: 1
+| b: 2
+| c: 3
+:::
+
+``` {.Translate .FOL points="10"}
+7 I(a,b,c) : 2 is between 1 and 3
+```
+
+::: solution
+::: youtube
+<https://youtu.be/2BqWspC4NV8>
+:::
+:::
+
+``` {.Translate .FOL points="10"}
+8 Ex(N(x)/\I(a,x,c)) : Some natural number is between 1 and 3
+```
+
+::: solution
+::: youtube
+<https://youtu.be/u0a7hjAA81g>
+:::
+:::
+
+``` {.Translate .FOL points="10"}
+9 ~Ex(N(x)/\I(a,x,b)) : No natural number is between 1 and 2.
+```
+
+::: solution
+::: youtube
+<https://youtu.be/oWRPM24GWFc>
+:::
+:::
+
+:::
+
+## Overlapping Quantifiers
+
+Consider the sentence,
+
+::: {.displayed}
+-   Something causes everything
+:::
+
+This sentence is ambiguous. Do you see the ambiguity? On one reading, it means
+that there is as single universal cause of all things. On the other reading,
+it just means that everything has some cause or other.
+
+```{.QualitativeProblem .ShortAnswer give-credit="onSubmission" points=10}
+10 Describe as best you can the two readings of the sentence.
+```
+
+Here is another sentence, displaying a similar ambiguity:
+
+::: displayed
+-   Someone gives birth to everyone
+:::
+
+On one reading, this sentence makes the claim that there is a universal
+mother, some one person who is the mother of us all. On the other reading, the
+sentence makes the much more plausible claim that everyone came from some
+mother or other.
+
+In PL, these different readings correspond to differences in the 
+*scope* of overlapping quantifiers. For example, if I want to say unambiguously
+that there is a single thing that is the cause of all things, I put the
+existential quantifier *outside* the universal quantifier*:
+
+:::wrapper
+::: soasticky
+| F(x,y): x causes y
+| a: God
+| b: Brexit
+| c: COVID-19
+:::
+
+::: {.displayed}
+-   There is something that is the cause of all things
+-   ∃x∀yF(x,y)
+:::
+
+And if I want to say unambiguously that there each thing has a cause, without
+supposing that each thing has the *same* cause, I put the universal quantifier
+outside the existential quantifier:
+
+:::displayed
+-   Everything has some cause or other.
+-   ∀y∃xF(x,y) 
+:::
+
+The differences in meaning here come out more clearly when we think about
+instances. Here some instances of '∃x∀yF(x,y)': 
+
+::: displayed
+-   ∀yF(a,y)
+-   ∀yF(b,y)
+-   ∀yF(c,y)
+:::
+
+The first instance says that everything is such that God causes it. The second
+says that everything is such that Brexit causes it. And the third says that
+everything is such that COVID-19 causes it. Each of these instances claims,
+of a specific thing, that it is the cause of all things. The existential
+generalization, then, claim that there is something that is the cause of all
+things.
+
+And here are some instances of '∀y∃xF(x,y)':
+
+::: displayed
+-   ∃xF(x,a)
+-   ∃xF(x,b)
+-   ∃xF(x,c)
+:::
+
+The first says that something causes God. The second says that something
+causes Brexit. The third says that something causes COVID-19. So the universal
+generalization of these instances tells us that all things are like this:
+each thing is such that something causes it.
+
+:::
+
+Here is another example, illustrating the same sort of ambiguity:
+
+:::wrapper
+:::soasticky
+| H(x): x is a person
+| L(x,y): x loves y
+:::
+
+::: {.displayed}
+| Everybody loves somebody.
+:::
+
+Does this mean that there is some one person who is the universal object of
+our adoration? Someone who has the special status attributed to Raymond, in
+the title of the TV show, 'Everybody Loves Raymond'? Or does it mean that
+everybody has a beloved---nobody is a complete misanthrope---without supposing
+that the beloved is the same for each of us?
+
+Again, we can capture this difference by attending to the scope of overlapping
+quantifiers:
+
+::: {.displayed}
+| Somebody is such that everybody loves them.
+| ∃x(H(x)∧∀y(H(y)→L(y,x)))
+:::
+
+:::displayed
+| Everybody is such that they love someone or other.
+| ∀x(H(x) → ∃y(H(y)∧L(x,y))
+:::
+
+(These examples are made more complicated by the fact that we are using
+personal quantifiers, and so our claims are restricted to persons. But the
+basic pattern is the same as we saw in the unrestricted case.)
+
+:::
+
+Try it yourself!
+
+:::wrapper
+:::soasticky
+| G(x,y) : x is greater than y
+| N(x): x is a natural number
+:::
+
+``` {.Translate .FOL points="10"}
+11 Ex(N(x)/\Ay(N(y)->G(x,y))) : Some number is such that it is greater than every number
+```
+
+::: solution
+::: youtube
+<https://youtu.be/G_aJBwf4Hx8>
+:::
+:::
+
+``` {.Translate .FOL points="10"}
+12 Ax(N(x)->Ey(N(y)/\G(y,x))): Every number is such that some number is greater than it.
+```
+
+::: solution
+::: youtube
+<https://youtu.be/Ts1aph77F1E>
+:::
+:::
+:::
+
+## Identity
+
+There is something funny about some of the claims we symbolized in the last
+section. For example,
+
+::: displayed
+-   Some number is such that it is greater than every number.
+-   ∃x(N(x)∧∀yG(x,y))
+:::
+
+Notice that, for this to be true, the number in question would have to be
+*greater than itself*. That is, suppose 'a' is the number in question. Then,
+
+::: displayed
+-   a is greater than every number.
+-   ∀yG(a,y)
+:::
+
+And, since that last claim is a universal generalization, it is true of
+*absolutely everything*, including a *itself*:
+
+::: displayed
+-   G(a,a)
+:::
+
+The same thing happened with our example about something causing everything:
+
+::: displayed
+-   Something is such that it causes everything.
+-   ∃x∀yF(x,y)
+:::
+
+Again, call the thing that causes everything, whatever it is, 'a'. Then it will
+follow that a causes everything, including *herself*:
+
+::: displayed
+-   F(a,a)
+:::
+
+Some theologians make this claim: God, they say, causes everything, including
+herself. But many theologians deny this: God, they say, causes everything
+*other than herself*; she is the one thing that has no cause.
+
+To capture that "other than herself" clause, we need to introduce the relation
+of *identity*. Identity is a relation that each thing stands in to itself, and
+nothing stands in to anything other than itself. So, using this relation, we
+can express the claim we want:
+
+::: {.displayed}
+-   God causes everything other than herself.
+-   Every x is such that, *if x is not identical to God*, the God causes x.
+:::
+
+To symbolize this, we need to expand our scheme of abbreviation:
+
+::: soa
+| F(x,y): x causes y
+| I(x,y): x is identical to y
+| a: God
+:::
+
+::: displayed
+-   Every x is such that, *if x is not identical to God*, the God causes x.
+-   ∀x(¬I(x,a)→F(a,x))
+:::
+
+Identity ends up being a really important relation. In fact, it is so
+important, that we will give it is own special symbol, '='. And, following
+long-standing notational conventions, we will write identity claims by placing
+this symbol between the two terms it relates:
+
+::: displayed
+-   Dwayne Johnson is identical to the Rock
+-   Dwayne Johnson = the Rock
+-   a=b
+:::
+
+In our math classes, we all learned to call this symbol the "equals sign", and
+we were taught to pronounce formulas like 'a=b' as "a is equal to b". But this
+is a confusion. The symbol is not used to express *equivalence* or *equality*.
+It is used to express *identity*. 'a=b' should be pronounced as "a is
+identical to b", and '=' should be called the *identity sign*.
+
+What hangs on this? What is the distinction between *equality* and *identity*?
+The distinction can be neatly illustrated with a meme:
+
+:::illustration
+![Celebrities That Look
+Alike](https://reggienet.illinoisstate.edu/access/content/user/desanso/public/img/dwayne-looks-like-the-rock.png){alt="A
+meme showing a picture of Dwayne Johnson and a picture of the Rock, captioned,
+'Celebrities That Look Alike'"}
+:::
+
+At the risk of spoiling the joke, I want you to explain it:
+
+```{.QualitativeProblem .ShortAnswer give-credit="onSubmission" points=10}
+13 Explain the joke. What is the actual relation between Dwayne Johnson and the Rock, and how does it differ from the suggested relation?
+```
+
+When two distinct people look alike, we can say that they are *equal* in
+appearance. When two things are the same size, we can say they are *equal* in
+size. When two things are *equal in all ways*---that is, they are exactly
+similar---then we can simply say that they are equal to each other.
+
+No doubt Dwayne Johnson is, in this sense, equal to the Rock.
+But that's not because Dwayne and the Rock are two people who happen to be exactly alike.
+It's because Dwayne *is* the Rock: they are not two people, but one.
+
+This is related to an ambiguity, in English, with the word 'same'.
+Consider the sentence,
+
+::: displayed
+-   We ordered the same thing for dinner.
+:::
+
+This can mean two things. It can mean that the dishes we ordered are exactly
+alike: perhaps each of us ordered our own small pepperoni pizza. Or it can mean that
+we ordered a single thing: perhaps one large pepperoni pizza, to share.
+
+Again, consider the sentence,
+
+::: displayed
+-   We are wearing the same sweater.
+:::
+
+This can mean that we are wearing distinct but matching sweaters. Or it can mean
+that we have (awkwardly) squeezed into a single sweater (#questionablerelationshipgoals).
+
+:::illustration
+![](https://reggienet.illinoisstate.edu/access/content/user/desanso/public/img/twosie.jpg){alt="A
+photo of two men wearing a single extra large sweater"}
+:::
+
+The word 'identity' shares this ambiguity. It can either express a relation of
+*numerical identity*, or it can express a relation of *qualitative identity*:
+
+Numerical identity
+:   [Numerical identity]{.vocab} is the relation that each thing stands in to itself,
+    and does not stand in to anything else.
+
+Qualitative Identity
+:   [Qualitative identity]{.vocab} is a relation between things that are
+    exactly alike, but need not be numerically identical.
+
+:::aside
+Both numerical identity and qualitative identity are *relations*. We also use
+'identity' in a non-relational sense, as when we talk about racial identity,
+gender identity, sexual identity, class identity, and so on. An identity, in
+this sense, is a *property*, not a relation (perhaps a very complicated
+socially constructed property). And it isn't just any property, but a property
+that in some sense makes you *who you are*. 
+:::
+
+Which of these two relations is expressed by the symbol, '='?
+Consider the mathematical sentence, '2 + 2 = 4'. This tells us that the sum of
+2 and 2 is the number 4. That is a relation of *numerical identity*: the thing
+you get when you add 2 to 2 is the very same thing as the thing we refer to as
+the number 4. It isn't that we have here two distinct numbers that happen to
+be equivalent. We have the same number, described in two different ways.
+
+:::wrapper
+:::soasticky
+| a: Superman
+| b: Clark Kent
+| c: Wonder Woman
+| d: Diana Prince
+:::
+
+```{.Translate .FOL points=10}
+14 a=b : Superman is Clark Kent
+15 a=b/\c=d : Superman is Clark Kent and Wonder Woman is Diana Prince
+16 ~a=c : Superman is not Wonder Woman
+```
+
+:::solution
+::: youtube
+<https://youtu.be/vTDZvNmwAHo>
+:::
+:::
+
+:::
+
+In the next unit, we will explore some of the ways that identity extends the
+expressive power of our language.
+
+
+
+
+<!-- vim: set ft=carnap :-->

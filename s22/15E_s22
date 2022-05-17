@@ -1,0 +1,49 @@
+---
+base-css:
+-   https://carnap.io/shared/dsanson@gmail.com/sanson-book.css
+-   https://cdn.plyr.io/3.6.12/plyr.css
+js: 
+-   https://cdn.plyr.io/3.6.12/plyr.polyfilled.js
+-   https://carnap.io/shared/dsanson@gmail.com/logic-book.js
+---
+
+# Countermodels
+
+::: {.auto-tally}
+:::
+
+Construct countermodels to show that the following sentences are not logical
+truths in predicate logic:
+
+``` {.CounterModeler .Simple counterexample-to=tautology points="10"}
+1 P->Q
+2 ~(P->Q)
+3 F(a)/\~G(a)
+4 F(a)\/G(b)->F(a)/\G(b)
+5 Ex(F(x)/\G(x))
+6 Ex(F(x)/\~G(x))
+7 Ax(F(x)->G(x))
+8 Ax(F(x)->~G(x))
+9 AxF(x)\/Ax~F(x)
+10 ExF(x)->AxF(x)
+11 Ex~(F(x)\/G(x))
+12 ~Ex(F(x)\/G(x))
+13 ~(ExF(x)/\ExG(x))
+14 Ex(F(x)->G(x))
+15 Ex(~F(x)->G(x))
+```
+
+Construct countermodels to show that the following arguments are not valid
+in predicate logic:
+
+``` {.CounterModeler .Validity points="10"}
+16 P->Q, ~P :|-: ~Q
+17 F(a)\/G(b), G(b) :|-: ~F(a)
+18 Ex(F(x)\/G(x)), Ex(G(x)\/H(x)) :|-: ExG(x)
+19 Ax(F(x)->G(x)), ExF(x) :|-: AxG(x)
+20 Ax(F(x)<->G(x)), Ex~F(x) :|-: ~ExG(x)
+21 Ex(F(x)->G(x)), ExF(x) :|-: ExG(x)
+22 Ax(F(x)\/G(x)), Ex~G(x) :|-: AxF(x)
+```
+
+<!-- vim: set ft=carnap :-->

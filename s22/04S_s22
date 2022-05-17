@@ -1,0 +1,223 @@
+---
+base-css:
+-   https://carnap.io/shared/dsanson@gmail.com/sanson-book.css
+-   https://cdn.plyr.io/3.6.12/plyr.css
+js: 
+-   https://cdn.plyr.io/3.6.12/plyr.polyfilled.js
+-   https://carnap.io/shared/dsanson@gmail.com/logic-book.js
+-   https://hypothes.is/embed.js
+---
+
+# Translation: Supplementary Exercises
+
+These are optional exercises and enrichment activities. These overlap with
+exercises on in-class handouts offered in face-to-face sections of the course.
+
+## Conventions for Parentheses
+
+Add the missing parentheses, or explain why the sentence is not well-formed.
+
+```{.QualitativeProblem .ShortAnswer submission=none}
+1  P ∧ Q
+2  ¬¬P
+```
+
+::: spoiler
+¬¬P has no missing parentheses. If you *added* some, to get '(¬¬P)', that's
+wrong! We aren't allowed to add extra parentheses!
+:::
+
+
+```{.QualitativeProblem .ShortAnswer submission=none}
+3  P ∨ Q ∨ R ∨ S
+4  P ∧ Q ∧ R ∧ S
+5  P ∨ Q ∧ R ∨ S
+```
+
+:::spoiler
+The lefty rule only applies to sentences that are all '∧'s, or all '∨'s. So:
+
+:::example
+| (((P ∨ Q) ∨ R) ∨ S)
+| (((P ∧ Q) ∧ R) ∧ S)
+| <s>P ∨ Q ∧ R ∨ S</s>: not well formed
+:::
+:::
+
+```{.QualitativeProblem .ShortAnswer submission=none}
+6  P → Q → R → S
+7  P ↔ Q ↔ R ↔ S
+```
+
+:::spoiler
+We have no lefty rule for arrows or double arrows. So both are not well-formed.
+:::
+
+
+```{.QualitativeProblem .ShortAnswer submission=none}
+8  P ∧ Q → R
+9  P → Q ∧ R
+10 P ∨ Q → R ∧ S
+11 P → Q ∨ R → S
+```
+
+::: spoiler
+Conjunctions and disjunctions are like multiplication and division;
+conditionals and biconditionals are like addition and subtraction. So:
+
+:::example
+| (P ∧ Q) → R
+| P → (Q ∧ R)
+| (P ∨ Q) → (R ∧ S)
+| <s>P → Q ∨ R → S</s>: not well-formed
+:::
+
+The last one is not well-formed because we have no convention for deciding
+between the two arrows.
+
+:::
+
+```{.QualitativeProblem .ShortAnswer submission=none}
+12 ¬P → Q
+13 ¬¬P → Q
+```
+
+:::spoiler
+The only dropped parentheses in these last two problems are the outermost parentheses. So:
+
+:::example
+| (¬P → Q)
+| (¬¬P → Q)
+:::
+:::
+
+Remove unnecessary parentheses where possible.
+
+```{.QualitativeProblem .ShortAnswer submission=none}
+14  (P → Q)
+15  ¬(P → Q)
+```
+
+::: spoiler
+We can remove the outermost parentheses in 14. We can't remove any parentheses
+in 15.
+:::
+
+
+```{.QualitativeProblem .ShortAnswer submission=none}
+16  (P ∧ (Q ∧ (R ∧ (S ∧ T))))
+17  (P ∨ (Q ∧ (R ∨ (S ∧ T))))
+18  (((P ∨ Q) ∨ R) ∨ S)
+```
+
+::: spoiler
+We can only remove the outermost parentheses for 16 and 17. All the others
+have to stay there. But with 18, we can remove all the parentheses, since they
+fit with the lefty rule.
+:::
+
+
+```{.QualitativeProblem .ShortAnswer submission=none}
+19  ((P ∨ Q) ↔ (R ∨ (S ∨ T)))
+```
+
+:::spoiler
+You can remove all the parentheses in 5.19. Do you see why?
+:::
+
+## Translating Between English and Symbols
+
+:::soa
+| P: You should have put a ring on it.
+| Q: You liked it.
+| R: You could afford a ring.
+:::
+
+Translate into canonical English:
+
+```{.QualitativeProblem .ShortAnswer submission=none}
+20  ¬¬R
+21  Q → P
+22  Q ∧ R → P
+23  Q → R ∧ P
+24  ¬(Q → P)
+25  ¬R → ¬(Q → P)
+26  (Q ∧ P) ∨ ¬R
+27  Q ∧ (P ∨ ¬R)
+```
+
+## Translating into SL
+
+AUC Logic is a YouTube channel with lots of fun videos about logic, created by
+students at Amsterdam University College. Many of the videos explore logical
+concepts by applying them to clips from popular movies and TV shows. In this
+video, snippets are translated into Sentential Logic.
+Note that they use lowercase letters as sentence letters. Our system
+reserves lowercase letters for another purpose.
+
+::: youtube
+<https://youtu.be/cSl6YYHK9p0>
+:::
+
+There is no "check" button for these translation exercises. But you can hit "enter" or "return", as usual, to
+check your answer.
+
+:::soawrapper
+:::soasticky
+| P: You should have put a ring on it.
+| Q: You liked it.
+| R: You could afford a ring.
+:::
+
+``` {.Translate .Prop submission=none} 
+28 Q->R: You could afford a ring if you liked it.
+29 ~R->~R: If you couldn't afford a ring, you couldn't afford a ring.
+30 Q/\P: You liked it and you should have put a ring on it.
+31 Q/\~P: You liked it but you shouldn't have put a ring on it.
+32 P\/~Q: You should have put a ring on it unless you didn't like it.
+33 ~(Q/\P): It is not the case that both you liked it and you should have put a ring on it.
+34 ~(R->P): It is not the case that if you could afford a ring, you could afford a ring.
+35 R/\(R->P): You could afford a ring, and if you could afford a ring then you should have put a ring on it.
+36 (Q/\P)\/(~Q/\~P): Either you liked it and you should have put a ring on it, or you didn't like it and you shouldn't have put a ring on it.
+```
+:::
+
+:::soawrapper
+:::soasticky
+| P: Penelope dances
+| R: Raul dances
+| S: It is safe to dance
+:::
+
+``` {.Translate .Prop submission=none} 
+37 R->P: Provided that Raul dances, Penelope dances.
+38 R->P: Raul dances only if Penelope dances.
+39 R<->P: Raul dances just in case Penelope dances.
+40 ~R->P: Penelope dances if Raul doesn't dance.
+41 R<->S: Raul dances if and only if it is safe to dance.
+42 ~P->~R: Raul doesn't dance if Penelope doesn't dance.
+43 P->~R: Only if Raul doesn't dance does Penelope dance.
+44 ~R/\P: Raul doesn't dance; nevertheless, Penelope does.
+45 S->(P/\R): On the condition that it is safe to dance, both Penelope and Raul dance.
+```
+:::
+
+:::soawrapper
+:::soasticky
+| P: Petunias are pretty.
+| R: Roses are pretty.
+| S: Nick likes petunias.
+:::
+
+``` {.Translate .Prop submission=none} 
+46 P<->R: Petunias are pretty if and only if Roses are pretty.
+47 P->S: Nick likes petunias provided that they are pretty.
+48 S\/~P: Nick likes petunias unless they are not pretty.
+49 ~P/\S: Even though petunias are not pretty, Nick likes them.
+50 ~(P\/R): Neither petunias nor roses are pretty.
+51 ~(P\/R): It is not the case that either petunias are pretty or roses are pretty.
+52 S->P: If Nick likes petunias, petunias are pretty.
+```
+:::
+
+

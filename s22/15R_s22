@@ -1,0 +1,701 @@
+---
+base-css:
+-   https://carnap.io/shared/dsanson@gmail.com/sanson-book.css
+-   https://cdn.plyr.io/3.6.12/plyr.css
+js: 
+-   https://cdn.plyr.io/3.6.12/plyr.polyfilled.js
+-   https://carnap.io/shared/dsanson@gmail.com/logic-book.js
+-   https://hypothes.is/embed.js
+---
+
+::: cover
+
+# Truth and Countermodels
+
+:::
+
+::: {.auto-tally}
+:::
+
+
+In this unit, we learn how to use models to explore the logical 
+properties of sentences and arguments in Predicate Logic. The
+specific learning objectives for this unit are:
+
+a.  I can construct a model to show that a sentence is not a logical
+    truth in Predicate Logic
+b.  I can construct a model to show that two sentences are not logically
+    equivalent in Predicate Logic
+c.  I can construct a model to show that an argument is not valid in
+    Predicate Logic
+
+## Meaning and Truth
+
+Consider a sentence in PL, e.g.,
+
+::: {.displayed}
+-   ∀x(F(x)→G(x))
+:::
+
+Is this sentence true or false? 
+
+That question doesn't make sense, absent an *interpretation* of the sentence.
+As it stands, aside from the connective, '→', and the quantifier, '∀x', the sentence is meaningless.
+It says that every F is G, but 'F' and 'G' have not been assigned any
+determinate meaning.
+
+Let 'F' mean 'is a tove' and 'G' mean 'is slithy',
+so the sentence says that every tove is slithy.
+Since 'slithy' and 'tove' are nonsense words that have no meaning,
+this interpretation is of no use here.
+
+Let 'F' mean 'is an oenophile' and 'G' mean 'is creepy'.
+Then the sentence says that every oenophile is creepy.
+'Oenophile' and 'creepy' are real words in English.
+This interpretation is somewhat useful:
+on this interpretation, the sentence is in fact false.
+But I suspect you do not know what 'oenophile' means, so,
+even though this sentence is meaningful on this interpretation,
+it is not meaningful *to you* on this interpretation.
+
+Let 'F' mean 'is a frog' and 'G' mean 'is at least 2mm long'. 
+So the sentence says that every frog is at least 2mm long.
+Finally, we have a sentence that is both meaningful, and meaningful *to you*.
+But I suspect you do not know whether or not it is true.
+Since you know what it means,
+you know what the world would have to be like for it to be true.
+But you don't know whether or not the world is like that.
+
+According to [wikipedia](https://en.wikipedia.org/wiki/Paedophryne_amauensis),
+*P. amauensis*, the shortest known frog (and shortest known vertebrate!) in
+the world, *averages* 7.7mm in "snout-to-vent length". But that's the average
+length of a full-sized adult. So the smallest individual frog is shorter than
+7.7mm. Perhaps there are juveniles that are no longer tadpoles, but are less
+than 2mm long? I do not know.
+
+You don't know what the word 'oenophile' means, 
+but you do know what the word 'frog' means.
+What, exactly, is the *meaning* of a word like 'frog' or 'oenophile'?
+Here is one compelling picture:
+the meaning of word like 'frog' or 'oenophile' is a *rule for sorting
+things*.
+To know the meaning of the word 'frog' is to be able to sort things, 
+given appropriate information,
+into two categories: the frogs and the non-frogs.
+You can do this, more or less, for 'frog'.
+You cannot do this at all for 'oenophile'.
+
+If I give you a definition of 'oenophile',
+that definition may or may not reveal to you its meaning.
+Suppose I tell you that an oenophile is a cork dork.
+You may or may not grasp the meaning from this definition:
+it depends on whether or not you know what 'cork dork' means.
+If you do, you now know the meaning of 'oenophile', 
+and you can now sort people, given appropriate information,
+into the oenophiles and the non-oenophiles.
+
+-----
+
+So far, we have considered interpretations that assign meaning to 'F' and 'G'
+by translating 'F' and 'G' into English,
+hopefully into English words that are meaningful
+and whose meaning you know.
+
+When you sort things into the frogs and the non-frogs,
+you generate two sets: the set of frogs, and the set of non-frogs.
+We call the first set the [extension]{.vocab} of 'frog', 
+and we call the rule you use to generate the set the [intension]{.vocab} of 'frog'.
+So, when you know the meaning of the word 'frog',
+you grasp the intension,
+which allows you to generate the extension.
+
+The truth value of a sentence in PL is a function of *extensions*,
+not *intensions*.
+Suppose I tell you that the extension of 'F' is the set:
+
+$$F: \{2,4,6,8,...\}$$
+
+And I tell you that the extension of 'G' is the set:
+
+$$G: \{1,2,3,4,...\}$$
+
+From this, you can determine that '∀x(F(x) → G(x))' is true,
+because everything in the extension of F is also in the extension of G.
+If I now reveal that 'F' means 'even number' and 'G' means 'natural number', 
+I have supplied you with the *intensions*.
+But you didn't need them to calculate the truth of the sentence.
+
+PL is an artificial language,
+so we get to control how it works.
+For simplicity,
+we identify the meanings in PL with extensions,
+and leave the messy business of intensions to folks studying natural language.
+
+Specifically:
+
+1.  The [extension]{.vocab} of a constant (name letter) is an individual
+    thing (intuitively, the thing it refers to)
+2.  The [extension]{.vocab} of a predicate letter is a set of individual
+    things (intuitively, the things it is true of)
+3.  The [extension]{.vocab} of a sentence letter is its truth value, T or F.
+
+An [interpretation]{.vocab} of a set of sentences in PL assigns
+extensions to each constant, predicate letter, and sentence letter that occurs
+in those sentences.
+
+For example, suppose we are given these sentences in PL:
+
+:::display
+-   ∀x(F(x) → G(x))
+-   F(c)
+:::
+
+An interpretation of these sentences needs to assign extensions to all the
+non-logical bits:
+
+:::model
+F: the set of cities in Illinois
+G: the set of cities in North America 
+c: Chicago
+:::
+
+On this interpretation, both sentences are true.
+The first is true, because every member of F is a member of G.
+The second is true, because Chicago is a member of F.
+
+Here is an alternative interpretation:
+
+:::model
+F: the set of students at ISU
+G: the set of students in this class
+c: Chris Rock
+:::
+
+On this interpretation, both sentences are false.
+The first is false, because there are members of F that are not members of G.
+The second is false, because Chris Rock is not a member of F.
+
+Here is another example:
+
+:::displayed
+-   F(a) ∧ ¬F(b)
+:::
+
+::: model
+| F: { [Jeremiah](https://youtu.be/uy1x5pnPaCQ), Kermit,
+  [Mr. Toad](https://en.wikipedia.org/wiki/Mr._Toad),
+  [Keroppi](https://en.wikipedia.org/wiki/List_of_Sanrio_characters#Keroppi),
+  [Dan'l Webster](https://twain.lib.virginia.edu/projects/price/frog.htm) }
+| a: Kermit
+| b: Ms. Piggy
+:::
+
+Given this interpretation, 'F(a)' is true, because the extension of 'a',
+Kermit, is a member of set that is the extension of 'F'. On the other hand,
+'F(b)' is false, because the extension of 'b', Mrs. Piggy, is not a member of
+the extension of 'F'. Since 'F(b)' is false, '¬F(b)' is true. So, since 'F(a)'
+is true, and '¬F(b)' is true, the sentence 'F(a) ∧ ¬F(b)' is true.
+
+An interpretation alone isn't enough to determine the truth value of every
+sentence in PL. Consider this example:
+
+:::displayed
+-   ∀xF(x)
+:::
+
+::: model
+| F: { [Jeremiah](https://youtu.be/uy1x5pnPaCQ), Kermit,
+  [Mr. Toad](https://en.wikipedia.org/wiki/Mr._Toad),
+  [Keroppi](https://en.wikipedia.org/wiki/List_of_Sanrio_characters#Keroppi),
+  [Dan'l Webster](https://twain.lib.virginia.edu/projects/price/frog.htm) }
+| a: Jeremiah
+| b: Mr. Toad
+| c: Keroppi
+| d: Dan'l Webster
+:::
+
+Is our sentence true or false on this interpretation? 
+It is tempting to say that it is true:
+all four *named individuals* are members of the extension of F.
+But the sentence says that *everything* is F,
+not that *everything that has a name* is F.
+
+So, to determine the truth value of '∀xF(x)',
+we need more information.
+We need to know what things there are,
+not just what names things have.
+We call this a [domain]{.vocab}: a set of things,
+meant to represent the set of all objects that exist.
+A domain together with an interpretation is called a [model]{.vocab}. A model gives us everything that we need to determine the truth or falsehood of a sentence in PL.
+
+::: model
+| Domain: { Jeremiah, Mr. Toad, Keroppi, Dan'l Webster, M
+| F: { [Jeremiah](https://youtu.be/uy1x5pnPaCQ), Kermit,
+  [Mr. Toad](https://en.wikipedia.org/wiki/Mr._Toad),
+  [Keroppi](https://en.wikipedia.org/wiki/List_of_Sanrio_characters#Keroppi),
+  [Dan'l Webster](https://twain.lib.virginia.edu/projects/price/frog.htm) }
+| a: Jeremiah
+| b: Mr. Toad
+| c: Keroppi
+| d: Dan'l Webster
+| e: Ms. Piggy
+| f: Chicago
+:::
+
+It is clear that, on this model, '∀xF(x)' is false: there are things in the
+domain that are not in the extension of F.
+
+
+```{.QualitativeProblem .MultipleChoice points=10}
+1 On the above model, is 'F(a)' true or false?
+| *true
+| false
+2 On the above model, is 'F(e)' true or false?
+| true
+| *false
+3 On the above model, is '∃xF(x)' true or false?
+| *true
+| false
+```
+
+## Variables and Domains
+
+An interpretation does not specify extensions for variables.
+An extension is a fixed meaning.
+Unlike name letters and predicate letters, 
+variables don't have fixed meanings.
+
+Consider how we use variables in algebra.
+In algebra, the question is never,
+
+:::displayed
+-   Is '$2x+3=5$' true?
+:::
+
+Instead, the prompt is,
+
+::: displayed
+-   $2x+3=5$. Solve for $x$.
+:::
+
+What does 'solve for $x$' mean?
+It means: find the value of $x$ that *makes this formula true*.
+In this case, setting $x$ to 1 makes the formula true,
+so your answer is $x=1$.
+
+We *could* just as well ask you to find values of $x$ that make the formula
+false. In that case, there are several correct answers: 2, 3, 4, and so on.
+
+The point is this: the variable $x$, in $2x+3=5$, is an open slot, a value
+that we are allowed to vary, in ways that affect whether the formula is
+true or false.
+
+In the same way, a model leaves open the value of any free variables.
+
+::: {.displayed}
+-   F(x) ∧ G(x)
+:::
+
+::: {.model}
+| Domain: { Bobby Seale, Huey Newton, Angela Davis }
+| F: { Bobby Seale, Huey Newton }
+| G: { Huey Newton, Angela Davis }
+:::
+
+'F(x)∧G(x)' is neither true nor false on this model, full stop.
+But it is true on this model when we assign Huey Newton as the value
+of x, and false on this model when we assign Angela Davis as the value of x.
+If I asked you to "solve for $x$"---that is, find values of $x$ for which it
+is true, on this model, the correct answer would be: Huey Newton.
+
+## Calculating Truth
+
+Given a model, we can calculate the truth value of any sentence in PL.
+How exactly we do that depends on the main connective of the sentence.
+
+Sentence Letters
+:   If the sentence is a sentence letter, then the truth value of the
+    sentence in the model is the extension assigned by the model.
+
+Truth-Functional Sentences
+:   If the main connective of a sentence is '¬', '→', '∧',
+    '∨', or '↔', then the truth value of the sentence is given by
+    the characteristic truth table for that connective.
+
+If we stop here, and consider sentences that only contain sentence letters and
+truth-functional connectives, then an interpretation is just a truth value
+assignment, and all possible models for a given sentence, or set of sentences,
+can be represented as the rows of its truth table.
+
+But we continue:
+
+Name-Predicate Sentences
+:   If '$F$' is a predicate and '$a$' is a name letter, then '$F(a)$' is true
+    in the model just in case the extension of '$a$' is a member of the
+    extension of '$F$'.
+
+Variable-Predicate Formulas
+:   If '$F$' is a predicate and '$x$' is a variable, then '$F(x)$' is neither
+    true nor false in the model, full stop. Instead, it true or false in the
+    model *relative to an
+    assignment of some value from the domain* to the variable '$x$'. It is
+    true in the model relative to an assignment just in case the assigned value is in the extension of '$F$'.
+
+Quantificational Sentences
+:   '$\forall x...x...x...$' is true just in case '$...x...x...$' is true no
+    matter what object in the domain you assign as the value for the free
+    occurrences of '$x$'. '$\exists x...x...x...$' is true just in case
+    '$...x...x...$' is true on at least one assignment of an object from the
+    domain to the free occurrences of '$x$'.
+
+Here is a model, followed by some questions asking you to calculate the truth
+value of a given sentence on this model.
+
+::: model
+| Domain: the set of all natural numbers
+| F: { 1,2,3,4 }
+| G: { 2,4,6,8 } 
+| P: F
+| Q: T
+| a: the number 1
+| b: the number 4
+:::
+
+``` {.QualitativeProblem .MultipleChoice points="10"}
+4 Is 'F(a)' true or false on this interpretation?
+| *true
+| false
+5 Is 'G(a)' true or false on this interpretation?
+| true
+| *false
+6 Is 'P∨F(b)' true or false on this interpretation?
+| *true
+| false
+7 Is 'F(a)→G(a)' true or false on this interpretation?
+| true
+| *false
+8 Is '∃xF(x)' true or false on this interpretation?
+| *true
+| false
+9 Is '∀xG(x)' true or false on this interpretation?
+| true
+| *false
+```
+
+## Countermodels and Logical Truth
+
+Recall the distinctions we made in [Chapter 7](07R):
+
+Logical Truth in SL
+:   A sentence is [truth-functionally true]{.vocab} iff it is true on
+    every row of its truth table.
+
+Logical Falsehood in SL
+:   A sentence is [truth-functionally false]{.vocab} iff it is false
+    on every row of its truth table.
+
+Logical Contingency in SL
+:   A sentence is [truth-functionally contingent]{.vocab} iff it is
+    true on some rows its truth table and false on some rows of its truth
+    table.
+
+We now extend these distinctions to PL.
+The key is to remember what truth tables represent:
+each *row* represents a possible assignment of truth values to the
+constituent sentence letters.
+Taken together, the table represents *every* possible assignment of truth
+values.
+In other words, each row of a truth table is a *possible model* for the
+sentence, and, taken together, the table represents every possible model.
+
+So,
+
+Logical Truth in PL
+:   A sentence is a [logical truth in PL]{.vocab} iff it is true
+    in every model.
+
+Logical Falsehood in PL
+:   A sentence is a [logical falsehood in PL]{.vocab} iff it is false
+    in every model.
+
+Logical Contingency in PL
+:   A sentence is a [logical falsehood in PL]{.vocab} iff it is
+    true on at least one model and false on at least one model.
+
+In SL, we could organize all possible models into a neat finite table. But in
+PL, we have to consider infinitely many different models. So there is no way
+to present them all in neat finite table.
+This means that it is difficult to show that something holds in *every* model.
+Instead, we will focus on what we can show by producing a *single* model.
+
+Specifically, we will focus on producing countermodels to logical truth:
+
+Countermodels
+:   A [countermodel to the logical truth of a sentence]{.vocab} is a model on
+    which that sentence is false.
+
+Here is an example. Your task is to show that the sentence is not a logical
+truth, by constructing a countermodel. For technical reasons, we restrict
+ourselves to models whose domains are natural numbers. Watch the video to see
+a walk through of the solution.
+
+``` {.CounterModeler .Simple counterexample-to=tautology points="10"}
+10 ~(F(a)/\F(b))
+```
+
+:::solution
+::: youtube
+<https://youtu.be/hK3GHTBhe4Q>
+:::
+:::
+
+Remember, the goal is to construct a model that makes the sentence false.
+Since the sentence is a negation, 
+this means we need to make the negated sentence, 'F(a) ∧ F(b)', true.
+We begin with a domain that contains just a single object, the number 0. And we
+begin an interpretation that has the extension of 'F' empty, and with the
+extensions of 'a' and 'b' both set to the number 0.
+
+To make ‘F(a) ∧ F(b)’ come out true, then, we need to ensure that the
+thing referred to by 'a' is in the extension of 'F'. So let's do that:
+
+::: model
+| Domain: { 0 }
+| F: { 0 }
+| a: 0
+| b: 0
+:::
+
+Note that on this interpretation, 'b' is just another name for the number 0,
+so the referent of 'b' is also in the extension of 'F'. This means that, on
+this model, 'F(a) ∧ F(b)' is
+true. Which means that its negation is false. Success!
+
+That's a funky model. It asks us to imagine a situation where only one thing
+exists, the number zero, and it has two names. You might prefer constructing a
+model that has more objects in the domain. And you might prefer constructing a
+model in which 'a' and 'b' refer to different things. Here is such a model:
+
+::: model
+| Domain: { 0,1 }
+| F: { 0,1 }
+| a: 0
+| b: 1
+:::
+
+Can you verify that '¬(F(a)∧F(b))' is false in this model, too?
+
+Let's work through another example:
+
+``` {.CounterModeler .Simple counterexample-to=tautology points="10"}
+11 Ax(F(x)\/G(x))
+```
+
+::: solution
+::: youtube
+<https://youtu.be/EmnLFUa8SBk>
+:::
+:::
+
+The sentence says 'Everything is either F or G'. We want a model that makes
+this *false*. The simplest model is this:
+
+::: model
+| Domain: { 0 }
+| F: { }
+| G: { }
+:::
+
+In this model, the domain contains just a single object, the number 0. The
+extension of 'F' is the empty set. In other words, 'F' isn't true of anything.
+Likewise for 'G'. So how does '∀x(F(x)∨G(x))' fare in this model? For it to be
+true in the model, 'F(x)∧G(x)' has to be true, no matter what object from the
+domain we assign to the variable 'x'. Since there is only one object in our
+domain, there is only one assignment to consider:
+
+-   'F(x)∨G(x)', where x is assigned the number 0 as its value.
+
+On this assignment, 'F(x)' is false, and 'G(x)' is false, so 'F(x)∨G(x)' is
+false. So our original sentence, '∀x(F(x)∨G(x))', is false, since 'F(x)∨G(x)'
+is not true for every value we might assign to 'x'.
+
+Again, this model is a bit funky. Once again, only one thing is in the domain.
+You might prefer a model with a larger domain. This model also works as a
+countermodel:
+
+::: model
+| Domain: { 0,1,2,3 }
+| F: { 1,2 }
+| G: { 0,2 }
+:::
+
+In this model, it is not true that everything is either F or G, because the
+number 3 is neither F nor G.
+
+But I encourage you to start small and simple. Begin with a domain that has
+just one thing in it, the number 0. And begin with the extensions of your
+predicates empty. Expand your domain, and fill those extensions as necessary,
+until you find something that works as a countermodel.
+
+Here are some more examples. In each case, your task is to construct a
+countermodel, that is, a model in which the sentence is false:
+
+``` {.CounterModeler .Simple counterexample-to=tautology points="10"}
+12 F(a)->F(c)
+```
+:::solution
+::: youtube
+<https://youtu.be/qbkWxs_992s>
+:::
+:::
+
+``` {.CounterModeler .Simple counterexample-to=tautology points="10"}
+13 ~AxF(x)
+```
+:::solution
+::: youtube
+<https://youtu.be/i0fvWo1oCDQ>
+:::
+:::
+
+``` {.CounterModeler .Simple counterexample-to=tautology points="10"}
+14 Ax(F(x)->G(x))
+```
+:::solution
+::: youtube
+<https://youtu.be/Y05KRK4_8mQ>
+:::
+:::
+
+It bears repeating: we can use countermodels to show that a sentence is *not*
+a logical truth in PL. But we cannot use models to show that a
+sentence *is* a logical truth in PL. Consider the sentence,
+'∀x(F(x)→F(x))'. This sentence *is* a logical truth in
+PL. If you try to construct a countermodel, you will fail. But
+you can't *show* this by trying to construct a countermodel and failing. Your
+failure doesn't show that there is no countermodel. All it shows is that, if
+there is a countermodel, you weren't able to find it.
+
+## Countermodels and Validity
+
+We can also extend our definition of validity in SL, in terms of rows of truth
+tables, to validity in PL:
+
+Validity in SL
+:   An argument is [truth-functionally valid]{.vocab} iff there is no row of its truth
+    table on which all of its premises true and its conclusion is false.
+
+Validity in Predicate Logic
+:   An argument is [valid in PL]{.vocab} iff there is no model
+    on which all of its premises true and its conclusion is false.
+
+Since we have no way of considering *all* models in PL,
+we cannot extend our method for showing that an argument is valid in SL to a
+method for showing that an argument is valid in PL.
+
+But we can use [countermodels to validity]{.vocab} to show that an argument is
+*not* valid in PL:
+
+Countermodels for Validity
+:   A [countermodel to validity]{.vocab} for an argument is a model on which
+    all of the argument's premises are true and its conclusion is false.
+
+Here is an example:
+
+``` {.CounterModeler .Validity points="10"}
+15 Ax(F(x)->G(x)), ExG(x) :|-: ExF(x)
+```
+:::solution
+::: {.youtube}
+<https://youtu.be/9ku5F0AbU8c>
+:::
+:::
+
+Here is an English version of the argument:
+
+::: {.standardform}
+-   Every frog is green
+-   Something is green
+-   Something is a frog
+:::
+
+We need to construct a model that makes the premises true, but the conclusion
+false. Let's start with the simplest possible model:
+
+::: model
+| Domain: { 0 }
+| F: { }
+| G: { }
+:::
+
+This model has a single thing in its domain, and the extension of each
+predicate is empty. We need our model to make the conclusion, '∃xF(x)', false.
+That means that, whatever else we do, we need to keep the extension of 'F'
+empty:
+
+::: model
+| Domain: { 0 }
+| F: { <keep empty!> }
+| G: { }
+:::
+
+And we know that we need to make the second premise, '∃xG(x)', true. That
+means that we need to put *at least* one thing into the extension of 'G':
+
+::: model
+| Domain: { 0 }
+| F: { <keep empty!> }
+| G: { 0 }
+:::
+
+Now look at the first premise. We need '∀x(F(x)→G(x))' to be true. In
+other words, we need 'F(x) → G(x)' to be true, for every value of x in
+the domain. Right now, the only value x can take is 0, since that’s the
+only thing in our domain. When we plug in 0 as the value of x,
+'F(x) → G(x)' comes out true, because its antecedent, 'F(x)', is false.
+So we have successfully discovered a countermodel to the validity of the
+argument!
+
+::: model
+| Domain: { 0 }
+| F: {  }
+| G: { 0 }
+:::
+
+In this model, it is true that every F is G (because nothing is F). And it is
+true that something is G (because the number 0 is). But it is false that something is
+F. So this shows that our argument is not valid.
+
+Here are some more examples to work through. Again, in each case, your task is
+to construct a countermodel to the validity of the argument:
+
+```{.CounterModeler .Validity points=10}
+16 F(a), F(b) :|-: AxF(x)
+```
+::: solution
+::: youtube
+<https://youtu.be/_4GFL1qtR0s>
+:::
+:::
+
+``` {.CounterModeler .Validity points="10"}
+17 ExF(x), ExG(x) :|-: Ex(F(x)/\G(x))
+```
+
+::: solution
+::: youtube
+<https://youtu.be/0Yedf20XtOc>
+:::
+:::
+
+``` {.CounterModeler .Validity points="10"}
+18 Ex(F(x)/\G(x)), Ex(G(x)/\H(x)) :|-: Ex(F(x)/\H(x))
+```
+
+::: solution
+::: youtube
+<https://youtu.be/uaofAwr7tUs>
+:::
+:::
+
+<!-- vim: set ft=carnap :-->

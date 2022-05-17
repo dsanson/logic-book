@@ -1,0 +1,65 @@
+---
+base-css:
+-   https://carnap.io/shared/dsanson@gmail.com/sanson-book.css
+-   https://cdn.plyr.io/3.6.12/plyr.css
+js: 
+-   https://cdn.plyr.io/3.6.12/plyr.polyfilled.js
+-   https://carnap.io/shared/dsanson@gmail.com/logic-book.js
+---
+
+# Derivations with Assumptions: Exercises
+
+:::auto-tally
+:::
+
+## Translation
+
+We are knee deep in derivations, but translations will come back soon,
+and we will be building on what you've already learned. So, to help you retain
+that knowledge, I am including a few translation exercises here.
+
+:::soawrapper
+::: soasticky
+| P: I take a deep breath 
+| Q: I get real high
+| R: I scream from the top of my lungs
+| S: I step outside
+| W: I wake in the morning 
+|
+
+:::{.youtube t=84}
+<https://youtu.be/32FB-gYr49Y>
+:::
+:::
+
+``` {.Translate .Prop points="10"}
+1 R->S : I scream from the top of my longs only if I step outside
+2 W->P : I take a deep breath if I wake in the morning
+3 Q/\~S : I get real high but I do not step outside
+4 ~(P\/Q) : I neither take a deep breath nor get real high
+5 P->(S->R) : If I take a deep breath then (if I step outside then I scream from the top of my lungs).
+```
+:::
+
+## Derivations
+
+Complete the following derivations:
+
+``` {.ProofChecker .Prop options="guides fonts indent tabindent resize" points=10}
+6 Q->P, P->R :|-: Q->R
+7 P->Q, Q->R :|-: ~R->~P
+8 S->Q, R->~Q :|-: S->~R 
+9 P->~Q, Q->P :|-: ~Q
+10 P->R, ~P->R :|-: ~~R
+11 P->R, ~P->R :|-: R
+12 R->(S->T) :|-: S->(R->T)
+13 :|-: P->P 
+14 ~R :|-: (Q->R)->~Q
+15 :|-: (P->~P)->~P
+```
+
+Derivations take practice. Don't forget to check out the optional
+[supplementary exercises](06S_s22) for more opportunities to practice.
+
+
+<!-- vim: set ft=carnap :-->

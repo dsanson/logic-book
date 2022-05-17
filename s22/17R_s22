@@ -1,0 +1,977 @@
+---
+base-css:
+-   https://carnap.io/shared/dsanson@gmail.com/sanson-book.css
+-   https://cdn.plyr.io/3.6.12/plyr.css
+js: 
+-   https://cdn.plyr.io/3.6.12/plyr.polyfilled.js
+-   https://carnap.io/shared/dsanson@gmail.com/logic-book.js
+-   https://hypothes.is/embed.js
+---
+
+::: {.auto-tally}
+:::
+
+::: cover
+
+# Identity
+
+:::
+
+:::aside
+Portions of this chapter are adapted from the [Calgary Remix of *forall
+x*](http://forallx.openlogicproject.org/){.attribution target="_blank" rel="noopener noreferrer"}.
+:::
+
+In this unit, we continue to consider the relation of identity, and some of the
+claims it allows us to express. The specific learning objectives for this unit
+are:
+
+a.  I can symbolize sentences involving phrases like 'everything but'
+    and 'some other'
+b.  I can symbolize sentences involving phrases like 'at least n', 'at
+    most n', and 'exactly n'.
+c.  I can symbolize definite descriptions in accordance with Russell's
+    theory of definite descriptions
+
+## Everything But
+
+Consider the sentence,
+
+::: displayed
+-   The Big Bang is earlier than everything 
+:::
+
+:::wrapper
+::: soasticky
+| F(x,y): x is earlier than y
+| b: The Big Bang
+:::
+
+We can translate this as follows:
+
+:::displayed
+-   ∀xF(b,x)
+:::
+
+But, as we noted at the end of the last chapter, this entails that the
+Big Bang is earlier than *itself*. 
+
+:::displayed
+-   ∀xF(b,b)
+:::
+
+This is not what cosmologists want to say. What they want to say is better
+put:
+
+::: displayed
+-   The Big Bang is earlier than everything *but itself*
+-   The Big Bang is earlier than everything *other than the Big Bang*
+-   The Big Bang is earlier than everything *else*
+:::
+
+This is pretty common: we want to make a generalization, but we want to
+explicitly exclude something from that generalization. We can do this using identity:
+
+::: displayed
+-   ∀x(¬x=b → F(b,x))
+:::
+
+Unpacking this, it says that:
+
+::: displayed
+-   For every x, *if x isn't the Big Bang*, then the Big Bang is earlier than it.
+:::
+
+Here is another way to capture the idea, which is equivalent:
+
+::: displayed
+-   ∀x(F(b,x) ∨ x=b)
+:::
+
+Unpacking this, it says:
+
+:::displayed
+-   For every x, either the Big Bang is earlier than x *or x is the Big Bang*.
+:::
+
+:::
+
+:::wrapper
+:::soasticky
+| I(x): x is invited to the party
+| H(x): x is a person
+| a: Alex
+:::
+
+
+``` {.Translate .FOL points="10"}
+1 Ax(H(x)/\~x=a->I(x)): Everyone but Alex is invited to the party
+```
+
+::: solution
+::: youtube
+<https://youtu.be/mppouFJGRI8>
+:::
+:::
+
+``` {.Translate .FOL points="10"}
+2 Ax(I(x)->x=a): Only Alex is invited to the party
+```
+
+::: solution
+::: youtube
+<https://youtu.be/9q3IBxsWDqA>
+:::
+:::
+
+``` {.Translate .FOL points="10"}
+3 Ex(H(x)/\~x=a/\I(x)): Someone other than Alex is invited to the party
+```
+
+::: solution
+::: youtube
+<https://youtu.be/bFiJC0YUN_c>
+:::
+:::
+
+``` {.Translate .FOL points="10"}
+4 ~Ex(H(x)/\I(x)/\~x=a) : Nobody but Alex is invited to the party
+```
+::: solution
+::: youtube
+<https://youtu.be/qeDeSP80crU>
+:::
+:::
+
+:::
+
+:::wrapper
+:::soasticky
+| I(x): x is invited to the party
+| H(x): x is a person
+| a: Alex
+| b: Benny
+:::
+
+Sometimes, we want to exclude more than one specific named individual from our
+generalization. For example:
+
+::: {.displayed}
+-   Everyone but Alex and Bennie are invited to the party
+-   Every x is such that, if x is a person and x is neither Alex nor Bennie,
+    then x is invited to the party
+-   ∀x(H(x) ∧ ¬(x=a ∨ x=b) → I(x))
+:::
+:::
+
+And sometimes, we want to exclude a whole *group* of individuals
+
+:::wrapper
+:::soasticky
+| F(x): x is a freshman
+| I(x): x is invited to the party
+| H(x): x is a person
+:::
+
+::: displayed
+-   Everyone who isn't a freshmen is invited to the party
+-   Every x is such that, if x is a person and x is not a freshman, then x is
+    invited to the party
+-   ∀x(H(x)∧¬F(x)→I(x))
+:::
+:::
+
+
+:::wrapper
+:::soasticky
+| F(x): x flies
+| H(x): x hops
+| I(x): x is a bug
+| b: Barry B. Benson
+| c: Charlotte
+:::
+
+``` {.Translate .FOL points="10" video="everybugotherthancharlotteandbarryhops.mp4"}
+5  ∀x(I(x) /\ ~x=b /\ ~x=c -> H(x)): Every bug other than Charlotte and Barry B. Benson hops
+```
+
+``` {.Translate .FOL points="10" video="everybugthatdoesnthopflies.mp4"}
+6  ∀x(I(x) /\ ~H(x) -> F(x)): Every bug that doesn't hop flies
+```
+
+:::
+
+## At Least n
+
+:::wrapper
+:::soasticky
+| F(x): x is a frog
+:::
+
+We can use our existential quantifier to capture claims like,
+
+::: displayed
+-   There is at least one frog
+-   ∃xF(x)
+:::
+
+This can be thought of as the basis for the most minimal form of counting. And
+we can extend it by using identity, to cover claims like:
+
+::: displayed
+-   There are at least two frogs.
+-   There are at least three frogs.
+-   There are at least four frogs.
+:::
+
+And so on, for arbitrary n:
+
+::: displayed
+-   There are at least n frogs.
+:::
+
+To say that there are at least two frogs is to say that there is something that
+is a frog, and something else that is a frog, and the two are not identical:
+
+::: displayed
+-   ∃x∃y(F(x) ∧ F(y) ∧ ¬x=y)
+:::
+
+Unpacking this, it says:
+
+::: displayed
+-   Some x and some y are both frogs, 
+:::
+
+and
+
+::: displayed
+-   they are not identical to each other.
+:::
+
+For this to be true, there must be at least two frogs: one that can serve as
+the value of x, and one that can serve as the value of y. Note that the bit
+about not being identical is essential here. The following sentence does not
+require the existence of two frogs:
+
+::: displayed
+-   ∃x∃y(F(x) ∧ F(y))
+:::
+
+This says that there is at least one value of x that is a frog, and at least
+one value of y that is a frog. But nothing stops the value of x from being the
+same as the value of y. There is no rule that distinct variables must
+be assigned distinct values. The only way to ensure that the values are
+distinct is to require that by saying so:
+
+::: displayed
+-   ∃x∃y(F(x) ∧ F(y) **∧ ¬x=y**)
+:::
+
+:::aside
+The point that two distinct variables can be assigned the same value is a
+commonplace from mathematics. For example, one solution to the equation,
+
+$$x + y = 4$$
+
+is
+
+$$x = 2, y = 2$$
+:::
+
+This strategy can be extended to handle any number of frogs:
+
+::: displayed
+-   There are at least three frogs.
+-   ∃x∃y∃z(F(x) ∧ F(y) ∧ F(z) ∧ ¬x=y ∧ ¬x=z ∧ ¬y=z)
+-   There are at least four frogs.
+-   ∃w∃x∃y∃z(F(w) ∧ F(x) ∧ F(y) ∧ F(z) ∧ ¬w=x ∧ ¬w=y ∧ ¬w=z ∧ ¬x=y ∧ ¬x=z ∧ ¬y=z)
+:::
+
+We will quickly run out of variables, but we can make use of subscripts:
+
+::: displayed
+-   There are at least n frogs.
+-   ∃x<sub>1</sub>...∃x<sub>n</sub>(F(x<sub>1</sub>) ∧ ... F(x<sub>n</sub>) ∧
+    ¬x<sub>1</sub>=x<sub>2</sub> ∧ ...
+:::
+
+Thinks quickly get rather long and messy. But, in principle, this can be done
+for any n.
+
+:::
+
+:::wrapper
+::: soasticky
+G(x): x is gross
+:::
+
+```{.Translate .FOL points=10}
+7 ExG(x) : There is at least one gross thing
+```
+::: solution
+::: youtube
+<https://youtu.be/LPQnl-R3Too>
+:::
+:::
+
+```{.Translate .FOL points=10}
+8 ExEy(G(x)/\G(y)/\~x=y) : There are at least two gross things
+```
+::: solution
+::: youtube
+<https://youtu.be/UaVjdAGuPOk>
+:::
+:::
+
+```{.Translate .FOL points=10}
+9 ExEyEz(G(x)/\G(y)/\G(z)/\~x=y/\~x=z/\~y=z) : There are at least three gross things
+```
+
+::: solution
+::: youtube
+<https://youtu.be/ydZevol7r10>
+:::
+:::
+
+:::
+
+## At Most
+
+In the previous section, we began a rudimentary form of counting, by seeing
+how to capture the claim that there are least n Fs, for any given n. But such
+claims only stake out a minimum number of things. Let's flip that around, and
+think about how to stake out a claim about the maximum number of things:
+
+::: displayed
+-   There is at most one frog.
+-   There are at most two frogs.
+-   There are at most three frogs.
+-   There are at most n frogs.
+:::
+
+Suppose 'There is at most one frog' is true. That means that any two frogs you
+encounter must in fact be the same frog. 
+
+:::aside
+:::illustration
+![Kermit drinking
+tea](https://reggienet.illinoisstate.edu/access/content/user/desanso/public/img/kermit-drinking-tea.jpg){alt="A
+picture of Kermit the frog drinking a cup of tea"}
+:::
+:::
+
+To make this more concrete, imagine that you are walking
+along a pond in the forest, and you meet a friendly frog, who invites you into his house for
+a cup of tea. Later, in the same forest, you are
+accosted by a frog, who beats you up and steals your wallet. You report this
+to the local police officer, who tells you that, since there is at most one frog in
+that forest, the frog who stole your wallet and the frog who invited you in
+for tea were one and the same.
+
+Here is how we can capture this idea:
+
+::: displayed
+-   ∀x∀y(F(x)∧F(y) → y=x)
+:::
+
+Unpacking this, it tells us that for any x and y, if x and y are both frogs,
+then they must be identical. Do you see how this means that there can be at
+most one frog? If there were two, then the antecedent would be true, but the
+consequent false.
+
+We can extend this to handle 'at most two', 'at most three', and so on. If
+there are at most two frogs, that means that, if you've encountered three
+frogs, at least two of them must have been in fact the same frog. To make this
+concrete, we can extend our story: suppose the police officer is himself a
+frog. When you later recount this story to the judge, the judge tells you that
+the officer was lying to you, and actually, there are at most two frogs. That
+complicates things: maybe the frog that stole your wallet was the officer! But
+certainly, if there are at most two frogs, the one that jumped you had to be
+either the officer frog or the tea frog. Otherwise, there would be three
+frogs.
+
+So:
+
+::: displayed
+-   There are at most two frogs
+-   ∀x∀y∀z(F(x) ∧ F(y) ∧F(z) → x=y∨x=z∨y=z)
+:::
+
+Again, we can generalize this pattern, using numerical subscripts, to handle
+any number of frogs. The sentences will become long and complicated, but in
+principle it is possible.
+
+:::wrapper
+::: soasticky
+G(x): x is a giraffe
+:::
+
+``` {.Translate .FOL points="10"}
+10 AxAy(G(x)/\G(y)->y=x) : There is at most one giraffe
+```
+
+::: solution
+::: youtube
+<https://youtu.be/GktvxEPgtaE>
+:::
+:::
+
+``` {.Translate .FOL points="10"}
+11 AxAyAz(G(x)/\G(y)/\G(z)->x=y\/x=z\/y=z) : There are at most two giraffes
+```
+
+::: solution
+::: youtube
+<https://youtu.be/XacDexMFTX0>
+:::
+:::
+
+``` {.Translate .FOL points="10"}
+12 AwAxAyAz(G(w)/\G(x)/\G(y)/\G(z)->w=x\/w=y\/w=z\/x=y\/x=z\/y=z) : There are at most three giraffes.
+```
+
+::: solution
+::: youtube
+<https://youtu.be/PGwm33AwFRc>
+:::
+:::
+
+:::
+
+## Exactly n
+
+We've learned how to count in two ways: the first stakes out a minimum number
+of things; the second stakes out a maximum number of things. We can combine
+these to stake out an exact number of things:
+
+
+::: displayed
+-   There is exactly one frog
+-   ∃xF(x) ∧ ∀x∀y(F(x)∧F(y)→y=x)
+:::
+
+Here I have simply conjoined two claims: the first conjunct says that there is
+at least one frog, and the second says that there is at most one frog. Taken
+together, this means that there is exactly one frog.
+
+But this isn't the most efficient way to express this claim. Here is a more
+efficient approach:
+
+::: displayed
+-   ∃x(F(x) ∧ ∀y(F(y)→y=x))
+:::
+
+This can be unpacked into two claims:
+
+:::displayed
+-   There is a frog
+:::
+
+and
+
+:::displayed
+-   every frog is identical to it
+:::
+
+The first part captures the "at least one" bit, and the second captures the
+"at most one" bit.
+
+Again, this can be generalized. Here is how we capture 'There are exactly two
+frogs':
+
+::: displayed
+-   ∃x∃y(F(x)∧ F(y) ∧ ¬x=y ∧ ∀z(F(z) → z=x ∨ z=y))
+:::
+
+Unpacking this, it says:
+
+:::displayed
+-   There is a frog x and a frog y
+:::
+
+and
+
+:::displayed
+-   x and y are not identical
+:::
+
+and
+
+:::displayed
+-   every frog is identical to either x or y.
+:::
+
+The first two parts get us that there are at least two frogs. The last part
+ensures that those two frogs are the only frogs there are. So, when put all
+together, we get that there are exactly two frogs.
+
+
+:::wrapper
+:::soasticky
+H(x): x is hot
+:::
+
+``` {.Translate .FOL points="10"}
+13 Ex(H(x)/\Ay(H(y)->y=x)),ExH(x)/\AxAy(H(x)/\H(y)->x=y) : Exactly one thing is hot
+```
+
+::: solution
+::: youtube
+<https://youtu.be/jFT6wvSbyRY>
+:::
+:::
+
+``` {.Translate .FOL points="10"}
+14 ExEy(H(x)/\H(y)/\~x=y/\Az(H(z)->z=x\/z=y)),ExEy(H(x)/\H(y)/\~x=y)/\AxAyAz(H(x)/\H(y)/\H(z)->x=y\/x=z\/y=z): Exactly two things are hot
+```
+
+::: solution
+::: youtube
+<https://youtu.be/e10zB7wbk9E>
+:::
+:::
+
+``` {.Translate .FOL points="10"}
+15 ExEyEz(H(x)/\H(y)/\H(z)/\~x=y/\~x=z/\~y=z/\Aw(H(w)->w=x\/w=y\/w=z)),ExEyEz(H(x)/\H(y)/\H(z)/\~x=y/\~x=z/\~y=z)/\AwAxAyAz(H(w)/\H(x)/\H(y)/\H(z)->w=x\/w=y\/w=z\/x=y\/x=z\/y=z) : Exactly three things are hot
+```
+
+::: solution
+::: youtube
+<https://youtu.be/7xa6dqUVZdc>
+:::
+:::
+
+:::
+
+## Russell's Theory of Definite Descriptions
+
+:::sep-inset
+
+![Portrait of Margaret Cavendish](https://reggienet.illinoisstate.edu/access/content/user/desanso/public/img/Margaret_cavendish_from_Luminarium.jpg)
+
+::: sep-header
+![](https://plato.stanford.edu/symbols/sep-man-red.png) Stanford
+Encyclopedia of Philosophy
+:::
+
+# [Margaret Lucas Cavendish](https://plato.stanford.edu/entries/margaret-cavendish/){.attribution target="_blank" rel="noopener noreferrer"}
+
+::: {#preamble}
+Margaret Lucas Cavendish was a philosopher, poet, scientist,
+fiction-writer, and playwright who lived in the Seventeenth Century. Her
+work is important for a number of reasons. One is that it lays out an
+early and very compelling version of the naturalism that is found in
+current-day philosophy and science. It also offers important insights
+that bear on recent discussions of the nature and characteristics of
+intelligence and the question of whether or not the bodies that surround
+us are intelligent or have an intelligent cause. Another reason that the
+work of Cavendish is important is that it anticipates some of the
+central views and arguments that are more commonly associated with
+figures like Thomas Hobbes and David Hume. She also offers novel and
+compelling responses to questions that are central to the discussions of
+the Seventeenth Century -- for example, about whether sense perception
+is by means of impressions; about whether human beings are free in a
+libertarian or a compatibilist sense; about whether whether there is any
+true disorder in the natural world; about the limits of knowledge, and
+the limits of ideas and language; and about how motion is transferred
+between bodies. In addition, she takes on important debates in social
+and political philosophy, with a focus on issues of agency and
+authority, and in particular on the relation between an individual\'s
+desire to live a life with which they identify and the receptivity and
+accommodation that that desire encounters in the world outside the mind.
+Finally, she anticipates discussions in the work of contemporary
+philosophers about whether or not our ability to understand how matter
+thinks is relevant to the question of whether it does think.
+:::
+:::
+
+A definite description is a noun phrase that begins with the word 'the', like
+'the author of *[Observations upon Experimental
+Philosophy](https://www.cambridge.org/core/books/margaret-cavendish-observations-upon-experimental-philosophy/A62F71BA4026C227A92974361D124515){.attribution
+target="_blank" rel="noopener noreferrer"}*', or 'the first computer
+programmer'. These phrases seem to behave in English much like proper names,
+and we can translate them using constants.
+
+:::wrapper
+:::soasticky
+| F(x,y): x wrote y
+| G(x,y): x is born in y
+| a: The author of *Observations upon Experimental Philosophy*
+| b: *Observations upon Experimental Philosophy*
+| c: Margaret Cavendish
+| d: 1623
+:::
+
+```{.Translate .FOL points=10}
+16 G(c,d): Margaret Cavendish was born in 1623.
+```
+
+:::spoiler
+Since 'c' names Margaret Cavendish, and 'd' names 1623, the answer is:
+
+:::displayed
+-   G(c,d)
+:::
+
+:::
+
+```{.Translate .FOL points=10}
+17 G(a,d): The author of Observations upon Experimental Philosophy was born in 1623.
+```
+
+:::spoiler
+-   G(a,d)
+:::
+
+
+```{.Translate .FOL points=10}
+18 F(c,b): Margaret Cavendish wrote Observations upon Experimental Philosophy.
+```
+
+:::spoiler
+-   F(c,b)
+:::
+
+But this way of handling definite descriptions fails to represent their
+content. For example, the following argument seems to be valid:
+
+:::standardform
+-   Margaret Cavendish is the author of *Observations upon Experimental
+    Philosophy*.
+-   Margaret Cavendish wrote *Observations upon Experimental Philosophy*.
+:::
+
+But when we render the argument into PL using our scheme, we get:
+
+:::standardform
+-   c=a
+-   F(c,b)
+:::
+
+And this has no chance of being valid. The *logical*
+relationship between the author, a, and the book, c, has been completely
+elided.
+
+:::
+
+::: {.sep-inset }
+
+![Photo of Bertrand Russell](https://plato.stanford.edu/entries/russell/russell.gif)
+
+::: sep-header
+![](https://plato.stanford.edu/symbols/sep-man-red.png) Stanford
+Encyclopedia of Philosophy
+:::
+
+# [Bertrand Russell](https://plato.stanford.edu/entries/russell/){.attribution target="_blank" rel="noopener noreferrer"}
+
+::: {#preamble}
+Bertrand Arthur William Russell (1872--1970) was a British philosopher,
+logician, essayist and social critic best known for his work in mathematical
+logic and analytic philosophy. His most influential contributions include his
+championing of logicism (the view that mathematics is in some important sense
+reducible to logic), his refining of Gottlob Frege's predicate calculus (which
+still forms the basis of most contemporary systems of logic), his defense of
+neutral monism (the view that the world consists of just one type of substance
+which is neither exclusively mental nor exclusively physical), and his
+theories of definite descriptions, logical atomism and logical types.
+:::
+:::
+
+Bertrand Russell's Theory of Definite Descriptions is meant to solve this
+problem. His basic idea is that a definite description ascribes uniqueness to
+the object described. Consider the difference between,
+
+:::displayed
+-   The author of *Observations* was born in 1623.
+-   An author of *Observations* was born in 1623.
+:::
+
+When we use the *indefinite* article, 'an', we leave it open that
+*Observations* might have had more than one author. But when we use the
+definite article, 'the', part of what we are saying is that *Observations*
+only had one author.
+
+:::wrapper
+:::soasticky
+| F(x,y): x wrote y
+| G(x,y): x is born in y
+| b: *Observations upon Experimental Philosophy*
+| c: Margaret Cavendish
+| d: 1623
+:::
+
+So Russell's idea is that we can paraphrase a sentence like 'The author of
+*Observations* was born in 1623' as:
+
+:::displayed
+-   There is exactly one author of *Observations*, and they were born in 1623.
+:::
+
+We know, from the previous section, how to handle "exactly one". When we apply
+that here, we get:
+
+:::displayed
+-   ∃x(F(x,b) ∧ ∀y(G(y,b) → y=x) ∧ G(x,d))
+:::
+
+We can unpack this into three parts:
+
+:::displayed
+-  There is an x who wrote *Observations*, 
+:::
+
+and
+
+:::displayed
+-   every y who wrote *Observations* is identical to x, 
+:::
+
+and
+
+:::displayed
+-  x was born in 1623.
+:::
+
+The first part gets us the existence of *an* author of *Observations*. The
+second part gets us the uniqueness of that author. The third part says, of
+that author, that she was born in 1623.
+
+We can use this three part pattern whenever we encounter a definite description. So, in
+the abstract:
+
+::: displayed
+-   The F is G
+-   ∃x(F(x) ∧ ∀y(F(y) → y=x) ∧ G(x))
+:::
+
+Remember our example from above, of a valid argument whose validity was not
+captured by our translation:
+
+:::standardform
+-   Margaret Cavendish is the author of *Observations*
+-   Margaret Cavendish wrote *Observations*
+:::
+
+Applying Russell's Theory, the first premise becomes:
+
+:::displayed
+-   ∃x(F(x,b) ∧ ∀y(F(y,b) → y=x) ∧ c=x) 
+:::
+
+Again, we can unpack this into three parts:
+
+:::displayed
+-  There is an x who wrote *Observations*,
+:::
+
+and
+
+:::displayed
+-  every y who wrote *Observations* is identical to x,
+:::
+
+and
+
+:::displayed
+-  Margaret Cavendish is identical to x.
+:::
+
+So our argument becomes:
+
+:::standardform
+-   ∃x(F(x,b) ∧ ∀y(F(y,b) → y=x) ∧ c=x) 
+-   F(c,b)
+:::
+
+We don't yet have the tools to show that this argument is valid, but it is
+clear that we now have enough logical structure to make that possible, where
+before we did not.
+
+:::
+
+:::wrapper
+:::soasticky
+| G(x): x is a King of Norway
+| H(x): x is bald
+:::
+
+```{.Translate .FOL points=10}
+19 Ex(G(x)/\H(x)): A King of Norway is bald 
+20 Ex(G(x)/\Ay(G(y)->y=x)/\H(x)) : The King of Norway is bald
+```
+:::solution
+::: youtube
+<https://youtu.be/0I2QgDaiTRg>
+:::
+:::
+
+Note that on Russell's theory, the sentence, 'The King of Norway is bald' can
+be broken down into three parts:
+
+:::displayed
+-   There is a King of Norway,
+:::
+
+and
+
+:::displayed
+-   every King of Norway is identical to him,
+:::
+
+and
+
+:::displayed
+-   he is bald.
+:::
+
+This means that is can be false for three different reasons:
+
+-   It can be false because Norway has no King;
+-   It can be false because Norway has more than one King;
+-   It can be false because Norway's King is not bald.
+
+Now, as it happens, Norway is a monarchy, and it has a King, and that King is
+bald. So the sentence is true.
+
+:::aside
+:::illustration
+[![King Harald of
+Norway](https://reggienet.illinoisstate.edu/access/content/user/desanso/public/img/king_harald.jpg){alt="A
+picture of King Harald of Norway, showing that he is indeed bald."}](https://en.wikipedia.org/wiki/Harald_V_of_Norway){.attribution target="_blank" rel="noopener noreferrer"}
+:::
+:::
+
+:::
+
+But consider the sentence,
+
+::: displayed
+-   The King of France is bald,
+:::
+
+Again, this can be broken down into three parts:
+
+:::displayed
+-   There is a King of France,
+:::
+
+and 
+
+:::displayed
+-   every King of France is identical to him,
+:::
+
+and 
+
+:::displayed
+-   he is bald.
+:::
+
+This is false, because there is no King of France. So what about:
+
+::: displayed
+-   The King of France is not bald.
+:::
+
+Is this true, since 'The King of France is bald' is false? Does the mean that
+France has a King has a full head of hair?
+
+We need to be careful. 'The King of France is not bald' is ambiguous. The
+ambiguity has to do with the *scope* of the negation. If we give the negation
+scope over the whole sentence, then the sentence expresses the negation of 'The King of France is bald':
+
+::: displayed
+-   The King of France is bald.
+-   ∃x(F(x)∧∀y(F(y)→y=x)∧H(y))
+-   The King of France is not bald. (wide scope negation)
+-   ¬∃x(F(x)∧∀y(F(y)→y=x)∧H(y))
+:::
+
+On this reading, 'The King of France is not bald' is true, but not because
+France has a King with a full head of hair, but because France does not have a
+King.
+
+But we can also give the negation narrow scope, so
+that it just negates bit about baldness:
+
+::: displayed
+-   The King of France is not bald. (narrow scope negation)
+-   ∃x(F(x)∧∀y(F(y)→y=x)∧¬H(y))
+:::
+
+This sentence is false, because France does not have a King.
+
+So the following derivation is not valid, because it depends on an
+[equivocation]{.vocab}:
+
+1.  'The King of France is bald' is false.
+2.  ∴ 'The King of France is not bald' is true.
+3.  ∴ The King of France has a full head of hair.
+
+An [equivocation]{.vocab} is when you first use a word or phrase
+in one sense, or with one meaning, and then use it in another sense, or with
+another meaning. Here, the move from (1) to (2) is valid only if we give the negation wide scope. But
+the move from (2) to (3) is valid only if we give the negation narrow scope.
+So there is no valid line of reasoning that gets us from (1) to (3).
+
+:::wrapper
+::: soasticky
+| F(x): x is a main character in Friends
+| G(x): x is annoying
+| b: Phoebe
+:::
+
+```{.Translate .FOL points=10}
+21 Ex(F(x)/\Ay(F(y)->x=y)/\G(x)): The main character in Friends is annoying
+22 ~Ex(F(x)/\Ay(F(y)->x=y)/\G(x)): The main character in Friends is not annoying (wide scope negation)
+23 Ex(F(x)/\Ay(F(y)->x=y)/\~G(x)): The main character in Friends is not annoying (narrow scope negation)
+```
+
+:::solution
+::: youtube
+<https://youtu.be/vi9vBwYzP68>
+:::
+:::
+
+```{.Translate .FOL points=10}
+24 Ex(F(x)/\Ay(F(y)->x=y)/\x=b): The main character in Friends is Phoebe
+25 Ex(F(x)/\Ay(F(y)->x=y)/\~x=b): The main character in Friends is not Phoebe (narrow scope negation)
+```
+
+:::spoiler
+For 24, we want to say:
+
+| There is a main character in Friends,
+| and it is the only main character in Friends,
+| and it is Phoebe.
+
+So:
+
+| ∃x(
+| F(x)
+| ∧ Ay(F(y) → x=y
+| ∧ x=b
+| )
+
+For 25, we want to say the same, but this time, we want to say that it is
+*not* Phoebe:
+
+| There is a main character in Friends,
+| and it is the only main character in Friends,
+| and it is not Phoebe.
+
+so:
+
+| ∃x(
+| F(x)
+| ∧ Ay(F(y) → x=y
+| ∧ ¬x=b
+| )
+
+:::
+
+:::
+
+<!-- vim: set ft=carnap :-->
