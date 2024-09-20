@@ -1,0 +1,872 @@
+---
+base-css:
+-   https://carnap.io/shared/dsanson@gmail.com/sanson-book.css
+-   https://cdn.plyr.io/3.6.12/plyr.css
+js: 
+-   https://cdn.plyr.io/3.6.12/plyr.polyfilled.js
+-   https://carnap.io/shared/dsanson@gmail.com/logic-book.js
+---
+
+
+:::auto-tally
+:::
+
+:::cover
+
+# Syllabus: PHI 112 Language, Logic and Mathematics
+
+| Term: Fall 2022
+| Instructor: David Sanson
+| Office: Stevenson 341
+| Office Hours: M 11-noon; W noon-1pm
+| Contact: GroupMe DM or <desanso@ilstu.edu>
+| Section 001: MoWe 8:00AM - 8:50AM
+| Section 002: MoWe 9:00AM - 9:50AM
+
+I teach two sections of this course. Please attend the section in which you
+are enrolled.
+
+I **strongly prefer** that you contact me via GroupMe DM rather than email.
+Use this link to sign up for our official GroupMe course chat: [GroupMe Group
+Sign Up](https://groupme.com/join_group/88585614/zc95m6gj){target="_blank"
+rel="noopener noreferrer"}. <!--_--> You can DM me from within the chat.
+
+:::
+
+## Course Description
+
+This is a class in formal logic. *Logic* is the study of reasoning, and what
+makes good reasoning good and bad reasoning bad. *Formal* logic studies
+reasoning by studying the various *structures* or *forms* that different
+pieces of reasoning, good and bad, might take.
+
+Formal logic is also called *symbolic* logic, because we study logical form
+not in English, but in an artificial language composed of letters and
+unfamiliar symbols, in much the same way that mathematicians study facts about
+numbers not in English, but in the artificial language of Algebra. So this
+class will in many ways be very much like a math class. It's just that the
+object of our study is not *reasoning about numbers*, as in Algebra, but
+*reasoning in general*. 
+
+Reasoning is a form of *information processing*. When we study logical form,
+we are studying the form of reasoning, but also, we are studying the form of
+*information*. Since we use *language* to express our reasoning, we are also
+studying the way language encodes and expresses information. So, in studying
+formal logic, you are studying an important part of the foundations of
+mathematics, linguistics, cognitive science, and computer science---all
+disciplines that deal, in different ways, with the processing of information. 
+
+:::{.no-print}
+This isn't just a syllabus; it's also your first assignment!
+That means it contains questions. To get credit for this assignment, you must
+answer *all* of the questions. Some questions are multiple choice:
+
+```{.QualitativeProblem .MultipleChoice points=10}
+1 To get credit for this assignment, I must
+|*answer all the questions.
+|answer most of questions. 
+```
+
+:::{.reaction .incorrect ex=1}
+Hmm. That's not right. Are you just randomly clicking answers without reading
+first? Try again.
+:::
+
+:::{.reaction .correct ex=1}
+Great! You've correctly answered your first reading question! Notice the
+progress bar across the top of the page, which helps you keep track of your progress.
+:::
+
+Some questions are multiple choice, where you need to select *all* correct
+answers. These have checkboxes next to each possible answer, instead of radio
+buttons:
+
+```{.QualitativeProblem .MultipleSelection points=10}
+2 Logic is foundational for
+| *mathematics
+| *linguistics
+| *cognitive science
+| *computer science
+```
+
+And some questions are open-ended short answer questions. To get credit for an
+open-ended question, you need to submit something, but the content of your
+response will not be graded:
+
+```{.QualitativeProblem .ShortAnswer give-credit="onSubmission" points=10}
+3 Why are you taking this class? What do you hope to get out of it?
+```
+:::
+
+## The "Flipped" and "Hybrid" Classroom
+
+This class is "flipped". I will not lecture in class. I expect you to work
+through the reading and exercises, and bring your questions and confusions to class, where
+we can work them together.
+I am *not* expecting you to figure everything on your own, without my help.
+But I am expecting you first to *try* things out on your own, and, when
+confused, to seek out my help.
+
+[Research suggests](https://www.pnas.org/node/889733) 
+that students *feel like they learn more* from a good lecture,
+but actually learn less. My goal for you in this class is that you learn more,
+not that you feel like you learn more.
+
+I expect you to spend a significant amount of time working on this course
+*outside of class meetings*. [This is a 3 credit hour course, so the average student
+should expect to spend approximately 9 hours a week on this
+course](https://policy.illinoisstate.edu/academic/4-1-19.shtml).
+This is a "hybrid" class, so we will spend 2 hours a week in person, instead of the
+usual 3 hour. I expect you to use that extra hour work asynchronously through
+the course material.
+
+Class time is essential. It is the time I am most easily available to help. It
+is the time when you can ask for additional explanations, or demonstrations,
+or for a mini-lecture on some issue that you find confusing.
+Sometimes I will offer structured activities in class, but
+often, I will not: it will be up to you to set the agenda, by letting me know
+what you are working on, and how I can help.
+
+I often have students who will arrive in class not having done the reading,
+and not having attempted any of the exercises. So they end up spending class
+time do the reading. This is a poor use of class time. I cannot help you read,
+and I will not provide a lecture that enables you to avoid the reading.
+
+You may find yourself stuck and frustrated, and so be tempted to skip class.
+But that's the opposite of what you need to do. If you are stuck and
+frustrated, class is where you come for support, understanding, and help.
+Don't isolate yourself, and cut yourself off from the very thing you need to
+succeed!
+
+:::{.no-print}
+```{.QualitativeProblem .MultipleSelection points=10}
+4 This course won't have lectures because (select all correct answers):
+| the professor is lazy and doesn't want to teach
+| the professor thinks the material is easy and everyone should be able to understand it without his help
+| the professor doesn't know how to lecture
+| *the professor believes that lecturing is not the most effective way to actually teach logic
+5 If I find myself confused, frustrated, and discouraged in this class (select all correct answers):
+| I should probably just give up because I am not smart enough to learn logic
+| I should be embarrased because I am not studenting correctly
+| *I should come to class and ask for help
+| I should isolate myself in a cocoon of despair
+```
+:::
+
+## Assignment Structure
+
+This class uses a *Mastery Grading Scheme*. In a traditional grading scheme, you
+march through all the material at a set pace, whether you understand it or
+not. In a Mastery Grading Scheme, the pace is flexible, and your grade is based
+upon how many units you *complete* by the end of the term.
+
+You may recognize this idea from video games, where you often have to work
+through several levels, each introducing new challenges, in order to complete
+the game.
+
+The class is divided into 17 units of content, and two "collaboration"
+units.
+Each unit of content is divided into three parts:
+
+-   **Reading**
+-   **Exercises**
+-   A **Mastery check**
+
+To *complete* a unit, you must *complete* each of these three parts.
+If you do exceptionally well on the mastery check, we say that you have not
+just *completed* the unit, but *mastered* it. Your grade for the course is
+based upon how many units you complete and how many you master, according to
+the following table:
+
+   Course Grade                        Requirement
+  -------------- -----------------------------------------------------------------------
+        A         at least <del>16</del> <ins>15</ins> units completed, at least 10 of which are also mastered
+        B         at least <del>14</del> <ins>13</ins> units completed, at least 8 of which are also mastered
+        C         at least <del>12</del> <ins>10</ins> units completed
+        D         at least 8 units completed
+
+:::{.no-print}
+```{.QualitativeProblem .MultipleChoice points=10}
+6 To complete a unit,
+| one must complete the mastery check; everything else is optional
+| *one must complete the reading, exercises, and mastery check
+| one must attempt the reading, exercises, and mastery check
+7 To get an B in this course,
+| one must complete 22 units (14 complete + 8 mastered)
+| *one must complete 14 units (and at least 8 of those 14 must also be mastered)
+| one must score a B or higher on the final exam
+8 True or false: this course has a final exam
+| True
+| *False
+9 If I complete the reading and exercises for lots of units, but never pass any of the mastery checks
+| my grade in the course will probably be a C or a D, since I did a lot of work
+| *my grade in the course will be an F, even though I did a lot of work
+| my grade in the course will depend on how many total points I earned on the readings and exercises
+```
+:::
+
+## Completing and Mastering
+
+To [complete]{.vocab} a unit, you must complete all three parts: reading,
+exercises, and mastery check. Each part is different, and has a different standard for what
+counts as "complete". Here is the standard for "completing" a unit:
+
+-   Reading = 100%
+-   Exercises ≥ 80%
+-   Mastery check ≥ 60% 
+
+As mentioned above, if you do especially well on the mastery check, we say
+that you have not just completed the unit, but [mastered]{.vocab} it. The standard for
+"especially well" is scoring at least 80%. So here is the standard for
+"mastering" a unit:
+
+-   Reading = 100%
+-   Exercises ≥ 80%
+-   Mastery check ≥ 80%
+
+## Reading
+
+Each reading assignment contains several questions scattered throughout.
+These questions are meant to get you to stop and think about what you've just
+read. If you just jump from question to question, and skip the actual reading,
+you are doing it wrong, and you struggle to understand the material.
+
+By design, you can never successfully submit an incorrect answer to a reading
+question. If you try, you will be told that your answer is incorrect and asked
+to try again. In some cases (e.g., multiple choice questions), this is
+trivial: keep trying to submit until you find the correct answer, and your
+submission is accepted. In all other cases, it is not trivial. In all such
+cases, the solutions will be provided in the text. But in all cases, you
+should try to figure it out for yourself before looking at the provided
+solutions.
+
+To complete the Reading, you need to answer *all* of the reading questions,
+earning a score of 100%.
+
+## Exercises
+
+Exercises contain more questions, based on what you learned in the reading. As
+with the reading questions, it is not possible to submit wrong answers: if you
+try, you will be told that your answer is incorrect and asked to try again.
+But solutions are not provided: your job is to figure out how to solve these
+problems yourself, and sometimes that can be quite challenging.
+
+To complete the Exercises, you need to score at least 80%.
+
+## Mastery Checks
+
+Mastery Checks are short low-stakes open-book timed exams that you complete
+online, on your own time.
+
+you are **not allowed to collaborate** on mastery checks. A mastery check is
+something you do on your own, to prove, both to me and to yourself, that you
+understand the material from this chapter.
+
+The questions are the same in kind as those in the exercises. But on a mastery
+check, the training wheels have been removed: if you try to submit an
+incorrect answer, it will be accepted, and you will earn 0 points on that
+question.
+
+A typical Mastery Check will have three questions, and might have a time limit
+of 30 minutes. To "complete" the unit, you need to score at least 60%, which
+means getting at least 2 out of the 3 questions correct. To "master" the unit,
+you need to score at least 80%, which, if there are only 3 questions, means
+getting all 3 of those questions correct.
+
+Mastery Checks are **timed**, and each Mastery Check has an access key. You
+need to enter the access key to start the assignment. Once the assignment
+starts, there is no "pause" button, and you will only get credit for work
+submitted before the timer reaches zero.
+
+Mastery Checks are low-stakes because **you can retake them as many times as
+needed**. A retakes will have different questions, meant to cover similar
+material at a similar level of difficulty. For each numbered problem, your
+**highest score** across retakes is what counts. So, when doing a retake, you
+only need to worry about the problems you got wrong on previous attempts. So,
+if you wish to improve your score, request a retake, by sending me a DM on
+GroupMe.
+
+There are two limits on this. First, you are only allowed **two retakes a
+week**. I don't mean two retakes *per mastery check*. I mean two retakes
+*in total*. So, in a given week, you might retake the mastery check for unit 03
+twice, or you might retake the mastery check for unit 01 once and the mastery
+check for unit 03 once. This is a substantial constraint. Before you request a
+retake, you should figure out what went wrong on your last attempt, and be confident that you can
+get it right on this attempt. You don't want to keep making the same mistake,
+and burn through all your attempts.
+
+The second limit on retakes is that, for some of the units, the Mastery Checks [expire]{.vocab}. Once a
+Mastery Check *expires*, you are only allowed to take it *once* more. So, if
+you've already taken it, you are only allowed one retake. And if you've not taken
+it at all, you will only be allowed to take it once, without any retakes.
+Expiration dates are there to encourage a *bare minimum* pace of progress
+through the course material. If you are *just* meeting expiration dates, you
+will be on a pace to earn a D in the course.
+
+Information about each Mastery Check, including the time allotted, the access
+key, and the expiration date, can all be found in the [Table of
+Contents](Book_f22#table-of-contents).
+
+:::{.no-print}
+```{.QualitativeProblem .MultipleChoice points=10}
+10 To complete a reading assignment,
+| *I must answer all the questions correctly
+| I must answer most of the questions correctly, but not all
+11 To complete an exercises assignment,
+| *I must score at least 80%.
+| I must score at least 60%.
+| I must answer all the questions correctly.
+12 I can retake a mastery check
+| once, if I request a retake within a week of the due date
+| twice, but I only have a week to do so
+| *as many times as needed, so long as it has not expired, but I only get to request two retakes a week
+13 If I fail a mastery check,
+| I should retake it, and hope that I do better
+| *I should figure out what went wrong, so I won't make the same mistake again, and then retake it
+| I should give up on that unit, and move on to the next
+```
+:::
+
+## Collaboration Units
+
+The two "collaboration" units are meant to recognize and motivate your
+engagement in the class, and your collaboration with your peers. Learning
+logic is easier when you are part of a community of logic learners!
+
+Genuine engagement and collaboration are hard to measure. Attempts to quantify
+such things often lead to annoyance and insincerity. In my experience, schemes
+that attempt to "bean count" participation only motivate folks to do the bare
+minimum, and the results of this are underwhelming.
+
+At bare minimum, I want you to come to class, and I want us to come to together into a friendly
+and supportive community of folks working on logic and helping each other
+learn logic.
+
+To help make that possible, I will award 10 "collaboration points" for each
+class meeting you attend. And, for every 110 collaboration points, you earn,
+you earn a "collaboration unit". These units are added to your tally of
+completed units, and can make the difference between a D to a C, or a C to a
+B, or a B to an A.
+
+Collaboration units can only be "completed"; they cannot be "mastered".
+
+I recognize that there are legitimate reasons to miss class. You can miss
+several classes, and still earn two collaboration units, which is the maximum
+possible. And you can earn an A in this course without completing any
+collaboration units, by completing more units of content.
+
+:::{.no-print}
+```{.QualitativeProblem .MultipleChoice points=10}
+14 Collaboration points are awarded for attendance because (select all correct answers)
+| the professor believes that attendance is the same thing as genuine collaboration and engagement
+| *the professor believes that attempts to measure genuine collaboration and engagement usually don't work out very well
+| *the professor believes wishes to encourage attendance, in hopes of fostering a friendly and supportive community in the classroom, which supports collaboration and engagement
+```
+:::
+
+## Due Dates and Expectations
+
+Everything in this class has the same due date: Friday, December 16th, at 5pm.
+This is the last day of Finals Week, and **I will not accept any work after
+that time**. You have been warned.
+
+The whole point of a mastery grading scheme is that,
+ if you need more time to complete a unit,
+ you should take that time,
+ and learn the material,
+ rather than rushing on to the next thing.
+It is not possible, consistent with this design, to assign traditional due
+dates to assignments as we go.
+
+But there are some rules of thumb. I've set the grading scale so that, to
+be on track to earn an A, you need to complete one unit a week. Note that some
+units might be significantly harder than others, so it would behoove you to
+move at a faster pace when you can, so as to give yourself a cushion later on.
+
+And, as mentioned above, some Mastery Checks have [Expiration Dates]{.vocab}.
+These correspond to the *minimum rate of progress* needed to earn a D in the
+course.
+
+:::{.no-print}
+```{.QualitativeProblem .MultipleChoice points=10}
+15 The final due date for all submissions is
+| the last day of finals week, at midnight
+| *the last day of finals week, at 5pm
+| the last day of finals week, at 5pm, but if you ask nicely I'll extend it to midnight
+| the last day of class, by the end of the class period
+```
+:::
+
+## Drop-In Office Hours
+
+My drop-in office hours are times that I set aside, so that students can drop
+in and ask for help. You do not need to make an appointment. You can just
+drop-in. If you cannot make my drop-in office hours, ask for an appointment.
+
+:::{.no-print}
+```{.QualitativeProblem .MultipleSelection points=10}
+16 Drop-in office hours are
+| by appointment only
+| a time for me to be alone in my office without being bothered by students
+| *times when you can drop by and ask for help
+| *times when you can drop by without an appointment
+```
+
+```{.QualitativeProblem .MultipleChoice points=10}
+17 The best way to contact me about this course is
+| via shortwave radio
+| *via GroupMe
+| via email
+```
+
+:::{.reaction .incorrect ex=17}
+The answer to question 17 can be found near the beginning of the syllabus, if
+you missed it the first time through.
+:::
+:::
+
+## Course Objectives
+
+A complete [list of course objectives](#learning-objectives-by-unit), 
+ divided into units, can be found at the end of this syllabus.
+
+This is a philosophy class. In philosophy, we try to think as clearly and
+carefully as possible about anything and everything worth thinking about. So
+that's my first broad course objective:
+
+-    I want you to *get better at thinking as clearly and carefully as possible
+ about anything and everything worth thinking about*.
+
+Different philosophy classes are about different things. Ethics classes are
+about good and bad, right and wrong. Epistemology classes are about knowledge.
+Metaphysics classes are about the nature of reality. This class is a Logic
+class: it is about the structure of reasoning itself. More specifically, it is
+a class if Formal Logic, an abstract tool or model that we use to think about
+the nature and structure of reasoning itself, similar to other abstract formal
+tools, like algebra (for thinking about numbers and quantity) and geometry
+(for thinking about shape and space). So here is my second broad
+course objective:
+
+-   I want you to learn *how to use formal logic to think more clearly and carefully about
+    reasoning itself*.
+
+The core concept we will explore is the concept of *validity*, as it applies
+to *arguments*. An argument is valid when its conclusion *follows* from its
+premises, in a sense of 'follows' that we will define and use precisely. So,
+my second broad course objective:
+
+-   I want you to *have a working understanding of the concept of validity and
+    its application to arguments*.
+
+If you are a philosophy major, think of this as your "formal methods in philosophy" class. 
+If you are not a philosophy major, think of this as a "formal methods for
+thinking about anything and everything worth thinking about" class. 
+
+## Common Challenges and Barriers to Success
+
+Many students have an unhappy history with math. This class is partly a math
+class, and if you have an unhappy history with math, that can trigger old
+anxieties. I assure you, formal logic is *much simpler* than any math you have
+done before. I know many people who were "bad at math" but good at logic. And
+while sometimes what we are doing will look like algebra, it is not.
+
+But I also realize that this won't make the anxieties go away. That is
+something you will have to work through.
+
+This class involves thinking about language in a math-y way,
+and thinking about math in a language-y way.
+It combines ways of thinking that you have been taught to keep separate
+(for no good reason, as far as I can see).
+This tends to make everyone uncomfortable!
+Students who identify as "good with language" but "bad at math"
+ struggle with the "math-y" bits.
+Students who identify as "good at math" but "bad with language"
+ struggle with the "language-y" bits.
+Students who think of themselves as good at both
+ can still struggle when asked to put both together.
+
+Finally, this is not a course in abstract theory, and it is not a class that
+asks you to memorize and regurgitate facts.
+It is a course that asks you to learn *how* to solve different kinds of
+problems. Learning *how* to do something takes *practice*, and practice takes
+*time*. The course is designed to maximize your opportunities to practice,
+both inside and outside of class,
+and maximize your opportunities to get help as you practice.
+But I cannot maximize your *time*: that is a limited resource that you will
+need to manage.
+
+
+:::{.no-print}
+```{.QualitativeProblem .MultipleSelection points=10}
+18 This class might be challenging for you because
+| *it combines both mathematics and language
+| it will be taught entirely in French 
+| it is a course in abstract theory
+| *learning how to solve the problems takes practice, and practice takes time
+```
+
+:::{.reaction .correct ex=18}
+C'est la seule partie de ce cours qui est en français.
+:::
+:::
+
+## Carnap.io
+
+The readings and assignments for this course are all on Carnap.io. Carnap
+is a tool for automatic machine grading of complicated logic problems. It is free,
+but you will need a Google account to sign in.
+
+-   If you don't already have a Google account, you can [create one for
+    free](https://accounts.google.com/signup/v2/webcreateaccount?hl=en&flowName=GlifWebSignIn&flowEntry=SignUp).
+-   When you create your account on Carnap, you will be asked for your name
+    and your University ID.
+    -   Use your preferred name. If that\'s different from the name that will
+        show up on my official roster, I'll figure it out.
+    -   For your University ID, use your **ULID**, not your **UID**. Your ULID
+        is the first part of your ISU email address. Your UID is your nine
+        digit student ID number.
+
+To enroll in Carnap, follow this link:
+
+-   <https://carnap.io/enroll/ISU_112_FALL_2022>
+
+If you already have an account on Carnap from a previous course, you will be asked if you want
+to change your enrollment, and join this new course, ISU\_112\_FALL\_2022.
+That is what you want to do. So click on the \"Change Enrollment\"
+button.
+
+## Reggienet
+
+You can track your progress on individual assignments on Carnap, by looking at
+the progress bar at the top of each assignment. You can look to Reggienet's
+gradebook to track your progress through the entire course. It will show you
+how many units you have mastered, how many you have completed, and, for each
+unit, it will give you a breakdown of your scores on each of the three parts.
+
+Unfortunately, the Reggienet gradebook cannot be updated automatically from
+Carnap. So your Reggienet gradebook will not always be up to date. I plan to
+manually update the gradebook at least once a week, and more often toward the end of
+the term.
+
+:::{.no-print}
+```{.QualitativeProblem .MultipleChoice points=10}
+19 The Reggienet gradebook
+| will automatically stay in sync with Carnap, so if my scores don't show up on the Reggienet gradebook immediately, something has gone wrong
+| *needs to be updated manually, so newly completed work will not show up immediately on Reggienet
+```
+:::
+
+## Accommodations
+
+Any student needing to arrange a reasonable accommodation for a
+documented disability should contact Student Access and Accommodation
+Services at 350 Fell Hall, 309-438-5853,
+<http://studentaccess.illinoisstate.edu>.
+
+I'm happy to work with you.
+
+Also, if you come across accessibility issues with Carnap or other course materials,
+ please let me know.
+
+## Other Sources of Support
+
+Life at college can get very complicated. Students sometimes feel
+overwhelmed, lost, experience anxiety or depression, struggle with
+relationship difficulties or diminished self-esteem. Many of these
+issues can be effectively addressed with a little help. Student
+Counseling Services (SCS) helps students cope with difficult emotions
+and life stressors. Student Counseling Services is staffed by
+experienced, professional psychologists and counselors, who are attuned
+to the needs of college students. The services are free and completely
+confidential. Find out more at <http://counseling.illinoisstate.edu> or
+by calling 309-438-3655.
+
+## Academic Misconduct
+
+Academic integrity is expected and required. Students are expected to be
+honest in all academic work. A student's placement of their name on any
+academic exercise shall be regarded as assurance that the work is the
+result of the student's own thought, effort, and study.
+
+If you have questions, refer to the Code of Student Conduct, B1
+(Academic Integrity), which outlines unacceptable behaviors in academic
+matters, or talk to me. In certain circumstances (such as cheating or
+plagiarism) I may be required to refer a student to Community Rights &
+Responsibilities for a violation of Illinois State University's Code of
+Student Conduct.
+
+## Learning Objectives by Unit
+
+### 1. Logic and Argument
+
+This unit introduces our topic, logic, and some of the basic concepts we
+use in logic, including *argument*, *premise*, *conclusion*, and
+*proposition*. The unit has three primary learning objectives:
+
+a.  I can identify premises and conclusions arguments presented in
+    English.
+b.  I can rewrite simple arguments in standard form.
+c.  I can identify implicit premises.
+
+### 2. Validity, Soundness, and Strength
+
+This unit introduces the basic concepts needed for argument evaluation:
+*validity*, *soundness*, and (inductive) *strength*. It also introduces
+the idea of a *counterexample to validity*, and the concept of *formal
+validity*. Learning objectives are:
+
+a.  I can apply the definitions of validity, soundness, and strength to
+    simple arguments.
+b.  I can recognize informal counterexamples to validity.
+c.  I can recognize counterexamples to formal validity.
+
+### 3. Sentential Logic (SL)
+
+This unit introduces the sentential logic---the logic of 'not', 'and',
+'or', and 'if'. The specific learning objectives for this unit are:
+
+a.  I know the canonical English for each connective.
+b.  I know the characteristic truth table for each connective.
+c.  I can parse symbolic sentences, both in official and informal
+    notation, identifying the main connective and identifying the scope
+    of each connective.
+
+### 4. Translation in SL
+
+This unit discusses some of the basic issues involved in translating
+between English and our symbolic language. The specific learning
+objectives for this unit are:
+
+a.  I can translate symbolic sentences into canonical English
+b.  I can symbolize English sentences involving 'if' and 'only if'
+c.  I can symbolize English sentences involving stylistic variants
+    ('but', 'unless', 'provided that', etc.)
+d.  I can symbolize English sentences involving 'neither nor' and 'not
+    both'.
+
+### 5. Direct Derivations
+
+This unit introduces a system of derivation for sentential logic, with
+rules involving negations and conditionals. The specific learning
+objectives for this unit are:
+
+a.  I can identify instances of DN, MP and MT
+b.  I can complete simple direct derivations.
+
+### 6. Derivations with Assumptions
+
+In this unit we continue to explore our system of derivation,
+introducing more complicated forms of derivation that involve the idea
+of making an assumption for the sake of argument. The specific learning
+objectives for this unit are:
+
+a.  I can complete simple conditional and indirect derivations.
+b.  I can complete derivations that require sub-derivations, including
+    derivations without premises
+c.  I can use strategies, like showing the consequent, and showing the
+    double negation, to complete more difficult derivations
+
+### 7. Truth Tables for Sentences
+
+In this unit, we learn how to use truth tables to explore the
+truth-functional properties of sentences. The specific learning
+objectives for this unit are:
+
+a.  I can calculate the truth of a sentence on an interpretation
+b.  I can use truth tables to determine whether or not a sentence is
+    truth-functionally true, truth-functionally false, or
+    truth-functionally contingent.
+
+### 8. Truth Tables for Arguments
+
+In this unit, we learn how to use truth tables to explore the
+truth-functional properties of sets of sentences, and the
+truth-functional properties of arguments. The specific learning
+objectives for this unit are:
+
+a.  I can use truth tables to determine whether or not two or more
+    sentences are truth-functionally equivalent, and whether or not two
+    or more sentences are truth-functionally consistent
+b.  I can use truth tables to determine whether or not an argument is
+    truth-functionally valid.
+
+### 9. Translation in SL, continued
+
+In this unit, we return to the project we began in Unit 4, and consider
+some of the more complicated issues involved in translating between
+English and our symbolic language. The specific learning objectives for
+this unit are:
+
+a.  I can use commas to disambiguate structurally complex sentences, and
+    guide my symbolization of those sentences
+b.  I can symbolize sentences with compound subjects and predicates
+c.  I can symbolize sentences involving restricted quantifier phrases
+    using disjunctions and conjunctions
+
+### 10. 10. Derivations with '∧', '∨', and '↔︎'
+
+In this unit, we expand the system of derivation to include rules for
+all of our connectives. The specific learning objectives for this unit
+are:
+
+a.  I can identify instances of all the basic rules of sentential logic
+b.  I can complete simple derivations involving all the connectives
+c.  I can complete more complicated derivations involving all the
+    connectives
+
+### 11. Theorems and Derived Rules
+
+We continue our exploration of the expanded system of derivation, and
+introduce theorems and derived rules. The specific learning objectives
+for this unit are:
+
+a.  I can complete yet more complicated derivations, involving all the
+    connectives, using strategies like showing the negation, showing the
+    antecedent, and showing the double negation
+b.  I have enabled several derived rules, including all the derived
+    rules for using complex negations (NC, DM, NB), and I can use these
+    rules to solve derivations
+
+### 12. Predicate Logic (PL)
+
+This unit introduces Predicate Logic, an extension of the Sentential
+Logic studied in earlier units. The specific learning objectives for
+this unit are:
+
+a.  I can parse symbolic formulas, identifying the main connective, and
+    identifying the scope of each connective.
+b.  I can identify which variables in a formula are free and which are
+    bound
+c.  I can identify instances of generalizations, and generalizations of
+    instances
+
+### 13. Translation in PL
+
+This unit explores some of the issues involved in translating between
+English and Predicate Logic. The specific learning objectives for this
+unit are:
+
+a.  I can translate symbolic sentences into canonical English
+b.  I can symbolize sweeping generalizations involving 'something',
+    'everything', and 'nothing'
+c.  I can symbolize restricted generalizations using 'all', 'some',
+    'no', 'only', and 'just', including restricted generalizations using
+    compound subjects
+d.  I can symbolize sentences involving anaphoric pronouns and
+    misleading uses of 'some' and 'any'.
+
+### 14. Derivations in PL
+
+This unit extends our system of derivation from Sentential Logic to
+cover the new complications introduced by Predicate Logic. The specific
+learning objectives for this unit are:
+
+a.  I can complete derivations using UI, EG, and QN
+b.  I can complete derivations using UD and ED
+c.  I can complete derivations containing overlapping quantifiers
+
+### 15. Truth and Countermodels
+
+In this unit, we learn how to use models to explore the logical
+properties of sentences and arguments in Predicate Logic. The specific
+learning objectives for this unit are:
+
+a.  I can construct a model to show that a sentence is not a logical
+    truth in Predicate Logic
+b.  I can construct a model to show that two sentences are not logically
+    equivalent in Predicate Logic
+c.  I can construct a model to show that an argument is not valid in
+    Predicate Logic
+
+### 16. Relations and Identity
+
+In this unit, we extend our Predicate Logic to allow for multi-place
+predicates, which allow us to express relations between things. The
+specific learning objectives for this unit are:
+
+a.  I can translate sentences involving multi-place predicates into
+    canonical English
+b.  I can symbolize sentences involving multi-place predicates
+c.  I can symbolize sentences involving identity
+
+### 17. Identity, continued
+
+In this unit, we consider one special relation, Identity, and some of
+the claims it allows us to express. The specific learning objectives for
+this unit are:
+
+a.  I can symbolize sentences involving phrases like 'everything but'
+    and 'some other'
+b.  I can symbolize sentences involving phrases like 'at least n', 'at
+    most n', and 'exactly n'.
+c.  I can symbolize definite descriptions in accordance with Russell's
+    theory of definite descriptions
+
+### 18. Derivations with Relations and Identity
+
+In this unit, we extend our system of derivation to handle multi-place
+predicates and identity. The specific learning objectives for this unit
+are:
+
+a.  I can complete derivations involving multi-place predicates and
+    overlapping quantifiers
+b.  I can complete derivations involving identity
+
+## ISU General Education Objectives
+
+Courses in the Quantitative Reasoning category of General Education
+address the following program objectives:
+
+I. knowledge of diverse human cultures and the physical and natural world,
+   allowing students to
+
+   a.  use theories and principal concepts, both contemporary and enduring,
+       to understand technologies, diverse cultures, and the physical and
+       natural world
+   b.  *explain how the combination of the humanities, fine arts, natural and
+       social sciences, and technology contribute to the quality of life for
+       individuals and communities*
+
+II. intellectual and practical skills, allowing students to
+
+    a. make informed judgments
+    b. analyze data to examine research questions and test hypotheses
+    c. *report information effectively and responsibly*
+
+III. personal and social responsibility, allowing students to
+
+     a. demonstrate ethical decision making 
+     b. demonstrate the ability to think reflectively
+
+IV. integrative and applied learning, allowing students to
+
+    a.  identify and solve problems
+    b.  transfer learning to novel situations
+    c.  *work effectively in teams*
+
+Primary outcomes are indicated in plain text and secondary outcomes are
+indicated in italics.
+
+Phew! That's a lot of boiler plate.
+Did you hear the story about the [professor who hid $50, and told students
+where to find it on his
+syllabus](https://www.cnn.com/2021/12/18/us/tennessee-professor-syllabus-money-trnd/index.html)?
+I am afraid I have not done the same. Do I look like I'm made of money?!!
+
+:::{.no-print}
+```{.QualitativeProblem .MultipleSelection points=10}
+20 According to the ISU General Education Objectives, a course in Quantitative Reasoning is supposed to (select all correct answers)
+| *teach you personal and social responsibility, allowing (enabling?) you to demonstrate ethical decision making
+| teach you how to cook, allowing (enabling?) you to cook quick and easy healthy meals on a budget
+| *teach you about cultures and the physical and natural world (but not math?), allowing (enabling?) you to justify each unit of the university, on the (dubious!) grounds that it contributes to quality of life
+| teach some aspect of quantitative reasoning
+```
+
+:::{.reaction .correct ex=20}
+Can we all pause to appreciate the absurdity of this list of objectives,
+ for a course in Quantitative Reasoning?!
+:::
+:::
+
+
+<!-- vim: set ft=carnap :-->

@@ -1,0 +1,16 @@
+---
+base-css:
+-   https://carnap.io/shared/dsanson@gmail.com/sanson-book.css
+-   https://cdn.plyr.io/3.6.12/plyr.css
+js: 
+-   https://cdn.plyr.io/3.6.12/plyr.polyfilled.js
+-   https://carnap.io/shared/dsanson@gmail.com/logic-book.js
+---
+
+# Syllabus (Supplement)
+
+This is a supplement. It is not worth any points, and does not affect your
+grade. Usually, a supplement will include more practice problems along with additional resources and
+explanations.
+
+<!-- vim: set ft=carnap :-->

@@ -1,0 +1,1616 @@
+---
+base-css:
+-   https://carnap.io/shared/dsanson@gmail.com/sanson-book.css
+-   https://cdn.plyr.io/3.6.12/plyr.css
+js: 
+-   https://cdn.plyr.io/3.6.12/plyr.polyfilled.js
+-   https://carnap.io/shared/dsanson@gmail.com/logic-book.js
+---
+
+
+::: cover
+#  Translation to and from Sentential Logic 
+
+[![Mathematical Symbol
+Fight](https://imgs.xkcd.com/comics/mathematical_symbol_fight.png){title="Oh
+no, a musician just burst in through the door confidently twirling a treble
+clef." alt="A comic depicting several symbols from mathematics, arranged by
+how useful they would be in a fight"}](https://xkcd.com/2343){target="_blank" rel="noopener noreferrer"}
+
+::: epigraph
+"[V]ariations of sense may be tolerated, although they are to be avoided in
+the theoretical structure of a demonstrative science and ought not to occur in
+a perfect language." 
+
+[Gottlob Frege, "[On Sense and Reference](https://www.jstor.org/stable/2181485){target="_blank" rel="noopener noreferrer"}", 210, note 2.]{.source}
+:::
+:::
+
+<!--_-->
+
+## Introduction
+
+In this unit, we begin to *use* the language of SL. Specifically, we learn to
+translate between English and SL. Your goal should be to become *literate* in
+SL, so that you can read sentences like these and understand what they mean: 
+
+:::example
+-   ¬(P ∧ Q)
+-   (¬P ∨ ¬Q)
+-   (P ∧ Q) → R
+:::
+
+At the moment, these might look like meaningless algebraic formulas to you.
+Your brain might resist reading and understanding them as sentences. Instead,
+your brain may insist that you should start performing transformations, like
+"distributing" negations. You must resist! Right now, we are *learning to
+read* what is said, and learning to *translate* between two languages. We are
+not calculating, distributing, or simplifying.
+
+## Boxes and Circles
+
+::: liveshapes
+We will continue to use boxes and circles to think about the different
+patterns sentences can take. So any time you see a []{.P to="1"} or []{.Q
+to="2"}, those are "slots" that can be filled by *any sentence*. On these
+pages, this is often literally true: you can click on each []{.P to="1"} and
+[]{.Q to="2"}, and type anything you want. Try it now if you haven't already.
+:::
+
+Technically, our boxes and circles are *variables* that range over *linguistic
+symbols*. Traditionally, such variables are represented not with boxes and
+circles, but using Greek letters, like φ ('phi') and ψ ('psi'). So, these are
+equivalent:
+
+:::liveshapes
+:::example
+- ([]{.P} → []{.Q})
+- (φ → ψ)
+:::
+:::
+
+Carnap sometimes provides built-in tips and error messages that use Greek
+letters in this way.
+
+## Paper and Pencil
+
+There are some things that are easier to do on paper than on a screen. You
+should have scratch paper and a pencil as you read and work through this book,
+and make a habit of working things out on paper as needed.
+
+For example, you are probably still getting the hang of informal notation. Consider:
+
+:::example
+- P ∧ Q → R ∨ S
+:::
+
+Do you know where the missing parentheses go, and which connective is the main
+connective? Without paper and pencil, you are left to figure that out in your
+head. But if you jot it down, you can work it out on paper. On paper, you can
+parse the sentence into a tree, draw boxes and circles around its
+parts, and scribble notes to yourself about what you are doing.
+
+You might also want to take notes as you read. But research suggests that for
+the most part, this is not a very effective learning strategy. Instead, I
+recommend using your paper to *work through* things that are confusing.
+
+## Translating from SL to "Canonical" English
+
+SL is a simple language with a rigid syntax. English is a complex language
+with a flexible syntax. So, for any claim expressed in SL, there are many
+equivalent ways to express it in English.
+
+To get things started, we introduce the idea of "canonical" English
+translations. These are translations that allow us to render SL into English on its own terms, without introducing ambiguity.
+
+The canonical English translation of the conjunction, '(P ∧ Q)', is:
+
+:::example
+-    (both P and Q)
+:::
+
+The canonical English translation of the disjunction, '(P ∨ Q)', is:
+
+:::example
+-    (either P or Q)
+:::
+
+Notice the parentheses.
+Also notice that the translations use two words: '∧' becomes 'both...and...';'∨' becomes 'either...or...'. Obviously, with these simple examples, English can make do without the parentheses, and can drop the 'both' and 'either':
+
+:::example
+-    (P ∧ Q)
+-    (both P and Q)
+-    P and Q
+:::
+
+:::example
+-    (P ∨ Q)
+-    (either P or Q)
+-    P or Q
+:::
+
+But when sentences become more complicated, we need devices to keep track of structure and avoid ambiguity. This is why our canonical translations retain the parentheses from SL. It is also why they include 'both' and 'either'.
+
+The canonical translation of the conditional, '(P → Q)', is:
+
+:::example
+-    (if P then Q)
+:::
+
+And the canonical translation of '(P ↔ Q)' is:
+
+:::example
+-   (P if and only if Q)
+:::
+
+For negations, like '¬P', we have two canonical translations. The first mimics the syntax of SL, expressing negation as a prefix:
+
+:::example
+-   It is not the case that P
+:::
+
+The second uses 'not' as an infix, next to the main verb of the sentence. For example, if 'R' stands for 'It is raining', we can translate '¬R' as:
+
+:::example
+-   It is not raining.
+:::
+
+Complex English sentences, like the conjunction, 'Both it is raining and it is
+snowing', don't have a main verb, so it is not possible to negate them using
+'not' as an infix. The "main" thing in this sentence is not the first 'is' or
+the second 'is', but the *main connective*, expressed by 'and'. English
+doesn't offer any way to negate a sentential connective using an infix
+notation. For example, this is ungrammatical:
+
+:::{.example}
+-    [It is raining *not and* it is snowing.]{.xed}
+:::
+
+As far as I know, there is no deeply principled reason for this. It is just a
+fact about English that it doesn't work this way. (Perhaps 'nor' works sort of like this. We will talk about it later.) 
+
+The point is, we can only use infix 'not' to translate '¬' when the negated
+sentence in English has a main verb. In such cases, the sentence will be
+represented in SL with an atomic sentence letter. In all other cases, we must
+use the prefix, 'it is not the case that', to negate the sentence.
+
+:::{.example }
+-    It is not the case that (it is raining and it is snowing)
+:::
+
+The following table summarizes of our canonical translations:
+
+::: liveshapes
+  SL                                        Canonical Translation
+  ----------------------------------------- ----------------------------------------------
+  ¬[]{.P to="0"}, []{.P to="0"} is atomic   Use 'not' as an infix
+  ¬[]{.P to="1"}                            it is not the case that []{.P to="1"}
+  ([]{.P to="2"} → []{.Q to="2"})           (if []{.P to="2"} then []{.Q to="2"})
+  ([]{.P to="3"} ∧ []{.Q to="3"})           (both []{.P to="3"} and []{.Q to="3"})
+  ([]{.P to="4"} ∨ []{.Q to="4"})           (either []{.P to="4"} or []{.Q to="4"})
+  ([]{.P to="5"} ↔ []{.Q to="5"})           ([]{.P to="5"} if and only if []{.Q to="5"})
+:::
+
+Now lets consider a complex sentence in SL, and how we can render it into
+canonical English:
+
+::: example
+- P ∧ ¬Q → ¬R ∨ S
+:::
+
+Our first step is to rewrite the sentence in official notation. We need those parentheses for our translation!
+
+::: example
+- P ∧ ¬Q → ¬R ∨ S
+- ((P ∧ ¬Q) → (¬R ∨ S))
+:::
+
+The next step is to translate the *main connective* into canonical English. Here, the main connective is '→', so:
+
+::: {.example .liveshapes}
+- P ∧ ¬Q → ¬R ∨ S
+- ((P ∧ ¬Q) → (¬R ∨ S))
+- (if [(P ∧ ¬Q)]{.P} then [(¬R ∨ S)]{.Q})
+:::
+
+This leaves us with two sentences in SL embedded inside the beginnings of an English sentence.
+
+Our next step is translate the main connectives of each of those embedded sentences:
+
+::: {.example .liveshapes}
+- P ∧ ¬Q → ¬R ∨ S
+- ((P ∧ ¬Q) → (¬R ∨ S))
+- (if [(P ∧ ¬Q)]{.P} then [(¬R ∨ S)]{.Q})
+- (if (both [P]{.P to=1} and [¬Q]{.Q to=1}) then ([¬R]{.P to=2} ∨ [S]{to=2}))
+:::
+
+Look at what remains untranslated: two sentence letters, and two negations of sentence letters.
+
+At this point, to complete our translation, we need to know what those
+sentence letters mean in English. For that, we need a [scheme of
+abbreviation]{.vocab}: a mapping from sentence letters to English sentences:
+
+::: soa
+| P: Patrícia is here
+| Q: Quincy is here
+| R: Rajon is here
+| S: Simone is here
+:::
+
+There is no "correct" scheme of abbreviation. The sentence letters of SL can stand for any sentences. If you are not given a scheme of abbreviation, you need to make one up.
+
+Now that we know what the sentence letters mean, we can translate them into English too. Remember to keep track of the negations, rendering them using 'not' as an infix by the main verb:
+
+::: {.example .liveshapes}
+- P ∧ ¬Q → ¬R ∨ S
+- ((P ∧ ¬Q) → (¬R ∨ S))
+- (if [(P ∧ ¬Q)]{.P} then [(¬R ∨ S)]{.Q})
+- (if (both [P] and [¬Q]) then ([¬R] ∨ [S]))
+- (if (both Patrícia is here and Quincy is not here) then (either Rajon is not
+  here or Simone is here))
+:::
+
+That completes our translation in canonical English. Obviously, there are things we can do to simplify the translation and make it more idiomatic, like dropping parentheses and extra words like 'both' and 'either'. But for now, resist the temptation to do this, as you run the risk of introducing syntactic ambiguity.
+
+Let's work through one more example:
+
+:::example
+-   ¬(P → Q) ↔ P ∧ ¬Q
+:::
+
+Again, our first step is to rewrite the sentence in official notation:
+
+:::example
+-   (¬(P → Q) ↔ (P ∧ ¬Q))
+:::
+
+Next, we translate the main connective:
+
+:::example
+-   (¬(P → Q) if and only if (P ∧ ¬Q))
+:::
+
+Now we translate the main connectives of the two untranslated sentences:
+
+:::example
+-   (it is not the case that (P → Q) if and only if (both P and ¬Q))
+:::
+
+Notice that we have to use 'it is not the case that' to translate the negation, since it is not negating an atomic sentence letter. We continue, translating the main connective of '(P → Q)':
+
+:::example
+-   (it is not the case that (if P then Q) if and only if (both P and ¬Q))
+:::
+
+Once again, we have reached the stage where we need a scheme of abbreviation:
+
+::: soa
+| P: People are people
+| Q: People are all the same
+:::
+
+Given our scheme, we translate the sentence letters and the negations of sentence letters:
+
+:::example
+-   (it is not the case that (if people are people then people are all the same) if and only if (both people are people and people are not all the same )) 
+:::
+
+-----
+
+We can break the process of translation down into four steps.
+
+Step 1
+:   Rewrite the sentence in official notation.
+
+Step 2
+:   Translate the main connective into canonical English. 
+
+Step 3
+:   Repeat step 2 for each untranslated part of the sentence, until the only
+    remaining untranslated parts are sentence letters or negations of sentence
+    letters.
+
+Step 4
+:   Use the scheme of abbrevation to translate the sentence letters, and also
+    negations of sentence letters, using 'not' as an infix.
+
+The Carnap software does not know English. So it cannot tell whether or not
+your canonical translation of a given sentence is correct. Still, it is
+important that you practice this, and it will be on the mastery check for this unit, which is an in-class mastery check.
+
+:::soawrapper
+:::soasticky
+| P: You are happy
+| Q: You clap your hands
+:::
+
+```{.QualitativeProblem .ShortAnswer give-credit="onSubmission" points=10}
+1 Using the provided scheme of abbreviation, provide a canonical English translation of '¬(P → Q)'. Show your steps.
+```
+
+:::{.reaction .correct ex=1}
+
+Did you follow the four step process described above, or did you wing it?
+I ask because I know how strong the temptation is to wing it. But I also know that, when students wing it, they often get it wrong.
+
+Step 1
+:   The sentence is already in official notation! So nothing to do here.
+
+Step 2
+:   The main connective is '¬'. Since it isn't negating an atomic sentence
+    letter, we translate it using 'it is not the case that' as a prefix.
+
+:::example
+-   It is not the case that (P → Q)
+:::
+
+Step 3
+:   The main connective of the untranslated part is '→'. So we translate that using 'if...then...'.
+
+:::example
+-   It is not the case that (if P then Q)
+:::
+
+Step 4
+:   We replace the sentence letters, following the scheme of abbreviation.
+
+:::example
+-   It is not the case that (if you are happy then you clap your hands)
+:::
+
+Is that what you got? One common mistake is to try to "distribute" the negation. That gets you something like:
+
+:::{.example}
+-   [(if you are not happy then you do not clap your hands)]{.xed}
+:::
+
+But that is wrong. **DO NOT TRY TO DISTRIBUTE NEGATIONS**. Also, **DO NOT TRY TO "SIMPLIFY"**. This is not alegebra. You cannot transfer your knowledge of how to manipulate algebraic formulas to SL.
+
+Another common mistake is to disregard the parentheses, and mistakenly treat the '→' as the main connective instead of the '¬'. This gets you something like:
+
+:::{.example}
+-   [(if you are not happy then you clap your hands)]{.xed}
+:::
+
+But that is also wrong. The sentence, '¬(P → Q)', is a negation. Specifically,
+it is the negation *of* a conditional. It is not a conditional. Specifically,
+it is not a conditional that has a negation for its antecedent.
+
+:::
+
+
+```{.QualitativeProblem .ShortAnswer give-credit="onSubmission" points=10}
+2 Using the provide scheme of abbreviation, provide a canonical English translation of '¬P → Q'. Show your steps.
+```
+
+:::{.reaction .correct ex=2}
+
+Did you follow the four step process described above, or did you wing it
+again? I ask again because I know that students often ignore my advice.
+Especially if they get the right answer on easier problems. Then that comes back to bite them when the problems get harder. Don't be that student!
+
+Here is the solution, step by step:
+
+::: example
+-   ¬P → Q
+-   (¬P → Q) (rewriting in official notation)
+-   (if ¬P then Q) (translating the '→')
+-   (if you are not happy then you clap your hands)
+:::
+
+Does that match your answer?
+:::
+
+Notice the difference between '¬(P → Q)' and '(¬P → Q)', and how that
+difference is reflected in the English translations. The first says that you
+are not the sort of person who claps their hands when happy. The second says
+that you *are* the sort of person who claps their hands when *un*happy.
+
+
+```{.QualitativeProblem .ShortAnswer give-credit="onSubmission" points=10}
+3 Using the provided scheme of abbreviation, provide a canonical English translation of '(P ∧ Q) ∨ ¬P'
+```
+
+:::{.reaction .correct ex=3}
+Did you follow the steps, or did you wing it?
+Am I a broken record yet? (Do you know that idiom? A broken record as an example of something that repeats itself?)
+
+Here is a breakdown of the solution, step by step:
+
+:::example
+-   (P ∧ Q) ∨ ¬P
+-   ((P ∧ Q) ∨ ¬P) (official notation)
+-   (either (P ∧ Q) or ¬P) (translating '∨')
+-   (either (both P and Q) or ¬P) (translating '∧')
+-   (either (both you are happy and you clap your hands) or you are not happy)
+:::
+
+If that doesn't match your answer, identify where you went wrong and fix it.
+:::
+
+
+```{.QualitativeProblem .ShortAnswer give-credit="onSubmission" points=10}
+4 Using the provided scheme of abbreviation, provide a canonical English translation of 'P ∧ (Q ∨ ¬P)'. Show your steps.
+```
+
+::: {.reaction .correct ex="4"}
+::: example
+-   P ∧ (Q ∨ ¬P)
+-   (P ∧ (Q ∨ ¬P))
+-   (both P and (Q ∨ ¬P))
+-   (both P and (either Q or ¬P))
+-   (both you are happy and (either you clap your hands or you are not happy))
+:::
+:::
+
+Don't just translate and move on. Translate, then *read* your translation, and then connect what you just read with the original sentence in SL. Remember, your goal is to become *literate* in SL. Ultimately, that means being able to *read* sentences in SL without having to translate them into English.
+
+:::
+
+## Idiomatic English Translations
+
+Canonical translations allow us to render sentences in SL into English while
+following the rigid syntax of SL. They often read like English, but squished
+into the shape of SL. An idiomatic translation should express the same thought
+as the sentence in SL, but do so in a way an ordinary English speaker might.
+
+But this gets very tricky very fast. Ordinary English speakers are often sloppy. They say one thing when they mean another. They say things that are ambiguous, and expect their audience to figure out what they mean from context.
+
+Still, there are things we can do to gently nudge our canonical translations toward more idiomatic English. As a first step, we can consider dropping some or all of the parentheses, and some or all of the "helper" words, like "both", "either", and "then".
+
+### Parentheses and Helper Words
+
+Do we really need to render '∧' as 'both...and...' and '∨' as
+'either...or...', instead of the simpler '...and...' and '...or...'? We do
+not. They are there to help indicate structure, but the parentheses are enough by themselves to indicate that structure:
+
+:::example
+-  (P ∧ (Q ∨ R))
+-  (both P and (either Q or R))
+-  (P and (Q or R))
+:::
+
+But suppose we also drop the parentheses:
+
+:::example
+-  P and Q or R
+:::
+
+Now we have a problem: the sentence is ambiguous. To see this, ask your self: what is the main connective? Is it the 'and' or the 'or'? Without the parentheses to guide us, it is impossible to tell. Another way to put this point: imagine you are just given this sentence, and are asked to add parentheses. Where do you put them? It seems you have two choices, and nothing settles which is correct:
+
+:::example
+-  (P and (Q or R))
+-  ((P and Q) or R)
+:::
+
+What if instead of dropping 'both' and 'either', we had kept them, but dropped the parentheses?
+
+:::example
+-  (both P and (either Q or R))
+-  both P and either Q or R
+:::
+
+This is also okay. The 'both' and 'either' work together to enforce our desired reading. To see this, imagine trying to put parentheses back in the wrong way:
+
+:::{.example}
+-  both P and (either Q or R)
+-  [(both P and either Q) or R]{.xed}
+-  [both (P and either Q) or R]{.xed}
+:::
+
+The first works: 'P' is a sentence, and 'either Q or R' is a sentence, and they have been joined together by the English connective, 'both...and...'.
+
+The second breaks: 'both P and either Q' is not a sentence. It has a dangling 'either', searching for an 'or' that isn't there.
+
+The third also breaks: for one thing, 'P and either Q' is not a sentence, because it has a dangling 'either'; also, 'both...or...' isn't a connective in English. 'Both' partners with 'and', not 'or'.
+
+So we can drop the parentheses and keep the helper words, 'both' and 'either'.
+Or we can drop the helper words and keep the parentheses. But if we drop the
+parentheses and the helper words, we run into trouble.
+
+When we express the conditional in English using 'if...then...', it is the 'then' that plays the role of helper word. Consider a simple example:
+
+:::example
+-   R → P
+-   If it rains then it pours.
+:::
+
+We can drop the 'then' and still have a grammatical English sentence that expresses the same conditional. If we drop the 'if', we get something completely different: a sentence that describes a sequence of events in time, rather than a conditional:
+
+:::example
+-   If it rains it pours.
+-   [It rains then it pours]{.xed}.
+:::
+
+Similar remarks apply to 'both...and...' and 'either...or...':
+
+:::example
+-   P ∧ Q
+-   Both I am happy and I know it.
+-   I am happy and I know it.
+-   [Both I am happy I know it]{.xed}.
+:::
+
+When we drop 'both' but keep 'and', the 'and' by itself is enough to express the conjunction. When we drop 'and' but keep 'both', we get a run-on sentence.
+
+Our canonical translation of the biconditional, '...if and only if...', doesn't include any grammatically optional words. The entire phrase is needed to express the connective. This means that in this case, dropping parentheses may be enough to introduce ambiguity:
+
+:::example
+-   ¬(P ↔ Q)
+-   It is not the case that (P if and only if Q)
+-   [It is not the case that P if and only if Q]{.xed}
+:::
+
+When we drop the parentheses, it becomes impossible to determine that 'it is not the case that' is meant to be the main connective.
+
+:::soawrapper
+::: soasticky
+| P: Pickles is an influencer.
+| W: Diane is a writer.
+| T: Bojack is an actor.
+:::
+
+For each of the following, select all the correct unambiguous translations.
+
+```{.QualitativeProblem .MultipleSelection points=10}
+5 ¬P
+| *Pickles isn't an influencer
+| *Pickles is not an influencer
+| *It is not the case that Pickles is an influencer
+| Pickles used to be an influencer
+```
+
+```{.QualitativeProblem .MultipleSelection points=10}
+6 W ∧ P
+| *Diane is a writer and Pickles is an influencer
+| Either Diane is a writer and Pickles is an influencer
+| *Both Diane is a writer and Pickles is an influencer
+| If Diane is a writer and Pickles is an influencer
+```
+
+```{.QualitativeProblem .MultipleSelection points=10}
+7 ¬(P → W)
+| *It is not the case that if Pickles is an influencer then Diane is a writer
+| If Pickles is not an influencer then Diane is not a writer
+| *It is not the case that if Pickles is an influencer Diane is a writer
+| If Pickles is an influencer then Diane is not a writer
+```
+
+```{.QualitativeProblem .MultipleSelection points=10}
+8 (P ∧ W) → T
+| Both Pickles is an influencer and Diane is a writer then Bojack is an actor.
+| Pickles is an influencer and Diane is a writer if then Bojack is an actor.
+| *If Pickles is an influencer and Diane is a writer then Bojack is an actor.
+```
+
+## Translating English into SL
+
+If translating from canonical English to SL,
+ you can simply reverse the process:
+
+Step 1
+:   Replace the simple sentences and negations of simple sentences with
+    sentence letters and their negations.
+
+Step 2
+:   Locate the *least* main connectives---the main connectives of the smallest parts of the sentence---and replace the canonical English with appropriate connective from SL.
+
+Step 3
+:   Repeat step (2) until you've completed the translation by replacing the main connective.
+
+
+::: {.example .liveshapes}
+-   (If (both Pickles is an influencer and Bojack is not an actor) then Diane
+    is a writer)
+-   (If (both P and ¬T) then W)
+-   (If (P ∧ ¬T) then W)
+-   ((P ∧ ¬T) → W)
+:::
+
+Translating from idiomatic English is more challenging. One strategy is to rewrite the sentence in canonical English, and then proceed as above. Often, you don't need to rewrite it completely, and can get away with adding parentheses to guide you, paying attention to how the helper words indicate structure. For example:
+
+:::example
+- either Pickles is an influencer and Diane is a writer or Bojack is an actor 
+- either (Pickles is an influencer and Diane is a writer) or Bojack is an actor 
+:::
+
+Once you've worked that out, you can proceed to translate to SL. Try it for yourself. (This is a new kind of exercise. Type in your translation and hit "enter" or "return" to check your work. Then click "submit" to submit your answer for credit. **YOU NEED TO DO BOTH TO GET CREDIT FOR THE PROBLEM.**)
+
+:::aside
+  Connective     Keyboard Equivalent
+  -------------- ----------------------------------------------
+  ¬              '\~' (tilda)
+  ∧              '/\' (forward slash, followed by backslash)
+  ∨              '/\\' (backslash, followed by forwardslash)
+  →              '-\>' (minus sign, followed by greater than)
+  ↔              '<-\>' (less-than, minus, greater than)
+:::
+
+```{.Translate .Prop points=10}
+9 (P/\W)\/T: either (Pickles is an influencer and Diane is a writer) or Bojack is an actor 
+```
+
+:::{.reaction .incorrect ex=9}
+Remember, work from the inside out. So first, replace the simple sentences with the corresponding sentence letters:
+
+:::example
+-    Either (P and W) or T
+:::
+
+Next, replace '(P and W)' with '(P ∧ W'):
+
+:::example
+-    Either (P ∧ W) or T
+:::
+
+Then replace the 'either...or...' with '∨'.
+:::
+
+Let's consider a more challenging example:
+
+:::example
+- If if Pickles is an influencer Diane is a writer Bojack is an actor
+:::
+
+Is that even grammatical? Yes, it is. The way to read it is to realize that the helper word
+'then' has been dropped in two places:
+
+:::example
+- If if Pickles is an influencer **then** Diane is a writer **then** Bojack is an actor
+:::
+
+Now you need to convince yourself that the only way this can work is if the first 'if' reaches all the way to the second 'then':
+
+::: example
+-   If (if Pickles is an influencer then Diane is a writer) then Bojack is an
+    actor
+:::
+
+You might be tempted to treat the first 'if' as reaching to the first 'then'. But when you do that, the parts you are left with are not sentences:
+
+:::{.example}
+-   [If (if Pickles is an influencer) then (Diane is a writer then Bojack is
+    an actor)]{.xed}
+:::
+
+'If Pickles is an influencer' isn't a sentence. Neither is 'Diane is a writer then Bojack is an actor'.
+
+Once we have that sorted, we can translate:
+
+```{.Translate .Prop points=10}
+10 (P -> W) -> T: If (if Pickles is an influencer then Diane is a writer) then Bojack is an actor
+```
+
+:::{.reaction .incorrect ex=10}
+
+Again, work from the inside out:
+
+:::example
+- If (if Pickles is an influencer then Diane is a writer) then Bojack is an actor
+- If (if P then W) then T
+:::
+
+Now replace 'if P then W' with 'P → W':
+
+:::example
+- If (P → W) then T
+:::
+
+Finally, replace the main connective, 'if...then...', with the appropriate connective from SL.
+:::
+
+Conditionals inside of conditionals are awkward. One of my colleagues has
+expressed doubt that they ever occur in ordinary English. But he was wrong: if
+you believe that I am expert on this if I teach logic, then you should agree
+that English allows conditionals inside of conditionals if you agree with
+anything at all. (See what I just did there?)
+
+Here is another reasonably intuitive example:
+
+::: soa
+| P: I call
+| Q: You answer
+| S: I feel lonely
+:::
+
+::: example
+- If (if I call then you don't answer) then I feel lonely
+- (P -> ¬Q) → S
+:::
+
+You see what that says? It doesn't say that I feel lonely if you don't answer
+the phone. It says that I feel lonely if you don't answer the phone *if I call
+you*. I don't care about whether or not you answer the phone when I don't call
+you.
+
+::: soawrapper
+::: soasticky
+| P: Parrots talk.
+| Q: Quail talk.
+| R: Robins talk.
+:::
+
+
+```{.Translate .Prop points=10}
+11 (P->Q) : If parrots talk then quail talk.
+```
+
+:::solution
+![solution to 11](http://reggienet.illinoisstate.edu/access/content/user/desanso/public/vid/if_parrots_talk_then_quail_talk.mp4){.solution}
+:::
+
+Several of the translation problems in this reading are accompanied by videos demonstrating how they are solved. Hopefully that helps you work out any wrinkles in the process. And if you get stuck, watch the video to get unstuck.
+But don't abuse this: if you just skip forward on the video until it displays the solution, and then type in the solution without understanding it, you will learn nothing. If you learn nothing, you will fail the mastery check. If you fail the mastery check, you get no credit for this unit. So spend the time to figure out how to solve these problems for yourself, and use the videos to help yourself in that process.
+
+
+```{.Translate .Prop points=10}
+12 (P/\Q)->R : If (both parrots talk and quail talk) then robins talk.
+```
+
+:::solution
+![solution to 12](http://reggienet.illinoisstate.edu/access/content/user/desanso/public/vid/If_both_parrots_talk_and_quail_talk_then_robins_talk.mp4)
+:::
+
+```{.Translate .Prop points=10}
+13 P/\(Q->R) : Both parrots talk and (if quail talk then robins talk).
+```
+
+:::solution
+![solution to 13](http://reggienet.illinoisstate.edu/access/content/user/desanso/public/vid/both_parrots_talk_and_if_quail_talk_then_robins_talk.mp4)
+:::
+
+:::
+
+## The Conditional in English
+
+Conditional statements are 'if...then...' statements. In SL, we express these
+statements using '→'. But English is flexible, and offers many ways to express conditionals.
+
+This is a point when you *really* need to learn some vocabulary, so we can
+talk clearly about the parts of a conditional. Remember, [the
+[antecedent]{.vocab} is the "if" part of the conditional, and the
+[consequent]{.vocab} is the "then" part]{.def}. Example:
+
+:::example
+-   If [it rains]{.P} then [it pours]{.Q}
+:::
+
+'It rains' is the antecedent; 'it pours' is the consequent.
+
+In SL, the antecedent always comes *before* the arrow, and the consequent *after*:
+
+:::example
+-   ([it rains]{.P} → [it pours]{.Q})
+:::
+
+```{.QualitativeProblem .MultipleSelection points=10}
+14 In the sentence 'If you are happy then you know it',
+| *'you are happy' is the antecedent
+| 'you are happy' is the consequent
+| 'you know it' is the antecedent
+| *'you know it' is the consequent
+15 In the sentence, 'P ∧ Q → R ∨ S',
+| 'P ∧ Q' is the consequent
+| *'P ∧ Q' is the antecedent
+| *'R ∨ S' is the consequent
+| 'R ∨ S' is the antecedent
+```
+
+On way in which English is flexible has to do with the *order* in which antecedent and consequent are expressed.  Consider:
+
+:::example
+-   If [it rains]{.P}, [it pours]{.Q}
+-   [It pours]{.Q} if [it rains]{.P}
+:::
+
+These sentences *say the same thing*, but the order in which antecedent and consequent are expressed has been swapped. Both sentences are properly translated into SL as:
+
+:::example
+-   ([it rains]{.P} → [it pours])
+:::
+
+Again, in SL, the antecedent *always comes before the arrow* and the consequent *always comes after the arrow*.
+
+But in English, how exactly are we supposed to keep track of which part is which? You can think of English as using a system of "markers", rather than relying on the *order* in which the parts are expressed. Specifically, 'if' is an antecedent marker: it marks the sentence that comes after it as the antecedent. The optional helper word 'then' is a consequent marker: it marks the sentence that comes after it as the consequent.
+
+```{.QualitativeProblem .MultipleSelection points=10}
+16 In the sentence 'You are happy if you know it',
+| 'you are happy' is the antecedent
+| *'you are happy' is the consequent
+| *'you know it' is the antecedent
+| 'you know it' is the consequent
+```
+
+:::{.reaction .correct ex=16}
+The antecedent is the 'if' part of the sentence, the part *marked* by the 'if'. In this case, that is 'you know it'. In this example, the helper word 'then' is not used, so the consequent is unmarked. You are expected to infer that 'you are happy' is the consequent, since the other part of the sentence is the antecedent.
+:::
+
+```{.QualitativeProblem .MultipleChoice points=10}
+17 The consequent of 'My plants die if I don't water them' is:
+| *my plants die
+| if I don't water my plants
+| I don't water my plants
+```
+
+:::{.reaction .correct ex=15}
+The antecedent is the part marked by 'if', which is 'I don't water my
+plants'. So the other unmarked part, 'my plants die', must be the consequent.
+:::
+
+:::soawrapper
+:::soasticky
+| P: It pours.
+| R: It rains.
+:::
+
+```{.Translate .Prop points=10}
+18 P->R: If it pours, it rains.
+```
+
+:::solution
+![solution to 18](http://reggienet.illinoisstate.edu/access/content/user/desanso/public/vid/if_it_pours.mp4)
+:::
+
+```{.Translate .Prop points=10}
+19 R->P: If it rains, it pours. 
+```
+:::solution
+![solution to 19](http://reggienet.illinoisstate.edu/access/content/user/desanso/public/vid/if_it_rains.mp4)
+:::
+
+```{.Translate .Prop points=10}
+20 R->P: It pours if it rains. 
+```
+:::solution
+![solution to 20](http://reggienet.illinoisstate.edu/access/content/user/desanso/public/vid/it_pours_if.mp4)
+:::
+
+```{.Translate .Prop points=10}
+21 P->R: It rains if it pours. 
+```
+:::solution
+![solution to 21](http://reggienet.illinoisstate.edu/access/content/user/desanso/public/vid/it_rains_if.mp4)
+:::
+
+:::
+
+Note that 'then' cannot work as a consequent marker by itself:
+
+::: example
+- If it rains then it pours.
+- [It rains then it pours.]{.xed}
+:::
+
+Also, note that 'then' can only work as a consequent marker when it pairs up with an 'if' that occurs *earlier* in the sentence:
+
+::: example
+- If it rains then it pours.
+- [Then it pours if it rains.]{.xed}
+:::
+
+In the second struck through sentence, the 'then' must be referring back to something said before. It cannot work as a helper word with the 'if' that marks 'it rains' as the antecedent.
+
+### 'Only if'
+
+:::soawrapper
+:::soasticky
+| P: I will eat the pizza.
+| Q: The pizza has anchovies.
+:::
+
+English also offers the connective phrase, 'only if':
+
+:::example
+-  [I will eat the pizza]{.P} only if [it has anchovies]{.Q}.
+:::
+
+It is not immediately obvious what to make of this. It seems pretty clear that some sort of conditional relationship has been asserted, but what relationship exactly? To work this out, consider the contrast between:
+
+::: example
+-   I will eat the pizza **if** it has anchovies.
+-   I will eat the pizza **only if** it has anchovies.
+:::
+
+In the first sentence, the 'if' marks 'it has anchovies' as the antecedent. So is says:
+
+:::example
+-   (the pizza has anchovies → I will eat the pizza)
+:::
+
+This means that, when presented with *any* pizza that has anchovies, I go town: anchovies and pineapple? sure! anchovies and bacon? sure! anchovies and peppers? you bet! But notice also what it doesn't say: it doesn't say. It doesn't say that I *require* anchovies on my pizza. It says that for me, anchovy pizzas are a sure thing, but it doesn't say that lack of anchovies is a deal-breaker.
+
+The second sentence says that I will eat the pizza *only if* it has anchovies. This means that I *require* anchovies on my pizza. Lack of anchovies is, for me, a deal-breaker. Presented with a pepperoni pizza, I shake my head and look away, demanding a properly fishy pie. So there is one thing you can be sure of: *if* I do eat a pizza, it has anchovies:
+
+:::example
+-   (I will eat the pizza → the pizza has anchovies)
+:::
+
+Follow that? The upshot is that 'only if', in English, is a *consequent* marker. Somehow, the word 'only' manages to modify or pervert the original meaning of 'if', making it do the opposite of what it usually does:
+
+::: example
+-   Q → P: I will eat the pizza **if** it has anchovies.
+-   P → Q: I will eat the pizza **only if** it has anchovies.
+:::
+
+I bet you just settled on a simple heuristic for 'only if': it *flips* the direction of the conditional. But this isn't quite right: in English, the *order* or expression tells you *nothing*. You need to pay attention to which part is *marked* as what. The proper heuristic is: 'if' marks an antecedent; 'only if' marks a consequent.
+
+Consider
+
+:::example
+-   Only if you are over 21 can I legally serve you alcohol.
+:::
+
+Here, the 'only if' marks 'you are over 21' as the consequent. So these sentences are all equivalent ways of expressing the same conditional:
+
+:::example
+-   If I can legally serve you alcohol, you are over 21.
+-   You are over 21 if I can legally serve you alcohol.
+-   I can legally serve you alcohol only if you are over 21.
+-   Only if you are over 21 can I legally serve you alcohol.
+:::
+
+So, to summarize:
+
+IF
+:   'if' is an antecedent marker. The clause it introduces is the antecedent
+    of a conditional. Also, 'if' can do this work alone, or it can work
+    together with 'then', which marks the consequent.
+
+THEN
+:   'then' is a consequent marker. The clause it introduces is the consequent
+    of a conditional. 'Then' can *only* do this work together with an 'if'.
+    When 'then' is used alone, it indicated the temporal order of events,
+    rather than the logical order of antecedent and consequent.
+
+ONLY IF
+:   'only if' is a consequent marker. The clause it introduces is the
+    consequent of a conditional. 'Only if' can *only* do this work alone. It
+    cannot be paired with an 'if' that marks the antecedent.
+
+
+:::soawrapper
+::: soasticky
+| P: You can legally drive.
+| Q: You are older than eleven.
+:::
+
+
+```{.Translate .Prop points=10}
+22 P->Q : If you can legally drive, you are older than eleven.
+```
+
+:::solution
+![solution to 22](http://reggienet.illinoisstate.edu/access/content/user/desanso/public/vid/if_you_can_drive.mp4)
+:::
+
+```{.Translate .Prop points=10}
+23 P->Q : You can legally drive only if you are older than eleven.
+```
+:::solution
+![solution to 23](http://reggienet.illinoisstate.edu/access/content/user/desanso/public/vid/you_can_drive_only_if.mp4)
+:::
+
+```{.Translate .Prop points=10}
+24 Q->P : You can legally drive if you are older than eleven.
+```
+
+:::solution
+![solution to 24](http://reggienet.illinoisstate.edu/access/content/user/desanso/public/vid/you_can_drive_if.mp4)
+:::
+
+```{.Translate .Prop points=10}
+25 P->Q : Only if you are older than eleven can you legally drive.
+```
+
+:::solution
+![solution to 25](http://reggienet.illinoisstate.edu/access/content/user/desanso/public/vid/only_if_you_are_older.mp4)
+:::
+
+:::
+
+## 'If', 'Only if', and 'If and only if'
+
+Recall that the canonical translation of '↔' is 'if and only if'. Consider that in light of what you just learned about how 'if' and 'only if' work in English:
+
+:::example
+| Q → P: P if Q
+| P → Q: P only if Q
+| P ↔ Q: P if and only if Q
+:::
+
+Do you see what is happening here? The biconditional expresses a conditional relationship that goes *both ways*: from P to Q, and from Q to P.
+
+We could forgo '↔' altogether, and instead translate the biconditional as the conjunction of both conditionals:
+
+:::example
+-   P if and only if Q
+-   (P if Q) and (P only if Q)
+-   (Q → P) ∧ (P → Q)
+:::
+
+
+This is the place to flag a common mistake students make, which is to confuse
+the English phrase 'only if' with the English phrase 'if and only if'.
+Sometimes, this leads to thinking something is a conditional when it is really
+a biconditional, and sometimes, it leads to the opposite mistake. You can
+avoid this mistake by paying attention to all three parts of the phrase 'if
+and only if', and remembering that the 'if' part is expressing a conditional
+in one direction, while the 'only if' is expressing the conditional in the
+other direction, and the biconditional is expressing both at the same time.
+
+:::soawrapper
+
+:::soasticky
+| P: People talk
+| R: Rumors spread
+:::
+
+```{.Translate .Prop points=10}
+26 R->P : People talk if rumors spread
+```
+
+:::solution
+![solution to 26](http://reggienet.illinoisstate.edu/access/content/user/desanso/public/vid/people_talk_if.mp4)
+:::
+
+```{.Translate .Prop points=10}
+27 P->R : People talk only if rumors spread
+```
+:::solution
+![solution to 27](http://reggienet.illinoisstate.edu/access/content/user/desanso/public/vid/people_talk_only_if.mp4)
+:::
+
+```{.Translate .Prop points=10}
+28 P<->R : People talk if and only if rumors spread
+```
+:::solution
+![solution to 28](http://reggienet.illinoisstate.edu/access/content/user/desanso/public/vid/people_talk_iff.mp4)
+:::
+
+:::
+
+## Negation
+
+There are two important things to say about negation. The first has already
+come up:
+
+NOT
+:   The preferred way of expressing negation in English, when possible, is by
+    putting a 'not' next to the verb, rather than using a wordy prefix like
+    'it is not the case that'.
+
+The first example is stilted; the second is idiomatic:
+
+::: example
+- It is not the case that Normal is a big city,
+- Normal is not a big city.
+:::
+
+We've  already noted that this is not always possible: it only works for simple
+sentences that have a main verb. If we want to negate a conjunction, conditional, disjunction, or
+biconditional, we need to use the prefix, 'it is not the case that':
+
+::: example
+- It is not the case that (both Chicago is a big city and Normal is a big city)
+- It is not the case that (either Chicago is a big city or Normal is a big city)
+- It is not the case that (if Chicago is a big city then Normal is a big city)
+- It is not the case that (Chicago is a big city if and only if Normal is a big city)
+:::
+
+It is worth emphasizing again that, while you may be tempted, in these cases, to try to "distribute the negation", in
+order to get a simpler, more idiomatic English expression, this is something you must not do. It doesn't
+work: when you "distribute" the negations---that is, apply them only to the
+simple sentences, rather than the whole---you completely change the meaning.
+
+For example, the first of these two sentences is true, while the second is
+false:
+
+::: example
+-   It is not the case that (both Chicago is a big city and Normal is a big
+    city)
+-   Both Chicago is not a big city and Normal is not a big city
+:::
+
+This brings us to another important feature of 'not' in English:
+
+THE LOCALITY OF NOT
+:   'Not' negates the smallest sentence that it is a part of.
+
+For example, in the following sentence, the first 'not' negates 'Chicago is a
+big city', and the second 'not' negates 'Normal is a big city':
+
+:::example
+-   Both Chicago is not a big city and Normal is not a big city
+:::
+
+Negations cannot "leak out" and spread their negativity to other parts of
+a sentence. They cannot "leap out" and negate the whole sentence. They cannot "leap across" and negate a different part of the sentence. In English, 'not' always stays local.
+
+This is why we have to work hard when we want to negate the whole sentence, or
+a large chunk of a sentence. For example:
+
+::: example
+-   It is not the case that both Chicago is a big city and Normal is a big
+    city
+:::
+
+That 'not' still wants to stay local. But we designed the sentence so that the smallest sentence that it is a part of
+is the entire sentence. We did this by placing 'it is not the case that' before the word 'both'.
+Notice that 'It is not the case that both Chicago is a
+big city' isn't a sentence. It has that helper word, 'both', in the middle,
+seeking an 'and' to help. So it expresses an incomplete thought.
+
+:::soawrapper
+::: soasticky
+| P: Your friends dance.
+| Q: You want to dance.
+| R: You can dance.
+| S: It is safe to dance.
+:::
+
+
+```{.Translate .Prop points=10}
+29 ~R/\~S : You can't dance and it is not safe to dance.
+```
+
+:::solution
+![solution to 29](http://reggienet.illinoisstate.edu/access/content/user/desanso/public/vid/you_cant_dance_and.mp4)
+:::
+
+```{.Translate .Prop points=10}
+30 ~P->~R : If your friends don't dance, you can't dance.
+```
+
+:::solution
+![solution to 30](http://reggienet.illinoisstate.edu/access/content/user/desanso/public/vid/if_your_friends_dont_dance.mp4)
+:::
+
+
+```{.Translate .Prop points=10}
+31 ~(~P->~R) : It is not the case that if your friends don't dance, you can't dance.
+```
+
+:::solution
+![solution to 31](http://reggienet.illinoisstate.edu/access/content/user/desanso/public/vid/not_if_your_friends_dont_dance.mp4)
+:::
+
+:::
+
+## 'Neither...nor...'
+
+:::soawrapper
+:::soasticky
+| P: Bloomington is a big city.
+| Q: Normal is a big city.
+:::
+
+Consider the sentence,
+
+::: example
+-   Neither Bloomington is a big city nor Normal is a big city.
+:::
+
+Naively, this looks like a disjunction, and it looks like it has two negations:
+
+:::example
+-   (¬P ∨ ¬Q)
+:::
+
+But this is wrong. It says that either Bloomington isn't big or Normal isn't big. That would be true if, say, Bloomington was big but Normal wasn't. We want a sentence that says that *neither* is big.
+
+We can capture that in two ways. We can think of it as saying that *both* are *not* big:
+
+::: example
+- Neither Bloomington is a big city nor Normal is a big city.
+- Both Bloomington is not a big city and Normal is not a big city.
+- ¬P ∧ ¬Q
+:::
+
+Or, we can think of it as saying that it is not the case that *either* one is big:
+
+::: example
+-   Neither Bloomington is a big city nor Normal is a big city.
+-   It is not the case that (either Bloomington is a big city or Normal is a
+    big city)
+-   ¬(P ∨ Q)
+:::
+
+These are logically equivalent: two different ways of saying the same thing.
+
+:::
+
+::: soawrapper
+::: soasticky
+| P: Your friends dance.
+| Q: You want to dance.
+| R: You can dance.
+| S: It is safe to dance.
+:::
+
+
+```{.Translate .Prop points=10}
+32 ~(Q\/R): Neither do you want to dance nor can you dance.
+```
+
+:::solution
+![solution to 32](http://reggienet.illinoisstate.edu/access/content/user/desanso/public/vid/neither_do_you_want_to_dance.mp4)
+:::
+
+:::
+
+## Stylistic Variants
+
+Another way that English is flexible is that it gives us lots of words and phrases that mean the same thing. This is known as lexical redundancy. 
+For example, 'shirt', 'top', and 'blouse' all mean essentially the same thing.
+Likewise, 'and', 'but', and 'although' all mean essentially the same thing.
+
+We call such words "[stylistic variants]{.vocab}".
+
+Here is a partial list of stylistic variants of the word 'if':
+
+Stylisic Variants of 'if'
+:   'provided that', 'assuming that', 'given that', 'on the condition that'...
+
+Pretty much anywhere you can use an 'if', you can use one of these variants
+instead:
+
+::: example
+- If I am high, I can fly.
+- Provided that I am high, I can fly.
+- Assuming that I am high, I can fly.
+- Given that I am high, I can fly.
+- On the condition that I am high, I can fly.
+:::
+
+And, again:
+
+::: example
+- I can fly if I am high.
+- I can fly provided that I am high.
+- I can fly assuming that I am high.
+- I can fly given that I am high.
+- I can fly on the condition that I am high.
+:::
+
+You can even use these variants together with word 'only', to mark consequents instead of antecedents:
+
+::: example 
+- I am high only if I can fly
+- I am high only provided that I can fly
+- I am high only assuming that I can fly
+- I am high only given that I can fly.
+- I am high only on the condition that I can fly
+:::
+
+The only hitch is that these variants are less likely to work with 'then'.
+Are these examples grammatical?
+
+::: example
+- Provided that I am high, then I can fly (???)
+- Assuming that I can fly, then I can fly (???)
+- On the condition that I can fly, then I can fly (???)
+- Given that I can fly, then I can fly (???)
+:::
+
+Maybe? To my ear, they are at least awkward, and at worst ungrammatical.
+
+:::soawrapper
+::: soasticky
+| P: I laugh.
+| Q: I smile.
+:::
+
+
+```{.Translate .Prop points=10}
+33 Q->P : I laugh provided that I smile.
+```
+
+:::solution
+![solution to 33](http://reggienet.illinoisstate.edu/access/content/user/desanso/public/vid/I_laugh_provided_that.mp4)
+:::
+
+```{.Translate .Prop points=10}
+34 P->Q : I laugh only on the condition that I smile.
+```
+
+:::solution
+![solution to 34](http://reggienet.illinoisstate.edu/access/content/user/desanso/public/vid/I_laugh_only_if.mp4)
+:::
+
+:::
+
+Here is a partial list of stylistic variants of 'and':
+
+Stylistic Variants of 'and'
+:   'but', 'however', 'although', 'even though' 
+
+You might balk at the claim that 'and' and 'but' mean the same thing. But
+consider:
+
+::: example
+- We lost and we had a good time
+- We lost but we had a good time 
+:::
+
+Each of these entails that we lost, and each entails that we had a
+good time. If there is a difference in meaning, it is roughly this: we use
+'but' to express *surprising* or *unexpected* conjunctions. Since it is a bit
+surprising that we had a good time, even though we lost, it is appropriate to
+use 'but' in this case instead of 'and'.
+
+Consider these two examples:
+
+:::example
+- I broke my leg but it didn't hurt.
+- I broke my leg but it hurt.
+:::
+
+The first seems fine; the second seems weird: of course it hurt!
+This time, it is appropriate to use 'and' instead of 'but', because the conjunction is expected.
+
+Does the mean that 'but' and 'and' differ in meaning? Maybe! Or it might be
+that they have the same meaning, but different rules for when they are
+appropriate to use. In any case, for the purposes of logic, they are the same,
+and both express conjunctions. Similar comments apply to the other stylistic
+variants of 'and', like 'however' and 'even though', which also suggest an
+unexpected or suprising conjunction.
+
+:::aside
+It is hard to find examples of words that obviously have the same meanings,
+ but different rules for when they are appropriate to use. 
+Perhaps vulgar words are like this: 'shit' and 'feces' mean the same thing,
+ but 'shit' is vulgar, and so inappropriate to use in polite company, while 'feces' is kind of gross, but not vulgar.
+:::
+
+
+Stylistic Variants of 'or'
+:   'unless'
+
+Consider:
+
+::: example
+-   It will rain on us unless we reach shelter before the storm hits.
+-   Either it will rain on us or we reach shelter before the storm hits.
+:::
+
+Do you see that these mean the same thing? Both serve to divide the
+possibilities into two. Both express the same disjunction:
+
+::: example
+-   R ∨ S
+:::
+
+The idea that 'unless' means the same thing as 'or' bothers many people.
+Here is another example:
+
+::: example
+-   You will die unless you take the antidote.
+:::
+
+If this is correct, then there are only two options for you: either take the
+antidote or die! So this is again a disjunction.
+
+You may have the strong intuition that 'unless' expresses a negative
+conditional, rather than a disjunction:
+
+::: example
+- If you don't take the antidote, then you will die.
+:::
+
+If you have this strong intuition, you aren't wrong. But this negative
+conditional---or, rather, this conditional with negation as antecedent---is
+*logically equivalent* to the much simpler disjunction,
+
+::: example
+- Either you will die or you take the antidote.
+:::
+
+We will have a chance to explore this equivalence later.
+But when translating, notice that translating 'unless' as 'or' is much easier
+and less error prone than translating it as a conditional with negation as
+antecedent, which opens you up to more possible ways of going wrong,
+by getting the conditional backwards or putting the negation in the wrong
+place.
+
+Stylistic Variants of 'if and only if'
+:    'just in case', 'exactly on the condition that', 'iff'
+
+The canonical translation of the biconditional is 'if and only if'.
+This is not a familiar phrase in ordinary English, 
+ but it is common in Math, the Law, and other disciplines that make heavy use
+ of proofs and arguments.
+The stylistic variants of 'if and only if' equally unfamiliar phrases,
+ drawn from the same disciplines.
+
+Each of these sentences says the same thing:
+
+::: example
+- Fletch is authentically happy if and only if he is getting a belly rub.
+- Fletch is authentically happy **exactly on the condition that** he is getting a belly rub.
+- Fletch is authentically happy **just in case** he is getting a belly rub.
+:::
+
+Notice that 'on the condition that' and 'in case' are more stylistic variants
+of 'if'. So we can also say:
+
+::: example
+- Fletch is authentically happy if and only if he is getting a belly rub.
+- Fletch is authentically happy **exactly if** he is getting a belly rub.
+- Fletch is authentically happy **just if** he is getting a belly rub.
+:::
+
+But this brings out an interesting and subtle question: how do 'just if' and
+'exactly if' differ in meaning from 'only if'?
+
+On way to explain this is in terms of the distinction between [necessary
+conditions]{.vocab} and [sufficient conditions]{.vocab}. Consider again this
+trio of claims:
+
+::: example
+- Fletch is authentically happy if he is getting a belly rub.
+- Fletch is authentically happy only if he is getting a belly rub.
+- Fletch is authentically happy if and only if he is getting a belly rub.
+:::
+
+The first, with 'if', says that getting a belly rub is a [sufficient condition]{.vocab}
+for Fletch's authentic happiness. Belly rubs are *enough* to make him happy.
+
+The second, with 'only if', says that getting a belly rub is a [necessary condition]{.vocab} for his authentic happiness:
+belly rubs are *needed* to make him happy.
+
+The third says both together: getting a belly rub is a [necessary and
+sufficient condition]{.vocab} for his authentic happiness: belly rubs are both
+needed to, and enough to, make him happy.
+
+Now suppose we ask: under what conditions is Fletch happy? And suppose we know
+that belly rubs are necessary and sufficient for his happiness. Then we can
+say: *exactly* those circumstances in which he receives belly rubs. Do you see
+how 'exactly' here means something stronger than 'only'? 'Only' gets us a
+necessary condition; 'exactly' gets us a necessary and sufficient condition.
+
+That's the use of 'exactly' in 'exactly on the condition that', a phrase
+widely used by mathematicians when they are expressing necessary and
+sufficient conditions, e.g.,
+
+:::example
+-   A polygon is a square exactly on the condition that it has four equal
+    sides, and four equal interior angles.
+:::
+
+Again, contrast this with the weaker claim,
+
+:::example
+-   A polygon is a square only on the condition that it has four equal
+    sides.
+:::
+
+That is true, but it only gives us a necessary condition for being a square,
+not a necessary and sufficient condition.
+
+I have focused here on 'exactly'. But the same comments apply to the use of
+'just' in 'just in case'. If a mathematician throws a party, and invites "just
+her friends", she means that a necessary *and sufficient* condition for being
+invited is being her friend. If you weren't invited, you must not be her
+friend. But if she throws a party and invites "only her friends", she only means
+that a necessary condition of being invited is being her friend. If you
+weren't invited, that doesn't mean you aren't her friend.
+
+Finally, you should be aware that mathematicians and philosophers often
+abbreviate 'if and only if' as 'iff'. That isn't a typo: it is 'if', but with
+an extra 'f'. So they will also write things like this,
+
+::: example
+- Fletch is authentically happy iff he is getting a belly rub.
+:::
+
+This is especially common when offering definitions. For example, recall our
+definition of validity:
+
+Validity
+:   An argument is valid iff it is impossible for all of its premises to be
+    true but its conclusion false.
+
+Note the use of 'iff': this definition involves a biconditional: it says that
+an argument is valid *if* it meets the condition, and valid *only if* it meets
+the condition. (Also note the use of 'but' as a stylistic variant of 'and'.)
+
+:::soawrapper
+::: soasticky
+| P: I smile.
+| Q: I laugh.
+| R: I react.
+:::
+
+
+``` {.Translate .Prop points=10}
+35 P/\~Q : I smile but I don't laugh. 
+```
+
+:::solution
+![solution to 35](http://reggienet.illinoisstate.edu/access/content/user/desanso/public/vid/I_smile_but.mp4)
+:::
+
+``` {.Translate .Prop points=10}
+36 ~R\/P : I don't react unless I smile.
+```
+
+:::solution
+![solution to 36](http://reggienet.illinoisstate.edu/access/content/user/desanso/public/vid/I_dont_react_unless.mp4)
+:::
+
+``` {.Translate .Prop points=10}
+37 P<->Q : I smile just in case I laugh.
+```
+
+:::solution
+![solution to 37](http://reggienet.illinoisstate.edu/access/content/user/desanso/public/vid/I_smile_just_in_case.mp4)
+:::
+
+``` {.Translate .Prop points=10}
+38 ~P∧R : Although I don't smile, I do react.
+```
+
+:::solution
+![solution to 38](http://reggienet.illinoisstate.edu/access/content/user/desanso/public/vid/although_I_dont_smile.mp4)
+:::
+
+
+:::
+
+## Exercises without solutions
+
+Now that you have worked through several exercises with videos demonstrating their solutions, it
+is time to try taking the training wheels off, and completing some exercises
+without solutions.
+
+:::wrapper
+::: soasticky
+| P: I wear pants.
+| Q: I attend class.
+| R: Class is on Zoom.
+:::
+
+``` {.Translate .Prop points="10"}
+39 Q/\P : I attend class and I wear pants.
+40 Q->P : If I attend class, I wear pants.
+41 ~(Q/\P) : It is not the case that (I attend class and I wear pants).
+42 Q\/P : Either I attend class or I wear pants.
+43 R->~Q: Provide that class is on Zoom, I don't attend.
+44 ~(Q\/P) : I neither attend class nor wear pants.
+45 P->Q : I attend class if I wear pants.
+46 Q->R: I attend class only if it is on Zoom.
+47 R->(P/\Q): If class is on Zoom then both I wear pants and I attend class.
+48 Q/\(R->~P): I attend class, but if class is on Zoom I don't wear pants.
+49 (~Q/\P)\/(R/\~P): Either (I don't attend class and I wear pants), or (both class is on Zoom and I don't wear pants).
+50 ~Q\/(R/\~P): Either I dont attend class, or both the class is on Zoom and I don't wear pants.
+51 Q->P: Only on the condition that I wear pants do I attend class.
+52 Q<->R : I attend class if and only if it is on Zoom
+53 ~(R->~P) : It is not the case that (if class is on Zoom, I don't wear pants).
+54 Q->(R->~P) : If I attend class then (if class is on Zoom, I don't wear pants.)
+```
+:::
+
+:::wrapper
+::: soasticky
+| P: It is hot.
+| Q: I stay inside.
+| R: I go for a run.
+:::
+
+``` {.Translate .Prop points="10"}
+55 P->Q : I stay inside provided that it is hot.
+56 Q<->P : I stay inside just in case it is hot. 
+57 P/\R : It is hot but I go for a run.
+58 ~P->R : I go for a run on the condition that it isn't hot.
+59 P->(Q\/R) : If it is hot, then (I stay inside unless I go for a run).
+60 ~P/\Q: It is not hot; nevertheless I stay inside.
+```
+:::
+
+## Mastery Check
+
+The mastery check for this unit is in-class only. When you are ready to
+attempt it, please ask in class.
+
+<!-- vim: set ft=carnap :-->

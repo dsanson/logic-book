@@ -1,0 +1,317 @@
+---
+base-css:
+-   https://carnap.io/shared/dsanson@gmail.com/sanson-book.css
+-   https://cdn.plyr.io/3.6.12/plyr.css
+js: 
+-   https://cdn.plyr.io/3.6.12/plyr.polyfilled.js
+-   https://carnap.io/shared/dsanson@gmail.com/logic-book.js
+---
+
+# Derived Rules: Supplement
+
+Derivations take practice! It is common for students to reach the end of the
+reading exercises just as things are *starting* to click. Those students need
+*more practice*! That's what this page is all about.
+
+Nothing here is worth any credit. It is all strictly optional.
+
+But also, this supplement is an opportunity to think more about some of the
+theorems that characterize our system. Several of these have names, and many
+of them can be leveraged into derived rules that you may find useful or
+instructive.
+
+Our system is a slight variant of the system first developed in Kalish,
+Montague and Mar, *Logic: Techniques of Formal Reasoning*. At the end of
+Chapter II (pp. 107--112), they provide a long numbered list of theorems.
+
+Deriving these theorems is a great way to get more practice. Reflection on
+these theorems will deepen your understanding of how our logic works. And, if
+you want, you can save these theorems as derived rules.
+
+How does a theorem work as a derived rule, given that it doesn't have any
+premises? Consider the following theorem:
+
+```{.ProofChecker .Prop options="guides fonts indent tabindent resize" submission=saveRule}
+T1  :|-: P→P
+```
+
+Unfortunately, due to a limitation of Carnap, you cannot save this rule as
+'T1': rule names must only contain capital letters. So save it as 'TONE'
+instead.
+Once enabled, this derived rule will allow you to insert any instance of 'P→P'
+that you want into any derivation. For example:
+
+```{.Playground .Prop options="guides fonts indent tabindent resize" submission=none}
+| (Q->S)->(Q->S)    :D-TONE
+| (P->(Q->R))->(P->(Q->R)) :D-TONE
+```
+
+Here are some more theorems that just have to do with how → works in our
+system:
+
+```{.ProofChecker .Prop options="guides fonts indent tabindent resize" submission=saveRule}
+T3  :|-: P→((P→Q)→Q)
+T4  :|-: (P→Q)→((Q→R)→(P→R))
+T5  :|-: (Q→R) → ((P→Q) → (P→R))
+T9  :|-: (P → (P→Q)) → (P→Q)
+T10 :|-:  ((P→Q) → Q) → ((Q→P) → P) 
+```
+
+Here are the [Paradoxes of the Material
+Implication](https://en.wikipedia.org/wiki/Paradoxes_of_material_implication):
+
+```{.ProofChecker .Prop options="guides fonts indent tabindent resize" submission=saveRule}
+T2  :|-:  Q → (P→Q)
+T17 :|-:  P → (~P→Q)
+T18 :|-:  ~P → (P→Q)
+T21 :|-:  ~(P→Q) → P
+T22 :|-:  ~(P→Q) → ~Q
+```
+
+Note how closely related T2 and T18 are to our derived rules MCC and MCA, and
+how closely T21 and T22 are to our derived rule NC.
+According to the [Deduction Theorem]{.vocab},
+
+:::center
+If P ⊢ Q, then ⊢ P → Q
+:::
+
+That is, if there is a derivation of Q from P, then there is a derivation of P
+→ Q from no premises at all. If you think about how Conditional Derivation
+(CD) works in our system, you should be able to convince yourself that this is
+indeed true of our system.
+
+And the converse is true of our system as well:
+
+:::center
+⊢ If ⊢ P → Q, then P ⊢ Q
+:::
+
+That is, if P → Q can be derived from no premises at all, then Q can be
+derived from P. Again, if you think about it, you should be able to convince
+yourself that this is true of our system.
+
+Go ahead and derive T21 if you haven't already, and save it as a derived rule.
+Now use it to complete the following derivation, which is related to NC:
+
+```{.ProofChecker .Prop options="guides fonts indent tabindent resize" submission=saveRule}
+R21 ~(P->Q) :|-: P
+```
+
+Every conditional theorem can be transformed into a potentially useful derived
+rule in this way.
+
+Here are some theorems that concern the interactions between ∧ and →:
+
+```{.ProofChecker .Prop options="guides fonts indent tabindent resize" submission=saveRule}
+T26  :|-: (P→Q) ∧(Q→R) → (P→ R) 
+T27  :|-: (P∧Q→R)↔(P→(Q→R)) 
+T29 :|-: (P→Q∧R) ↔ (P→Q) ∧(P→R)
+T30  :|-: (P→Q) → (R∧P → R∧Q)
+T31  :|-: (P→Q) → (P∧R → Q∧R)
+T32  :|-: (P→R) ∧(Q→S) → (P∧Q → R∧S)
+```
+
+T32 is
+Leibniz's [Praeclarum Theorema](https://www.proofwiki.org/wiki/Praeclarum_Theorema).
+T27 is the basis of a rule known as
+"[Exportation](https://en.wikipedia.org/wiki/Exportation_(logic))", which is
+treated as basic in some systems.
+
+We saw above how to transform a conditional theorem into a derived rule that
+has a premise. T27 is a biconditional theorem. That means we can extract two
+different such rules from it. The first is Exportation, the second, its
+converse:
+
+```{.ProofChecker .Prop options="guides fonts indent tabindent resize" submission=saveRule}
+EXPORTATION  (P∧Q→R) :|-: (P→(Q→R)) 
+CONVERSEOFEXPORTATION (P→(Q→R)) :|-: (P∧Q→R)  
+```
+
+T36 is the [Law of
+Non-Contradiction](https://en.wikipedia.org/wiki/Law_of_noncontradiction). T59
+is the [Law of Excluded
+Middle](https://en.wikipedia.org/wiki/Law_of_excluded_middle).
+
+```{.ProofChecker .Prop options="guides fonts indent tabindent resize" submission=saveRule}
+T36  :|-: ~(P∧~P)
+T59  :|-: P∨~P
+```
+
+Reductio Ad Absurdum is the form of argument we model using Indirect
+Derivation. Here are three theorems that are closely related to this:
+
+```{.ProofChecker .Prop options="guides fonts indent tabindent resize" submission=saveRule}
+T19 :|-:  (~P→P) → P
+T20 :|-:  (P→~P) → ~P
+T34  :|-: (P→Q) ∧(P→~Q) → ~P 
+```
+
+(T34) is a conditional theorem, and its antecedent is a conjunction. So, if we
+want, we can use it to create a derived rule with *two* premises:
+
+```{.ProofChecker .Prop options="guides fonts indent tabindent resize" submission=saveRule}
+R34  (P→Q), (P→~Q) :|-: ~P 
+```
+
+Closely related to the Paradoxes of Material Implication are [Pierce's
+Law](https://en.wikipedia.org/wiki/Peirce%27s_law) (T23)
+and the principle that the negation of a conditional is equivalent to a
+conjunction:
+
+```{.ProofChecker .Prop options="guides fonts indent tabindent resize" submission=saveRule}
+T23 :|-:  ((P→Q)→P)→P
+T40  :|-: ~(P→Q)↔P∧~Q
+```
+
+In the reading, I mentioned that [∧ distributes over
+∨](10R#exercise-DISTCONDISJ). That corresponds to T61. Here are the rest of
+the distribution laws for our system:
+
+```{.ProofChecker .Prop options="guides fonts indent tabindent resize" submission=saveRule}
+T6  :|-: (P → (Q→R)) -> ((P→Q) → (P→R))
+T7  :|-: ((P→Q) → (P→R)) -> (P → (Q→R))
+T28 :|-: (P∧Q→R)↔(P∧~R→~Q)
+T55  :|-: (P → Q∨R) ↔ (P→Q) ∨ (P→R)
+T61  :|-: P ∧ (Q∨R) ↔ (P∧Q) ∨ (P∧R)
+T62  :|-: P ∨ (Q∧R) ↔ (P∨Q) ∧(P∨R)
+```
+
+And here are the commutativity laws:
+
+```{.ProofChecker .Prop options="guides fonts indent tabindent resize" submission=saveRule}
+T8  :|-: (P→(Q→R)) → (Q→(P→R))
+T24  :|-: P∧Q ↔ Q∧P 
+T53  :|-: P∨Q ↔ Q∨P
+```
+
+And the associativity laws:
+
+```{.ProofChecker .Prop options="guides fonts indent tabindent resize" submission=saveRule}
+T25 :|-: P∧ (Q∧R) ↔ (P∧Q)∧ R 
+T54  :|-: P∨(Q∨R)↔(P∨Q)∨R
+```
+
+A binary function $f(x,y)$ is
+[idempotent](https://en.wikipedia.org/wiki/Idempotence) iff $f(x,x) = x$, for
+all values of $x$. Two of our connectives are idempotent:
+
+```{.ProofChecker .Prop options="guides fonts indent tabindent resize" submission=saveRule}
+T41  :|-: P↔P∧P
+T47  :|-: P↔P∨P
+```
+
+Here are four theorems that concern the contraposition of a conditional:
+
+```{.ProofChecker .Prop options="guides fonts indent tabindent resize" submission=saveRule}
+T13 :|-:  (P→Q) → (~Q → ~P) 
+T14 :|-:  (P→~Q)→(Q→~P) 
+T15 :|-:  (~P→Q)→(~Q→P) 
+T16 :|-:  (~P→~Q)→(Q→P) 
+```
+
+And here are two theorems related to our derived rule CDJ, about the
+interdefinability of → and ∨:
+
+```{.ProofChecker .Prop options="guides fonts indent tabindent resize" submission=saveRule}
+T45  :|-: P∨Q ↔ (~P→Q)
+T46  :|-: (P→Q)↔~P∨Q
+```
+
+Both (T33) and (T49) are the basis for inference rules known variously as
+"Constructive Dilemma" or "Separation of Cases", which are not part of our
+basic system, but are sometimes treated as basic rules in other systems.
+
+```{.ProofChecker .Prop options="guides fonts indent tabindent resize" submission=saveRule}
+T33 :|-: (P→Q) ∧(~P→Q) → Q 
+T49  :|-: (P∨Q) ∧(P→R) ∧(Q→R) → R
+```
+
+And here is a complete set of DeMorgan's Laws:
+
+```{.ProofChecker .Prop options="guides fonts indent tabindent resize" submission=saveRule}
+T63  :|-: P∧Q↔~(~P∨~Q)   
+T64  :|-: P∨Q↔~(~P∧~Q)  
+T65  :|-: ~(P∧Q)↔~P∨~Q  
+T66  :|-: ~(P∨Q)↔~P∧~Q  
+```
+
+Finally, for your entertainment and practice, here are the rest of the theorems from chapter II
+of Kalish, Montague, and Mar:
+
+```{.ProofChecker .Prop options="guides fonts indent tabindent resize" submission=saveRule}
+T35  :|-: (~P→R) ∧(Q→R) ↔ ((P→Q) → R)
+T37  :|-: (P→Q) ↔ ~(P ∧ ~Q)
+T38  :|-: P∧Q↔~(P→~Q)
+T39  :|-: ~(P∧Q) ↔ (P → ~Q)
+T43  :|-: ~P → ~(P∧Q)
+T44  :|-: ~Q → ~(P∧Q)
+T48  :|-: (P∨Q) ∧(P→R) ∧(Q→S) → R∨S
+T50  :|-: (P→R) ∧(Q→R) ↔ (P∨Q→R)
+T51  :|-: (P∨Q) ∧(P→R) ∧(~P∧Q→R) → R
+T52  :|-: (P→R) ∧(~P∧Q→R) ↔ (P∨Q→R)
+T56  :|-: (P→Q) → (R∨P → R∨Q)
+T57  :|-: (P→Q) → (P∨R → Q∨R)
+T58  :|-: (P→Q) ∨ (Q→R)
+T60  :|-: (P→R) ∨ (Q→R) ↔ (P∧Q → R)
+T67  :|-: ~P∧~Q → ~(P∨Q)
+T68  :|-: P ↔ (P∧Q) ∨ (P∧~Q)
+T69  :|-: P ↔ (P∨Q) ∧(P∨~Q)
+T70  :|-: Q→(P∧Q↔P)
+T71  :|-: ~Q→(P∨Q↔P)
+T72  :|-: (P→Q) ↔ (P∧Q ↔ P)
+T73  :|-: (P→Q) ↔ (P∨Q ↔ Q)
+T74  :|-: (P↔Q)∧P→Q
+T75  :|-: (P↔Q)∧Q→P
+T76  :|-: (P↔Q)∧ ~P → ~Q
+T77  :|-: (P↔Q)∧ ~Q → ~P
+T78  :|-: (P → (Q↔R)) ↔ ((P→Q) ↔ (P→R))
+T79  :|-: (P → (Q↔R)) ↔ (P∧Q ↔ P∧R)
+T80  :|-: (P↔Q) ∨ (P↔~Q)
+T81  :|-: (P↔Q) ↔ (P→Q)∧ (Q→P)
+T82  :|-: (P↔Q) ↔ ~((P→Q) → ~(Q→P))
+T83  :|-: (P↔Q) ↔ (P∧Q) ∨ (~P∧~Q)
+T84  :|-: P∧Q → (P↔Q)
+T86  :|-: ((P↔Q)→R)↔(P∧Q→R)∧(~P∧~Q→R)
+T87  :|-: ~(P↔Q) ↔ (P∧~Q)∨(~P∧~Q)
+T88  :|-: P∧~Q → ~(P↔Q)
+T89  :|-: ~P∧Q → ~(P↔Q)
+T90  :|-: ~(P↔Q) ↔ (P↔~Q)
+T91  :|-: P↔P
+T92  :|-: (P↔Q) ↔ (Q↔P)
+T93  :|-: (P↔Q) ∧(Q↔R) → (P↔R)
+T94  :|-: (P ↔ (Q↔R)) ↔ ((P↔Q) ↔ R)
+T95  :|-: (P→Q) ↔ ((P↔R) ↔ (Q↔R))
+T96  :|-: (P↔Q) ↔ (~P↔~Q)
+T97  :|-: (P↔R)∧ (Q↔S) → ((P→Q) ↔ (R→S))
+T98  :|-: (P↔R)∧ (Q↔S) → (P∧Q ↔ R∧S)
+T99  :|-: (P↔R)∧ (Q↔S) → (P∨R ↔ Q∨S)
+T100 :|-:  (P↔R)∧ (Q↔S) → ((P↔Q) ↔ (R↔S))
+T101 :|-:  (Q↔S) → ((P→Q) ↔ (P→S)) ∧((Q→P) ↔ (S→P))
+T102 :|-:  (Q↔S) → (P∧Q ↔ P∧S)
+T103 :|-:  (Q↔S) → (P∨Q ↔ P∨S)
+T104 :|-:  (Q↔S) → ((P↔Q) ↔ (P↔S))
+T105 :|-:  P∧(Q↔R)→(P∧Q↔R)
+T106 :|-:  (P → (Q→R)) ↔ ((P→Q) → (P→R))
+T107 :|-:  (P → (Q->R)) ↔ (Q → (P→R))
+T108 :|-:  (P →(P→Q)) ↔(P→Q)
+T109 :|-:  ((P→Q) → Q) ↔ ((Q→P) → P)
+T110 :|-:  P↔~~P
+T111 :|-:  (P→Q) ↔ (~Q→~P)
+T112 :|-:  (P→~Q) ↔ (Q→~P)
+T113 :|-:  (~P→Q) ↔ (~Q→P)
+T114 :|-:  (~P→P) ↔ P
+T115 :|-:  (P→~P) ↔ ~P
+T116 :|-:  (P∧Q) ∨ (R∧S) ↔ (P∨R) ∧(P∨S) ∧(Q∨R) ∧(Q∨S)
+T117 :|-:  (P∨Q) ∧(R∨S) ↔ (P∧R) ∨ (P∧S) ∨ (Q∧R) ∨ (Q∧S)
+T118 :|-:  (P∨Q) ∧(R∨S) ↔ (~P∧~R) ∨ (~P∧S) ∨ (Q∧~R) ∨ (Q∧S)
+T119 :|-:  (P∨~P) ∧Q ↔ Q
+T120 :|-:  (P∧~P)∨Q↔Q
+T121 :|-:  P∨(~P∧Q)↔P∨Q
+T122 :|-:  P∧(~P∨Q)↔P∧Q
+T123 :|-:  P↔P∨(P∧Q)
+T124 :|-:  P↔P∧(P∨Q)
+T125 :|-:  (P→ Q∧R) → (P∧Q ↔ P∧R)
+```
+
+<!-- vim: set ft=carnap :-->

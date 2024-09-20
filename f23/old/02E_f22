@@ -1,0 +1,172 @@
+---
+base-css:
+-   https://carnap.io/shared/dsanson@gmail.com/sanson-book.css
+js: 
+-   https://carnap.io/shared/dsanson@gmail.com/logic-book.js
+---
+
+# Sentential Logic: Exercises
+
+:::auto-tally
+:::
+
+## Connectives
+
+```{.QualitativeProblem .MultipleChoice points=10}
+1 The connective '∧' means:
+| it is not the case that...
+| *both...and...
+| either...or...
+| if...then...
+| ...if and only if...
+2 The connective '↔' means:
+| it is not the case that...
+| both...and...
+| either...or...
+| if...then...
+| *...if and only if...
+3 The connective that means 'if...then...' is
+| ¬
+| ∧
+| ∨
+| *→
+| ↔
+4 The connective that means 'it is not the case that' is
+| *¬
+| ∧
+| ∨
+| →
+| ↔
+```
+
+## Main Connectives
+
+Although Carnap allows me to assign problems that ask you to parse sentences
+into syntactic trees, there is no "exam" mode for such problems, so they will
+not appear in the Mastery Check. Instead, you can expect some multiple choice
+questions asking you to identify main connectives, like the following:
+
+```{.QualitativeProblem .MultipleChoice points=10}
+5 The main connective of '¬(P∧Q) is:
+| *the '¬'
+| the '∧'
+| this is not a well-formed sentence
+6 The main connective of '(¬P∧¬Q) is:
+| the first '¬'
+| *'∧'
+| the second '¬'
+| this is not a well-formed sentence
+7 The main connective of '¬(P∧¬Q) is:
+| *the first '¬'
+| '∧'
+| the second '¬'
+| this is not a well-formed sentence
+8 The main connective of '((R∧S)∧(P∧Q))' is:
+| the first '∧'
+| *the second '∧'
+| the third '∧'
+| this is not a well-formed sentence
+9 The main connective of 'R∧S∧P∧Q' is:
+| the first '∧'
+| the second '∧'
+| *the third '∧'
+| this is not a well-formed sentence
+10 The main connective of 'R∧S∨P∧Q' is:
+| the first '∧'
+| the '∨'
+| the second '∧'
+| *this is not a well-formed sentence
+11 The main connective of 'R→S∧P' is:
+| *the '→'
+| the '∧'
+| this is not a well-formed sentence
+12 The main connective of 'R∧S→P' is:
+| the '∧'
+| *the '→'
+| this is not a well-formed sentence
+13 The main connective of 'R→S→P' is:
+| the first '→'
+| the second '→'
+| *this is not a well-formed sentence
+14 The main connective of 'R∨S↔P' is:
+| the '∨'
+| *the '↔'
+| this is not a well-formed sentence
+15 The main connective of 'R↔S∧P' is:
+| *the '↔'
+| the '∧'
+| this is not a well-formed sentence
+16 The main connective of 'R↔S↔P' is:
+| the first '↔'
+| the second '↔'
+| *this is not a well-formed sentence
+17 The main connective of 'R↔S→P' is:
+| the '↔'
+| the '→'
+| *this is not a well-formed sentence
+18 The main connective of 'R→S∧P∧Q' is:
+| *the '→'
+| the first '∧'
+| the second '∧'
+| this is not a well-formed sentence
+19 The main connective of '¬(R→S∧P∧Q)' is:
+| *the '¬'
+| the '→'
+| the first '∧'
+| the second '∧'
+| this is not a well-formed sentence
+20 The main connective of '¬(R→S)∧(P∧Q)' is:
+| the '¬'
+| the '→'
+| *the first '∧'
+| the second '∧'
+| this is not a well-formed sentence
+21 The main connective of '(¬(R→S)∧P)∧Q' is:
+| the '¬'
+| the '→'
+| the first '∧'
+| *the second '∧'
+| this is not a well-formed sentence
+22 The main connective of '¬(R→S)∧P∧Q' is:
+| the '¬'
+| the '→'
+| the first '∧'
+| *the second '∧'
+| this is not a well-formed sentence
+23 The main connective of 'Z→W∧(A∨B)' is:
+| the '→'
+| the '∧'
+| the '∨'
+| *this is not a well-formed sentence
+```
+
+Here are some more parsing exercises. Be sure to click on the "Submit" button
+to get credit!
+
+```{.SynChecker .Match points=10 }
+24 ~~P
+25 ((P/\Q)\/R)
+26 (P/\(Q\/R))
+27 ~(P->Q)
+28 ((Q<->R)/\(R<->Q))
+29 (~P/\~Q)\/~(P/\Q)
+30 ~((P\/Q)\/(P/\Q))
+31 ~(((P\/Q)->R)/\S)
+32 (P\/((Q->R)/\S))
+```
+   
+```{.SynChecker .MatchClean points=10}
+33 ~P/\Q
+34 ~(P/\Q)
+35 P->Q/\R
+36 (P->Q)/\R
+37 P/\Q/\R
+38 P/\(Q/\R)
+39 P/\Q->Q\/R
+40 P/\(Q->R)/\S
+41 P\/Q\/~R<->~S
+42 P->~Q/\R/\~S
+```
+
+
+<!-- vim: set ft=carnap :-->

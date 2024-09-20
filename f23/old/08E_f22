@@ -1,0 +1,83 @@
+---
+base-css:
+-   https://carnap.io/shared/dsanson@gmail.com/sanson-book.css
+-   https://cdn.plyr.io/3.6.12/plyr.css
+js: 
+-   https://cdn.plyr.io/3.6.12/plyr.polyfilled.js
+-   https://carnap.io/shared/dsanson@gmail.com/logic-book.js
+---
+
+
+:::auto-tally
+:::
+
+# Translation in SL, continued: Exercises
+
+
+:::soawrapper
+:::soasticky
+| P: Pickles are available.
+| Q: Cauliflower is available.
+| R: Radishes are available.
+| S: The store is well-stocked.
+:::
+
+``` {.Translate .Prop points="10"}
+1 S->P/\Q : Pickles and cauliflower are available if the store is well-stocked. 
+2 ~S->(P->R) : Pickles are available only if radishes are available, provided that the store is not well-stocked.
+3 P->(S->R)  : Pickles are available, only if radishes are available provided that the store is well-stocked.
+4 P\/R->S    : If pickles or radishes are available, the store is well-stocked
+5 (P/\~Q)\/S  : Pickles are available but cauliflower is not available, unless the store is well-stocked.
+6 P/\(~Q\/S)  : Pickles are available, but cauliflower is not available unless the store is well-stocked.
+7 (P<->R)->(Q<->R) : Cauliflower is available if and only if Radishes are, provided that Pickles are available just in case radishes are.
+```
+
+:::
+
+
+:::soawrapper
+:::soasticky
+| P: I like dollars
+| Q: I like diamonds
+| R: I like stunting
+| S: I like shining.
+:::
+
+``` {.Translate .Prop points="10"}
+8 R\/S->P/\Q : I like dollars and I like diamonds, if I like stunting or I like shining.
+9 P->Q/\R : I like dollars only provided that I like diamonds and stunting.
+10 S/\R<->(P\/Q) : I like shining and stunting just in case I like dollars or diamonds.
+11 ~(Q->P) : It is not the case that if I like diamonds, I like dollars.
+12 ~Q->~P : Provided that I don't like diamonds, I don't like dollars.
+```
+:::
+
+
+:::soawrapper
+:::soasticky
+| P: Piotr jumps.
+| Q: Quincy jumps.
+| R: Ray jumps.
+| S: Jade jumps.
+| T: Tiana jumps.
+
+We are: Quincy, Ray, Jade, and Tiana. Piotr is *not* one of us.
+:::
+
+Suppose we are Quincy, Ray, Jade, and Tiana (but Piotr is *not* one of us).
+
+``` {.Translate .Prop points="10"}
+13 Q/\R/\S/\T : All of us jump.
+14 Q\/R\/S\/T : Some of us jump.
+15 ~(Q/\R/\S/\T) : Not all of us jump.
+16 ~(Q\/R\/S\/T) : None of us jump.
+17 ~(P\/Q) : Neither Piotr nor Quincy jump.
+18 ~P->Q/\R/\S/\T : We all jump if Piotr doesn't.
+19 ~(Q\/R\/S\/T)\/P : None of us jump unless Piotr does.
+20 T->Q\/R\/S\/T : If Tiana jumps, at least one of us does.
+21 T/\R/\Q\/~(P/\S) : Tiana, Ray, and Quincy jump unless not both Piotr and Jade jump.
+```
+
+:::
+
+<!-- vim: set ft=carnap :-->

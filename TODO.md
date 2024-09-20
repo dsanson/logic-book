@@ -1,5 +1,5 @@
--   [ ] add manual light/dark theme switch
--   [ ] fix illegible text colors in dark mode - I think maybe it is mostly
+-   [x] add manual light/dark theme switch
+-   [x] fix illegible text colors in dark mode - I think maybe it is mostly
     about the green used for "correct" backgrounds and the light colored text
     used in dark mode.
 -   [ ] figure out what to do about the chapter 2 roadblock (soundness and

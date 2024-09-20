@@ -7,21 +7,25 @@ js:
 
 # Derived Rule Builders
 
+This is not an assignment, and it is not worth any points or credit.
 
-This is not an assignment.  It is a place for you to prove and enable derived rules. For an introduction to derived rules, see [Chapter 12](12R).
+A "Rule Builder" is a playground with a "save" button. The "save" button lets
+you save the argument you have derived as a derived rule, which you can use in
+other derivations.
 
-## Your Rules
+## Your Derived Rules
+
+Here are the rules you have successfully enabled:
 
 :::{.derived-rules .boxed .liveshapes}
 :::
 
-## Sentential Logic Derived Rule Builder
+## SL Rule Builder
 
 ```{.Playground .Prop options="guides fonts indent tabindent resize" submission=saveRule}
 ```
 
-## Predicate Logic Derived Rule Builder
-
+## PL Rule Builder
 
 ```{.Playground .FirstOrder options="guides fonts indent tabindent resize" submission=saveRule}
 ```

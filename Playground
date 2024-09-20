@@ -7,21 +7,18 @@ js:
 
 # Derivation Playgrounds
 
-This is not an assignment. It is a derivation playground. Or, rather, it is a
-page containing derivation playgrounds. A derivation playground is like a
-derivation exercise, but there is no set argument to derive. You can use it to
-try to derive anything you'd like.
+This is not an assignment and it is not worth any points or credit.
 
-Start a derivation by entering a show line in the usual way. Since there is no
-set problem, you can enter a show line for whatever you want to try to derive.
-And, since there is no set problem, you can use whatever premises you want.
+A derivation playground allows you to derive any valid argument of your
+choice. There are no set premises, and there is no set conclusion. Start by
+entering a show line for your desired conclusion. Then proceed as usual,
+helping yourself to your desired premises. Once you have successfully
+constructed a derivation of that conclusion from those premises, the argument
+you have derived will be displayed above the derivation.
 
-When the derivation is complete, the playground will display the argument that
-you have derived. 
+## Playgrounds for SL
 
-## Sentential Logic Playground
-
-These two playgrounds are for Sentential Logic. Why two? In case you want to
+Here are two playgrounds for SL. Why two? In case you want to
 play with two different derivations at the same time.
 
 ```{.Playground .Prop options="guides fonts indent tabindent resize" submission=none}
@@ -30,9 +27,9 @@ play with two different derivations at the same time.
 ```{.Playground .Prop options="guides fonts indent tabindent resize" submission=none}
 ```
 
-## Predicate Logic Playground
+## Playgrounds for PL
 
-These two playgrounds are for Predicate Logic.
+Here are two playgrounds are for PL.
 
 ```{.Playground .FirstOrder options="guides fonts indent tabindent resize" submission=none}
 ```

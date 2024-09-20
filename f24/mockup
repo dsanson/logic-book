@@ -1,0 +1,60 @@
+---
+base-css:
+-   https://carnap.io/shared/dsanson@gmail.com/sanson-book.css
+-   https://cdn.plyr.io/3.6.12/plyr.css
+js: 
+-   https://cdn.plyr.io/3.6.12/plyr.polyfilled.js
+-   https://carnap.io/shared/dsanson@gmail.com/logic-book.js
+---
+
+Your grade is based upon how many units you pass and how many you ace:
+
+   Course Grade               Units Complete
+  -------------- -----------------------------------------
+        A         pass at least 16 units; ace at least 10
+        B            pass at least 14; ace at least 8
+        C                    pass at least 10
+        D                     pass at least 8
+
+In addition, certain units are required for each grade level, in the sense that you must pass each of those units to receive that grade:
+
+   Course Grade     Required units
+  -------------- --------------------
+        A         0, 4, 6, 9, and 10
+        B           0, 4, 6, and 9
+        C            0, 4, and 6
+
+
+## Progress Report
+
+Progress toward an A:
+
+<span>Passed</span> <progress value="4" max="16">4</progress>
+Aced <progress value="4" max="10">4</progress>
+Required: <span class="complete required">0</span> <span class="incomplete required">4</span> <span class="complete required">6</span> <span class="complete required">9</span> <span class="complete required">10</span>
+
+B:
+
+| Passed: <progress value="4" max="14">4</progress>
+| Aced: <progress value="4" max="8">4</progress>
+| Required: <span class="complete required">0</span> <span class="incomplete required">4</span> <span class="complete required">6</span> <span class="complete required">9</span>
+
+C:
+
+| Passed: <progress value="4" max="10">4</progress>
+| Required: <span class="complete required">0</span> <span class="incomplete required">4</span> <span class="complete required">6</span> 
+
+D:
+
+| Passed: <progress value="4" max="8">4</progress>
+
+
+:::units
+[00]{.complete}
+[01]{.complete .mastered}
+[02]{.complete .mastered}
+[03]{.complete .mastered}
+[04]{.incomplete}
+[05]{.incomplete}
+[06]{.complete}
+:::

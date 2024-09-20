@@ -1,0 +1,79 @@
+---
+base-css:
+-   https://carnap.io/shared/dsanson@gmail.com/sanson-book.css
+-   https://cdn.plyr.io/3.6.12/plyr.css
+js: 
+-   https://cdn.plyr.io/3.6.12/plyr.polyfilled.js
+-   https://carnap.io/shared/dsanson@gmail.com/logic-book.js
+---
+
+# Derivations with Assumptions: Exercises
+
+:::auto-tally
+:::
+
+## Translation
+
+We are knee deep in derivations, but translations will come back soon,
+and we will be building on what you've already learned. So, to help you retain
+that knowledge, I am including a few translation exercises here.
+
+:::soawrapper
+::: soasticky
+| P: I take a deep breath 
+| Q: I get real high
+| R: I scream from the top of my lungs
+| S: I step outside
+| W: I wake in the morning 
+|
+
+:::{.youtube t=84}
+<https://youtu.be/32FB-gYr49Y>
+:::
+:::
+
+``` {.Translate .Prop points="10"}
+1 R->S : I scream from the top of my lungs only if I step outside
+2 W->P : I take a deep breath if I wake in the morning
+3 Q/\~S : I get real high but I do not step outside
+4 ~(P\/Q) : I neither take a deep breath nor get real high
+5 P->(S->R) : If I take a deep breath then (if I step outside then I scream from the top of my lungs).
+```
+:::
+
+## Derivations
+
+Complete the following derivations:
+
+``` {.ProofChecker .Prop options="guides fonts indent tabindent resize" points=10}
+6 Q->P, P->R :|-: Q->R
+7 S->Q, R->~Q :|-: S->~R 
+8 P->~Q, Q->P :|-: ~Q
+9 P->R, ~P->R :|-: ~~R
+```
+
+If you aren't sure how to do (10), re-read the section "Unlocking the Power of
+ID" in the reading.
+
+``` {.ProofChecker .Prop options="guides fonts indent tabindent resize" points=10}
+10 P->R, ~P->R :|-: R
+11 R->(S->T) :|-: S->(R->T)
+12 :|-: P->P 
+13 ~R :|-: (Q->R)->~Q
+14 :|-: (P->~P)->~P
+```
+
+Yes, (15) requires a show line inside a show line inside a show line inside a
+show line. (I mention this because some students balk, afraid that they are
+digging themselves too deeply into a pit, and will never be able to dig their
+way out.)
+
+``` {.ProofChecker .Prop options="guides fonts indent tabindent resize" points=10}
+15 :|-: (~P->Q)->((P->R)->(~R->Q))
+```
+
+Derivations take practice. Don't forget to check out the optional
+[supplementary exercises](05S) for more opportunities to practice.
+
+
+<!-- vim: set ft=carnap :-->

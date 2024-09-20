@@ -1,0 +1,1203 @@
+---
+base-css:
+-   https://carnap.io/shared/dsanson@gmail.com/sanson-book.css
+-   https://cdn.plyr.io/3.6.12/plyr.css
+js: 
+-   https://cdn.plyr.io/3.6.12/plyr.polyfilled.js
+-   https://carnap.io/shared/dsanson@gmail.com/logic-book.js
+---
+
+::: cover
+
+# Identity
+
+:::
+
+:::aside
+Portions of this chapter are adapted from the [Calgary Remix of *forall
+x*](http://forallx.openlogicproject.org/){.attribution target="_blank" rel="noopener noreferrer"}.
+:::
+
+<!--_-->
+
+In this unit, we continue to consider the relation of identity, and some of the
+claims it allows us to express. The specific learning objectives for this unit
+are:
+
+a.  I can symbolize sentences involving phrases like 'everything but'
+    and 'some other'
+b.  I can symbolize sentences involving phrases like 'at least n', 'at
+    most n', and 'exactly n'.
+c.  I can symbolize definite descriptions in accordance with Russell's
+    theory of definite descriptions
+
+## Everything But
+
+Consider the sentence,
+
+::: displayed
+-   The Big Bang is earlier than everything.
+:::
+
+:::wrapper
+::: soasticky
+| F(x,y): x is earlier than y
+| b: The Big Bang
+:::
+
+We can translate this as follows:
+
+:::displayed
+-   ∀xF(b,x)
+:::
+
+But, as we noted at the end of the last chapter, this entails that the
+Big Bang is earlier than *itself*:
+
+:::displayed
+-   ∀xF(b,b)
+:::
+
+This is probably not what cosmologists want to say. If pressed to clarify,
+they might say any of the following:
+
+::: displayed
+-   The Big Bang is earlier than everything *but itself*
+-   The Big Bang is earlier than everything *other than the Big Bang*
+-   The Big Bang is earlier than everything *else*
+:::
+
+This is pretty common: we want to make a generalization, but we want to
+exclude one or more things from that generalization. 
+
+In PL, we capture these sorts of exceptions using identity:
+
+::: displayed
+-   ∀x(¬x=b → F(b,x))
+:::
+
+Unpacking this, it says that:
+
+::: displayed
+-   For every x, *if x isn't the Big Bang*, then the Big Bang is earlier than it.
+:::
+
+Here is another way to capture the idea, which is equivalent:
+
+::: displayed
+-   ∀x(F(b,x) ∨ x=b)
+:::
+
+Unpacking this, it says:
+
+:::displayed
+-   For every x, the Big Bang is earlier than x *unless x is the Big Bang*.
+:::
+
+:::
+
+:::wrapper
+:::soasticky
+| I(x): x is invited to the party
+| H(x): x is a person
+| a: Alex
+:::
+
+
+``` {.Translate .FOL points="10"}
+1 Ax(H(x)/\~x=a->I(x)): Everyone but Alex is invited to the party
+```
+
+:::spoiler
+::: solution
+::: youtube
+<https://youtu.be/mppouFJGRI8>
+:::
+:::
+:::
+
+``` {.Translate .FOL points="10"}
+2 Ax(I(x)->x=a): Only Alex is invited to the party
+```
+
+:::spoiler
+::: solution
+::: youtube
+<https://youtu.be/9q3IBxsWDqA>
+:::
+:::
+:::
+
+``` {.Translate .FOL points="10"}
+3 Ex(H(x)/\~x=a/\I(x)): Someone other than Alex is invited to the party
+```
+
+:::spoiler
+::: solution
+::: youtube
+<https://youtu.be/bFiJC0YUN_c>
+:::
+:::
+:::
+
+``` {.Translate .FOL points="10"}
+4 ~Ex(H(x)/\I(x)/\~x=a) : Nobody but Alex is invited to the party
+```
+
+:::spoiler
+::: solution
+::: youtube
+<https://youtu.be/qeDeSP80crU>
+:::
+:::
+:::
+
+:::
+
+:::wrapper
+:::soasticky
+| I(x): x is invited to the party
+| H(x): x is a person
+| a: Alex
+| b: Benny
+:::
+
+Sometimes, we want to exclude more than one named individual from our
+generalization. For example:
+
+::: {.displayed}
+-   Everyone but Alex and Bennie is invited to the party
+-   Every x is such that, if x is a person and x is neither Alex nor Bennie,
+    then x is invited to the party
+-   ∀x(H(x) ∧ ¬(x=a ∨ x=b) → I(x))
+:::
+:::
+
+And sometimes, we want to exclude a whole *group* of individuals, not by name, but specifying some feature they have in common:
+
+:::wrapper
+:::soasticky
+| F(x): x is a freshman
+| I(x): x is invited to the party
+| H(x): x is a person
+:::
+
+::: displayed
+-   Everyone who isn't a freshmen is invited to the party
+-   Every x is such that, if x is a person and x is not a freshman, then x is
+    invited to the party
+-   ∀x(H(x)∧¬F(x)→I(x))
+:::
+:::
+
+
+:::wrapper
+:::soasticky
+| F(x): x flies
+| H(x): x hops
+| I(x): x is a bug
+| b: Barry B. Benson
+| c: Charlotte
+:::
+
+``` {.Translate .FOL points="10" video="everybugotherthancharlotteandbarryhops.mp4"}
+5  ∀x(I(x) /\ ~x=b /\ ~x=c -> H(x)): Every bug other than Charlotte and Barry B. Benson hops
+```
+
+``` {.Translate .FOL points="10" video="everybugthatdoesnthopflies.mp4"}
+6  ∀x(I(x) /\ ~H(x) -> F(x)): Every bug that doesn't hop flies
+```
+
+:::
+
+## Counting: At Least n
+
+:::wrapper
+:::soasticky
+| F(x): x is a frog
+:::
+
+Our existential quantifier, '∃x', means 'at least one x'. So, we can think of it as capturing a certain minimal form of counting:
+
+::: displayed
+-   There is at least one frog
+-   ∃xF(x)
+:::
+
+Using identity, we can extend this form of counting from 'at least one' to 'at least two'.
+To say that there are at least two frogs is to say that there is something that
+is a frog, and something *else* that is a frog. In other words, some *x* is a
+frog, and some *y* is a frog, and *x* and *y* are not identical:
+
+::: displayed
+-   ∃x∃y(F(x) ∧ F(y) ∧ ¬x=y)
+:::
+
+Unpacking this, it says:
+
+::: displayed
+-   Some x and some y are both frogs, 
+-   and they are not identical to each other.
+:::
+
+Note that the bit
+about not being identical is essential here. The following sentence does not
+require the existence of two frogs:
+
+::: displayed
+-   ∃x∃y(F(x) ∧ F(y))
+:::
+
+This says,
+
+::: displayed
+-   Some x and some y are both frogs.
+:::
+
+But nothing here stops us from assigning the same value to both x and y. So
+the existence of a single frog is enough to make this true.
+
+If you aren't sure about this, consider this derivation:
+
+```{.ProofChecker .Prop options="guides fonts indent tabindent resize" init=now submission=none}
+Example F(a) :|-: ExEy(F(x)/\F(y))
+|Show ExEy(F(x)/\F(y))
+|  F(a) :PR
+|  F(a)/\F(a) :ADJ 2 2
+|  Ey(F(a)/\F(y)) :EG 3
+|  ExEy(F(x)/\F(y)) :EG 4
+|:DD 5
+```
+
+There is no rule or principle in our system that says that distinct variables must
+be assigned distinct values. Nor should there be. Consider this example from
+mathematics:
+
+$$x + y = 4$$
+
+There are many assignments to $x$ and $y$ that make this formula true. One
+assigns the same value, 2, to both variables. We wouldn't want a restriction
+on variables that blocked us from considering this solution.
+
+The only way to ensure that distinct variables have distinct values is to say so, using
+identity and negation:
+
+::: displayed
+-   ∃x∃y(F(x) ∧ F(y) **∧ ¬x=y**)
+:::
+
+-----
+
+We can use the same strategy to capture 'at least three', 'at least four', and so on, for any number:
+
+::: displayed
+-   There are at least three frogs.
+-   ∃x∃y∃z(F(x) ∧ F(y) ∧ F(z) ∧ ¬x=y ∧ ¬x=z ∧ ¬y=z)
+:::
+
+Notice that it takes three non-identity claims to rule out every possible
+identities between our three variables.
+
+::: displayed
+-   There are at least four frogs.
+-   ∃w∃x∃y∃z(F(w) ∧ F(x) ∧ F(y) ∧ F(z) ∧ ¬x=y ∧ ¬x=z ∧ ¬x=w ∧ ¬y=z ∧ ¬y=w ∧ ¬z=w )
+:::
+
+Notice that this time it takes *six* non-identity claims to rule out all
+possible identities between the four variables.
+
+We will quickly run out of alphabetically distinct variable letters. But
+remember, we can use numerical subscripts. Here is the general pattern we can
+use, to capture the claim that there are at least *n* things that are F:
+
+::: displayed
+-   There are at least n frogs.
+-   ∃x<sub>1</sub>...∃x<sub>n</sub>(F(x<sub>1</sub>) ∧ ... F(x<sub>n</sub>) ∧
+    ¬x<sub>1</sub>=x<sub>2</sub> ∧ ...
+:::
+
+As *n* gets larger, the translation will get very long indeed. But in
+principle, we can do this for any *n*.
+
+:::
+
+:::wrapper
+::: soasticky
+G(x): x is gross
+:::
+
+```{.Translate .FOL points=10}
+7 ExG(x) : There is at least one gross thing
+```
+
+:::spoiler
+::: solution
+::: youtube
+<https://youtu.be/LPQnl-R3Too>
+:::
+:::
+:::
+
+```{.Translate .FOL points=10}
+8 ExEy(G(x)/\G(y)/\~x=y) : There are at least two gross things
+```
+
+:::spoiler
+::: solution
+::: youtube
+<https://youtu.be/UaVjdAGuPOk>
+:::
+:::
+:::
+
+```{.Translate .FOL points=10}
+9 ExEyEz(G(x)/\G(y)/\G(z)/\~x=y/\~x=z/\~y=z) : There are at least three gross things
+```
+
+:::spoiler
+::: solution
+::: youtube
+<https://youtu.be/ydZevol7r10>
+:::
+:::
+:::
+
+:::
+
+## Counting: At Most
+
+'*At least*' allows us to set a minimum number of things. '*At most*' allows us to
+set a maximum number of things:
+
+::: displayed
+-   There is at most one frog.
+-   There are at most two frogs.
+-   There are at most three frogs.
+-   There are at most *n* frogs.
+:::
+
+Again, we can capture these claims using quantifiers and identity.
+
+:::aside
+:::illustration
+![Kermit drinking
+tea](https://reggienet.illinoisstate.edu/access/content/user/desanso/public/img/kermit-drinking-tea.jpg){alt="A
+picture of Kermit the frog drinking a cup of tea"}
+:::
+:::
+
+Start with 'at most one'. If there is at most one frog, then *any two* frogs
+you encounter must in fact be *the same*. Imagine you walk along a pond in the
+forest, and meet a friendly frog, who invites you to his house for a cup of
+tea. Later, in the same forest, you are accosted by a masked frog, who beats
+you up and steals your wallet. Later, after sharing your story with a local
+badger, you learn that there is at most one frog in the forest, so the frog
+who served you tea and the frog who mugged you are one and the same.
+
+So,
+
+::: displayed
+-   There is at most one frog
+-   For any x and y, if x and y are both frogs, then x=y
+-   ∀x∀y(F(x)∧F(y) → y=x)
+:::
+
+This doesn't say that there are any frogs. But it does say that, if there are
+any frogs, they are all identical to each other---that is, there is only one
+of them.
+
+Again, we can extend this treatment of 'at most one' to 'at most two', 'at most three', and so on.
+Suppose there are at most *two* frogs. This means that, if you encounter three frogs, at least two of those encounters must have been encounters with the same frog.
+Imagine that, over the course of your day in the forest, you have tea with a friendly frog, then you are mugged by a masked frog, and, finally, you dance with a beautiful frog at the midsummer festival. When the badger informs you that there are at most two frogs in the forest, what follows? It follows that you could not have encountered three *different* frogs. So either you encountered two frogs, one of which you encountered twice, or you encountered just one frog three times over.
+
+::: displayed
+-   There are at most two frogs
+-   For any x, y, and z, if x, y, and z are frogs, then either x is y or x is z or y is z.
+-   ∀x∀y∀z(F(x) ∧ F(y) ∧ F(z) → x=y ∨ x=z ∨ y=z)
+:::
+
+Nothing stops us from using the same ideas to capture 'at least three', 'at
+least four', and so on. As before, the sentences will become long and
+complicated, but in principle it is possible.
+
+:::wrapper
+::: soasticky
+G(x): x is a giraffe
+:::
+
+``` {.Translate .FOL points="10"}
+10 AxAy(G(x)/\G(y)->y=x) : There is at most one giraffe
+```
+
+:::spoiler
+::: solution
+::: youtube
+<https://youtu.be/GktvxEPgtaE>
+:::
+:::
+:::
+
+``` {.Translate .FOL points="10"}
+11 AxAyAz(G(x)/\G(y)/\G(z)->x=y\/x=z\/y=z) : There are at most two giraffes
+```
+
+:::spoiler
+::: solution
+::: youtube
+<https://youtu.be/XacDexMFTX0>
+:::
+:::
+:::
+
+``` {.Translate .FOL points="10"}
+12 AwAxAyAz(G(w)/\G(x)/\G(y)/\G(z)->w=x\/w=y\/w=z\/x=y\/x=z\/y=z) : There are at most three giraffes.
+```
+
+:::spoiler
+::: solution
+::: youtube
+<https://youtu.be/PGwm33AwFRc>
+:::
+:::
+:::
+
+:::
+
+## Counting: Exactly n
+
+'*At least*' expresses a minimum. '*At most*' expresses a maximum. Putting the
+two together, we can express an *exact* number things:
+
+::: displayed
+-   There is exactly one frog
+-   There is at least one frog and there is at most one frog
+-   ∃xF(x) ∧ ∀x∀y(F(x)∧F(y)→y=x)
+:::
+
+More succinctly:
+
+::: displayed
+-   There is exactly one frog
+-   There is at least one frog and every frog is identical to *it*
+-   ∃x(F(x) ∧ ∀y(F(y)→y=x))
+:::
+
+That 'it' refers back to the first frog, since the *x* is bound by the *∃x* at
+the beginning of the sentence.
+
+Extending this to 'exactly two', we get:
+
+::: displayed
+-   There are exactly two frogs
+-   ∃x∃y(F(x) ∧ F(y) ∧ ¬x=y ∧ ∀z(F(z) → z=x ∨ z=y))
+:::
+
+Unpacking this, it says:
+
+:::displayed
+-   There is a frog x and a frog y, 
+-   and x and y are not identical
+-   and every frog is identical to either x or y.
+:::
+
+The first two lines get us that there are at least two frogs. The last line
+ensures that those two frogs are the only frogs there are. So, putting it all
+together, we get that there are exactly two frogs.
+
+:::wrapper
+:::soasticky
+H(x): x is hot
+:::
+
+``` {.Translate .FOL points="10"}
+13 Ex(H(x)/\Ay(H(y)->y=x)),ExH(x)/\AxAy(H(x)/\H(y)->x=y) : Exactly one thing is hot
+```
+
+:::spoiler
+::: solution
+::: youtube
+<https://youtu.be/jFT6wvSbyRY>
+:::
+:::
+:::
+
+``` {.Translate .FOL points="10"}
+14 ExEy(H(x)/\H(y)/\~x=y/\Az(H(z)->z=x\/z=y)),ExEy(H(x)/\H(y)/\~x=y)/\AxAyAz(H(x)/\H(y)/\H(z)->x=y\/x=z\/y=z): Exactly two things are hot
+```
+
+:::spoiler
+::: solution
+::: youtube
+<https://youtu.be/e10zB7wbk9E>
+:::
+:::
+:::
+
+``` {.Translate .FOL points="10"}
+15 ExEyEz(H(x)/\H(y)/\H(z)/\~x=y/\~x=z/\~y=z/\Aw(H(w)->w=x\/w=y\/w=z)),ExEyEz(H(x)/\H(y)/\H(z)/\~x=y/\~x=z/\~y=z)/\AwAxAyAz(H(w)/\H(x)/\H(y)/\H(z)->w=x\/w=y\/w=z\/x=y\/x=z\/y=z) : Exactly three things are hot
+```
+
+:::spoiler
+::: solution
+::: youtube
+<https://youtu.be/7xa6dqUVZdc>
+:::
+:::
+:::
+
+:::
+
+## Russell's Theory of Definite Descriptions
+
+:::sep-inset
+
+![Portrait of Margaret Cavendish](https://reggienet.illinoisstate.edu/access/content/user/desanso/public/img/Margaret_cavendish_from_Luminarium.jpg)
+
+::: sep-header
+![](https://plato.stanford.edu/symbols/sep-man-red.png) Stanford
+Encyclopedia of Philosophy
+:::
+
+# [Margaret Lucas Cavendish](https://plato.stanford.edu/entries/margaret-cavendish/){.attribution target="_blank" rel="noopener noreferrer"}
+
+::: {#preamble}
+Margaret Lucas Cavendish was a philosopher, poet, scientist,
+fiction-writer, and playwright who lived in the Seventeenth Century. Her
+work is important for a number of reasons. One is that it lays out an
+early and very compelling version of the naturalism that is found in
+current-day philosophy and science. It also offers important insights
+that bear on recent discussions of the nature and characteristics of
+intelligence and the question of whether or not the bodies that surround
+us are intelligent or have an intelligent cause. Another reason that the
+work of Cavendish is important is that it anticipates some of the
+central views and arguments that are more commonly associated with
+figures like Thomas Hobbes and David Hume. She also offers novel and
+compelling responses to questions that are central to the discussions of
+the Seventeenth Century -- for example, about whether sense perception
+is by means of impressions; about whether human beings are free in a
+libertarian or a compatibilist sense; about whether whether there is any
+true disorder in the natural world; about the limits of knowledge, and
+the limits of ideas and language; and about how motion is transferred
+between bodies. In addition, she takes on important debates in social
+and political philosophy, with a focus on issues of agency and
+authority, and in particular on the relation between an individual\'s
+desire to live a life with which they identify and the receptivity and
+accommodation that that desire encounters in the world outside the mind.
+Finally, she anticipates discussions in the work of contemporary
+philosophers about whether or not our ability to understand how matter
+thinks is relevant to the question of whether it does think.
+:::
+:::
+
+A definite description is a noun phrase that begins with the word 'the', like
+'the author of *[Observations upon Experimental
+Philosophy](https://www.cambridge.org/core/books/margaret-cavendish-observations-upon-experimental-philosophy/A62F71BA4026C227A92974361D124515){.attribution
+target="_blank" rel="noopener noreferrer"}*', or 'the first computer
+programmer'. These phrases seem to behave in English much like proper names,
+and we can translate them using constants.
+
+:::wrapper
+:::soasticky
+| F(x,y): x wrote y
+| G(x,y): x is born in y
+| a: The author of *Observations upon Experimental Philosophy*
+| b: *Observations upon Experimental Philosophy*
+| c: Margaret Cavendish
+| d: 1623
+:::
+
+```{.Translate .FOL points=10}
+16 G(c,d): Margaret Cavendish was born in 1623.
+```
+
+:::spoiler
+Since 'c' names Margaret Cavendish, and 'd' names 1623, the answer is:
+
+:::displayed
+-   G(c,d)
+:::
+
+:::
+
+```{.Translate .FOL points=10}
+17 G(a,d): The author of Observations upon Experimental Philosophy was born in 1623.
+```
+
+:::spoiler
+-   G(a,d)
+:::
+
+
+```{.Translate .FOL points=10}
+18 F(c,b): Margaret Cavendish wrote Observations upon Experimental Philosophy.
+```
+
+:::spoiler
+-   F(c,b)
+:::
+
+But this way of handling definite descriptions fails to represent their
+content. For example, the following argument seems to be valid:
+
+:::standardform
+-   Margaret Cavendish is the author of *Observations upon Experimental
+    Philosophy*.
+-   Margaret Cavendish wrote *Observations upon Experimental Philosophy*.
+:::
+
+But when we render the argument into PL using our scheme, we get:
+
+:::standardform
+-   c=a
+-   F(c,b)
+:::
+
+This argument is not valid in PL. The *logical*
+relationship between the author, a, and the book, c, has been lost in translation.
+
+:::
+
+::: {.sep-inset }
+
+![Photo of Bertrand Russell](https://plato.stanford.edu/entries/russell/russell.gif)
+
+::: sep-header
+![](https://plato.stanford.edu/symbols/sep-man-red.png) Stanford
+Encyclopedia of Philosophy
+:::
+
+# [Bertrand Russell](https://plato.stanford.edu/entries/russell/){.attribution target="_blank" rel="noopener noreferrer"}
+
+::: {#preamble}
+Bertrand Arthur William Russell (1872--1970) was a British philosopher,
+logician, essayist and social critic best known for his work in mathematical
+logic and analytic philosophy. His most influential contributions include his
+championing of logicism (the view that mathematics is in some important sense
+reducible to logic), his refining of Gottlob Frege's predicate calculus (which
+still forms the basis of most contemporary systems of logic), his defense of
+neutral monism (the view that the world consists of just one type of substance
+which is neither exclusively mental nor exclusively physical), and his
+theories of definite descriptions, logical atomism and logical types.
+:::
+:::
+
+<!--_-->
+
+Bertrand Russell's "Theory of Definite Descriptions" aims to solve this
+problem. His basic idea is that the definite article, 'the', ascribes
+*uniqueness*. Consider the difference between,
+
+:::displayed
+-   An author of *Observations* was born in 1623.
+-   The author of *Observations* was born in 1623.
+:::
+
+When we use the *indefinite* article, 'an', we leave it open that
+*Observations* has more than one author. But when we use the
+*definite* article, 'the', part of what we are saying is that *Observations*
+has exactly one author.
+
+:::wrapper
+:::soasticky
+| F(x,y): x wrote y
+| G(x,y): x is born in y
+| b: *Observations upon Experimental Philosophy*
+| c: Margaret Cavendish
+| d: 1623
+:::
+
+If Russell is right about this, then we can paraphrase sentences involving
+definite descriptions as sentences involving *exactly one*. For example:
+
+:::displayed
+-   The author of *Observations* was born in 1623.
+-   There is *exactly one* author of *Observations*, and she was born in 1623.
+:::
+
+We know from the previous section how to handle *exactly one*. Applying that
+here, we get:
+
+:::displayed
+-   ∃x(F(x,b) ∧ ∀y(G(y,b) → y=x) ∧ G(x,d))
+:::
+
+Unpacking this, it says:
+
+:::displayed
+-  There is an x who wrote *Observations*, 
+-  and every y who wrote *Observations* is identical to x, 
+-  and x was born in 1623.
+:::
+
+The first line states the existence of *an* author of *Observations*. The
+second states the *uniqueness* of that author. The third says, of
+that unique author, that she was born in 1623.
+
+We can use this three part pattern whenever we encounter a definite
+description. So:
+
+::: displayed
+-   The F is G
+-   There is an F and every F is it and it is G
+-   ∃x(F(x) ∧ ∀y(F(y) → y=x) ∧ G(x))
+:::
+
+Armed with this translation, we can now explain the validity of our argument:
+
+:::standardform
+-   Margaret Cavendish is the author of *Observations*
+-   Margaret Cavendish wrote *Observations*
+:::
+
+Applying Russell's Theory, the first premise becomes:
+
+:::displayed
+-   ∃x(F(x,b) ∧ ∀y(F(y,b) → y=x) ∧ c=x) 
+:::
+
+Again, we can unpack this into three parts:
+
+:::displayed
+-  There is an x who wrote *Observations*,
+:::
+
+and
+
+:::displayed
+-  every y who wrote *Observations* is identical to x,
+:::
+
+and
+
+:::displayed
+-  Margaret Cavendish is identical to x.
+:::
+
+So, our argument becomes:
+
+:::standardform
+-   ∃x(F(x,b) ∧ ∀y(F(y,b) → y=x) ∧ c=x) 
+-   F(c,b)
+:::
+
+We don't yet have the tools to show that this argument is valid, but it is
+clear that we now have enough logical structure to make that possible, where
+before we did not.
+
+:::
+
+:::wrapper
+:::soasticky
+| G(x): x is a King of Norway
+| H(x): x is bald
+:::
+
+```{.Translate .FOL points=10}
+19 Ex(G(x)/\H(x)): A King of Norway is bald 
+20 Ex(G(x)/\Ay(G(y)->y=x)/\H(x)) : The King of Norway is bald
+```
+:::spoiler
+:::solution
+::: youtube
+<https://youtu.be/0I2QgDaiTRg>
+:::
+:::
+:::
+
+Note that on Russell's theory, the sentence, 'The King of Norway is bald' can
+be broken down into three parts:
+
+:::displayed
+-   There is a King of Norway,
+-   and every King of Norway is identical to him,
+-   and he is bald.
+:::
+
+This means that is can be false for three different reasons:
+
+-   because Norway *has no King*;
+-   because Norway has *more than one* King;
+-   because Norway's King is *not bald*.
+
+As it happens, Norway has a King, and just one King, King Harald, who is bald. So, as it happens, this sentence is true.
+
+:::aside
+:::illustration
+[![King Harald of
+Norway](https://reggienet.illinoisstate.edu/access/content/user/desanso/public/img/king_harald.jpg){alt="A
+picture of King Harald of Norway, showing that he is indeed bald."}](https://en.wikipedia.org/wiki/Harald_V_of_Norway){.attribution target="_blank" rel="noopener noreferrer"}
+:::
+:::
+
+<!--_-->
+
+:::
+
+What about 'The King of France is bald'? Given that France is not a monarchy, it might look like this sentence attributes baldness to a nonexistent being. But when we break it down, using Russell's theory of descriptions, we get:
+
+:::displayed
+-   There is a King of France,
+-   and every King of France is identical to him,
+-   and he is bald.
+:::
+
+Since France is not a monarchy, there is no King of France, so this is false.
+
+Since 'The King of France is bald' is false, does it follow that 'The King of France is not bald' is true? When we break it down, we get:
+
+:::displayed
+-   There is a King of France,
+-   and every King of France is identical to him,
+-   and he is not bald.
+:::
+
+Again, since France has no King, this is false. 
+
+But that seems like an odd result. How can we say that both of these sentences are false? Isn't one the negation of the other?
+
+:::displayed
+-   False: The King of France is bald.
+-   False: The King of France is not bald.
+:::
+
+Here we need to be careful. It turns out that the sentence, 'The King of
+France is not bald', is ambiguous. It can mean, as above, that *there is a
+unique King of France and he is not bald*. Or it can mean that *there is not a
+unique King of France who is bald*.
+
+The ambiguity has to do with the *scope* of the negation. If we give the negation
+"wide" scope---that is, scope over the whole sentence, then the sentence expresses the negation of
+'The King of France is bald', and it is true:
+
+::: displayed
+-   False: The King of France is bald.
+-   False: ∃x(F(x)∧∀y(F(y)→y=x)∧H(y))
+-   True: The King of France is not bald. (wide scope negation)
+-   True: ¬∃x(F(x)∧∀y(F(y)→y=x)∧H(y))
+:::
+
+On this reading, 'The King of France is not bald' is true, because France does
+not have a King.
+
+Or we can give the negation "narrow" scope, so
+that it just negates the bit about baldness:
+
+::: displayed
+-   False: The King of France is not bald. (narrow scope negation)
+-   False: ∃x(F(x)∧∀y(F(y)→y=x)∧¬H(y))
+:::
+
+And this sentence is false, because France does not have a King.
+
+So the following derivation is not valid, because it depends on an
+[equivocation]{.vocab}:
+
+1.  'The King of France is bald' is false.
+2.  ∴ 'The King of France is not bald' is true.
+3.  ∴ The King of France has a full head of hair.
+
+An [equivocation]{.vocab} is when you first use a word or phrase in one sense,
+or with one meaning, and then use it in another sense, or with another
+meaning. Here, the move from (1) to (2) is valid only if we give the negation
+wide scope. But the move from (2) to (3) is valid only if we give the negation
+narrow scope. So there is no valid line of reasoning that gets us from (1) to
+(3).
+
+:::wrapper
+::: soasticky
+| F(x): x is a main character in Friends
+| G(x): x is annoying
+| b: Phoebe
+:::
+
+```{.Translate .FOL points=10}
+21 Ex(F(x)/\Ay(F(y)->x=y)/\G(x)): The main character in Friends is annoying
+22 ~Ex(F(x)/\Ay(F(y)->x=y)/\G(x)): The main character in Friends is not annoying (wide scope negation)
+23 Ex(F(x)/\Ay(F(y)->x=y)/\~G(x)): The main character in Friends is not annoying (narrow scope negation)
+```
+
+:::spoiler
+:::solution
+::: youtube
+<https://youtu.be/vi9vBwYzP68>
+:::
+:::
+:::
+
+```{.Translate .FOL points=10}
+24 Ex(F(x)/\Ay(F(y)->x=y)/\x=b): The main character in Friends is Phoebe
+25 Ex(F(x)/\Ay(F(y)->x=y)/\~x=b): The main character in Friends is not Phoebe (narrow scope negation)
+```
+
+:::spoiler
+For 24, we want to say:
+
+| There is a main character in Friends,
+| and it is the only main character in Friends,
+| and it is Phoebe.
+
+So:
+
+| ∃x(
+| F(x)
+| ∧ Ay(F(y) → x=y
+| ∧ x=b
+| )
+
+For 25, we want to say the same, but this time, we want to say that it is
+*not* Phoebe:
+
+| There is a main character in Friends,
+| and it is the only main character in Friends,
+| and it is not Phoebe.
+
+so:
+
+| ∃x(
+| F(x)
+| ∧ Ay(F(y) → x=y
+| ∧ ¬x=b
+| )
+
+:::
+
+:::
+
+:::wrapper
+:::soasticky
+| F(x): x is foolish
+| G(x): x is brave
+| H(x): x is a person
+| a: Alana
+| b: Benj
+:::
+
+```{.Translate .FOL points=10}
+26 Ax(H(x)/\~x=a->F(x)) : Everyone but Alana is foolish.
+27 Ax(H(x)/\~x=b->~G(x)) : Nobody other than Benj is brave.
+28 Ax(G(x)->x=a\/x=b) : Only Benj and Alana are brave.
+```
+:::
+
+:::wrapper
+:::soasticky
+| F(x,y): x is bigger than y
+| I(x): x is a city in Illinois
+| a: Aurora
+| b: Rockford 
+| c: Chicago
+:::
+
+```{.Translate .FOL points=10}
+29 Ax(I(x)/\~c=x->F(a,x)) : Aurora is bigger than every city in Illinois other than Chicago
+30 ~Ex(I(x)/\F(x,b)/\~x=c/\~x=a) : No cities in Illinois are bigger than Rockford except Chicago and Aurora
+31 Ex(I(x)/\~x=c/\F(x,b)) : Some city in Illinois other than Chicago is bigger than Rockford
+```
+:::
+
+:::wrapper
+:::soasticky
+| H(x): x is a person
+| L(x,y): x loves y
+| a: me
+| b: my baby
+:::
+
+```{.Translate .FOL points=10}
+32 Ax(H(x)->L(x,b)): Everybody loves my baby 
+33 Ax(H(x)/\~x=a->~L(b,x)) : My baby doesn't love anybody but me
+34 a=b : I am my baby 
+```
+
+For more on these weird old song lyrics, see the end of [Chapter 17](17R).
+
+:::
+
+:::wrapper
+:::soasticky
+| L(x,y): x will do y for love
+| a: that
+| b: Meatloaf
+
+:::illustration
+![](https://reggienet.illinoisstate.edu/access/content/user/desanso/public/img/meatloaf.webp)
+:::
+:::
+
+```{.Translate .FOL points=10}
+35 AxL(b,x): Meatloaf will do anything for love.
+36 ~L(b,a): Meatloaf won't do that (for love).
+37 AxL(b,x)/\~L(b,a),Ax(L(b,x)/\~L(b,a)): Meatloaf will do anything for love but he won't do that (for love).
+38 Ay(~x=a -> L(b,x)): Meatloaf will do anything but that for love.
+```
+
+:::
+
+
+:::wrapper
+:::soasticky
+| F(x,y): x is bigger than y
+| G(x): x is a big city
+| I(x): x is in Illinois
+| c: Chicago
+:::
+
+```{.Translate .FOL points=10}
+39 ExEy(G(x)/\I(x)/\G(y)/\I(y)/\~x=y) : There are at least two big cities in Illinois
+40 AxAyAz(G(x)/\I(x)/\G(y)/\I(y)/\G(z)/\I(z)->x=y\/x=z\/y=z) : There are at most two big cities in Illinois
+41 ExEy(G(x)/\I(x)/\G(y)/\I(y)/\~x=y)/\AxAyAz(G(x)/\I(x)/\G(y)/\I(y)/\G(z)/\I(z)->x=y\/x=z\/y=z), ExEy(G(x)/\I(x)/\G(y)/\I(y)/\Az(G(z)/\I(z)->z=x\/z=y)) : There are exactly two big cities in Illinois
+42 Ex(G(x)/\F(x,c)) : There is at least one big city bigger than Chicago
+43 ExEy(G(x)/\G(y)/\F(x,c)/\F(y,c)/\~x=y) : There are at least two big cities bigger than Chicago
+44 ExEy(G(x)/\F(x,c)/\G(y)/\F(y,c)/\~x=y)/\AxAyAz(G(x)/\F(x,c)/\G(y)/\F(y,c)/\G(z)/\F(z,c)->x=y\/x=z\/y=x), ExEy(G(x)/\F(x,c)/\G(y)/\F(y,c)/\~x=y/\Az(G(z)/\F(z,c)->z=x\/z=y)) : There are exactly two big cities bigger than Chicago
+```
+:::
+
+:::wrapper
+::: soasticky
+| F(x) : x is a dog
+| G(x) : x is good
+| H(x) : x lives at the White House
+:::
+
+```{.Translate .FOL points=10}
+45 ~Ex(F(x)/\G(x)/\H(x)) : No good dogs live at the White House
+46 ExEy(F(x)/\H(x)/\F(y)/\H(y)/\~x=y/\G(x)/\G(y)) : At least two good dogs live at the White House 
+47 Ex(F(x)/\H(x)/\Ay(F(y)/\H(y)->x=y)/\G(x)) : The dog who lives at the White House is good
+48 ~Ex(F(x)/\H(x)/\Ay(F(y)/\H(y)->x=y)/\G(x)) : The dog who lives at the White House is not good (wide scope negation)
+49 Ex(F(x)/\H(x)/\Ay(F(y)/\H(y)->x=y)/\~G(x)) : The dog who lives at the White House is not good (narrow scope negation)
+```
+
+Here is an especially difficult argument to translate adequately into PL:
+
+> | I saw Esau kissing Kate,
+> | The fact is we all three saw;
+> | For I saw him,
+> | And he saw me,
+> | And she saw I saw Esau.
+
+Give it a try.
+
+:::wrapper
+:::soasticky
+| F(x,y): x saw y
+| G(x,y,z): x saw y kissing z
+| H(x,y,z): x saw y seeing z
+| a: me
+| b: Esau (he/him)
+| c: Kate (she/her)
+:::
+
+```{.Translate .FOL points=10}
+50 G(a,b,c) : I saw Esau kissing Kate.
+51 G(a,b,c)/\G(b,b,c)/\G(c,b,c) : We all three saw Esau kissing Kate.
+52 F(a,b): I saw him.
+53 F(b,a): He saw me.
+54 H(c,a,b): She saw I saw Esau.
+```
+
+See the trouble? Our scheme of abbreviation provides us with three logically
+unrelated predicates: F(x,y) expresses the two-place relation of someone 
+seeing someone; G(x,y,z) expresses the three-place relation of someone seeing
+someone kiss someone; and H(x,y,z) expresses the three-place relation of
+someone seeing someone seeing someone.
+
+But this can't be the right way to go about things. Seeing someone, and seeing someone
+*kissing someone* and seeing someone *seeing someone* are all logically
+related. For that matter, so is seeing someone *seeing someone kissing
+someone*, and seeing someone *seeing someone seeing someone*, and seeing
+someone *seeing someone seeing someone kissing someone* and so on.
+
+Can you come up with a scheme of abbreviation that allows us to capture this?
+Here are some ideas:
+
+-   Both *kissing* and *seeing* are actions. Our scheme above doesn't capture
+    this.
+-   *Actions* have agents, but they also have objects. So maybe 'Esau kisses
+    Kate' is an existential generalization: There is an action, it is a
+    kissing, Esau is its agent, and Kate is its object.
+-   Do you see people, or do you see actions? Or both? 'I saw Esau
+    kissing Kate' appears to say not that you see Esau, but that you see *an
+    action* that involves Esau as its agent and Kate as its object. Something like 'There is an action x, x is a seeing,
+    I am x's agent, and there is another action y, y is a kissing, Esau is y's 
+    agent, Kate is y's object, and y is the object of x.'
+-   If the object of seeing can be an action, and seeing is an action, then
+    the object of seeing can be another seeing! This should allow us to handle
+    'She saw I saw Esau (kissing her)'.
+
+:::
+
+:::soa
+| F(x): x is an action
+| G(x): x is a kissing
+| H(x): x is a seeing
+| G(x,y): x is the agent of y
+| H(x,y): x is the object of y
+| a: me
+| b: Esau (he/him)
+| c: Kate (she/her)
+:::
+
+```{.Translate .FOL points=10}
+55 Ex(F(x)/\G(x)/\G(b,x)/\H(c,x)) : Esau kisses Kate.
+```
+
+:::hint
+Remember, the idea is that kissing is an action. So 'Esau kisses Kate' says
+that there is an action, it is a kissing, Esau is its agent, and Kate is its
+object.
+:::
+
+```{.Translate .FOL points=10}
+56 Ex(F(x)/\H(x)/\G(a,x)/\Ey(F(y)/\G(y)/\G(b,y)/\H(c,y)/\H(y,x))) : I saw Esau kissing Kate.
+```
+
+:::hint
+Remember, the idea is that seeing is an action that can have an action as its
+object. So 'I saw Esau kissing Kate' says that there is an action, it is a
+seeing, I am its agent, and there is an action, Esau is its agent, it is a
+kissing, Kate is its object, and it is the object of my seeing.
+:::
+
+```{.Translate .FOL points=10}
+57 Ex(F(x)/\H(x)/\G(c,x)/\Ey(F(y)/\H(y)/\G(a,y)/\Ez(F(z)/\G(z)/\G(b,z)/\H(z,y)/\H(y,x)))): She saw I saw Esau (kissing her).
+```
+
+:::hint
+So, there is an action that is a seeing and Kate is the agent and there is an
+action that is a seeing and I am the agent and there is an action that is a
+kissing and Esau is the agent and Kate is the object, and the kissing is the
+object of my seeing and my seeing is the object of Kate's seeing. Phew.
+:::
+
+Question: Is the argument in the poem valid? I saw him (kissing Kate); He saw
+me (seeing him kissing Kate); She saw me seeing him (kissing her). So each of
+us saw *something*. But did we all see the *same* thing?
+
+The classic work arguing that the underlying logical form of English
+involves this sort of quantification over actions and events is:
+
+-   Donald Davidson (1967) "[The logical form of action
+    sentences](https://philpapers.org/rec/DAVTLF)." In Nicholas Rescher (ed.),
+    The Logic of Decision and Action. University of Pittsburgh Press.
+    pp. 81--95. (Also reprinted in his *Essays on Actions and Events*,
+    Clarendon Press (1970).)
+
+For a very clear and careful development of the idea that engages both with
+Philosophy and Linguistics, see:
+
+-   Terence Parsons (1990), *[Events in the Semantics of English: A Study in Subatomic
+    Semantics](https://philpapers.org/rec/PAREIT)*. MIT Press.
+
+Also, I first learned the 'I saw Esau' rhyme from this lovely book,
+illustrated by Maurice Sendak (the author of *Where the Wild Things Are*):
+
+-   Iona Opie (editor), Peter Opie (editor), Maurice Sendak (Illustrator)
+   *I Saw Esau: The Schoolchild's Pocket Book*, Candlewick Press, 2000.
+
+I especially adore Sendak's illustration of the old verse, 'I one my mother, I two my
+mother, etc.'
+
+:::
+
+
+<!-- vim: set ft=carnap :-->

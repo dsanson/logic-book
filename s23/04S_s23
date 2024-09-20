@@ -1,0 +1,534 @@
+---
+base-css:
+-   https://carnap.io/shared/dsanson@gmail.com/sanson-book.css
+-   https://cdn.plyr.io/3.6.12/plyr.css
+js: 
+-   https://cdn.plyr.io/3.6.12/plyr.polyfilled.js
+-   https://carnap.io/shared/dsanson@gmail.com/logic-book.js
+---
+
+# Direct Derivations: Supplement
+
+Derivations take practice! It is common for students to reach the end of the
+reading exercises just as things are *starting* to click. Those students need
+*more practice*! That's what this page is all about.
+
+Nothing here is worth any credit. It is all strictly optional.
+
+## Recognizing Inference Rules in Real Life
+
+AUC Logic is a YouTube channel with lots of fun videos about logic, created by
+students at Amsterdam University College. Many of the videos explore logical
+concepts by applying them to clips from popular movies and TV shows. They have
+a playlist, [Argument
+Schemes](https://youtube.com/playlist?list=PLM9JGRr9zKYwhmuTlM-xk0mFVjzh3-9AI){target="_blank"
+rel="noopener noreferrer"}, `<!--_-->`{=html} devoted to identifying examples
+of Modus Ponens, Modus Tollens, etc. Note that in these videos, they use 'A'
+and 'B' as sentence letters, which our system doesn't allow. Also, I don't
+*always* agree with their analysis of the movie clips.
+
+Here are their videos for Modus Ponens, Modus Tollens, Affirming the Consequent,
+Denying the Antecedent, and Double Negation Elimination:
+
+:::solution
+:::youtube
+<https://youtu.be/5o6k6pLxO60>
+:::
+:::
+
+:::solution
+::: youtube
+<https://youtu.be/jwJrSiSF_bk>
+:::
+:::
+
+:::solution
+::: youtube
+<https://youtu.be/-mD4nr3r2_Q>
+:::
+:::
+
+:::solution
+::: youtube
+<https://youtu.be/9AjmP4G_5xg>
+:::
+:::
+
+:::solution
+::: youtube
+<https://youtu.be/tCjNtZT4BHY>
+:::
+:::
+
+Each of the following inferences is an instance of one of our rules. Which one is it?
+
+``` {.QualitativeProblem .MultipleChoice submission=none options=check}
+1 If you are made of wood, then you are flammable. You are not flammable. Therefore, you are not made of wood.
+| MP
+| * MT
+| DNI
+| DNE
+2 If you weigh the same as a duck, then you float. You weigh the same as a duck. Therefore, you float.
+| *MP
+| MT
+| DNI
+| DNE
+3 You aren't not flammable. So you are flammable.
+| MP
+| MT
+| DNI
+| *DNE
+4 If you weigh the same as a duck, then you float. You don't float. So, you don't weigh the same as a duck.
+| MP
+| *MT
+| DNI
+| DNE
+5 If it doesn't rain, then it doesn't pour. It doesn't rain. So it doesn't pour.
+| *MP
+| MT
+| DNI
+| DNE
+```
+
+
+## Seeing Opportunities to Apply Rules
+
+Maybe what you really need is to break out some paper, and spend some time
+thinking about our rules. Before attempting these exercises, write down the
+four rules on a piece of paper for yourself:
+
+DNI
+:  [ ]{.P} ⊢ ¬¬[ ]{.P} 
+
+DNE
+:  ¬¬[ ]{.P} ⊢ [ ]{.P}
+
+MP
+:  [ ]{.P}→[ ]{.Q}, [ ]{.P} ⊢ [ ]{.Q}
+
+MT
+:  [ ]{.P}→[ ]{.Q}, ¬[ ]{.Q} ⊢ ¬[ ]{.P}
+
+For each of the following 
+
+(a) draw the box and circle around the antecedent and consequent of the given
+    conditional.
+(b) fill in the other boxes and circles to match.
+(c) name the rule that this is an instance of.
+
+Here are a couple of examples:
+
+:::liveshapes
+1.  P → Q, []{.P}  ⊢  []{.Q}
+:::
+
+::: youtube
+<https://www.youtu.be/71gDxuo2_lQ>
+:::
+
+:::liveshapes
+2.  P → Q, ¬[]{.Q}   ⊢ ¬[]{.P}
+:::
+
+::: youtube
+<https://www.youtu.be/uVOgc8vAhWE>
+:::
+
+:::liveshapes
+3.  Q → P, []{.P} ⊢ []{.Q}
+:::
+
+:::liveshapes
+4.  Q → P, ¬[]{.Q} ⊢ ¬[]{.P}
+:::
+
+:::liveshapes
+5.  (Q → P) → R, []{.P} ⊢ []{.Q}
+:::
+
+:::spoiler
+The trick here is to remember that a conditional can have another conditional as one of its parts. In this case, the first premise is [(Q → P)]{.P} → [R]{.Q}, and the rule is MP.
+:::
+
+:::liveshapes
+6.  R → (Q → P), []{.P} ⊢ ¬[]{.Q}
+:::
+
+:::spoiler
+This time, the conditional has another conditional as its consequent.
+The first premise is [R]{.P} → [(Q → P)]{.Q}, and the rule is again MP.
+:::
+
+:::liveshapes
+7.  (Q → P) → R, ¬[]{.Q} ⊢ ¬[]{.P}
+:::
+
+:::liveshapes
+8.  ¬P → ¬Q, []{.P} ⊢ []{.Q}
+:::
+
+
+:::spoiler
+A common mistake is to think that whenever negations are involved, it must be MT. But this is an instance of MP, not MT. There are negations, but as far as the pattern is concerned, all the negations are *inside* the boxes and circles, and so "along for the ride", rather than an essential part of the pattern.
+:::
+
+:::liveshapes
+9.  ¬P → ¬Q, ¬[]{.Q} ⊢ ¬[]{.P}
+:::
+
+:::spoiler
+This time, the negations are part of the pattern. The antecedent and consequent of the conditional are [¬P]{.P} and [¬Q]{.Q}.
+:::
+
+:::liveshapes
+10.  ¬¬P → ¬Q, ¬[]{.Q} ⊢ ¬[]{.P}
+:::
+
+:::liveshapes
+11. ¬P → ¬¬Q, []{.P} ⊢ []{.Q}
+:::
+
+:::liveshapes
+12. ¬(Q → P) → ¬R, []{.P} ⊢ []{.Q}
+:::
+
+:::liveshapes
+13. ¬(Q → P) → R, ¬[]{.Q} ⊢ ¬[]{.P}
+:::
+
+Now we take things up a notch. Fill in the boxes and circles to generate a valid instance of one of our rules:
+
+:::liveshapes
+14. []{.P} → R, P ⊢ []{.Q}
+:::
+
+:::spoiler
+[P]{.P} and [R]{.Q} gives us an instance of MP.
+:::
+
+:::liveshapes
+15. []{.P} ⊢ ¬¬Q
+:::
+
+:::liveshapes
+16. []{.P} ⊢ ¬¬(P ∧ Q)
+:::
+
+:::spoiler
+[P ∧ Q]{.P}, and the rule is DNI
+:::
+
+:::liveshapes
+17. []{.P} → []{.Q} , Q → P ⊢ R → S
+:::
+
+::: hint
+This is tricky. Remember, a conditional can have conditionals as parts.
+:::spoiler
+Try this: [(Q → P)]{.P} and [(R → S)]{.Q}. Do you see what rule it is now?
+:::
+:::
+
+:::liveshapes
+18. ¬¬¬Q ⊢ []{.P}
+:::
+
+:::spoiler
+[¬Q], and the rule is DNE.
+:::
+
+:::liveshapes
+19. []{.P} → []{.Q} , ¬(Q → P) ⊢ ¬(R → S)
+:::
+
+Again, shifting gears just a bit, for the following:
+
+(a) draw the box and circle around the antecedent and consequent of the
+    conditional;
+(b) write down the other premise you would need to apply MP, and the
+    conclusion that would follow;
+(c) write down the other premise you would need to apply MT, and the
+    conclusion that would follow.
+
+20. ¬(P → Q) → (R → T)
+
+::: youtube
+<https://www.youtu.be/MATW0Mzpavo>
+:::
+
+21. S → T
+
+:::spoiler
+To apply MP, the other premise you need is S, and the conclusion would be T.
+To apply MT, the other premise you need is ¬T, and the conclusion would be ¬S.
+:::
+
+22. ¬¬¬S → ¬¬¬T
+
+:::spoiler
+To apply MP, the other premise you need is ¬¬¬S, and the conclusion would be ¬¬¬T.
+To apply MT, the other premise you need is ¬¬¬¬T, and the conclusion would be ¬¬¬¬S.
+:::
+
+23. P → ¬Q
+24. ¬Q → P
+25. P → P
+26. (P ∧ Q) → (R ∨ S)
+27. ¬(P ∧ Q) → ¬(R ∨ S)
+28. (P ∧ Q) → ¬(R ∨ S)
+29. ¬(P ∧ Q) → (R ∨ S)
+30. Q → (P → (R → S))
+31. ((Q → P) → R) → S
+
+
+Here are some simple multiple choice questions that you can use to test your
+ability to recognize instances of our rules. As you do them, pay attention to whether you are getting most of them correct on the first try, or making a lot of mistakes. If you are making a lot of mistakes, you might go back and redo some of the exercises from above, on paper, without using a "cheatsheet".
+
+``` {.QualitativeProblem .MultipleChoice submission=none options=check}
+6 Q → R, Q ⊢ R
+| *MP
+| MT
+| DNI
+| DNE
+7 ¬Q ⊢ ¬¬¬Q
+| MP
+| MT
+| *DNI
+| DNE
+8  ¬¬(P → Q) ⊢ P → Q
+| MP
+| MT
+| DNI
+| *DNE
+9  S → T, ¬T ⊢ ¬S
+| MP
+| *MT
+| DNI
+| DNE
+10 ¬S → ¬T, ¬S ⊢ ¬T
+| *MP
+| MT
+| DNI
+| DNE
+11 ¬¬(P → Q) → R, ¬¬(P → Q) ⊢ R
+| *MP
+| MT
+| DNI
+| DNE
+12 (P → Q) → R, ¬R ⊢ ¬(P → Q)
+| MP
+| *MT
+| DNI
+| DNE
+13 If (you float if you are made of wood), then (if you are witch you are flammable). You float if you are made of wood. So, if you are a witch you are flammable.
+| *MP
+| MT
+| DNI
+| DNE
+```
+
+Some of the following are instances of MP or MT, and some of them are
+instances of the fallacies, Affirming the Consequent or Denying the
+Antecedent. Which are which?
+
+``` {.QualitativeProblem .MultipleChoice submission=none options=check}
+14 If you are a duck, you float. You float. So you are a duck.
+| MP
+| MT
+| *Affirming the Consequent
+| Denying the Antecedent
+15 If you are a duck, you float. You are a duck. So you float.
+| *MP
+| MT
+| Affirming the Consequent
+| Denying the Antecedent
+16 If you are a duck, you float. You are not a duck. So you don't float.
+| MP
+| MT
+| Affirming the Consequent
+| *Denying the Antecedent
+17 If you are a duck, you float. You don't float. So you aren't a duck.
+| MP
+| *MT
+| Affirming the Consequent
+| Denying the Antecedent
+18 P → Q, Q ⊢ P
+| MP
+| MT
+| *Affirming the Consequent
+| Denying the Antecedent
+19 Q → P, Q ⊢ P
+| *MP
+| MT
+| Affirming the Consequent
+| Denying the Antecedent
+20 Q → P, ¬Q ⊢ ¬P
+| MP
+| MT
+| Affirming the Consequent
+| *Denying the Antecedent
+21 Q → P, ¬P ⊢ ¬Q
+| MP
+| *MT
+| Affirming the Consequent
+| Denying the Antecedent
+22 P → Q, ¬P ⊢ ¬Q
+| MP
+| MT
+| Affirming the Consequent
+| *Denying the Antecedent
+23 R → P, ¬P ⊢ ¬R
+| MP
+| *MT
+| Affirming the Consequent
+| Denying the Antecedent
+```
+
+## Spot the Mistake
+
+Sometimes it is hard to come up with an entire derivation on your own. Here is an easier challenge. Each of the following derivations contains just one error. Fix the error to complete the derivation.
+
+
+``` {.ProofChecker .Prop options="guides fonts indent tabindent resize" submission=none}
+24 P, P->Q :|-: Q
+|1.Show: Q
+|2.   P       :PR
+|3.   P->Q    :PR
+|4.   Q       :MT 2,3
+|5.:DD 4
+```
+
+``` {.ProofChecker .Prop options="guides fonts indent tabindent resize" submission=none}
+25 P, P->Q :|-: ~~Q
+|1.Show: ~~Q
+|2.   P       :PR
+|3.   P->Q    :PR
+|4.   Q       :MP 2,3
+|5.   ~~Q     :DNE 3,4
+|6.:DD 5
+```
+
+``` {.ProofChecker .Prop options="guides fonts indent tabindent resize" submission=none}
+26 P->Q, ~~P :|-: Q
+|1.Show: Q
+|2.   P       :PR
+|3.   P->Q    :PR
+|4.   Q       :MP 2,3
+|5.:DD 4
+```
+
+``` {.ProofChecker .Prop options="guides fonts indent tabindent resize" submission=none}
+27 P->Q, ~Q :|-: ~P
+|1.Show: ~P
+|2.   ~Q      :PR
+|3.   P->Q    :PR
+|4.   ~P      :MP 2,3
+|5.:DD 4
+```
+
+Now some derivations that might have more than one mistake, or have mistakes that require more complicated fixes.
+
+``` {.ProofChecker .Prop options="guides fonts indent tabindent resize" submission=none}
+28 P->Q, Q->R, P :|-: R
+|1.Show: R
+|2.   P->Q    :PR
+|3.   Q->R    :PR
+|4.   P       :PR
+|5.   R       :MP 2,3,4
+|6.:DD 5
+```
+
+``` {.ProofChecker .Prop options="guides fonts indent tabindent resize" submission=none}
+29 ~~Q, ~P->~Q :|-: P
+|1.Show: P
+|2.   Q       :PR
+|3.   ~P->~Q  :PR
+|4.   P       :MT 2,3
+|5.:DD 4
+```
+
+
+``` {.ProofChecker .Prop options="guides fonts indent tabindent resize" submission=none}
+30 P, Q, Q->(P->R) :|-: R
+|1.Show: R
+|2.   P         :PR
+|3.   Q         :PR
+|4.   Q->(P->R) :PR
+|5.   R         :MP 2,3,4
+|6:DD 5
+31 P, P->(P->R) :|-: R
+|1.Show R
+|2.   P :PR
+|3.   P->(P->R) :PR
+|4.   R    :MP 2,3
+|5.:DD 4
+32 P, Q->~P :|-: ~Q
+|1.Show ~~Q
+|2.  Q->~P :PR
+|3.  P     :PR
+|4.  ~Q    :MT 2,3
+|5.:DD 4
+33 ~~R, ~~R->~~S :|-: S
+|1.Show ~~S
+|2.  ~~R      :PR
+|3.  ~~R->~~S :PR
+|4.  ~~S      :MP 2,3
+|5.:DD 4
+```
+
+## Derivations
+
+Okay. Here is a big pile of derivations that you can use to practice.
+
+``` {.ProofChecker .Prop options="guides fonts indent tabindent resize" submission=none}
+34 R->Q, Q->P, R :|-: P
+35 R->Q, Q->P, ~P :|-: ~R 
+36 P, ~~P->~~Q :|-: Q
+37 P, P->~~Q :|-: Q
+38 P, ~~P->Q :|-: Q
+39 ~~P, P->Q :|-: ~~Q
+40 P, Q->~P :|-: ~Q
+41 Q, ~P->~Q :|-: P
+42 P, ~~Q->~P :|-: ~Q
+43 ~P, Q->P, R->Q :|-: ~R
+44 ~(P->Q)->R, ~R, P :|-: Q
+45 P->Q, ~Q, ~P->R :|-: R
+46 ~P, Q->P, R->Q :|-: ~R
+47 ~(P->Q)->R, ~R, P :|-: Q
+48 (P->Q)->(Q->R), Q->(P->Q), Q :|-: R
+49 ~(P->Q)->(Q->R), P->~(Q->R), P :|-: Q
+```
+
+## Playground
+
+The box below is a "playground". If you want to work on a problem of your own
+creation, you can do so. Just start by entering the appropriate show line, and
+proceed as usual. Since the "playground" doesn't know what you are trying to
+do, it will not turn green to indicate correctness. Instead, if you succeed at
+establishing the validity of an argument, the argument will the show up at the
+top of the proof (where a problem would ordinarily appear).
+
+``` {.Playground .Prop options="guides fonts indent tabindent resize"}
+```
+
+# Arguments
+
+Sometimes it really helps to make things concrete. Below are some arguments in
+English. Translate into SL. Then, using the playground, construct a derivation
+to show that the argument is valid.
+
+1.  If you are a witch, you float. If you float, you weight the same as a
+    duck. If you
+    weigh the same as a duck, then you are flammable. You are not flammable.
+    Therefore, you are not a witch.
+2.  If you are a witch if you float, then if you are a witch you way the same
+    as a duck. It is not the case that if you are a witch you weigh the same
+    as a duck. So,
+    it is not the case that if you float, you are a witch.
+3.  You are a witch only if you float. You float only if you weigh the same as
+    a duck. You don't weigh the same as a duck. So, you are not a witch.
+4.  Provided that you are a witch only if you float, you are not a witch. You
+    are a witch. So it is not the case that if you are a witch, you float.
+
+
+<!-- vim: set ft=carnap :-->

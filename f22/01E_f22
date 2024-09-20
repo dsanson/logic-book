@@ -1,0 +1,431 @@
+---
+base-css:
+-   https://carnap.io/shared/dsanson@gmail.com/sanson-book.css
+-   https://cdn.plyr.io/3.6.12/plyr.css
+js: 
+-   https://cdn.plyr.io/3.6.12/plyr.polyfilled.js
+-   https://carnap.io/shared/dsanson@gmail.com/logic-book.js
+---
+
+
+# Logic and Arguments: Exercises
+
+## Identifying Premises and Conclusions
+
+::: example
+Waging war is always wrong, because it involves killing human beings.
+:::
+
+```{.QualitativeProblem .MultipleChoice points=10}
+1 The conclusion of this argument is:
+| *Waging war is always wrong.
+| Waging war involves killing human beings.
+| Killing human beings is always wrong.
+| Waging war is always wrong because it involves killing human beings.
+2 A premise of this argument is:
+| Waging war is always wrong.
+| *Waging war involves killing human beings.
+| Waging war is always wrong because it involves killing human beings.
+```
+
+```{.QualitativeProblem .ShortAnswer give-credit="onSubmission" points=10}
+3 Rewrite the argument in standard form.
+```
+
+::: example
+In 1950, the population of the world was about 2.5 billion. In 1967, the
+population of the world was almost 3.5 billion. In 1980, the population of the
+world was almost 5.5 billion. In 2007, it was 6.6 billion. So, the population
+of the world has grown both steadily and rapidly since 1950.
+:::
+
+```{.QualitativeProblem .MultipleChoice points=10}
+4 The conclusion of this argument is:
+| In 1950, the population of the world was about 2.5 billion. 
+| In 1967, the population of the world was almost 3.5 billion. 
+| In 1980, the population of the world was almost 5.5 billion.
+| In 2007, the population of the world was almost 6.6 billion.
+| *The population of the world has grown both steadily and rapidly since 1950.
+```
+
+```{.QualitativeProblem .MultipleSelection points=10}
+5 The premises of this argument are (select all correct answers):
+| *In 1950, the population of the world was about 2.5 billion. 
+| *In 1967, the population of the world was almost 3.5 billion. 
+| *In 1980, the population of the world was almost 5.5 billion.
+| *In 2007, the population of the world was almost 6.6 billion.
+| The population of the world has grown both steadily and rapidly since 1950.
+```
+
+```{.QualitativeProblem .ShortAnswer give-credit="onSubmission" points=10}
+6 Rewrite the argument in standard form.
+```
+
+::: example
+Either James died because he was shot or James died because he was hanged.
+Since James didn't die because he was hanged, he died because he was shot.
+:::
+
+```{.QualitativeProblem .MultipleSelection points=10}
+7 The premises of this argument are (select all correct answers):
+| *Either James died because he was shot or James died because he was hanged.
+| James died because he was hanged.
+| Since James didn't die because he was hanged, he died because he was shot.
+| *James didn't die because he was hanged
+| James died because he was shot.
+```
+
+```{.QualitativeProblem .MultipleChoice points=10}
+8 The conclusion of this argument is: 
+| Either James died because he was shot or James died because he was hanged.
+| James died because he was hanged.
+| Since James didn't die because he was hanged, he died because he was shot.
+| James didn't die because he was hanged
+| *James died because he was shot.
+```
+ 
+```{.QualitativeProblem .ShortAnswer give-credit="onSubmission" points=10}
+9 Rewrite the argument in standard form.
+```
+
+::: example
+If it is permissible for humans to eat animals, then it would be permissible
+for super-intelligent extraterrestrials to eat humans. But that wouldn't be
+permissible. So it isn't permissible for humans to eat animals.
+:::
+
+
+```{.QualitativeProblem .MultipleChoice points=10}
+10 The conclusion of this argument is: 
+| If it is permissible for humans to eat animals, then it would be permissible for super-intelligent extraterrestrials to eat humans. 
+| It is permissible for humans to eat animals
+| It would be permissible for super-intelligent extraterrestrials to eat humans. 
+| It wouldn't be permissible for super-intelligent extraterrestrials to eat humans.
+| *It isn't permissible for humans to eat animals.
+```
+
+```{.QualitativeProblem .MultipleSelection points=10}
+11 The premises of this argument are (select all correct answers):
+| *If it is permissible for humans to eat animals, then it would be permissible for super-intelligent extraterrestrials to eat humans. 
+| It is permissible for humans to eat animals
+| It would be permissible for super-intelligent extraterrestrials to eat humans. 
+| *It wouldn't be permissible for super-intelligent extraterrestrials to eat humans.
+| It isn't permissible for humans to eat animals.
+``` 
+
+```{.QualitativeProblem .ShortAnswer give-credit="onSubmission" points=10}
+12 Rewrite the argument in standard form.
+```
+
+::: example
+Blindly clicking answers to these exercises until you get them right will get
+you *points* but not *practice*. But you need practice in order to do well on
+the mastery check. So you should not blindly click answers to these exercises
+until you get them right.
+:::
+
+
+```{.QualitativeProblem .MultipleChoice points=10}
+13 The conclusion of this argument is: 
+| Blindly clicking answers to these exercises until you get them right will get you *points* but not *practice*. 
+| You need practice in order to do well on the mastery check. 
+| *You shouldn't blindly click answers to these exercises until you get them right.
+```
+
+```{.QualitativeProblem .MultipleSelection points=10}
+14 The premises of this argument are (select all correct answers):
+| *Blindly clicking answers to these exercises until you get them right will get you *points* but not *practice*. 
+| *You need practice in order to do well on the mastery check. 
+| You shouldn't blindly click answers to these exercises until you get them right.
+``` 
+
+```{.QualitativeProblem .ShortAnswer give-credit="onSubmission" points=10}
+15 Rewrite the argument in standard form.
+```
+
+
+::: example
+Be a doctor! You've got the talent. You would enjoy the work. You could help
+many people. And you could make a lot of money!
+:::
+
+```{.QualitativeProblem .MultipleChoice points=10}
+16 The conclusion of this argument is: 
+| *You ought to be a doctor.
+| You have the talent to be a doctor.
+| You would enjoy the work of a doctor.
+| You could help many people as a doctor.
+| You could make a lot of money as a doctor.
+```
+
+```{.QualitativeProblem .MultipleSelection points=10}
+17 The premises of this argument are (select all correct answers):
+| You ought to be a doctor.
+| *You have the talent to be a doctor.
+| *You would enjoy the work of a doctor.
+| *You could help many people as a doctor.
+| *You could make a lot of money as a doctor.
+``` 
+
+```{.QualitativeProblem .ShortAnswer give-credit="onSubmission" points=10}
+18 Rewrite the argument in standard form.
+```
+
+::: example
+Capital punishment is wrong because all killing is wrong.
+:::
+
+``` {.QualitativeProblem .MultipleChoice points="10"}
+19 The conclusion of this argument is: 
+| Capital punishment is wrong because all killing is wrong.
+| *Capital punishment is wrong.
+| All killing is wrong.
+```
+
+```{.QualitativeProblem .MultipleSelection points=10}
+20 The premises of this argument are (select all correct answers):
+| Capital punishment is wrong because all killing is wrong.
+| Capital punishment is wrong.
+| *All killing is wrong.
+```
+
+```{.QualitativeProblem .ShortAnswer give-credit="onSubmission" points=10}
+21 Rewrite the argument in standard form.
+```
+
+## Recognizing Validity and Soundness
+
+<!-- ::: standardform -->
+<!-- -  Normal is a city in Illinois. -->
+<!-- -  Chicago is a city in Illinois. -->
+<!-- -  Illinois is in the Midwest. -->
+<!-- ::: -->
+
+```{.QualitativeProblem .MultipleSelection points=10}
+22 <div class="standardform"> <ul> <li>Normal is a city in Illinois.</li> <li>Chicago is a city in Illinois.</li> <li>Illinois is in the Midwest.</li> </ul> </div>
+| *All of the premises of this argument are actually true.
+| *The conclusion of this argument is actually true.
+| This argument is valid.
+| This argument is sound.
+```
+
+:::{.reaction .correct ex=22}
+This argument has true premises and a true conclusion, but the
+conclusion does not follow from the premises. More specifically, in terms
+of our definition of validity, the premises could both be true, but the
+conclusion false. 
+
+To see this, imagine a possibility in which the premises are
+true but the conclusion false. For example, imagine that US westward expansion ended in the early 19th
+century, making the western border of Illinois the western border of the US.
+So the conclusion is false. But suppose that, in this possible situation,
+Chicago and Normal develop more or less the same way they actually did. So
+both the premises are true.
+
+Since the argument is not valid, it is not sound: to be sound, an argument
+must both be valid AND have all true premises.
+:::
+
+<!-- ::: standardform -->
+<!-- -   Normal is a city in Indiana -->
+<!-- -   Chicago is a city in Indiana -->
+<!-- -   Indiana is a state -->
+<!-- -   Normal and Chicago are both cities in the same state -->
+<!-- ::: -->
+
+```{.QualitativeProblem .MultipleSelection points=10}
+23 <div class="standardform"> <ul> <li>Normal is a city in Indiana</li> <li>Chicago is a city in Indiana</li> <li>Indiana is a state</li> <li>Normal and Chicago are both cities in the same state</li> </ul> </div>
+| All of the premises of this argument are actually true.
+| *The conclusion of this argument is actually true.
+| *This argument is valid.
+| This argument is sound.
+```
+
+:::{.reaction .correct ex=23}
+This argument has a true conclusion, but its first two premises are false. But that
+doesn't tell us whether or not it is valid. To figure that out, we need to
+think about whether the conclusion *follows* from the premises, in the sense
+defined by our definition of validity: is it *possible* for the premises to
+all be true, but the conclusion false?
+
+No, this is not possible: any possibility that makes it true that Normal and
+Chicago are both cities in Indiana, and holds true the fact that Indiana is a
+state, is also going to make it true that Normal and Chicago are cities in the
+same state. So the argument is valid, because it is impossible for the
+premises to all be true, but the conclusion false.
+
+The argument is not sound, because it has false premises. In order for an
+argument to be sound, it must both be valid AND have all true premises.
+:::
+
+<!-- ::: standardform -->
+<!-- -   Biden is President -->
+<!-- -   If Biden is President, a Democrat is President -->
+<!-- -   A Democrat is President -->
+<!-- ::: -->
+
+
+```{.QualitativeProblem .MultipleSelection points=10}
+24 <div class="standardform"> <ul> <li>Biden is President</li> <li>If Biden is President, a Democrat is President</li> <li>A Democrat is President</li> </ul> </div>
+| *All of the premises of this argument are actually true.
+| *The conclusion of this argument is actually true.
+| *This argument is valid.
+| *This argument is sound.
+```
+
+:::{.reaction .correct ex=24}
+This argument is valid, and the premises are all true. So it is also sound.
+:::
+
+<!-- ::: standardform -->
+<!-- -   Trump is President -->
+<!-- -   If Trump is President, a Republican is President -->
+<!-- -   A Republican is President -->
+<!-- ::: -->
+
+
+
+```{.QualitativeProblem .MultipleSelection points=10}
+25 <div class="standardform"> <ul> <li>Trump is President</li> <li>If Trump is President, a Republican is President</li> <li>A Republican is President</li> </ul> </div>
+| All of the premises of this argument are actually true.
+| The conclusion of this argument is actually true.
+| *This argument is valid.
+| This argument is sound.
+```
+
+:::{.reaction .correct ex=25}
+This argument is also valid. Notice that it has the same logical form as the
+previous argument, about Biden. Arguments with this logical form are valid in
+virtue of their form---that is, they are formally valid. But in this case, the
+first premise is false. So the argument is not sound.
+:::
+
+<!-- ::: standardform -->
+<!-- -   A Democrat is President -->
+<!-- -   If Biden is President, a Democrat is President -->
+<!-- -   Biden is President -->
+<!-- ::: -->
+
+
+
+```{.QualitativeProblem .MultipleSelection points=10}
+26 <div class="standardform"> <ul> <li>A Democrat is President</li> <li>If Biden is President, a Democrat is President</li> <li>Biden is President</li> </ul> </div>
+| *All of the premises of this argument are actually true.
+| *The conclusion of this argument is actually true.
+| This argument is valid.
+| This argument is sound.
+```
+
+:::{.reaction .correct ex=26}
+This argument is not valid. Compare its form to the form of the previous two
+arguments. Those arguments had this logical form:
+
+::: standardform
+| [$P$]{.premise .nn}
+| [If $P$, $Q$]{.premise .nn}
+| [$Q$]{.conclusion}
+:::
+
+This argument has a similar, but importantly different, logical form:
+
+::: standardform
+| [$P$]{.premise .nn}
+| [If $Q$, $P$]{.premise .nn}
+| [$Q$]{.conclusion}
+:::
+
+Arguments with first form are formally valid. Arguments with this second form
+are not formally valid.
+
+Do you see why the argument is not valid? Imagine that some other Democrat had
+won the primary, and then won the election. Then the premises would both still
+be true, but the conclusion would be false.
+:::
+
+<!-- ::: standardform -->
+<!-- -   Biden is President -->
+<!-- -   Biden is not President -->
+<!-- -   Grass is green -->
+<!-- ::: -->
+
+
+```{.QualitativeProblem .MultipleSelection points=10}
+27 <div class="standardform"> <ul> <li>Biden is President</li> <li>Biden is not President</li> <li>Grass is green</li> </ul> </div>
+| All of the premises of this argument are actually true.
+| *The conclusion of this argument is actually true.
+| *This argument is valid.
+| This argument is sound.
+```
+
+:::{.reaction .correct ex=27}
+This is a degenerate case of validity. To see that it is valid, think hard
+about the definition of validity. Is there a possible situation in which the
+premises are all true while the conclusion is false?
+:::
+
+## Thinking about the Definitions of Validity and Soundness
+
+Recall these two definitions:
+
+An argument is [valid]{.vocab} if and only if it is impossible for all the
+premises to be true while the conclusion is false.]{.def} 
+
+[An argument is [sound]{.vocab} if and only if it is valid and all of
+its premises are actually true.
+
+Here are some questions meant to help you think more about what these
+definitions mean.
+
+```{.QualitativeProblem .MultipleChoice points=10}
+28 Suppose an argument has a false premise. This means that:
+| it is not valid.
+| *it is not sound.
+| none of the above.
+```
+
+:::{.reaction .correct ex=28}
+For an argument to be *sound*, all of its premises must be true. So, if the
+argument has a false premise, we know that it is not sound.
+
+Lots of valid arguments have false premises. For example:
+
+:::standardform
+-   Normal is either in Illinois or Indiana.
+-   Normal is not in Illinois.
+-   Normal is in Indiana.
+:::
+
+This argument is valid, even though the second premise is false. That's
+because, if the premises *were* true, the conclusion *would have to be* true
+too.
+:::
+
+```{.QualitativeProblem .MultipleChoice points=10}
+29 Suppose an argument has a true conclusion. This means that:
+| it is not valid.
+| it is not sound.
+| *none of the above.
+```
+
+:::{.reaction .correct ex=29}
+An argument can have a true conclusion, even though it is neither valid nor
+sound. Here is trivial an example:
+
+:::standardform
+-   Snow is white.
+-   Grass is green.
+-   Birds are not mammals.
+:::
+
+The conclusion of this argument is true. But the argument is not valid, and it
+is not sound.
+:::
+
+```{.QualitativeProblem .MultipleChoice points=10}
+30 Suppose an argument has true premises and a true conclusion. This means that:
+| it is not valid.
+| it is not sound.
+| *none of the above.
+```
+
+<!-- vim: set ft=carnap :-->

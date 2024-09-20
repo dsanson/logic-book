@@ -1,0 +1,130 @@
+---
+- title: "About this book"
+  slug: about
+- title: "Syllabus"
+  slug: 00
+  points: 200
+  mastery:
+    points: 30
+    key: example
+    time: 20
+- title: "Logic and arguments"
+  slug: 01
+  points: 200
+  mastery:
+    points: 30
+    key: arguments
+    time: 30
+- title: "The Language of SL"
+  slug: 02
+  points:
+  mastery:
+    points:
+    key:
+    time:
+- title: "Translation in SL"
+  slug: 03
+  points:
+  mastery:
+    points:
+    key:
+    time:
+- title: "Inference Rules for Negations and Conditionals"
+  slug: 04
+  points:
+  mastery:
+    points:
+    key:
+    time:
+- title: "Direct Derivations"
+  slug: 05
+  points:
+  mastery:
+    points:
+    key:
+    time:
+- title: "Truth Tables for Sentences"
+  slug: 06
+  points:
+  mastery:
+    points:
+    key:
+    time:
+- title: "Derivations with Assumptions"
+  slug: 07
+  points:
+  mastery:
+    points:
+    key:
+    time:
+- title: "Truth Tables for Arguments"
+  slug: 08
+  points:
+  mastery:
+    points:
+    key:
+    time:
+- title: "Translation in SL, continued"
+  slug: 09
+  points:
+  mastery:
+    points:
+    key:
+    time:
+- title: "Derivations with '∧', '∨', and '↔'"
+  slug: 10
+  points:
+  mastery:
+    points:
+    key:
+    time:
+- title: "Harder derivations and derived rules"
+  slug: 11
+  points:
+  mastery:
+    points:
+    key:
+    time:
+- title: "The language of PL"
+  slug: 12
+  points:
+  mastery:
+    points:
+    key:
+    time:
+- title: "Translation in PL"
+  slug: 13
+  points:
+  mastery:
+    points:
+    key:
+    time:
+- title: "Derivations in PL"
+  slug: 14
+  points:
+  mastery:
+    points:
+    key:
+    time:
+- title: "Countermodels in PL"
+  slug: 15
+  points:
+  mastery:
+    points:
+    key:
+    time:
+- title: "Relations and Identity"
+  slug: 16
+  points:
+  mastery:
+    points:
+    key:
+    time:
+- title: "Derivations with Relations and Identity"
+  slug: 17
+  points:
+  mastery:
+    points:
+    key:
+    time:
+... 

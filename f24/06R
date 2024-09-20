@@ -1,0 +1,1211 @@
+---
+base-css:
+-   https://carnap.io/shared/dsanson@gmail.com/sanson-book.css
+-   https://cdn.plyr.io/3.6.12/plyr.css
+js: 
+-   https://cdn.plyr.io/3.6.12/plyr.polyfilled.js
+-   https://carnap.io/shared/dsanson@gmail.com/logic-book.js
+---
+
+::: cover
+
+# Derivations with Assumptions
+
+[![Hypotheticals](https://imgs.xkcd.com/comics/hypotheticals.png){title="What
+if someone broke out of a hypothetical situation in your room right now?"
+alt="An XKCD comic. Cueball is holding up his hand towards Beret Guy, who
+talks to him. From Beret Guy's head go three bubbles to a big thought bubble,
+where the next part of the comic takes place. Beret Guy: 'What if I had some
+ice cream? Wouldn't that be awesome?' Cueball: 'No, stop-' The comic continues
+inside Beret Guy's thought bubble. The two characters have switched places,
+and Beret Guy is now eating from an ice cream cone. Cueball is holding his
+hand to his chin, and from his head go four bubbles to a thought bubble in the
+lower right corner, where the last part of the comic takes place. Cueball:
+'Great, you've trapped us in a hypothetical situation!' Beret Guy: 'Mmm, ice
+cream.' Cueball: 'Maybe if I had a knife I could cut our way free...' Inside
+Cueball's thought bubble, Beret Guy continues to eat his ice cream, but
+Cueball has cut a hole through the last thought bubble with a knife and is
+handing it to the Cueball who thinks about this. Beret Guy: 'Mmm, ice cream!'
+Cueball: 'Here, take this one.'"}](https://xkcd.com/248){target="_blank"
+rel="noopener noreferrer"}<!--_-->
+
+:::
+
+## Introduction
+
+In this chapter, we introduce the idea that, in the context of a derivation,
+it sometimes makes sense to temporarily make an assumption for the sake of
+argument. Specifically, we introduce two new methods of derivation:
+
+Conditional Derivation (CD)
+:   To show a conditional, assume its antecedent and derive its consequent.
+
+Indirect Derivation (ID)
+:   To show a negation, assume the negated sentence and derive a contradiction.
+
+Sometimes people say that you can't prove a hypothetical, or that it is
+impossible to prove a negative. But they are wrong: CD is a method for proving
+hypotheticals, and ID is a method for proving negations.
+
+We also introduce the idea that one derivation can be nested inside another.
+We call a derivation nested inside another derivation a
+[subderivation]{.vocab}:
+
+Subderivation
+:   A derivation that is nested inside of another derivation.
+
+These new methods increase the power of our system of derivation. Using them,
+it becomes possible to derive conclusions from no premises at all. We these
+[theorems]{.vocab} of SL:
+
+Theorem of SL
+:   A sentence in SL that can be derived as the conclusion of an argument with no premises.
+
+The specific learning objectives for this unit are:
+
+a.  I can complete simple conditional and indirect derivations.
+b.  I can complete derivations that require subderivations.
+c.  I can derive some basic theorems of SL
+
+## Conditional Derivations
+
+[Sometimes people say]{.newthought} it is impossible to prove a hypothetical. 
+If they were right, the logic of conditionals would not be very interesting.
+But they are wrong, and the logic of conditionals is quite interesting.
+
+Here is a mini lecture, introducing conditional derivations:
+
+::: solution
+::: youtube
+<https://youtu.be/1TwcOkVIgsE>
+:::
+:::
+
+We start with an example:
+
+::: standardform
+1.  If she swallows a fly, then she swallows a spider.
+2.  If she swallows a spider, then she swallows a bird.
+3.  If she swallows a fly, then she swallows a bird.
+:::
+
+```{.QualitativeProblem .ShortAnswer give-credit="onSubmission" points=10}
+1 Suppose someone wasn't sure whether or not this conclusion follows from these premises. Try to explain to them why it follows, and the argument is valid.
+```
+
+:::{.reaction .correct ex=1}
+There are many ways you might try to explain this.
+
+Here is an informal explanation:
+
+> Assume for the sake of argument that the old lady does swallow a fly. From
+> (1), it follows that she will also swallow a spider. And from that and (2),
+> it follows that she will also swallow a bird. So, *if* we assume she does
+> swallow a fly, *then* it follows that she ends up swallowing a bird. QED.
+
+:::
+
+Before going any further, let's isolate the *logical form* of this argument, by translating it into SL.
+
+:::::: wrapper
+
+::: soasticky
+| P: She swallows a fly.
+| Q: She swallows a spider.
+| R: She swallows a bird.
+:::
+
+```{.Translate .Prop points=10}
+2 P->Q: If she swallows a fly, then she swallows a spider.
+3 Q->R: If she swallows a spider, then she swallows a bird.
+4 P->R: If she swallows a fly, then she swallows a bird.
+```
+
+::: solution
+![Solutions to 2, 3, and
+4](https://dsanson.github.io/logic-materials/vid/sym_she_swallows_a_bird.mp4)
+:::
+
+:::: {.reaction .correct ex="4"}
+Great! Here is the argument, in SL:
+
+::: standardform
+-   P → Q
+-   Q → R
+-   P → R
+:::
+::::
+
+Abstracting from the specific sentences, the form of the argument looks like this:
+
+::: standardform
+-   []{.P} → []{.Q}
+-   []{.Q} → []{.R}
+-   []{.P} → []{.R}
+:::
+
+At this point, we *could* introduce this as a new inference rule. It is a
+well-known pattern of argument, traditionally called [Hypothetical
+Syllogism]{.vocab}. And it reflects the intuitive idea that our conditional is
+*transitive*: if P implies Q, and Q implies R, then P implies R.
+
+(A [syllogism]{.vocab} is an argument that has exactly two premises. This has
+some historical importance, because Aristotle's logic focused on syllogisms,
+rather than arguments in general. But the distinction between syllogism and
+other arguments has little importance in contemporary logic.)
+
+But we are going to do something more general and powerful, introducing a
+method of derivation that mirrors the informal reasoning offered above, to
+show that if we assume the lady swallows a fly, it follows that she ends up
+swallowing a bird. As a first step, here is that reasoning again, presented a
+bit more formally:
+
+::: proof
+1.  [If she swallows a fly, then she swallows a bird.]{.show}
+2.  [She swallows a fly. [Assume for sake of argument]{.just}]{.indent}
+3.  [If she swallows a fly, then she swallows a spider. [PR]{.just}]{.indent}
+4.  [If she swallows a spider, then she swallows a bird. [PR]{.just}]{.indent}
+5.  [She swallows a spider. [MP 2,3]{.just}]{.indent}
+6.  [She swallows a bird. [MP 4,5]{.just}]{.indent}
+7.  [:Conditional Derivation 6]{.qed}
+:::
+
+This differs from the derivations we've seen before in two ways. First, on
+line (2), we made a new kind of move: we *assumed* something for the sake of
+argument. And on line (7), we offered a new kind of QED line, asserting that,
+by reasoning from the antecedent of our show line to its consequent, we have
+thereby shown the conditional on our show line.
+
+In our formal system, we justify assumptions by just writing 'AS', which is
+short for "assume for the sake of argument". And we use the abbreviation "CD"
+on our QED line, which stands for "Conditional Derivation". Try it yourself,
+in Carnap, and, of course, watch the video if you run into trouble.
+
+```{.ProofChecker .Prop options="guides fonts indent tabindent resize" points=10 video="derCPQ_CQR_CPR.mp4"}
+5 P->Q, Q->R :|-: P->R
+```
+
+::::::
+
+A second example: Suppose I want to convince you that,
+
+::: example
+-   If God exists, then we are not free.
+:::
+
+Again, this is a conditional, or, as people sometimes say, a hypothetical. I am not saying that God *does* exist. I am not saying that we *aren't* free. I'm just saying that *if* God exists *then* we aren't free. Here is my argument:
+
+::: standardform
+1.  If God exists, then She controls everything.
+2.  If She controls everything, then everything is part of Her plan.
+3.  We are free only if we can make our own choices.
+4.  If everything is part of God's plan, we cannot make our own
+    choices.
+5.  If God exists, then we are not free.
+:::
+
+Here is how I might try to convince you that the conclusion follows from the premises:
+
+> Assume, for the sake of argument, that God does exist. Then it follows from
+> that and (1) that She controls everything, and it follows from that and (2)
+> that everything that happens is part of Her plan, and it follows from that
+> and (4) that we cannot make our own choices. Finally, it follows from that
+> and (3) that we are not free. So, given my premises, we can reason from the
+> assumption that God exists to the conclusion that we are not free. In other
+> words, given my premises, *if* God exists, *then* we are not free. QED.
+
+The basic structure of this "proof" is the same as the structure of our proof
+about the old lady who swallowed a fly. To prove that a conditional is true,
+we *assume* its antecedent, and *reason to* its consequent. If we succeed,
+that proves that *if* the antecedent were true, *then* the conclusion would be
+true. And that's exactly what we were trying to prove.
+
+Here is that same reasoning, presented more formally:
+
+::: proof
+1.  [If God exists, we are not free.]{.show}
+2.  [God exists. [AS]{.just}]{.indent}
+3.  [If She exists, then She controls everything. [PR]{.just}]{.indent}
+4.  [She controls everything. [MP 2,3]{.just}]{.indent}
+5.  [If She controls everything, then everything that happens is part of Her
+    plan. [PR]{.just}]{.indent}
+6.  [Everything that happens is part of Her plan. [MP 4,5]{.just}]{.indent}
+7.  [If everything that happens is part of Her plan, then we cannot make our
+    own choices. [PR]{.just}]{.indent}
+8.  [We cannot make our own choices. [MP 6,7]{.just}]{.indent}
+9.  [We are free only if we can make our own choices. [PR]{.just}]{.indent}
+10. [We are not free. [MT 8,9]{.just}]{.indent}
+11. [:CD 10]{.qed}
+:::
+
+Before we can render this proof as a derivation in Carnap, we need to translate the premises and conclusion into SL:
+
+:::::: wrapper
+
+::: soasticky
+| P: God exists
+| Q: God controls everything.
+| R: Everything that happens is part of God's plan.
+| S: We can make our own choices.
+| T: We are free.
+:::
+
+```{.Translate .Prop points=10}
+6 P->Q: If God exists, She controls everything.
+7 Q->R: If God controls everything, everything that happens is part of Her plan.
+8 T->S: We are free only if we can make our own choices.
+9 R->~S: If everything that happens is part of God's plan, then we cannot make our own choices.
+10 P->~T: If God exists, we are not free.
+```
+
+::: solution
+![Solutions to
+6-10](https://dsanson.github.io/logic-materials/vid/sym_god_exists_argument.mp4)
+:::
+
+:::::: {.reaction .correct ex="10"}
+
+So here is the entire argument in SL:
+
+:::standardform
+-   P → Q
+-   Q → R
+-   T → S
+-   T → ¬S
+-   P → ¬T
+:::
+
+::::
+
+Now we can attempt the derivation. If you get stuck, look back at the informal
+version of the proof presented above. If you are still stuck after that, you
+can of course watch the video.
+
+```{.ProofChecker .Prop options="guides fonts indent tabindent resize" points=10 video="derifgodexiststhenwearenotfree.mp4"}
+11 P->Q,Q->R,T->S,R->~S :|-: P->~T
+```
+
+::::::
+
+
+This pattern of thought---
+ temporarily assume something is true,
+ in order to reason out what would follow---
+ is quite common.
+Think about what it is like to play tic-tac-toe.
+Suppose you are X, and it is your turn, and board looks like this:
+
+:::illustration
+![Tic Tac
+Toe](https://carnap.io/static/img/tictactoe.svg){style="max-width:5em"}
+:::
+
+```{.QualitativeProblem .ShortAnswer give-credit="onSubmission" points=10}
+12 What's your next move?
+```
+
+::::{.reaction .correct ex=12}
+
+Think about your thought process,
+ as you figured out your next move.
+You likely imagined several different possible moves.
+Maybe your interior monologue went something like this:
+
+> *Suppose I play the top left square. Then I'd be able to win on my next
+> turn, by playing the middle left square. But I would never get a chance,
+> because O would play the center square, and win before I got the chance.*
+>
+> *Oh! Suppose I play the middle square. Then O can't win on the next play.
+> Instead, O will have to play in the top right corner to block me. But then I
+> can still win by playing the top left corner. Oh! Either way, I will win if
+> I play the middle square.*
+
+That reasoning involves a bunch of conditionals, including:
+
+:::example
+-   If I play the top left square, then I will lose.
+-   If I play the middle square, then I will win.
+:::
+
+The pattern you use to convince yourself that these conditionals are true just
+is Conditional Derivation (CD). We are just formalizing and making explicit a
+familiar pattern of reasoning we all use all the time.
+
+::::
+
+Here are two more examples of CD in action:
+
+> It's late, and you're tired, you consider going to bed without brushing your
+> teeth. But you imagine what would happen if you did that. You shudder in disgust, 
+> imagining nasty morning breath. You go ahead and brush your teeth.
+
+```{.QualitativeProblem .ShortAnswer give-credit="onSubmission" points=10}
+13 In this example, you convince yourself that a conditional is true. What is that conditional? Can you restate your reasoning to make explicit both the conditional you are proving, and the assumption you make (i.e., the thing that you temporarily imagine being true)?
+```
+
+And:
+
+> You have just \$10, and you're hungry, and you are at Chipotle. You consider
+> ordering the \$8 steak burrito. Suppose you do. That will leave only \$2,
+> and drinks at Chipotle are expensive. So, if you order a steak burrito, you
+> can't also order a coke. Better to order the \$7 chicken burrito instead, so
+> you will have enough left over for a drink.
+
+So, here is a precise description of Conditional Derivation:
+
+Conditional Derivation (CD)
+:   To show a conditional, assume its antecedent and derive its consequent.
+
+And here is the form of conditional derivation:
+
+::::liveshapes
+:::{.proof  .compact}
+
+1.  [[]{.P} → []{.Q}]{.show}
+2.  [[]{.P} [AS]{.just}]{.indent .ellipsis}
+<!-- -->
+m.  [[]{.Q} [??]{.just}]{.indent}
+n.  [:CD m]{.qed}
+
+:::
+
+It is important to emphasize that **you can only use CD to prove
+conditionals**. That is, CD only works when your *show line* is a conditional.
+It is also important to emphasize that **you can only assume the antecedent**
+of the conditional on your show line.
+
+(This might be a good moment to review the definitions of 'antecedent' and
+'consequent'.)
+
+```{.QualitativeProblem .MultipleChoice points=10}
+14 Suppose your show line is ¬P → ¬R. Your assumption for CD should be:
+| P
+| *¬P
+| R
+| ¬R
+| I am not allowed to make an assumption for CD in this case
+```
+
+::: {.reaction .incorrect ex="14"}
+You **need** to review the definitions of 'antecedent' and 'consequent'. If
+you are unable to keep track of what these terms mean, and apply them to
+examples, you simply *will not understand* a lot of what is coming.
+:::
+
+```{.QualitativeProblem .MultipleChoice points=10}
+15 Suppose your show line is (P → Q) → R. Your assumption for CD should be:
+| P
+| *P → Q
+| R
+| Q → R
+| I am not allowed to make an assumption for CD in this case
+```
+
+::: {.reaction .incorrect .correct ex="14"}
+Your assumption needs to be the antecedent of the entire sentence, not the
+antecedent of a part of that sentence. In '(P → Q) → R', both 'P' and '(P →
+Q)' are antecedents. But 'P' is the antecedent of a *part* of the sentence,
+while 'P → Q' is the antecedent of the whole sentence. The *main connective*
+of '(P → Q) → R' is the second arrow.
+:::
+
+```{.QualitativeProblem .MultipleChoice points=10}
+16 Suppose your show line is ¬(P → Q). Your assumption for CD should be:
+| P
+| ¬P
+| P → Q
+| *I am not allowed to make an assumption for CD in this case
+```
+
+::: {.reaction .correct .incorrect ex="16"}
+'¬(P → Q)' is *not a conditional*. Its main connective is the '¬', so it is a
+negation. We cannot use CD to prove conditionals. We can only use CD when our
+show line is a conditional.
+:::
+
+::::
+
+One common mistake folks make is assuming the *consequent* and trying to prove
+the *antecedent*. But that's *ass-backwards*! Don't get caught leading with
+your ass in this class: that's embarrassing! When constructing a derivation
+using CD, you are trying to prove *vertically*, from top to bottom, what your
+show line says *horizontally*, from left to right.
+
+:::illustration
+<div class="tenor-gif-embed" data-postid="14133860" data-share-method="host" data-aspect-ratio="1.44144" data-width="100%"><a href="https://tenor.com/view/walking-backwards-dog-stupid-dog-walking-slowly-weird-dog-gif-14133860">Walking Backwards Dog GIF</a>from <a href="https://tenor.com/search/walking+backwards-gifs">Walking Backwards GIFs</a></div> <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
+:::
+
+## Some Sample Derivations
+
+As you try to construct Conditional Derivations on your own,
+ you should be aware of two quirks in Carnap's behavior:
+
+1.  Carnap will let you assume *anything* and provide no error message if your assumption inappropriate.
+
+Actually, that's not quite true: Carnap will indicate an error, but only at
+the end, *when you attempt to complete the derivation*. The error message will
+be displayed on your show line, not on your assumption line.
+
+2.  Carnap doesn't enforce a sharp distinction between premises and
+    assumptions. 
+
+In *some* cases, you might get away with using ':AS' where you should be using
+':PR', or vice versa. Don't do this! It is a confusion: premises and
+assumptions play two very different roles in a derivation. Also, it only works in *some* cases; in *many*
+cases, it won't work, and you will get a confusing error message.
+
+``` {.ProofChecker .Prop options="guides fonts indent tabindent resize" points=10 video="derCPQ_CNQNP.mp4"}
+17 P->Q :|-: ~Q->~P
+```
+
+``` {.ProofChecker .Prop options="guides fonts indent tabindent resize" points=10 video="derCNPNQ_CQP.mp4"}
+18 ~P->~Q :|-: Q->P
+```
+
+## Indirect Derivations
+
+[People sometimes also say]{.newthought} that it is impossible to prove a
+negative. If they were right, the logic of negations would not be very
+interesting. But they are wrong. Indirect Derivation (ID) provides us with a
+powerful way of proving negations. In fact, it is our most powerful method of
+derivation, full stop.
+
+Here is a video mini-lecture:
+
+:::solution
+
+::: youtube
+<https://youtu.be/ZLGKNXXYFMM>
+:::
+
+:::
+
+Again, we introduce the method by first considering some informal examples,
+and thinking about the form our reasoning takes in those examples.
+
+Euclid, the Ancient Greek mathematician known best for his books on geometry,
+ was able to *prove* that there is no greatest prime number.
+Think about that for a moment:
+ there are infinitely many numbers.
+ So he couldn't *check* each number individually,
+ to see which ones are prime and which not.
+Also, factoring large integers is computationally intensive, and 
+[we don't know all the prime
+numbers](https://en.wikipedia.org/wiki/Largest_known_prime_number).
+Still, someone Euclid was able to *prove* that there a infinitely many of them.
+How?
+
+The proof is not that complicated. But I know that many folks come to this
+class because math traumatizes them. So let me just describe what he did in the broadest possible outline 
+(and don't worry, you aren't going to be tested on this!):
+
+-   First, he *assumed*, for the sake of argument, that there *was* a greatest prime
+    number.
+-   Then he demonstrated that this assumption, if true, would lead to a *contradiction*.
+
+What do I mean by "contradiction" here? I mean something very precise:
+
+Contradiction
+:   [A [contradiction]{.vocab} is a pair of sentences, one the negation of the
+    other]{.def}.
+
+For example: 'He loves me' and 'He loves me not' are, together, a
+contradiction: a pair of sentences, one the negation of the other.
+
+Contradictions are interesting, because whenever we have a contradiction, we
+can be certain that *one* of the two sentences is true, and the other is
+false, even if we don't know which is which:
+
+::: itt
+   He loves me    He loves me not  
+  -------------- ------------------ 
+        T                F          
+        F                T          
+:::
+
+Suppose I don't know whether or not my crush loves me. Then I don't know which
+of the two rows of that table represent the actual situation. But I still know
+that in the actual situation, one of the two contradictory sentences must be
+true, and the other false.
+
+Remember, *valid reasoning preserves truth*. So if *valid* reasoning leads us
+to a *false conclusion*, we know that one of our premises must be false. And
+if valid reasoning leads us to a contradiction, we know that it has lead us to
+a false conclusion: one of the two contradictory sentences must be false, even
+if we don't know which.
+
+So, back to Euclid. To prove that there is *not* a greatest prime number, he
+*assumes* for the sake of argument that there *is* a greatest prime number.
+Valid reasoning leads him from this assumption to a contradiction. So he
+concludes that his *assumption* is false. That is, it is false that there *is*
+a greatest prime number. In other words, it is true that there *is not* a
+greatest prime number. QED.
+
+(I intentionally left out the actual math. If math a little math doesn't scare
+you, you should look up the proof. As I said, it isn't that complicated.
+Search the internet for "Euclid's Theorem," and you will find several
+different presentations of the proof.)
+
+The Ancient Greek Philosopher Socrates was famous for this form of argument.
+He would ask someone to offer an account of some important moral concept, like
+*justice* or *courage* or *self-control*, and would then try to convince them that
+their account led to contradiction, and so could not be true.
+
+In this excerpt from Plato's dialogue *Euthyphro*, Euthyphro offers an account
+of *piety*, and Socrates argues that it leads to contradiction:
+
+::: aside 
+This passage is from *Euthyphro* 7a-8a. A [free but not great translation is
+here](http://classics.mit.edu/Plato/euthyfro.html). Much better (but not free)
+translations can be found in any of several collections of Plato's work
+published by Hackett.
+:::
+
+> Euthyphro: What is loved by the gods is pious, and what is not loved
+> by the gods is impious.
+>
+> Socrates: Haven't we also said that the gods quarrel and differ with
+> one another, and that there's mutual hostility among them?
+>
+> Euthyphro: Indeed, we did say that.
+>
+> Socrates: Then the same things, it seems, are both hated and loved by
+> the gods.
+> 
+> Euthyphro: It seems that way.
+>
+> Socrates: So, on your account, Euthyphro, the same things would be
+> both pious and impious.
+>
+> Euthyphro: Apparently.
+
+We are interested in the *structure* of the reasoning more than the details.
+Socrates assumes that Euthyprho's account is correct for the sake of argument,
+but then points out that the gods quarrel with each other, and so must hate
+and love different things, which, given Euthyphro's account, means that those
+things are both hated and loved by the gods, and so both pious and impious.
+So, the account must be wrong, because it leads to a contradiction.
+
+Here is a somewhat formal reconstruction of the reasoning in the passage:
+
+::: proof
+1.  [It is not the case that (what is loved by the gods is pious and what is not loved by the gods is impious)]{.show}
+2.  [What is loved by the gods is pious and what is not loved by the gods is impious. [AS]{.just}]{.indent}
+3.  [The gods quarrel and differ with one another. [PR]{.just}]{.indent}
+4.  [The same things are both hated and loved by the gods. [from (3)]{.just}]{.indent}
+5.  [The same things are both pious and impious. [from (2) and (4)]{.just}]{.indent}
+6.  [5 is a contradiction!]{.qed}
+:::
+
+We aren't yet in a position to work out the logic behind the inference from
+(3) to (4) or the inference from (2) and (4) to (5). But we are in a position
+to appreciate the overall form of the proof: to prove a negation, assume the
+negated sentence and derive a contradiction.
+
+The following argument is short and sweet, and we are in a position to work
+out its logic with the tools we have:
+
+:::standardform
+1.   You are damned if you do.
+2.   You are damned if you don't.
+3.   You are damned.
+:::
+
+How does the conclusion follow from the premises? Here is an informal explanation:
+
+> Suppose you aren't damned. From that and premise (1), it follows that you
+> don't. But from *that* and premise (2), it follows that you are damned.
+> Contradiction! So our assumption is false: you are damned after all.
+
+Here is the same proof, presented more formally:
+
+::: proof
+1.  [You are damned.]{.show}
+2.  [You are not damned. [AS]{.just}]{.indent}
+3.  [You are damned if you do. [PR]{.just}]{.indent}
+4.  [You don't. [MT 2,3]{.just}]{.indent}
+5.  [You are damned if you don't. [PR]{.just}]{.indent}
+6.  [You are damned. [MP 4,5]{.just}]{.indent}
+7.  [:ID 2,6]{.qed}
+:::
+
+Do you see how it works? Here is a walk through:
+
+-   You want to show that you are damned, so, on line (2), you assume the
+    opposite of that---that you are *not* damned.
+-   On lines (3) to (6), you reason out some consequences that follow from
+    that assumption (and your premises)
+-   But that leads you to a contradiction: lines (2) and (7) are a pair of
+    sentences, one the negation of the other.
+
+A contradiction cannot be true! So something went wrong. But your reasoning
+was valid, and your premises are given, so the only thing we can blame is your
+assumption: it must be false:
+
+-   On line (7), you declare your victory, citing the two lines that contain
+    the contradiction.
+
+Let's put the argument into SL,
+ and see what this looks like as a derivation.
+
+:::::: wrapper
+
+::: soasticky
+| P: You do
+| Q: You are damned
+:::
+
+```{.Translate .Prop points=10}
+19 P->Q: You are damned if you do.
+20 ~P->Q: You are damned if you don't.
+```
+
+:::solution
+![Solution to 19 and
+20](https://dsanson.github.io/logic-materials/vid/sym_damnedifyoudo.mp4)
+:::
+
+
+::::{.reaction .correct ex=20}
+
+Here is the argument in SL:
+
+:::standardform
+-   P → Q
+-   ¬P → Q
+-   Q
+:::
+
+::::
+
+But here we hit a glitch. I have said several times already that ID is a
+method for deriving *negations*. But in this example, our conclusion is not a
+negation. What to do?
+
+For the moment, we can work around this by deriving a slightly different argument:
+
+:::standardform
+-   P → Q
+-   ¬P → Q
+-   ¬¬Q
+:::
+
+'¬¬Q', 'You are not *not* damned', is a negation, and it is logically
+equivalent to 'Q', the conclusion we wanted to derive. Later in this unit, we
+will learn how to work around this glitch properly, so we can use ID to derive
+not just '¬¬Q', but also 'Q'. But that will require a subderivation.
+
+``` {.ProofChecker .Prop options="guides fonts indent tabindent resize" init=true points=10 video="derCPQ_CNPQ_NNQ.mp4"}
+21 P->Q, ~P->Q :|-: ~~Q
+```
+
+::::::
+
+Abstracting from these examples, here is our official definition of ID:
+
+Indirect Derivation (ID)
+:   To show a negation, assume the negated sentence and derive a contradiction.
+
+Here is what it looks like, as a formal pattern of argument:
+
+:::liveshapes
+:::{.proof  .compact}
+
+1.  [¬[]{.P}]{.show}
+2.  [[]{.P} [AS]{.just}]{.indent .ellipsis}
+<!-- -->
+m.  [[]{.Q} [??]{.just}]{.indent}
+n.  [[¬[]{.Q}]{.dummy} [??]{.just}]{.indent}
+n.  [:ID m,n]{.qed}
+
+:::
+:::
+
+Note once again that the show line *must be* a *negation*. This is somewhat
+arbitrary---we *could* introduce another form of ID, allowing you to show any
+sentence by assuming its negation. But we *don't* do that. If your show line
+is not a negation, you simply cannot use ID to prove it:
+
+:::{.proof  .compact .xed}
+
+1.  [[]{.P}]{.show}
+2.  [¬[]{.P} [AS]{.just}]{.indent .ellipsis}
+<!-- -->
+m.  [[]{.Q} [??]{.just}]{.indent}
+n.  [[¬[]{.Q}]{.dummy} [??]{.just}]{.indent}
+n.  [:ID m,n]{.qed}
+
+:::
+
+That is why we switched up our example above, and derived the double negation,
+'I am not not damned', instead of our original conclusion, 'I am damned'.
+
+Also note that the contradiction can be **any two sentences**, []{.Q} and
+¬[]{.Q}. You do not need to derive a sentence that contradicts *your assumption*,
+[]{.P}. For ID, *any contradiction will do*.
+
+One last note: contradictions breed like rabbits. Once you've found one,
+you'll likely find a lot more. Your task, when constructing an ID, isn't to
+find *THE* contradiction; it's to find *A* contradiction. Again, *ANY*
+contradiction will do the trick.
+
+``` {.ProofChecker .Prop options="guides fonts indent tabindent resize" points=10 video="derCPQ_CPNQ_NP.mp4"}
+22 P->Q, P->~Q :|-: ~P
+```
+
+
+## Subderivations
+
+
+:::solution
+::: youtube
+<https://youtu.be/2V1Y9aubwkU>
+:::
+:::
+
+[A subderivation]{.NewThought} is a derivation *inside* another derivation.
+Sometimes, the only way to complete a derivation is by constructing one or
+more subderivations inside it.
+
+Consider this argument:
+
+::: standardform
+-   P → (Q → R)
+-   S → Q
+-   P → (S → R)
+:::
+
+Or, in English:
+
+::: standardform
+1.   If you go, then (if you have a good time, then you will be glad you went)
+2.   If it's a good party, then you will have a good time.
+3.   If you go, then (if it's a good party, then you will be glad you went)
+:::
+
+That's a valid argument. Imagine you are trying to decide whether or not to go
+to the party. Like a tic-tac-toe player reasoning out their next move, you are
+consider the possibilities. Your interior monologue might go something like
+this:
+
+> I don't know if I want to go. But assume I *do* go. Will it be a good party?
+> I don't know. But assume it is. Then I'll have a good time. And, if I have a
+> good time, I'll be glad I went....
+>
+> I still don't know if I want to go, and I still don't know if it will be a
+> good party. But I know this much: *if* I go, then *if* it is a good party,
+> then I'll have a good time. QED.
+
+Here is what the form of reasoning looks like,
+ presented as a derivation in SL:
+
+```{.ProofChecker .Prop options="guides fonts indent tabindent resize" submission=none}
+Example P->(Q->R), S->Q :|-: P->(S->R)
+|1.Show P->(S->R)
+|2.   P         :AS
+|3.   P->(Q->R) :PR
+|4.   Q->R      :MP 2,3
+|5.   S->Q      :PR
+|6.   Show S->R
+|7.     S       :AS
+|8.     Q       :MP 5,7
+|9.     R       :MP 8,4
+|10.   :CD 9
+|11.:CD 6 
+```
+
+11 lines! That's a lot! (It really isn't.) 
+
+Before getting lost in the details, focus on the basic structure: we have
+derivation *inside* of our derivation, a show line under a show line. The
+*main* derivation is a conditional derivation (CD), aimed at showing 'P → (S →
+R)'. So, on line (2), we assumed the antecedent, 'P'. To complete the main
+derivation, we needed to derive the consequent, 'S → R'. To do that, we
+started a subderivation on line (6), hoping to *show* S → R. Within that
+subderivation, we assumed the antecedent of *that* show line, 'S', and figured
+out how to derive its consequent, 'R'. At that point, we had *shown* S → R.
+And that is exactly what we *needed* to complete the main derivation, so we
+were able to complete the main derivation by CD.
+
+Okay. That explanation was a wall of text. Let's walk through the construction
+of the derivation step-by-step.
+
+First, our conclusion is a conditional, so we set up a
+conditional derivation by assuming the antecedent:
+
+```{.ProofChecker .Prop options="guides fonts indent tabindent resize" submission=none}
+Example P->(Q->R), S->Q :|-: P->(S->R)
+|1.Show P->(S->R)
+|2.  P         :AS
+```
+
+Next, we bring down the premises, and looking for opportunities to apply
+our rules. We notice an opportunity to apply MP, so we do it:
+
+```{.ProofChecker .Prop options="guides fonts indent tabindent resize" submission=none}
+Example P->(Q->R), S->Q :|-: P->(S->R)
+|1.Show P->(S->R)
+|2.   P         :AS
+|3.   P->(Q->R) :PR
+|4.   Q->R      :MP 2,3
+|5.   S->Q      :PR
+```
+
+Now at this point, it seems we are stuck. 
+We can't apply MP or MT with what we have. 
+Applying DNI or DNE won't get us anywhere.
+
+We are stuck, but it is clear what we *need to get*: 'S → R'. We need to get
+this, because it is the consequent of our show line, and we are trying to
+complete a CD.
+
+When you are stuck, but it is clear what you need to get, *enter a new show
+line* for what you need to get:
+
+```{.ProofChecker .Prop options="guides fonts indent tabindent resize" submission=none}
+Example P->(Q->R), S->Q :|-: P->(S->R)
+|1.Show P->(S->R)
+|2.  P         :AS
+|3.  P->(Q->R) :PR
+|4.  Q->R      :MP 2,3
+|5.  S->Q      :PR
+|6.  Show S->R
+```
+
+Our new show line is a show line for a conditional. So we can use CD to prove
+it. To do that, we assume its antecedent, and try to derive its consequent:
+
+```{.ProofChecker .Prop options="guides fonts indent tabindent resize" submission=none}
+Example P->(Q->R), S->Q :|-: P->(S->R)
+|1.Show P->(S->R)
+|2.   P         :AS
+|3.   P->(Q->R) :PR
+|4.   Q->R      :MP 2,3
+|5.   S->Q      :PR
+|6.   Show S->R
+|7.     S       :AS
+```
+
+Notice the indentations. Everything starting with line (2) is indented,
+visually indicating that we are in the process of trying to prove the show
+line on line (1). But line (7) is indented even more, indicating that, at that
+stage of the derivation, we are trying to prove the show line on line (6).
+Carnap helps keep track of this structure by adding a second vertical *scope
+line*, indicating that line (7) is within the scope of the subderivation.
+
+My new assumption, 'S', unlocks the possibility of applying MP to line (5), which gets me Q, unlocking another possiblity to apply MP. Before long, I've managed to derive R:
+
+```{.ProofChecker .Prop options="guides fonts indent tabindent resize" submission=none}
+Example P->(Q->R), S->Q :|-: P->(S->R)
+|1.Show P->(S->R)
+|2.   P         :AS
+|3.   P->(Q->R) :PR
+|4.   Q->R      :MP 2,3
+|5.   S->Q      :PR
+|6.   Show S->R
+|7.     S       :AS
+|8.     Q       :MP 5,7
+|9.     R       :MP 8,4
+```
+
+Notice that even while I am in the scope of a subderivation, I am still
+allowed to apply rules to lines outside the subderivation, like lines (4) and
+(5). These lines are still *available*---we will come back to that in a
+moment.
+
+On line (9), I have managed to derive the consequent of line (6). This
+completes that subderivation. Or, rather, it means that I can complete that
+subderivation on the next line, by entering the appropriate QED line:
+
+```{.ProofChecker .Prop options="guides fonts indent tabindent resize" submission=none}
+Example P->(Q->R), S->Q :|-: P->(S->R)
+|1.Show P->(S->R)
+|2.   P         :AS
+|3.   P->(Q->R) :PR
+|4.   Q->R      :MP 2,3
+|5.   S->Q      :PR
+|6.   Show S->R
+|7.     S       :AS
+|8.     Q       :MP 5,7
+|9.     R       :MP 8,4
+|10.   :CD 9
+```
+
+Notice again the indentation. Line 10 is no longer indented under line (6). It
+shifts back out, to be at the same level of indentation as lines (2)-(6). I am
+no longer within the scope of the subderivation. I am now back out to the
+scope of the main derivation.
+
+This corresponds to a major shift in the status of line (6). Up until now,
+line (6) was something I was *trying to show*. It was a *goal* that I had not
+yet achieved. But on line (10), with my QED line, I achieved that goal. Line
+(6) is now something that *has been shown*. It is no longer a *goal*. It is
+now an *achievement*. This means that I can now *use* line (6), citing it just
+like any other line in the derivation.
+
+So that is what I now do. I notice that line (6) is the consequent of the show
+line I am still trying to prove, line (1). I remember that this was my goal: I
+was trying to show line (1) by completing a conditional derivation. I assumed
+the antecedent on line (2). And now I have managed to derive the consequent,
+on line (6). So the main derivation is complete. Or, rather, I can complete it
+on the next line, by entering an appropriate QED line:
+
+```{.ProofChecker .Prop options="guides fonts indent tabindent resize" submission=none}
+Example P->(Q->R), S->Q :|-: P->(S->R)
+|1.Show P->(S->R)
+|2.   P         :AS
+|3.   P->(Q->R) :PR
+|4.   Q->R      :MP 2,3
+|5.   S->Q      :PR
+|6.   Show S->R
+|7.     S       :AS
+|8.     Q       :MP 5,7
+|9.     R       :MP 8,4
+|10.   :CD 9
+|11.:CD 6 
+```
+
+And notice that, just as line (10) transformed the status of line (6),
+shifting it from something to be shown to something that has been shown, from
+a goal to an achievement, line (11) likewise transforms line (1), signaling
+that the main derivation is complete, and its conclusion has been established.
+
+Here is another way to think about it: a QED line always *unlocks* the
+corresponding show line, transforming it from something you are trying to
+*get* to something you are allowed to *use*.
+
+To make this more precise, we define the concept of an [available
+line]{.vocab}:
+
+-   Show lines are *unavailable* until they have been *shown*, at which point
+    they become available.
+-   Lines inside a subderivation are only available within that subderivation.
+    They are not available after the subderivation is completed.
+
+The only lines you are ever allowed to cite as justification, whether to apply
+a rule, or on a QED line, are available lines.
+
+Here is an example of the sort of thing that is *not* allowed:
+
+
+```{.ProofChecker .Prop options="guides fonts indent tabindent resize" submission=none}
+Example P->(Q->R), S->Q :|-: P->(S->R)
+|1.Show P->(S->R)
+|2.   P         :AS
+|3.   S->R      :MP 1,2
+|4.:CD 3
+```
+
+Do you see the mistake? The show line on (1) is not available on line (3). So
+we cannot apply MP to it and line (2).
+
+Here is another example of what is *not* allowed:
+
+```{.ProofChecker .Prop options="guides fonts indent tabindent resize" submission=none}
+Example P->Q :|-: Q
+|1.Show Q
+|2.   P->Q      :PR
+|3.   Show P->Q 
+|4.     P       :AS
+|5.     Q       :MP 2,5
+|6.   :CD 5
+|7.   Q         :MP 2,4
+|4.:DD 7 
+```
+
+Can you spot the mistake? It is on line (7). Line (4) is not available on line
+(7), because it is inside a completed subderivation.
+
+Maybe a silly analogy will help fix ideas. Subderivations are like Vegas. You
+go to Vegas and you do a bunch of questionable things. But *what happens in
+Vegas stays in Vegas*. Same with subderivations: *what happens in a
+subderivation stays in that subderivation*. If you are lucky, you bring back
+some cash. The show line is like the cash: it is the *payoff* for completing
+the subderivation. It is the one thing you get to take with you, when the
+subderviation is done.
+
+## Subderivations and the power of ID
+
+Recall our argument,
+
+:::standardform
+-   P → Q: You are damned if you do.
+-   P → ¬Q: You are damned if you don't.
+-   Q: You are damned.
+:::
+
+We couldn't use ID to derive this, because the conclusion is not a negation.
+Instead, we derived a closely related argument: 'P → Q, P → ¬Q ∴ ¬¬Q'.
+
+We can now derive the original argument. The trick is to use a subderivation to derive '¬¬Q', and then use '¬¬Q' to get 'Q'. See if you can work it out for yourself:
+
+```{.ProofChecker .Prop options="guides fonts indent tabindent resize" points=10 video="derCPQ_CNPQ_Q.mp4"}
+23 P->Q, ~P->Q :|-: Q
+```
+
+Here is another derivation that requires a similar strategy:
+
+```{.ProofChecker .Prop options="guides fonts indent tabindent resize" points=10 video="derCNPP_P.mp4"}
+24 ~P->P :|-: P
+```
+
+``` {.ProofChecker .Prop options="guides fonts indent tabindent resize" points=10 video="derCPCQR_CQCPR.mp4"}
+25 P->(Q->R) :|-: Q->(P->R)
+```
+
+## Theorems
+
+Sometimes, a derivation has no premises.
+
+How is that even possible?
+How can an argument with no premises be valid? 
+Recall the definition of validity: 
+
+-   An argument is valid iff it is impossible for the premises to be true and
+    the conclusion false.
+
+So if an argument has no premises, that means that it is valid iff it is
+impossible *for the conclusion to be false*. That is to say, its conclusion
+must be a *necessary truth*. More specifically, if we can *derive* a
+conclusion from now premises in SL, it must be a *logical truth in SL*.
+
+We call a sentence that can be derived in SL from no premises a [theorem of SL]{.vocab}.
+Practically speaking, deriving
+a theorem is no different than completing any other derivation. But since you
+don't have any premises to work with, you need to work from whatever assumptions you are allowed to make for CD or ID.
+
+Carnap indicates the lack of premises with the symbol '⊤', called "Top". Don't
+mistake this for a funny looking 'T'!
+
+``` {.ProofChecker .Prop options="guides fonts indent tabindent resize" points=10 video="derCPCQP.mp4"}
+26 :|-: P->(Q->P)
+```
+
+After you complete any derivation, you should stop and think about what it
+says. This is especially true of theorems, which give us insight into the
+basic properties of our logical connectives.
+
+In this case, think of it like this: if P is true then if *Q is also true*
+then P is true. For example:
+
+:::example
+-    If I am going to lose, then if I try hard I am going to lose.
+:::
+
+That's a weird sentence, and it isn't obvious that it is true. But in our
+logic, it is a logical truth. What does this tell us about how our '→' works?
+We will come back to this in the unit on truth tables.
+
+``` {.ProofChecker .Prop options="guides fonts indent tabindent resize" points=10 video="derCCPQCNQNP.mp4"}
+27 :|-: (P->Q)->(~Q->~P)
+```
+
+
+``` {.ProofChecker .Prop options="guides fonts indent tabindent resize" points=10 video="derCCNPPP.mp4"}
+28 :|-: (~P->P)->P
+```
+
+## More Exercises
+
+Here are some more exercises, now without provided solutions. I've interleaved
+some translation problems too, so your translation skills don't get rusty.
+
+:::soawrapper
+::: soasticky
+| P: I take a deep breath 
+| Q: I get real high
+| R: I scream from the top of my lungs
+| S: I step outside
+| W: I wake in the morning 
+|
+
+:::{.youtube t=84}
+<https://youtu.be/32FB-gYr49Y>
+:::
+:::
+
+``` {.Translate .Prop points="10"}
+29 R->S : I scream from the top of my lungs only if I step outside
+```
+
+``` {.ProofChecker .Prop options="guides fonts indent tabindent resize" points=10}
+30 Q->P, P->R :|-: Q->R
+```
+
+``` {.Translate .Prop points="10"}
+31 W->P : I take a deep breath if I wake in the morning
+```
+
+``` {.ProofChecker .Prop options="guides fonts indent tabindent resize" points=10}
+32 P->~Q, Q->P :|-: ~Q
+```
+
+``` {.Translate .Prop points="10"}
+33 Q/\~S : I get real high but I do not step outside
+```
+
+``` {.ProofChecker .Prop options="guides fonts indent tabindent resize" points=10}
+34 S->Q, R->~Q :|-: S->~R 
+```
+
+``` {.Translate .Prop points="10"}
+35 ~(P\/Q) : I neither take a deep breath nor get real high
+```
+
+``` {.ProofChecker .Prop options="guides fonts indent tabindent resize" points=10}
+36 P->R, ~P->R :|-: ~~R
+```
+
+``` {.Translate .Prop points="10"}
+37 P->(S->R) : If I take a deep breath then (if I step outside then I scream from the top of my lungs).
+```
+
+If you aren't sure how to do the next one, re-read the section on [subdervations and
+the power of ID]{#subderivations-and-the-power-of-id}
+
+``` {.ProofChecker .Prop options="guides fonts indent tabindent resize" points=10}
+38 P->R, ~P->R :|-: R
+```
+
+``` {.Translate .Prop points="10"}
+39 S<->R : I step outside just in case I scream from the top of my lungs.
+```
+
+``` {.ProofChecker .Prop options="guides fonts indent tabindent resize" points=10}
+40 R->(S->T) :|-: S->(R->T)
+```
+
+``` {.Translate .Prop points="10"}
+41 P->P : I take a deep breath if I take a deep breath.
+```
+
+``` {.ProofChecker .Prop options="guides fonts indent tabindent resize" points=10}
+42 :|-: P->P 
+```
+
+``` {.ProofChecker .Prop options="guides fonts indent tabindent resize" points=10}
+43 ~R :|-: (Q->R)->~Q
+```
+
+``` {.ProofChecker .Prop options="guides fonts indent tabindent resize" points=10}
+44 :|-: (P->~P)->~P
+```
+
+Yes, the next derivation requires a show line inside a show line inside a show line inside a
+show line. Don't balk! Relax and let it play itself out.
+
+``` {.ProofChecker .Prop options="guides fonts indent tabindent resize" points=10}
+45 :|-: (~P->Q)->((P->R)->(~R->Q))
+```
+:::
+
+## Supplement
+
+You have completed the required reading. But you may need more practice! For more practice, see the [Unit 05 Supplement](06S).
+
+
+## Mastery Check
+
+The mastery check for this unit is online. Please send me a DM on GroupMe to request. 
+
+<!-- vim: set ft=carnap :-->

@@ -1,0 +1,1469 @@
+---
+base-css:
+-   https://carnap.io/shared/dsanson@gmail.com/sanson-book.css
+-   https://cdn.plyr.io/3.6.12/plyr.css
+js: 
+-   https://cdn.plyr.io/3.6.12/plyr.polyfilled.js
+-   https://carnap.io/shared/dsanson@gmail.com/logic-book.js
+---
+
+::: {.auto-tally}
+:::
+
+::: cover
+
+#  The Language of Sentential Logic 
+
+::: {#slideshow}
+::: slide
+![If you give a Mouse a
+Cookie](http://reggienet.illinoisstate.edu/access/content/user/desanso/public/img/give_a_mouse.jpg){alt="A boy offers a
+mouse a cookie. The caption reads, 'If you give a mouse a cookie,'"}
+[source](attributions#mouse){.attribution}
+:::
+::: slide
+![He's going to ask for a Glass of
+Milk](http://reggienet.illinoisstate.edu/access/content/user/desanso/public/img/glass_of_milk.jpg){alt="The mouse follows
+the boy into his house. The caption reads, 'He is going to ask for a glass of
+milk.'"}
+[source](attributions#mouse){.attribution}
+:::
+:::
+
+:::: epigraph
+"[B]y the aid of symbolism, we can make transitions in reasoning almost
+mechanically by the eye, which otherwise would call into play the higher
+faculties of the brain."
+
+[Alfred North Whitehead, *[Introduction to
+Mathematics](https://archive.org/details/introductiontoma00whitiala){target="_blank"
+rel="noopener noreferrer"}*, 1911, 61]{.source} <!--_-->
+::::
+:::
+
+## Introduction
+
+[Some sentences]{.newthought} are formed by taking other sentences as
+parts, and gluing them together, using a "connective".
+For example, the
+following sentence is formed from the two sentences, 'You are with us' and
+'You are against us', by gluing them together with the words "either...or...":
+
+:::example
+-   Either [you are with us]{.P} or [you are against us]{.Q}.
+:::
+
+And the following sentence is formed by gluing two sentences together with the words
+'if...then...':
+
+:::example
+-   If [I am a good man]{.P}, then [I understand the spaces between
+    friends]{.Q}.
+:::
+
+Other sentences are formed by adding a prefix, infix, or suffix to a single
+sentence. For example, the following sentence is formed by adding the prefix,
+'I worry that' to the sentence 'They are smuggling ferrets':
+
+:::example
+-   I worry that [they are smuggling ferrets]{.P}.
+:::
+
+Other sentences can be built from 'They are smuggling ferrets' by adding other
+prefixes. For example,
+
+:::example
+-   Probably [they are smuggling ferrets]{.P}.
+-   It had better not be the case that [they are smuggling ferrets]{.P}.
+-   It is not the case that [they are smuggling ferrets]{.P}.
+:::
+
+That last claim can be expressed by simply by adding an infix, the word 'not', instead of 
+the more wordy prefix, 'it is not the case that':
+
+:::example
+-   They are not smuggling ferrets.
+:::
+
+In Logic, [we call a device for constructing a new sentence out of
+other sentences a [connective]{.vocab}]{.def}. Words like '...and...',
+'...or...', and 'if...then...' connect *two* sentences together, so we call
+them [binary connectives]{.vocab}. Words and phrases that create a new
+sentence out of a single sentence, like 'Probably...' and 'It is not the case
+that...' are called [unary connectives]{.vocab}. That is a bit awkward, since
+they aren't really *connecting* one thing to another. But that is how we will use
+the word 'connective'.
+
+[[Sentential Logic]{.vocab} (SL, for short) is the logic of connectives, and
+sentences built up from other sentences using connectives.]{.def} This part of
+the book introduces [Truth-Functional Sentential Logic]{.vocab}, which is the simplest
+and most foundational form of sentential logic.
+This first unit of this part of the book 
+introduces the truth-functional connectives, and introduces the
+artificial language that we will use to study SL.
+
+By the end of this chapter, you should:
+
+a.  know the canonical English translation for each connective in the language of SL
+b.  be able to parse sentences in the language of SL, both in official and informal
+    notation.
+
+## The Truth-Functional Connectives
+
+Consider again the sentence,
+
+:::{.example .liveshapes}
+-   Either [you are with us]{.P} or [you are against us]{.Q}.
+:::
+
+In Logic, [we call a sentence joined together by 'Either...or...' a
+[disjunction]{.vocab}]{.def}. You can join *any* two sentences into a disjunction. Try
+it yourself, by typing in two random sentences into the box and circle below:
+
+:::{.example .liveshapes}
+-   Either []{.P} or []{.Q}.
+:::
+
+The disjunction is a [[truth-functional connective]{.vocab}: the truth value of the whole
+sentence is a function of the truth values of its parts.]{.def} By "truth
+value" I just mean whether the sentence is true or false. 
+
+```{.QualitativeProblem .MultipleChoice points=10}
+1 <p>Suppose we have two sentences, <span class="P">P</span> and <span class="Q">Q</span>, and <span class="P">P</span> is true and <span class="Q">Q</span> is false. What is the truth value of ‘Either <span class="P">P</span> or <span class="Q">Q</span>’?</p>
+| *true
+| false
+```
+
+Another truth functional connective in English is 'Both...and...', as in:
+
+:::{.example .liveshapes}
+-   Both [I hope that you do well in this class]{.P} and [I want to help you
+    do well in this class]{.Q}.
+:::
+
+[We call a sentence joined together by 'Both...and...' a
+[conjunction]{.vocab}.]{.def} 
+
+(Awkwardly, grammarians call *all* connectives 'conjunctions' instead of
+'connectives'. This is because long ago, the grammarians translated the Greek
+word for connectives as '*coniunctio*', but the logicians did not follow
+suit.)
+
+Like the disjunction, the conjunction is truth-functional.
+
+```{.QualitativeProblem .MultipleChoice points=10}
+2 <p>Suppose we have two sentences, <span class="P">P</span> and <span class="Q">Q</span>, and <span class="P">P</span> is true and <span class="Q">Q</span> is false. What is the truth value of ‘Both <span class="P">P</span> and <span class="Q">Q</span>’?</p>
+| true
+| *false
+```
+
+:::{.reaction .correct ex=2}
+Do you see how the difference in *meaning* between 'and' and 'or' is reflected
+in the differences in your answers to (1) and (2)? If somebody asks you what
+a word like 'and' means, the best way to explain it would be to tell them the
+conditions under which a sentence containing 'and' is true, and the conditions
+under which it is false.
+:::
+
+[Negation]{.vocab} is also a truth-functional connective, and can be expressed in
+English either using the prefix, 'it is not the case that', or the infix,
+'not', placed next the main verb of the sentence:
+
+:::{.example .liveshapes}
+-   It is not the case that [the earth is flat]{.P}.
+-   The earth is *not* flat.
+:::
+
+```{.QualitativeProblem .MultipleChoice points=10}
+3 <p>Suppose <span class="P">P</span> is false. What is the truth value of ‘It is not the case that <span class="P">P</span>'?
+| *true
+| false
+```
+
+We can also join two sentences together using 'if...then...':
+
+:::{.example .liveshapes}
+-   If [the van is rockin']{.P} then [don't come knockin']{.Q}
+:::
+
+[A sentence joined together by 'if...then...' is called a
+[conditional]{.vocab}. The two sentences joined together are called the
+[antecedent]{.vocab} and the [consequent]{.vocab}. The antecedent is the 'if'
+part; the consequent is the 'then' part.]{.def} (Again, awkwardly, grammarians
+and foreign language teachers use different names for the two parts of
+conditionals.)
+
+It is not immediately clear whether or not 'if...then...' is truth-functional.
+We will come back to this.
+
+The last truth-functional connective we will consider is [the
+[biconditional]{.vocab}: a sentence joined together by '...if and only
+if...']{.def}. The biconditional expresses the idea that the conditional
+relationship holds in both directions. 
+
+For example, my dog Fletch barks at
+strangers, but he also barks at friends. So this is true:
+
+:::example
+-   If [you are a stranger]{.P}, then [Fletch barks at you]{.Q}.
+:::
+
+But this is false:
+
+:::example
+-   If [Fletch barks at you]{.Q}, then [you are a stranger]{.P}.
+:::
+
+In this case, the conditional relation does not hold in both directions.
+
+But my sister's dog Sugar is better trained than Fletch, and is also very
+protective of her family. She always barks at
+strangers, but never barks at friends. That is,
+
+:::example
+-   If [you are a stranger]{.P}, then [Sugar barks at you]{.Q} AND
+-   if [Sugar barks at you]{.Q}, then [you are a stranger]{.P}.
+:::
+
+Or, more succinctly,
+
+:::example
+-   [Sugar barks at you]{.Q} if and only if [you are a stranger]{.Q}.
+:::
+
+Just as it is not immediately clear whether or not the conditional is
+truth-functional, it is not immediately clear whether or not the biconditional
+is truth functional. Again, we will come back to this.
+
+There are lots of other connectives in English, most of which are *not*
+truth-functional. Consider:
+
+::: example
+1.  It is warm **and** it is sunny.
+2.   It is warm **because** it is sunny.
+:::
+
+Do you see that (1) might be true, but (2) false? That's because 'because' and
+'and' don't mean the same thing.
+
+```{.QualitativeProblem .ShortAnswer give-credit="onSubmission" points=10}
+4 Can you describe the difference in meaning between (1) and (2)? Can you explain why 'because' is not truth-functional?
+```
+
+::: {.reaction .correct ex="4"}
+The word 'and' just means that both sentences are true. The word 'because'
+means that the truth of the first *is explained by* the truth of the second.
+So, imagine that it is warm, and it is sunny, but the reason it is warm is not
+*because* it is sunny. Maybe you are in a cabin on an ice sheet in Antarctica,
+where it is cold outside even though it is sunny, and the only reason it is
+warm in your cabin is *because* you have a heater on.
+
+As the example shows, 'because' is not truth-functional. You can know that
+both parts of the sentence are true, but not know whether or not the whole is
+true, because you don't know whether or not the truth of the first part *is explained by*
+the truth of the second.
+:::
+
+Here are some more connectives that are not truth-functional:
+
+:::example
+-   It rained **before** we took a walk.
+-   He was talking **while** you were talking.
+-   **I worry that** they are smuggling ferrets.
+-   They **might** be smuggling ferrets.
+-   **It is impossible that** both the premises are true and the conclusion
+    false.
+:::
+
+In each case, knowing the truth value[s] of the component sentence[s] is not
+enough to allow you to determine the truth value of the whole sentence.
+
+Here, then, our our five truth-functional connectives:
+
+       Name                  English              Symbol
+  --------------- ------------------------------ --------
+     Negation      'It is not the case that...'     ¬
+    Conjunction          'Both...and...'            ∧
+    Disjunction          'Either...or...'           ∨
+    Conditional           'If...then...'            →
+   Biconditional      '...if and only if...'        ↔ 
+
+Don't worry for the moment about the 'Symbol' column. We will get to that in a
+moment.
+
+```{.QualitativeProblem .MultipleChoice points=10}
+5  'Both the cows are nervous and cats are mewling'. This sentence is:
+| a negation
+| *a conjunction
+| a connective
+| a disjunction
+| a conditional
+| a biconditional
+6  'I whistle if and only if you are trying to concentrate'. This sentence is:
+| a negation
+| a conjunction
+| a connective
+| a disjunction
+| a conditional
+| *a biconditional
+7  'If the moon is full, then our witchy powers are at their peak'. This sentence is:
+| a negation
+| a conjunction
+| a connective
+| a disjunction
+| *a conditional
+| a biconditional
+8  'It is not the case that I am snoring'. This sentence is:
+| *a negation
+| a conjunction
+| a connective
+| a disjunction
+| a conditional
+| a biconditional
+9  'Either we are not friends or I am confused about what friendship is'. This sentence is:
+| a negation
+| a conjunction
+| a connective
+| *a disjunction
+| a conditional
+| a biconditional
+10 In the sentence, 'if the world is my oyster then it needs a squirt of lemon',
+| *'The world is my oyster' is the antecedent and 'it needs a squirt of lemon' is the consequent.
+| 'The world is my oyster' is the consequent and 'it needs a squirt of lemon' is the antecedent.
+| 'The world is my oyster' is the conditional and 'it needs a squirt of lemon' is the consequent.
+```
+
+## Our Artificial Language, First Pass
+
+We are going to study our five connectives, and the logical forms that can be
+generated by gluing sentences together with these connectives. To do this, we
+introduce an artificial language. An artificial language is a language
+intentionally designed for an explicit purpose, with precise stipulated rules.
+That is very different from a natural language, like English, that has
+developed and evolved over centuries.
+
+Our artificial language uses three kinds of symbols: sentence letters,
+connective symbols, and parentheses. [The [sentence letters] are capital letters P
+through W]{.def}. We use these to represent simple sentences. If we need more than
+eight simple sentences, we can use numerical subscripts, like P_1, P_2, and so
+on. So:
+
+-   [[Sentence Letters]{.vocab} are capital letters, P through W, optionally
+    with numerical subscripts (e.g., $P_1, P_2, ...$).]{.def}
+
+You can think of these sentence letters as our *atoms*. 
+We use the connective symbols to glue these sentence letters together, to form
+*molecular* sentences. So, again, here are our five connectives, and, for each
+one, the symbol we use to express it:
+
+       Name                  English              Symbol
+  --------------- ------------------------------ --------
+     Negation      'It is not the case that...'     ¬
+    Conjunction          'Both...and...'            ∧
+    Disjunction          'Either...or...'           ∨
+    Conditional           'If...then...'            →
+   Biconditional      '...if and only if...'        ↔
+
+So, suppose 'P' stands for 'Petunias are a problem' and 'Q' stands for
+'Questions should be asked'. Then:
+
+:::example
+-   ¬P: It is not the case that Petunias are a problem.
+-   (P ∧ Q): Both petunias are a problem and questions should be asked.
+-   (P ∨ Q): Either petunias are a problem or questions should be asked.
+-   (P → Q): If petunias are a problem then questions should be asked.
+-   (P ↔ Q): Petunias are a problem if and only if questions should be asked.
+:::
+
+Notice that when we join two sentences together using a *binary* connective,
+we surround the whole thing in parentheses.
+
+Notice also that the result of joining two sentences together using a
+connective is another sentence. That means that, every time we generate a
+molecular sentence, then apply our connectives to that sentence too:
+
+:::example
+-   ¬P: Petunias are not a problem.
+-   ¬Q: Questions should not be asked.
+-   (¬P ∧ ¬Q): Both petunias are not a problem and questions should not be
+    asked.
+:::
+
+Again,
+
+:::example
+-   (P ∧ Q): Both petunias are a problem and questions should be asked.
+-   (P ∨ Q): Either petunias are a problem or questions should be asked.
+-   ((P ∧ Q) → (P ∨ Q)): If both petunias are a problem and questions should
+    be asked, then either petunias are a problem or questions should be asked.
+-   ((P ∧ Q) → (P ∨ Q)): If both petunias are a problem and questions should
+    be asked, then either petunias are a problem or questions should be asked.
+:::
+
+As you can see, the molecular sentences can get pretty complicated pretty
+fast.
+
+## Other Textbooks
+
+The symbols we use for the connectives are pretty standard. But they are not
+completely standardized: other textbooks use other symbols, and other symbols
+are used in computer programming languages.
+[Wikipedia has a fairly comprehensive list of
+alternative
+symbols](https://en.wikipedia.org/wiki/List_of_logic_symbols){target="_blank"
+rel="noopener noreferrer"}. <!--_--> Here are some of the most common:
+
+  --------------- -------------
+  Negation           ¬,\~,!
+  Conjunction         ∧,&,·
+  Disjunction        ∨,\|\|
+  Conditional      →,$\supset$
+  Biconditional    ↔,$\equiv$
+  --------------- -------------
+
+## Our Language, Officially
+
+Our language is artificial. That means we get to stipulate the rules about how
+it works. So lets do that now.
+
+First, we stipulate the *vocabulary* or *lexicon* of our language. It consists
+of:
+
+-   [Sentence Letters]{.vocab}: capital letters P...W, $P_1$, ...
+-   [Connective Symbols]{.vocab}: '¬', '∧', '∨', '→', and '↔'
+-   Parentheses: '(', and ')'
+
+No other symbols can occur in the sentences of our language. You can't use
+square brackets ('[' and ']') instead of parentheses. You can't use the letter
+Z. 
+
+The vocabulary of English is fascinating and complex.
+The vocabulary of our language is boring and simple.
+
+Next, we stipulate the *syntax* of our language. These are the rules of
+grammar, which tell us how the symbols in our vocabulary can be combined to
+produce well-formed expressions. For example, the following combination of
+words does not follow the syntactic rules of English, and so is not a
+well-formed sentence:
+
+:::example
+Dogs the and if butt wiggle squirrel.
+:::
+
+In the same way, in our language, this combination of symbols fails to be a
+sentence:
+
+:::example
+| ∨↔PQRS¬)(
+:::
+
+Again, the syntax of English is fascinating and complex. 
+The syntax of our artificial language is simple:
+there are only three rules.
+
+:::liveshapes
+1.  Every sentence letter is a sentence.
+2.  If '[]{.P}' is a sentence, then '¬[]{.P}' is a sentence.
+3.  If '[]{.P}' and '[]{.Q}' are both sentences, then
+    a.  '([]{.P} ∧ []{.Q})' is also a sentence;
+    b.  '([]{.P} ∨ []{.Q})' is also a sentence;
+    c.  '([]{.P} → []{.Q})' is also a sentence;
+    d.  '([]{.P} ↔ []{.Q})' is also a sentence.
+:::
+
+Remember, the sentence letters, P...W, are our atoms. Rule (1) says that each
+atom, taken by itself, is a grammatically well-formed sentence.
+
+Rule (2) tells us how the grammar of negation works: given any sentence, you
+can construct its negation, by putting the negation symbol, '¬', in front of
+it. 
+Note that you can plug *anything* into the box, '[]{.P}', and the rule applies. Plug
+an elephant 🐘 into the box, and you get:
+
+:::example
+-   If 🐘 is a sentence, then ¬🐘 is a sentence. 
+:::
+
+This is a true instance of rule (2). It says that *if* 🐘 is sentence, so is
+¬🐘. Of course, 🐘 is not a sentence. It isn't even in our vocabulary. So in
+this case, the rule does not generate a new sentence for us.
+
+Things get more interesting when we plug in something that *is* a sentence.
+Right now, the only things we know to be sentences are the sentence letters,
+by Rule (1). So here are three true instances of rule (2):
+
+:::example
+-   If P is a sentence, then ¬P is a sentence. 
+-   If Q is a sentence, then ¬Q is a sentence. 
+-   If R is a sentence, then ¬R is a sentence. 
+:::
+
+In each case, we know that the antecedent *is* true: P *is* a sentence (by
+Rule (1)), so that means that ¬P is also a sentence (by Rule (2)). And
+likewise with Q and ¬Q, and R and ¬R. If you like, you can think of this as an
+inference:
+
+:::standardform
+-   If P is a sentence, then ¬P is a sentence. 
+-   P is a sentence.
+-   So, ¬P is a sentence.
+:::
+
+That argument is both valid and sound, and so it establishes that its
+conclusion is true, and ¬P is a sentence. And we can run the same argument for
+Q and ¬Q, R and ¬R, and so on.
+
+So our collection of known sentences has grown. Before, it was just the
+sentence letters. Now, we have the sentence letters, and also all their
+negations. This means that we have more known sentences that we can feed into
+Rule (2). For example,
+
+:::standardform
+-   If ¬P is a sentence, then ¬¬P is a sentence. (by Rule (2))
+-   ¬P is a sentence. (by Rule (1) and Rule (2))
+-   ¬¬P is a sentence. 
+:::
+
+By the same reasoning, ¬¬Q is a sentence, and ¬¬R is a sentence, and so on.
+And obviously we can keep iterating: ¬¬¬Q is a sentence, ¬¬¬¬Q is a sentence,
+and so on.
+
+This corresponds to something we can do in English too:
+
+:::example
+-   Q: He loves me.
+-   ¬Q: He doesn't love me.
+-   ¬¬Q: It is not the case that he doesn't love me.
+-   ¬¬¬Q: It is not the case that it is not the case that he doesn't love me.
+:::
+
+These are all grammatically well-formed sentences in SL, and they are all
+grammatically well-formed sentences in English too, even if they quickly
+become hard to read.
+
+:::aside
+Many of the boxes and circles in the readings are editable. Try clicking on one and typing 'P'. All
+the other boxes around it should fill with 'P'. Not all boxes in the reading are editable, but
+many are. This is what an uneditable box looks like: []{.P}. This is what an
+editable box looks like: [[]{.P}]{.liveshapes}.
+:::
+
+At this point, we already have infinitely many known sentences. First, we have
+infinitely many sentence letters (remember, we can use numerical subscripts).
+And, then, for each sentence letter, we have infinitely many negations: P, ¬P,
+¬¬P, ¬¬¬P, and so on.
+
+Our third rule introduces the binary connectives:
+
+:::liveshapes
+3.  If '[]{.P}' and '[]{.Q}' are both sentences, then
+    a.  '([]{.P} ∧ []{.Q})' is also a sentence;
+    b.  '([]{.P} ∨ []{.Q})' is also a sentence;
+    c.  '([]{.P} → []{.Q})' is also a sentence;
+    d.  '([]{.P} ↔ []{.Q})' is also a sentence.
+:::
+
+:::aside
+Technically, the boxes, '[]{.P}', and circles, '[]{.Q}', in this definition are *metavariables*: variables that range over strings of symbols in the
+vocabulary of SL. Common practice is to use Greek letters, like '$\phi$' and
+'$\psi$', for metavariables. By default, this is what Carnap does, and you
+will see this in Carnap's error messages.
+:::
+
+Again, you can plug *anything* into []{.P} and []{.Q}, and you will get a true
+instance of rule (3). For example, suppose you plug in a chipmunk, 🐿, and a
+bus, 🚌. You get:
+
+:::example
+If '🐿' and '🚌' are both sentences, then
+    a.  '(🐿 ∧ 🚌)' is also a sentence;
+    b.  '(🐿 ∨ 🚌)' is also a sentence;
+    c.  '(🐿 → 🚌)' is also a sentence;
+    d.  '(🐿 ↔ 🚌)' is also a sentence
+:::
+
+This is true. But since chipmunks and buses are not sentences, it isn't
+productive: it doesn't generate any new sentences for us.
+
+But we have a large stock of known sentences, and we can plug those in to
+generate new sentences. For example:
+
+:::example
+If '[P]{.P}' and '[Q]{.Q}' are both sentences, then
+    a.  '([P]{.P} ∧ [Q]{.Q})' is a sentence;
+    b.  '([P]{.P} ∨ [Q]{.Q})' is a sentence;
+    c.  '([P]{.P} → [Q]{.Q})' is a sentence;
+    d.  '([P]{.P} ↔ [Q]{.Q})' is a sentence.
+:::
+
+This gets us four new sentences. Again,
+
+:::example
+If '[¬Q]{.P}' and '[¬P]{.Q}' are both sentences, then
+    a.  '([¬Q]{.P} ∧ [¬P]{.Q})' is a sentence;
+    b.  '([¬Q]{.P} ∨ [¬P]{.Q})' is a sentence;
+    c.  '([¬Q]{.P} → [¬P]{.Q})' is a sentence;
+    d.  '([¬Q]{.P} ↔ [¬P]{.Q})' is a sentence.
+:::
+
+We know by rule (1) that 'P' and 'Q' are sentences. And we know by rule (2)
+that, since they are, so are '¬P' and '¬Q'. And now we know that, since those
+are both sentences, so are '(¬Q ∧ ¬P)', '(¬Q ∨ ¬P)', '(¬Q → ¬P)' and '(¬Q ↔ ¬P)'.
+
+And we can iterate. Once we've used rule (3) to generate
+a new sentence, we can use rule (3) again on *that* sentence to generate yet
+another new sentence:
+
+:::example
+If '[(¬Q ∧ ¬P)]{.P}' and '[(¬Q ↔ ¬P)]{.Q}' are both sentences, then
+    a.  '([(¬Q ∧ ¬P)]{.P} ∧ [(¬Q ↔ ¬P)]{.Q})' is a sentence;
+    b.  '([(¬Q ∧ ¬P)]{.P} ∨ [(¬Q ↔ ¬P)]{.Q})' is a sentence;
+    c.  '([(¬Q ∧ ¬P)]{.P} → [(¬Q ↔ ¬P)]{.Q})' is a sentence;
+    d.  '([(¬Q ∧ ¬P)]{.P} ↔ [(¬Q ↔ ¬P)]{.Q})' is a sentence.
+:::
+
+In this way, by applying the rules of our syntax recursively, we
+can generate ever more complicated molecular sentences.
+
+Suppose I give you a combination of symbols, and ask you whether or not it is
+a sentence in our language. If it *is*, then you can prove this by
+demonstrating how to construct it, following our three syntactic rules.
+Showing that a combination of symbols is *not* a sentence in our language is a bit
+trickier. Consider:
+
+:::example
+| 'PQ'
+:::
+
+This is not a sentence in SL. Can you explain why?
+
+```{.QualitativeProblem .ShortAnswer give-credit="onSubmission" points=10}
+11 Explain why 'PQ' is not a sentence in our language.
+```
+
+:::{.reaction .correct ex=11}
+'PQ' cannot be constructed using our rules. By rule (1), we know that 'P' and 'Q' are both sentences.
+But there is no rule that allows us to combine two sentences without
+introducing a connective symbol and a pair of parentheses. 
+:::
+
+This is also not sentence in SL:
+
+:::example
+| 'P → Q'
+:::
+
+```{.QualitativeProblem .ShortAnswer give-credit="onSubmission" points=10}
+12 Explain why 'P → Q' is not a sentence in our language.
+```
+
+:::{.reaction .correct ex=12}
+'P → Q' cannot be constructed using our rules. By rule (1), we know that 'P' and 'Q' are both sentences.
+But there is no rule that allows us to combine two sentences without
+introducing a connective symbol *and a pair of parentheses*. By rule (3),
+'(P → Q)' is a sentence. But '(P → Q)' has parentheses, and 'P → Q' does not.
+:::
+
+You might find that you tacitly have the belief that *parentheses are
+optional*. This might lead you feel like there is no difference between '(P →
+Q)', 'P → Q', '((P → Q))': these are just three different ways of writing the
+same thing. But **that is not how our language works**. In our language,
+given the way we designed it, parentheses are not optional. They need to be
+there when they need to be there, and they cannot be there unless they need to
+be there.
+
+You might be *so used to* this idea that you struggle to even *see* the
+difference between 'P → Q' and '(P → Q)', or between '(P → Q)' and '((P →
+Q))'. But these are different: One is three symbols long; one is five symbols
+long; and the other is seven symbols long. One starts with 'P'; the other two
+start with '('. These are real differences, and we will pay attention to them.
+
+```{.QualitativeProblem .ShortAnswer give-credit="onSubmission" points=10}
+13 Explain why '((P → Q))' is not a sentence in our language.
+```
+
+:::{.reaction .correct ex=13}
+'(P → Q)' is a sentence in our language, by rule (1) and rule (3). But there
+is no rule that allows us to add an extra set of parentheses around a
+sentence, to create a new sentence. So there is no way to construct '((P →
+Q))' from '(P → Q)'. 
+:::
+
+We have parentheses to avoid ambiguity. [[Ambiguity]{.vocab} is when a single
+expression has more than one meaning.]{.def} 
+Consider a claim you might make about a romantic partner:
+
+:::example
+-   They love me **and** they are only sleeping with me **or** they are cheating on me.
+:::
+
+Do you see that how this is ambiguous? We can use parentheses to disambiguate:
+
+:::example
+-   They love me **and** (they are only sleeping with me **or** they are
+    cheating on me).
+-   (They love me **and** they are only sleeping with me) **or** they are
+    cheating on me.
+:::
+
+On the first reading, the claim is that your partner loves you whether or not
+they are faithful. On the second reading, the claim is that either your
+partner loves you and is faithful, or they are cheating on you. Those are two
+very different claims, and describe two very different relationships.
+
+In our artificial language, SL, we aim to avoid *all possible ambiguities*. We
+want our sentences to wear their meanings on their sleeves, as it were, so
+there are never any further *interpretive* questions that need to be answered
+by further clarification or context. Here, then, is what the two possible
+readings look like in SL:
+
+:::example
+| (P ∧ (Q ∨ R))
+| ((P ∧ Q) ∨ R)
+:::
+
+Drop the parentheses, and we are left not with an ambiguous sentence in SL,
+but with a combination of symbols that doesn't count as a sentence at all:
+
+:::{.example .xed}
+| P ∧ Q ∨ R
+:::
+
+## An Aside on Ambiguity
+
+English is chock-full of ambiguity.
+[This poem by Brain Bilston](https://wp.me/p46ZKl-92) uses this to wonderful
+effect:
+
+| you took
+| the last bus home
+| 
+| i still don’t know
+| how you got it through the door
+| 
+| but you’re always doing amazing stuff
+| 
+| like the time
+| when you caught that train
+
+Playing with ambiguity can make for good poetry. But mixing ambiguity with
+arguments is a recipe for trouble. Consider:
+
+::: standardform
+-  Nothing is better than world peace.
+-  Cold pizza is better than nothing.
+-  Cold pizza is better than world peace.
+:::
+
+This argument is not valid, but it can seem valid, because it seems to have
+the same form as this argument, which is valid:
+
+::: standardform
+-   A silver medal is better than a bronze medal.
+-   A gold medal is better than a silver medal.
+-   A gold medal is better than a bronze medal.
+:::
+
+The trouble is caused by the sentence "Nothing is better than world peace."
+This sentence is ambiguous: there are two ways to read it. It *could* be read
+as making a claim about *nothingness*, comparing it to world peace, and saying
+that *nothingness* is a better thing than world peace. When read in this way,
+the argument actually is valid, and has the same form and structure as the
+argument about medals. But that's not really the right way to read the sentence. Instead, it means
+that there isn't anything better than world peace. So, when read properly, the
+argument is invalid.
+
+As this example suggests, often the logical form of an English sentence is something hidden,
+not something on the surface.
+English is chock-full of sentences that can be read in many ways, and look on their surface to have the
+one logical structure, but are revealed upon analysis to have some very
+different logical structure.
+This is true of every natural language, and this is one reason why we study
+logical structure by introducing an artificial language.
+
+The most familiar kind of ambiguity in natural language is when a single word has more than one
+meaning. Linguistics call this *lexical ambiguity*: the *lexicon* is the list
+of all words in a language; lexical ambiguity is when an item on that list
+is assigned more than one meaning. Consider:
+
+:::standardform
+-   Where there is a will there is a way.
+-   There is a will in my grandpa's filing cabinet.
+-   There is a way in my grandpa's filing cabinet.
+:::
+
+At first blush, this argument appears valid. Compare it to:
+
+:::standardform
+-   Where there is smoke there is fire.
+-   There is smoke is in my grandpa's house.
+-   There is fire in my grandpa's house.
+:::
+
+And here is the logical form:
+
+:::standardform
+-   Where there is $A$ there is $B$.
+-   There is $A$ is in $C$.
+-   There is $B$ in $C$.
+:::
+
+But, our first argument is not actually valid,
+because it *equivocates* on two different meanings of the word 'will'. 
+In the first premise, when we plug in the word 'will' in place of $A$, the
+meaning assigned is "fixed desire or settled
+intention". In the second premise, when we plug in the same word, 'will', in
+place of $A$, the meaning assigned is "legal document,
+concerning how to dispose one's possessions after one's death." Because the
+word is lexically ambiguous, it can be assigned more than one meaning. So, to
+ensure that the argument is valid, we must ensure not just that it has the
+right *form*, but that each occurrence of 'will' has been assigned the same
+meaning. 
+
+Another more subtle and pernicious form of ambiguity is *syntactic ambiguity*.
+This is when the same sentence can be assigned more than one syntactic
+structure. That is, it can be parsed in more than one way. We've already seen
+one example:
+
+:::example
+-   They love me **and** they are only sleeping with me **or** they are cheating on me.
+:::
+
+Here is another famous (and funny) example:
+
+:::solution
+:::youtube
+<https://youtu.be/NfN_gcjGoJo>
+:::
+:::
+
+::: example
+> "One morning, I shot an elephant in my pajamas. How he got into my pajamas,
+> I'll never know."
+:::
+
+The joke trades on the ambiguity in the sentence,
+
+:::example
+| I shot an elephant in my pajamas.
+:::
+
+This is not a lexical ambiguity: on both readings, each word is assigned the
+same meaning. Instead, the ambiguity is syntactic. On one reading, 'in my
+pajamas' modifies the subject of the sentence, 'I', and so the sentence says
+that the speaker was in pajamas when the elephant was shot.
+On the other reading, 'in my pajamas' modifies the direct object, 'an
+elephant', and so the sentence says that
+the elephant was in the pajamas when shot.
+
+This argument is valid the first reading of the first premise, but
+not on the second reading:
+
+:::standardform
+- I shot an elephant in my pajamas.
+- I was in pajamas.
+:::
+
+Again, natural languages are chock-full of syntactic ambiguities. This may be
+a blessing for comedians, but it is a curse for the logician!
+
+Here is another example, where the syntactic ambiguity has a different source:
+
+::: standardform
+-   Bill and Barb are married.
+-   Bill is Barb's spouse.
+:::
+
+```{.QualitativeProblem .ShortAnswer give-credit="onSubmission" points=10}
+14 Can you spot and describe the ambiguity in 'Bill and Barb are married'?
+```
+
+:::{.reaction .correct ex=14}
+The ambiguity concerns whether or not the sentence says that they are married *to
+each other*. On one reading, it does, and the argument is valid. But in many
+contexts, this reading is not appropriate. Suppose you ask, 'Are all of your
+friends single?', and I reply, 'No, Bill and Barb are married. Bill married
+Ted last year, and Barb married that irritating woman she met in Florida.' It
+is clear that I do not mean to say that Bill and Barb are married *to each
+other*. I just mean to say that each of them is married *to someone or other*.
+:::
+
+-----
+
+Gottlob Frege (d. 1925) was the first to construct an artificial language,
+explicitly designed for the study of logical form.
+The language we will be studying is a descendant of that language.
+As it turns out, a language that wears logical form on its sleeve, and avoids
+all ambiguity, is a very handy thing. It is especially handy if you want to create a *machine*
+capable of *processing* information encoded in that language. All computer
+programming languages are artificial languages in this sense, and also descend
+from Frege's language.
+
+:::sep-inset  
+
+![Photo of Gottlob Frege](https://plato.stanford.edu/entries/frege/frege.jpg)
+
+::: sep-header
+<img src="https://plato.stanford.edu/symbols/sep-man-red.png" />
+[Stanford Encyclopedia of Philosophy](https://plato.stanford.edu){target="_blank" rel="noopener noreferrer"}
+:::
+
+# [Gottlob Frege](https://plato.stanford.edu/entries/frege/){target="_blank" rel="noopener noreferrer"}
+
+::: {#preamble}
+Friedrich Ludwig Gottlob Frege (b. 1848, d. 1925) was a German
+mathematician, logician, and philosopher who worked at the University of
+Jena. Frege essentially reconceived the discipline of logic by
+constructing a formal system which, in effect, constituted the first
+'predicate calculus'. In this formal system, Frege developed an analysis
+of quantified statements and formalized the notion of a 'proof' in terms
+that are still accepted today. Frege then demonstrated that one could
+use his system to resolve theoretical mathematical statements in terms
+of simpler logical and mathematical notions. One of the axioms that
+Frege later added to his system, in the attempt to derive significant
+parts of mathematics from logic, proved to be inconsistent.
+Nevertheless, his definitions (e.g., of the *predecessor* relation and
+of the concept of *natural number*) and methods (e.g., for deriving the
+axioms of number theory) constituted a significant advance. To ground
+his views about the relationship of logic and mathematics, Frege
+conceived a comprehensive philosophy of language that many philosophers
+still find insightful. However, his lifelong project, of showing that
+mathematics was reducible to logic, was not successful.
+:::
+:::
+
+<!--_-->
+
+## Syntactic Trees
+
+We can visually represent the structure of a sentence using a syntactic tree:
+
+:::illustration
+![Syntactic tree for '((P ∨ Q) ∨ R)'](http://reggienet.illinoisstate.edu/access/content/user/desanso/public/img/tree1.svg)
+:::
+
+This tree represents how the sentence at the top was constructed from simpler
+sentences. So, at the top, we have the sentence, '((P ∨ Q)∨R)'. The branching below
+that indicates that this sentence was constructed from two simpler sentences:
+'(P ∨ Q)' and 'R'. The branching below '(P ∨ Q)' indicates that it was in turn
+constructed from two simple sentences, 'P' and 'Q'. You can verify that each
+node in the tree is a sentence, by our rules. The bottom-most nodes are all
+sentence letters, so they are sentences by rule (1). '(P ∨ Q)' is constructed
+from the sentences beneath it by rule (3b). And, finally, '((P ∨ Q)∨R)' is
+constructed from the sentences beneath it by another application of rule (3b).
+
+If you want to construct a tree for an arbitrary sentence, you need to start
+by finding the *last connective added*. We call the last connective added the
+[main connective]{.vocab} of the sentence. It is the connective that "governs"
+the whole sentence, rather than just a part. Once you've found the main
+connective, you can break the sentence up into the one or two sentences that
+it was constructed from. And then you can repeat this process on those
+sentences, until you eventually end up at the bottom-most nodes of the tree,
+occupied by sentence letters.
+
+For example, in the sentence '$(((P\lor
+Q)\lor R)\rightarrow S)$', the connective '$\rightarrow$' must have been added
+last, since it is wrapped in only one set of parentheses. So we can break the
+sentence up as 
+
+:::illustration
+![Syntactic tree for '(((P ∨ Q) ∨ R) → S)',
+first step](http://reggienet.illinoisstate.edu/access/content/user/desanso/public/img/tree2.svg)
+:::
+
+In '$((P\lor Q)\lor R)$', the '$\lor$' must have been added last (since it is
+wrapped only once), so we can break as:
+
+::: illustration
+![Syntactic tree for '(((P ∨ Q) ∨ R) → S)',
+continued](http://reggienet.illinoisstate.edu/access/content/user/desanso/public/img/tree3.svg)
+:::
+        
+Finally, in '$(P \lor Q)$', '$\lor$' was obviously added last. So we have:
+
+:::illustration
+![Syntactic tree for
+'(((P ∨ Q) ∨ R) → S)',
+completed](http://reggienet.illinoisstate.edu/access/content/user/desanso/public/img/tree4.svg)
+:::
+
+Here is a cool trick: the main connective is always the connective
+that is inside the fewest parentheses. For example, in '(P → (Q ∧ R))', the
+main connective is the '→', which is only inside one pair of parentheses. And,
+in '¬(P → Q)', the main connective is the '¬', which is not inside any
+parentheses.
+
+```{.QualitativeProblem .MultipleChoice points=10}
+15 What is the main connective of '((P ∧ Q) ↔ (R ∨ S))'?
+|∧
+|*↔
+|∨
+```
+
+:::{.reaction .incorrect ex=15}
+Remember, look for the connective that is inside the fewest parentheses. See
+how the '∧' is inside two pairs of parentheses? Which connective is only
+inside one pair of parentheses?
+:::
+
+```{.QualitativeProblem .MultipleChoice points=10}
+16 What is the main connective of '(((P ∧ Q) ↔ R) ∨ S)'?
+|∧
+|↔
+|*∨
+```
+
+:::{.reaction .incorrect ex=16}
+Remember, look for the connective that is inside the fewest parentheses. See
+how the '∧' is inside three pairs of parentheses? Which connective is
+inside the fewest pairs of parentheses?
+:::
+
+```{.QualitativeProblem .MultipleChoice points=10}
+17 What is the main connective of '(P ∧ ((Q ↔ R) ∨ S))'?
+|*∧
+|↔
+|∨
+```
+
+:::{.reaction .incorrect ex=16}
+Remember, look for the connective that is inside the fewest parentheses. See
+how the '∧' is inside one pair of parentheses? Are there any connectives that
+are inside fewer pairs of parentheses than that?
+:::
+
+Now I'd like to introduce a new kind of reading exercise: parse a sentence
+into its syntactic tree. To do this, type the main connective into the box,
+and hit "Enter" or "Return". If you typed the correct connective, the sentence
+will be decomposed into its parts, and one of those parts will be highlighted
+in red. Type the main connective of *that* sentence, and the process will
+repeat itself. Keep going until you have completed the tree. That is, until
+every bottom-most node contains a sentence letter. At that point, the entire
+problem with turn green, indicating that you are done.
+
+**BUT YOU STILL NEED TO SUBMIT THE PROBLEM TO GET CREDIT**. I put that in bold
+and all-caps, because I always have some students who do these exercises, but
+fail to submit them, and are confused when they discover that they have not
+completed the assignment.
+
+We don't have keys for our connectives on our keyboards. So typing in
+connectives is tricky. We use [these shorthands]{#shorthand}: 
+
+   Connective                          Keyboard Shorthand
+  ------------ ------------------------------------------------------------------
+       ∧            '/\\': forward slash ('/') followed by back slash ('\\')
+       ∨            '\\/': back slash ('\\') followed by forward slash ('/')
+       →            '-\>': minus sign ('-') followed by greater than ('\>')
+       ↔        '<-\>': less than ('<'), minus sign ('-'), greater than ('\>')
+       ¬                                '\~': the tilda
+
+Sometimes, it is easier to understand something by watching someone do it.
+I've included a short video demonstrating the solution to the first question.
+
+```{.SynChecker .Match points=10} 
+18 ~(P/\Q)->(R\/P)
+```
+
+**REMEMBER TO SUBMIT THE PROBLEM ONCE YOU HAVE COMPLETED IT.**
+
+:::solution
+::: youtube
+<https://youtu.be/3UNyW2755dY>
+:::
+:::
+
+
+```{.SynChecker .Match points=10} 
+19 P /\ (R -> Q)
+20 R <-> (S \/ ~P)
+21 (P /\ R) <-> (P \/ (Q /\ ~S))
+22 (R -> S) \/ (P -> Q)
+23 (Q -> (R -> S)) -> ((P -> Q)->(P -> R))
+```
+
+**DID YOU REMEMBER TO SUBMIT THE PROBLEMS?** Submitted problems show up
+"green" in the progress bar drop-down.
+
+The following video provides solutions to 19-23. Please try to solve
+the problems yourself first. If you get stuck, watch the video, and that
+should help you get unstuck.
+
+:::solution
+::: youtube
+<https://youtu.be/qmMcaOawt_E>
+:::
+:::
+
+## Informal Notation
+
+Sentences in our new artificial language are never ambiguous. By following the
+parentheses, we can always find the main connective. And once we find the main
+connective, we can parse the structure of the sentence.
+
+But sometimes they have *lots* of parentheses, and that can make
+them hard to read. So we introduce some conventions for dropping parentheses.
+Remember, as I said above, *parentheses are not optional*. They are an
+essential part of the sentence, and they will always be there. Its just that
+in some explicitly described cases, we allow ourselves not to write them.
+
+When we do this—write a sentence, but leave out some of the parentheses, in
+accordance with our conventions—we say that the sentence is written in
+[informal notation]{.vocab}. Informal notation is a convenient shorthand. But
+it is important to understand that it is just a shorthand. The real sentence
+is the sentence in [official notation]{.vocab}, with all of its parentheses.
+
+Here are the three situations in which you can drop parentheses:
+
+### Outermost Parentheses
+
+If a sentence in official notation begins and ends with a matched pair of
+outermost parentheses, you can drop those parentheses.
+
+For example, the top sentence is in official notation, and beneath it, it is
+written in informal notation, with the outermost parentheses dropped:
+
+:::example
+| (P ∨ Q)
+| P ∨ Q
+:::
+
+Note that this convention does not apply to sentences that begin with '¬'. For
+example, this is *not* okay, because the parentheses are not outermost. The
+top sentence does not start with '(', but with '¬':
+
+:::example
+| ¬(P ∨ Q)
+| <s>¬P ∨ Q</s>
+:::
+
+Also note that this convention does not apply to sentences that are already
+written in informal notation. It only applies to sentences that are written in
+official notation. For example, I can drop the outermost parentheses from the
+top sentence, which is in official notation, and write it in informal
+notation. But I cannot then drop the outermost parentheses from the sentence
+written in informal notation:
+
+:::example
+| ((P ∨ Q) → (Q ∧ R))
+| (P ∨ Q) → (Q ∧ R)
+| <s>P ∨ Q) → (Q ∧ R</s>
+:::
+
+### "-junctions" and "-ditionals"
+
+The second convention is similar to a convention you learned when you learned
+"order of operations" in arithmetic. For example, you know that:
+
+::: example
+| $2 + 2 \times 2 = 2 + (2 \times 2)$
+:::
+
+You learned this rule by learning to "multiply before you add". But that is
+equivalent to a rule for dropping parentheses. If we are sure to always
+follow the rule "multiply before you add", then we can drop the parentheses
+around the multiplication operation, and be confident that we will continue to
+use the formula *as if* those parentheses are there:
+
+::: example
+| $2 + (2 \times 2)$
+| $2 + 2 \times 2$
+:::
+
+Our second convention says that you should treat conjunctions and disjunctions
+("-junctions") like multiplication, and conditionals and biconditionals
+("-ditionals") like addition. The slogan is "-Junctions group more tightly
+than -ditionals". Although it is a convention for *dropping* parentheses, it
+is easier to understand as a convention for *adding back* parentheses. So in
+the examples below, the top-most sentence is the sentence in informal
+notation, and beneath it is the same sentence in official notation, with the
+parentheses "added back". (Actually, not quite in official notation, since the outermost
+parentheses are still omitted.)
+
+:::example
+| P ∧ Q → R
+| (P ∧ Q) → R
+:::
+
+In the example above, the conjunction, '∧', "groups more tightly than" the
+conditional, '→'. So the parentheses go around 'P ∧ Q'. Again,
+
+:::example
+| P ↔ Q ∨ R
+| P ↔ (Q ∨ R)
+:::
+
+In the example above, the disjunction, '∨', "groups more tightly than" the
+biconditional, '↔'. So the parentheses go around the 'Q ∨ R'.
+
+Turning this around, let's think of it now as a convention for *dropping*
+parentheses. For example,
+
+:::example
+| P → (Q ∨ R)
+| P → Q ∨ R
+:::
+
+Here, we began with a sentence in official notation. And we saw that the
+parentheses indicated that the disjunction was "grouped more tightly" than
+that conditional. So we knew that, if we dropped those parentheses, everyone
+would still read the sentence in the correct way, following our convention.
+Compare that to,
+
+:::example
+| (P → Q) ∨ R
+| <s>P → Q ∨ R</s>
+:::
+
+In this case, the parentheses are around the conditional, not the disjunction.
+If we drop the parentheses, people will misunderstand, and think that we meant
+'P → (Q ∨ R)' instead. So we cannot drop those parentheses. Again, this is
+something you already know from math. Since you know that everyone follows the
+"multiply before you add" rule, you know that you can safely drop the
+parentheses here:
+
+:::example
+| $2 + (2 \times 2)$
+| $2 + 2 \times 2$
+:::
+
+But if the formula you want is the one that involves adding first, and then
+multiplying, you must retain the parentheses:
+
+:::example
+| $(2 + 2) \times 2$
+| <s>$2 + 2 \times 2$</s>
+:::
+
+Finally, note that this convention has nothing to say about "competitions" between
+-junctions, or competitions between -ditionals. For example, we cannot drop
+the parentheses in '(P → Q) → R':
+
+:::example
+| (P → Q) → R
+| <s>P → Q → R</s>
+:::
+
+And we cannot drop the parentheses in 'P ∨ (Q ∧ R)':
+
+:::example
+| P ∨ (Q ∧ R)
+| <s>P ∨ Q ∧ R</s>
+:::
+
+In both cases, the convention would give us no guidance on how to add back the
+parentheses, resulting in a structurally ambiguous sentence.
+
+
+```{.QualitativeProblem .MultipleChoice points=10}
+24 What is the main connective of '¬P → Q ∨ ¬R'?
+|*'→'
+|'∨' 
+|the first '¬'
+|the second '¬'
+```
+:::{.reaction .incorrect ans="2 3"
+When we add back the outermost parentheses, we get '(¬P → Q ∨ ¬R)'.
+The *only* way that a negation can be the main connective is when, in official
+notation, it is *the very first symbol* in the sentence. In this case, the
+very first symbol is the left parenthesis, not either of the negation signs.
+:::
+
+:::{.reaction .incorrect ans=1}
+Remember, -junctions group more tightly than -ditionals. So the parentheses go around the
+disjunction: '¬P → (Q ∨ ¬R)'.
+:::
+
+:::{.reaction .correct}
+Well done. Let's go through the process of adding back parentheses step by
+step:
+
+:::example
+-   ¬P → Q ∨ ¬R
+-   (¬P → Q ∨ ¬R) (adding back the dropped outermost parentheses)
+-   (¬P → (Q ∨ ¬R)) (following the rule that conditionals group more tightly
+    than disjunctions)
+:::
+:::
+
+
+```{.QualitativeProblem .MultipleChoice points=10}
+25 What is the main connective of '¬P ∧ Q ↔ ¬R'?
+|'∧' 
+|*'↔'
+```
+
+::: spoiler
+Apply the rule that -junctions group more tightly
+than -ditionals. That means that the parentheses should go around the
+conjunction: '(¬P ∧ Q) ↔ ¬R)'. So the main connective is the '↔'.
+:::
+
+### The Lefty Rule for -junctions
+
+Our third convention is also similar to a rule you learned in arithmetic. What
+is:
+
+::: example
+| $2 - 2 - 2$
+:::
+
+If your answer is $-2$, then you "worked from left to right". Again, although
+you learned this as a rule about what to "do first", it is equivalent to a
+rule for adding adding back parentheses: 
+
+::: example
+| $2 - 2 - 2$
+| $(2 - 2) - 2$
+:::
+
+You can think of this as a "lefty" rule: in the absence of parentheses, group
+subtraction problems to the left.
+
+If your answer was instead $2$, then you applied a "righty" rule instead, and
+so took $2 - 2 - 2$ to be equivalent to $2 - (2 - 2)$. That's not the
+convention in arithmetic. The convention, for subtraction, is to use a "lefty"
+rule.
+
+Our third convention is also "lefty" rule. Just as you know to group
+subtraction problems to the left, you should group conjunctions to the left:
+
+
+:::example
+| P ∧ Q ∧ R
+| (P ∧ Q) ∧ R
+| <s>P ∧ (Q ∧ R)</s>
+:::
+
+The same applies to disjunctions:
+
+:::example
+| P ∨ Q ∨ R
+| (P ∨ Q) ∨ R
+| <s>P ∨ (Q ∨ R)</s>
+:::
+
+But the convention stops there. It does not apply to conditionals or
+biconditionals. And it does not apply to sentences that mix conjunctions and
+disjunctions. So the following is not well-formed:
+
+::: example
+| <s>P ∨ Q ∧ R</s>
+:::
+
+If we had a "lefty" rule for sentences that mix conjunctions and disjunctions,
+we could recover a sentence in official notation. But we have not such rule,
+so this fails to be a grammatically well-formed sentence.
+
+Again, the following is not well-formed:
+
+::: example
+| <s>P → Q → R</s>
+:::
+
+If we had a "lefty" rule for conditionals, then we could recover a sentence in
+official notation. But we have no such rule, so this fails to be grammatically
+well-formed.
+
+::: aside
+The most common convention among working logicians is to apply a "Righty Rule"
+to conditionals, so $\mathrm{P\mathbin{\rightarrow} Q\mathbin{\rightarrow} R}$
+is treated as shorthand for
+$\mathrm{P\mathbin{\rightarrow} (Q\mathbin{\rightarrow} R)}$. But we will not
+be introducing this convention for our language in this class.
+:::
+
+
+```{.QualitativeProblem .MultipleChoice points=10}
+26 What is the main connective of '¬P ∧ ¬Q ∧ ¬R'?
+|The first '∧' 
+|*The second '∧' 
+```
+
+::: spoiler
+Apply the lefty rule. This tells us to group the conjunctions to the left:
+'(¬P ∧ ¬Q) ∧ ¬R'. So the main connective is the second conjunction.
+:::
+
+```{.QualitativeProblem .MultipleChoice points=10}
+27 What is the main connective of 'P ∨ Q ∨ (R ∨ S)'?
+|The first '∨' 
+|*The second '∨' 
+|The third '∨' 
+```
+
+::: spoiler
+This is a bit tricky. You might be tempted to "apply the lefty rule" and
+conclude that the main connective is the third disjunction—the one furthest
+to the right. But we have to respect the parentheses that are explicitly
+there. So, when we apply the lefty rule, we get '(P ∨ Q) ∨ (R ∨ S)'. So the main connective is the second
+disjunction.
+:::
+
+## The Three Conventions
+
+To summarize, we have three conventions that allow us to drop parentheses. The
+first is easiest to state as a convention for dropping parentheses:
+
+Drop Outermost Parentheses
+:   If a sentence in official notation has outermost parentheses, you can drop
+    those parentheses.
+
+The second two are easiest to state in terms of adding back parentheses that
+have been dropped:
+
+-junctions Before -ditionals
+:   Add parentheses into a sentence in accordance with the principle that
+    -junctions group more tightly than -ditionals. 
+
+The Lefty Rule for -junctions
+:   Group adjacent sequences of conjunctions, and adjacent sequences of
+    disjunctions, to the left.
+
+This all sounds more complicated than it really is. You will quickly get the
+hang of how to read sentences in our language, in accordance with these
+conventions.
+
+The conventions all work together. We've already seen this, as we have been
+dropping parentheses even as we explain the other two rules. Here are a few
+more examples to think through.
+
+
+```{.QualitativeProblem .MultipleChoice points=10}
+28 What is the main connective of 'P ∧ Q ∧ R → S'?
+|The first '∧' 
+|The second '∧' 
+|*The '→'
+```
+
+:::spoiler
+It is the '→'. The -junctions before -ditionals rule dictates that there must
+be parentheses around the 'P ∧ Q ∧ R': '(P ∧ Q ∧ R) → S'. But is that
+well-formed? Yes, because the lefty rule for -junctions tells us that we can
+group the 'P ∧ Q ∧ R' to the left: '((P ∧ Q) ∧ R) → S'.
+:::
+
+## Parsing, Again
+
+Before, we were parsing sentences that were in official notation. That meant
+that, for the most part, all we had to do was "follow the parentheses". It is
+harder to parse sentences that are in informal notation. Until you get the
+hang of it, your best bet is to grab a sheet of paper, and rewrite the
+sentence in official notation, with all the parentheses, and then follow the
+parentheses.
+
+```{.SynChecker .MatchClean points=10}
+29  P /\ -Q
+30  P /\ R -> T \/ W
+31 ~P \/ ~(P -> Q \/ T)
+32  Q \/ P \/ P -> S
+33 P <-> (Q /\ S /\ P)
+```
+
+:::solution
+:::youtube
+<https://youtu.be/OYRfMDLfVyk>
+:::
+:::
+
+
+<!-- vim: set ft=carnap :-->

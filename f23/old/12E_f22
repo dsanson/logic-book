@@ -1,0 +1,75 @@
+---
+base-css:
+-   https://carnap.io/shared/dsanson@gmail.com/sanson-book.css
+js: 
+-   https://carnap.io/shared/dsanson@gmail.com/logic-book.js
+---
+
+# Translation in PL: Exercises
+
+::: {.auto-tally}
+:::
+
+:::wrapper
+:::soasticky
+| F: is a fool
+| G: is great
+| H: is happy
+| I: is a person
+| J: is a horse
+| a: Agnes
+| b: Bernice
+:::
+
+```{.Translate .FOL points=10}
+1 AxG(x) : Everything is great
+2 ExG(x) : Something is great
+3 Ax(I(x)->G(x)) : Everyone is great
+4 Ex(I(x)/\H(x)) : Somebody is happy
+5 ~ExG(x)  : Nothing is great
+6 ~Ex(I(x)/\H(x)) : Nobody is happy
+7 H(b)->AxG(x) : If Bernice is happy, everything is great
+8 H(a)<->ExH(x) : Agnes is happy if and only if something is happy
+9 Ax(F(x)->I(x)) : All fools are people
+10 Ax(I(x)->F(x)) : All people are fools
+11 Ax(F(x)->I(x)) : Only people are fools
+12 Ax(H(x)->F(x)) : Only fools are happy
+13 Ex(F(x)/\H(x)) : Some fools are happy
+14 Ex(F(x)/\~H(x)) : Some fools are not happy
+15 ~Ex(F(x)/\G(x)) : No fools are great
+16 ~Ex(F(x)/\~H(x)) : No fools are not happy
+17 Ex(H(x)/\F(x)/\G(x)) : Some happy fools are great
+18 Ex(H(x)/\F(x)/\~G(x)) : Some happy fools are not great
+19 Ax(I(x)->H(x)\/F(x)) : Everyone is happy or a fool
+20 Ax(I(x)->H(x)/\F(x)) : Everyone is happy and a fool
+21 Ax(I(x)->(F(x)->H(x))) : Everyone is happy if a fool
+22 Ax(G(x)/\F(x)->H(x)) : Every great fool is happy
+23 Ax(F(x)\/J(x)->H(x)) : All fools and horses are happy 
+24 Ax(H(x)->F(x)\/J(x)) : Only fools and horses are happy
+```
+:::
+
+:::wrapper
+:::soasticky
+| F: is a fish
+| G: is green
+| H: is a penguin
+| I: swims
+:::
+
+```{.Translate .FOL points=10}
+25 ~Ex(H(x)/\F(x)) : No penguin is a fish
+26 Ax(G(x)/\F(x)->I(x)) : Every green fish swims
+27 Ax(F(x)\/H(x)->I(x)) : Every fish and penguin swims
+28 ~Ex(F(x)\/H(x)/\I(x)) : No fish or penguin swims
+29 ~Ex(F(x)\/H(x)/\~I(x)) : No fish or penguin doesn't swim
+30 Ex(F(x)/\G(x))  : A fish is green
+31 ∀x(I(x)->F(x)): Anything that swims is a fish
+32 Ax(F(x)->I(x)) : If something is a fish, it swims
+33 Ax(I(x)->F(x)) : If a thing swims, it is a fish
+34 Ax(H(x)->I(x)\/G(x)) : Every penguin swims unless it is green
+```
+:::
+
+
+<!-- vim: set ft=carnap :-->

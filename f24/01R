@@ -1,0 +1,1064 @@
+---
+base-css:
+-   https://carnap.io/shared/dsanson@gmail.com/sanson-book.css
+-   https://cdn.plyr.io/3.6.12/plyr.css
+js: 
+-   https://cdn.plyr.io/3.6.12/plyr.polyfilled.js
+-   https://carnap.io/shared/dsanson@gmail.com/logic-book.js
+---
+
+::: cover
+
+# Introducing Arguments
+
+![Tweedledum and Tweedledee](https://dsanson.github.io/logic-materials/img/tweedledum.png){
+  alt="Alice approaches Tweedledum and Tweedledee (an illustration from Alice in Wonderland)"}
+[PD](attributions#tweedledum.png){.attribution target="_blank" rel="noopener noreferrer"}
+
+<!--_-->
+
+:::: epigraph
+"Contrariwise," continued Tweedledee, "if it was so, it might be; and if it
+were so, it would be; but as it isn't, it ain't. That's logic." 
+
+[Lewis Carroll, *Through the Looking Glass*]( https://www.gutenberg.org/files/12/12-h/12-h.htm#link2HCH0004){
+  .source target="_blank" rel="noopener noreferrer"}
+::::
+:::
+
+<!--_-->
+
+:::sec
+
+## Objectives
+
+This chapter introduces the concept of an argument, in the logical sense, and
+several key concepts we use to study and talk about arguments.
+
+The learning objectives for this unit are:
+
+-   You have a working understanding of what an argument is.
+-   You know the technical definitions of each of the following terms:
+    [argument]{.vocab}, [premise]{.vocab}, [conclusion]{.vocab},
+    [strength]{.vocab}, [validity]{.vocab}, and [soundness]{.vocab}.
+-   Given a short passage that contains an argument, you can identify its
+    premises and conclusion, and rewrite it in standard form.
+
+The mastery check for this unit is on paper. When you are ready to attempt it,
+ask me, either in class or during office hours.
+
+:::
+:::sec
+
+## Introduction
+
+To help fix ideas, watch the short clip below (from the movie [Labyrinth
+(1986)](https://www.imdb.com/title/tt0091369/){.source target="_blank"
+rel="noopener noreferrer"}). In the clip, Sarah is given some information,
+asks some questions, and then comes to a conclusion. When pressed by the
+guards, she then explains her reasoning, showing how her conclusion follows
+from the information she was given. She then acts on that conclusion (and
+immediately falls into a pit).
+
+As you watch it, I want you to think about the structure of her reasoning, and
+whether she is right, or she has made a mistake. Also, Sarah talks really
+fast! I would recommend enabling captions, and replaying the clip a few times,
+possibly at a lower speed. (Click on the gear icon in the video controls to 
+access these options.)
+
+:::illustration
+![Sarah's Puzzle](https://dsanson.github.io/logic-materials/vid/labyrinth-clip.mp4)
+:::
+
+After you have watched the video, answer the following questions as best you
+can. It is okay if you are not sure about your answers. We are just getting
+started! The point here is not to get the right answers, but to start thinking
+about what the right answers might be.
+
+```{.QualitativeProblem .ShortAnswer give-credit="onSubmission" points=10}
+1    What is the conclusion that Sarah comes to?
+2    What is the information that she reasons from?
+3    Was her reasoning correct, or did she make a mistake?
+```
+
+We return to Sarah's argument and these questions at the end of this
+chapter, once we have introduced some basic tools for reconstructing and
+evaluating arguments.
+
+:::
+:::sec
+
+## Arguments
+
+In one sense of the word, an argument is a verbal fight between two or more
+people: a lovers' quarrel; a shouting match with your mom. That is not how we
+will use the word 'argument' here. The sort of argument we are interested in
+is an attempt to provide a *reason* in support of a *conclusion*, like when
+someone says something controversial, and you say, "Okay, but what is your
+*argument* for that?"
+
+What is it to offer an argument in this sense, a reason in support of conclusion?
+To get us started, here are three reasons one might offer against majoring in philosophy:
+
+-    A major in philosophy won't get you a good job;
+-    Philosophy is nothing but idle speculation.
+-    The Lizardman majored in philosophy.
+
+::: aside
+:::illustration
+![The Lizardman](https://dsanson.github.io/logic-materials/img/the-lizardman.jpg){alt="A portrait of Erik Sprague, also know as the Lizardman, displaying his forked tongue as well as several of his tatoos, including a tatoo that reads 'Freak' across his chest."}
+:::
+
+[The
+Lizardman](https://en.wikipedia.org/wiki/The_Lizardman_(performer)){.source
+target="_blank" rel="noopener noreferrer"} is an American freak show and
+sideshow performer, best known for his body modifications, including sharpened
+teeth, a full-body tattoo of green scales, a bifurcated tongue, subdermal
+implants, and green-inked lips. He has a BA in Philosophy from Hartwick College.
+:::
+
+These are three separate reasons, each in support of the same conclusion. So this gives us
+three separate arguments:
+
+Argument 1
+:    **Reason**: A major in philosophy won't get you a good job. **Conclusion**: You
+    shouldn't major in philosophy.
+
+Argument 2
+:   **Reason**: Philosophy is nothing but idle speculation. **Conclusion**: You
+    shouldn't major in philosophy.
+
+Argument 3
+:   **Reason**: The Lizardman majored in philosophy. **Conclusion**: You
+    shouldn't major in philosophy.
+
+Here is a simple visual representation of the three arguments, using what is known as an "argument map":
+
+<pre class="mermaid">
+%%{init: {"theme":"base","themeCSS": "#Argument rect{stroke:transparent; fill:#e5e5e5} #Argument span {color:transparent} .edgeLabel{color:#888; font-size:0.9em; margin-right:3px} .edgeLabel i{color:crimson} .edge-pattern-dotted{stroke:crimson} .edge-pattern-solid{stroke:green} #flowchart-pointEnd{fill:green}  g[id*=\"O\"] *{stroke:crimson!important; font-size:0.95em} circle+g span{color:white; } circle{fill:green!important} g[id*=\"C\"] * {fill:black;color:white;font-weight:bold}","themeVariables":{"secondaryColor":"transparent","primaryColor":"white","primaryBorderColor":"black"},"flowchart":{"htmlLabels":true,"padding":20,"rankSpacing":20}} }%%
+flowchart TB
+subgraph Argument
+direction TB
+C(["You should not major in philosophy."])
+1("A major in philosophy won't
+get you a good job.")
+2("Philosophy is nothing 
+but idle speculation.")
+3("The Lizardman majored 
+in philosophy.")
+1 -->|supports|C
+2 -->|supports|C
+3 -->|supports|C
+end
+</pre>
+
+We might also consider reasons one might offer in favor of majoring in philosophy. Here are three:
+
+-   Philosophy explores fundamental questions about the world and our place in it.
+-   Philosophy develops uniquely powerful ways of thinking about especially complex and intractable problems.
+-   The Lizardman majored in philosophy.
+
+This gives us three more arguments:
+
+Argument 4
+:   **Reason**: Philosophy explores fundamental questions about the world and our place in it.
+    **Conclusion**: You should major in philosophy.
+
+Argument 5
+:   **Reason**: Philosophy develops uniquely powerful ways of thinking about especially complex and intractable problems.
+    **Conclusion**: You should major in philosophy.
+
+Argument 6
+:   **Reason**: The Lizardman majored in philosophy. **Conclusion**: You
+    should major in philosophy.
+
+Here is an argument map, visually representing these three arguments:
+
+<pre class="mermaid">
+%%{init: {"theme":"base","themeCSS": "#Argument rect{stroke:transparent; fill:#e5e5e5} #Argument span {color:transparent} .edgeLabel{color:#888; font-size:0.9em; margin-right:3px} .edgeLabel i{color:crimson} .edge-pattern-dotted{stroke:crimson} .edge-pattern-solid{stroke:green} #flowchart-pointEnd{fill:green}  g[id*=\"O\"] *{stroke:crimson!important; font-size:0.95em} circle+g span{color:white; } circle{fill:green!important} g[id*=\"C\"] * {fill:black;color:white;font-weight:bold}","themeVariables":{"secondaryColor":"transparent","primaryColor":"white","primaryBorderColor":"black"},"flowchart":{"htmlLabels":true,"padding":20,"rankSpacing":20}} }%%
+flowchart TB
+subgraph Argument
+direction TB
+C(["You should major in philosophy."])
+4("Philosophy explores 
+fundamental questions 
+about the world and 
+our place in it.")
+5("Philosophy develops 
+uniquely powerful ways 
+of thinking about 
+especially complex and 
+intractable problems.")
+6("The Lizardman majored 
+in philosophy.")
+4 -->|supports|C
+5 -->|supports|C
+6 -->|supports|C
+end
+</pre>
+
+I am not saying that these are *good* arguments, just that
+they are *arguments*. Again, an argument is *an attempt* to provide a reason in
+support of a conclusion. Whether or not that attempt is successful is a
+further question.
+
+:::
+:::sec
+
+
+## Articulating Reasons into Premises
+
+In the previous section, I introduced six different reasons for and against
+majoring in philosophy, and separated them into six different arguments. But
+the presentation of each argument was incomplete. More work needs to be done
+to articulate each of the six reasons, and clarify how each reason is meant to support its conclusion.
+
+::: aside
+It is important to note that the claim that philosophy majors don't get good
+jobs is [not supported by the
+data](https://www.apaonline.org/general/custom.asp?page=data){.source
+target="_blank" rel="noopener noreferrer"}. But for the moment, we are just
+interested in how, if this *were* true, it *would* support the conclusion, and
+so put aside the fact that it is false.
+:::
+
+Consider Argument 1: you should not major in philosophy because it won't get
+you a good job. This argument trades on the well-known fact that philosophy
+majors end up working fast food, while students who pursue more practical
+majors land real jobs. It is important to note that this claim is [not
+supported by the
+data](https://www.apaonline.org/general/custom.asp?page=data){.source
+target="_blank" rel="noopener noreferrer"}. But for the moment, I want you to
+put that aside. Suppose this *were* true. How is that meant to support the
+conclusion, that you should not major in philosophy? What *else* to have to assume
+to see this as a reason against majoring in philosopy?
+
+```{.QualitativeProblem .ShortAnswer give-credit="onSubmission" points=10}
+4    What else do we have to assume, if we are taking the claim that a major in philosophy won't land you a good job as a reason you should not major in philosophy?
+```
+
+::: {.reaction .correct ex="4"}
+There are a few different possible assumptions that would do the trick. One is
+that the primary purpose of a college degree is landing a good job. Another is
+that, while that might not be the primary purpose of a college degree for
+*everyone*, it needs to be the primary purpose of a college degree for *you*,
+you given the details of your financial situation. Yet another is that, while that might not
+be *your* primary purpose, "it is the only reason *we* (i.e., your parents)
+are paying for this!"
+:::
+
+When people give arguments, they often leave key assumptions unstated. But if we want
+to understand their reasons, we need to know what those assumptions are. 
+Figuring this out is often more art than science. You need to guess, based
+upon what was said, what else they had in mind.
+
+Here is one version of Argument 1, stating explicilty the unstated assumption:
+
+-   **Reason**: A major in philosophy won't get you a good job. You should choose a major that will get you a good job. **Conclusion**: You
+    shouldn't major in philosophy.
+
+And here is how we can represent that using an argument map:
+
+<pre class="mermaid">
+%%{init: {"theme":"base","themeCSS": "#Argument rect{stroke:transparent; fill:#e5e5e5} #Argument span {color:transparent} .edgeLabel{color:#888; font-size:0.9em; margin-right:3px} .edgeLabel i{color:crimson} .edge-pattern-dotted{stroke:crimson} .edge-pattern-solid{stroke:green} #flowchart-pointEnd{fill:green}  g[id*=\"O\"] *{stroke:crimson!important; font-size:0.95em} circle+g span{color:white; } circle{fill:green!important} g[id*=\"C\"] * {fill:black;color:white;font-weight:bold}","themeVariables":{"secondaryColor":"transparent","primaryColor":"white","primaryBorderColor":"black"},"flowchart":{"htmlLabels":true,"padding":20,"rankSpacing":20}} }%%
+flowchart TB
+subgraph Argument
+direction TB
+C(["You should not major in philosophy."])
+a("A major in philosophy
+won't get you a good job.")
+b("You should choose
+a major that will
+get you a good job.")
+a & b --- 1((+))
+1 -->|supports|C
+end
+</pre>
+
+Notice how the map represents the idea that the *two* claims *work together*
+to support the conclusion. Those *two* claims are the two parts of a *single*
+reason: neither supports the conclusion on its own; but they support the
+conclusion when taken together.
+
+We call the parts of a reason the [premises]{.vocab} of the argument.
+Sometimes when people offer a reason, they explicitly state each premise, that
+is, each part of the reason. But often, they leave one or more premises
+implicit and unstated. All six of the arguments described above are like this.
+
+```{.QualitativeProblem .ShortAnswer give-credit="onSubmission" points=10}
+5    If someone says that you should not major in philosophy because it is nothing but idle speculation, what implicit premise(s) are they relying on?
+6    If someone says that you should not major in philosophy because the Lizardman did, what implicit premise(s) are they relying on?
+```
+
+Here is a map of Arguments 1-3, with some suggested implicit premises:
+
+<pre class="mermaid">
+%%{init: {"theme":"base","themeCSS": "#Argument rect{stroke:transparent; fill:#e5e5e5} #Argument span {color:transparent} .edgeLabel{color:#888; font-size:0.9em; margin-right:3px} .edgeLabel i{color:crimson} .edge-pattern-dotted{stroke:crimson} .edge-pattern-solid{stroke:green} #flowchart-pointEnd{fill:green}  g[id*=\"O\"] *{stroke:crimson!important; font-size:0.95em} circle+g span{color:white; } circle{fill:green!important} g[id*=\"C\"] * {fill:black;color:white;font-weight:bold}","themeVariables":{"secondaryColor":"transparent","primaryColor":"white","primaryBorderColor":"black"},"flowchart":{"htmlLabels":true,"padding":20,"rankSpacing":20}} }%%
+flowchart TB
+subgraph Argument
+direction TB
+C(["You should not major in philosophy."])
+a("A major in philosophy won't
+get you a good job.")
+b("You should choose
+a major that will
+get you a job.")
+c("Philosophy is nothing 
+but idle speculation.")
+d("Idle speculation
+is a waste of time.")
+e("You shouldn't major
+in something that
+is a waste of time")
+f("The Lizardman majored 
+in philosophy.")
+g("You don't want
+to be like the Lizardman.")
+a & b --- 1((+))
+c & d & e --- 2((+))
+f & g --- 3((+))
+1 -->|supports|C
+2 -->|supports|C
+3 -->|supports|C
+end
+</pre>
+
+The key thing I want you to notice here is that there are *three* reasons,
+each articulated into more than one premise, and that the premises that make
+up a reason *work together* to provide a reason in support of the conclusion.
+
+```{.QualitativeProblem .ShortAnswer give-credit="onSubmission" points=10}
+7    If someone says that you should major in philosophy because it explores fundamental questions about the world and our place in it, what implicit premise(s) are they relying on?
+8    If someone says that you should major in philosophy because it develops uniquely powerful ways of thinking about especially complex and intractable problems, what implicit premise(s) are they relying on?
+9    If someone says that you should major in philosophy because the Lizardman did, what implicit premise(s) are they relying on?
+10   I've suggested that the fact that the Lizardman majored in philosophy might be offered both as a reason for majoring in philosophy and as a reason against majoring in philosophy. How can that be? 
+```
+
+::: {.reaction .correct ex="10"}
+The difference lies in the unstated implicit premises. One natural suggestion
+is that someone using this as an argument *against* majoring in philosophy
+thinks that it is obvious that you don't want to surround yourself with people
+like *that*, while someone using this as an argument *for* majoring in
+philosophy thinks it is obvious that you do.
+:::
+
+:::
+:::sec
+
+## The Abstract Form of an Argument
+
+Every argument has two parts: the reason, which can be represented as a set of
+premises, and the conclusion. So the abstract form of an argument is:
+
+$$\{P_1, P_2, \dots\} \ \therefore C$$
+
+The '∴' symbol can be read as 'therefore', and marks $C$ as the conclusion. So
+this represents a set of premises $\{P_1, P_2, \dots\}$, leading to a
+conclusion, $C$.
+In practice, when we represent arguments like this, we will usually omit the braces around the set,
+and simply list the premises, followed by the conclusion:
+
+$$P_1, P_2, \dots \ \therefore C$$
+
+Another common way to represent arguments is known as 
+[standard form]{.vocab}:
+
+
+:::{.standardform .centeredbox}
+-   $P_1$
+-   $P_2$
+-   $\vdots$
+-   $C$
+:::
+
+Here, we list the premises *vertically*, followed by the conclusion. And we
+mark the difference between premises and conclusion both with '∴'
+("therefore") and with a horizontal line.
+
+For example, here is how we might represent Argument 6 in standard form (supplying suitable implicit premises):
+
+:::{.standardform .centeredbox}
+-   The Lizardman majored in philosophy.
+-   The Lizardman is a deviant freak.
+-   Deviant freaks are your people.
+-   You should major in philosophy.
+:::
+
+Standard form shares some of the visual suggestiveness of an argument map, but
+is more compact, and it works best when we are considering *one* argument
+rather than *several* interconnected arguments. We will be making heavy use of
+standard form in this class.
+
+:::
+:::sec
+
+## Declarative Sentences
+
+Both the premises and the conclusion of an argument must be *declarative*
+sentences. A declarative sentence is a sentence that is used to make a claim
+or assertion, as opposed to sentences that are used to ask questions or issue
+commands. For example, 'Grass is green' and 'The world is flat', as opposed to
+'Are we there yet?' and 'Mow the lawn!'
+
+This is because it is only declarative sentences that encode *information*,
+and only declarative sentences that can be true or false. When I argue that
+you should major in philosophy because the Lizardman did, I am bringing some
+information to your attention---information that can be expressed by a set of
+premises---and suggesting that this information supports the truth of my
+conclusion.
+
+::: aside
+FWIW, I share the view of John Corvino, that the fact/opinion distinction, as taught
+in American schools, is "pernicious and should be
+consigned to the flames." See his short essay, "[The
+Fact/Opinion
+Distinction](https://www.philosophersmag.com/essays/26-the-fact-opinion-distinction){.source
+target="_blank" rel="noopener noreferrer"},"
+*The Philosopher's Magazine*, 2015.
+:::
+
+The distinction between declarative and non-declarative sentences is *not* the
+distinction between sentences that express "facts" and sentences that express
+"opinions". We use declarative sentences to express both: 'Grass is green' is
+a declarative sentence, but so is 'MCU movies are bad' and 'Good people don't
+lie to their friends.' This is important, because we provide reasons in
+support of our opinions all the time, and we want to be able to represent
+those arguments too. For example, "MCU movies are bad because they are
+bloated, have poor visual effects, and are badly scripted," and "Good people
+don't lie to their friends because friendship is sacred and lying is a form of
+betrayal." Again, you don't have to think that these are *good* arguments to
+recognize that they are *arguments*.
+
+
+```{.QualitativeProblem .MultipleSelection points=10}
+11.   Which of the following are declarative sentences, and so suitable to serve as premises or conclusions of arguments?
+| *You can't always get what you want.
+| Try your best!
+| Why can't we all just get along?
+| *Freedom isn't free.
+| *The Beatles are overrated.
+| *Chicago deep dish is not pizza.
+| *Most dogs are bigger than most cats.
+| *Most cats are bigger than most dogs.
+| Does 'Illinois' rhyme with 'noise'?
+| *'Illinois' rhymes with 'noise'.
+| *Midwest Emo was an aesthetic mistake.
+| Ewww, gross!
+```
+
+:::
+:::sec
+
+## Identifying Premises and Conclusions
+
+Not everything is an argument. Here is a passage about Hicks Dome, an ancient volcanic formation in southern Illinois: 
+
+> Hicks Dome is a geological feature in Hardin County.
+> The Hicks Dome is underlain by ultramafic igneous rocks and igneous
+> diatremes or breccia pipes. Most geologists accept the theory that the older
+> rocks at the center of the uplift are a result of this deep-seated igneous
+> activity. This activity may also have provided the fluorine in the fluorspar
+> deposits in the region. Fluorspar, or calcium fluoride, was mined in Hardin
+> County until the early 1990s.
+> [wikipedia](https://en.wikipedia.org/wiki/Hardin_County,_Illinois#Geography)
+
+
+```{.QualitativeProblem .MultipleChoice points=10}
+12.  Is this an argument?
+| Yes
+| *No
+```
+
+::: {.reaction .correct ex="12"}
+This is not an argument. It describes Hicks Dome, and recounts the standard geological
+explanation for how it formed.
+:::
+
+```{.QualitativeProblem .MultipleSelection points=10}
+13. What about: "Haters gonna hate, but I'm just gonna shake it off."
+| This is an argument.
+| 'Haters gonna hate' is a premise of this argument.
+| 'I'm just gonna shake it off' is the conclusion of this argument.
+```
+
+::: {.reaction .correct ex="13"}
+This is not an argument. Swift is not offering a reason in support of a
+conclusion. She is just saying that while it is true that haters are going to
+hate, she is going to ignore those haters, and shake off their hating.
+:::
+
+Often, when someone offers an argument, they will use certain keywords to indicate what they are up to.
+For example, 'because' often indicates that someone is offering a premise.
+
+```{.QualitativeProblem .MultipleSelection points=10}
+14. What about: "God exists, <strong>because</strong> without God everything would be meaningless."
+| *This is an argument.
+| 'God exists' is a premise of this argument.
+| *'Without God everything would be meaningless' is a premise of this argument.
+```
+
+::: {.reaction .correct ex="14"}
+This is an argument, offering a reason to believe that God exists. The word
+'because' here indicates that 'without God everything would be meaingless' is
+a premise, meant to support the conclusion, 'God exists'.
+:::
+
+Another keyword is 'so', which often marks a conclusion.
+
+```{.QualitativeProblem .ShortAnswer give-credit="onSubmission" points=10}
+15   This is an argument. "You are a full-time student and work long hours, <strong>so</strong> it would be a bad idea for you to get a dog." Can you write it in standard form?
+```
+
+::: {.reaction .correct ex="15"}
+The passage offers a reason why it would be bad for you to get a dog. The word
+'so' marks 'You shouldn't get a dog' as the conclusion, and 'You are a
+full-time student and work long hours' is the premise offered in support of
+that conclusion:
+
+:::standardform
+-   You are a full-time student who works long hours.
+-   You shouldn't get a dog.
+:::
+
+Clearly the argument also has an implicit premise, so a more complete
+reconstruction might look like this:
+
+:::standardform
+-   You are a full-time student who works long hours.
+-   A full-time student who works long hours will not have the time to take proper care of a dog.
+-   You shouldn't get a dog unless you can take proper care of it.
+-   You shouldn't get a dog.
+:::
+
+:::
+
+There are several words and phrases in English that can be used to mark
+premises, like 'because'. Here is a list of some of them:
+
+[Premise Markers]{.vocab}
+:    'since', 'because', 'for', 'given that', 'in light of', 'seeing as', ...
+
+And there are several words and phrases that can be used to mark a conclusion,
+like 'so'. Here is a list of some of them:
+
+[Conclusion Markers]{.vocab}
+:   'therefore', 'hence', 'thus', 'so', 'and so it follows that', ...
+
+But it is important to realize that these words are *not always* used in this way.
+
+```{.QualitativeProblem .MultipleSelection points=10}
+16 What about: "My head hurts, because I drank too much last night."
+| This is an argument.
+| 'My head hurts' is a premise of this argument.
+| 'I drank too much last night' is a premise of this argument.
+```
+
+::: {.reaction .correct ex="16"}
+This is *not* an argument. Here, 'because' is used to indicate the *cause* of
+the headache, not to indicate a *reason* meant to support a conclusion.
+:::
+
+```{.QualitativeProblem .MultipleSelection points=10}
+17 What about: "You should not become an elementary school teacher, seeing as you don't like little kids."
+| *This is an argument.
+| 'You should not become an elementary school teacher' is a premise.
+| *'You should not become an elementary school teacher' is the conclusion.
+| *'You don't like little kids' is a premise.
+| 'You don't like little kids' is the conclusion.
+```
+
+```{.QualitativeProblem .ShortAnswer give-credit="onSubmission" points=10}
+18 Rewrite the argument in standard form.
+```
+
+```{.QualitativeProblem .MultipleSelection points=10} 
+19 Here is a puzzling argument: "Everyone who says they are a donkey says they are an animal. Everyone who says they are an animal speaks the truth. Therefore everyone who says they are a donkey speaks the truth."
+| *'Everyone who says they are a donkey says they are an animal' is a premise.
+| 'Everyone who says they are a donkey says they are an animal' is the conclusion.
+| *'Everyone who says they are an animal speaks the truth' is a premise.
+| 'Everyone who says they are an animal speaks the truth' is the conclusion.
+| 'Everyone who says they are a donkey speaks the truth' is a premise.
+| *'Everyone who says they are a donkey speaks the truth' is the conclusion.
+```
+
+English is lazy. We don't mark *each* part of an argument. We mark one or two
+parts, and leave it to the reader to figure out the rest.
+
+English is also flexible. The *order* in which different claims are made is no
+guide, by itself, to which claims are the premises and which is the
+conclusion. The conclusion can come first, followed by the premises. Or the
+premises can come first, followed by the conclusion. Or the conclusion can
+come in the middle, surrounded by premises.
+
+```{.QualitativeProblem .MultipleSelection points=10} 
+20 How about: "You should trust scientists, so you should believe in global warming, since scientists tell us that global warming is real."
+| *'You should trust scientists' is a premise.
+| 'You should trust scientists' is the conclusion.
+| 'You should believe in global warming' is a premise.
+| *'You should believe in global warming' is the conclusion.
+| *'Scientists tell us that global warming is real' is a premise.
+| 'Scientists tell us that global warming is real' is the conclusion.
+```
+
+```{.QualitativeProblem .ShortAnswer give-credit="onSubmission" points=10}
+21  Rewrite the argument in standard form.
+```
+
+```{.QualitativeProblem .MultipleSelection points=10}
+22 How about: "Other animals eat meat, so it is okay for humans to eat meat."
+| 'so' is a premise marker.
+| *'so' is a conclusion marker.
+| The conclusion of this argument is, "Other animals eat meat".
+| *The conclusion of this argument is, "It is okay for humans to eat meat".
+| *A premise of this argument is, "Other animals eat meat".
+| A premise of this argument is, "It is okay for humans to eat meat".
+```
+
+```{.QualitativeProblem .ShortAnswer give-credit="onSubmission" points=10}
+23 Rewrite the argument in standard form. 
+```
+
+:::{.reaction .correct ex=20}
+::: standardform
+-   Other animals eat meat.
+-   It is okay for humans to eat meat.
+:::
+:::
+
+```{.QualitativeProblem .MultipleSelection points=10}
+24 "Morality is objective, and therefore God exists, for, after all, without God, there would be no objective right and wrong."
+| *'therefore' is a conclusion marker
+| 'therefore' is a premise marker
+| 'for' is a conclusion marker
+| *'for' is a premise marker
+| *the conclusion is 'God exists'. 
+| the conclusion is 'God exists, for, after all, without God, there would be no objective right and wrong'. 
+| *'Without God there would be no objective right and wrong' is a premise.
+| 'God exists' is a premise
+| *'Morality is objective' is a premise
+```
+
+```{.QualitativeProblem .ShortAnswer give-credit="onSubmission" points=10}
+25 Rewrite the argument in standard form.
+```
+
+:::{.reaction .correct ex=25}  
+The word 'therefore' marks 'God exists' as the conclusion, and the phrase 'for,
+after all' marks 'Without God, there would be no objective right or wrong' as
+a premise. That leaves 'Morality is objective' unmarked: it is another
+premise:
+
+::: standardform
+-   Morality is objective.
+-   Without God, morality would not be objective.
+-   God exists.
+:::
+:::
+
+:::
+:::sec
+
+## Evaluating Arguments
+
+An argument is *an attempt* to provide a reason in support of a conclusion.
+But not all arguments succeed: sometimes, the reason does not support the
+conclusion. 
+
+Consider the following argument:
+
+:::standardform
+-   It is raining.
+-   When it rains, everyone outside without an umbrella gets wet.
+-   You should take an umbrella when you go out. 
+:::
+
+This is a pretty good argument. What I mean by that is that, *if the premises
+were both true*, they would provide a pretty good reason for thinking that the
+conclusion is also true.
+
+I say "pretty good", because the reasoning is not airtight. To see this,
+compare the argument above to the following argument:
+
+:::standardform
+-   It is raining.
+-   When it rains, everyone outside without an umbrella gets wet.
+-   If you go outside without an umbrella, you will get wet. 
+:::
+
+```{.QualitativeProblem .ShortAnswer give-credit="onSubmission" points=10}
+26  Can you explain why the second argument is "airtight" in a way that the first is not? (Hint: imagine that you sometimes enjoy a refreshing walk in the rain.)
+```
+
+::: {.reaction .correct ex="26"}
+Again, there are many good answers to this question. Here is one way to
+explain it: suppose you *like getting wet*. Then the premises, if true, don't
+support the conclusion that you *should* take an umbrella. But they do support the conclusion that, if you go outside without an umbrella, you will get wet. So for
+the first argument, it is *possible that the conclusion is false even though
+the premises are true*. But for the second argument, this is *impossible*.
+That means the second argument is better, because the premises offer a
+stronger *guarantee* of the truth of the conclusion.
+:::
+
+
+```{.QualitativeProblem .ShortAnswer give-credit="onSubmission" points=10}
+27 For the first argument, can you describe a situation in which the two premises of the first argument would be true---it really is raining hard, and there is no other protection from the rain---but the conclusion is false---you should not take an umbrella when you go out?
+```
+
+:::{.reaction .correct ex=27}
+There are many such situations! Maybe you like getting wet. Or maybe you don't like getting wet, but you have some other overriding reason not to take an umbrella: you want to test your new raincoat; you have to carry something with both hands; a serial killer has been targeting umbrella carriers in your neighborhood, etc...
+:::
+
+Here is an argument that is not very good at all:
+
+:::standardform
+-   If you want a pet, you should get a cat or a dog.
+-   You like cats.
+-   You shouldn't get a dog.
+:::
+
+Even if those two premises were both actually true, they wouldn't give you much of a reason to accept the conclusion. Do you see why?
+
+```{.QualitativeProblem .ShortAnswer give-credit="onSubmission" points=10}
+28   Can you explain why this argument is bad? That is, can you explain why, even if those premises are in fact true, they don't give you a reason not to get a dog?
+```
+
+:::{.reaction .correct ex=28}
+There are many good answers. Here one way to explain it: the fact that you like cats gives you a reason to get a cat. But you might also like dogs, so it doesn't give you any reason to get a cat *rather than* a dog, and so doesn't give you a reason not to get a dog.
+:::
+
+:::
+:::sec
+
+## Strength and Validity
+
+The [strength]{.vocab} of an argument---would the premises, if they were true,
+would support the conclusion?---is something that comes in degrees.
+Some arguments are bad---they have little or not strength at all; some are pretty good---they have a high degree of strength; others are "airtight"---their strength is absolute.
+
+When the strength of an argument is absolute, we say it is [valid]{.vocab}:
+
+Validity
+:   [An argument is [valid]{.vocab} if and only if it is impossible for all
+    the premises to be true but the conclusion false.]{.def}
+
+That is, for an argument to be valid, it must be *absolutely impossible* for the conclusion to be false
+in any situation where the premises are true. Here is an example of a valid argument:
+
+::: standardform
+1.  Oranges are either fruits or musical instruments.
+2.  Oranges are not fruits.
+3.  Oranges are musical instruments.
+:::
+
+If we grant that the two premises are true, we *must* also grant that the
+conclusion is true. The premises don't leave any room for the conclusion to be
+false.
+
+Here is an example of an argument that is strong but not valid:
+
+:::standardform
+-   You are reading this book.
+-   This is a logic book, assigned for a logic class.
+-   You are a logic student.
+:::
+
+The premises, if true, support the conclusion: if you are reading this book,
+which has been assigned for a logic class, it is quite likely that you are
+indeed a logic student. But that support is not *absolute*. It is *possible*
+that you, the reader of this logic book, which has indeed been assigned for a
+logic class, are not a logic student. You might be the friend of a logic
+student or a logic professor. Or you might have stumbled onto this book for
+some other reason.
+
+
+```{.QualitativeProblem .MultipleSelection points=10}
+29  <div class="standardform"> <ul> <li>Most students at ISU were born in Illinois.</li> <li>Sandy is a student at ISU.</li> <li>Sandy was born in Illinois.</li> </ul> </div><p>This argument is:</p:
+| weak
+| *strong
+| valid
+```
+
+```{.QualitativeProblem .MultipleSelection points=10}
+30 <div class="standardform"> <ul> <li>Every student in the Phi Gamma Circus can juggle.</li> <li>Sandy is in the Phi Gamma Circus.</li> <li>Sandy can juggle.</li> </ul> </div><p>This argument is</p>:
+| weak
+| *strong
+| *valid
+```
+
+```{.QualitativeProblem .MultipleSelection points=10}
+31 Given our definition of validity, which of the following are true:
+| *a valid argument can have a false premise.
+| *a valid argument can have a false conclusion.
+| *a valid argument can have a true premise.
+| *a valid argument can have a true conclusion.
+| *a valid argument can have one true premise, one false premise, and a true conclusion.
+| *a valid argument can have one true premise, one false premise, and a false conclusion.
+| *a valid argument can have all false premises, and a true conclusion.
+| a valid argument can have all true premises, and a false conclusion.
+```
+
+## Soundness and Validity
+
+In real life, we do not just care about the strength of an argument. We also
+care about whether or not the premises are actually true. For example, this
+argument is valid, and so has the highest possible degree of strength, but the
+second premise, (2), is false. So this argument does not in fact give us any
+reason to believe that oranges are musical instruments:
+
+::: standardform
+1.  Oranges are either fruits or musical instruments.
+2.  Oranges are not fruits.
+3.  Oranges are musical instruments.
+:::
+
+
+By contrast, this argument is valid *and* its premises are actually true:
+
+::: standardform
+1.  Oranges are either fruits or vegetables.
+2.  Oranges are not vegetables.
+3.  Oranges are fruits.
+:::
+
+When an argument is **both* valid **and** all of its premises are true, we say it is [sound]{.vocab}:
+
+Soundness
+:   An argument is [sound]{.vocab} if and only if it is valid and all of its premises are true.
+
+The first argument we considered against majoring in philosophy is valid, but it is not sound:
+
+:::standardform
+1.  A major in philosophy won't get you a good job. 
+2.  You should choose a major that will get you a good job. 
+3.  You shouldn't major in philosophy.
+:::
+
+It is valid because if both premises *were* true, the conclusion would *have
+to be* true as well. But it isn't sound because premise (1) is false. Premise
+(2) might also be false---that is controversial. But one false premise is
+enough: since that premise is in fact false, this argument gives us no reason
+to believe that its conclusion is in fact true.
+
+```{.QualitativeProblem .MultipleSelection points=10}
+32 <div class="standardform"> <ol type="1"> <li>Socrates is a man.</li> <li>All men are carrots.</li> <li>Socrates is a carrot.</li> </ol> </div><p>This argument is:</p>
+| sound
+| *valid
+| *strong
+| weak
+```
+
+::: {.reaction .incorrect ex="32"}
+To be sound, the argument has to be **both** valid **and** all the premises have to be true.
+In this case, both premises are obviously false. So the argument is not sound. 
+
+Is it valid? Yes! If those premises *were* both true, then the conclusion
+would **have to be** true as well. There is **no possible situation** in which
+the premises are true and the conclusion is false. So it is valid.
+
+Validity is the highest degree of strength. So, since it is valid, it is also strong.
+
+And weakness is the opposite of strength. So, since it is strong, it is not weak.
+:::
+
+```{.QualitativeProblem .MultipleSelection points=10}
+33 <div class="standardform"> <ol type="1"> <li>Socrates is human.</li> <li>All humans are mortal.</li> <li>Socrates is mortal.</li> </ol> </div> <p>This argument is</p>:
+| *sound
+| *valid
+| *strong
+| weak
+```
+
+:::{.reaction .incorrect ex=33}
+To be sound, the argument has to be **both** valid **and** all the premises have to be true.
+In this case, both premises are actually true. So whether or not the argument is sound depends
+on whether or not it is valid.
+
+Is it valid? Yes! Those premises, if true, leave no room for the conclusion to
+be false. There is not even the slimmest logical possibility that Socrates be
+human and all humans be mortal, but Socrates not be mortal.
+
+So, since the argument is valid and all of its premises are true, it is also sound.
+
+And since it is valid, and validity is the highest degree of strength, it is also strong.
+
+And since it is strong, it is not weak.
+:::
+
+
+```{.QualitativeProblem .MultipleSelection points=10}
+34 <div class="standardform"> <ol type="1"> <li>Socrates is mortal.</li> <li>All humans are mortal.</li> <li>Socrates is human.</li> </ol> </div> <p>This argument is</p>:
+| sound
+| valid
+| strong
+| *weak
+```
+
+:::{.reaction .incorrect ex=34}
+To be sound, the argument has to be **both** valid **and** all the premises have to be true. In this case,
+both premises are true. So whether or not it is sound depends on whether or not it is valid.
+
+Is it valid? No! We can easily imagine situations in which both premises are true but the conclusion is false. Suppose Socrates were a mortal mouse, or a mortal cow, or a mortal golden retriever.
+
+Since it is not valid, it is not sound, even though all of its premises are true.
+
+On reflection, it isn't even strong: those premises, if true, do not offer much support at all for the conclusion. So the argument is weak. 
+:::
+
+
+<!-- ::: standardform -->
+<!-- -   Biden is President -->
+<!-- -   If Biden is President, a Democrat is President -->
+<!-- -   A Democrat is President -->
+<!-- ::: -->
+
+
+```{.QualitativeProblem .MultipleSelection points=10}
+35 <div class="standardform"> <ul> <li>Biden is President</li> <li>If Biden is President, a Democrat is President</li> <li>A Democrat is President</li> </ul> </div> <p>This argument is</p:
+| *sound
+| *valid
+| *strong
+| weak
+```
+
+<!-- ::: standardform -->
+<!-- -   Trump is President -->
+<!-- -   If Trump is President, a Republican is President -->
+<!-- -   A Republican is President -->
+<!-- ::: -->
+
+```{.QualitativeProblem .MultipleSelection points=10}
+36 <div class="standardform"> <ul> <li>Trump is President</li> <li>If Trump is President, a Republican is President</li> <li>A Republican is President</li> </ul> </div><p>This argument is:</p>
+| sound
+| *valid
+| *strong
+| weak
+```
+
+Notice that the arguments in (35) and (36) have the same logical form:
+
+::: standardform
+-   $P$
+-   If $P$, then $Q$
+-   $Q$
+:::
+
+Can you see how, given what 'if' and 'then' mean, any argument with this form must be valid?
+
+<!-- ::: standardform -->
+<!-- -   A Democrat is President -->
+<!-- -   If Biden is President, a Democrat is President -->
+<!-- -   Biden is President -->
+<!-- ::: -->
+
+```{.QualitativeProblem .MultipleSelection points=10}
+37 <div class="standardform"> <ul> <li>A Democrat is President</li> <li>If Biden is President, a Democrat is President</li> <li>Biden is President</li> </ul> </div><p>This argument is:</p>
+| sound
+| valid
+| strong
+| *weak
+```
+
+Notice that the argument in (37) has a *different* logical form than the argument in (35) and (36):
+
+::: standardform
+-   $Q$
+-   If $P$, then $Q$
+-   $P$
+:::
+
+Can you see why arguments with this form might not be valid? If $P$ is true,
+then $Q$ is true. So the truth of $P$ entails the truth of $Q$. But the truth
+of $Q$ doesn't entail the truth of $P$: there might be some other reason why
+$Q$ is true.
+
+
+<!-- ::: standardform -->
+<!-- -   Biden is President -->
+<!-- -   Biden is not President -->
+<!-- -   Grass is green -->
+<!-- ::: -->
+
+
+```{.QualitativeProblem .MultipleSelection points=10}
+38 <div class="standardform"> <ul> <li>Biden is President</li> <li>Biden is not President</li> <li>Grass is green</li> </ul> </div><p>This argument is:</p>
+| sound
+| *valid
+```
+
+:::{.reaction .correct ex=38}
+This is a **weird** case.
+
+It is clear that the argument is not sound: the first premise is true, but the
+second premise is false. In fact, it is clear that the argument **cannot
+ever** be sound: whenever the first premise is true, the second is false, and
+vice versa. So there is no possible situation in which both of those premises
+are true.
+
+But the argument is valid. It is valid for the same reason it can never be
+sound: those two premises can never both be true together. So that means that
+it is impossible for the premises to both be true, and the conclusion false.
+But in this case, the impossibility has nothing to do with the *relation*
+between the premises and the conclusion. It lies entirely on the side of the
+premises.
+:::
+
+```{.QualitativeProblem .MultipleSelection points=10}
+39 <div class="standardform"> <ul> <li><li>Grass is green</li> <li>If there are any cows, then every cow is either in a barn or not in a barn.</li> </ul> </div><p>This argument is:</p>
+| *sound
+| *valid
+```
+
+:::{.reaction .correct ex=39}
+This is another **weird** case.
+
+The premise is true. So whether or not it is sound depends on whether or not it is valid.
+
+Is it valid? Yes, because it is impossible that its premises be true but its
+conclusion false. As above, the impossibility is one-sided. The issue is that
+the conclusion is a logically necessary truth: it cannot possibily be false.
+This has nothing to do with the *relation* between the premise and conclusion,
+but it is enough to satisify the definition of validity. 
+
+So, since the argument is valid, and its premise is true, it is also sound.
+:::
+
+
+:::
+:::sec
+
+## Summing Up
+
+This chapter introduced several technical concepts. The most important, going forward, 
+are [argument]{.vocab}, [premise]{.vocab}, [conclusion]{.vocab}, and [validity]{.vocab}.
+
+:::
+:::sec
+
+## Supplement
+
+This chapter has a [supplement](01S). This is an optional extra bit of reading
+and exercises, for anyone who feels that more practice would be helpful.
+
+Also, above, I said that we would return to the example of Sarah's argument from the Labryinth at the end of this chapter.
+That was a bit of a fib. For additional discussion, also see the supplement.
+
+:::
+:::sec
+
+## What Now?
+
+The mastery check for this unit, unit 01, is on paper, and so must be
+completed either in class or during office hours. When you are ready to
+attempt it, just ask.
+
+:::
+
+<!-- vim: set ft=carnap :-->
+
+
+<script type="module">
+  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+  mermaid.initialize({ startOnLoad: true });
+</script>
+
+<!-- vim: set ft=markdown.pandoc :-->

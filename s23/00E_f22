@@ -1,0 +1,32 @@
+---
+base-css:
+-   https://carnap.io/shared/dsanson@gmail.com/sanson-book.css
+-   https://cdn.plyr.io/3.6.12/plyr.css
+js: 
+-   https://cdn.plyr.io/3.6.12/plyr.polyfilled.js
+-   https://carnap.io/shared/dsanson@gmail.com/logic-book.js
+---
+
+# Syllabus and Course Mechanics: Exercises
+
+
+Usually, the exercises will be an opportunity to practice things you've
+learned in the reading. Since this unit is just about getting our feet wet,
+and understanding how the course works, these exercises are instead open-ended
+questions, meant to give me a chance to get to know you.
+
+As usual, you get full credit for submitting any answer to an open-ended question, 
+ even if it is something like 'Fuck off Sanson, none of your business'. 
+I will not be grading your answers. 
+But in this case, I will *read* any answers submitted by the end of the first
+week of class.
+Still, if you have something important you need to communicate to me, talk to
+me in class or office hours, or send me a DM on GroupMe.
+
+```{.QualitativeProblem .ShortAnswer give-credit="onSubmission" points=10}
+1 What do you think logic is?
+2 Do you have any questions about how the "mastery grading" scheme works for this course?
+3 What is your biggest worry about this class?
+```
+
+<!-- vim: set ft=carnap :-->

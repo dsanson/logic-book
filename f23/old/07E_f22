@@ -1,0 +1,208 @@
+---
+base-css:
+-   https://carnap.io/shared/dsanson@gmail.com/sanson-book.css
+-   https://cdn.plyr.io/3.6.12/plyr.css
+js: 
+-   https://cdn.plyr.io/3.6.12/plyr.polyfilled.js
+-   https://carnap.io/shared/dsanson@gmail.com/logic-book.js
+---
+
+:::auto-tally
+:::
+
+# Truth Tables for Arguments: Exercises
+
+## Fix the Errors
+
+Truth tables are error prone: so many little boxes, and so many Ts and Fs.
+So you need to be able to look over a table, spot the errors, and fix them.
+These first several exercises give you a chance to practice this.
+
+
+```{.TruthTable .Validity options="nocounterexample turnstilemark" points=10}
+1 P, Q :|-: R
+|    T  T  T   T
+|    T  T  T   F
+|    T  F  F   T
+|    T  F  F   F
+|    F  T  F   T
+|    F  T  F   F
+|    F  F  F   T
+|    F  F  F   F
+2 P, Q :|-: P
+|    T  T  T   T
+|    T  F  F   T
+|    F  T  T   F
+|    F  F  F   F
+3 P->Q, Q :|-: P
+|    TT T  T  T   T
+|    TF F  F  F   T
+|    FT T  T  T   F
+|    FT F  F  F   F
+4 P\/Q, Q :|-: ~P
+|    TF T  T  T   FT
+|    TT F  F  T   FT
+|    FT T  T  T   TF
+|    FF F  F  T   TF
+5 ~(P/\Q) :|-: ~(P<->Q)
+|    F T TT   F   F T T T
+|    T T FF   T   T T F F
+|    T F FT   T   T F F T
+|    T F FF   T   F F T F
+```
+
+# Equivalence and Consistency
+
+```{.TruthTable .Simple options="nocounterexample" points=10}
+6 ~P->~Q, Q->P
+```
+```{.QualitativeProblem .MultipleSelection points=10}
+7 These two sentences are:
+| *truth-functionally equivalent
+| not truth-functionally equivalent
+| *truth-functionally consistent
+| truth-functionally inconsistent
+```
+
+```{.TruthTable .Simple options="nocounterexample" points=10}
+8 ~P->~Q, P->Q
+```
+```{.QualitativeProblem .MultipleSelection points=10}
+9 These two sentences are:
+| truth-functionally equivalent
+| *not truth-functionally equivalent
+| *truth-functionally consistent
+| truth-functionally inconsistent
+```
+
+:::{.reaction .correct ex=9}
+Do you see how (6) and (8) differ from each other? 
+(6) is another example of contraposition:
+ the sentence '¬P → ¬Q' is the contrapositive of 'Q → P'.
+As we saw in the reading, a conditional is always truth-functionally equivalent to its contrapositive.
+
+Contraposition requires flipping the order of antecedent and consequent *and* negating both.
+(8) is *not* an example of contraposition: we've negated both, but we haven't flipped them.
+:::
+
+
+```{.TruthTable .Simple options="nocounterexample" points=10}
+10 ~(P/\Q), ~P/\~Q
+```
+```{.QualitativeProblem .MultipleSelection points=10}
+11 These two sentences are:
+| truth-functionally equivalent
+| *not truth-functionally equivalent
+| *truth-functionally consistent
+| truth-functionally inconsistent
+```
+
+:::{.reaction .correct ex=10}
+If you've ever been tempted to "distribute" a negation over a conjunction,
+ the truth table for (10) shows why that would be mistake!
+:::
+
+```{.TruthTable .Simple options="nocounterexample" points=10}
+12 P<->Q, P/\~Q
+```
+```{.QualitativeProblem .MultipleSelection points=10}
+13 These two sentences are:
+| truth-functionally equivalent
+| *not truth-functionally equivalent
+| truth-functionally consistent
+| *truth-functionally inconsistent
+```
+
+```{.TruthTable .Simple options="nocounterexample" points=10}
+14 ~(P/\Q), ~(P\/Q)
+```
+```{.QualitativeProblem .MultipleSelection points=10}
+15 These two sentences are:
+| truth-functionally equivalent
+| *not truth-functionally equivalent
+| *truth-functionally consistent
+| truth-functionally inconsistent
+```
+
+:::{.reaction .correct ex=15}
+(14) looks a lot like (10). But there is an important difference! 
+You cannot "distribute" a negation over a conjunction,
+ but you can "distribute" and "flip": distribute the negation, but replace the '∧' with an '∨'.
+This is one of several equivalences known as "De Morgan's Laws".
+We will come back to them, in the context of derivations, in Unit 11.
+:::
+
+```{.TruthTable .Simple options="nocounterexample" points=10}
+16 ~(~P\/~Q), ~P/\~Q 
+```
+```{.QualitativeProblem .MultipleSelection points=10}
+17 These two sentences are:
+| truth-functionally equivalent
+| *not truth-functionally equivalent
+| truth-functionally consistent
+| *truth-functionally inconsistent
+```
+
+
+```{.TruthTable .Simple options="nocounterexample" points=10}
+18 P\/Q, ~Q->P
+```
+```{.QualitativeProblem .MultipleSelection points=10}
+19 These two sentences are:
+| *truth-functionally equivalent
+| not truth-functionally equivalent
+| *truth-functionally consistent
+| truth-functionally inconsistent
+```
+
+:::{.reaction .correct ex=19}
+This is surprising. Our conditional is truth-functionally equivalent to a disjunction!
+Remember how we translate 'unless' as 'or', even though it is tempting to translate it as 'if not'?
+This table establishes that, if you are careful, both translations will be equivalent.
+:::
+
+# Validity
+
+
+```{.TruthTable .Validity options="nocounterexample turnstilemark" points=10}
+20 P->Q, ~Q :|-: ~P
+```
+```{.QualitativeProblem .MultipleChoice points=10}
+21 This argument is:
+| *truth-functionally valid
+| not truth-functionally valid
+```
+
+:::{.reaction .correct ex=21}
+This, of course, is our old friend Modus Tollens.
+:::
+
+
+```{.TruthTable .Validity options="nocounterexample turnstilemark" points=10}
+22 P->Q :|-: Q\/~P
+```
+
+```{.QualitativeProblem .MultipleChoice points=10}
+23 This argument is:
+| *truth-functionally valid
+| not truth-functionally valid
+```
+
+```{.TruthTable .Validity options="nocounterexample turnstilemark" points=10}
+24 P->(Q->R), ~(P/\Q) :|-: ~(R\/Q)
+```
+```{.QualitativeProblem .MultipleChoice points=10}
+25 This argument is:
+| truth-functionally valid
+| *not truth-functionally valid
+```
+
+```{.TruthTable .Validity options="nocounterexample turnstilemark" points=10}
+26 (~Q/\~R)<->P :|-: ~P->~(Q\/R)
+```
+```{.QualitativeProblem .MultipleChoice points=10}
+27 This argument is:
+| truth-functionally valid
+| *not truth-functionally valid
+```
+

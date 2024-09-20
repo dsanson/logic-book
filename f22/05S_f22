@@ -1,0 +1,169 @@
+---
+base-css:
+-   https://carnap.io/shared/dsanson@gmail.com/sanson-book.css
+-   https://cdn.plyr.io/3.6.12/plyr.css
+js: 
+-   https://cdn.plyr.io/3.6.12/plyr.polyfilled.js
+-   https://carnap.io/shared/dsanson@gmail.com/logic-book.js
+---
+
+# Derivations with Assumptions: Supplementary Exercises
+
+These are optional exercises and enrichments, for students seeking more practice.
+Right now, our focus is on getting better at doing derivations.
+
+Complete the following derivation as a direct derivation (DD):
+
+``` {.ProofChecker .Prop options="guides fonts indent tabindent resize" submission=none}
+1 Q, P->~Q :|-: ~P
+```
+
+Now try again. But this time, completed it as an indirect derivation (ID):
+
+``` {.ProofChecker .Prop options="guides fonts indent tabindent resize" submission=none}
+2 Q, P->~Q :|-: ~P
+```
+
+Complete the following as a direct derivation:
+
+``` {.ProofChecker .Prop options="guides fonts indent tabindent resize" submission=none}
+3 P, P->Q, Q->R :|-: R
+```
+
+Now complete this as a conditional derivation, and think about how it is
+related to the previous problem:
+
+``` {.ProofChecker .Prop options="guides fonts indent tabindent resize" submission=none}
+4 P->Q, Q->R :|-: P->R
+```
+
+Here is a conditional derivation that is a little bit more challenging:
+
+``` {.ProofChecker .Prop options="guides fonts indent tabindent resize" submission=none}
+5 R, R->S :|-: (S->P)->P
+```
+
+:::spoiler
+The antecedent of the conclusion is 'S→P'. So that's what you get to assume.
+Once you've assumed that, you should be able to use it together with MP.
+:::
+
+When a problem gets complicated, or you get stuck, you should look for
+opportunities to apply MP or MT:
+
+``` {.ProofChecker .Prop options="guides fonts indent tabindent resize" submission=none}
+6 ~P->Q, Q->(Q->S) :|-: ~P->S
+```
+
+Sometimes, before you can apply MP or MT, you need to use DNI or DNE:
+
+``` {.ProofChecker .Prop options="guides fonts indent tabindent resize" submission=none}
+7 R, S->~R :|-: (P->S)->~P
+8 ~Q->~P :|-: P->Q
+```
+
+Sometimes, a derivation can look hard, but is actually easy. Don't let that
+psyche you out:
+
+``` {.ProofChecker .Prop options="guides fonts indent tabindent resize" submission=none}
+9 :|-: (P->Q)->(P->Q)
+10 P :|-: Q->P
+```
+
+Sometimes, a derivation is just lots of steps. Stick with it!
+
+``` {.ProofChecker .Prop options="guides fonts indent tabindent resize" submission=none}
+11 P->Q, Q->R, R->S :|-: P->S
+12 P->Q, Q->R, R->S :|-: ~S->~P
+13 P->Q, ~R->~Q, R->S :|-: ~S->~P
+14 P->Q, ~R->~Q, ~S->~R :|-: P->S
+```
+
+Sometimes, a derivation will require a subderivation inside a subderivation.
+It can feel like you are digging yourself into an ever deeper hole, and will
+never find your way out. Don't worry! Make sure your show lines are tied to
+what you need to get to finish the problem, and keep digging. You will find your
+way:
+
+``` {.ProofChecker .Prop options="guides fonts indent tabindent resize" submission=none}
+15 :|-: P->(Q->(R->P))
+16 :|-: (P->Q)->(P->((Q->R)->R))
+```
+
+Sometimes, derivations are just weird:
+
+``` {.ProofChecker .Prop options="guides fonts indent tabindent resize" submission=none}
+17 P, ~P :|-: ~Q
+18 P, ~P :|-: ~~Q
+19 P, ~P :|-: Q
+20 P->Q, ~(P->Q) :|-: ~R
+21 P->(P->~P) :|-: ~P
+```
+
+Remember, even when you are deriving something that is not a negation, you can
+always create a subderivation, and show its double negation by ID:
+
+``` {.ProofChecker .Prop options="guides fonts indent tabindent resize" submission=none}
+22 P->R, ~P->Q, Q->R :|-: ~~R
+23 P->R, ~P->Q, Q->R :|-: R
+```
+
+These are extra hard. How are you going to use that premise? We don't have any
+rules that let you "distribute" negations. The only *possible* ways to use a
+negation are: 
+
+-   DNE (but that doesn't apply here, because it isn't a double
+negation),
+-   MT (but here, that would require having a big-ass conditional, like
+'Q→(P→Q)', and we don't have that),
+-   ID: you can always use a negation as one half of a contradiction.
+
+
+``` {.ProofChecker .Prop options="guides fonts indent tabindent resize" submission=none}
+24 ~(P->Q) :|-: ~Q
+```
+
+:::spoiler
+Did you crack it? The trick is to show the unnegation of the premise, to get a
+contradiction. Something like this:
+
+```
+1. Show ~Q
+2. | Q :AS
+3. | ~(P->Q) :PR
+4. | Show P->Q
+5. |   P     :AS
+⋮      ⋮     ⋮
+```
+:::
+
+If you cracked 24, try using similar tricks to crack S6.25 and 26:
+
+``` {.ProofChecker .Prop options="guides fonts indent tabindent resize" submission=none}
+25 ~(P->Q) :|-: ~~P
+26 ~(P->Q) :|-: P
+```
+
+Don't let derivations without premises bother you. Just proceed as normal!
+
+``` {.ProofChecker .Prop options="guides fonts indent tabindent resize" submission=none}
+27 :|-: (~Q->P)->(~P->Q)
+```
+
+We don't have any rules for the other connectives yet, but that doesn't mean
+they can't come along for the ride:
+
+``` {.ProofChecker .Prop options="guides fonts indent tabindent resize" submission=none}
+28 (P/\Q)->(R\/S) :|-: ~(R\/S)->~(P/\Q)
+```
+
+These look much worse than they are. If you can figure them out, you are doing
+great.
+
+``` {.ProofChecker .Prop options="guides fonts indent tabindent resize" submission=none}
+29 P, ~Q :|-: ~(P->Q)
+30 ~P, Q :|-: ~(~P->~Q)
+31 P :|-: (P->~Q)->~(P->Q)
+```
+
+<!-- vim: set ft=carnap :-->

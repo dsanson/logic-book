@@ -1,0 +1,576 @@
+---
+base-css:
+-   https://carnap.io/shared/dsanson@gmail.com/sanson-book.css
+-   https://cdn.plyr.io/3.6.12/plyr.css
+js: 
+-   https://cdn.plyr.io/3.6.12/plyr.polyfilled.js
+-   https://carnap.io/shared/dsanson@gmail.com/logic-book.js
+---
+
+# Syllabus: PHI 112 Language, Logic and Mathematics
+
+<!--TODO: populate this data from config.json-->
+
+| Term: Fall 2024
+| Instructor: David Sanson
+| Office: Stevenson 341
+| Office Hours: M 10-11; W 2-3
+| Contact: [GroupMe DM](https://groupme.com/contact/99365935/isjWnqLN){target="_blank"
+  rel="noopener noreferrer"} or <desanso@ilstu.edu> (I **strongly prefer**
+  that you contact me via GroupMe DM rather than email.)
+
+I am teaching two sections of this course, and this syllabus covers both:
+
+| Sec 001: MoWe 3:00PM -- 3:50PM, Stevenson 121
+| Sec 002: MoWe 1:00PM -- 1:50PM, Stevenson 121
+
+Check your own schedule to verify which section you are enrolled in. The
+sections meet.
+
+
+## Course Description
+
+This is a class in **formal logic**, covering both **truth-functional
+sentential logic** and **first-order quantificational logic**, including
+translation, natural deduction, truth tables, and countermodels. Our focus
+will be on *doing* logic, using it as a tool to improve our reasoning and
+our understanding of reasoning processes.
+
+**Logic** is the study of **reasoning**, and what makes some reasoning
+**good** and other reasoning **bad**. There are different ways to study this.
+In this class, we will study it **formally**, by developing an account of
+**logical form**, and developing a theory that tells us which **forms** of
+reasoning are good and which bad.
+
+For example, this is a good form of reasoning:
+
+:::{.standardform .informal}
+-   If P, then Q
+-   P
+-   So, Q
+:::
+
+This is a form, or schema. The 'P's and 'Q's stand for *any* sentences. So, for example:
+
+:::standardform
+-   If you take this class, then you will learn some logic.
+-   You take this class.
+-   So, you will learn some logic.
+:::
+
+We call this an **argument**. The first two claims are the **premises** of the
+argument, and the last claim is the **conclusion**, which is supposed to
+**follow** from the premises.
+
+Here is another argument with the same logical form:
+
+:::standardform
+-   If pigs fly, then the best cheese is made in Kentucky.
+-   Pigs fly.
+-   So, the best cheese is made in Kentucky.
+:::
+
+The *reasoning* in both of these arguments is good, in the following sense: if
+the premises were true, that would guarantee that the conclusion must be true
+as well.
+
+Here is another form of argument, that looks a lot like the one above, but is importantly different:
+
+:::{.standardform .informal}
+-   If P, then Q
+-   Q
+-   So, P
+:::
+
+Here is an instance of this form:
+
+:::standardform
+-   If you take this class, then you will learn some logic.
+-   You will learn some logic.
+-   So, you take this class.
+:::
+
+This is a bad argument: there are other ways to learn logic, besides taking
+this class. So it is possible for both of those premises to be true, but the
+conclusion false. So, someone who reasons from those premises to that
+conclusion has reasoned badly---the have made a logical mistake.
+
+## Time Commitment
+
+This is a three-unit course: officially, an average student can expect to
+spend approximately **9 hours a week** on this course alone, if they wish to
+succeed. I realize that for many classes that number is bullshit and safely
+ignored. For this class, it is accurate and should not be ignored. If you do
+not have that kind of time in your schedule, you should consider dropping this
+class or rearranging your schedule to make time for it. It is much better to
+figure this out now than to wait until we are deep into the term.
+
+## Hybrid Format
+
+Officially, this is **hybrid** course, because we meet in person 2 hours a
+week, on M and W, rather than 3, on M, W, and F. There is **no synchronic
+online component** to this course: that extra hour is additional time for you
+to engage in **asynchronous** learning, working through the textbook, watching
+videos, solving exercises, and attempting mastery checks.
+
+## Reading Assignments
+
+This course is divided into units. Each unit consists of a reading assignment and a
+mastery check. To pass the unit, you must answer **all** of the reading questions and also pass the mastery check. This syllabus that you are now reading is the reading assignment
+for the first unit. And here is your first reading question:
+
+```{.QualitativeProblem .MultipleChoice points=10}
+1 This reading question is
+|just an example, not a real reading question.
+|*a real reading question, which you must answer in order to pass this unit.
+```
+
+Reading questions are machine graded, and only **correct** answers are
+accepted. If you try to submit an incorrect answer, you will be asked to try
+again. There is no limit on how many times you can attempt to answer a reading
+question. Multiple choice questions with several correct answers, like (2), are harder to brute-force:
+
+```{.QualitativeProblem .MultipleSelection points=10}
+2 Select all and only those claims which are true:
+| *Some reading questions, like this one, are multiple choice questions with several correct answers.
+| *Some reading questions are multiple choice questions with just one correct answer.
+| Some reading questions are CAPTCHAs designed to verify that you are not a robot.
+| The best way to contact me is via email
+| *The best way to contact me is via GroupMe DM
+| This class meets over Zoom on Fridays.
+| This class meets in-person on Fridays.
+```
+
+Some reading questions cannot be machine graded. These are open-ended essay questions. For these, you get credit for submitting anything:
+
+```{.QualitativeProblem .ShortAnswer give-credit="onSubmission" points=10}
+3 Why are you taking this class? What do you hope to get out of it, given the course description above?
+```
+
+::: {.reaction ex="3"}
+I will typically use open-ended essay questions to encourage you to stop, think, and process what you have just read. These questions are for *you*, not for me. Typically, I will not review your answers, but I am happy to talk with you about them.
+:::
+
+Later units will introduce more interesting types of machine graded questions, specific to formal logic.
+
+## Mastery Checks
+
+A mastery check is a short, low-stakes, retakeable assessment,
+between 3 and 6 questions long. Mastery checks do not occur at set times. 
+You take them when you are ready. Some are on paper, and some are online.
+
+To **pass** a mastery check, you must score 60% or higher. To **pass** a unit,
+you must answer all the reading questions **and** pass the mastery check:
+
+Passing a Unit
+:   100% on the reading; 60% or higher on the mastery check
+
+To **ace** a mastery check, you must score 80% or higher. To **ace** a unit, you must answer all the reading questions **and** ace the mastery check:
+
+Acing a Unit
+:   100% on the reading; 80% or higher on the mastery check
+
+Online mastery checks are machine-graded, and consist of questions like the
+reading questions, but with the training wheels removed. They are timeed, but
+open-book and open-note. On paper mastery closed book and closed notes, and
+graded by me. They can be completed in class or during office hours.
+
+To request an online mastery check, send me a DM on GroupMe, and I will send
+you a link with a password. **This link is for your use only. Do not share
+this link or password with anyone else.**
+
+To request an on paper mastery check, ask me in person, either in class or
+during office hours.
+
+## Grades
+
+Your grade is based upon how many units you pass and how many you ace:
+
+   Course Grade               Units Complete
+  -------------- -----------------------------------------
+        A         pass at least 16 units; ace at least 10
+        B            pass at least 14; ace at least 8
+        C                    pass at least 10
+        D                     pass at least 8
+
+In addition, certain units are required for each grade level, in the sense that you must pass each of those units to receive that grade:
+
+   Course Grade     Required units
+  -------------- --------------------
+        A         0, 4, 6, 9, and 10
+        B           0, 4, 6, and 9
+        C            0, 4, and 6
+
+```{.QualitativeProblem .MultipleSelection points=10}
+4 Select all true claims from the list below:
+| *To pass a unit, I need to get 100% on the reading questions and get 60% or above on the mastery check
+| To pass a unit, I just need to get 100% on the reading questions for that unit.
+| *If a unit is aced, it is also passed
+| *It is possible to get a C without acing any units
+| It is possible to get a D without passing any units
+| It is possible to get a C without passing unit 4
+| *I can earn an A in this class without acing unit 4
+| I can earn a A in this class without passing unit 4
+| If I pass enough other units, I can get a C in this class without passing this unit, unit 0
+```
+
+## Retakes, Due Dates, and Expiration Dates
+
+Each unit has a **due date** and an **expiration date**. You can find these
+in the [Gradebook](Gradebook). 
+
+To stay on track, **you should complete the reading and attempt the mastery
+check before the due date**. 
+
+If you do *not complete the reading* before the due date, there is no penalty:
+you can complete reading questions from any unit without penalty up until 5pm
+on Friday, December 6th. This is because, no matter how far you fall behind,
+it *always makes sense* to complete the reading: that is how you learn what
+you need to learn in order to catch up.
+
+But both the due date and the expiration date have real consequences for
+mastery checks: they control the conditions under which you are allowed to
+retake a mastery check that you have not yet passed, or a mastery check that
+you have passed but not yet aced.
+
+As a general rule, mastery checks are meant to be retaken, and, if needed,
+retaken again and again. There is no set limit to the *number* of retakes that
+are allowed. But there are restrictions.
+
+First, before any retake, two conditions need to be met:
+
+1.  You must wait until the next day---you cannot take a mastery check and
+    then retake it on the same day;
+2.  You must hand in a brief description of what you have done to learn the
+    material since your last attempt. You can submit this electronically, as a
+    GroupMe message, or on paper, as a typed or hand-written note.
+
+(Notice that for mastery checks that are on paper, (2) limits you to two
+attempts per week, as you must take those mastery checks either in class or
+during my office hours, which are all on Mondays and Wednesdays.)
+
+If you have *not yet passed* a mastery check, you can take it or retake it any
+time prior to the *expiration date*. After the expiration date, you can retake
+it once during the midterm, and once during the final exam.
+
+For the early units, the expiration date is just one week after the due date.
+But as you get further into the book, the gap between due date and expiration
+date grows, as the gap grows between what you need to do to stay on track for
+an A or B and what you need to do to scrape by with a C or D. The last several
+units all expire on the same day---Friday, December 6th---as we hit the wall
+that is the end of the term.
+
+If you have *passed but not yet aced* a mastery check, you can take it or
+retake it any time prior to the *due date*. After the due date, you can retake
+it during the midterm or the final. But also, you can retake it in two
+additional situations:
+
+-   After you have passed at least 14 units, including the four units required
+    for a B (0, 4, 6, and 9) but still need to ace more units to earn a B.
+-   After you have passed at least 16 units, including the five units required
+    for an A (0, 4, 6, 9, and 10) but still need to ace more units to earn an
+    A.
+
+This is meant to encourage students who have passed but not yet aced mastery
+checks to move on, and come back to those mastery checks at the end. You don't
+want to spend the entire term mastering 10 units, to only earn a C, when you
+could have spent that same time completing 14 units, and then turned back to
+master 8, and so earned a B.
+
+I realize that this is all a bit complicated. I promise it all makes more
+sense once you jump in and get started!
+
+## Midterm and Final
+
+The midterm and final are not traditional exams. Instead, they represent
+opportunities to take or retake expired mastery checks, in-person, on-paper,
+in a closed-book and closed-note format. The midterm is on Wednesday, October
+9th, during our usual class period. The final is during our scheduled final
+exam period.
+
+## Class Meetings
+
+This class is flipped. I will begin each class with either a short five to ten
+minute lecture, or a short group exercise. But the bulk of class time will be
+devoted to helping you one-on-one with whatever it is that you are working on.
+Time in-class will **not** be used to reproduce material in the reading. 
+I expect you to do the reading yourself, outside of class, and come class prepared
+to work through exercises and talk about what you found confusing.
+
+```{.QualitativeProblem .ShortAnswer give-credit="onSubmission" points=10}
+5 Have you ever had something explained to you, felt like you really understood it, but then, when you tried to do it on your own, you couldn't? Why do you think that happens?
+6 Have you ever found yourself stuck in a cycle where you keep trying something but cannot figure out how to do it? What strategies do you have for breaking out of that sort of cycle?
+```
+
+## Working Together
+
+The reading questions are exercises. The point of these exercises is to learn
+how to do something new. You are encouraged to work to together on them, both
+in class and outside of class. Helping someone else can be a great way to
+solidify your own understanding. An explanation from a peer who has just
+figured something out is often more helpful than an explanation from someone
+like me, who has been doing this for years.
+
+But mastery checks are exams. The point of the mastery checks is to prove,
+both to me and to yourelf, that you have learned and understood the material
+for the unit. You are **not allowed to work together on mastery checks**.
+Working together on mastery checks is cheating, and grounds for disciplinary
+action. This includes online mastery checks that are completed outside of
+class.
+
+```{.QualitativeProblem .MultipleSelection points=10}
+7 Select all and only the true claims from this list:
+| It is okay to collaborate on mastery checks, as long as the final answer is your own.
+| If you fail a mastery check, you can retake it again that same day
+| If a friend needs a link to retake and hasn't gotten a response from the professor, you can help out by sharing a retake link with them
+| When you fail a mastery check, rather than trying to figure out what went wrong and what you didn't understand, you should just try to retake it again as soon as possible, on the chance that you will get the right answer the next time around.
+```
+
+## Participation
+
+In person attendance and participation is *expected*. It is part of what you
+signed up for when you signed up for this class. It is also central to the
+design of this class: I have tried to maximize the time I can spend helping
+*you*, in class, figure things out. If you are not in class, that time is
+wasted.
+
+At the same time, this is a university, and you are an adult. You can and
+should make your own decisions about how to balance your competing
+obligations, and I respect that. If something serious and outside of your
+control is interferring with your ability to attend class, let me know, and I
+will be supportive in whatever way I can. But if you simply make a habit of
+not attending class because your priorities are elsewhere, do not expect me to
+make teaching you outside of class my priority.
+
+To help encourage you to attend, and, I hope, participate, I will award you 10
+"collaboration points" for each class you attend. Your first 120 collaboration
+points earn you 1 collaboration unit. Your next 120 collaboration points earn
+you a second collaboration unit. These collaboration units count toward your
+total "passed" units, for the purposes of determining your course grade.
+
+## Office Hours
+
+My drop-in office hours are times that I set aside, so that students can drop
+in and ask for help or take on paper mastery checks. You do not need to make
+an appointment. You can just drop-in. That's why I am there. If you cannot
+make my drop-in office hours, ask for an appointment.
+
+```{.QualitativeProblem .MultipleSelection points=10}
+8 Drop-in office hours are
+| by appointment only
+| a time for me to be alone in my office without being bothered by students
+| *times when you can drop by and ask for help
+| *times when you can drop by without an appointment
+```
+
+```{.QualitativeProblem .MultipleChoice points=10}
+9 The best way to contact me about this course is
+| via shortwave radio
+| *via GroupMe
+| via email
+```
+
+:::{.reaction .incorrect ex=10}
+The answer to question 9 can be found near the beginning of the syllabus, if
+you missed it the first time through.
+:::
+
+## Math Phobia 
+
+Many students bring to this class an unhappy history with math. I see you, I
+will do what I can to support you, and I want you to know that you are not
+alone.
+
+Formal logic really is its own thing. It is math-y, and so likely to trigger
+math anxiety. But nothing we do in this class preupposes or builds upon any of
+the actual details of what you were supposed to learn in your math classes.
+What we will be doing is objectively *much simpler* than high school algebra,
+and many people who are "bad at math" turn out to be great at logic. One of my
+professors in graduate school was literally failing out of college before he
+stumbled into a logic class, and went on to become one of the most important
+logicians of the 20th century.
+
+Logic involves thinking about language in a math-y way, and thinking about
+math in a language-y way. This can feel weird, and it can stretch your mental
+muscles in unexpected ways. But it can also be kind of neat. 
+
+
+```{.QualitativeProblem .MultipleSelection points=10}
+10 This class might be challenging for you because
+| *it combines both mathematics and language
+| it will be taught entirely in French 
+```
+
+:::{.reaction .correct ex=11}
+C'est la seule partie de ce cours qui est en français.
+:::
+
+## Carnap.io
+
+The readings and assignments for this course are all on Carnap.io, a free
+open-source tool for automatic machine grading of complicated logic problems.
+
+To enroll in Carnap, follow this link:
+
+<!--TODO: populate from config.json-->
+
+-   <https://carnap.io/enroll/ISU_112_SPRING_2024>
+
+-   If you don't already have a Google account, you can [create one for
+    free](https://accounts.google.com/signup/v2/webcreateaccount?hl=en&flowName=GlifWebSignIn&flowEntry=SignUp).
+-   When you create your account on Carnap, you will be asked for your name
+    and your University ID.
+    -   Use your preferred name. If that\'s different from the name that will
+        show up on my official roster, I'll figure it out.
+    -   For your University ID, use your **ULID** (e.g., rredbird), not your **UID**. Your ULID
+        is the first part of your ISU email address. Your UID is your nine
+        digit student ID number.
+
+If you already have an account on Carnap from a previous course, you can log in using your google account, go to your User Page, and scroll down to "Your Profile", and click "Unenroll" to unenroll from the previous course, followed by "Enroll" to enroll in this course. Otherwise you won't get credit for any of your work for this course.
+
+## GradeBook
+
+I will **not** be using the Canvas Gradebook for this course.
+
+You can track your progress on individual assignments on Carnap by looking at
+the progress bar at the top of each assignment. You should see this bar now,
+at the top of this page. If you click on that bar, you can see more useful
+information about your progress through this assignment.
+
+You can track your progress through the course by visiting the
+[Gradebook](Gradebook), which lists each unit, along with its due date, and
+your current scores on both the reading and mastery check.
+
+As you are getting oriented, you should also take a look at your [User Page](https://carnap.io/user). Here you can find a list of your "assignments", and, if you scroll
+down, a list of every individual problem that you have submitted for any assignment: by the end of the term, this list will grow quite long! At
+the very bottom, you can see and edit your personal information. Note that I
+have very little control over what is displayed on this page!
+
+```{.QualitativeProblem .MultipleChoice points=10}
+11 To check my current grades in the course, I should
+| go to the gradebook on Canvas
+| go to my User Page
+| *go to the the GradeBook on Carnap
+```
+
+## Accommodations
+
+Any student needing to arrange a reasonable accommodation for a
+documented disability should contact Student Access and Accommodation
+Services at 350 Fell Hall, 309-438-5853,
+<http://studentaccess.illinoisstate.edu>.
+
+Really, if there is *anything* reasonable that you think I might be able to do
+that would make things work better for you, whether the relevant issue is
+"documented" or not, talk to me.
+
+I believe that Carnap.io is *relatively* accessible when compared to the
+alternatives. But I know that it is far from perfect. If you encounter any
+specific accessiblity issues, do let me know. I might be able to fix the issue
+myself, and I can report any issues upstream to the developers.
+
+## Other Sources of Support 
+
+Life at college can get complicated. If you're feeling stressed, overwhelmed,
+lost, anxious, depressed or are struggling with personal issues, do not
+hesitate to call or visit Student Counseling Services (SCS). These services
+are free and completely confidential. SCS is located at 320 Student Services
+Building, (309) 438-3655.
+
+If you are worried about a friend and don't know how to help, you can call SCS
+and ask to speak to a counselor. The Kognito simulation, available through
+SCS's webpage, can also help you learn how to assist your friend in connecting
+to services.
+
+Also, it's hard to learn if you're hungry or couch-surfing. If you are having
+difficulty affording groceries, accessing sufficient food to eat every day, or
+securing a safe and stable place to live, help may be available. I urge you to
+contact the Dean of Students Office to learn more.
+
+The School Street Food Pantry offers free food to any students dealing with
+food insecurity. It is located inside Normal First United Methodist Church at
+211 N. School St., just north of Milner Library, and is open Fridays from 4-6
+p.m. I usually have a few basic snacks in my office, too, which I'm happy to
+share.
+
+## Academic Misconduct
+
+You are expected to be honest in all academic work, consistent with the
+academic integrity policy as outlined in the Code of Student Conduct and any
+additional syllabus language. All work is to be appropriately cited when it is
+borrowed, directly or indirectly, from another source. Unauthorized and/or
+unacknowledged collaboration on any work, or the presentation of someone
+else's work, is plagiarism.
+
+Content generated by an Artificial Intelligence third-party service or site
+(AI-generated content) without proper attribution or authorization is another
+form of plagiarism. If you are unsure about whether something may be
+plagiarism or another form of academic dishonesty, please reach out to me to
+discuss it as soon as possible. Any allegation of academic dishonesty may be
+referred to Student Conduct and Community Responsibilities, a unit of the Dean
+of Students Office, for possible review. If found responsible for academic
+dishonesty, a grade penalty can also be applied.
+
+## ISU General Education Objectives
+
+Courses in the Quantitative Reasoning category of General Education
+address the following program objectives:
+
+I. knowledge of diverse human cultures and the physical and natural world,
+   allowing students to
+
+   a.  use theories and principal concepts, both contemporary and enduring,
+       to understand technologies, diverse cultures, and the physical and
+       natural world
+   b.  *explain how the combination of the humanities, fine arts, natural and
+       social sciences, and technology contribute to the quality of life for
+       individuals and communities*
+
+II. intellectual and practical skills, allowing students to
+
+    a. make informed judgments
+    b. analyze data to examine research questions and test hypotheses
+    c. *report information effectively and responsibly*
+
+III. personal and social responsibility, allowing students to
+
+     a. demonstrate ethical decision making 
+     b. demonstrate the ability to think reflectively
+
+IV. integrative and applied learning, allowing students to
+
+    a.  identify and solve problems
+    b.  transfer learning to novel situations
+    c.  *work effectively in teams*
+
+Primary outcomes are indicated in plain text and secondary outcomes are
+indicated in italics.
+
+Phew! That's a lot of boiler plate.
+Did you hear the story about the [professor who hid $50, and told students
+where to find it on his
+syllabus](https://www.cnn.com/2021/12/18/us/tennessee-professor-syllabus-money-trnd/index.html)?
+I am afraid I have not done the same. Do I look like I'm made of money?!!
+
+```{.QualitativeProblem .MultipleSelection points=10}
+12 According to the ISU General Education Objectives, a course in Quantitative Reasoning is supposed to (select all correct answers)
+| *teach you personal and social responsibility, allowing (enabling?) you to demonstrate ethical decision making
+| teach you how to cook, allowing (enabling?) you to cook quick and easy healthy meals on a budget
+| *teach you about cultures and the physical and natural world (but not math?), allowing (enabling?) you to justify each unit of the university, on the (dubious!) grounds that it contributes to quality of life
+| teach some aspect of quantitative reasoning
+```
+
+:::{.reaction .correct ex=13}
+Apologies for the snark.
+:::
+
+## What Now?
+
+This is a *real* unit, with both reading and a mastery check. The mastery
+check for this unit is online. When you are ready to attempt it, send me a
+GroupMe DM. In your DM, please specify that you want a mastery check for
+unit 0, and, since this is the first time we are communicating over GroupMe,
+include your ULID, so I know who you are!
+
+
+<!-- vim: set ft=carnap :-->

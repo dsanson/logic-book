@@ -1,0 +1,1515 @@
+---
+base-css:
+-   https://carnap.io/shared/dsanson@gmail.com/sanson-book.css
+-   https://cdn.plyr.io/3.6.12/plyr.css
+js: 
+-   https://cdn.plyr.io/3.6.12/plyr.polyfilled.js
+-   https://carnap.io/shared/dsanson@gmail.com/logic-book.js
+---
+
+::: {.auto-tally}
+:::
+
+::: cover
+# Truth Tables for Sentences
+
+<figure>
+<img
+src="http://reggienet.illinoisstate.edu/access/content/user/desanso/public/img/ladd-franklin-truth-table.png"
+alt="A table with 4 columns, headed &#39;not-a not-b&#39;, &#39;a not-b&#39;,
+&#39;not-a b&#39;, &#39;a b&#39;, and 16 rows, showing all possible
+assignments of 1 and 0 to the four propositions." /><figcaption>An early truth
+table, from
+<a href="https://en.wikipedia.org/wiki/Christine_Ladd-Franklin" target="_blank" rel="noopener noreferrer">Christine Ladd-Franklin</a>, “On the Algebra of Logic”, in Charles Sanders Peirce and Allan Marquand (eds), <a href="https://archive.org/details/studiesinlogic00gilmgoog" class="source" target="_blank" rel="noopener noreferrer"><em>Studies in Logic</em></a>, 1883, p. 62.</figcaption>
+</figure>
+
+:::
+
+**HEADS UP!**: Your work on truth tables will not be saved across
+page reloads. Your *submissions* are saved. But when you reload a page, you
+will only see that you got it correct. The values you entered into the cells
+in the table will not reappear. If you want to save your work, I'd suggest
+taking screenshots as you go.
+
+## Introduction
+
+A derivation is a puzzle. You are given premises and a conclusion. Your task
+is to find a path from those premises to that conclusion. Finding a path
+requires insight, creativity, and, in some cases, perhaps a bit of luck.
+
+Sometimes, you will be unable to complete a derivation. What does that
+show? It *might* be that the argument is not valid, so there is no path to
+discover, and you've been given an impossible task. Or it *might* be that the
+argument is valid, and there is a path, but it eludes you.
+
+In this chapter and the next, we explore [truth tables]{.vocab}. A truth table
+is an exhaustive map of *every logical possibility* for a given sentence or argument.
+Constructing a truth table is a *mechanical* process, similar to long
+division. It requires good book-keeping and accurate calculation, but it
+requires no insight, creativity, or luck. Using a truth table, you never need
+to worry that there might be a path that has eluded you.
+
+The specific learning objectives for this unit are:
+
+a.  I can calculate the truth of a sentence on an assignment
+b.  I can use truth tables to determine whether or not a sentence is
+    truth-functionally true, truth-functionally false, or
+    truth-functionally contingent.
+
+## Truth-Functionality
+
+Every sentence in SL is either atomic or molecular. 
+The sentence letters, like 'P' and 'Q', are atomic.
+They are simple declarative sentences, either true or false. 
+Molecular sentences, like 'P∧Q' and '¬((P→Q)∨(R↔S)), are built from these atomic sentences, using our
+connectives.
+
+As mentioned in [Chapter 2](02R#truth-functionality),
+ each of our connectives is truth-functional.
+This means that the truth-value of a molecular sentence is always a function
+ of the truth-values of its parts.
+So, if we know the truth-function expressed by each connective, then, given
+the truth values of the atomic parts of a molecular sentence,
+ we can calculate the truth value of the whole sentence.
+
+::::: soawrapper
+::: soasticky
+| P: David is a philatelist
+| W: Philatelists are weird
+:::
+
+For example, suppose I tell you that the sentence, 
+ 'David is a philatelist' is false,
+ and the sentence 'Philatelists are weird' is true. 
+
+```{.QualitativeProblem .MultipleChoice points=10}
+1 Given what I've told you, what is the truth value of 'David is a philatelist and philatelists are weird'?
+| True
+| *False
+| Cannot be determined
+```
+
+:::{.reaction .correct ex=1}
+The conjunction is *false*, because one of its parts is false.
+A conjunction---an "and" statement---is true only when *both* of its
+parts---both of its *conjuncts*---are true.
+:::
+
+```{.QualitativeProblem .MultipleChoice points=10}
+2 Given what I've told you, what is the truth value of 'David is a philatelist or philatelists are weird'?
+| *True
+| False
+| Cannot be determined
+3 Given what I've told you, what is the truth value of 'David is not a philatelist'?
+| *True
+| False
+| Cannot be determined
+```
+
+:::{.reaction .correct ex=3}
+If you aren't confident about your answers to these questions right now, read
+on, and come back when you have finished the chapter.
+:::
+
+By the way, if you are wondering, a philatelist is someone into
+[philately](https://en.wikipedia.org/wiki/Philately){target="\_blank"
+rel="noopener noreferrer"}
+
+:::::
+
+You may recall that, in [Chapter 2](02R#truth-functionality),
+ we explicitly set aside non-truth-functional connectives, like 'because'.
+Let's briefly review the reasons for thinking that 'because' is
+not truth-functional.
+
+Suppose that the sentence 'I hate you' is true, and the sentence 'You are
+beautiful' is also true.
+
+::: aside
+As someone who grew up in the 80s, the line "Don't hate me because I am
+beautiful" was burned into my brain by these ads for Pantene shampoo:
+
+::: youtube
+<https://youtu.be/I45-zWJtvfM>
+:::
+:::
+
+```{.QualitativeProblem .MultipleChoice points=10}
+4 Given what I've told you, what is the truth value of 'I hate you because you are beautiful'?
+| True
+| False
+| *Cannot be determined
+```
+
+:::{.reaction .correct ex=4}
+Do you see why we cannot determine the truth value of this sentence,
+ just given the truth values of its parts?
+Granted that I hate you, and granted that you are beautiful,
+ we cannot determine whether or not I hate you *because* you are beautiful.
+The word 'because' means that the truth of the first part of the sentence
+*is explained by* the truth of the second part.
+We know that I hate you, and we know that you are beautiful, but we don't know
+whether or not my hate *is explained by* your beauty:
+Maybe that's why I hate you.
+Or maybe I hate you for some other reason.
+Or maybe I'm just a hater who is gonna hate, and I have no reason.
+:::
+
+## Meaning and Compositionality
+
+You are able to understand sentences in English that you've never encountered
+before, like:
+
+::: example
+-   Hamsters prefer whiskey to tequila.
+:::
+
+How is this possible? How can you know what this means, without ever having
+learned its meaning?
+
+It is possible because you know what each of the words means,
+ and you know the grammar of English,
+ so you know how to *calculate* the meaning of the *whole* from the meanings
+ of its *parts*.
+And that calculation is possible because *meaning* in natural languages is
+*compositional*:
+
+[Compositionality of meaning]{.vocab}
+:   The meaning of a linguistic expression is a function of the meanings of its parts.
+
+If you've ever learned a foreign language, you know that time-worn idioms
+violate this principle. In English, the idiom 'my blood is boiling' means that
+I am angry. Maybe you could guess this by first calculating the literal
+meaning, and then trying to figure out the metaphor that supports the
+idiomatic meaning. In French, the corresponding idiom is 'the mustard is
+rising into my nose'. When learning French, that is something you need to
+memorize, not something you can calculate on the fly, from the meanings of the
+component words.
+
+When someone (outside of logic class!) tells you to 
+ "[mind your Ps and Qs](https://www.merriam-webster.com/dictionary/mind%20one%27s%20p%27s%20and%20q%27s){target="_blank"
+rel="noopener noreferrer"}", <!--_--> they are telling you to be polite.
+But there is no way of calculating that meaning from those words.
+You just need to memorize the meaning of the entire idiom.
+
+Again, if someone tells you that they think you are "[the cat's
+pajamas](https://www.merriam-webster.com/dictionary/the%20cat%27s%20meow){target="_blank"
+rel="noopener noreferrer"}", <!--_-->
+ you cannot figure out what that means simply by combining your understanding
+ of the meaning of the word 'cat' and the word 'pajamas'.
+
+But idioms like this are the exception, not the rule.
+An adult native speaker of English knows between 20,000 and 35,000 words.
+But that same speaker can understand a potentially *infinite* number of
+sentences and phrases,
+ composed from those words.
+The compositionality of meaning is what makes this possible.
+
+Truth-functionality is the *simplest* form of compositionality.
+If you know the meanings of 'Snow is white' and 'Grass is green', and you know
+the truth-function expressed by 'and', you can calculate the meaning of 'Snow is white
+and grass is green', even if it happens to be a sentence that you've never
+encountered before.
+
+## Characteristic Truth Tables
+
+Here is a short video, introducing characteristic truth tables:
+
+:::solution
+::: youtube
+<https://youtu.be/SxWtLkYGJ94>
+:::
+:::
+
+Each of our connectives is truth-functional. That is, each connective expresses a
+[truth function]{.vocab}, a function from truth values to a truth value.
+
+Here is the truth function expressed by negation, '¬':
+
+:::liveshapes
+-   []{.P}, is true: ¬[]{.P}, is false.
+-   []{.P}, is false: ¬[]{.P} is true.
+:::
+
+And here is the truth function expressed by conjunction, '∧':
+
+::: liveshapes
+-   []{.P} is true and []{.Q} is true: []{.P}∧[]{.Q} is true.
+-   []{.P} is true and []{.Q} is false: []{.P}∧[]{.Q} is false.
+-   []{.P} is false and []{.Q} is true: []{.P}∧[]{.Q} is false.
+-   []{.P} is false and []{.Q} is false: []{.P}∧[]{.Q} is false.
+:::
+
+A more concise way to represent the truth function expressed by a connective is
+with a [characteristic truth table]{.vocab}. 
+Here is the characteristic truth table for negation:
+
+::: {.itt .liveshapes}
+   []{.P}   ¬[]{.P}
+  -------- ---------
+     T         F
+     F         T
+:::
+
+And here is the characteristic truth table for conjunction:
+
+::: {.itt rows="2" .liveshapes}
+   []{.P}   []{.Q}   []{.P}∧[]{.Q}
+  -------- -------- ---------------
+     T        T            T
+     T        F            F
+     F        T            F
+     F        F            F
+:::
+
+In both tables, the columns to the left of the vertical line indicate the
+possible inputs, and the column to the right of the vertical line indicates
+the corresponding output.
+
+So, looking at the first row of the table for negation, we see that when the
+input is 'T', the output is 'F'.
+And, looking at the second row, we see that when the input is 'F', the output
+is 'T'.
+
+The truth table for conjunction has four rows, because there are four possible
+combinations of inputs: T T, T F, F T, and F F.
+
+This way of representing truth functions, using truth tables,
+ goes back to the 19th century logician Christine Ladd-Franklin.
+The cover image for this chapter is one of her truth tables.
+It was later popularized by the early 20th century philosopher and logician, 
+ Ludwig Wittgenstein, in his [*Tractatus Logico-Philosophicus*](https://people.umass.edu/klement/tlp/){target="_blank"
+rel="noopener noreferrer"} (1922). <!--_-->
+
+This is all rather abstract.
+To bring it back down to earth,
+ let's consider some actual English sentences:
+
+::: itt
+   It is snowing.   It is not snowing.
+  ---------------- --------------------
+         T                  F
+         F                  T
+:::
+
+This table tells us that, when 'it is snowing' is true, as on the first row,
+then its negation, 'it is not snowing' is false. And when 'it is snowing' is
+false, as on the second row, then its negation 'it is not snowing' is true.
+
+And:
+
+::: {.itt rows="2"}
+   I can fly   I can touch the sky   I can fly and I can touch the sky
+  ----------- --------------------- -----------------------------------
+       T                T                            T
+       T                F                            F
+       F                T                            F
+       F                F                            F
+:::
+
+The first row of this table tells us that, when 'I can fly' is true, and 'I can touch the sky' is
+true, 'I can fly and I can touch the sky' is true.
+The second row tells us that, when 'I can fly' is true and 'I can touch the
+sky' is false, the conjunction is false.
+And so on.
+
+### Disjunction
+
+```{.QualitativeProblem .MultipleChoice points=10}
+5 True or false: 'Either Normal is in Illinois or Normal is in the United States.'
+| *True
+| *False
+```
+
+That question was rigged: either answer was accepted as correct.
+This is because the meaning of 'or' in English is ambiguous.
+Sometimes, 'or' express an [exclusive disjunction]{.vocab}: 
+  one or the other, *but not both*.
+Other times, 'or' expresses an [inclusive disjunction]{.vocab}: 
+ one or the other, *or both*.
+
+Given this ambiguity, it is not clear how we should complete this truth table:
+
+:::liveshapes
+::: {.itt rows="2"}
+   []{.P}   []{.Q}   []{.P} or []{.Q}
+  -------- -------- ------------------
+     T        T             ?
+     T        F             T
+     F        T             T
+     F        F             F
+:::
+:::
+
+Note that we can all agree about the bottom three rows.
+The controversy only affects the first row: is an 'or' statement true when
+both parts---both *disjuncts*---are true?
+
+In some cases, 'or' seems pretty clearly to be exclusive:
+
+:::example
+-   Are you with us or against us?
+:::
+
+Someone who asks this is dividing the possibilities into two exclusive
+categories, and telling you that you have to choose one or the other. "Both"
+isn't an acceptable answer!
+
+But in other cases, 'or' seems pretty clearing inclusive:
+
+:::example
+-   Click it or ticket.
+:::
+
+This is shorthand for:
+
+:::example
+Either fasten your seatbelt or you will get a ticket.
+:::
+
+Imagine getting pulled over for reckless driving,
+ and arguing with the officer that,
+ since your seatbelt *was* fastened,
+ you should *not* get a ticket.
+If the 'or' here was exclusive, this would be a reasonable defense!
+But it isn't, because the 'or' here is inclusive.
+
+Consider the rule:
+
+:::example
+-   If you've been exposed or you are experiencing symptoms, then you should
+    get tested.
+:::
+
+The 'or' here is pretty clearly inclusive. The rule is meant to apply to those
+who have been exposed but are not experiencing symptoms, those who are
+experiencing symptoms but have not been exposed, *and* to those who both have
+been exposed and are experiencing symptoms.
+
+This last pattern is pretty common:
+
+:::example
+-   You cannot ride this roller coaster if you are pregnant or have an
+    existing heart condition.
+:::
+
+The rule applies to anyone who is pregnant, anyone with an existing heart
+condition, and anyone both pregnant and with an existing heart condition. And,
+
+:::
+-   No shirt or no shoes, no service.
+:::
+
+The rule excludes the shirted unshod, the topless shod,
+*and* the topless unshod. So the 'or' is inclusive.
+
+So 'or' in English is ambiguous.
+We can't fix English.
+But we have absolute control over our artificial language.
+So we *stipulate* that our symbol, '∨', expresses *inclusive* disjunction:
+
+:::liveshapes
+::: {.itt rows="2"}
+   []{.P}   []{.Q}   []{.P}∨[]{.Q}
+  -------- -------- ------------------
+     T        T             T
+     T        F             T
+     F        T             T
+     F        F             F
+:::
+:::
+
+If we wanted to, we could *also* add another connective that expresses
+exclusive disjunction.
+The most common symbol used for this connective is '$\veebar$':
+
+
+::: {.itt rows="2" .liveshapes}
+   []{.P}   []{.Q}   []{.P}∨[]{.Q}   []{.P} $\veebar$ []{.Q}
+  -------- -------- --------------- -------------------------
+     T        T       [T]{.wavy}           [F]{.wavy}
+     T        F            T                    T
+     F        T            T                    T
+     F        F            F                    F
+:::
+
+Both '∨' and '$\veebar$' are truth-functional. They just express slightly
+different truth-functions, and shown by their slightly different truth tables.
+
+We will not add '$\veebar$' to our language. 
+This is partly because we don't need it: we can still express exclusive disjunctions.
+We just have to be clever about how to do it. Here is one way we can do it:
+
+:::example
+-   (P ∨ Q) ∧ ¬(P ∧ Q)
+:::
+
+Do you see how this expresses an exclusive disjunction? The first conjunct, '(P
+∨ Q)', says that at least one of P or Q is true. The second conjunct, '¬(P ∧
+Q)', says that they aren't both true.
+
+We cannot fix English. But we also don't want to constantly worry about
+whether or not an 'or' in English is inclusive or exclusive. So, for the
+purposes of this class, 
+ **we will assume that 'or' in English always expresses an inclusive
+ disjunction.**
+
+### The Biconditional
+
+The biconditional expresses *truth-functional agreement*. 
+That is, 'P ↔ Q' is true just in case 'P' and 'Q' have the same truth value:
+
+::: {.itt rows="2" .liveshapes}
+   []{.P}   []{.Q}   []{.P} ↔ []{.Q}
+  -------- -------- -----------------
+     T        T             T
+     T        F             F
+     F        T             F
+     F        F             T
+:::
+
+Do you see how this table captures the idea that '↔' expresses
+truth-functional agreement?
+The biconditional comes out true on the first row and last row.
+These are the rows where both parts have the same truth value. 
+It comes out false in the middle two rows, where the two parts disagree in truth value.
+
+One common mistake students make is to confuse the truth tables for the
+biconditional and the conjunction. Here they are
+side-by-side for easy comparison:
+
+::: {.itt rows="2" .liveshapes}
+   []{.P}   []{.Q}   []{.P} ∧ []{.Q}   []{.P} ↔ []{.Q}
+  -------- -------- ----------------- -----------------
+     T        T             T                 T
+     T        F             F                 F
+     F        T             F                 F
+     F        F        [F]{.wavy}        [T]{.wavy}
+:::
+
+The difference is on the last row of the table. 
+Both conjunction and the biconditonal can be thought of as expressing kinds of "agreement". 
+The conjunction expresses *agreement in truth*. 
+The biconditional expresses *agreement in truth or falsehood*. 
+It's as though the conjunction tells its conjuncts, "Let's be true together!", 
+while the biconditional tells its components, "Let's be together, whether in truth or falsehood."
+
+(Here is a silly analogy, that might help you remember this. 
+Consider the wedding vow, "for better, for worse, for richer, for poorer, in sickness and in health". 
+That's the sort of wedding vow a *biconditional* would be into:
+ a commitment to stick together, come what may. 
+If a *conjunction* were getting married, 
+ it would probably write its own vows, along the lines of,
+ "for better, for richer, in health": 
+ a commitment to stick together, but only when things are good.)
+
+Finally, note the relationship between the table for the biconditional and the
+table for *exclusive* disjunction:
+
+::: {.itt rows="2" .liveshapes}
+   []{.P}   []{.Q}   []{.P} ↔ []{.Q}   []{.P} $\veebar$ []{.Q}
+  -------- -------- ----------------- -------------------------
+     T        T             T                     F
+     T        F             F                     T
+     F        T             F                     T
+     F        F             T                     F
+:::
+
+The biconditional expresses truth-functional agreement,
+ and the exclusive disjunction expresses truth-functional disagreement.
+So it should be no surprise that their truth tables are exactly opposed:
+ when the biconditional is true, the exclusive disjuntion is false,
+ and vice versa.
+In other words, each is equivalent to the negation of the other.
+
+And that gives us another way to express an exclusive disjunction without
+using '$\veebar$'. These are all logically equivalent:
+
+:::example
+-   []{.P} $\veebar$ []{.Q}
+-   ([]{.P} ∨ []{.Q}) ∧ ¬([]{.P} ∧ []{.Q})
+-   ¬([]{.P} ↔ []{.Q})
+:::
+
+### The Conditional
+
+We come to the conditional last because, honestly, it is a bit of a problem.
+Debates about how best to handle the conditional go back at least as far as
+Ancient Greece. Sextus Empiricus, in his book *[Against the
+Logicians](http://logic-teaching.github.io/prop/texts/Sextus%20Empiricus%202005%20-%20Sextus%20Empiricus%20-%20Against%20the%20Logicians%20-%20Book%20II%20Selections.pdf){target="_blank"
+rel="noopener noreferrer"}*, reports a disagreement between Diodorus Cronus
+and one of his students, Philo the Logician.
+
+::: aside
+Sextus Empiricus was a Greek philosopher who lived from around 160 CE to 210
+CE. He was a skeptic, and argued (among other things) that we have no
+criterion for judging what is true and what is false. *Against the Logicians*
+is mostly about what we would now call *epistemology*: puzzles about how we
+know things and whether or not knowledge is possible. But it also includes a
+discussion of logical topics, and is one of our best surviving sources for
+understanding the history of logic in Ancient Greece after Aristotle.
+:::
+
+:::sep-inset
+
+:::sep-header
+<img src="https://plato.stanford.edu/symbols/sep-man-red.png" />
+[Stanford Encyclopedia of
+Philosophy](https://plato.stanford.edu){target="_blank" rel="noopener
+noreferrer"} <!--_-->
+:::
+
+# [The Dialectical School](https://plato.stanford.edu/entries/dialectical-school){target="_blank" rel="noopener noreferrer"}
+
+::: {#preamble}
+The 'Dialectical school' denotes a group of early Hellenistic
+philosophers that were loosely connected by philosophizing in the ---
+Socratic --- tradition of Eubulides of Miletus and by their interest in
+logical paradoxes, propositional logic and dialectical expertise. Its
+two best-known members, Diodorus Cronus and Philo the Logician, made
+groundbreaking contributions to the development of theories of
+conditionals and modal logic. Philo introduced a version of material
+implication; Diodorus devised a forerunner of strict implication. Each
+developed a system of modal notions that satisfies the basic logical
+requirements laid down by modern standard modal theories. In antiquity,
+Diodorus Cronus was famous for his so-called Master Argument, which aims
+to prove that only the actual is possible.
+:::
+
+:::
+
+First, Sextus reports Philo's position:
+
+> Philo, for example, said that the conditional is true when it does not begin
+> with a true proposition and finish with a false one, so that a conditional,
+> according to him, is true in three ways and false in one way. For when it
+> begins with a true one and finishes with a true one, it is true, as in "If
+> it is day, it is light." And when it begins with a false one and finishes
+> with a false one, it is again true -- for example, "If the earth flies, the
+> earth has wings." In the same way, too, the conditional that begins
+> with a false one and finishes with a true one is true, such as "If the earth
+> flies, the earth is." But it is false only when it begins with a true one
+> and finishes with a false one, as does "If it is day, it is night." For when
+> it is day, "It is day" is true, while "It is night," which was the finisher,
+> is false. (*Against the Logicians*, Book 2, 113-115)
+
+Here is how Philo's truth conditions for the conditional were represented by
+Wittgenstein in his [*Tractatus
+Logico-Philosophicus*](https://people.umass.edu/klement/tlp/){target="_blank"
+rel="noopener noreferrer"} <!--_--> (1922):
+
+:::illustration
+![Illustration of the truth conditions for the
+conditional](http://reggienet.illinoisstate.edu/access/content/user/desanso/public/img/Wittgenstein_Tracatus_6.1203.png){alt="An
+illustration of the truth conditions of the conditional"}
+:::
+
+And here is how we represent Philo's truth conditions, in a truth table:
+
+::: {.itt rows="2" .liveshapes}
+   []{.P}   []{.Q}   []{.P} → []{.Q}
+  -------- -------- -----------------
+     T        T             T
+     T        F             F
+     F        T             T
+     F        F             T
+:::
+
+Diodorus Cronus disagreed with Philo:
+
+> Diodorus, on the other hand, says that a conditional is true which neither
+> was nor is *able* to begin with a true one and finish with a false one --
+> which conflicts with Philo's position. For a conditional such as "If it is
+> day, I am having a discussion," when it is day at present, and I am having a
+> discussion, is true according to Philo, since it begins with the true "It is
+> day" and finishes with the true "I am having a discussion," but false
+> according to Diodorus. For it is *able* to begin with the true "It is day"
+> and finish with the false "I am having a discussion" \[...\] Again, one of
+> this character -- "If it is night, I am having a discussion" -- when it is
+> day and I am silent, is in the same way true according to Philo (for it
+> begins with a false one and finishes with a false one), but false according
+> to Diodorus. For it it is able to begin with a true one and finish with a
+> false one, when night has come, and when, further, I am not having a
+> discussion but am quiet. But in addition, "If it is night, it is day," when
+> it is day, is true according to Philo for this reason: that it begins with
+> the false "It is night" and finishes with the true "It is day"; whereas
+> according to Diodorus it is false for this reason: that it is able, when
+> night takes over, to begin with the true "It is night" and finish with the
+> false "It is day." (*Against the Logicians*, Book 2, 115-117).
+
+But we don't need to carefully parse disputes between Greek logicians to see
+the problems with Philo's proposed truth table. The table below is
+interactive. Click on the '-', and select the answers that reflect your own
+judgment about the actual truth or falsehood of each sentence:
+
+::: {.itt rows="2"}
+                            You live in Illinois                                                       You live in Canada                                            If you live in Illinois, you live in Canada
+  ------------------------------------------------------------------------- ------------------------------------------------------------------------- -------------------------------------------------------------------------
+   <select><option>-</option><option>T</option><option>F</option></select>   <select><option>-</option><option>T</option><option>F</option></select>   <select><option>-</option><option>T</option><option>F</option></select>
+:::
+
+I am guessing your answers were T, F, F? 
+That's a pretty stable result. 
+It is also the one result that Philo and Diodorus agree on. 
+So we can all agree on this much:
+
+::: {.itt rows="2" .liveshapes}
+   []{.P}   []{.Q}   If []{.P} then []{.Q}
+  -------- -------- ------------------------
+     T        T             
+     T        F             F
+     F        T             
+     F        F            
+:::
+
+It's the other three rows that cause trouble.
+
+So consider these two examples:
+
+::: {.itt rows="2"}
+                            You live in Illinois                                                       You live in the US                                            If you live in Illinois, you live in the US
+  ------------------------------------------------------------------------- ------------------------------------------------------------------------- -------------------------------------------------------------------------
+   <select><option>-</option><option>T</option><option>F</option></select>   <select><option>-</option><option>T</option><option>F</option></select>   <select><option>-</option><option>T</option><option>F</option></select>
+:::
+
+::: {.itt rows="2"}
+                             You live in the US                                                       You live in Illinois                                           If you live in the US, you live in Illinois
+  ------------------------------------------------------------------------- ------------------------------------------------------------------------- -------------------------------------------------------------------------
+   <select><option>-</option><option>T</option><option>F</option></select>   <select><option>-</option><option>T</option><option>F</option></select>   <select><option>-</option><option>T</option><option>F</option></select>
+:::
+
+In each of these examples, both antecedent and consequent are true. So each is
+a conditional that, as Philo would put it, "begins with a true and ends with a
+true". So, according to Philo, they are both true. Do you agree? Or did you
+judge the first conditional true, and the second false? If so, you agree with
+Diodorus. He thinks the first is true because it is impossible for the
+antecedent to be true but the consequent false, while the second is false
+because it is possible for the antecedent to be true but the consequent
+false.
+
+:::aside
+Sound familiar? Diodorus's truth condition for the conditional is a
+close cousin of our definition of validity. Both are forms of *necessitation*:
+*Necessarily*, if the antecedent is true, then the consequent is true;
+*Necessarily*, if the premises are true, then the conclusion is true. Or,
+equivalently, *it is impossible that* the antecedent be true and the
+consequent false; *it impossible that* the premises be true and the
+conclusion false.
+:::
+
+If you agree with Diodorus,
+ then you don't think the conditional is truth-functional. 
+In your judgment, a sentence with a true antecedent and true consequent is
+sometimes true, but sometimes false. Its truth value depends on *more* that
+the truth values of its parts:
+
+::: {.itt rows="2" .liveshapes}
+   []{.P}   []{.Q}   If []{.P} then []{.Q}
+  -------- -------- ------------------------
+     T        T           T/F
+     T        F             F
+     F        T     
+     F        F     
+:::
+
+Similar issues arise for the third and fourth rows:
+
+::: {.itt rows="2"}
+                             You live in Oregon                                                        You live in the US                                             If you live in Oregon, you live in the US
+  ------------------------------------------------------------------------- ------------------------------------------------------------------------- -------------------------------------------------------------------------
+   <select><option>-</option><option>T</option><option>F</option></select>   <select><option>-</option><option>T</option><option>F</option></select>   <select><option>-</option><option>T</option><option>F</option></select>
+:::
+
+::: {.itt rows="2"}
+                             You live in Mexico                                                        You live in the US                                             If you live in Mexico, you live in the US
+  ------------------------------------------------------------------------- ------------------------------------------------------------------------- -------------------------------------------------------------------------
+   <select><option>-</option><option>T</option><option>F</option></select>   <select><option>-</option><option>T</option><option>F</option></select>   <select><option>-</option><option>T</option><option>F</option></select>
+:::
+
+Philo would say that each of these is true, because each "begins with a false
+and ends with a true". Diodorus would say that the first is true, because it
+is impossible for the antecedent to be true but the consequent false, and he
+would say that the second is false, because it is possible for the antecedent
+to be true but the consequent false: for example, if you moved to Mexico, the
+antecedent would be true, but the consequent false. Who did you side with?
+
+And, for the fourth row:
+
+::: {.itt rows="2"}
+                           You live in Mexico City                                                     You live in Mexico                                          If you live in Mexico City, you live in Mexico
+  ------------------------------------------------------------------------- ------------------------------------------------------------------------- -------------------------------------------------------------------------
+   <select><option>-</option><option>T</option><option>F</option></select>   <select><option>-</option><option>T</option><option>F</option></select>   <select><option>-</option><option>T</option><option>F</option></select>
+:::
+
+::: {.itt rows="2"}
+                           You live in Mexico City                                                     You live in Canada                                          If you live in Mexico City, you live in Canada
+  ------------------------------------------------------------------------- ------------------------------------------------------------------------- -------------------------------------------------------------------------
+   <select><option>-</option><option>T</option><option>F</option></select>   <select><option>-</option><option>T</option><option>F</option></select>   <select><option>-</option><option>T</option><option>F</option></select>
+:::
+
+Most people judge the first of these conditionals to be true, and the second
+false, agreeing with Diodorus, not Philo.
+
+So, in place of Philo's clean truth table, we are left with this mess:
+
+::: {.itt rows="2" .liveshapes}
+   []{.P}   []{.Q}   if []{.P}, then []{.Q}
+  -------- -------- ------------------------
+     T        T               T/F
+     T        F                F
+     F        T               T/F
+     F        F               T/F
+:::
+
+Only the second row is well-behaved: when a conditional takes you from a true
+antecedent to a false consequent, we can all agree that it is false. But in
+every other situation---on every other row---the truth or falsity of the
+conditional appears to depend on more than just the truth values of its parts.
+
+But our logic only works if it is truth-functional.
+So we *need* our conditional, '→', to be truth-functional.
+So we adopt Philo's truth conditions, and stipulate that the truth-table for
+'→' is this:
+
+::: {.itt rows="2" .liveshapes}
+   []{.P}   []{.Q}   []{.P} → []{.Q}
+  -------- -------- -----------------
+     T        T             T
+     T        F             F
+     F        T             T
+     F        F             T
+:::
+
+We call the conditional that obeys Philo's truth conditions [the material
+conditional]{.vocab}. So our conditional, '→', is the material conditional.
+
+And, just as, for the purposes of translation, we assume that 'or' expresses
+inclusive disjunction, we will also assume, for the purposes of translation,
+that 'if...then...' expresses the material conditional.
+
+Still, we will encounter several situations where the logic of our conditional
+looks a bit weird, and generates unexpected results.
+These unexpected results are sometimes called the "Paradoxes of the Material
+Conditional".
+The aren't really paradoxes.
+They are just consequences of the fact that our conditional is
+truth-functional.
+
+## Characteristic Truth Tables: Summary and Practice
+
+We have five connectives, each with its own characteristic truth table.
+You need to *know* these five characteristic truth tables, 
+ because you are going to be *using* them. 
+
+Here they are, gathered in once place:
+
+::: {.itt .liveshapes}
+   []{.P}   ¬[]{.P}
+  -------- ---------
+     T         F
+     F         T
+:::
+::: {.itt rows="2" .liveshapes}
+   []{.P}   []{.Q}   []{.P} ∧ []{.Q} 
+  -------- -------- -----------------
+     T        T             T        
+     T        F             F        
+     F        T             F        
+     F        F             F        
+:::
+::: {.itt rows="2" .liveshapes}
+   []{.P}   []{.Q}   []{.P} ∨ []{.Q}  
+  -------- -------- ----------------- 
+     T        T             T         
+     T        F             T         
+     F        T             T         
+     F        F             F         
+:::
+::: {.itt rows="2" .liveshapes}
+   []{.P}   []{.Q}   []{.P} ↔ []{.Q} 
+  -------- -------- -----------------
+     T        T             T        
+     T        F             F        
+     F        T             F        
+     F        F             T        
+:::
+::: {.itt rows="2" .liveshapes}
+   []{.P}   []{.Q}   []{.P} → []{.Q}
+  -------- -------- -----------------
+     T        T             T
+     T        F             F
+     F        T             T
+     F        F             T
+:::
+
+I don't recommend trying to memorize these tables by rote, as meaningless
+patterns. Memorize them by understanding the meaning of each connective, and
+how that is expressed by its table. In summary:
+
+Negation
+:   Negation means 'not': a negation has the opposite truth value from the sentence it negates.
+
+Conjunction
+:   Conjunction means 'and': a conjunction is true only when *both* its
+    conjuncts are true.
+
+Disjunction
+:   Disjunction means inclusive 'or': a disjunction is true when either disjunct is true,
+or both are true.
+
+Biconditional
+:   The biconditional expresses agreement: a biconditional is true when both parts have the same truth
+    value, and false when they disagree in truth value.
+
+For the conditional, I recommend that you remember its truth table by
+remembering this:
+
+Conditional
+:   The only time a conditional is false is when the antecedent is true and the
+    consequent is false. In every other case, it gets to be true.
+
+Here are some simple exercises. Fill in the truth value for the compound
+sentence, given the truth values assigned to its parts:
+
+```{.TruthTable .Partial options="strictGivens nocounterexample" points=10}
+6 P/\Q
+| T -F
+```
+
+Video walkthrough:
+
+<div class="youtube manual" style="margin:auto; width: 212px; height: 200px">
+<https://youtu.be/XsQYGADPXQA>
+</div>
+
+
+```{.TruthTable .Partial options="strictGivens nocounterexample" points=10}
+7 ~P
+|    -T
+8 P\/Q
+|    T -F
+9 P->Q
+|    T -F
+10 P<->Q
+|    T - F
+11 P\/Q
+|    T- T
+12 P->Q
+|    T- T
+13 P/\Q
+|    T -F
+14 R->S
+|    F -F
+15 P<->Q
+|    F - F
+16 ~(P->Q)
+|    - T FF
+```
+
+Video walkthrough:
+
+::: {.youtube .manual style="margin:auto; width:216px; height:200px"}
+<https://youtu.be/HKkG8hfhTzQ>
+:::
+
+## Calculating Truth For Compound Sentences
+
+Here is a short video lecture on calculating truth for compound sentences.
+
+:::solution
+:::youtube
+<https://youtu.be/r6S9DBRFljU>
+:::
+:::
+
+The truth value of a molecular sentence is a function of the truth values of
+the atomic sentences it contains. This means that, given an
+[assignment]{.vocab} of
+truth values to those sentence letters, we can calculate the truth of the
+whole sentence.
+
+
+:::vaside
+An [assignment]{.vocab} assigns a truth value, T or F, to each sentence
+letter.
+:::
+
+For example, suppose the truth value of 'P' is T, and the truth value of 'Q'
+is F. Then we can calculate the truth value of the molecular sentence,
+'¬P→¬Q'. To do this, first we set up a partial truth table:
+
+```{.TruthTable .Partial options="strictGivens nocounterexample immutable nocheck display" submission=none}
+ P,Q:  ~P->~Q
+|T F   -- --- 
+```
+
+The columns to the left of the vertical line represent our inputs, which are
+the assignments of truth values to each of the sentence letters, P and Q. The
+column to the right of the vertical line represents our output: the molecular
+sentence, and its truth value on this assignment.
+
+We calculate the truth value of a molecular sentence from the inside out.
+First, we enter, *under each sentence letter*, its assigned truth value:
+
+```{.TruthTable .Partial options="strictGivens nocounterexample immutable nocheck display" submission=none}
+ P,Q:  ~P->~Q
+|T F   -T --F 
+```
+
+Working our way outward, we calculate the truth value of each negation,
+*entering it under the negation sign*:
+
+```{.TruthTable .Partial options="strictGivens nocounterexample immutable nocheck display" submission=none}
+ P,Q:  ~P->~Q
+|T F   FT -TF 
+```
+
+Finally, we calculate the truth value of the conditional, *entering it under
+the '→'*:
+
+```{.TruthTable .Partial options="strictGivens nocounterexample immutable nocheck display" submission=none}
+ P,Q:  ~P->~Q
+|T F   FT TTF 
+```
+
+How do we read the resulting table? 
+The truth value under each sentence letter represents the truth value of
+that sentence letter.
+The truth value under each connective represents the truth value of the part of
+the sentence for which that connective is the main connective. For example:
+
+-   The column under the first '¬' represents the truth value of the part of
+    the sentence for which it is the main connective: '¬P'.
+-   The column under the '→' represents the truth value of the part of the
+    sentence for which it is the main connective: '¬P → ¬Q'.
+-   The column under the second '¬' represents the truth value of the part of
+    the sentence for which it is the main connective: '¬Q'.
+
+So, if you want to know the truth value of the *whole sentence*, you look at
+the column underneath the *main connective* of the whole sentence, which, in
+this case, is the '→'.
+
+Now it's your turn. Remember, the two columns to the left represent an
+assignment of truth values to 'P' and 'Q'. Your job is to calculate the truth
+value of '¬P→¬Q', given that assignment:
+
+```{.TruthTable .Partial options="strictGivens nocounterexample" points=10}
+17 P,Q:  ~P->~Q
+|T F   -- --- 
+```
+
+::: {.youtube .manual style="margin:auto; width:208px;height:200px"}
+<https://youtu.be/Et8ebH8e4Rc>
+:::
+
+It is important, as you calculate truth values, that you follow the structure
+of the sentence, working out toward the main connective. **Think of yourself as
+working your way up the syntactic tree**, first assigning truth values to the
+bottom-most nodes of the tree, and then working up, node by node, until you
+reach the top.
+
+Here is another example:
+
+```{.TruthTable .Partial options="strictGivens nocounterexample immutable nocheck display" submission=none}
+ P,Q:  ~(P<->~Q)
+|F T   - - - -- 
+```
+Our first step is to enter the truth value under each sentence letter:
+
+```{.TruthTable .Partial options="strictGivens nocounterexample immutable nocheck display" submission=none}
+ P,Q:  ~(P<->~Q)
+|F T   - F - -T 
+```
+
+Next, we calculate the truth value of '¬Q', given the truth assigned to 'Q', and we
+enter that value under the '¬':
+
+```{.TruthTable .Partial options="strictGivens nocounterexample immutable nocheck display" submission=none}
+ P,Q:  ~(P<->~Q)
+|F T   - F - FT 
+```
+
+Next, we calculate the truth value of the biconditional, 'P ↔ ¬Q', and enter
+that value under the '↔':
+
+```{.TruthTable .Partial options="strictGivens nocounterexample immutable nocheck display" submission=none}
+ P,Q:  ~(P<->~Q)
+|F T   - F T FT 
+```
+
+Finally, we calculate the truth of entire sentence, '¬(P ↔ ¬Q)', and enter
+that value under its main connective, the '¬':
+
+```{.TruthTable .Partial options="strictGivens nocounterexample immutable nocheck display" submission=none}
+ P,Q:  ~(P<->~Q)
+|F T   F F T FT 
+```
+
+Again, be sure you understand how to read this table:
+
+-   The truth value under each sentence letter represents the truth value of that sentence letter.
+-   The truth value under each connective represents the truth value of the part of the sentence for which that connective is the main connective. 
+-   The truth value under the main connective represents the truth value of the whole sentence.
+
+Now you try it:
+
+```{.TruthTable .Partial options="strictGivens nocounterexample" points=10}
+18 P,Q:  ~(P<->~Q)
+|F T   - - - -- 
+```
+
+Here is a more complicated example for you to try. Remember to work from the
+inside out, following the syntactic structure of the sentence. Don't hesitate to watch the
+video if you get stuck:
+
+```{.TruthTable .Partial options="strictGivens nocounterexample" points=10}
+19 P,Q,R: ~(P/\Q)->(R<->~Q)
+|     T F T  - - -- -  - - --
+```
+::: {.youtube .manual style="margin:auto; width:364px;height:200px"}
+<https://youtu.be/RuoksDHORlA>
+:::
+
+And one more example to try out:
+
+```{.TruthTable .Partial options="strictGivens nocounterexample" points=10}
+20 P,Q,R : ~(P<->Q)\/(~R/\~P)
+|     F F T   - - - -  - -- ---
+```
+
+::: {.youtube .manual style="margin:auto; width:385px;height:200px"}
+<https://youtu.be/N85ieihdNAk>
+:::
+
+## Truth Tables for Sentences
+
+Here is a short video lecture on calculating truth for compound sentences.
+
+:::solution
+:::youtube
+<https://youtu.be/UGTNZAi0TLI>
+:::
+:::
+
+In the previous section, we learned how to calculate the truth value of a
+molecular sentence on a given assignment. In this section, learn how to
+calculate the truth value of molecular sentence on *all possible
+assignments*. The result is a truth table, representing the truth function
+expressed by the molecular sentence. For example,
+
+```{.TruthTable .Simple options="nocounterexample immutable nocheck display" submission=none}
+ ~P->~Q
+|FTT FT
+|FTT TF
+|TFF FT
+|TFT TF
+```
+
+As before, the columns to the left of the vertical line represent our inputs,
+and the column to the right of the vertical line represents our output. Each
+row of the table represents a possible assignment of truth values to the
+sentence letters, and, on the right, the calculated truth value of our
+sentence on that assignment. Together, the four rows represent all possible
+assignments.
+
+Try it yourself:
+
+```{.TruthTable .Simple options="nocounterexample" points=10}
+21 ~P->~Q
+```
+
+::: {.youtube .manual style="margin:auto; width:212px;height:222px"}
+<https://youtu.be/dqn6ocUbzL4>
+:::
+
+Here is another example:
+
+```{.TruthTable .Simple options="nocounterexample" points=10}
+22 P->~(Q/\R)
+```
+
+::: {.youtube .manual style="margin:auto; width:235px;height:222px"}
+<https://youtu.be/QRfosCH3DhQ>
+:::
+
+Note that this time, our molecular sentence contains three sentence letters.
+So we need 8 rows to represent every possible assignment. For each additional
+sentence letter, the number of possible sentence letters doubles.
+This is easy to see if pay attention to the pattern we have been using to list assignments.
+Let's walk it through.
+
+If there is just one sentence letter, S, it can either be assigned T or F, so we
+have two possible assignments to consider, so two rows:
+
+::: itt
+   S
+  ---
+   T
+   F
+:::
+
+When we add a second sentence letter, R, the assignments we have to consider
+double. First, suppose R is assigned T. Then S can be assigned T or F. So the
+two possible assignments for S can be combined with an assignment of T to R:
+
+::: {.itt rows="2"}
+   R       S
+  --- ------------
+   T   [T]{.wavy}
+   T   [F]{.wavy}
+:::
+
+But R could also be assigned F, while S is assigned T or F. So that gets us
+two more possible assignments:
+
+::: {.itt rows="2"}
+   R       S
+  --- ------------
+   F   [T]{.wavy}
+   F   [F]{.wavy}
+:::
+
+You see how the pattern under S has been repeated? Putting this together, we
+get four possible assignments:
+
+::: {.itt rows="2"}
+   R       S
+  --- ------------
+   T   [T]{.wavy}
+   T   [F]{.wavy}
+   F       T
+   F       F
+:::
+
+If we add a third letter, Q, the possible assignments double once more. First,
+we have the four possible assignments to R and S, together with Q being
+assigned T:
+
+::: {.itt rows="3"}
+   Q       R            S
+  --- ------------ ------------
+   T   [T]{.wavy}   [T]{.wavy}
+   T   [T]{.wavy}   [F]{.wavy}
+   T   [F]{.wavy}   [T]{.wavy}
+   T   [F]{.wavy}   [F]{.wavy}
+:::
+
+But also, we have those four possible assignments to R and S, with Q assigned
+F:
+
+::: {.itt rows="3"}
+   Q       R            S
+  --- ------------ ------------
+   F   [T]{.wavy}   [T]{.wavy}
+   F   [T]{.wavy}   [F]{.wavy}
+   F   [F]{.wavy}   [T]{.wavy}
+   F   [F]{.wavy}   [F]{.wavy}
+:::
+
+So, putting that together, we get 8 assignments:
+
+::: {.itt rows="3"}
+   Q       R            S
+  --- ------------ ------------
+   T   [T]{.wavy}   [T]{.wavy}
+   T   [T]{.wavy}   [F]{.wavy}
+   T   [F]{.wavy}   [T]{.wavy}
+   T   [F]{.wavy}   [F]{.wavy}
+   F       T            T
+   F       T            F
+   F       F            T
+   F       F            F
+:::
+
+Adding a fourth letter, P, causes the entire pattern to repeat, generating 16
+rows: the eight rows for Q, R, S, with P assigned T, and those
+same eight rows, but with P assigned F:
+
+::: {.itt rows="4"}
+   P       Q            R            S
+  --- ------------ ------------ ------------
+   T   [T]{.wavy}   [T]{.wavy}   [T]{.wavy}
+   T   [T]{.wavy}   [T]{.wavy}   [F]{.wavy}
+   T   [T]{.wavy}   [F]{.wavy}   [T]{.wavy}
+   T   [T]{.wavy}   [F]{.wavy}   [F]{.wavy}
+   T   [F]{.wavy}   [T]{.wavy}   [T]{.wavy}
+   T   [F]{.wavy}   [T]{.wavy}   [F]{.wavy}
+   T   [F]{.wavy}   [F]{.wavy}   [T]{.wavy}
+   T   [F]{.wavy}   [F]{.wavy}   [F]{.wavy}
+   F       T            T            T
+   F       T            T            F
+   F       T            F            T
+   F       T            F            F
+   F       F            T            T
+   F       F            T            F
+   F       F            F            T
+   F       F            F            F
+:::
+
+In general, then, if a sentence contains $n$ sentence letters, there are $2^n$
+possible assignments to consider, to $2^n$ rows in its truth table. This means
+that truth tables grow in size exponentially. In other words, they get very
+big very fast. A sentence with just 10 sentence letters requires a table of
+1024 rows. A sentence with 270 sentence letters would require more rows than there
+are atoms in the observable universe. Can you think of 270 logically independent pieces of
+information, each expressible by a simple declarative sentence? 
+
+::: aside
+Our estimate of the number of atoms in the observable universe is called the
+[Eddington Number](https://en.wikipedia.org/wiki/Eddington_number). Current
+best estimates put it at about $10^80$, which is approximately $2^267$.
+:::
+
+We can start with simple preschool information about the sounds animals make:
+
+:::soa
+| $P_1$: Cats meow.
+| $P_2$: Cows moo.
+| $P_3$: Dogs bark.
+| $P_4$: Sheep baa.
+| $P_5$: Chickens cluck.
+| $P_6$: Pigs oink.
+| $P_7$: Horses neigh.
+| $P_8$: Crows caw.
+| ⋮
+:::
+
+There are more than 270 animals that make noises in the world. So just facts
+about animal noises should get to more than 270 simple sentences. And that's
+just sticking to sentences that are actually true. But we should also consider
+sentences that are false, like 'Cats bark' and 'Cows cluck'.
+
+Given 270 separate sentences about animals and the noises you make, we can
+express the conjunction:
+
+:::example
+-   $P_1$ ∧ $P_2$ ∧ $P_3$ ∧ $P_4$ ∧ $P_5$ ∧ $P_6$ ∧ ... $P_270$
+:::
+
+The truth table for this relatively unremarkable conjunction of
+270 unremarkable claims, familiar to any preschooler, requires as many rows as
+there are observable atoms in the universe.
+
+## Logical Truth, Logical Falsehood, and Logical Contingency
+
+Here is a short video lecture:
+
+:::solution
+:::youtube
+<https://youtu.be/V1ThOBXm7K8>
+:::
+:::
+
+The truth table for a sentence allows us to explore the logical properties of
+that sentence.
+
+First, some sentences are [logical truths]{.vocab}. That is, we can determine that
+they are true on the basis of logic alone. More specifically, some sentences
+are [truth-functional truths]{.vocab}. That is, we can determine that they are
+true on the basis of truth-functional sentential logic alone.
+
+:::vaside
+A sentence is [truth-functionally true]{.vocab} iff it is true on every assignment.
+:::
+
+Here is an example:
+
+:::soawrapper
+:::soasticky
+| P: There are donkeys.
+| Q: There are horses.
+:::
+
+::: example 
+| P → P: If there are donkeys, there are donkeys
+:::
+
+Do you see that this is true, whether or not there are donkeys?
+Here is the truth table for this sentence:
+
+```{.TruthTable .Simple options="nocounterexample immutable nocheck display" submission=none}
+ P->P
+|TT T
+|FT F
+```
+
+If we look at the column under the main connective, '→', we can see that this
+sentence is **true on every row of its truth table**. In other words, it is true
+on every assignment. So we can use a truth table to determine whether or not a
+sentence is truth-functionally true: it is if it is true on every row, and it
+is not if it is false on at least one row.
+
+:::vaside
+A sentence is [truth-functionally true]{.vocab} iff **its truth value is T on every row of
+its truth table.**
+:::
+
+
+The polar opposite of a truth-functional truth is a [truth-functional
+falsehood]{.vocab}. This is a sentence that is false on every assignment. 
+
+:::vaside
+A sentence is [truth-functionally false]{.vocab} iff it is false on every assignment.
+:::
+
+For example,
+
+::: example
+P ∧ ¬P: There are donkeys and there are no donkeys.
+:::
+
+Do you see that this is false, whether or not there are donkeys?
+Calculate the truth table for this sentence:
+
+```{.TruthTable .Simple options="nocounterexample" points=10}
+23 P/\~P
+```
+
+If you look under the main connective, '∧', you see that the sentence is
+**F on every row of the table**. In other words, it is false on every
+assignment. In other words, it is truth-functionally false.
+So we can also use a truth table to determine whether or not a
+sentence is truth-functionally false: it is if it is false on every row, and it
+is not if it is true on at least one row.
+
+:::vaside
+A sentence is [truth-functionally false]{.vocab} iff **its truth value is F on every row of
+its truth table.**
+:::
+
+<div class="youtube manual" style="margin:auto; width:200px;height:200px">
+<https://youtu.be/akFufmyimvE>
+</div>
+
+
+Between these two extremes, we find sentences that are [truth-functionally
+contingent]. That is, they are true on some assignments, but false on others.
+
+:::vaside
+A sentence is [truth-functionally contingent]{.vocab} iff it is true on some
+assignments, and false others.
+:::
+
+For example,
+
+::: example
+¬(P ∨ Q): There are neither donkeys nor horses.
+:::
+
+```{.TruthTable .Simple options="nocounterexample" points=10}
+24 ~(P\/Q)
+```
+
+<div class="youtube manual" style="margin:auto; width:156px;height:122px">
+<https://youtu.be/Cp6cWVp5BBA>
+</div>
+
+If you look under the main connective, '¬', you see that the sentence is true
+on some rows, but false on others. It's truth depends not just on its sentential
+logical form, but on facts about the world. Specifically, it is false in *our
+world*, represented by the first row, where 'There are donkeys' is true and
+'There are horses' is also true. But it is true in the sort of world
+represented by the fourth row of the table, a world in which there are no
+donkeys and no horses.
+
+So we can also use a truth table to determine whether or not a
+sentence is truth-functionally contingent: it is if and only if it is true on some rows,
+and false on others. 
+
+:::vaside
+A sentence is [truth-functionally contingent]{.vocab} iff **its truth value on
+at least one row is T, and its truth value on at least one row is F.**
+:::
+
+:::
+
+To summarize:
+
+Truth-Functional Truth
+:   A sentence is [truth-functionally true] iff it is true on all rows of its
+    truth table.
+
+Truth-Functional Falsehood
+:   A sentence is [truth-functionally false] iff it is false on all rows of its
+    truth table.
+
+Truth-Functional Contingency
+:   A sentence is [truth-functionally contingent] iff it is true on some rows of
+    its truth table, and false on some rows of its truth table.
+
+Complete the truth table, and then answer the associated multiple choice
+question:
+
+```{.TruthTable .Simple options="nocounterexample" points=10}
+25 P->(P->Q)
+```
+
+```{.QualitativeProblem .MultipleChoice points=10}
+26 This is:
+| truth-functionally true
+| truth-functionally false
+| *truth-functionally contingent
+```
+
+<div class="youtube manual" style="margin:auto; width:200px;height:200px">
+<https://youtu.be/uhjmraWEX1c>
+</div>
+
+
+```{.TruthTable .Simple options="nocounterexample" points=10}
+27 ~(P/\Q)<->(~P\/~Q)
+```
+
+```{.QualitativeProblem .MultipleChoice points=10}
+28 This is:
+| *truth-functionally true
+| truth-functionally false
+| truth-functionally contingent
+```
+
+<div class="youtube manual" style="margin:auto; width:328px;height:200px">
+<https://youtu.be/uaJlNaU2Qq4>
+</div>
+
+```{.TruthTable .Simple options="nocounterexample" points=10}
+29 ~((P\/Q)\/(~P\/R))
+```
+
+```{.QualitativeProblem .MultipleChoice points=10}
+30 This is:
+| truth-functionally true
+| *truth-functionally false
+| truth-functionally contingent
+```
+
+<div class="youtube manual" style="margin:auto; width:312px;height:215px">
+<https://youtu.be/pFncPq2GXeg>
+</div>
+
+<!-- ## Disjunctive Normal Form -->
+<!--  -->
+<!-- Suppose we have completed the truth table for a given sentence: -->
+<!--  -->
+<!-- ::: {.itt rows="2"} -->
+<!--    P   Q   ¬(P → Q) ↔ (Q ∨ P) -->
+<!--   --- --- -------------------- -->
+<!--    T   T           F -->
+<!--    T   F           T -->
+<!--    F   T           F -->
+<!--    F   F           T -->
+<!-- ::: -->
+<!--  -->
+<!-- This table tells us that our sentence is true in two situations: when P is -->
+<!-- true and Q is false, or when both P and Q are false. Think about how we might -->
+<!-- express that in SL: -->
+<!--  -->
+<!-- :::example -->
+<!-- -   (P ∧ ¬Q) ∨ (¬P ∧ ¬Q) -->
+<!-- ::: -->
+<!--  -->
+<!-- Do you see what we did? The first disjunct, '(P ∧ ¬Q)', describes row two of -->
+<!-- the table. The second disjunct, '(¬P ∧ ¬Q)', describes row four. Our sentence -->
+<!-- is only true on those two rows.  -->
+<!--  -->
+
+<!-- vim: set ft=carnap :-->

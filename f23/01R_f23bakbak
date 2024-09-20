@@ -1,0 +1,957 @@
+---
+base-css:
+-   https://carnap.io/shared/dsanson@gmail.com/sanson-book.css
+-   https://cdn.plyr.io/3.6.12/plyr.css
+js: 
+-   https://cdn.plyr.io/3.6.12/plyr.polyfilled.js
+-   https://carnap.io/shared/dsanson@gmail.com/logic-book.js
+---
+
+
+::: cover
+
+# Logic, Arguments, and Validity
+
+![Tweedledum and Tweedledee](https://dsanson.github.io/logic-materials/img/tweedledum.png){
+  alt="Alice approaches Tweedledum and Tweedledee (an illustration from Alice in Wonderland)"}
+[PD](attributions#tweedledum.png){.attribution target="_blank" rel="noopener noreferrer"}
+
+<!--_-->
+
+:::: epigraph
+"Contrariwise," continued Tweedledee, "if it was so, it might be; and if it
+were so, it would be; but as it isn't, it ain't. That's logic." 
+
+[Lewis Carroll, *Through the Looking Glass*]( https://www.gutenberg.org/files/12/12-h/12-h.htm#link2HCH0004){
+  .source target="_blank" rel="noopener noreferrer"}
+::::
+:::
+
+<!--_-->
+
+## Objectives
+
+This chapter introduces logic and several key concepts used in the study of logic. The learning objectives for this unit are:
+
+-   You know the definitions of each of the following technical terms:
+    [logic]{.vocab}, [argument]{.vocab}, [premise]{.vocab},
+    [conclusion]{.vocab}, [strength]{.vocab}, [validity]{.vocab}, [soundness]{.vocab}.
+-   Given a short argumentative passage in English, you can use keywords like
+    'since' and 'therefore' to identify premises and conclusions.
+-   Given a short argument in standard form, you can evaluate it for validity
+    and soundness.
+
+## Introduction
+
+[[Logic]{.vocab} is the business of evaluating arguments, sorting the good from the bad.]{.def}
+
+We sometimes use the word 'argument' for belligerent shouting matches. But
+this is not what we mean by 'argument' in logic and philosophy. In logic and
+philosophy, [an [argument]{.vocab} is a *reason* offered *in support* of a
+*conclusion*.]{.def .roughdef}
+
+Suppose your father says that you should not major in philosophy, and you ask,
+"Why?" or even, "What is your argument for that, Dad?" He might reply,
+
+:::example
+-   You should not major in philosophy, because it won't get you a job.
+:::
+
+```{.QualitativeProblem .ShortAnswer give-credit="onSubmission" points=10}
+1   What is your Dad's reason? What conclusion is that reason meant to support?
+```
+
+::: {.reaction .correct ex="1"}
+The reason is that majoring in philosophy won't get you a job. This
+is offered in support of the conclusion that you should not major in
+philosophy.
+:::
+
+We offer each other arguments all the time. There are lots of ways we signal
+this. The word 'because' can be used to signal that you are offering a reason.
+Other words like 'since', 'for', and 'seeing as' do the same. And words like
+'so', 'therefore', and 'hence' signal that you are drawing a conclusion.
+
+Suppose your grandmother disagrees with your father. She thinks that you
+should major in philosophy. When you ask them why, they say,
+
+:::example
+-   You should major in philosophy, seeing as it will teach you how to think carefully about complicated things.
+:::
+
+```{.QualitativeProblem .ShortAnswer give-credit="onSubmission" points=10}
+2   In this example, what is the reason being given? And what is the conclusion it is meant to support?
+```
+
+::: {.reaction .correct ex="2"}
+Reason: Philosophy will teach you how to think carefully about complicated things.
+
+Conclusion: You should major in philosophy.
+:::
+
+----
+
+Suppose you are thinking about getting a dog, and your Mom thinks that's a bad idea. When pressed, she explains,
+
+:::example
+-   You are a full-time student and work long hours, so it would be a bad idea for you to get a dog.
+:::
+
+```{.QualitativeProblem .ShortAnswer give-credit="onSubmission" points=10}
+3   What is your Mom's reason? And what conclusion is it meant to support?
+```
+
+::: {.reaction .correct ex="3"}
+Reason: You are a full-time student who works long hours.
+
+Conclusion: You shouldn't get a dog.
+:::
+
+There is more to your Mom's reason than what she said out loud: a bunch of
+unspoken assumptions about the kind of care dogs require, and what your
+student life and working life are like. Imagine that you were a forestry
+student who worked long hours clearing trails, and your dog would be welcome
+both in your classes and at your work. Of course, you aren't, and your Mom is
+probably right. The point is that there is more to her reason that what she
+said out loud.
+
+Same goes for your Dad's argument against majoring in philosophy. He is
+assuming that your happiness depends on your long-term financial stability,
+and that depends on securing a good job, and that the best way to do that is
+to major in something "practical"---a major that is designed to train you up
+for a specific profession. Those are all reasonable things to assume. But they
+might not all be true. So it is important to realize that your Dad's argument
+*depends* on these assumptions, even though he did not state them out loud.
+
+And same goes for your Grandma's argument in favor of majoring philosophy.
+What must she be assuming, to make it plausible that the reason she states
+supports the conclusion she draws?
+
+What these examples show is that a reason is typically not just *one* claim,
+but *several*, meant to *work together* in support of a conclusion. We call
+these the [premises]{.vocab} of the argument. 
+So [an [argument]{.vocab} is a list of sentences, one of which---the last in
+the list---is the [conclusion]{.vocab}. The others are the [premises]{.vocab}.]{.def}
+
+In logic and philosophy, we often represent arguments by putting them in standard form. Here is an example of an argument in standard form:
+
+:::standardform
+-   It is raining.
+-   When it rains, everyone outside without an umbrella gets wet.
+-   You should take an umbrella when you go out. 
+:::
+
+The three dots, '∴', on the last line of each argument mean 'therefore', and
+mark that last sentence as the conclusion. The other two sentences are the
+premises.
+
+Sometimes we number the premises and conclusion:
+
+::: standardform
+1.  If you want a pet, you should either get a cat or a dog.
+2.  You are allergic to cats.
+3.  If you want a pet, you should get a dog.
+:::
+
+In some disciplines, the word 'argument' is used to mean the
+thesis or main idea of an essay. Here is an example of this use:
+
+> The argument of this essay is that the traditional bridges between the
+> literary culture and the publishing culture have increasingly weakened, if
+> not begun to collapse, in the past decade or so. (Ted Solotarnoff, "[The
+> Publishing Culture and the Literary
+> Culture](https://doi.org/10.1086/601440)." *The Library Quarterly* 54(1)
+> 1984.
+
+Here the thing identified as the "argument" is not a *reason* offered in
+support of a conclusion, but just the conclusion itself. But in logic and
+philosophy, we make a sharp distinction between a *thesis* or *conclusion* and
+the *argument for* that thesis or conclusion.
+
+## Good and Bad Arguments
+
+[Logic]{.vocab} is the business of evaluating arguments, sorting the good from
+the bad. So far, we've said a bit about what arguments are, but we have not
+yet said anything about what makes them good or bad.
+
+This is a pretty good argument:
+
+:::standardform
+-   It is raining.
+-   When it rains, everyone outside without an umbrella gets wet.
+-   You should take an umbrella when you go out. 
+:::
+
+If those two premises are both actually true, they give you a pretty good reason to
+accept the conclusion. But here is a slightly different argument, that is even better:
+
+:::standardform
+-   It is raining.
+-   When it rains, everyone outside without an umbrella gets wet.
+-   If you go outside without an umbrella, you will get wet. 
+:::
+
+```{.QualitativeProblem .ShortAnswer give-credit="onSubmission" points=10}
+4  Can you explain why the second argument is better than the first? (Hint: imagine that you sometimes enjoy a refreshing walk in the rain.)
+```
+
+:::{.reaction .correct ex=4}
+Again, there are many good answers to this question. Here is one way to explain it: suppose you *like getting wet*. Then the premises, if true, don't give you any reason to take an umbrella. But they do give you a reason to believe that, if you go outside without an umbrella, you will get wet. So for the first argument, it is *possible that the conclusion is false even though the premises are true*. But for the second argument, this is *impossible*. That means the second argument is better, because the premises offer a stronger *guarantee* of the truth of the conclusion.
+:::
+
+Wait, do you see that or not? It is way too easy to read something and accept
+it, without thinking about it for yourself. So let me interrupt you, and, at the risk of asking you to repeat yourself,
+
+```{.QualitativeProblem .ShortAnswer give-credit="onSubmission" points=10}
+5 Describe a possible situation in which the two premises of the first argument are true---it really is raining hard, and there is no other protection from the rain---but the conclusion is false.
+```
+
+:::{.reaction .correct ex=5}
+There are many such situations! Maybe you like getting wet. Or maybe you don't like getting wet, but you have some other overriding reason not to take an umbrella: you want to test your new raincoat; you have to carry something with both hands; a serial killer has been targeting umbrella carriers in your neighborhood.
+:::
+
+So those two arguments are both pretty good, but the second is decisive in a way the first is not.
+
+Here is an argument that is pretty bad:
+
+:::standardform
+-   If you want a pet, you should get a cat or a dog.
+-   You like cats.
+-   You shouldn't get a dog.
+:::
+
+Even if those two premises were both actually true, they wouldn't give you much of a reason to accept the conclusion. Do you see why?
+
+```{.QualitativeProblem .ShortAnswer give-credit="onSubmission" points=10}
+6   Can you explain why this argument is bad? That is, can you explain why, even if those premises are in fact true, they don't give you a good reason not to get a dog?
+```
+
+:::{.reaction .correct ex=6}
+There are many good answers to (7). Here one way to explain it: the fact that you like cats gives you a reason to get a cat. But it you might like dogs just as well, so it doesn't give you any reason to get a cat rather than a dog.
+:::
+
+
+Here is an argument that is good in one way but bad in another:
+
+:::standardform
+-   COVID-19 vaccinations are being used by Bill Gates to implant trackable microchips, and offer no genuine medical benefits.
+-   If a vaccination offers no genuine medical benefits, you should not get it.
+-   You should not get the COVID-19 vaccination.
+:::
+
+This argument is good in one way: its *logic* is good. By that, I mean that *if* the premises *were* true, then they *would* give us a good reason to accept the conclusion.
+
+But it is bad in another way: the first premise is wildly untrue, a ridiculous conspiracy theory that is unhinged from reality.
+
+What about this argument?
+
+:::standardform
+-   You are reading this book.
+-   This is a logic book, assigned for a logic class.
+-   You are a logic student.
+:::
+
+```{.QualitativeProblem .ShortAnswer give-credit="onSubmission" points=10}
+7 Is this a good argument? Are its premises true? Is the logic of the argument good?
+```
+
+::: {.reaction .correct ex="7"}
+The premises are definitely true and
+probably in your case the conclusion is true too. But note that the truth of these premises
+does not *guarantee* the truth of this conclusion. You *could* be the university President,
+reading this book not to learn logic but to make sure that it no longer contains embarassing details about the mismanagement of the university. In that case, the premises
+would be true, but the conclusion false. So the logic of this argument, like the one saying you should bring an umbrella, is good but not decisive.
+:::
+
+## Strength and Validity
+
+Logic is not a tool for evaluating the truth of premises. If you want to know
+whether or not it actually is raining, don't ask a logician. Look outside.
+
+Instead, logic is about whether or not the conclusion *follows* from the
+premises: whether the premises, if they *were* true, would provide support for
+the conclusion.
+
+This relationship comes in degrees. In some cases, the truth of the premises
+would be enough to *absolutely guarantee* the truth of the conclusion. We call
+arguments like that *valid*, and it is the gold standard. But in many
+cases, the premises, if true, would *make probable* the conclusion, but not
+guarantee it. We call this weaker form of support *strength*. 
+
+That is, [an argument is [strong]{.vocab} if and only if, if the premises were
+true, they would increase the probability that the conclusion is true.]{.def}
+Strength comes in degrees: stronger arguments increase the probablity more,
+weaker arguments less.
+
+And an argument is *valid* if and only if it is *absolutely
+impossible* for its premises to be true but its conclusion false.]{.def}
+Validity does not come in degrees, because absolutely impossibility does not
+come in degrees.
+
+In philosophy, we care a great deal about both of these kinds of
+following---strength and validity. But logic is just the study of validity.
+So that is what this class is about.
+
+Here is our official definition:
+
+Validity
+:   [An argument is [valid]{.vocab} if and only if it is impossible for all
+    the premises to be true but the conclusion false.]{.def}
+
+In our official definition, we just say 'impossible', not 'absolutely
+impossible'. But we mean absolute impossibility. So, not the sense in which it
+is impossible to get up early to come to class when you are bone tired, but
+the sense in which it is impossible to both be in class and not be in class at
+the same time.
+
+------
+
+It is important to understand that validity is not about whether or not the
+premises *are* true. It is about what would follow if they *were* true.
+
+This argument is valid, even though premise (2) is false:
+
+::: standardform
+1.  Oranges are either fruits or musical instruments.
+2.  Oranges are not fruits.
+3.  Oranges are musical instruments.
+:::
+
+It is valid because there is *no possible way* for the premises to be true but
+the conclusion false: a world in which the premises are true is, by necessity,
+also a world in which the conclusion is true.
+
+```{.QualitativeProblem .ShortAnswer give-credit="onSubmission" points=10}
+8 Suppose I claim that you are *guaranteed* to lose weight if you follow my new fad diet plan. Can you restate this as claim as about what is impossible, modeled after our definition of validity?
+```
+
+:::{.reaction .incorrect ex=8}
+I am claiming that it is *impossible* for you to follow my diet but not lose weight.
+:::
+
+It is also important to understand that an argument can have true premises and a true conclusion, and yet not be valid: 
+
+:::standardform
+-   You are reading this book.
+-   This is a logic book, assigned for a logic class.
+-   You are a logic student.
+:::
+
+We already saw why this argument is not valid: you, the reader, might be an
+administrator, not a student. So there is a possible way for the premises to
+be true but the conclusion false. Assuming that you in fact are a student,
+this is just a possibility. As a matter of actual fact, the premises are true
+and so is the conclusion. But validity is about actual facts. It is about what
+is an isn't possible.
+
+Sometimes we use words like 'possible' and 'impossible' in loose ways. Someone
+who is very tired might claim that it is just impossible for her to get out of
+bed. Someone who already has other plans might say that it is impossible for
+him go out for drinks with you tonight. But these things aren't really
+impossible: she *could* get out bed; he *could* abandon his other plans. And
+'could' just means 'it is possible'.
+
+Even falsehoods that are really obviously false, and for which it's hard to
+imagine how they could be true, might be *possible* in our strictest sense.
+For example, it's not *absolutely impossible* that pigs fly. Someone might
+invent powerful wings for them. Or a wizard might give them magical flying
+powers. These aren't the sorts of things that *will* happen, but they *could*
+happen. They are not actual, but they are possible.
+
+```{.QualitativeProblem .MultipleSelection points=10}
+9 <div class="standardform"> <ol type="1"> <li>Socrates is a man.</li> <li>All men are carrots.</li> <li>Socrates is a carrot.</li> </ol> </div>
+| *this argument is valid
+| this argument is invalid
+```
+
+::: {.reaction .incorrect ex="9"}
+Imagine a possible situation in which all men *are* carrots. That is
+far-fetched, but it is not absolutely impossible. And imagine that, in this
+situation, Socrates is still a man. In this situation, the conclusion must be
+true, and cannot be false: Socrates must be a carrot. If you try instead to
+imagine that he is not, you either have to assume that he is not a man,
+contrary to the second premise, or that not all men are carrots, contrary to
+the first premise.
+:::
+
+
+```{.QualitativeProblem .MultipleSelection points=10}
+10 <div class="standardform"> <ol type="1"> <li>Socrates is a man.</li> <li>Some men are carrots.</li> <li>Socrates is a carrot.</li> </ol> </div> 
+| this argument is valid
+| *this argument is invalid
+```
+
+:::{.reaction .incorrect ex=10}
+Imagine a possible situation in which some men *are* carrots. That is
+far-fetched, but it is not absolutely impossible. Note that, unlike last time, you don't have to imagine that *all* men are carrots. Imagine also that, in this
+situation, Socrates is still a man. It is consistent with this that he *not*
+be a carrot, and so the conclusion be false.
+:::
+
+
+```{.QualitativeProblem .MultipleSelection points=10}
+11 <div class="standardform"> <ol type="1"> <li>Abe Lincoln was either born in Illinois or he was once president.</li> <li>Abe Lincoln was never president.</li> <li>Abe Lincoln was born in Illinois.</li> </ol> </div>
+| *This argument is valid
+| This argument is invalid
+```
+
+:::{.reaction .incorrect ex=11}
+The first premise tells us that there are two
+options for Abe: either he was born in Illinois, or he was never President.
+The second premise tells us that he was never President. This is actually
+false, but that is not our concern here. We want to know whether or not the
+premises, if they *were* true, would *absolutely guarantee* the truth of the
+conclusion. So imagine that this second premise is true. Can the conclusion be
+false? No: if those are the two options for Abe, and he doesn't satisfy the
+second option, then he must satisfy the first, by being born in Illinois.
+:::
+
+
+```{.QualitativeProblem .MultipleSelection points=10}
+12 <div class="standardform"> <ol type="1"> <li>If the world ends today, then I do not need to get up tomorrow morning.</li> <li>I do need to get up tomorrow morning.</li> <li>The world does not end today.</li> </ol> </div>
+| *This argument is valid
+| This argument is invalid
+```
+
+## Soundness
+
+Within the logic classroom, our focus is just on validity. But outside of the
+logic classroom, we care not just about the *logic* of our arguments, but
+about the *facts*. That is, we want to reason *validly* from premises that are
+*actually true*. That is, we want our arguments to be sound:
+
+Soundness
+:   [An argument is [sound]{.vocab} if and only if (a) it is valid and (b) all of its premises are true.]{.def}
+
+It is easy to come up with a *valid* argument for the existence of God:
+
+:::standardform
+-    God is the sun.
+-    The sun exists.
+-    God exists
+:::
+
+But this does not establish the existence of God, because we have been given
+no reason to think that the first premise is true. That is, we've been given
+no reason to think the argument is sound.
+
+Here is a more common argument for the existence of God:
+
+:::standardform
+-    The universe is the designed.
+-    Designed things must have designers, and those designers must exist.
+-    The only possible designer of the universe is God.
+-    God exists.
+:::
+
+Again, this argument is clearly valid: *if* the premises *were* true, then
+conclulsion would *have to be* true too. Some philosophers also think that
+this argument is sound: they think that the premises are actually true, and so
+this argument establishes the truth of its conclusion. But that is quite
+controversial: Is it true that the universe is designed, that designed things
+must have designers, and that the only possible designer of our universe is
+God? Outside of the logic room, the answers to these questions matter a great
+deal, for, outside the logic room, we want to know whether or not this
+argument *shows* that God really does exist. That is, outside the logic room,
+we care about soundness. But inside the logic room, we just study validity.
+
+## A Logic Puzzle
+
+Before going further, I want to introduce you to a famous logic puzzle. It involves watching a short clip from the movie  
+[Labyrinth
+(1986)](https://www.imdb.com/title/tt0091369/){.source target="_blank"
+rel="noopener noreferrer"}. In the clip, Sarah comes upon two doors, guarded by four
+guards. She is given several pieces of information, and she then reasons from
+those pieces of information---her premises---to a conclusion about which door
+leads to the castle. As you watch, pay attention to the information she is
+given, the conclusion she draws, and the reasoning she uses to reach that
+conclusion. And ask yourself: Does she reason well? Is her argument valid? Does her conclusion follow
+from her premises? Or does she make a mistake?
+
+:::illustration
+![Sarah's Puzzle](https://dsanson.github.io/logic-materials/vid/labyrinth-clip.mp4)
+:::
+
+Sarah talks fast! Don't worry if you didn't track her reasoning the first time
+through. In answering the following questions, you will probably want to
+replay the key part of the video.
+
+```{.QualitativeProblem .ShortAnswer give-credit="onSubmission" points=10}
+13   What is the conclusion Sarah reasons to?
+14   What are the premises she reasons from?
+15   Is her reasoning valid? Or did she make a mistake? 
+```
+
+::: {.reaction .correct ex="15"}
+Sarah's argument is complicated. If you struggled to unpack it, and answer
+those questions with confidence, that's more than OK. Come back and think
+about it more later. As we continue to consider arguments, often using
+relatively simple examples, it can be helpful to have more complicated
+examples, like Sarah's argument, in the back of your mind.
+:::
+
+
+## Identifying Premises and Conclusions
+
+So far, I have been giving you arguments in [standard form]{.vocab}. That's
+what we call it when we list the premises, followed by the conclusion, and
+mark the conclusion with '∴'.
+
+But when you encounter arguments in the wild, they are rarely in standard form.
+Suppose I say,
+
+:::example
+-   **Since** you are allergic to cats, you should not get a cat.
+:::
+
+This is an argument. I am offering you a *reason* against getting a cat, and that reason is that you are allergic to cats.
+That's part of what the word 'since' means: it marks 'you are allergic to
+cats' as a *premise*, and so implicitly tells us that the other clause must the be the conclusion. 
+
+So here is this argument in standard form:
+
+:::standardform
+-   You are allergic to cats.
+-   You should not get a cat.
+:::
+
+There are several words and phrases in English that are used to mark premises, like 'since'. Here is a list of some of them:
+
+[[Premise Markers]{.vocab}: since, because, for, given that, in light of, seeing as, ...]{.def}
+
+```{.QualitativeProblem .MultipleSelection points=10}
+16  You should not become an elementary school teacher, seeing as you don't like little kids.
+| 'You should not become an elementary school teacher' is a premise.
+| *'You should not become an elementary school teacher' is the conclusion.
+| *'You don't like little kids' is a premise.
+| 'You don't like little kids' is the conclusion.
+```
+
+```{.QualitativeProblem .ShortAnswer give-credit="onSubmission" points=10}
+17  Rewrite the argument in standard form.
+```
+
+We also have words in English that are used to mark conclusions. Consider
+the use 'so' in this example:
+
+:::example
+-   You don't know any of those people, but they seem like people you would
+    like, **so** you should go to the party.
+:::
+
+Here, the conclusion is 'You should go to the party'. That's what the word
+'so' indicates. Again, English has several words and phrases that can be used
+in this way. Here is a list of some of them:
+
+[[Conclusion Markers]{.vocab}:   therefore, hence, thus, so, 'and so it follows that', ...]{.def}
+
+```{.QualitativeProblem .MultipleSelection points=10} 
+18 Everyone who says they are a donkey says they are an animal. Everyone who says they are an animal speaks the truth. Therefore everyone who says they are a donkey speaks the truth.
+| *'Everyone who says they are a donkey says they are an animal' is a premise.
+| 'Everyone who says they are a donkey says they are an animal' is the conclusion.
+| *'Everyone who says they are an animal speaks the truth' is a premise.
+| 'Everyone who says they are an animal speaks the truth' is the conclusion.
+| 'Everyone who says they are a donkey speaks the truth' is a premise.
+| *'Everyone who says they are a donkey speaks the truth' is the conclusion.
+```
+
+```{.QualitativeProblem .ShortAnswer give-credit="onSubmission" points=10}
+19  Rewrite the argument in standard form.
+```
+
+English is lazy. We don't mark *each* part of an argument. We mark one or two parts, and leave it to the reader to figure out the rest.
+
+English is also flexible. The *order* in which different claims are
+made is no guide, by itself, to which claims are the premises and which is the
+conclusion. The conclusion can come first, followed by the premises. Or the
+premises can come first, followed by the conclusion. Or the conclusion can
+come in the middle, surrounded by premises. 
+
+```{.QualitativeProblem .MultipleSelection points=10} 
+20 You should trust scientists, so you should believe in global warming, since scientists tell us that global warming is real.
+| *'You should trust scientists' is a premise.
+| 'You should trust scientists' is the conclusion.
+| 'You should believe in global warming' is a premise.
+| *'You should believe in global warming' is the conclusion.
+| *'Scientists tell us that global warming is real' is a premise.
+| 'Scientists tell us that global warming is real' is the conclusion.
+```
+
+```{.QualitativeProblem .ShortAnswer give-credit="onSubmission" points=10}
+21  Rewrite the argument in standard form.
+```
+
+```{.QualitativeProblem .MultipleSelection points=10}
+22  "Other animals eat meat, so it is okay for humans to eat meat."
+| 'so' is a premise marker.
+| *'so' is a conclusion marker.
+| The conclusion of this argument is "other animals eat meat".
+| *The conclusion of this argument is "it is okay for humans to eat meat".
+| *A premise of this argument is "other animals eat meat".
+| A premise of this argument is "it is okay for humans to eat meat".
+```
+
+```{.QualitativeProblem .ShortAnswer give-credit="onSubmission" points=10}
+23 Rewrite the argument in standard form. 
+```
+
+:::{.reaction .correct ex=20}
+::: standardform
+-   Other animals eat meat.
+-   It is okay for humans to eat meat.
+:::
+:::
+
+```{.QualitativeProblem .MultipleSelection points=10}
+24 "Morality is objective, and therefore God exists, for, after all, without God, there would be no objective right and wrong."
+| *'therefore' is a conclusion indicator
+| 'therefore' is a premise indicator
+| 'for' is a conclusion indicator 
+| *'for' is a premise indicator 
+```
+
+```{.QualitativeProblem .MultipleSelection points=10}
+25  In this argument,
+| *the conclusion is 'God exists'. 
+| the conclusion is 'God exists, for, after all, without God, there would be no objective right and wrong'. 
+| *'Without God there would be no objective right and wrong' is a premise.
+| 'God exists' is a premise
+| *'Morality is objective' is a premise
+```
+
+```{.QualitativeProblem .ShortAnswer give-credit="onSubmission" points=10}
+26 Rewrite the argument in standard form.
+```
+
+:::{.reaction .correct ex=26}  
+The word 'therefore' marks 'God exists' as the conclusion, and the phrase 'for,
+after all' marks 'Without God, there would be no objective right or wrong' as
+a premise. That leaves 'Morality is objective' unmarked: it is another
+premise:
+
+::: standardform
+-   Morality is objective.
+-   Without God, morality would not be objective.
+-   God exists.
+:::
+:::
+
+## Sentences and Propositions
+
+An argument is a list of sentences: the premises, followed by the conclusion.
+But not just any sentences will do.
+For example, this is not an argument:
+
+:::standardform
+-   Are you allergic to cats?
+-   Get a dog!
+:::
+
+The sentences that make up an argument must be the kind of sentences that
+express *propositions*---the kind of sentences that make claims of the sort
+that we can reason from and to. Sentences that express questions are not
+sentences of this sort. Neither are sentences that express commands.
+
+
+
+
+
+
+
+
+```{.QualitativeProblem .ShortAnswer give-credit="onSubmission" points=10}
+27 <p>Sometimes the premise or conclusion of an argument will be phrased as a question, but is really meant to express a proposition. Can you put this argument into standard form, rephrasing the conclusion as a sentence that expresses a proposition, rather than a question?</p> <div class="example"> <ul> <li>How can anyone think that it is okay to eat meat? Meat comes from animals, and animals are living creatures with feelings, just like us.</li> </ul> </div>
+```
+
+:::{.reaction .correct ex=27}  
+Your answer should look something like this:
+
+:::standardform
+-   Meat comes from animals.
+-   Animals are living creatures with feelings.
+-   It is not okay to eat meat.
+:::
+:::
+
+## Thinking about the Definitions of Validity and Soundness
+
+Recall our two defintions:
+
+Validity
+:   An argument is [valid]{.vocab} if and only if it is impossible for the
+    premises to be true while the conclusion is false.
+
+Soundness
+:   An argument is [sound]{.vocab} if and only if it is valid and all of its
+    premises are actually true.
+
+Here are some questions meant to help you think more about what these
+definitions mean.
+
+```{.QualitativeProblem .MultipleChoice points=10}
+28 Suppose an argument has a false premise. This means that:
+| it is not valid.
+| *it is not sound.
+| none of the above.
+```
+
+:::{.reaction .correct ex=28}
+For an argument to be *sound*, all of its premises must be true. So, if the
+argument has a false premise, we know that it is not sound.
+
+Lots of valid arguments have false premises. For example:
+
+:::standardform
+-   Normal is either in Illinois or Indiana.
+-   Normal is not in Illinois.
+-   Normal is in Indiana.
+:::
+
+This argument is valid, even though the second premise is false. That's
+because, if the premises *were* true, the conclusion *would have to be* true
+too.
+:::
+
+```{.QualitativeProblem .MultipleChoice points=10}
+29 Suppose an argument has a true conclusion. This means that:
+| it is not valid.
+| it is not sound.
+| *none of the above.
+```
+
+:::{.reaction .correct ex=29}
+An argument can have a true conclusion, even though it is neither valid nor
+sound. Here is trivial an example:
+
+:::standardform
+-   Snow is white.
+-   Grass is green.
+-   Birds are not mammals.
+:::
+
+The conclusion of this argument is true. But the argument is not valid, and it
+is not sound.
+:::
+
+```{.QualitativeProblem .MultipleChoice points=10}
+30 Suppose an argument has true premises and a true conclusion. This means that:
+| it is not valid.
+| it is not sound.
+| *none of the above.
+```
+
+:::{.reaction .correct ex=30}
+We cannot determine whether or not an argument is valid just by noting that is premises are actaully true and its conclusion is actually true. Consider:
+
+:::standardform
+-   Roses are red.
+-   Violets are blue.
+-   Onions stink.
+-   You stink too.
+:::
+
+The premises are true and (let's suppose) the conclusion is true too. But the conclusion doesn't follow from the premises, and the argument is not valid.
+:::
+
+## Recognizing Validity and Soundness
+
+It can be difficult to recognize whether or not an argument is valid, and
+whether or not it is sound. It requires some mental gymnastics. First, to
+assess validity, you have to spend some time thinking about what is
+*possible*: is there some possible way that those premises could be true,
+without the conclusion also being true? But then, to assess soundness, you
+need to yank yourself back to cold hard reality: are those premises *actually
+factually* true?
+
+<!-- ::: standardform -->
+<!-- -  Normal is a city in Illinois. -->
+<!-- -  Chicago is a city in Illinois. -->
+<!-- -  Illinois is in the Midwest. -->
+<!-- ::: -->
+
+```{.QualitativeProblem .MultipleSelection points=10}
+31 <div class="standardform"> <ul> <li>Normal is a city in Illinois.</li> <li>Chicago is a city in Illinois.</li> <li>Illinois is in the Midwest.</li> </ul> </div>
+| *All of the premises of this argument are actually true.
+| *The conclusion of this argument is actually true.
+| This argument is valid.
+| This argument is sound.
+```
+
+:::{.reaction .correct ex=31}
+This argument has true premises and a true conclusion, but the
+conclusion does not follow from the premises. More specifically, in terms
+of our definition of validity, the premises could both be true, but the
+conclusion false. 
+
+To see this, imagine a possibility in which the premises are
+true but the conclusion false. For example, imagine that US westward expansion ended in the early 19th
+century, making the western border of Illinois the western border of the US.
+So the conclusion is false. But suppose that, in this possible situation,
+Chicago and Normal develop more or less the same way they actually did. So
+both the premises are true.
+
+Since the argument is not valid, it is not sound: to be sound, an argument
+must both be valid AND have all true premises.
+:::
+
+<!-- ::: standardform -->
+<!-- -   Normal is a city in Indiana -->
+<!-- -   Chicago is a city in Indiana -->
+<!-- -   Indiana is a state -->
+<!-- -   Normal and Chicago are both cities in the same state -->
+<!-- ::: -->
+
+```{.QualitativeProblem .MultipleSelection points=10}
+32 <div class="standardform"> <ul> <li>Normal is a city in Indiana</li> <li>Chicago is a city in Indiana</li> <li>Indiana is a state</li> <li>Normal and Chicago are both cities in the same state</li> </ul> </div>
+| All of the premises of this argument are actually true.
+| *The conclusion of this argument is actually true.
+| *This argument is valid.
+| This argument is sound.
+```
+
+:::{.reaction .correct ex=32}
+This argument has a true conclusion, but its first two premises are false. But that
+doesn't tell us whether or not it is valid. To figure that out, we need to
+think about whether the conclusion *follows* from the premises, in the sense
+defined by our definition of validity: is it *possible* for the premises to
+all be true, but the conclusion false?
+
+No, this is not possible: any possibility that makes it true that Normal and
+Chicago are both cities in Indiana, and holds true the fact that Indiana is a
+state, is also going to make it true that Normal and Chicago are cities in the
+same state. So the argument is valid, because it is impossible for the
+premises to all be true, but the conclusion false.
+
+The argument is not sound, because it has false premises. In order for an
+argument to be sound, it must both be valid AND have all true premises.
+:::
+
+<!-- ::: standardform -->
+<!-- -   Biden is President -->
+<!-- -   If Biden is President, a Democrat is President -->
+<!-- -   A Democrat is President -->
+<!-- ::: -->
+
+
+```{.QualitativeProblem .MultipleSelection points=10}
+33 <div class="standardform"> <ul> <li>Biden is President</li> <li>If Biden is President, a Democrat is President</li> <li>A Democrat is President</li> </ul> </div>
+| *All of the premises of this argument are actually true.
+| *The conclusion of this argument is actually true.
+| *This argument is valid.
+| *This argument is sound.
+```
+
+:::{.reaction .correct ex=33}
+This argument is valid, and the premises are all true. So it is also sound.
+:::
+
+<!-- ::: standardform -->
+<!-- -   Trump is President -->
+<!-- -   If Trump is President, a Republican is President -->
+<!-- -   A Republican is President -->
+<!-- ::: -->
+
+
+
+```{.QualitativeProblem .MultipleSelection points=10}
+34 <div class="standardform"> <ul> <li>Trump is President</li> <li>If Trump is President, a Republican is President</li> <li>A Republican is President</li> </ul> </div>
+| All of the premises of this argument are actually true.
+| The conclusion of this argument is actually true.
+| *This argument is valid.
+| This argument is sound.
+```
+
+:::{.reaction .correct ex=34}
+This argument is also valid. Notice that it has the same logical form as the
+previous argument, about Biden. Arguments with this logical form are valid in
+virtue of their form---that is, they are formally valid. But in this case, the
+first premise is false. So the argument is not sound.
+:::
+
+<!-- ::: standardform -->
+<!-- -   A Democrat is President -->
+<!-- -   If Biden is President, a Democrat is President -->
+<!-- -   Biden is President -->
+<!-- ::: -->
+
+
+
+```{.QualitativeProblem .MultipleSelection points=10}
+35 <div class="standardform"> <ul> <li>A Democrat is President</li> <li>If Biden is President, a Democrat is President</li> <li>Biden is President</li> </ul> </div>
+| *All of the premises of this argument are actually true.
+| *The conclusion of this argument is actually true.
+| This argument is valid.
+| This argument is sound.
+```
+
+:::{.reaction .correct ex=35}
+This argument is not valid. Compare its form to the form of the previous two
+arguments. Those arguments had this logical form:
+
+::: standardform
+| [$P$]{.premise .nn}
+| [If $P$, $Q$]{.premise .nn}
+| [$Q$]{.conclusion}
+:::
+
+This argument has a similar, but importantly different, logical form:
+
+::: standardform
+| [$P$]{.premise .nn}
+| [If $Q$, $P$]{.premise .nn}
+| [$Q$]{.conclusion}
+:::
+
+Arguments with first form are formally valid. Arguments with this second form
+are not formally valid.
+
+Do you see why the argument is not valid? Imagine that some other Democrat had
+won the primary, and then won the election. Then the premises would both still
+be true, but the conclusion would be false.
+:::
+
+<!-- ::: standardform -->
+<!-- -   Biden is President -->
+<!-- -   Biden is not President -->
+<!-- -   Grass is green -->
+<!-- ::: -->
+
+
+```{.QualitativeProblem .MultipleSelection points=10}
+36 <div class="standardform"> <ul> <li>Biden is President</li> <li>Biden is not President</li> <li>Grass is green</li> </ul> </div>
+| All of the premises of this argument are actually true.
+| *The conclusion of this argument is actually true.
+| *This argument is valid.
+| This argument is sound.
+```
+
+:::{.reaction .correct ex=36}
+This is a degenerate case of validity. To see that it is valid, think hard
+about the definition of validity. Is there a possible situation in which the
+premises are all true while the conclusion is false?
+:::
+
+
+## Summing Up
+
+This chapter introduced several technical terms that we will be using
+throughout the course. Here are some of the important definitions:
+
+:::defs
+:::
+
+## Supplement
+
+This chapter has a [supplement](01S). This is an optional extra bit of reading and exercises, for anyone who feels that more practice would be helpful.
+
+## What Now?
+
+The mastery check for this unit, unit 01, is online. When you are ready to attempt it, send me a
+[GroupMe DM]. In your DM, please specify that you want a mastery check for
+unit 01, and include your ULID.
+
+
+[GroupMe DM]: https://groupme.com/contact/99365935/isjWnqLN {target="_blank" rel="noopener noreferrer"} 
+
+<!-- vim: set ft=carnap :-->
+

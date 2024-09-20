@@ -1,0 +1,28 @@
+---
+base-css:
+-   https://carnap.io/shared/dsanson@gmail.com/sanson-book.css
+-   https://cdn.plyr.io/3.6.12/plyr.css
+js: 
+-   https://cdn.plyr.io/3.6.12/plyr.polyfilled.js
+-   https://carnap.io/shared/dsanson@gmail.com/logic-book.js
+---
+
+# Supplement: Derviations in PL
+
+The exercises for Unit 13 are too easy, and don't give you enough practice using ED and UD. These supplements are meant to correct that, by providing you with more opportunities to practice these more difficult derivations.
+
+```{.ProofChecker .FirstOrder options="guides fonts indent tabindent resize" submission=none}
+1 ExF(x) :|-: Ex(F(x)\/G(x))
+2 AxF(x), AxG(x) :|-: Ax(F(x)/\G(x))
+4 AxF(x), ExG(x) :|-: Ex(F(x)/\G(x))
+3 Ax(F(x)<->G(x)), Ax(G(x)<->H(x)) :|-: Ax(H(x)<->F(x))
+5 F(a),G(b),ExH(x) :|-: ExH(x)/\ExF(x)
+6 ExF(x), Ex~G(x), Ax(F(x)->G(x)) :|-: ExEy(~F(x)/\G(y))
+7 AxEy(F(y)<->G(x)),ExG(x) :|-: ExF(x) 
+8 Ax(EyF(y)/\G(x)) :|-: AxEy(F(y)/\G(x))
+9 AxF(x)->AyG(y) :|-: ExAy(F(x)->G(y))
+10 ExAy(F(x)->G(y)) :|-: AxF(x)->AyG(y)
+11 ExF(x)\/EyG(y) :|-: Ex(F(x)\/G(x))
+```
+<!-- vim: set ft=carnap :-->
+

@@ -1,0 +1,12 @@
+---
+base-css:
+-   https://carnap.io/shared/dsanson@gmail.com/sanson-book.css
+js: 
+-   https://carnap.io/shared/dsanson@gmail.com/logic-book.js
+---
+
+:::{.grade-report}
+Loading GradeBook...
+:::
+
+<!-- vim: set ft=carnap :-->

@@ -1,0 +1,2028 @@
+---
+base-css:
+-   https://carnap.io/shared/dsanson@gmail.com/sanson-book.css
+-   https://cdn.plyr.io/3.6.12/plyr.css
+js: 
+-   https://cdn.plyr.io/3.6.12/plyr.polyfilled.js
+-   https://carnap.io/shared/dsanson@gmail.com/logic-book.js
+---
+
+::: cover
+# Inference Rules and Direct Derivations
+
+![Modus Ponies](http://reggienet.illinoisstate.edu/access/content/user/desanso/public/img/modus_ponies.png){title="Modus
+Ponies" alt="A visual pun: two ponies arranged in the form of Modus Ponens."} 
+
+::: epigraph
+"The only way to rectify our reasonings is to make them as tangible as those of
+the Mathematicians, so that we can find our error at a glance, and when there
+are disputes among persons, we can simply say: Let us calculate, without
+further ado, to see who is right." 
+
+[[Gottfried Leibniz](https://iep.utm.edu/?p=17335){target="_blank"
+rel="noopener noreferrer"}, Letter to Johann Friedrich, 1679]{.source}
+<!--_-->
+:::
+:::
+
+
+## Introduction
+
+An argument represents your starting point---your premises---and an ending
+point---your conclusion. But it doesn't represent the *reasoning* that takes
+you from that starting point to that ending point, the path from those premises to that
+conclusion.
+
+We call that path [a [proof]{.vocab}: a line of reasoning that *establishes*
+that a given argument is valid.]{.def}
+And we represent a proof with [a [derivation]{.vocab}:
+ a series of steps, each an instance of a carefully defined valid 
+ [inference rule]{.vocab}, 
+ that takes us from the premises to the conclusion.]{.vocab}
+
+In this chapter, we carefully define four inference rules, and then learn how to put those rules to use, constructing simple direct derivations. The rules we introduce are:
+ [Double Negation Elimination (DNE)]{.vocab}, 
+ [Double Negation Introduction (DNI)]{.vocab}, 
+ [Modus Ponens (MP)]{.vocab},
+ and [Modus Tollens (MT)]{.vocab}.
+
+These rules are limited in an interesting way: they only involve negations and
+conditionals. In later chapters, we introduce rules for our other connectives,
+and we also introduce more complicated forms of derivation.
+
+Your learning objectives for this chapter are:
+
+a.  I can identify instances of the three inference rules, DN, MP, and MT.
+b.  I can apply the three inference rules, DN, MP, and MT.
+c.  I can complete simple direct derivations using DN, MP, and MT.
+
+## Proofs and Arguments
+
+Here is a mini-lecture.
+It is about 5 minutes long.
+It introduces the idea of a proof,
+ the idea of a derivation,
+ and the idea of an inference rule.
+You don't *need* to watch the mini-lecture. 
+But you may find that it helps you follow the reading.
+
+:::solution
+:::youtube
+<https://youtu.be/Ur0SzN406Y8>
+:::
+:::
+
+A [direct derivation]{.vocab} is the simplest kind of derivation or proof.
+It starts from the premises, 
+ and proceeds, step by step, 
+ from those premises, to the conclusion. 
+
+A properly constructed derivation is like a pipe or wire through which
+*truth-preservation* flows:
+ *Water* flows through a properly constructed *pipe*. 
+ *Electricity* flows through a properly installed *wire*.
+ *truth-preservation* flows through a properly constructed *derivation*.
+
+:::illustration
+![Water running through a
+pipe](https://reggienet.illinoisstate.edu/access/content/user/desanso/public/homer-water.gif){alt="Homer
+Simpson has constructed an elaborate pipe that directs water leaking through
+the ceiling out the mail slot in the front door."}
+:::
+
+A poorly constructed pipe fails to transmit water from point A to point B,
+ either because it is broken or clogged,
+ or it is missing a section,
+ or it simply doesn't extend all the way from A to B.
+
+A poorly constructed wire fails to transmit electricity from point A to point
+B,
+ again either because it is broken, or has a missing section,
+ or because it fails to extend all the way from A to B.
+
+And a poorly constructed derivation fails to transmit truth-preservation,
+either because it is broken---i.e., it contains a step that doesn't preserve
+truth---or it is missing a section, or it fails to extend all the way from the
+premises to the conclusion.
+
+Why do we care about *truth-preservation*? We care about truth-preservation
+because we care about *validity*: in a properly constructed derivation, it
+should be *impossible* to start from true premises, and end with a false
+conclusion.
+
+Just as a plumber must check that each section of her pipe transmits water,
+and an electrician, that each section of his wire transmits electricity, a
+logician must check that each step of her derivation preserves truth. That is,
+each step must be valid.
+
+To ensure this, derivations are build using a carefully restricted set of
+[inference rules]{.vocab}, which obviously preserve truth. Ultimately, we will
+introduce 10 rules for SL. For now, we work with just 4.
+
+## Double Negation Introduction and Double Negation Elimination
+
+Here is another mini-lecture, introducing our first two rules,
+ Double Negation Introduction
+ and Double Negation Elimination.
+
+:::solution
+::: youtube
+<https://youtu.be/k5O1qop2FE4>
+:::
+:::
+
+The first two rules we introduce just have to do with negations. Consider:
+
+:::standardform
+-   She loves me.
+-   She doesn't not love me.
+:::
+
+Do you see that this argument is valid? That is, if it is true that she loves me, it has to also be true that she doesn't not love me? This inference is also valid in the other direction: if it is true that she doesn't not love me, it must also be true that she loves me:
+
+:::standardform
+-   She doesn't not love me.
+-   She loves me.
+:::
+
+:::aside
+:::illustration
+![She loves me, she loves me
+not...](https://reggienet.illinoisstate.edu/access/content/user/desanso/public/img/she_loves_me.gif){alt="An animation showing Yogi Bear pulling petals off of a daisy."}
+:::
+:::
+
+Did you ever play the old game, ["He loves me; he loves me not"](https://en.wikipedia.org/wiki/He_loves_me..._he_loves_me_not){target="_blank"
+rel="noopener noreferrer"}? <!--_-->
+ You pluck a petal off a flower,
+ and, with each petal,
+ you alternate between saying, 'he/she/they loves me',
+ and 'he/she/they loves me not'.
+Supposedly, their true feelings are revealed when you pluck the last petal. 
+
+Suppose I am playing this game, thinking about my parrot, and wondering
+whether or not she loves me. And suppose she does, so 'she loves me' is true.
+Then as I play the game, I alternate between saying something true, 'she loves
+me', and something false, 'she loves me not'. For that matter, suppose she
+doesn't love me. Then I still alternate between saying something false, 'she
+loves me', and something true, 'she loves me not'.
+
+Here is a table representing these two possibilities:
+
+::: itt
+   She loves me   She loves me not   She loves me   She loves me not   ...
+  -------------- ------------------ -------------- ------------------ -----
+        T                F                T                F           ...
+        F                T                F                T           ...
+:::
+
+The first row represents how the game plays out supposing my parrot actually
+loves me; the second row, how it plays out assuming she does not. Once I reach
+the last petal, and so the last column of the table, I can check which is
+true, and so learn which row represents how things really are.
+
+
+As a logic professor, I prefer a slightly tweaked version of the game.
+Instead of alternating between 'she loves me' and 'she love me not',
+ I like to add an *additional* negation every time I pluck a petal.
+I find this makes the game less repetitive, and so more exciting.
+
+Also, I prefer to play the game in SL instead of English. So, letting 'P' stand for 'She loves me', this is what I say as I pluck the petals:
+
+:::example
+-   P (pronounced "pee")
+-   ¬P ("not pee")
+-   ¬¬P ("not not pee")
+-   ¬¬¬P ("not not not pee")
+-   ¬¬¬¬P ("not not not not pee")
+-   ⋮ 
+:::
+
+Everyone tells me I'm fun at parties.
+
+Just as with the traditional game, my game involves alternating between something true and something false:
+If my parrot does love me, then 'P' is true, so '¬P' is false, so '¬¬P' is true, so '¬¬¬P' is false, and so on.
+And if she doesn't love me, then 'P' is false, so '¬P' is true, so '¬¬P' is false, so '¬¬¬P' is true, and so on.
+
+So here is a table representing these two possibilities:
+
+::: itt
+   P   ¬P   ¬¬P   ¬¬¬P   ¬¬¬¬P   ¬¬¬¬¬P   ...
+  --- ---- ----- ------ ------- -------- -----
+   T   F     T     F       T       F      ...
+   F   T     F     T       F       T      ...
+:::
+
+The first row represents how the game plays out when 'P' is true.
+The second row, how the game plays out when 'P' is false.
+
+Consider just the first and third columns of my game:
+
+::: itt
+   P   ¬¬P
+  --- -----
+   T    T
+   F    F
+:::
+
+This tells us that 'P' and '¬¬P' always have the same truth value. We call
+'¬¬P' the [double negation]{.vocab} of 'P'. In general, a sentence and its
+double-negation always have the same truth value.
+
+This means that, from a sentence, you can infer its double negation, and that inference is guaranteed to preserve truth. Hence our first inference rule:
+
+Double Negation Introduction (DNI)
+:   Given any sentence, []{.P}, as your premise, 
+    you can infer its double negation, ¬¬[]{.P},
+    as your conclusion.
+
+And it also means that you can infer a sentence from its double negation, and that inference is also guaranteed to preserve truth. Hence our second inference rule:
+
+Double Negation Elimination (DNE)
+:   Given the double negation, ¬¬[]{.P}, 
+    of any sentence, []{.P}, as your premise, 
+    you can infer that sentence, []{.P},
+    as your conclusion.
+
+So these are all instances of DNI:
+
+:::standardform
+-   Q: I care.
+-   ¬¬Q: I don't not care.
+:::
+
+:::standardform
+-   W: You are wrong.
+-   ¬¬W: It is not the case that you aren't wrong.
+:::
+
+:::standardform
+-   W → ¬Q: I don't care if you are wrong.
+-   ¬¬(W → ¬Q): It is not the case that it is not the case that (I don't care if you are wrong)
+:::
+
+And here is the form of DNI, abstracted from any specific sentences:
+
+:::{.standardform .liveshapes}
+-   []{.P} 
+-   ¬¬[]{.P}
+:::
+
+Turning things around, these are all instances of DNE:
+
+:::standardform
+-   ¬¬Q: I don't not care.
+-   Q: I care.
+:::
+
+:::standardform
+-   ¬¬W: It is not the case that you aren't wrong.
+-   W: You are wrong.
+:::
+
+:::standardform
+-   ¬¬(W → ¬Q): It is not the case that it is not the case that (I don't care if you are wrong)
+-   W → ¬Q: I don't care if you are wrong.
+:::
+
+And here is the abstract form of DNE, in SL:
+
+:::{.standardform .liveshapes}
+-   ¬¬[]{.P}
+-   []{.P} 
+:::
+
+DNE is just like DNI, but the premise and conclusion are reversed.
+Remember, the 'E' stands for *elimination*, and the 'I' stands for *introduction*.
+
+``` {.Translate .Exact points="10"}
+1 R: Suppose you have ¬¬R as a premise. What follows, by DNE?
+```
+
+(This is a new type of exercise. Enter just the answer, in SL. You must type "enter" or "return" to check
+your answer *before* clicking "Submit" to submit your answer.)
+
+:::solution
+![solution to question 1](https://reggienet.illinoisstate.edu/access/content/user/desanso/public/vid/not_not_R.mp4)
+:::
+
+``` {.Translate .Exact points="10"}
+2 ~~(P->Q): Suppose you have P → Q as a premise. What follows, by DNI?
+```
+:::solution
+![Solution to 2](https://reggienet.illinoisstate.edu/access/content/user/desanso/public/vid/wf_DNI_CPQ.mp4)
+:::
+
+``` {.Translate .Exact points="10"}
+3 P/\Q: Suppose you have ¬¬(P ∧ Q) as a premise. What follows, by DNE?
+```
+
+:::solution
+![solution to 3](https://reggienet.illinoisstate.edu/access/content/user/desanso/public/vid/wf_DNE_NNCPQ.mp4)
+:::
+
+``` {.Translate .Exact points="10"}
+4 ~~(P /\ Q -> Q \/ R): Suppose you have P∧Q → Q∨R as a premise. What follows, by DNI?
+```
+:::solution
+![Solution to 4](https://reggienet.illinoisstate.edu/access/content/user/desanso/public/vid/wf_DNI_CKPQAQR.mp4)
+:::
+
+## Don't not use double negatives!
+
+No doubt you've been told
+ at some point in your education 
+ to avoid double negatives.
+That is a good rule of thumb for speaking and writing:
+ better to say, 'Everyone is coming to my party',
+ than 'Nobody is not coming to my party',
+ even though the two sentences mean the same thing.
+
+But this is terrible advice for doing logic. If you want to understand the
+*logic* of negation, the first thing you should understand is the relationship
+between a sentence and its double negation. But that requires allowing
+yourself to consider both sentences.
+
+The relationship between a sentence and its double negation is [logically equivalence]{.vocab}:
+
+Logical Equivalence
+:   [Two sentences, []{.P} and []{.Q}, are [logically equivalent]{.vocab}
+    iff necessarily, they have the same truth value.]{.def}
+
+:::.aside
+'iff' is not a typo: it is short for 'if and only if', and expresses
+the biconditional.
+:::
+
+It is very important to understand that a sentence and it double negation are
+*not the same sentence*. The sentence, 'I don't not care' *means the same
+thing as* the sentence 'I care'. But it is *not the same sentence* as 'I
+care'. 'I care' is two words long and contains no negations. 'I don't not
+care' is four (or five?) words long and contains two negations. 
+
+It is easy to confuse these two things. If you do, you will fall into the trap
+of treating 'P' and '¬¬P' as interchangeable, because you think they are the
+same sentence. But they are not interchangeable. They are distinct sentences,
+and you can infer one from the other.
+
+So, for example, this is an instance of DNI:
+
+:::standardform
+-   P
+-   ¬¬P
+:::
+
+But this is *not* an instance of DNI:
+
+:::standardform
+-   P
+-   P
+:::
+
+To see this, you have to recognize that these two arguments have different
+conclusions, even though those conclusions are logically equivalent. If your
+brain just replaces occurrences of '¬¬P' with 'P', the difference between
+these two arguments becomes obscure.
+
+This a good moment to remind you that logic is not algebra.
+In algebra,
+ you learned that two *negatives* cancel each other out.
+So you learned that $--x = x$.
+You also learned to *simplify* algebraic expressions
+ by *cancelling out* double negatives.
+So, given $--(x + y) = 15$,
+ you simplify it to $x + y = 15$.
+You may have developed a habit that is so automatic, that you barely notice that your brain as eliminated two negative signs.
+
+Our negation symbol, '¬', looks a lot like the minus sign used to indicate
+negative numbers. And it has a similar name. So your brain might insist on
+extending these habits from algebra to SL, and start eliminating '¬¬' without
+first asking your permission. But this is a mistake: if your premise is '¬¬P',
+you have to write it as '¬¬P'; if your premise is 'P ∧ ¬¬Q', you have to write
+it as 'P ∧ ¬¬Q'. You cannot "cancel out" the negations "in your head". That's
+just not how logic works.
+
+
+## Rules as Patterns
+
+DNI and DNE are patterns.
+Given any sentence, you can use DNI to infer its double negation.
+Here is an instance of DNI:
+
+:::{.standardform .liveshapes}
+-  ¬P
+-  ¬¬¬P
+:::
+
+Yes, the conclusion is a triple negation. But the inference adds two negations to the premise:
+
+:::{.standardform .liveshapes}
+-  [¬P]{.P}
+-  ¬¬[¬P]{.P}
+:::
+
+On the other hand, this is *not* an instance of DNI:
+
+:::{.standardform .liveshapes}
+-  P ∨ Q
+-  P ∨ ¬¬Q
+:::
+
+When you apply DNI to a premise, you double negate the *entire premise*, not
+just a part. So this is an instance of DNI:
+
+:::{.standardform .liveshapes}
+-  P ∨ Q
+-  ¬¬(P ∨ Q)
+:::
+
+To verify this, we can draw a box around the premise, and verify that the conclusion is that very same thing, with two negations out front:
+
+:::{.standardform .liveshapes}
+-  [P ∨ Q]{.P}
+-  ¬¬[(P ∨ Q)]{.P}
+:::
+
+```{.QualitativeProblem .MultipleChoice points=10}
+5 <div class="standardform"> <ul> <li>Q</li> <li>¬Q</li> </ul> </div>
+| This is an instance of DNI
+| This is an instance of DNE
+| *This is not an instance of DNI or DNE
+6 <div class="standardform"> <ul> <li>¬¬¬¬Q</li> <li>¬¬Q</li> </ul> </div>
+| This is an instance of DNI
+| *This is an instance of DNE
+| This is not an instance of DNI or DNE
+7 <div class="standardform"> <ul> <li>Q</li> <li>¬¬¬¬Q</li> </ul> </div>
+| This is an instance of DNI
+| This is an instance of DNE
+| *This is not an instance of DNI or DNE
+```
+
+:::{.reaction .correct ex=7}
+:::standardform
+-   Q
+-   ¬¬¬¬Q
+:::
+
+This is a valid argument, but it is not an instance of DNI.
+The only possible instance of DNI from 'Q' as a premise is:
+
+:::standardform
+-   Q
+-   ¬¬Q
+:::
+
+And the only possible instance of DNI that has '¬¬¬¬Q' as conclusion is:
+
+:::standardform
+-   ¬¬Q
+-   ¬¬¬¬Q
+:::
+
+But remember our metaphor: a derivation is like a pipe through which validity flows.
+So we can construct a derivation from 'Q' to '¬¬¬¬Q' by combining two steps. It might look something like this:
+
+:::standardform
+-   Q
+-   ¬¬Q (by DNI)
+-   ¬¬¬¬Q (by DNI)
+:::
+:::
+
+```{.QualitativeProblem .MultipleChoice points=10}
+8 <div class="standardform"> <ul> <li>(P∧Q)</li> <li>¬¬(P∧Q)</li> </ul> </div>
+| *This is an instance of DNI
+| This is an instance of DNE
+| This is not an instance of DNI or DNE
+9 <div class="standardform"> <ul> <li>¬¬(P ∧ Q ↔ Q ∨ R)</li> <li>(P ∧ Q ↔ Q ∨ R)</li> </ul> </div>
+| This is an instance of DNI
+| *This is an instance of DNE
+| This is not an instance of DNI or DNE
+10 <div class="standardform"> <ul> <li>P→Q</li> <li>P→¬¬Q</li> </ul> </div>
+| This is an instance of DNI
+| This is an instance of DNE
+| *This is not an instance of DNI or DNE
+```
+
+:::{.reaction .correct ex=10}
+This argument is not an instance of DNI:
+
+:::standardform
+-   P → Q
+-   P → ¬¬Q
+:::
+
+As explained above, when you apply DNI to a premise,
+ you must double negate the *entire premise*,
+ not just a part of the premise.
+
+This argument is valid,
+ but we do not yet have the tools needed to explain why it is valid,
+ and we won't until the next unit.
+:::
+
+
+``` {.Translate .Exact points="10"}
+11 ~~(P->(Q\/R)): Suppose you have P → (Q ∨ R) as a premise. What follows, by DNI?
+```
+
+:::solution
+![Solution to 11](https://reggienet.illinoisstate.edu/access/content/user/desanso/public/vid/wf_DNI_CPAQR.mp4)
+:::
+
+``` {.Translate .Exact points="10"}
+12 ~~P->(~~Q\/~~R): Suppose you have ¬¬(¬¬P → (¬¬Q ∨ ¬¬R)) as a premise. What follows, by DNE?
+```
+
+:::solution
+![Solution to 12](https://reggienet.illinoisstate.edu/access/content/user/desanso/public/vid/wf_DNE_NNbigmess.mp4)
+:::
+
+## Modus Ponens
+
+Again, here is a video mini-lecture, 
+ which you may find helps you follow the reading.
+
+:::solution
+::: youtube
+<https://youtu.be/qJbHNMhxOUc>
+:::
+:::
+
+DNI and DNE just involve negation. Our other two rules involve conditionals.
+
+The first is called [Modus Ponens (MP)]{.vocab}.
+Here is an instance of Modus Ponens in English:
+
+:::standardform
+-   If you are feeling sick, then you should stay home.
+-   You are feeling sick.
+-   You should stay home.
+:::
+
+Convince yourself that this argument is valid.
+
+Let's break it down.
+
+:::standardform
+-   If [you are feeling sick]{.P .mpantecedent}, then [you should stay
+    home]{.Q .mpconsequent}.
+-   [You are feeling sick]{.P .mppremise}.
+-   [You should stay home]{.Q .mpconclusion}.
+:::
+
+The first premise is a conditional. 
+A conditional makes a hypothetical claim:
+ *if* such and such hypothetical condition 
+ expressed by the antecedent obtains, 
+ *then* this other condition,
+ expressed by the consequent
+ also obtains.
+Specifically,
+ *if* you are feeling sick,
+ *then* you should stay home.
+the other premise tells us that the hypothetical condition does in fact
+obtain:
+ you are feeling sick.
+So it follows that the condition expressed by the consequent also obtains:
+ you should stay home.
+
+
+Here is another instance of MP in English:
+
+:::standardform
+-   If [our winter is unusually cold]{.P .mpantecedent}, then [some of the less hardy plants die]{.Q .mpconsequent}.
+-   [Our winter is unusually cold]{.P .mppremise}.
+-   [Some of the less hardly plants die]{.Q .mpconclusion}.
+:::
+
+Again, this argument is valid, and for the same reason.
+The conditional premise relates the two conditions,
+ and says that
+ *if* the condition expressed by the antecedent holds,
+ *then* the condition expressed by the consequent holds.
+The second premises says that the hypothetical condition---
+ the condition expressed by the antecedent---
+ does actually obtain.
+From these two premises together,
+ it follows that the condition expressed by the consequent obtains as well.
+
+(Quick refresher:
+
+| the [antecedent]{.vocab} of a conditional is the part that comes *before*
+  the arrow;
+| the [consequent]{.vocab} is the part that comes *after* the arrow.
+
+The prefix 'ante' means *before*. When you play poker, the ante is the stake
+put up *before* the deal. Since I'm a hipster, was into it before it was cool:
+that is, my interest *ante*dates its being cool. An *ante*chamber or
+*ante*room is a waiting room that you enter *before* you enter the main room.
+The consequent is what *comes after*, in the sense of *following*, not
+in time, but logically.)
+
+Modus Ponens
+:   Given two premises, one of which is a conditional, and the other its
+    antecedent, you can infer its consequent.
+
+
+Modus Ponens has an evil twin,
+ an argument form that looks similar,
+ but is *not* valid.
+It is called [Affirming the Consequent]{.vocab}.
+Here is an example:
+
+:::{.standardform .exed}
+-   If [you are feeling sick]{.P .mpconsequent}, then [you should stay
+    home]{.Q .mpantecedent}.
+-   [You should stay home]{.Q .mppremise}.
+-   [You are feeling sick]{.P .mpconclusion}.
+:::
+
+Do you see how this argument makes the mistake
+ of reading the conditional premise backwards?
+The premise does not say that
+ if you should stay home
+ then you are feeling sick.
+It says that
+ if you are feeling sick
+ then you should stay home.
+We cannot infer from this that,
+ since you should stay home,
+ it must be that you are sick.
+There are plenty of other possible reasons why it might be
+ true that you should stay home:
+ maybe today is a holiday, for example.
+
+
+Here is another example of Affirming the Consequent:
+
+:::{.standardform .exed}
+-   If Fido is a cat, then Fido is a mammal.
+-   Fido is a mammal.
+-   Fido is a cat.
+:::
+
+Again, the argument is not valid.
+The conditional premise says that
+ if Fido is a cat,
+ then Fido is a mammal.
+It doesn't say that
+ if Fido is a mammal,
+ then Fido is a cat.
+Suppose Fido is a dog:
+ then both premises can be true,
+ but the conclusion false.
+
+::: stickywrapper
+::: {.aside .sticky .flex}
+:::ruledisplay
+**Modus Ponens (MP)**
+
+:::{.standardform .liveshapes}
+-  [ ]{.P .mpantecedent} → [ ]{.Q .mpconsequent}
+-  [ ]{.P .mppremise}
+-  [ ]{.Q .mpconclusion}
+:::
+:::
+:::ruledisplay
+**Affirming the Consequent**
+
+:::{.standardform .liveshapes .xed}
+-   []{.P .mpconsequent} → []{.Q .mpantecedent}
+-   []{.Q .mppremise}
+-   []{.P .mpconclusion}
+:::
+:::
+:::
+
+We could call Modus Ponens "Affirming the Antecedent".
+That is basically what 'Modus Ponens' means in Latin:
+ 'modus' means 'way';
+ 'ponens' means 'putting' or 'setting' or 'positing',
+ or, in a logical context, 'affirming'.
+So 'Modus Ponens' means, roughly,
+ 'the way of putting/positing/affirming'.
+When you apply Modus Ponens, you have two premises:
+ one is a conditional;
+ the other affirms its antecedent.
+
+By contrast, when you mistakenly apply Affirming the Consequent instead,
+ you have two premises:
+ one a conditional,
+ and the other affirming the consequent.
+
+
+:::illustration
+![Hermione on the proper way to pronounce 'Modus
+Ponens'](http://reggienet.illinoisstate.edu/access/content/user/desanso/public/img/leviosa.gif)
+:::
+
+Actually, the original full Latin name of the rule is 'Modus Ponendo Ponens':
+ "the way of positing/affirming by positing/affirming".
+When you apply Modus Ponens,
+ your premise affirms the antecedent,
+ and this entitles you to affirm the consequent.
+This is the only *valid* rule that allows you to affirm by affirming,
+ since Affirming the Consequent is not valid.
+
+``` {.Translate .Exact points="10"}
+13 Q: Suppose you have P → Q as one premise, and P as your other premise. What follows, by MP?
+```
+
+:::solution
+![Solution to 13](https://reggienet.illinoisstate.edu/access/content/user/desanso/public/vid/wf_MP_CPQ_P.mp4)
+:::
+
+``` {.Translate .Exact points="10"}
+14 Q: Suppose you have Q → P as a premise. What other premise do you need, to apply MP?
+```
+
+:::solution
+![Solution to 14](https://reggienet.illinoisstate.edu/access/content/user/desanso/public/vid/mp_MP_CQP.mp4)
+:::
+
+``` {.Translate .Exact points="10"}
+15 R: Suppose you have P∧Q → R as one premise, and P∧Q as your other premise. What follows, by MP?
+```
+
+:::solution
+![Solution to 15](https://reggienet.illinoisstate.edu/access/content/user/desanso/public/vid/wf_MP_CKPQR.mp4)
+:::
+
+``` {.Translate .Exact points="10"}
+16 R->Q: Suppose you have (R → Q) → R as a premise. What other premise do you need, to apply MP?
+```
+
+:::solution
+![Solution to 16](https://reggienet.illinoisstate.edu/access/content/user/desanso/public/vid/wp_CRCQR_MP.mp4)
+:::
+
+:::
+
+## Modus Tollens
+
+We have one more rule to introduce: [Modus Tollens (MT)]{.vocab}.
+'Tollens', in Latin, means 'taking' or 'denying'.
+And actually, the original full Latin name is 'Modus Tollendo Tollens':
+ the way of taking/denying by taking/denying.
+
+Modus Tollens
+:   Given two premises, one a conditional and the other the negation of its
+    consequent, infer the negation its antecedent.
+
+Here is an example:
+
+:::standardform
+-   If [the laws are just]{.mtantecedent}, then [it is wrong to break them]{.mtconsequent}.
+-   [It is]{.mtpremise} not [wrong to break the laws]{.mtpremise}.
+-   [The laws are]{.mtconclusion} not [just]{.mtconclusion}.
+:::
+
+Do you see that this is valid?
+One premise is a conditional.
+It does not say that the laws *are* just.
+But it says that on the hypothesis that they are, 
+ it is wrong to break them.
+The other premise says that it is *not* wrong to break the laws:
+ it denies or rejects the consequent.
+But that means that the hypothetical condition,
+ expressed by the antecedent,
+ must not obtain:
+ if it did, then the consquent would too.
+So the laws must not be just.
+
+Here is another (slightly dated) example:
+
+:::standardform
+-   Kyrie can play in NYC only if he is vaccinated.
+-   Kyrie is not vaccinated.
+-   Kyrie cannot play in NYC.
+:::
+
+Remember how 'only if' works: it marks 'he is vaccinated' as the *consequent*.
+So we can restate this argument as:
+
+:::standardform
+-   If Kyrie can play in NYC then he is vaccinated.
+-   Kyrie is not vaccinated.
+-   Kyrie cannot play in NYC.
+:::
+
+Again, one premise is a conditional.
+Again, the other premise is the negation of the consequent.
+Again, the conclusion is the negation of the antecedent.
+
+Here is the pattern:
+
+:::standardform
+-   []{.P .mtantecedent} → []{.Q .mtconsequent}
+-   ¬[]{.Q .mtpremise}
+-   ¬[]{.P .mtconclusion}
+:::
+
+We saw that Modus Ponens is the only valid form of argument that involves
+*affirming* one part of a conditional, and so *affirming* the other part. To
+do this validly, you must always reason from the antecedent to the consequent,
+in the direction of the arrow. If you try to reason backwards, from consequent
+to antecedent, your inference is invalid. 
+
+In the same way, Modus Tollens is the only valid form of argument that
+involves *denying* one part of a conditional, and so *denying* the other part.
+To do this validly, you must always reason from the negation of the consequent
+to the negation of the antecedent, against the direction of the arrow. If you
+try to reason forwards, from the negation of antecedent to the negation of the
+consequent, your inference is invalid.
+
+We call that invalid form of inference---Modus Tollens's evil twin---"Denying the Antecedent".
+Here is an example:
+
+:::{.standardform .xed}
+-   If [Fido is a dog]{.mtconsequent} then [Fido is a mammal]{.mtantecedent}.
+-   [Fido is]{.mtpremise} not [a dog]{.mtpremise}.
+-   [Fido is]{.mtconclusion} not [a mammal]{.mtconclusion}.
+:::
+
+Do you see that this is not valid? 
+Suppose Fido is a cat.
+Then both premises are true, but the conclusion is false.
+
+::: stickywrapper
+:::{.aside .sticky .flex}
+:::ruledisplay
+**Modus Tollens (MT)**
+
+:::{.standardform .liveshapes}
+-   []{.P} → []{.Q}
+-   ¬[]{.Q}
+-   ¬[]{.P}
+:::
+:::
+
+:::ruledisplay
+**Denying the Antecedent**
+
+::: {.standardform .liveshapes .xed}
+-   []{.P} → []{.Q}
+-   ¬[]{.P}
+-   ¬[]{.Q}
+:::
+:::
+:::
+
+When reasoning with conditionals, you must pay close attention to the
+direction of the conditional---to which part is the antecedent and which the
+consequent. Affirming the Consequent and Denying the Antecedent are mistakes
+people make when they fail to pay proper attention to this.
+The premise, 'if Fido is a dog, then Fido is a mammal' is *not the same as*
+the premise, 'if Fido is a mammal, then Fido is a dog', and your reasoning
+needs to respect this.
+
+``` {.Translate .Exact points="10"}
+17 ~R: Suppose you have 'R → P' and '¬P' as your premises. What follows by MT?
+```
+
+:::solution
+![Solution to 17](https://reggienet.illinoisstate.edu/access/content/user/desanso/public/vid/wf_CRP_NP_MT.mp4)
+:::
+
+``` {.Translate .Exact points="10"}
+18 ~S: Suppose you have 'Q → S' as a premise. What is the other premise you need, to apply MT?
+```
+
+:::solution
+![Solution to 18](https://reggienet.illinoisstate.edu/access/content/user/desanso/public/vid/wp_CQS_MT.mp4)
+:::
+
+:::
+
+## Conditionals: Why Bother?
+
+Conditionals express hypotheticals.
+Suppose I say,
+
+:::example
+-   If you are made of wood, then you will float.
+:::
+
+I'm not saying that you *are* made of wood.
+I'm just saying that, *if* you are made of wood, 
+ *then* you will float. 
+So when I make this conditional or hypothetical statement,
+ I'm inviting you to consider the possibility that 
+ you are made of wood, 
+ and asserting that,
+ if that possibility actually obtains,
+ then you will float.
+
+But what's the point of hypotheticals? Why waste our time thinking about
+hypothetical possibilities? Shouldn't we just focus on reality?
+
+> | Howard Cosell: "If Los Angeles wins, it's a big one, but San Francisco is
+>   still very much in it."
+> | Don Meredith: "If 'if's and 'but's were candy and nuts, we'd all have a
+>   merry Christmas." (Monday Night Football, December 1970)
+
+::: aside
+For more on the background to this idiom, see this [thread on
+StackExchange](https://english.stackexchange.com/questions/47182/origin-of-the-idiom-if-ifs-and-buts-were-candy-and-nuts){target="_blank"
+rel="noopener noreferrer"}.<!--_-->
+:::
+
+Let's put aside the bit about 'but's and San Francisco, and just focus on the
+part about Los Angeles.
+Cosell asserts a conditional, or hypothetical, claim:
+
+::: example
+| If Los Angeles wins then it's a big win.
+:::
+
+Meredith belittles the claim, 
+ and suggests that hypotheticals are not real, and so a distraction.
+We should attend to what *is* the case,
+ not what *will be* the case *if* something else *is* the case.
+
+There is a grain of truth to what Meredith says. Taken *by itself*, a
+conditional doesn't tell us much. But Meredith is wrong: conditionals *do*
+have teeth, and they do tell us important things about reality. It's just
+that, to engage those teeth, we need to pair a conditional with its
+antecedent, or the negation of its consequent. In other words, the teeth of a
+conditional can only get there grip on reality *via* Modus Ponens and Modus
+Tollens.
+
+Suppose Cosell is right: 'if LA wins, it's a big win for them.' Nothing
+follows from that conditional by itself. But now suppose LA wins. It follows
+(assuming Cosell was right), that LA has a big win.
+
+Suppose you are talking with a friend, and they say:
+
+::: example
+-   If he's cheating on you, you should dump him.
+:::
+
+Your inner Don Meredith belittles what they've said.
+ *Stop bothering me with meaningless hypothetical 'ifs'!*,
+ you say to yourself.
+But your partner accidentally sends you a text meant the other man he's been
+seeing. So now you know that he *is* cheating on you. Do you dump him or not?
+That depends. The following argument is valid:
+
+::: standardform
+-   If he is cheating on you, you should dump him.
+-   He is cheating on you.
+-   You should dump him.
+:::
+
+So, if you hesitate to dump him, it must be that you are unsure of the *truth*
+of one of the premises. But you know that the second premise is true. So you
+must be doubting the truth of the first premise. So what you should with your
+relationship hinges on the truth or falsity of that conditional.
+
+One more example. Suppose some new disease is tearing through our community,
+and the current CDC guidelines say,
+
+:::example
+-   You should get tested only if you have symptoms.
+:::
+
+By itself, this rule gives you no guidance at all.
+But combine this rule with the fact that you have no symptoms, and the rule
+tells you not to get tested:
+
+::: standardform
+-   You should get testing only if you have symptoms.
+-   You don't have symptoms.
+-   You should not get tested.
+:::
+
+A conditional is a *bridge* between two pieces of information.
+There are two valid ways to "cross" that bridge: Modus Ponens---the way of
+affirming---and Modus Tollens---the way of denying.
+
+Suppose I know that whenever you are happy, 
+ you start clapping your hands:
+
+::: example
+-   If you are happy, then you clap your hands.
+:::
+
+This bit of conditional information can be used in two ways:
+ if I know that you are happy,
+ I can use it to infer that you are clapping your hands;
+ if I know that you are not clapping your hands,
+ I can use it to infer that you are not happy.
+That is, I can either apply Modus Ponens:
+
+::: {.standardform}
+-  If you are happy, you clap your hands.
+-  You are happy.
+-  You clap your hands.
+:::
+
+Or I can apply Modus Tollens:
+
+::: {.standardform}
+-  If you are happy, you clap your hands.
+-  You are not clapping your hands.
+-  You are not happy.
+:::
+
+Again, pay attention both to the difference in affirmation versus negation,
+and the difference in *direction*:
+ when I use MP, I reason *in the direction* of the arrow;
+ when I use MT, I reason *against the direction* of the arrow.
+
+One last example:
+
+::: example
+-   If God exists, there is no pointless suffering in the world.
+:::
+
+Given this premise, 
+ a person of faith might infer, by Modus Ponens,
+ that suffering that seems pointless must have some hidden purpose:
+
+::: example
+-   If God exists, there is no pointless suffering in the world.
+-   God exists.
+-   There is no pointless suffering in the world.
+:::
+
+Alternatively, someone might instead infer, by Modus Tollens, that God does
+not exist:
+
+::: example
+-   If God exists, there is no pointless suffering in the world.
+-   There is pointless suffering in the world.
+-   God does not exist.
+:::
+
+Both arguments use the same bridge, the same conditional premise.
+But they cross the bridge in opposite directions.
+Hence the saying,
+
+> "One person's *Modus Ponens* is another person's *Modus Tollens*."
+
+## Nerd Alert
+
+Want to be an uber logic nerd? Here are two versions 'Modus Tollens', a song
+about "the sexiest inference rule around":
+
+![Modus Tollens (sultry)](https://reggienet.illinoisstate.edu/access/content/user/desanso/public/ModusTollens.m4a)
+
+![Modus Tollens (indie lo-fi)](https://reggienet.illinoisstate.edu/access/content/user/desanso/public/modustollens_orig.m4a)
+
+(Song by [The Monads](https://the21stcenturymonads.net/){target="_blank"
+rel="noopener noreferrer"}. <!--_-->
+Sultry version performed by [Carrie Jenkins](https://www.carriejenkins.net/){target="_blank"
+rel="noopener noreferrer"}, <!--_-->
+ Canada Research Chair in Philosophy at the University of British Columbia.
+Lo-fi version performed by [Kris McDaniel](http://www.krismcdaniel.com/){target="_blank"
+rel="noopener noreferrer"}, Professor of Philosophy at the University of Notre
+Dame.) <!--_-->
+
+## Modus Tollens and the Placement of the Negation
+
+:::stickywrapper
+:::{.aside .sticky .flex}
+:::ruledisplay
+**Modus Tollens**
+
+::: {.standardform .liveshapes}
+-  [ ]{.P} → [ ]{.Q}
+-  ¬[ ]{.Q}
+-  ¬[ ]{.P}
+:::
+:::
+:::
+
+There is something about MT that is easy to miss.
+To apply MT,
+ one premise must be a conditional,
+ and the other premise must be the *negation of the consequent* of that
+ conditional.
+
+So this is an instance of MT:
+
+:::standardform
+-   P → Q
+-   ¬Q
+-   ¬P
+:::
+
+But this is *not* an instance of MT:
+
+:::{.standardform .xed}
+-   P → ¬Q
+-   Q
+-   ¬P
+:::
+
+Do you see the difference?
+It's about where the negation is.
+
+```{.QualitativeProblem .ShortAnswer give-credit="onSubmission" points=10}
+19 Describe the difference between the two examples, and explain why the first is an instance of MT, but the second is not.
+```
+
+:::{.reaction .correct ex=19}
+
+If you are having trouble seeing this, try obtaining the second example by
+typing sentences into the boxes and circles in the pattern:
+
+::: {.standardform .liveshapes}
+-  [ ]{.P} → [ ]{.Q}
+-  ¬[ ]{.Q}
+-  ¬[ ]{.P}
+:::
+
+If you put a 'P' into the boxes and a 'Q' into the circle, you get the first
+example. Try it yourself. 
+
+But it is impossible to fill in the circles in a way that will make the second
+premise 'Q'. That negation in front of the circle on the second premise is a
+fixed part of the pattern, and cannot be edited.
+:::
+
+Again, this is not an instance of MT:
+
+:::{.standardform .xed}
+-   P → ¬Q
+-   Q
+-   ¬P
+:::
+
+But this is:
+
+:::{.standardform} 
+-   P → ¬Q
+-   ¬¬Q
+-   ¬P
+:::
+
+Do you see the difference? Again, it is about where the negations are.
+
+```{.QualitativeProblem .ShortAnswer give-credit="onSubmission" points=10}
+20 Describe the difference between the two examples, and explain why the first is not an instance of MT, but the second is.
+```
+
+:::{.reaction .correct ex=20}
+Again, if you are having trouble seeing the difference and explaining it, try
+typing sentences into the boxes and circles of the pattern, and think about
+why you cannot generate the first example, but you can generate the second:
+
+::: {.standardform .liveshapes}
+-  [ ]{.P} → [ ]{.Q}
+-  ¬[ ]{.Q}
+-  ¬[ ]{.P}
+:::
+
+As we saw above, there is no way to make the second premise be just plain 'Q',
+because that negation in front of the circle is a fixed part of the pattern.
+But you can make the second premise be '¬¬Q', by typing '¬Q' into the circle.
+:::
+
+```{.QualitativeProblem .MultipleChoice points=10}
+21 <div class="standardform"> <ul> <li>P → ¬Q</li> <li>Q</li> <li>¬P</li> </ul> </div>
+| This is an instance of MP
+| This is an instance of MT
+| *This is not an instance of either MP or MT
+22 <div class="standardform"> <ul> <li>¬P → Q</li> <li>¬Q</li> <li>P</li> </ul> </div>
+| This is an instance of MP
+| This is an instance of MT
+| *This is not an instance of either MP or MT
+23 <div class="standardform"> <ul> <li>¬P → ¬Q</li> <li>¬Q</li> <li>¬P</li> </ul> </div>
+| This is an instance of MP
+| This is an instance of MT
+| *This is not an instance of either MP or MT
+24 <div class="standardform"> <ul> <li>¬P → ¬Q</li> <li>¬P</li> <li>¬Q</li> </ul> </div>
+| *This is an instance of MP
+| This is an instance of MT
+| This is not an instance of either MP or MT
+```
+
+:::{.reaction .correct ex=24}
+Sometimes, students try to distinguish MP and MT by thinking of MT as "the one
+that involves negations". 
+But 24 is an instance of MP, even though it involves negations:
+
+::: {.standardform .liveshapes}
+-   [¬P]{.P} → [¬Q]{.Q}
+-   [¬P]{.P}
+-   [¬Q]{.Q}
+:::
+
+Notice, however, that all the negations that are involved are *inside* the
+boxes and circles. Negations inside the boxes and circles are not part of the
+pattern. They are just along for the ride. (Compare that to the pattern that
+defines MT: in that pattern, two of the negations are *outside* the boxes and
+circles: those negations are a part of the pattern. They are not just along
+for the ride.
+
+Here is an example of this in English, to help make the point less abstractly:
+
+::: {.standardform .liveshapes}
+-   If [you are not a witch]{.A} then [you won't float.]{.B}
+-   [You are not a witch]{.A}
+-   [You won't float]{.B}
+:::
+
+This is MP. The argument works by affirming the antecedent, and then inferring
+the affirmation of the consequent. There are negations involved, but they are
+inside the antecedent and consequent, and play no essential role in the *form*
+of the inference.
+:::
+
+```{.QualitativeProblem .MultipleChoice points=10}
+25 <div class="standardform"> <ul> <li>¬P → Q</li> <li>¬Q</li> <li>¬¬P</li> </ul> </div>
+| This is an instance of MP
+| *This is an instance of MT
+| This is not an instance of either MP or MT
+```
+
+:::{.reaction .correct ex=25}
+If this one tripped you up, again, you need to focus on the *pattern*. Here is
+the argument, with boxes and circles, showing how it fits the pattern of Modus
+Tollens:
+
+::: {.standardform .liveshapes}
+-   [¬P]{.P} → [Q]{.Q}
+-   ¬[Q]{.Q}
+-   ¬[¬P]{.P}
+:::
+
+It happens to be that the antecedent is itself a negation, '¬P'. Modus Tollens
+doesn't see that. It just knows that, since the other premise is the negation
+of the consequent, the conclusion will be the negation of the antecedent.
+Note that the *negation* of '¬P' is '¬¬P'. More generally, the *negation* of a
+sentence, '[]{.P}', is that sentence, with an extra negation added in front,
+'¬[].{P}'.
+:::
+
+:::solution
+Finding all of this confusing? Here is another mini-lecture, working through
+lots of examples, talking about how to recognize instances of rules.
+
+::: youtube
+<https://youtu.be/Ah8wlFjLQ88>
+:::
+:::
+:::
+
+## Using the Rules
+
+We have four rules.
+Let's use them!
+
+But first, let me introduce another more compact way of representing arguments.
+So far, we have been representing arguments in standard form, like this:
+
+:::standardform
+-   P → Q
+-   P
+-   Q
+:::
+
+But it is often convenient to be able to represent an argument all on one
+line, listing the premises and conclusion horizontally, rather than
+vertically, e.g.,
+
+:::example
+-   P → Q, P ∴ Q
+:::
+
+Notice that we separate the premises with commas, and mark the conclusion
+using '∴'.
+It is tempting to misread this, and think that it is a list with two elements:
+'P → Q', and 'P ∴ Q'.
+But it is a list with three elements:
+ 'P → Q', 'P', and 'Q'.
+The '∴' symbol is not a connective,
+ joining 'P' and 'Q' into a new sentence.
+It is a conclusion marker.
+One way to make that clearer is to enclose the premises in braces, presenting
+them as a set:
+
+:::example
+-   $\{$P → Q, P$\}$ ∴ Q
+:::
+
+When we write arguments in this horizontal notation,
+ we will often replace the three-dots symbol, '∴',
+ with a "turnstyle": '⊢'.
+This is just another way of marking a conclusion,
+ and can also be read as 'therefore'.
+
+:::example
+-   P → Q, P ⊢ Q
+:::
+
+Again, it is tempting to read this as a list with two items, 'P → Q' and 'P ⊢
+Q'. But it is a list with three items, one set off as the conclusion:
+
+:::example
+-   $\{$P → Q, P$\}$ ⊢ Q
+:::
+
+With that in mind, let's start using our rules.
+
+``` {.ProofChecker .Prop options="guides fonts indent tabindent resize" init="now" submission="none"}
+Ex P->Q, P :|-: Q
+|1.P->Q :PR
+|2.P    :PR
+|3.Q    :MP 1,2
+```
+
+At the top, you see our argument, presented in the new horizontal notation.
+Below that are three lines. On line (1), I have written the first premise, 'P
+→ Q'. And I've indicated that this is a premise, by writing ':PR' next to it.
+On line (2), I've done the same for the second premise, 'P'.
+On line (3), I've applied the rule MP to lines (1) and (2), inferring 'Q'. I
+indicate this by writing 'Q', followed by ':MP 1,2'.
+
+Try it for yourself. Pay attention to the colons. If you are confused, watch
+the video for further explanation and demonstration.
+
+``` {.ProofChecker .Prop options="guides fonts indent tabindent resize" points=10}
+26 Q->R, Q :|-: R
+```
+
+:::solution
+![Solution to 26](https://reggienet.illinoisstate.edu/access/content/user/desanso/public/vid/rule_CQR_Q.mp4)
+:::
+
+``` {.ProofChecker .Prop options="guides fonts indent tabindent resize" points=10}
+27 Q :|-: ~~Q 
+```
+
+:::solution
+![Solution to 27](https://reggienet.illinoisstate.edu/access/content/user/desanso/public/vid/rule_Q_NNQ.mp4)
+:::
+
+``` {.ProofChecker .Prop options="guides fonts indent tabindent resize" points=10}
+28 P->Q, ~Q :|-: ~P 
+```
+
+:::solution
+![Solution to 28](https://reggienet.illinoisstate.edu/access/content/user/desanso/public/vid/rule_CPQ_NQ_NP.mp4)
+:::
+
+``` {.ProofChecker .Prop options="guides fonts indent tabindent resize" points=10}
+29 (P/\Q)->~(R->S), ~~(R->S) :|-: ~(P/\Q)
+```
+
+:::solution
+![Solution to 29](https://reggienet.illinoisstate.edu/access/content/user/desanso/public/vid/rule_ugly_MT.mp4)
+:::
+
+## Direct Derivations
+
+Again, here is a short video lecture, to help orient you:
+
+:::solution
+::: youtube
+<https://youtu.be/Psbwdq7TTGg>
+:::
+:::
+
+[A [direct derivation (DD)]{.vocab} is a derivation that establishes that a
+conclusion follows from the premises by deriving the conclusion directly from
+the premises.]{.def} We call this a "direct" derivation in contrast to other
+more roundabout methods of proof, which will be introduced in the next chapter. 
+
+So the idea is to start from the premises, and proceed step by
+step until we reach the conclusion. Each "step" must be an instance of one of
+our inference rules.
+
+For example, suppose we want to derive the conclusion of this argument from
+its premises:
+
+::: {.standardform}
+-   If Neo takes the red pill, Neo stays in Wonderland.
+-   If Neo stays in Wonderland, Morpheus shows him how deep the rabbit hole
+    goes.
+-   Neo takes the red pill.
+-   Morpheus shows Neo how deep the rabbit hole goes.
+:::
+
+First, let's translate the argument into SL.
+
+::: stickywrapper
+::: soasticky
+| P: Neo takes the red pill.
+| Q: Neo stays in Wonderland.
+| R: Morpheus shows Neo how deep the rabbit hole goes.
+:::
+
+::: standardform
+-  P → Q
+-  Q → R
+-  P
+-  R
+:::
+
+We begin by stating our conclusion, and indicating that it is our goal: it is
+what we are trying to prove or *show*:
+
+::: proof
+1.  [Morpheus shows Neo how deep the rabbit hole goes.]{.show}
+:::
+
+Or, in SL:
+
+::: proof
+1.  [R]{.show}
+:::
+
+Next, we "bring down" each of our premises. That is, we write each premise on
+a line, and indicate that it is a premise with ':PR':
+
+::: proof
+1.  [Morpheus shows Neo how deep the rabbit hole goes.]{.show}
+2.  [If Neo takes the red pill, Neo stays in Wonderland. [PR]{.just}]{.indent}
+3.  [If Neo stays in Wonderland, Morpheus shows him how deep the rabbit hole
+    goes. [PR]{.just}]{.indent}
+4.  [Neo takes the red pill [PR]{.just}]{.indent}
+:::
+
+And, following along in SL:
+
+::: proof
+1.  [R]{.show}
+2.  [P → Q [PR]{.just}]{.indent}
+3.  [Q → R [PR]{.just}]{.indent}
+4.  [P [PR]{.just}]{.indent}
+:::
+
+Note the familiar ':PR', marking each as a premise. Note also the way we are
+indenting each line below the first "show" line.
+
+Notice that, from 2 and 4, we can infer Q: 'Neo stays in Wonderland', by MP. So
+let's do that:
+
+::: proof
+1.  [Morpheus shows Neo how deep the rabbit hole goes.]{.show}
+2.  [If Neo takes the red pill, Neo stays in Wonderland. [PR]{.just}]{.indent}
+3.  [If Neo stays in Wonderland, Morpheus shows him how deep the rabbit hole
+    goes. [PR]{.just}]{.indent}
+4.  [Neo takes the red pill [PR]{.just}]{.indent}
+5.  [Neo stays in Wonderland [MP 2,4]{.just}]{.indent}
+:::
+
+::: proof
+1.  [R]{.show}
+2.  [P → Q [PR]{.just}]{.indent}
+3.  [Q → R [PR]{.just}]{.indent}
+4.  [P [PR]{.just}]{.indent}
+5.  [Q [MP 2,4]{.just}]{.indent}
+:::
+
+We have now established, on line (5), that Q: 'Neo stays in Wonderland' follows from our premises. But we
+aren't done. Our goal is to establish that R: 'Morpheus shows Neo how deep the
+rabbit hole goes' follows from our premises.
+
+Notice that, from 3 and 5, we can reach our goal, again by applying MP:
+
+::: proof
+1.  [Morpheus shows Neo how deep the rabbit hole goes.]{.show}
+2.  [If Neo takes the red pill, Neo stays in Wonderland. [PR]{.just}]{.indent}
+3.  [If Neo stays in Wonderland, Morpheus shows him how deep the rabbit hole
+    goes. [PR]{.just}]{.indent}
+4.  [Neo takes the red pill [PR]{.just}]{.indent}
+5.  [Neo stays in Wonderland [MP 2,4]{.just}]{.indent}
+6.  [Morpheus shows Neo how deep the rabbit hole goes [MP 3,5]{.just}]{.indent}
+:::
+
+::: proof
+1.  [R]{.show}
+2.  [P → Q [PR]{.just}]{.indent}
+3.  [Q → R [PR]{.just}]{.indent}
+4.  [P [PR]{.just}]{.indent}
+5.  [Q [MP 2,4]{.just}]{.indent}
+6.  [R [MP 3,5]{.just}]{.indent}
+:::
+
+Success. We have reached our goal. We have reasoned, in two steps, from our premises to our conclusion.
+Both steps are instances of MP, and MP is valid. This shows that our
+argument is valid, and the conclusion follows from the premises.
+
+One last step: a 'QED' line, announcing our success.
+'QED' is short for 'quid erat demonstratum', which is Latin for 'it has been demonstrated'.
+It is something mathematicians like to say when they have completed a proof.
+
+But we are going to be a bit more specific.
+To celebrate our completion, we add a line that doesn't just say 'QED', but
+explains *what kind* of derivation this is, and *what line* shows that
+we've succeeded. This is a Direct Derivation, and we reached our goal on line
+6, so we write, on the last line, ':DD 6':
+
+::: proof
+1.  [Morpheus shows Neo how deep the rabbit hole goes.]{.show}
+2.  [If Neo takes the red pill, Neo stays in Wonderland. [PR]{.just}]{.indent}
+3.  [If Neo stays in Wonderland, Morpheus shows him how deep the rabbit hole
+    goes. [PR]{.just}]{.indent}
+4.  [Neo takes the red pill [PR]{.just}]{.indent}
+5.  [Neo stays in Wonderland [MP 2,4]{.just}]{.indent}
+6.  [Morpheus shows Neo how deep the rabbit hole goes [MP 3,5]{.just}]{.indent}
+7.  [:DD 6]{.qed}
+:::
+
+::: proof
+1.  [R]{.show}
+2.  [P → Q [PR]{.just}]{.indent}
+3.  [Q → R [PR]{.just}]{.indent}
+4.  [P [PR]{.just}]{.indent}
+5.  [Q [MP 2,4]{.just}]{.indent}
+6.  [R [MP 3,5]{.just}]{.indent}
+7.  [:DD 6]{.qed}
+:::
+
+Here is what this same derivation looks like when entered into Carnap:
+
+``` {.ProofChecker .Prop options="guides fonts indent tabindent resize" init="now" submission="none"}
+Example P->Q, Q->R, P :|-: R
+|1.Show R
+|2.  P->Q  :PR
+|3.  Q->R  :PR
+|4.  P     :PR
+|5.  Q     :MP 2,4
+|6.  R     :MP 3,5
+|7.:DD 6
+```
+
+A few things to notice:
+
+-   On each line, except for lines (1) and (7), we have both a sentence and a
+    *justification*. The justification comes after the sentence, and is prefixed
+    by a colon, ':'.
+
+Show lines don't need justification: you can try to show whatever you want.
+And QED lines don't contain any sentence: the sentence that is proven on a QED
+line is the sentence on the corresponding show line. So, in this case, line
+(7) establishes the truth of line (1).
+
+Colons are mandatory. Carnap uses them to parse each line, and separate the
+sentence from the justification. Some common mistakes:
+
+-    The colon goes before the justification. It does not go between the rule
+     and the cited line numbers: ':MP 2,4', not: '[MP: 2,4]{.xed}'.
+-    Line numbers go *after* the rule, not before: ':MP 2,4', not: '[:2,4
+     MP]{.xed}'
+-    Do not put any space after the colon and before the justification: ':MP
+     2,4', not: '[: MP 2,4]{.xed}'.
+-    Do not put any space before the 'Show' on line (1). 
+
+Our system is a version of an older system, but has been simplified for the
+sake of typing into a computer.
+In the older system, there were no QED lines. 
+When you completed a derivation, 
+ you drew a *box* around all the lines indented below
+ the show line, and you crossed out the word 'show':
+
+::: {.proof .km}
+1.  [R]{.show}
+2.  [P → Q [PR]{.just}]{.indent}
+3.  [Q → R [PR]{.just}]{.indent}
+4.  [P [PR]{.just}]{.indent}
+5.  [Q [MP 2,4]{.just}]{.indent}
+6.  [R [MP 3,5]{.just}]{.indent}
+:::
+
+Crossing out the word "show" was meant to visually emphasize the transformation of line
+(1) that occurs when the derivation is complete:
+ it goes from being a *goal* to an *accomplishment*,
+ an *intention* to a justified *assertion*.
+
+## Some Sample Direct Derivations
+
+:::stickywrapper
+:::{.aside .sticky .flex }
+:::ruledisplay
+**DNI and DNE**
+
+:::{.displayed .liveshapes}
+-   [ ]{.P} ⊢ ¬¬[ ]{.P} 
+-  ¬¬[ ]{.P} ⊢ [ ]{.P}
+:::
+:::
+:::ruledisplay
+**MP**
+
+:::{.displayed .liveshapes}
+-   [ ]{.P}→[ ]{.Q}, [ ]{.P} ⊢ [ ]{.Q}
+:::
+:::
+:::ruledisplay
+**MT**
+
+:::{.displayed .liveshapes}
+-  [ ]{.P}→[ ]{.Q}, ¬[ ]{.Q} ⊢ ¬[ ]{.P}
+:::
+:::
+:::
+
+Try to complete the following derivation. Note that immediately following the
+derivation is a *detailed* walk-through. It is fine to complete the derivation by
+following the walk-through!
+
+``` {.ProofChecker .Prop options="guides fonts indent tabindent resize" points=10}
+30 P->Q, ~Q :|-: ~P
+```
+
+First, enter your show line.
+Put your cursor beside the '1.', and type: `Show ~P`, and type "enter" or
+"return":
+
+``` {.der}
+Show ~P
+```
+
+Notice that Carnap automatically numbers the lines for you.
+Also, case matters: make sure you typed in a capital `P`.
+
+**Don't enter a space before the word "Show"** on line 1.
+Carnap wants that first line to begin with the letter 'S',
+ and will get confused if it begins with a space.
+
+Indent your second line.
+Every line *under a show line* needs to be indented.
+My habit is to use two spaces to indent.
+You can use one space,
+ or three spaces,
+ or a tab.
+Whatever you do,
+ be consistent.
+If you sometimes use one space, sometimes two, and sometimes a tab,
+ Carnap is going to get confused, and choke.
+
+Now type in the first premise, and its justification: `P->Q :PR`, and type
+"enter":
+
+``` der
+1.Show ~P
+2.  P->Q :PR
+3.  
+```
+
+Notice that Carnap adds the vertical bar for you.
+That is not something you type.
+It is a visual indicator,
+ that helps you see that line (2) is part of a proof,
+ aimed at showing line (1).
+
+Now type in the second premise, and its justificaiton: `~Q :PR`.
+Did you remember to indent?
+Are your indentations consistent?
+A common mistake is to "out-dent" negations,
+ to make the lines look better visually. For example:
+
+```xed 
+1.Show ~P
+2.  P->Q  :PR
+3. ~Q     :PR
+```
+
+See how the 'Q' is aligned vertically under the 'P', 
+ in a way that is pleasing to the eye?
+That may be pleasing to the eye, 
+ but it is confusing to Carnap!
+Carnap wants consistent indentation,
+ not visually pleasing indentation:
+
+```xed 
+1.Show ~P
+2.  P->Q  :PR
+3.  ~Q    :PR
+```
+
+See how the first character on line (2), 'P',
+ is vertically aligned with the first character on line (3), '~'?
+That is what Carnap wants.
+
+Our next step is to apply MT:
+
+``` der
+1.Show ~P
+2.  P->Q :PR
+3.  ~Q   :PR
+4.  ~P   :MT 2,3
+```
+
+Remember, when you apply a rule,
+ you need a colon, ':', followed by the rule name, `MT`,
+ followed by the line numbers that you are applying the rule to: '2,3'.
+Do not separate the colon and the rule name with a space: `: MT`{.xed}.
+Do separate the rule name and the line numbers with a space: `:MT 2,3`.
+The line numbers can be separated by a comma, as here, or with a space, as you
+wish.
+Do not write: `:MT 23`{.xed}. Carnap will think you are trying to apply MT to
+line 23, which is confusing, because line 23 doesn't exist.
+
+The sentence on line (4) is the sentence on your show line.
+So you have successfully completed this derivation.
+The last step is to enter your QED line: `:DD 4`.
+Note that your QED line is *not indented*.
+The colon, ':', needs to be vertically aligned with the 'S' in your show line.
+
+``` der
+1.Show ~P
+2.  P->Q :PR
+3.  ~Q   :PR
+4.  ~P   :MT 2,3
+5.:DD 4
+```
+:::solution
+![Solution to 30](https://reggienet.illinoisstate.edu/access/content/user/desanso/public/vid/der_CPQ_NQ_NP.mp4)
+:::
+
+``` {.ProofChecker .Prop options="guides fonts indent tabindent resize" points=10} 
+31 P->Q, Q->R, ~R :|-: ~P
+```
+
+:::solution
+![Solution to 31](https://reggienet.illinoisstate.edu/access/content/user/desanso/public/vid/der_CPQ_CQR_NR_NP.mp4)
+:::
+
+So far, we haven't used DN for anything. Here is an example that requires DN:
+
+``` {.ProofChecker .Prop options="guides fonts indent tabindent resize" points=10} 
+32 ~P->~Q, Q :|-: P
+```
+
+And, again, here is a video demonstrating the solution:
+
+:::solution
+![Solution to 32](https://reggienet.illinoisstate.edu/access/content/user/desanso/public/vid/der_CNPNQ_Q_P.mp4)
+:::
+
+:::
+
+## Summary
+
+This chapter introduces four new rules of inference: DNE, DNI, MP, and
+MT. Here they are, again, all together, in standard form, for easy reference:
+
+:::flex
+:::ruledisplay
+**DNI**
+
+::: {.standardform .liveshapes}
+-   [ ]{.P}
+-   ¬¬[ ]{.P} 
+:::
+:::
+
+:::ruledisplay
+**DNE**
+
+::: {.standardform .liveshapes}
+-  ¬¬[ ]{.P}
+-  [ ]{.P}
+:::
+:::
+
+:::ruledisplay
+**MP**
+
+::: {.standardform .liveshapes}
+-  [ ]{.P}→[ ]{.Q}
+-  [ ]{.P}
+-  [ ]{.Q}
+:::
+:::
+
+:::ruledisplay
+**MT**
+
+::: {.standardform .liveshapes}
+-  [ ]{.P}→[ ]{.Q}
+-  ¬[ ]{.Q}
+-  ¬[ ]{.P}
+:::
+:::
+:::
+
+The chapter also introduced the simplest form of derivation: *Direct* Derivation
+(DD). The next chapter will introduce two additional forms of derivation, and
+it will introduce the idea of a *sub*-derivation—a derivation inside of a
+derivation. 
+
+## More Exercises
+
+You need to **memorize** our four rules, DNE, DNI, MP, and MT. We are going to be
+**using** these rules, and you need to have them ready to hand.
+
+Memorizing things takes work. It is easier to just write them down, and look
+them up as needed. So that's what a lot of students do. **BUT THIS DOESN'T
+WORK**. Until you have the rules **in your head**, you cannot **think
+through** problems that use them. So do the work needed to memorize them.
+
+What is that work? Flashcards are the simplest and best tools for brute-force
+memorization. Make those flashcards now, and start using them. You can do it
+old-school style and get out some index cards. Or you can try a technological
+solution. [Anki](https://apps.ankiweb.net/) is a good free option (but their
+iOS app is oddly expensive). Either way, flashcards won't do you any good
+unless you use them.
+
+:::stickywrapper
+:::{.aside .sticky .flex .hideable}
+
+:::ruledisplay
+**DNI**
+
+:::{.displayed} 
+-   [ ]{.P} ⊢ ¬¬[ ]{.P} 
+:::
+:::
+:::ruledisplay
+**DNE**
+
+:::{.displayed} 
+-  ¬¬[ ]{.P} ⊢ [ ]{.P}
+:::
+:::
+
+:::ruledisplay
+**MP**
+
+:::displayed
+-   [ ]{.P}→[ ]{.Q}, [ ]{.P} ⊢ [ ]{.Q}
+:::
+:::
+:::ruledisplay
+**MT**
+
+:::displayed
+-  [ ]{.P}→[ ]{.Q}, ¬[ ]{.Q} ⊢ ¬[ ]{.P}
+:::
+:::
+
+(Best to hide these rules! Click to hide, and click to reveal only
+if needed.)
+
+:::showwhenhidden
+Click here to reveal the rules. 
+
+Use as needed. But your goal is to get the rules *in your head*. 
+:::
+:::
+
+Remember, derivations are puzzles. Learning how to solve involves first
+learning the rules. But even when you know the rules, you can still get stuck.
+The process is not a mechanical. There is no set order in which you are meant
+to do things every time. Instead, you have been given some inference rules,
+and your task is to *discover* a path from the premises to the conclusion,
+using those inference rules. So take your time, explore, and don't panic!
+
+If you get stuck,
+ don't bang your head against the same problem for hours.
+Don't start just trying random things, 
+ hoping something will work.
+Those are both recipes for frustration,
+ confusion,
+ and exhaustion.
+
+If you get stuck,
+ go back to the rules.
+There are only four.
+There are no secret rules or methods that have not been revealed.
+
+And if you are still stuck,
+ stop, step away from your computer, and give yourself a break.
+A clear mind and fresh eyes will often unlock the puzzle.
+
+And if you are *still* stuck,
+no worries!
+Reach out to me, either in class or over GroupMe.
+Or reach out to your classmates, either in class or on the GroupMe.
+Getting stuck, and then being shown the way, is one of the most powerful
+ways to learn how to solve a puzzle.
+
+``` {.Translate .Exact points="10"}
+33 R: Suppose you have R → S as a premise. What other premise do you need to apply MP?
+```
+
+``` {.Translate .Exact points="10"}
+34 S: Given your answer to the previous question, what would then follow, by MP?
+```
+
+
+``` {.ProofChecker .Prop options="guides fonts indent tabindent resize" points=10}
+35 P->Q, Q->R, P :|-: R 
+```
+
+
+``` {.Translate .Exact points="10"}
+36 ~S: Suppose you have R → S as a premise. What other premise do you need to apply MT?
+```
+
+``` {.Translate .Exact points="10"}
+37 ~R: Given your answer to the previous question, what would then follow, by MT?
+```
+
+
+``` {.ProofChecker .Prop options="guides fonts indent tabindent resize" points=10}
+38 P->Q, Q->R, ~R :|-: ~P 
+```
+
+``` {.ProofChecker .Prop options="guides fonts indent tabindent resize" points=10}
+39 P->Q, ~~P :|-: Q
+```
+
+``` {.Translate .Exact points="10"}
+40 ~R: Suppose you have ¬R → ¬S as a premise. What other premise do you need to apply MP?
+```
+
+``` {.Translate .Exact points="10"}
+41 ~S: Given your answer to the previous question, what would then follow, by MP?
+```
+
+
+```{.ProofChecker .Prop options="guides fonts indent tabindent resize" points=10}
+42 P->Q, P :|-: ~~Q
+```
+
+``` {.Translate .Exact points="10"}
+43 ~~S: Suppose you have ¬R → ¬S as a premise. What other premise do you need to apply MT?
+```
+
+``` {.Translate .Exact points="10"}
+44 ~~R: Given your answer to the previous question, what would then follow, by MT?
+```
+
+```{.ProofChecker .Prop options="guides fonts indent tabindent resize" points=10}
+45 ~P->Q, ~Q :|-: P
+```
+
+```{.ProofChecker .Prop options="guides fonts indent tabindent resize" points=10}
+46 ~P->~Q, Q :|-: P
+```
+
+``` {.Translate .Exact points="10"}
+47 ~~~P: What follows from ¬P, by DNI?
+```
+
+``` {.Translate .Exact points="10"}
+48 ~(S/\P): Suppose you have R → (S ∧ P) as a premise. What other premise do you need to apply MT?
+```
+
+
+``` {.Translate .Exact points="10"}
+49 ~R: Given your answer to the previous question, what would then follow, by MT?
+```
+
+```{.ProofChecker .Prop options="guides fonts indent tabindent resize" points=10}
+50 P->Q, ~P->R, ~Q :|-: R
+```
+
+``` {.Translate .Exact points="10"}
+51 R: Suppose you have R → (S ∧ P) as a premise. What other premise do you need to apply MP?
+```
+
+``` {.Translate .Exact points="10"}
+52 S/\P: Given your answer to the previous question, what would then follow, by MP?
+```
+
+```{.ProofChecker .Prop options="guides fonts indent tabindent resize" points=10}
+53 P->(P->Q), P :|-: Q
+```
+
+``` {.Translate .Exact points="10"}
+54 P->Q: What follows from ¬¬(P → Q), by DNE?
+```
+
+``` {.Translate .Exact points="10"}
+55 R->S: Suppose you have (R → S) → P as a premise. What other premise do you need to apply MP?
+```
+
+``` {.Translate .Exact points="10"}
+56 P: Given your answer to the previous question, what would then follow, by MP?
+```
+
+``` {.Translate .Exact points="10"}
+57 ~P: Suppose you have (R → S) → P as a premise. What other premise do you need to apply MT?
+```
+
+``` {.Translate .Exact points="10"}
+58 ~(R->S): Given your answer to the previous question, what would then follow, by MT?
+```
+
+```{.ProofChecker .Prop options="guides fonts indent tabindent resize" points=10}
+59 (R->S)->R, R->S :|-: S
+```
+
+:::
+
+## Supplement
+
+You have completed the required reading. But you may need more practice! For more practice, see the [Unit 04 Supplement](04S)
+
+
+## Mastery Check
+
+The mastery check for this unit is online, and consists of three derivations.
+
+
+
+
+
+<!-- vim: set ft=carnap :-->

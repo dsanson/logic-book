@@ -1,0 +1,153 @@
+---
+base-css:
+-   https://carnap.io/shared/dsanson@gmail.com/sanson-book.css
+-   https://cdn.plyr.io/3.6.12/plyr.css
+js: 
+-   https://cdn.plyr.io/3.6.12/plyr.polyfilled.js
+-   https://carnap.io/shared/dsanson@gmail.com/logic-book.js
+---
+
+# Direct Derivations: Exercises
+
+:::auto-tally
+:::
+
+## Learning the Rules
+
+You need to **memorize** our four rules, DNE, DNI, MP, and MT. We are going to be
+**using** these rules, and you need to have them ready to hand. Do not plan to
+**look them up** every time you need to use them. 
+
+:::stickywrapper
+:::{.aside .sticky .flex .hideable}
+
+:::ruledisplay
+**DNI**
+
+:::{.displayed} 
+-   [ ]{.P} ⊢ ¬¬[ ]{.P} 
+:::
+:::
+:::ruledisplay
+**DNE**
+
+:::{.displayed} 
+-  ¬¬[ ]{.P} ⊢ [ ]{.P}
+:::
+:::
+
+:::ruledisplay
+**MP**
+
+:::displayed
+-   [ ]{.P}→[ ]{.Q}, [ ]{.P} ⊢ [ ]{.Q}
+:::
+:::
+:::ruledisplay
+**MT**
+
+:::displayed
+-  [ ]{.P}→[ ]{.Q}, ¬[ ]{.Q} ⊢ ¬[ ]{.P}
+:::
+:::
+
+(Best to hide these rules! Click to hide, and click to reveal only
+if needed.)
+
+:::showwhenhidden
+Click here to reveal the rules. 
+
+Use as needed. But your goal is to get the rules *in your head*. 
+:::
+:::
+
+These exercises are probably not enough for memorization. In fact, these
+exercises are best done only **after** you have memorized the rules.
+For most of you, this will require taking **active steps to cram the rules into your head**.
+
+I cannot do this for you. Make flashcards. Quiz yourself. Get your roommate to
+quiz you. Get yourself to the point where, when asked, you can write down each
+rule on demand, and you can also explain it in words. (So, make flashcards
+**both** for the rule patterns **and** for the rules expressed in words.) 
+
+This is similar to learning a foreign language. First, you need to memorize the basic
+verb conjugations. Then you can practice generating them and using them. Soon,
+it becomes second nature. But that first step, of brute force memorization, is
+essential.
+
+## What Follows?
+
+``` {.Translate .Exact points="10"}
+1 R: Suppose you have R → S as a premise. What other premise do you need to apply MP?
+2 S: Given your answer to the previous question, what would then follow, by MP?
+3 ~S: Suppose you have R → S as a premise. What other premise do you need to apply MT?
+4 ~R: Given your answer to the previous question, what would then follow, by MT?
+5 ~R: Suppose you have ¬R → ¬S as a premise. What other premise do you need to apply MP?
+6 ~S: Given your answer to the previous question, what would then follow, by MP?
+7 ~~S: Suppose you have ¬R → ¬S as a premise. What other premise do you need to apply MT?
+8 ~~R: Given your answer to the previous question, what would then follow, by MT?
+9 ~~~P: What follows from ¬P, by DNI?
+10 ~(S/\P): Suppose you have R → (S ∧ P) as a premise. What other premise do you need to apply MT?
+11 ~R: Given your answer to the previous question, what would then follow, by MT?
+12 R: Suppose you have R → (S ∧ P) as a premise. What other premise do you need to apply MP?
+13 S/\P: Given your answer to the previous question, what would then follow, by MP?
+14 P->Q: What follows from ¬¬(P → Q), by DNE?
+15 R->S: Suppose you have (R → S) → P as a premise. What other premise do you need to apply MP?
+16 P: Given your answer to the previous question, what would then follow, by MP?
+17 ~P: Suppose you have (R → S) → P as a premise. What other premise do you need to apply MT?
+18 ~(R->S): Given your answer to the previous question, what would then follow, by MT?
+```
+
+More of these exercises are available in the [supplements](05S_s22).
+
+## Derivations
+
+Derivations are puzzles. Learning how to solve involves first learning the
+rules. But even when you know the rules, you can still get stuck. The process
+is not a mechanical. There is no set order in which you are meant to do things
+every time. Instead, you have been given some inference rules, and your task
+is to *discover* a path from the premises to the conclusion, using those
+inference rules. So take your time, explore, and don't panic!
+
+If you get stuck,
+ don't bang your head against the same problem for hours.
+Don't start just trying random things, 
+ hoping something will work.
+Those are both recipes for frustration,
+ confusion,
+ and exhaustion.
+
+If you get stuck,
+ go back to the rules.
+There are only four.
+There are no secret rules or methods that have not been revealed.
+
+And if you are still stuck,
+ stop, step away from your computer, and give yourself a break.
+A clear mind and fresh eyes will often unlock the puzzle.
+
+And if you are *still* stuck,
+no worries!
+Reach out to me, either in class or over GroupMe.
+Or reach out to your classmates, either in class or on the GroupMe.
+Getting stuck, and then being shown the way, is one of the most powerful
+ways to learn how to solve a puzzle.
+
+``` {.ProofChecker .Prop options="guides fonts indent tabindent resize" points=10}
+19 P->Q, Q->R, P :|-: R 
+20 P->Q, Q->R, ~R :|-: ~P 
+21 P->Q, ~~P :|-: Q
+22 P->Q, P :|-: ~~Q
+23 ~P->Q, ~Q :|-: P
+24 ~P->~Q, Q :|-: P
+25 P->Q, ~P->R, ~Q :|-: R
+26 P->(P->Q), P :|-: Q
+27 (R->S)->R, R->S :|-: S
+```
+
+:::
+
+
+
+
+<!-- vim: set ft=carnap :-->

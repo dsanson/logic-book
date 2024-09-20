@@ -1,0 +1,316 @@
+---
+base-css:
+-   https://carnap.io/shared/dsanson@gmail.com/sanson-book.css
+-   https://cdn.plyr.io/3.6.12/plyr.css
+js: 
+-   https://cdn.plyr.io/3.6.12/plyr.polyfilled.js
+-   https://carnap.io/shared/dsanson@gmail.com/logic-book.js
+---
+
+# Truth Tables for Sentences: Supplementary Exercises
+
+## Reading Truth Tables
+
+It can be hard to read truth tables. At first glance, you just see a sentence
+in SL, and, below it, a bunch of Ts and Fs. So let's quickly review how to
+read a table.
+
+First, to the left of the vertical line, we have one column for each sentence
+letter contained in the sentence we want to analyze. And under each sentence
+letter, we have a column of truth values. These will always be arranged in the
+same combinatorial pattern. In the right-most column, the sentence letter will
+be assigned alternating Ts and Fs. In the second-from-the-right column, it will be two
+Ts, followed by two Fs, followed by two Ts, ... And in the
+third-from-the-right column, four Ts, then four Fs, then four Ts, ... And so
+on, for however many columns are needed. The most important things to
+understand are these:
+
+-   Each row represents a possible assignment of truth values to the sentence
+    letters.
+-   Taken together, these rows represent *all possible* assignments of truth values
+     to the sentence letters.
+
+To the right of the vertical line we have the sentence we want to analyze.
+And under each sentence letter and connective in that sentence, there is a
+column of truth values. What do these mean?
+
+-   The truth value under each sentence letter represents the truth value of that sentence letter.
+-   The truth value under each connective represents the truth value of the part of the sentence for which that connective is the main connective. 
+-   The truth value under the main connective represents the truth value of the whole sentence.
+
+With this in mind, here are some tables for you to practice reading:
+
+```{.TruthTable .Simple options="nocounterexample immutable nocheck display" submission=none}
+  ~(~P/\Q)
+| T FTF T 
+| T FTF F 
+| F TFT T 
+| T TFF F 
+```
+
+```{.QualitativeProblem .MultipleSelection submission=none options=check}
+1 According to this table, the sentence '¬(¬P∧Q)' is true when:
+| *P and Q are both true
+| *P is true and Q is false
+| P is false and Q is true
+| *P is false and Q is false
+```
+
+```{.TruthTable .Simple options="nocounterexample immutable nocheck display" submission=none}
+  ~P->(Q<->P)
+| FTT  T T T 
+| FTF  F F T 
+| TFT  T F F 
+| TFT  F T F 
+```
+
+```{.QualitativeProblem .MultipleSelection submission=none options=check}
+2 According to this table, the whole sentence is false when:
+| P and Q are both true
+| *P is true and Q is false
+| P is false and Q is true
+| P is false and Q is false
+```
+
+```{.TruthTable .Simple options="nocounterexample immutable nocheck display" submission=none}
+  ~Q/\R->~(P\/Q)
+| FTF TT F TT T
+| FTF FT F TT T
+| TFT TF F TT F
+| TFF FT F TT F
+| FTF TT F FT T
+| FTF FT F FT T
+| TFT TT T FF F
+| TFF FT T FF F
+```
+
+```{.QualitativeProblem .MultipleSelection submission=none options=check}
+3 According to this table, '¬(P∨Q)' is true when:
+| P, Q and R are all true
+| *P, Q, and R are all false
+| P is true, Q is false, and R is true
+| *P and Q are false, but R is true
+| This table cannot be used to answer this question
+4 According to this table, the whole sentence is false when:
+| P, Q and R are all true
+| P and Q are true, but R is false
+| *P and R are true, but Q is is false
+| Q and R are true, but P is false
+| This table cannot be used to answer this question
+5 According to this table, 'Q∧R' is true when:
+| Q, P, and R are all true
+| Q is false and P and R are true
+| Q and P are false and R is true
+| Q, P, and R are all false
+| *This table cannot be used to answer this question
+```
+
+# Calculating Truth
+
+Sometimes, calculating an entire truth table can be daunting. Build
+confidence by calculating each row, one at a time, and checking your results
+as you go:
+
+```{.TruthTable .Partial options="strictGivens nocounterexample" submission=none}
+6 P,Q,R: ~(P<->R)\/(Q->P)
+|    T T T  - - - - -  - --
+7 P,Q,R: ~(P<->R)\/(Q->P)
+|    T T F  - - - - -  - --
+8 P,Q,R: ~(P<->R)\/(Q->P)
+|    T F T  - - - - -  - --
+9 P,Q,R: ~(P<->R)\/(Q->P)
+|    T F F  - - - - -  - --
+10 P,Q,R: ~(P<->R)\/(Q->P)
+|    F T T  - - - - -  - --
+11 P,Q,R: ~(P<->R)\/(Q->P)
+|    F T F  - - - - -  - --
+12 P,Q,R: ~(P<->R)\/(Q->P)
+|    F F T  - - - - -  - --
+13 P,Q,R: ~(P<->R)\/(Q->P)
+|    F F F  - - - - -  - --
+```
+
+```{.TruthTable .Partial options="strictGivens nocounterexample" submission=none}
+14 P,Q,R: ~P->(~Q\/~(P<->R))
+|    T T T  - -  -- -- - - -
+15 P,Q,R: ~P->(~Q\/~(P<->R))
+|    T T F  - -  -- -- - - -
+16 P,Q,R: ~P->(~Q\/~(P<->R))
+|    T F T  - -  -- -- - - -
+17 P,Q,R: ~P->(~Q\/~(P<->R))
+|    T F F  - -  -- -- - - -
+15 P,Q,R: ~P->(~Q\/~(P<->R))
+|    F T T  - -  -- -- - - -
+16 P,Q,R: ~P->(~Q\/~(P<->R))
+|    F T F  - -  -- -- - - -
+17 P,Q,R: ~P->(~Q\/~(P<->R))
+|    F F T  - -  -- -- - - -
+18 P,Q,R: ~P->(~Q\/~(P<->R))
+|    F F F  - -  -- -- - - -
+```
+
+```{.TruthTable .Partial options="strictGivens nocounterexample" submission=none}
+19 P,Q,R: ~~(~P->~(~Q->R))
+|    T T T   -- -- -- -- --
+20 P,Q,R: ~~(~P->~(~Q->R))
+|    T T F   -- -- -- -- --
+21 P,Q,R: ~~(~P->~(~Q->R))
+|    T F T   -- -- -- -- --
+22 P,Q,R: ~~(~P->~(~Q->R))
+|    T F F   -- -- -- -- --
+23 P,Q,R: ~~(~P->~(~Q->R))
+|    F T T   -- -- -- -- --
+24 P,Q,R: ~~(~P->~(~Q->R))
+|    F T F   -- -- -- -- --
+25 P,Q,R: ~~(~P->~(~Q->R))
+|    F F T   -- -- -- -- --
+26 P,Q,R: ~~(~P->~(~Q->R))
+|    F F F   -- -- -- -- --
+```
+
+# Truth Tables and Truth-Functional Properties
+
+```{.TruthTable .Simple options="nocounterexample" submission=none}
+27 P->(Q->P)
+```
+
+```{.QualitativeProblem .MultipleChoice points=10}
+28 This is:
+| *truth-functionally true
+| truth-functionally false
+| truth-functionally contingent
+```
+
+```{.TruthTable .Simple options="nocounterexample" submission=none}
+29 Q->(Q->P)
+```
+
+```{.QualitativeProblem .MultipleChoice points=10}
+30 This is:
+| truth-functionally true
+| truth-functionally false
+| *truth-functionally contingent
+```
+
+```{.TruthTable .Simple options="nocounterexample" submission=none}
+31 P/\Q->Q
+```
+
+```{.QualitativeProblem .MultipleChoice points=10}
+32 This is:
+| *truth-functionally true
+| truth-functionally false
+| truth-functionally contingent
+```
+```{.TruthTable .Simple options="nocounterexample" submission=none}
+33 Q->P/\Q
+```
+
+```{.QualitativeProblem .MultipleChoice points=10}
+34 This is:
+| truth-functionally true
+| truth-functionally false
+| *truth-functionally contingent
+```
+
+```{.TruthTable .Simple options="nocounterexample" submission=none}
+35 P->(Q\/P)
+```
+
+```{.QualitativeProblem .MultipleChoice points=10}
+36 This is:
+| *truth-functionally true
+| truth-functionally false
+| truth-functionally contingent
+```
+
+```{.TruthTable .Simple options="nocounterexample" submission=none}
+37 ~~(~P<->P)
+```
+
+```{.QualitativeProblem .MultipleChoice points=10}
+38 This is:
+| truth-functionally true
+| *truth-functionally false
+| truth-functionally contingent
+```
+
+```{.TruthTable .Simple options="nocounterexample" submission=none}
+39 P/\Q<->Q/\P
+```
+
+```{.QualitativeProblem .MultipleChoice points=10}
+40 This is:
+| *truth-functionally true
+| truth-functionally false
+| truth-functionally contingent
+```
+
+```{.TruthTable .Simple options="nocounterexample" submission=none}
+41 P\/Q<->(Q\/P)
+```
+
+```{.QualitativeProblem .MultipleChoice points=10}
+42 This is:
+| *truth-functionally true
+| truth-functionally false
+| truth-functionally contingent
+```
+
+```{.TruthTable .Simple options="nocounterexample" submission=none}
+43 (P->Q)<->(Q->P)
+```
+
+```{.QualitativeProblem .MultipleChoice points=10}
+44 This is:
+| truth-functionally true
+| truth-functionally false
+| *truth-functionally contingent
+```
+
+```{.TruthTable .Simple options="nocounterexample" submission=none}
+45 ~(P/\Q)->~(R/\P)
+```
+
+```{.QualitativeProblem .MultipleChoice points=10}
+46 This is:
+| truth-functionally true
+| truth-functionally false
+| *truth-functionally contingent
+```
+
+```{.TruthTable .Simple options="nocounterexample" submission=none}
+47 ~(P<->Q)->P\/Q
+```
+
+```{.QualitativeProblem .MultipleChoice points=10}
+48 This is:
+| *truth-functionally true
+| truth-functionally false
+| truth-functionally contingent
+```
+
+```{.TruthTable .Simple options="nocounterexample" submission=none}
+49 P\/Q->~(P<->Q)
+```
+
+```{.QualitativeProblem .MultipleChoice points=10}
+50 This is:
+| truth-functionally true
+| truth-functionally false
+| *truth-functionally contingent
+```
+
+```{.TruthTable .Simple options="nocounterexample" submission=none}
+51 P/\(P->Q)/\(P->~Q)
+```
+
+```{.QualitativeProblem .MultipleChoice points=10}
+52 This is:
+| truth-functionally true
+| *truth-functionally false
+| truth-functionally contingent
+```
+
+
+

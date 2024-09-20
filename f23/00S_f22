@@ -1,0 +1,21 @@
+---
+base-css:
+-   https://carnap.io/shared/dsanson@gmail.com/sanson-book.css
+-   https://cdn.plyr.io/3.6.12/plyr.css
+js: 
+-   https://cdn.plyr.io/3.6.12/plyr.polyfilled.js
+-   https://carnap.io/shared/dsanson@gmail.com/logic-book.js
+---
+
+# Syllabus and Course Mechanics: Supplements
+
+Many of units include supplements, like this. They are not required. They may
+contain exercises, but not exercises that you can submit for credit. Nothing
+here is worth any points. Nothing here can affect your grade.
+
+So what's the point? If you've done all the exercises, and are still
+struggling with the mastery check, the supplements might offer additional practice.
+If you've done all the reading, and still find some concept or idea confusing,
+the supplements might offer another slant on the same material.
+
+<!-- vim: set ft=carnap :-->

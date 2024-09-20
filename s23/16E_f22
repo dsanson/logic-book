@@ -1,0 +1,252 @@
+---
+base-css:
+-   https://carnap.io/shared/dsanson@gmail.com/sanson-book.css
+-   https://cdn.plyr.io/3.6.12/plyr.css
+js: 
+-   https://cdn.plyr.io/3.6.12/plyr.polyfilled.js
+-   https://carnap.io/shared/dsanson@gmail.com/logic-book.js
+---
+
+# Relations and Identity: Exercises
+
+
+:::wrapper
+:::soasticky
+| F(x): x is foolish
+| G(x): x is brave
+| H(x): x is a person
+| a: Alana
+| b: Benj
+:::
+
+```{.Translate .FOL points=10}
+1 Ax(H(x)/\~x=a->F(x)) : Everyone but Alana is foolish.
+2 Ax(H(x)/\~x=b->~G(x)) : Nobody other than Benj is brave.
+3 Ax(G(x)->x=a\/x=b) : Only Benj and Alana are brave.
+```
+:::
+
+:::wrapper
+:::soasticky
+| F(x,y): x is bigger than y
+| I(x): x is a city in Illinois
+| a: Aurora
+| b: Rockford 
+| c: Chicago
+:::
+
+```{.Translate .FOL points=10}
+4 Ax(I(x)/\~c=x->F(a,x)) : Aurora is bigger than every city in Illinois other than Chicago
+5 ~Ex(I(x)/\F(x,b)/\~x=c/\~x=a) : No cities in Illinois are bigger than Rockford except Chicago and Aurora
+6 Ex(I(x)/\~x=c/\F(x,b)) : Some city in Illinois other than Chicago is bigger than Rockford
+```
+:::
+
+:::wrapper
+:::soasticky
+| H(x): x is a person
+| L(x,y): x loves y
+| a: me
+| b: my baby
+:::
+
+```{.Translate .FOL points=10}
+7 Ax(H(x)->L(x,b)): Everybody loves my baby 
+8 Ax(H(x)/\~x=a->~L(b,x)) : My baby doesn't love anybody but me
+9 a=b : I am my baby 
+```
+
+For more on these weird old song lyrics, see the end of [Chapter 17](17R).
+
+:::
+
+:::wrapper
+:::soasticky
+| L(x,y): x will do y for love
+| a: that
+| b: Meatloaf
+
+:::illustration
+![](https://reggienet.illinoisstate.edu/access/content/user/desanso/public/img/meatloaf.webp)
+:::
+:::
+
+```{.Translate .FOL points=10}
+10 AxL(b,x): Meatloaf will do anything for love.
+11 ~L(b,a): Meatloaf won't do that (for love).
+12 AxL(b,x)/\~L(b,a),Ax(L(b,x)/\~L(b,a)): Meatloaf will do anything for love but he won't do that (for love).
+13 Ay(~x=a -> L(b,x)): Meatloaf will do anything but that for love.
+```
+
+:::
+
+
+:::wrapper
+:::soasticky
+| F(x,y): x is bigger than y
+| G(x): x is a big city
+| I(x): x is in Illinois
+| c: Chicago
+:::
+
+```{.Translate .FOL points=10}
+14 ExEy(G(x)/\I(x)/\G(y)/\I(y)/\~x=y) : There are at least two big cities in Illinois
+15 AxAyAz(G(x)/\I(x)/\G(y)/\I(y)/\G(z)/\I(z)->x=y\/x=z\/y=z) : There are at most two big cities in Illinois
+16 ExEy(G(x)/\I(x)/\G(y)/\I(y)/\~x=y)/\AxAyAz(G(x)/\I(x)/\G(y)/\I(y)/\G(z)/\I(z)->x=y\/x=z\/y=z), ExEy(G(x)/\I(x)/\G(y)/\I(y)/\Az(G(z)/\I(z)->z=x\/z=y)) : There are exactly two big cities in Illinois
+17 Ex(G(x)/\F(x,c)) : There is at least one big city bigger than Chicago
+18 ExEy(G(x)/\G(y)/\F(x,c)/\F(y,c)/\~x=y) : There are at least two big cities bigger than Chicago
+19 ExEy(G(x)/\F(x,c)/\G(y)/\F(y,c)/\~x=y)/\AxAyAz(G(x)/\F(x,c)/\G(y)/\F(y,c)/\G(z)/\F(z,c)->x=y\/x=z\/y=x), ExEy(G(x)/\F(x,c)/\G(y)/\F(y,c)/\~x=y/\Az(G(z)/\F(z,c)->z=x\/z=y)) : There are exactly two big cities bigger than Chicago
+```
+:::
+
+:::wrapper
+::: soasticky
+| F(x) : x is a dog
+| G(x) : x is good
+| H(x) : x lives at the White House
+:::
+
+```{.Translate .FOL points=10}
+20 ~Ex(F(x)/\G(x)/\H(x)) : No good dogs live at the White House
+21 ExEy(F(x)/\H(x)/\F(y)/\H(y)/\~x=y/\G(x)/\G(y)) : At least two good dogs live at the White House 
+22 Ex(F(x)/\H(x)/\Ay(F(y)/\H(y)->x=y)/\G(x)) : The dog who lives at the White House is good
+23 ~Ex(F(x)/\H(x)/\Ay(F(y)/\H(y)->x=y)/\G(x)) : The dog who lives at the White House is not good (wide scope negation)
+24 Ex(F(x)/\H(x)/\Ay(F(y)/\H(y)->x=y)/\~G(x)) : The dog who lives at the White House is not good (narrow scope negation)
+```
+
+Here is an especially difficult argument to translate adequately into PL:
+
+> | I saw Esau kissing Kate,
+> | The fact is we all three saw;
+> | For I saw him,
+> | And he saw me,
+> | And she saw I saw Esau.
+
+Give it a try.
+
+:::wrapper
+:::soasticky
+| F(x,y): x saw y
+| G(x,y,z): x saw y kissing z
+| H(x,y,z): x saw y seeing z
+| a: me
+| b: Esau (he/him)
+| c: Kate (she/her)
+:::
+
+```{.Translate .FOL points=10}
+25 G(a,b,c) : I saw Esau kissing Kate.
+26 G(a,b,c)/\G(b,b,c)/\G(c,b,c) : We all three saw Esau kissing Kate.
+27 F(a,b): I saw him.
+28 F(b,a): He saw me.
+29 H(c,a,b): She saw I saw Esau.
+```
+
+See the trouble? Our scheme of abbreviation provides us with three logically
+unrelated predicates: F(x,y) expresses the two-place relation of someone 
+seeing someone; G(x,y,z) expresses the three-place relation of someone seeing
+someone kiss someone; and H(x,y,z) expresses the three-place relation of
+someone seeing someone seeing someone.
+
+But this can't be the right way to go about things. Seeing someone, and seeing someone
+*kissing someone* and seeing someone *seeing someone* are all logically
+related. For that matter, so is seeing someone *seeing someone kissing
+someone*, and seeing someone *seeing someone seeing someone*, and seeing
+someone *seeing someone seeing someone kissing someone* and so on.
+
+Can you come up with a scheme of abbreviation that allows us to capture this?
+Here are some ideas:
+
+-   Both *kissing* and *seeing* are actions. Our scheme above doesn't capture
+    this.
+-   *Actions* have agents, but they also have objects. So maybe 'Esau kisses
+    Kate' is an existential generalization: There is an action, it is a
+    kissing, Esau is its agent, and Kate is its object.
+-   Do you see people, or do you see actions? Or both? 'I saw Esau
+    kissing Kate' appears to say not that you see Esau, but that you see *an
+    action* that involves Esau as its agent and Kate as its object. Something like 'There is an action x, x is a seeing,
+    I am x's agent, and there is another action y, y is a kissing, Esau is y's 
+    agent, Kate is y's object, and y is the object of x.'
+-   If the object of seeing can be an action, and seeing is an action, then
+    the object of seeing can be another seeing! This should allow us to handle
+    'She saw I saw Esau (kissing her)'.
+
+:::
+
+:::soa
+| F(x): x is an action
+| G(x): x is a kissing
+| H(x): x is a seeing
+| G(x,y): x is the agent of y
+| H(x,y): x is the object of y
+| a: me
+| b: Esau (he/him)
+| c: Kate (she/her)
+:::
+
+```{.Translate .FOL points=10}
+30 Ex(F(x)/\G(x)/\G(b,x)/\H(c,x)) : Esau kisses Kate.
+```
+
+:::hint
+Remember, the idea is that kissing is an action. So 'Esau kisses Kate' says
+that there is an action, it is a kissing, Esau is its agent, and Kate is its
+object.
+:::
+
+```{.Translate .FOL points=10}
+31 Ex(F(x)/\H(x)/\G(a,x)/\Ey(F(y)/\G(y)/\G(b,y)/\H(c,y)/\H(y,x))) : I saw Esau kissing Kate.
+```
+
+:::hint
+Remember, the idea is that seeing is an action that can have an action as its
+object. So 'I saw Esau kissing Kate' says that there is an action, it is a
+seeing, I am its agent, and there is an action, Esau is its agent, it is a
+kissing, Kate is its object, and it is the object of my seeing.
+:::
+
+```{.Translate .FOL points=10}
+32 Ex(F(x)/\H(x)/\G(c,x)/\Ey(F(y)/\H(y)/\G(a,y)/\Ez(F(z)/\G(z)/\G(b,z)/\H(z,y)/\H(y,x)))): She saw I saw Esau (kissing her).
+```
+
+:::hint
+So, there is an action that is a seeing and Kate is the agent and there is an
+action that is a seeing and I am the agent and there is an action that is a
+kissing and Esau is the agent and Kate is the object, and the kissing is the
+object of my seeing and my seeing is the object of Kate's seeing. Phew.
+:::
+
+Question: Is the argument in the poem valid? I saw him (kissing Kate); He saw
+me (seeing him kissing Kate); She saw me seeing him (kissing her). So each of
+us saw *something*. But did we all see the *same* thing?
+
+The classic work arguing that the underlying logical form of English
+involves this sort of quantification over actions and events is:
+
+-   Donald Davidson (1967) "[The logical form of action
+    sentences](https://philpapers.org/rec/DAVTLF)." In Nicholas Rescher (ed.),
+    The Logic of Decision and Action. University of Pittsburgh Press.
+    pp. 81--95. (Also reprinted in his *Essays on Actions and Events*,
+    Clarendon Press (1970).)
+
+For a very clear and careful development of the idea that engages both with
+Philosophy and Linguistics, see:
+
+-   Terence Parsons (1990), *[Events in the Semantics of English: A Study in Subatomic
+    Semantics](https://philpapers.org/rec/PAREIT)*. MIT Press.
+
+Also, I first learned the 'I saw Esau' rhyme from this lovely book,
+illustrated by Maurice Sendak (the author of *Where the Wild Things Are*):
+
+-   Iona Opie (editor), Peter Opie (editor), Maurice Sendak (Illustrator)
+   *I Saw Esau: The Schoolchild's Pocket Book*, Candlewick Press, 2000.
+
+I especially adore Sendak's illustration of the old 'I one my mother, I two my
+mother, etc.'
+
+:::
+
+:::
+
+
+<!-- vim: set ft=carnap :-->

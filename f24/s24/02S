@@ -1,0 +1,88 @@
+---
+base-css:
+-   https://carnap.io/shared/dsanson@gmail.com/sanson-book.css
+-   https://cdn.plyr.io/3.6.12/plyr.css
+js: 
+-   https://cdn.plyr.io/3.6.12/plyr.polyfilled.js
+-   https://carnap.io/shared/dsanson@gmail.com/logic-book.js
+---
+
+# Sentential Logic: Supplementary Exercises
+
+These are optional exercises, for students seeking more practice.
+
+## Review
+
+```{.QualitativeProblem .ShortAnswer submission=none}
+1  Write down the definition of validity, without looking it up. Then check your answer.
+```
+
+## New Symbols
+
+```{.QualitativeProblem .ShortAnswer submission=none}
+2  Write down each of our five connective symbols, along with their name ('conjunction', 'disjunction', etc.) and what they mean. (Use the keyboard shorthands to type in each symbol.)
+```
+
+For each of the following, rewrite it using English in place of the
+connectives:
+
+
+```{.QualitativeProblem .ShortAnswer submission=none}
+3 (P ∧ Q)
+```
+
+:::spoiler
+The ∧ symbol means 'and'. So: '(P and Q)'.
+:::
+
+
+```{.QualitativeProblem .ShortAnswer submission=none}
+4 (P ∨ Q)
+5 ¬P
+6 ¬¬Q
+7 (P ↔ Q)
+8 (P → Q)
+```
+
+:::spoiler
+|4 (P or Q)
+|5 It is not the case that P
+|6 It is not the case that it is not the case that Q
+|7 P if and only if Q
+|8 If P then Q
+:::
+
+## Parsing
+
+For each of the following, determine whether or not it is a sentence in our
+language, and, if it is, whether it is in informal notation or official
+notation. If it is not a sentence, explain why not. If it is, parse it into a
+syntactic tree (on paper).
+
+9.  $\neg A$
+10.  $(\neg P)$
+11.  $\neg (P)$
+12.  $\neg (Q \rightarrow P)$
+13.  $\neg Q \rightarrow P$
+14.  $\neg P \wedge Q$
+15.  $\neg (P \wedge Q)$
+16.  $\neg P \wedge \neg Q$
+17.  $PQR$
+18.  $P \wedge Q \wedge R \wedge S$
+19.  $P \vee Q \vee R \vee S$
+20.  $P \vee (Q \vee (R \vee S))$
+21.  $p \wedge q \wedge r \wedge s$
+22.  $P \wedge Q \vee R \wedge S$
+23.  $P \rightarrow Q \rightarrow R \rightarrow S$
+24.  $P \leftrightarrow Q \wedge R$
+25.  $P \wedge Q \leftrightarrow R$
+26.  $X \vee Y \vee Z$
+27.  $\neg (P \wedge Q \wedge R \rightarrow S)$
+28.  $\neg P \& \neg Q$
+29.  $((P \vee Q))$
+30.  $P \wedge Q \wedge R \rightarrow S \vee T \wedge R$
+31.  $P \wedge Q \vee R \rightarrow S \vee T \wedge R$
+32.  $P \rightarrow Q \vee R \vee S \vee T \vee R$
+33.  $(P \rightarrow Q \vee R) \vee S \vee (T \wedge R)$
+
+

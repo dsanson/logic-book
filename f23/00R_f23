@@ -1,0 +1,657 @@
+---
+base-css:
+-   https://carnap.io/shared/dsanson@gmail.com/sanson-book.css
+-   https://cdn.plyr.io/3.6.12/plyr.css
+js: 
+-   https://cdn.plyr.io/3.6.12/plyr.polyfilled.js
+-   https://carnap.io/shared/dsanson@gmail.com/logic-book.js
+---
+
+# Syllabus: PHI 112 Language, Logic and Mathematics
+
+| Term: Fall 2023
+| Sec 001: MW 9-9:50 STV 347A
+| Sec 002: MW 11-11:50 STV 230
+| Instructor: David Sanson
+| Office: Stevenson 341
+| Office Hours: M 10-11; W 12-1
+| Contact: [GroupMe
+  DM]{target="_blank"
+  rel="noopener noreferrer"} or <desanso@ilstu.edu> (I **strongly prefer**
+  that you contact me via GroupMe DM rather than email.)
+
+[GroupMe DM]: https://groupme.com/contact/99365935/isjWnqLN
+
+I teach two sections of this course. Please attend the section in which you
+are enrolled.
+
+## Course Description
+
+This is a class in formal logic. We cover propositional logic and first-order
+quantification, with a focus on translation and natural deduction.
+
+But what does that even mean?
+
+*Logic* is the study of *reasoning*: what makes it good, and what makes it
+bad. It is the study of the *laws* of reasoning itself, not the *psychology*
+of reasoning. In that way, it is like math, which studies the *laws* of
+arithmetic, not the *psychological processes* by which we add and subtract.
+
+There are different approaches to logic. In this class, our approach will be
+to develop an account of *logical form*, and which logical forms are good, and
+which bad. For example, this is a good logical form, called *Modus Ponens*:
+
+:::standardform
+-   If P is true, then Q is true. 
+-   P is true. 
+-   Q is true.
+:::
+
+(The '∴' symbol means 'therefore', and marks the last line as the *conclusion*,
+meant to *follow* from the two *premises* above it. More on all that later.)
+By contrast, this is a bad logical form, called *Affirming the Consequent*:
+
+:::standardform
+-   If P is true, then Q is true. 
+-   Q is true.
+-   P is true. 
+:::
+
+What does it mean to say that a logical form is good or bad, and why do we say
+that Modus Ponens is good, and Affirming the Consequent is bad? That's the
+topic of the first chapter of our book.
+
+Modus Ponens and Affirming the Consequent are *sentential* or *propositional*
+forms. The 'P's and 'Q's in them stand for declarative sentences or
+*propositions*. We can combine these using *sentential connectives*, like
+'if...then...' and 'either...or...'. In this way, we can generate lots of
+sentential argument forms, and ask which are good, which bad. This is
+*Propositional Logic (PL)*, aka *Sentential Logic*, the topic of the first
+two-thirds of this course.
+
+For the last third of the course, we turn to consider *Quantificational Logic*. Here is an example of a *good* logical form in *QL*, called *Universal Instantiation*:
+
+:::standardform
+-   All dogs go to heaven.
+-   If Fido is a dog, then Fido goes to heaven.
+:::
+
+Here is an example of a *bad* logical form, called *Existential Instantiation*:
+
+:::standardform
+-   Some dogs go to heaven.
+-   Garfield is a dog who goes to heaven.
+:::
+
+There are different kinds of formal logic classes. Classes in *Mathematical
+Logic* or *Metalogic* briefly introduce the systems of propositional and
+quantificational logic, and then proceed to prove things about those systems,
+and explore alternative ways in which those systems might be constructed. This
+class is not like that. Our focus will be working within the systems, to get a
+feel for how they work, and how they might be applied to everyday reasoning.
+
+We will use an artificial language to describe and display logical forms. 
+Sentences in this langauge look like formulas from algebra. Here are some examples:
+
+::: example
+-   P → (Q ∧ R), which means *If P, then both Q and R*
+-   ∀x∃y(F(x) ↔ G(y)), which means *For every x, some y is such that x is F if and only if y is G*
+:::
+
+In the short course description, I said that will focus on translation and
+natural deduction. By "translation", I meant translating sentences in English
+into sentences in our artificial language, a process that involves both
+understanding our artificial language, and thinking about the logical forms of
+English sentences.
+
+Natural deduction is a way of representing and reconstructing complex chains
+of reasoning, of the sort you might encounter in a mathematical proof or a
+work of philosophy. There are several systems that have been designed for
+doing this. The short course description mentions the system we will be using.
+But that is probably only meaningful to other logic professors.
+
+This class has one foot in mathematics, and one foot in language. If you think
+of yourself as good at math but bad at language, or bad at language but good
+at math, you will probably find parts of this class easy, and parts hard. Most
+students report that the class makes their brain hurt in one way or another.
+Please understand: this is a *good* thing. It means your brain is being
+rewired, and you are gaining new powers.
+
+One of the secrets to those new powers: the sharp distinction between math and
+language is not as real as you think. For that matter, neither is the sharp
+distinction between the sciences and the humanities. The study of logic cuts
+across the first, just as the study of philosophy cuts across the second. This
+class is meant to rewire your brain, and make you *think* in a new way, that
+does not respect such distinctions. This new way of thinking applies to
+anything and everything you ever might think about.
+
+## Aside: About this document
+
+This is the course syllabus, but is is also a tutorial, introducing you to the
+nuts and bolts of course assignments. Completing this unit counts toward your
+course grade.
+
+All units, including this one, include questions that you need to answer or
+exercises that you need to complete, as you read. For example, you need to
+answer this multiple choice question now. For this one, try giving the *wrong* answer to see what happens (don't worry, you won't lose any points):
+
+```{.QualitativeProblem .MultipleChoice points=10}
+1 This unit is
+|*a tutorial, but also the syllabus, and also counts for course credit.
+|an optional introduction with sample questions that don't actually count for course credit.
+```
+
+If you selected the wrong answer, you were told so, and asked to try again.
+Questions and exercises in the reading will *always* be like this: you cannot submit an incorrect answer. If you make a mistake, you will be asked to try again. You can keep trying until you get it right.
+
+I can also include open-ended short response questions, like this:
+
+```{.QualitativeProblem .ShortAnswer give-credit="onSubmission" points=10}
+3 Why are you taking this class? What do you hope to get out of it?
+```
+
+::: {.reaction .correct ex="3"}
+Sometimes, when you submit an answer to a question, a reaction box like this
+will open, giving you a bit of feedback or advice.
+:::
+
+For short response questions like (3), you get full credit for submitting
+*something*. I will typically use such questions to encourage you to stop and
+think: the value lies in your making the attempt, not in whether or not you
+get it right.
+
+It is trivial to complete single-answer multiple choice questions by brute
+force: just try each possibility until you get the right one. If you do that,
+you will get the points without bothering to think or process the information.
+But that is a bad idea. The reading is here to help you learn what you need to
+learn to do well on the mastery checks, and if you cannot pass the mastery checks,
+the points you earn on the reading are worth nothing. Still, I understand the temptation. So I will often give you multiple choice
+questions with more than one correct answer. For these, you have to select
+*all* the correct answers. This makes it much more tedious to brute force the answers:
+
+```{.QualitativeProblem .MultipleSelection points=10}
+2 The kinds of questions that are asked in this unit include (select all correct answers):
+| *multiple choice questions with one correct answer
+| *multiple choice questions with several correct answers, like this one
+| CAPTCHAs designed to verify that you are human
+| *open-ended short response questions
+```
+
+## Course design and expectations
+
+This class is *flipped*. I will not lecture. I expect you to read and work
+outside of class, and make an effort to figure things out for yourself. In
+class, I will help you figure out whatever you couldn't figure out on your
+own.
+
+It is also *self-paced*. There are some deadlines. But ultimately, your grade
+depends on *how far you get*, and it is up to you to maintain a pace that
+allows you to succeed.
+
+This will likely make you *uncomfortable*. Trying to figure out how to do
+something by reading about it *feels harder* than having someone talk you
+through it. But experience shows that what *feels* better *works* worse. I can
+give you a lecture, showing you how to do everything, and you will feel like
+you understood. But when you sit down to complete the problems, that feeling
+will evaporate, and you will be lost.
+
+The best way to learn is to *try*, *fail*, *get help*, and
+*try again*. But nobody likes failing, and many of us don't like asking for help either.
+Better if someone explains it all first without waiting for you to ask, so you can succeed on your first try, and avoid failing. If only that worked.
+
+Instead, this class is designed to make you try first, and maximizing your
+chances to try, fail, get help, and try again.
+
+But this means that you **cannot approach this class passively**. If you just sit waiting for something to happen, nothing will happen, and you will fall behind. Instead, you need to **jump in** and start **trying** to understand the reading and solve the problems. Give yourself permission to fail: it is no big deal, and all part of the process of figuring things out. And **ask me for help**. I am here, ready and eager to offer assistance!
+
+**Trying early and often** means reading and trying *before* class, not
+*during* class. Class is not *study hall*, where you come to do your reading.
+Class is where you come to vent your frustration at whatever it is that you
+didn't understand in the reading, or whatever problems you cannot solve,
+despite having spent time trying to figure them out.
+
+**Giving yourself permission to fail** means not just being willing to make
+mistakes, but being willing to learn from those mistakes. Each unit is
+followed by a *mastery check*. This is a mini test, but if you fail it, that's
+okay: you can retake it, and retake it again, and again, if needed. What is
+important is that you figure out *how to learn* from your failure. What went
+wrong, and why? What was it that you didn't understand? What can you do to
+understand that better, and avoid similar mistakes on future retakes? There
+are always students who refuse to do this: they fail, chalk it up to bad luck,
+and try to bulldoze their way through the mastery check, asking for retake
+after retake, and failing again and again. That is frustrating and
+demoralizing. Don't do it.
+
+**Asking for help** means reaching out to me or to your classmates. Don't
+suffer in silence. Nobody expects you to learn logic on your own. We are in
+this together, and, most importantly, I am here to help. That might involve
+spending some one-on-one time in class, or in office hours, working through
+some problems. It might involve me giving you an impromptu mini-lecture,
+helping you grasp some key concept or process that you couldn't figure out
+from the reading. This is what I am here for! But for it to work well, you
+need to communicate when you are struggling, so we can figure out how to help.
+
+```{.QualitativeProblem .MultipleSelection points=10}
+4 For this course, you are expected
+| *to do the reading before class, and come to class confused
+| to wait and only attempt problems and exercises after the material has been covered in class
+| *to pay attention when things go wrong or you make mistakes, and figure out what you didn't understand
+| to brute-force your way through reading, mastery checks, and retakes, grinding your way to course credits.
+```
+
+## Grades
+
+When it comes to your grade, what matters is how much and how well you learn
+in the end. That is, your grade will be determined by *how many* units you *complete or
+master* by the end of the term, in accordance with the following chart:
+
+
+   Course Grade                        Units Complete
+  -------------- ------------------------------------------------------------------------------
+        A         at least 16 units complete, at least 10 of which are both complete and mastered
+        B         at least 14 units completed, at least 8 of which are both complete and mastered
+        C         at least 10 units complete
+        D         at least 8 units complete
+
+For a unit to count as *complete*, you need to answer all the reading questions correctly, and score 60% or higher on the mastery check. For a unit to count as *both complete and mastered*, you need to answer all the reading questions correctly, and score 80% or higher on the mastery check:
+
+Complete
+:    Reading = 100% and Mastery check ≥ 60%
+
+Both Complete and Mastered
+:    Reading = 100% and Mastery check ≥ 80%
+
+A unit is *incomplete* if you have not answered all the reading questions correctly, or if your score on the mastery check is below 60%:
+
+Incomplete
+:    Reading < 100% or Mastery check < 60%
+
+You don't get *any* credit for incomplete units. The reading questions are formative: you have to do them, and they are meant to help you learn the material. The mastery checks are summative: they test whether or not you have actually learned the material.
+
+The course is designed to be completed linearly: Unit 1, followed by Unit 2, followed by Unit 3, and so on. But in principle, what matters is *how many* units you complete, not which ones. However, several
+key units are **required**, as per this table:
+
+   Course Grade           Required units
+  -------------- ---------------------------------
+        A         Must complete units 04,05,09,10
+        B          Must complete units 04,05,09
+        C            Must complete units 04,05
+
+Predictably, these are the units are the ones that experience shows students are most tempted to avoid.
+
+```{.QualitativeProblem .MultipleSelection points=10}
+5 Select all true claims from the list below:
+| *To complete a unit, I need to get 100% on the reading questions and get 60% or above on the mastery check
+| *If a unit is mastered and complete, it is also complete
+| *It is possible to get a C without mastering any units
+| It is possible to get a D without completing any units, as long as I earn a lot of points in the reading
+| If I complete enough other units, I can get a C in this class without completing unit 04
+| *I can earn a B in this class without both mastering and completing unit 04
+| I can earn a B in this class without completing unit 04
+| *If I complete enough other units, I can pass this class without completing this unit, unit 00
+```
+
+## Mastery checks
+
+A mastery check is a short low-stakes assessment, consisting of 3 to 6
+problems. Some mastery checks are online and machine graded. But some are
+completed on paper in-class, and graded by hand.
+
+You are **not allowed to collaborate** on mastery checks. A mastery check is
+something you do on your own, to prove, both to me and to yourself, that you
+have learned the material from that unit. Collaboration on mastery checks is
+cheating and grounds for disciplinary action.
+
+When you are ready to attempt an online mastery check, send me a DM on
+GroupMe, and I will send you a link with a password. **This link is for your
+use alone. Do not share this link or password with other students.** For
+in-class mastery checks, ask in class. You cannot request more than one
+in-class mastery check in the same period, and you cannot request an in-class
+mastery check if there are less than 15 minutes left in the class period.
+
+Before you *retake* a mastery check, I will seek some reassurance that you understand what went wrong on your previous attempt. Ideally, we will have a chance to go over your previous attempt together, and discuss your mistakes.
+Typically, the individual problems on each mastery check are aligned, so for your retake, you only
+need to complete the problems you got wrong on your previous attempts.
+
+There are three limits on retakes:
+
+1.  There is a mandatory waiting period between attempts: you cannot take or
+    retake the same mastery check twice in one day.
+2.  You are only allowed two *retakes* total each week: not two per unit, but
+    two across all units.
+3.  Many of the units have *expiration dates*. After the expiration date, you can no longer attempt the mastery check for a unit until finals week.
+
+```{.QualitativeProblem .MultipleSelection points=10}
+6 Select all and only the true claims from this list:
+| It is okay to collaborate on mastery checks, as long as the final answer is your own.
+| If you fail a mastery check, you can retake it again that same day
+| You are allowed more than two retakes each week, as long as they are spread across different units
+| If a friend needs a link to retake and hasn't gotten a response from the professor, you can help out by sharing a retake link with them
+```
+
+## Due Dates and Expiration Dates
+
+Many of the units have due dates. If you can get these units both completed
+and mastered by their due dates, you should have no trouble earning a B in the
+course. There is no penalty for work turned in past the due date. Being
+"behind" just means that you are falling off pace, in danger of earning a C or
+lower in the course.
+
+Some of the units also have *expiration dates*. Once a unit has expired, you
+can still complete the reading, but you have to wait until finals week to
+attempt its mastery check. If you are missing expiration dates, then you are
+in serious danger of failing the course.
+
+All online submissions are frozen on the last day of classes, December 8th, at
+5pm. I am announcing this deadline now. You are responsible for meeting it. It
+will not be extended. After this deadline, it is no longer possible to submit
+reading questions, and so no longer possible to get credit for any unit for
+which you have completed the reading. But you do get one last chance to
+complete mastery checks, in-person, during our final exam period.
+
+```{.QualitativeProblem .MultipleSelection points=10}
+7 Select all and only the true claims from this list:
+| *After a unit has expired, you can still complete the reading exercises.
+| If you turn in each unit before its due date, you are on pace to get an A in this course.
+| It is still possible to get credit for reading exercises by submitting them during finals week.
+| *Many students struggle to stay on track with this course, because it is self-paced
+```
+
+## Final Exam
+
+This class does not have a final exam. Your grade is based upon how many units
+you complete and how many you both complete and master, as explained above.
+
+During the scheduled final exam period, everyone has one last chance to take or retake mastery checks. This includes mastery checks for expired units. It does not include mastery checks for units for which you have not completed the reading.
+
+These mastery checks will all be on paper, not online.
+
+``` {.QualitativeProblem .MultipleSelection points="10"}
+8 Select all and only the true claims:
+| It is okay to share online mastery check links to help out a friend
+| If you haven't completed the reading for a unit by December 8th, you can still complete that unit by taking the mastery check during Finals Week
+| *During Finals Week, you can take or retake a mastery check from an expired unit.
+| During Finals Week, it is still possible to take or retake online mastery checks for some units.
+```
+
+## Collaboration Units
+
+Genuine engagement, participation, and collaboration are hard to measure.
+Schemes that "bean count" participation tend to motivate folks just to do
+the bare minimum, which can be counterproductive.
+
+One thing that is easy to measure is attendance. Attendance is 
+a necessary but not sufficient condition for engagement,
+participation, and collaboration. I hope that, if I can get you to attend, I
+can get you engage and collaborate. It may sound cheesy, but I want us to come
+to together into a friendly and supportive community of folks working together
+to learn logic. Trust me, learning logic is easier when you are part of such a
+community.
+
+For each class you attend, you earn 10 "collaboration points". Your first 100
+collaboration points earn you one complete collaboration unit. Your second 100
+collaboration points earn you a second complete collaboration unit. These
+count toward your total complete units, for the purpose of calculating your
+course grade. (No, there is no way to "master" these units.)
+
+I recognize that there are legitimate reasons to miss class. We have 30 class
+meetings throughout the term. You can miss several classes and still earn both
+collaboration units.
+
+Every term, I have students who blow off classes, and then come back, hoping
+to secure a passing grade. If only they had come to class, they would have had
+a couple of collaboration units to help bolster their grade.
+
+## Drop-In Office Hours
+
+My drop-in office hours are times that I set aside, so that students can drop
+in and ask for help. You do not need to make an appointment. You can just
+drop-in. If you cannot make my drop-in office hours, ask for an appointment.
+
+You can also use drop-in office hours to take or retake an in-class only mastery check.
+
+```{.QualitativeProblem .MultipleChoice points=10}
+9 Drop-in office hours are
+| by appointment only
+| a time for me to be alone in my office without being bothered by students
+| *times when you can drop by and ask for help
+| *times when you can drop by without an appointment
+```
+
+```{.QualitativeProblem .MultipleChoice points=10}
+10 The best way to contact me about this course is
+| via shortwave radio
+| *via GroupMe
+| via email
+```
+
+:::{.reaction .incorrect ex=10}
+The answer to question 10 can be found near the beginning of the syllabus, if
+you missed it the first time through.
+:::
+
+## Common Challenges and Barriers to Success
+
+Many students arrive in this class who have an unhappy history with math. If
+that is you, I see you and you are not alone.
+
+There is no getting around the fact that this class is in part a math class.
+For some of you, it will trigger old anxieties and open old wounds.
+
+But please understand:
+
+-   Formal logic is its own thing! This class does not presuppose or build
+    upon high school algebra in any way.
+-   The formal logic we will be doing really is objectively *much simpler*
+    than high school algebra.
+-   Many people who are "bad at math" turn out to be great at logic. That
+    might include you! Give it a chance on its own terms.
+
+In this class, we will be thinking about language in a math-y way, and
+thinking about math in a language-y way. Most of us were taught to treat these
+as separate ways of thinking, so you might find this weird. But once you get
+the hang of it, it is kind of neat.
+
+Typically, students who identify as "good with language" but "bad at math"
+ struggle with the "math-y" bits, while
+students who identify as "good at math" but "bad with language"
+ struggle with the "language-y" bits.
+Even students who think of themselves as good at both
+ often still struggle when asked to put the two together.
+
+Finally, this is not a course in abstract theory, and it is not a class that
+asks you to memorize and regurgitate facts.
+It is a course that asks you to learn *how* to solve different kinds of
+problems. Learning *how* to do something takes *practice*, and practice takes
+*time*. The course is designed to maximize your opportunities to practice,
+both inside and outside of class,
+and maximize your opportunities to get help as you practice.
+But I cannot maximize your *time*: that is a limited resource that you will
+need to manage.
+
+
+```{.QualitativeProblem .MultipleSelection points=10}
+11 This class might be challenging for you because
+| *it combines both mathematics and language
+| it will be taught entirely in French 
+| it is a course in abstract theory
+| *learning how to solve the problems takes practice, and practice takes time
+```
+
+:::{.reaction .correct ex=11}
+C'est la seule partie de ce cours qui est en français.
+:::
+
+## Carnap.io
+
+The readings and assignments for this course are all on Carnap.io. Carnap is a
+tool for automatic machine grading of complicated logic problems. It is free,
+but you will need a Google account to sign in. If you are reading this, presumably you
+have already succeeded at doing this!
+
+For the record: to enroll in Carnap, follow this link:
+
+-   <https://carnap.io/enroll/ISU_112_FALL_2023>
+
+-   If you don't already have a Google account, you can [create one for
+    free](https://accounts.google.com/signup/v2/webcreateaccount?hl=en&flowName=GlifWebSignIn&flowEntry=SignUp).
+-   When you create your account on Carnap, you will be asked for your name
+    and your University ID.
+    -   Use your preferred name. If that\'s different from the name that will
+        show up on my official roster, I'll figure it out.
+    -   For your University ID, use your **ULID**, not your **UID**. Your ULID
+        is the first part of your ISU email address. Your UID is your nine
+        digit student ID number.
+
+If you already have an account on Carnap from a previous course, you need to
+change the course you are enrolled in, so you are enrolled in this course, not
+your old course. Otherwise you won't get credit for any of your work.
+
+## Canvas
+
+Carnap.io does not support my grading scheme. Neither does Canvas. Neither did our old LMS, Reggienet. 
+
+You can track your progress on individual assignments on Carnap by looking at
+the progress bar at the top of each assignment. You should see this bar now,
+at the top of this page. If you click on that bar, you can see more useful
+information about this assignment.
+
+You can also go to your [User Page](https://carnap.io/user) on Carnap, where
+you can find a list of assignments, and, if you scroll down, a list of each
+problem that you have submitted for each assignment.
+
+For an overview of your progress through the course, I plan to use the Canvas
+gradebook. This is my first time doing this with Canvas, so the ride may be a
+bit bumpy at first. Once it is up and running, you will be able to find a
+breakdown of how many units you have completed, how many you have completed
+and mastered, and a tally of your collaboration points.
+
+I am hoping that I can figure out how to make this all get updated
+automatically, from Carnap.io to Canvas, at least once a day. For now, it will
+be done manually, and I will try to do it at least once a week.
+
+```{.QualitativeProblem .MultipleChoice points=10}
+12 The Canvas gradebook
+| will automatically stay in sync with Carnap, so if my scores don't show up on the Canvas gradebook immediately, something has gone wrong.
+| *needs to be updated manually, so newly completed work will not show up immediately on Canvas.
+```
+
+## Accommodations
+
+Any student needing to arrange a reasonable accommodation for a
+documented disability should contact Student Access and Accommodation
+Services at 350 Fell Hall, 309-438-5853,
+<http://studentaccess.illinoisstate.edu>.
+
+Really, if there is *anything* reasonable that you think I might be able to do
+that would make things work better for you, whether the relevant issue is
+"documented" or not, talk to me.
+
+Also, Carnap.io is a work in progress. I believe it is *relatively*
+accessible, when compared to the alternatives, but please let me know about
+any specific accessibility issues you encounter. Some I might be able to fix
+myself. Others I can report upstream to the developers.
+
+## Other Sources of Support 
+
+Life at college can get complicated. If you're feeling stressed, overwhelmed,
+lost, anxious, depressed or are struggling with personal issues, do not
+hesitate to call or visit Student Counseling Services (SCS). These services
+are free and completely confidential. SCS is located at 320 Student Services
+Building, (309) 438-3655.
+
+If you are worried about a friend and don't know how to help, you can call SCS
+and ask to speak to a counselor. The Kognito simulation, available through
+SCS's webpage, can also help you learn how to assist your friend in connecting
+to services.
+
+Also, it's hard to learn if you're hungry or couch-surfing. If you are having
+difficulty affording groceries, accessing sufficient food to eat every day, or
+securing a safe and stable place to live, help may be available. I urge you to
+contact the Dean of Students Office to learn more.
+
+The School Street Food Pantry offers free food to any students dealing with
+food insecurity. It is located inside Normal First United Methodist Church at
+211 N. School St., just north of Milner Library, and is open Fridays from 4-6
+p.m. I usually have a few basic snacks in my office, too, which I'm happy to
+share.
+
+## Academic Misconduct
+
+You are expected to be honest in all academic work, consistent with the
+academic integrity policy as outlined in the Code of Student Conduct and any
+additional syllabus language. All work is to be appropriately cited when it is
+borrowed, directly or indirectly, from another source. Unauthorized and/or
+unacknowledged collaboration on any work, or the presentation of someone
+else's work, is plagiarism.
+
+Content generated by an Artificial Intelligence third-party service or site
+(AI-generated content) without proper attribution or authorization is another
+form of plagiarism. If you are unsure about whether something may be
+plagiarism or another form of academic dishonesty, please reach out to me to
+discuss it as soon as possible. Any allegation of academic dishonesty may be
+referred to Student Conduct and Community Responsibilities, a unit of the Dean
+of Students Office, for possible review. If found responsible for academic
+dishonesty, a grade penalty can also be applied.
+
+## ISU General Education Objectives
+
+Courses in the Quantitative Reasoning category of General Education
+address the following program objectives:
+
+I. knowledge of diverse human cultures and the physical and natural world,
+   allowing students to
+
+   a.  use theories and principal concepts, both contemporary and enduring,
+       to understand technologies, diverse cultures, and the physical and
+       natural world
+   b.  *explain how the combination of the humanities, fine arts, natural and
+       social sciences, and technology contribute to the quality of life for
+       individuals and communities*
+
+II. intellectual and practical skills, allowing students to
+
+    a. make informed judgments
+    b. analyze data to examine research questions and test hypotheses
+    c. *report information effectively and responsibly*
+
+III. personal and social responsibility, allowing students to
+
+     a. demonstrate ethical decision making 
+     b. demonstrate the ability to think reflectively
+
+IV. integrative and applied learning, allowing students to
+
+    a.  identify and solve problems
+    b.  transfer learning to novel situations
+    c.  *work effectively in teams*
+
+Primary outcomes are indicated in plain text and secondary outcomes are
+indicated in italics.
+
+Phew! That's a lot of boiler plate.
+Did you hear the story about the [professor who hid $50, and told students
+where to find it on his
+syllabus](https://www.cnn.com/2021/12/18/us/tennessee-professor-syllabus-money-trnd/index.html)?
+I am afraid I have not done the same. Do I look like I'm made of money?!!
+
+```{.QualitativeProblem .MultipleSelection points=10}
+13 According to the ISU General Education Objectives, a course in Quantitative Reasoning is supposed to (select all correct answers)
+| *teach you personal and social responsibility, allowing (enabling?) you to demonstrate ethical decision making
+| teach you how to cook, allowing (enabling?) you to cook quick and easy healthy meals on a budget
+| *teach you about cultures and the physical and natural world (but not math?), allowing (enabling?) you to justify each unit of the university, on the (dubious!) grounds that it contributes to quality of life
+| teach some aspect of quantitative reasoning
+```
+
+:::{.reaction .correct ex=13}
+Apologies for the snark.
+:::
+
+## What Now?
+
+The mastery check for this unit, unit 00, is online. When you are ready to attempt it, send me a
+[GroupMe DM]. In your DM, please specify that you want a mastery check for
+unit 00, and include your ULID.
+
+
+<!-- vim: set ft=carnap :-->

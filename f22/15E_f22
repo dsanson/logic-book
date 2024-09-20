@@ -1,0 +1,67 @@
+---
+base-css:
+-   https://carnap.io/shared/dsanson@gmail.com/sanson-book.css
+-   https://cdn.plyr.io/3.6.12/plyr.css
+js: 
+-   https://cdn.plyr.io/3.6.12/plyr.polyfilled.js
+-   https://carnap.io/shared/dsanson@gmail.com/logic-book.js
+---
+
+# Relations and Identity
+
+:::wrapper
+:::soasticky
+| G(x,y): x sees y
+| H(x): x is a person
+| K(x,y): x kicks y
+| a: Amber
+| b: Beatrice
+:::
+
+```{.Translate .FOL points=10}
+1 K(a,b) : Amber kicks Beatrice
+2 G(b,a) : Beatrice sees Amber
+3 G(a,a) : Amber sees herself
+4 ~G(b,a) : Beatrice does not see Amber
+5 ExK(x,b) : Something kicks Beatrice
+6 ExK(a,x) : Amber kicks something
+7 AxG(a,x) : Amber sees everything
+8 AxG(x,a) : Everything sees Amber
+9 Ax(H(x)->G(a,x)) : Amber sees everyone
+10 Ax(H(x)->G(x,a)) : Everyone sees Amber
+11 Ex(H(x)/\K(b,x)) : Beatrice kicks somebody
+12 Ex(H(x)/\K(x,b)) : Somebody kicks Beatrice
+13 ExAyG(x,y) : Something is such that it sees everything
+14 AxEyG(x,y) : Everything is such that it sees something or other
+15 EyAxG(x,y) : Something is such that everything sees it
+```
+
+:::
+
+:::wrapper
+:::soasticky
+| F(x): x is an actor
+| G(x): x is a politician
+| H(x): x is a person
+| a: Ted Cruz
+| b: the Zodiac Killer
+| c: Tom Cruise
+| d: Miles Fisher
+:::
+
+```{.Translate .FOL points=10}
+16 a=b: Ted Cruz is the Zodiak Killer
+17 ~a=b: Ted Cruz is not the Zodiak Killer
+18 ~a=c: Ted Cruz is not Tom Cruise
+19 a=c->F(a): If Ted Cruz is Tom Cruise, then Ted Cruz is an actor
+20 ~d=c/\(F(c)/\F(d)): Miles Fisher is not Tom Cruise, but both are actors.
+21 Ex(H(x)/\x=b): Someone is identical to the Zodiac Killer
+22 Ax(G(x)->~x=c): No politician is identical to Tom Cruise 
+```
+
+:::
+
+
+
+<!-- vim: set ft=carnap :-->
+

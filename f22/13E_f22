@@ -1,0 +1,74 @@
+---
+base-css:
+-   https://carnap.io/shared/dsanson@gmail.com/sanson-book.css
+-   https://cdn.plyr.io/3.6.12/plyr.css
+js: 
+-   https://cdn.plyr.io/3.6.12/plyr.polyfilled.js
+-   https://carnap.io/shared/dsanson@gmail.com/logic-book.js
+---
+
+# Derivations in PL
+
+
+```{.ProofChecker .FirstOrder options="guides fonts indent tabindent resize" points=10}
+1 Ax(F(x)/\G(x)) :|-: F(c)
+```
+:::hint
+Remember to try to *read* each argument before you being your derivation. For
+example the argument in (1) says:
+
+:::standardform
+-   Everything is both F and G.
+-   c is F.
+:::
+
+Do you see why that ought to follow?
+
+:::hint
+We need to *apply* our universal information---the premise which makes a claim
+about *everything*---to the one specific thing we are interested in, *c*. We
+do this by applying the rule UI, and instantiating to *c*. 
+:::
+
+:::
+
+
+```{.ProofChecker .FirstOrder options="guides fonts indent tabindent resize" points=10}
+2 AxF(x), Ax(F(x) -> G(x)) :|-: G(c)
+```
+
+:::hint
+Again, read the argument. This one says:
+
+:::standardform
+-   Everything is F.
+-   Every F is G.
+-   c is G
+:::
+
+See why that ought to follow, whatever thing 'c' might be the name of?
+This time, we have two pieces of universal information, and we are again
+trying to draw a conclusion about one specific thing, *c*. So instantiate both
+universal generalizations to *c*, and reason from there.
+:::
+
+```{.ProofChecker .FirstOrder options="guides fonts indent tabindent resize" points=10}
+3 AxF(x), F(b)/\F(c) -> G(c) :|-: ExG(x)
+4 AxAy(F(x) -> G(y)), F(c) :|-: G(d)
+5 AxAy(F(x) <-> G(y)), F(c) :|-: F(d)
+6 :|-: F(a)->ExF(x)
+7 :|-: AxF(x)->EyF(y)
+8 AxF(x), AxG(x) :|-: Ex(F(x)/\G(x))
+9 G(b), G(b)->F(a), Ax(F(x)->G(x)) :|-: Ex(F(x)/\G(x))
+10 Ax(F(x)->G(x)), AxF(x) :|-: AxG(x)
+11 Ax(G(x)/\G(c)) :|-: AxG(x)
+12 Ax-F(x), F(d) :|-: -AxF(x)
+13 -ExF(x) :|-: Ax-F(x)
+14 ~ExF(x),~ExG(x) :|-: ~Ex(F(x)\/G(x))
+15 Ax(F(x)->G(x)), ExF(x) :|-: ExG(x)
+16 Ax(F(x)->G(x)), -Ex(F(x)/\G(x)) :|-: -ExF(x)
+17 Ex-F(x) :|-: -AxF(x)
+```
+
+<!-- vim: set ft=carnap :-->
+

@@ -1,0 +1,141 @@
+---
+base-css:
+-   https://carnap.io/shared/dsanson@gmail.com/sanson-book.css
+-   https://cdn.plyr.io/3.6.12/plyr.css
+js: 
+-   https://cdn.plyr.io/3.6.12/plyr.polyfilled.js
+-   https://carnap.io/shared/dsanson@gmail.com/logic-book.js
+---
+
+:::auto-tally
+:::
+
+# Derivations with all the connectives: Exercises
+
+## Learning the Rules
+
+:::stickywrapper
+:::{.aside .sticky .flex .hideable}
+
+:::showwhenhidden
+Click to reveal the rules, if needed.
+Click again to hide them.
+:::
+
+
+:::ruledisplay
+**Addition (ADD)**
+
+::: displayed
+| []{.P} ⊢ []{.P} ∨ []{.Q}
+| []{.Q} ⊢ []{.P} ∨ []{.Q}
+:::
+:::
+:::ruledisplay
+**Modus Tollendo Ponens (MTP)**
+
+::: displayed
+| []{.P}∨[]{.Q}, ¬[]{.P} ⊢ []{.Q}
+| []{.P}∨[]{.Q}, ¬[]{.Q} ⊢ []{.P} 
+:::
+:::
+:::ruledisplay
+**Simplification (S)**
+
+::: displayed
+| []{.P} ∧ []{.Q} ⊢ []{.P}
+| []{.P} ∧ []{.Q} ⊢ []{.Q}
+:::
+:::
+:::ruledisplay
+**Adjunction (ADJ)**
+
+::: displayed
+| []{.P}, []{.Q} ⊢ []{.P} ∧ []{.Q}
+:::
+:::
+:::ruledisplay
+**Biconditional-to-Conditional (BC)**
+
+::: displayed
+| []{.P} ↔ []{.Q} ⊢ []{.P} → []{.Q}
+| []{.P} ↔ []{.Q} ⊢ []{.Q} → []{.P}
+:::
+:::
+:::ruledisplay
+**Conditionals-to-Biconditional (CB)**
+
+:::displayed
+| []{.P} → []{.Q}, []{.Q} → []{.P} ⊢ []{.P} ↔ []{.Q}
+:::
+:::
+:::
+
+Here are some questions meant to help test your grasp of the rules. For
+additional exercises meant to help with this, please see the
+[supplements](10S_s22).
+
+Many of the following questions have more than one correct answer. Just supply
+one of the correct answers.
+
+``` {.Translate .Exact points="10"}
+1 P/\Q, Q/\P: What follows, by ADJ, from 'P' and 'Q'?
+2 P->Q, Q->P: What follows, by BC, from 'P ↔ Q'?
+3 P<->Q, Q<->P: What follows, by CB, from 'P → Q' and 'Q → P'?
+4 Q: What follows, by MTP, from '¬P ∨ Q' and '¬¬P'?
+5 P\/Q, R: What follows, by S, from '(P ∨ Q) ∧ R'?
+6 P/\Q: What follows, by MTP, from '(P ∧ Q) ∨ (P → Q)' and '¬(P → Q)'?
+7 ~(P/\Q): What follows, by MTP, from '¬(P ∧ Q) ∨ (P → Q)' and '¬(P → Q)'?
+8 (P->Q)/\~(R/\T): What follows, by ADJ, from 'P → Q' and '¬(R ∧ T)'?
+9 P,~~(R<->~~(P/\T)): What is a premise from which you can infer 'P ∨ ¬¬(R↔(P∧T))' by ADD?
+```
+
+# Derivations
+
+
+```{.ProofChecker .Prop options="guides fonts indent tabindent resize" points=10}
+10 P/\Q, Q->R :|-: R/\P
+11 R, R\/S->P/\S :|-: S
+12 P\/Q, ~Q\/~R :|-: R->P
+13 R->P, R->Q :|-: R->(P/\Q)
+14 R->P, R->Q :|-: R->(P\/Q)
+15 P<->P/\Q, ~Q :|-: ~P
+16 ~(P\/Q) :|-: Q\/S->S
+```
+:::
+
+:::hint
+The big trick to 16 is figuring out how to use the premise.
+We don't have any rules that will "break it down", or "distribute the negation". 
+So we need to use it as it as is.
+
+We have three rules that involve negations: DN, MT, and MTP.
+Applying DNI to the premise, to get '¬¬¬(P∨Q)' will not be helpful.
+So put DNI aside.
+We don't have a conditional of the form '[]{.P} → (P ∨ Q)', so MT will not be
+helpful to us here. For similar reasons, MTP is also not helpful.
+
+We have three methods of derivation. The one that involves negations in an
+interesting way is ID.
+If '¬(P ∨ Q)' was our *conclusion* on a show line, we could assume 'P ∨ Q'.
+But '¬(P ∨ Q)' is not a conclusion, it is a premise.
+
+We could enter a show line for '¬(P ∨ Q)'. But that's a bad idea. We already
+*have* '¬(P ∨ Q)' as a premise. Suppose we complete a subderivation, showing
+'¬(P ∨ Q)'. Then we will have shown something we already had. That doesn't
+move us forward.
+
+There is one last place where negations figure in our system:
+ to complete an ID, you need to get a contradiction.
+And a contradiction is any two sentences, one the negation of the other.
+
+Turns out, this is the *only* way you are going to be able to use '¬(P ∨ Q)'
+in this derivation. You need to set up an ID, and in the context of that ID,
+you need to derive 'P ∨ Q'. Then you can use that, together with your premise,
+to QED that subderivation.
+
+For more on this, see the section [Using Negations](09S#using-negations)
+in the [Chapter 10 Supplement](09S).
+:::
+
+<!-- vim: set ft=carnap :-->

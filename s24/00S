@@ -1,0 +1,19 @@
+---
+base-css:
+-   https://carnap.io/shared/dsanson@gmail.com/sanson-book.css
+-   https://cdn.plyr.io/3.6.12/plyr.css
+js: 
+-   https://cdn.plyr.io/3.6.12/plyr.polyfilled.js
+-   https://carnap.io/shared/dsanson@gmail.com/logic-book.js
+---
+
+# Syllabus and Course Mechanics: Supplement
+
+Many units have *supplements*, like this. 
+
+Sometimes, you will complete the reading and complete all the reading exercises, but still need more practice. That's what supplements are for: they will typically include lots more practice exercises. Sometimes, they will also include additional explanations and other enrichment materials, like links to youtube videos and the like.
+
+Supplements are not required. Nothing you do in a supplement can be submitted for credit, and nothing is worth any points. Use the supplements when they are helpful to you, and ignore them when they are not.
+
+
+<!-- vim: set ft=carnap :-->

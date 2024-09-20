@@ -1,0 +1,670 @@
+---
+base-css:
+-   https://carnap.io/shared/dsanson@gmail.com/sanson-book.css
+-   https://cdn.plyr.io/3.6.12/plyr.css
+js: 
+-   https://cdn.plyr.io/3.6.12/plyr.polyfilled.js
+-   https://carnap.io/shared/dsanson@gmail.com/logic-book.js
+---
+
+::: {.auto-tally}
+:::
+
+::: cover
+
+# Truth Tables for Arguments
+
+!["And the truth shall set you free!"](https://reggienet.illinoisstate.edu/access/content/user/desanso/public/img/truth-set-you-free.gif){target="_blank"
+rel="noopener noreferrer" alt="Animated GIF of Jim Carey exclaiming 'And the
+truth shall set you free!' while tossing papers into the air."} <!--_-->
+
+:::
+
+## Introduction
+
+In the last chapter, we learned how to use truth tables
+to explore the truth-functional properties of individual sentences. In this
+chapter, we use truth tables to explore logical relations *between* sentences, 
+including our favorite such relation, validity.
+
+Here are the specific learning objectives:
+
+a.  I can use truth tables to determine whether or not two or more
+    sentences are truth-functionally equivalent, and whether or not two
+    or more sentences are truth-functionally consistent
+b.  I can use truth tables to determine whether or not an argument is
+    truth-functionally valid.
+
+## Truth-Functional Equivalence
+
+Here is a short video lecture on truth-functional equivalence. Note that, in
+the video, I refer to truth-functional equivalence as "logical equivalence in
+Sentential Logic".
+
+:::solution
+:::youtube
+<https://youtu.be/7NGMspHN1H8>
+:::
+:::
+
+To say that two or more sentences are [truth-functionally equivalent]{.vocab} is to
+say that they each express exactly the same truth function. In other words, on
+every possible assignment, their truth values agree. Each row of a truth table
+represents a possible assignment. So, in other words, 
+[two or more sentences are [truth-functionally equivalent]{.vocab} iff, on each
+row of their truth table, they have the same truth value]{.def}.
+
+We've already encountered this idea. In our discussion of DNI and DNE,
+in [Unit 5](05R_s22), I presented this table: 
+
+::: itt
+       P        ¬P      ¬¬P       ¬¬¬P     ¬¬¬¬P      ¬¬¬¬¬P   ...
+  ------------ ---- ------------ ------ ------------ -------- -----
+   [T]{.wavy}   F    [T]{.wavy}    F     [T]{.wavy}     F      ...
+   [F]{.wavy}   T    [F]{.wavy}    T     [F]{.wavy}     T      ...
+:::
+
+The table illustrates the way that adding a negation to a sentence always flips its truth value,
+from true to false, or from false to true.
+If we focus on the [highlighted]{.wavy} columns,
+ the table shows us that 'P', '¬¬P' and '¬¬¬¬P' are all truth-functionally equivalent.
+They all agree in truth value on the first row, where P is true.
+And they all agree in truth value on the second row, where P is false.
+And those are the only two possible assignments of truth values to P.
+Likiwise, focusing on the other columns, we see that '¬P', '¬¬¬P', and
+'¬¬¬¬¬P' are truth-functionally equivalent as well.
+
+In our discussion of inclusive and exclusive disjunction in [the last
+unit](07R_s22), we discussed the fact that we didn't need to add the
+connective for exclusive disjunction, '$\veebar$', to our language, because we
+can express an exclusive disjunction with the connectives we have. Again, this
+is a point about truth-functional equivalence.
+Specifically, consider this table:
+
+::: {.itt rows="2" .liveshapes}
+   []{.P}   []{.Q}   []{.P} ↔ []{.Q}   []{.P} $\veebar$ []{.Q}
+  -------- -------- ----------------- -------------------------
+     T        T        [T]{.wavy}               [F]{.wavy} 
+     T        F        [F]{.wavy}               [T]{.wavy}
+     F        T        [F]{.wavy}               [T]{.wavy}
+     F        F        [T]{.wavy}               [F]{.wavy}
+:::
+
+Focusing on the two [highlighted]{.wavy} columns,
+ we see that the two sentences always *disagree* in truth value.
+It is a short step from this observation to the construction of another table,
+showing that '¬(P ↔ Q)' is truth-functionally equivalent to 'P $\veebar$ Q':
+
+::: {.itt .liveshapes rows="2"}
+   []{.P}   []{.Q}   ¬([]{.P} ↔ []{.Q})   []{.P} $\veebar$ []{.Q}
+  -------- -------- -------------------- -------------------------
+     T        T              F                       F
+     T        F              T                       T
+     F        T              T                       T
+     F        F              F                       F
+:::
+
+Truth-functional equivalence is an important relationship.
+Two sentences that are truth-functionally equivalent basically "say the same
+thing". For example, most of our binary connectives are *commutative*: 
+ the order of the parts doesn't make a difference to the truth value of the whole.
+For example, 'P ∧ Q' is truth-functionally equivalent to 'Q ∧ P', so someone
+who says, 'It is cold and it is raining,' has basically said the same thing as
+someone who says, 'It is raining and it is cold', even though those are two
+different sentences.
+
+Here is the table showing that 'P ∧ Q' and 'Q ∧ P' are truth-functionally
+equivalent:
+
+```{.TruthTable .Simple options="nocounterexample immutable nocheck display" submission=none}
+ P/\Q, Q/\P
+|T TT  T TT 
+|T FF  F FT
+|F FT  T FF
+|F FF  F FF
+```
+
+This is just like the other truth tables you've seen, but instead of calculating
+the truth value of *one* sentence, we have calculated the truth values for *two*
+sentences. The two sentences are separated by a comma.
+
+Truth tables can be hard to read, because there are so many Ts and Fs. 
+For each sentence, its truth value on each row can be found *under its main
+connective*.
+So when you are looking to see whether or not the truth values of the two
+whole sentences, 'P∧Q' and 'Q∧P', are the same on every row, you need to be
+comparing the two columns under the two main connectives.
+
+Here is a simplified table, just showing the truth values of the two sentences on each row:
+
+::: {.itt rows="2"}
+   P ∧ Q   Q ∧ P
+  ------- ---------
+     T        T
+     F        F
+     F        F
+     F        F
+:::
+
+Do you see that they agree on each row? On the first row, both are true. On
+each of the other three rows, both are false. This shows that they are
+truth-functionally equivalent. Make sure you are also able to see this when
+looking at the full truth table, with all the extra Ts and Fs.
+
+In algebra, you learned that addition and multiplication are commutative, but
+subtraction and division are not:
+
+:::centered
+| x + y = y + x
+| x - y ≠ y - x
+| x × y = y × x
+| x ÷ y ≠ y ÷ x
+:::
+
+Three of our four binary connectives are commutative, but one is not:
+
+:::centered
+| P ∧ Q ↔ Q ∧ P
+| P ∨ Q ↔ Q ∨ P
+| (P ↔ Q) ↔ (Q ↔ P)
+| ~((P → Q) ↔ (Q > P))
+:::
+
+We've already shown that conjunction is commutative. Complete the following
+table to show that disjunction is commutative as well:
+
+```{.TruthTable .Simple options="nocounterexample" points=10}
+1 P\/Q, Q\/P
+```
+
+:::{.reaction .correct ex=1}
+Again, this is just like other truth tables you've seen,
+ but we have two sentences, separated by a comma, instead of just one.
+Again, truth tables can be hard to read, with all the Ts and Fs.
+Focus on the column under the *main connective* of each sentence:
+ that's the column that represents the truth value of the whole sentence.
+See how they agree?
+:::
+
+```{.QualitativeProblem .MultipleChoice points=10}
+2 The truth table above establishes that
+| *P∨Q and Q∨P are truth-functionally equivalent
+| P∨Q and Q∨P are not truth-functionally equivalent
+```
+
+:::{.reaction .correct ex=2}
+Good!
+:::
+
+Conditionals are *not* commutative: 'P → Q' is *not* truth-functionally
+equivalent to 'Q → P'. Prove this by completing the following truth table:
+
+```{.TruthTable .Simple options="nocounterexample" points=10}
+3 P->Q, Q->P
+```
+
+```{.QualitativeProblem .MultipleChoice points=10}
+4 The truth table above establishes that
+| P→Q and Q→P are truth-functionally equivalent
+| *P→Q and Q→P are not truth-functionally equivalent
+```
+
+:::{.reaction .correct ex=4}
+Here is a table showing just the truth values of the whole sentences on each row:
+
+::: {.itt rows="2"}
+   P → Q   Q → P
+  ------- ---------
+     T        T
+     F        T
+     T        F
+     T        T
+:::
+
+As you can see, the two sentences disagree in truth value on rows two and
+three. So these two sentences are not truth-functionally equivalent.
+So the conditional is not commutative.
+:::
+
+We say that ['Q → P' is the [converse]{.vocab} of 'P → Q'.]{.def}
+A conditional is not, as a general rule, truth-functionally equivalent to its
+converse. Consider:
+
+:::example
+-   If something is a bunny, then it hops.
+-   If something hops, then it is a bunny.
+:::
+
+The first is plausibly true, but the second false, since there are plenty of non-bunnies
+that hop. So clearly, a conditional is not equivalent to its converse.
+
+However, there is a way to "flip around" a conditional, to get something that
+is truth-functionally equivalent.
+[The [contrapositive]{.vocab} of 'P → Q' is '¬Q → ¬P']{.def}. That is, 
+ flip the conditional, but *also* negate each part. Complete the 
+ following truth-table to prove that a conditional is
+ truth-functionally equivalent to its contrapositive:
+
+```{.TruthTable .Simple options="nocounterexample" points=10}
+5 P->Q, ~Q->~P
+```
+
+:::{.reaction .correct ex=5}
+Again, eliminating extra distracting Ts and Fs, here are the
+truth values, on each row, for each of the two sentences:
+
+::: {.itt rows="2"}
+   P → Q   ¬Q → ¬P
+  ------- ---------
+     T        T
+     F        F
+     T        T
+     T        T
+:::
+
+As you can see, on each row, they agree, proving that these two sentences are
+truth-functionally equivalent.
+:::
+
+Even though a conditional is logically equivalent to its contrapositive, 
+we humans often find it easier to understand one or the other. Compare:
+
+:::example
+-  If you pass the class, you take the final.
+-  If you don't take the final, you don't pass the class.
+:::
+
+The first feels weird, and is a bit hard to understand. The second is clear as
+day. But the two are truth-functionally equivalent.
+
+(Something similar is true about equivalent sentences that express a
+conditional using 'if...then...' vs. '...only if...':
+
+:::example
+-  If you pass the class, you take the final.
+-  You pass the class only if you take the final.
+-  If you don't take the final, you don't pass the class.
+:::
+
+Notice how your brain processes the second and third sentences in much the
+same way, but struggles with the first.)
+
+In the exercises, you will have more opportunities to use truth tables to
+explore other interesting truth-functional equivalences.
+For example, '¬(P ∧ Q)' is truth-functionally equivalent to '¬P ∧ ¬Q',
+and 'P → Q' is truth-functionally equivalent to '¬P ∨ Q'.
+The process of completing a truth table can get tedious,
+but the logical relationships they reveal can be neat!
+
+## Truth-Functional Consistency
+
+Consider the two sentences, 'I am happy and I clap my hands', and 'I am happy
+or I clap my hands'. One of these is a conjunction, the other a disjunction.
+They are not truth-functionally equivalent. If
+it is true that I clap my hands, but false that I am happy, the conjunction is
+false, but the disjunction is true.
+
+But they do stand in another interesting relationship: they are
+truth-functionally consistent. That is, it is possible for them both to be
+true together, as when it is true that I am happy, and it is also true that I
+clap my hands.
+
+This relationship does not hold between the two sentences, 'I am happy or I
+clap my hands' and 'I am neither happy nor do I clap my hands'. These two
+sentencese are truth-functionally *inconsistent*. That is, it is *not*
+possible for them both to be true together.
+
+Thinking about this in terms of truth tables, we can say that
+ [two or more sentences are [truth-functionally consistent]{.vocab} iff there
+ is at least one row of the truth table on which they are all true]{.def}, and [two or more
+ sentences are [truth-functionally inconsistent]{.vocab} iff there is no
+ no row of the truth table on which they are all true.]{.def}
+
+The following table establishes that 'P → Q' and its converse, 'Q → P', are
+truth-functionally consistent:
+
+```{.TruthTable .Simple options="nocounterexample immutable nocheck display" submission=none}
+ P->Q, Q->P
+|T TT  T TT 
+|T FF  F TT
+|F TT  T FF
+|F TF  F TF
+```
+
+On the first row, both sentences are true. This also happens on the fourth
+row. So there is at least one row on which they are both true. So they can be
+true together, and they are truth-functionally consistent.
+
+The following table establishes that 'P', 'P → Q' and 'P → ¬Q' are *not*
+truth-functionally consistent, and so are truth-functionally inconsistent:
+
+```{.TruthTable .Simple options="nocounterexample immutable nocheck display" submission=none}
+ P, P->Q, P->~Q
+|T  TT T  TF FT
+|T  TF F  TT TF
+|F  FT T  FT FT
+|F  FT F  FT TF
+```
+
+Again, if you have trouble seeing past all the extra Ts and Fs,
+ here is the simplified table, just showing the truth values for each
+ sentence:
+
+::: {.itt rows="3"}
+   P   P → Q   P → ¬Q
+  --- ------- --------
+   T     T       F
+   T     F       T
+   F     T       T
+   F     T       T
+:::
+
+They aren't all true on row (1): 'P' and 'P → Q' are true, but 'P → ¬Q' is false.
+And they aren't all true on row (2): 'P' and 'P → ¬Q' are true, but 'P → Q' is
+false. And they aren't all true on rows (3) or (4), since 'P' is false on both
+of those rows. So there is no possible situation in which all three of these
+sentences can be true together: they are truth-functionally inconsistent.
+
+Here are a few more examples, to help fix ideas.
+
+```{.TruthTable .Simple options="nocounterexample" points=10}
+6 P->Q, ~Q\/P
+```
+
+```{.QualitativeProblem .MultipleSelection points=10}
+7 These two sentences are:
+| truth-functionally equivalent
+| *not truth-functionally equivalent
+| *truth-functionally consistent
+| truth-functionally inconsistent
+```
+
+::: {.youtube .manual style="width:252px;height:200px"}
+<https://youtu.be/JIM9D9h4mdA>
+:::
+
+```{.TruthTable .Simple options="nocounterexample" points=10}
+8 P->(Q->R), Q->(P->R)
+```
+
+```{.QualitativeProblem .MultipleSelection points=10}
+9 These two sentences are:
+| *truth-functionally equivalent
+| not truth-functionally equivalent
+| *truth-functionally consistent
+| truth-functionally inconsistent
+```
+
+::: {.youtube .manual style="width:360px;height:204px"}
+<https://youtu.be/_fH1KaUo_dw>
+:::
+
+## Validity
+
+Here is a short video lecture about using truth tables to determine
+truth-functional validity.
+
+:::solution
+:::youtube
+<https://youtu.be/d_8-zP-LsgE>
+:::
+:::
+
+Equivalence and consistency are relations between sentences. Validity is also
+a relation between sentences. Specifically, it is a relation between the
+premises of an argument and its conclusion. Recall our definition:
+
+Validity
+:   An argument is valid iff it is impossible that (all of its premises to be
+    true but its conclusion false).
+
+Each row of a truth table represents an assignment. And each assignment
+represents a truth-functional possibility. So:
+
+Truth-Functional Validity
+:   [An argument is [truth-functionally valid]{.vocab} iff there is no row of
+    its truth table that assigns true to every premise, but false to the
+    conclusion]{.def}
+
+Stop, and make sure you understand how these two definitions are related.
+
+Is this argument truth-functionally valid? (Keep reading below the exercise
+for an explanation of what you are supposed to do.)
+
+```{.TruthTable .Validity options="nocounterexample turnstilemark" points=10}
+10 ~(P/\Q), Q->~Q :|-: P
+| F TT T    TF FT  -   T
+| T TF F    FT TF  -   T
+| T FF T    TF FT  -   F
+| T FF F    FT TF  -   F
+```
+
+Your job is to fill in the column under the turnstile ('⊢').
+Note that your options under the turnstile are not 'T' or 'F', but '✓' or '✗'.
+On each row, you are checking to see whether or not the argument takes us,
+ on that row, from true premises to a false conclusion.
+If it does, that means it is a bad argument, and you should enter an '✗' under the turnstile.
+If it doesn't, that is good, and you should enter a '✓' under the turnstile.
+
+On the first row, just looking at the truth values under the main connective
+of each sentence, we have 'F F ⊢ T'. So the argument has not taken us from
+true premises to a false conclusion. So, on this row, the argument passes the
+test, and earns a checkmark:
+
+::: {.itt rows="4"}
+   ¬(P∧Q)   Q → ¬Q    ⊢     P
+  -------- -------- ------ ---
+     F        F       ✓     T
+:::
+
+On the second row, we have 'T T ⊢ T'. Again, the argument has not taken us
+from true premises to a false conclusion. So, again, it passes the test, and
+earns a checkmark:
+
+::: {.itt rows="4"}
+   ¬(P∧Q)   Q → ¬Q   ⊢   P
+  -------- -------- --- ---
+     F        F      ✓   T
+     T        T      ✓   T
+:::
+
+On the third row, we have 'T F ⊢ F'. Again, the argument has not taken us from
+true premises to a false conclusion. So, again, it passes the test, and earns
+a checkmark:
+
+::: {.itt rows="4"}
+   ¬(P∧Q)   Q → ¬Q    ⊢     P
+  -------- -------- ------ ---
+     F        F       ✓     T
+     T        T       ✓     T
+     T        F       ✓     F
+:::
+
+On the last row, we have 'T T ⊢ F'. Oh no! **THIS IS BAD!**: our argument has
+taken us from true premises to a false conclusion. So, on this row, it fails
+the test, and earns an ✗:
+
+::: {.itt rows="4"}
+   ¬(P∧Q)   Q → ¬Q   ⊢   P
+  -------- -------- --- ---
+     F        F      ✓   T
+     T        T      ✓   T
+     T        F      ✓   F
+     T        T      ✗   F  
+:::
+
+You might think the argument did pretty good: it passed the test on three out
+of four rows. But validity is an all-or-nothing thing. To be valid, the
+argument must pass the test **on every row**. Since it fails the test on row
+four, the argument is **not truth-functionally valid**.
+
+(If you have not already done so, return to [exercise 10](#exercise-10) above and complete it,
+by entering in the appropriate '✓'s and '✗'s under the turnstile.)
+
+Here is another argument. Complete the truth table to determine whether or not
+the argument is truth-functionally valid. If you run into trouble, click on
+the spoiler box below to get some additional hints.
+
+```{.TruthTable .Validity options="nocounterexample turnstilemark" points=10}
+11 P<->Q, ~Q :|-: ~P
+|  T T T  FT  -   FT
+|  T F F  TF  -   FT
+|  F F T  FT  -   TF
+|  F T F  TF  -   TF
+```
+
+:::spoiler
+You should have checkmarks, '✓', under the turnstile on every row of the
+table:
+
+-   On the first row, we have 'T F ⊢ F'. The argument passes the test on this
+    row: it hasn't taken us from true premises to a false conclusion.
+-   On the second row, we have 'F T ⊢ F'. Again, the argument passes the test:
+    it hasn't taken us from true premises to a false conclusion.
+-   On the third row, we have 'F F ⊢ T'. Again, the argument passes the test:
+    it hasn't taken us from true premises to a false conclusion.
+-   On the fourth row, we have 'T T ⊢ T'. Again, the argument passes the test. 
+
+The only way this argument could *fail* the test on a row, and earn a '✗',
+would be if the premises were all true on that row, and the conclusion false:
+'T T ⊢ F'. Since that never happens, the argument passes the test on every
+row, and so it is truth-functionally valid.
+:::
+
+Here is an important example. Complete the table, by filling in the
+column under the turnstile, to determine whether or not the argument is
+truth-functionally valid:
+
+```{.TruthTable .Validity options="nocounterexample turnstilemark " points=10}
+12 P, ~P :|-: Q
+|  T  FT  -   T
+|  T  FT  -   F
+|  F  TF  -   T
+|  F  TF  -   F
+```
+
+:::spoiler
+You should have checkmarks on each row. None of the rows are 'T T ⊢ F'.
+:::
+
+Our truth table tells us that this argument is valid. But it is a weird
+argument: the premises are just about P, and say nothing about the conclusion, Q.
+Here is an instance of this form of argument in English:
+
+:::standardform
+-   There are donkeys.
+-   There are no donkeys.
+-   This is the best of all possible worlds
+:::
+
+Why is this argument valid?
+
+We have encountered this before.
+
+It came up in the Unit 1 reading, in the section on [unexpected consequents of
+our definition of
+validity](01R_s22#two-unexpected-consequences-of-our-definition-of-validity){target="_blank"
+rel="noopener noreferrer"}. <!--_--> And it came up in the Unit 5 supplement,
+which included [an exercise asking you to construct a derivation of this very
+argument](05S_s22#exercise-19){target="_blank" rel="noopener noreferrer"}.
+<!--_-->
+
+The truth table helps make it vividly clear *why* we count such an argument as
+valid: it *never* leads us astray. The premises are truth-functionally
+inconsistent. So, the argument can never lead us *from* true premises *to* a false
+conclusion, because it can never lead us *from* true premises.
+
+Given our definition of validity, any argument with *inconsistent premises* is
+automatically valid, whatever its conclusion might be:
+
+::: {.itt rows="4"}
+   P   ¬P   ⊢   (whatever sentence you like)
+  --- ---- --- ------------------------------
+   T   F    ✓         (doesn't matter)
+   F   T    ✓         (doesn't matter)
+:::
+
+So each of the
+following arguments is valid:
+
+:::standardform
+-   There are donkeys.
+-   There are no donkeys.
+-   This is not the best of all possible worlds
+:::
+
+:::standardform
+-   There are donkeys.
+-   There are no donkeys.
+-   The moon is made of green cheese.
+:::
+
+:::standardform
+-   There are donkeys.
+-   There are no donkeys.
+-   Joe Biden is president.
+:::
+
+:::standardform
+-   There are donkeys.
+-   There are no donkeys.
+-   SpongeBob SquarePants is president.
+:::
+
+The idea that *anything* follows from a contradiction is known as
+the [Principle of Explosion]{.vocab}, and it is a core feature of
+"classical" logic. There are "non-classical" logics that avoid this. [Relevance
+logic](https://en.wikipedia.org/wiki/Relevance_logic){target="_blank"
+rel="noopener noreferrer"} <!--_--> adds further constraints on validity, meant to
+enforce the idea that the premises must have something to do with the
+conclusion. Other [paraconsistent
+logics](https://en.wikipedia.org/wiki/Paraconsistent_logic){target="_blank"
+rel="noopener noreferrer"} <!--_--> add other constraints, meant to "contain" the
+would-be explosive consequences of contradictions. But our logic is a
+classical logic, and we will embrace Explosion. 
+
+(How can there be different *truth-functional logics* that *disagree* about
+which arguments are truth-functionally valid? That's like having different
+*arithmetics* that disagree about whether 2 + 2 = 4, or different
+*geometries* that disagree about the shape of space. Different logics
+*disagree* about the nature and structure of the *following* relation that
+holds between pieces of information. Logical monists insist
+that there is one true logic---the one that properly describes the true nature
+and structure of the *following* relation. Logical pluralists argue that there
+is there is no one true logic, just as there is no one true geometry.
+
+It is kind of mind-bending to think about how one is meant to
+continue on reasoning, if there is no fact of the matter about the nature and structure
+of reasoning itself. We leave this puzzle for more advanced classes.)
+
+```{.TruthTable .Validity options="nocounterexample turnstilemark" points=10}
+13 P\/Q, ~Q :|-: P
+```
+
+```{.QualitativeProblem .MultipleChoice points=10}
+14 This argument is:
+| *truth-functionally valid
+| not truth-functionally valid
+```
+
+::: {.youtube .manual style="width:234px;height:200px"}
+<https://youtu.be/iBfu4XeK95Q>
+:::
+
+
+```{.TruthTable .Validity options="nocounterexample turnstilemark" points=10}
+15 ~(~P/\~~Q), Q->R :|-: ~(R\/P)
+```
+
+```{.QualitativeProblem .MultipleChoice points=10}
+16 This argument is:
+| truth-functionally valid
+| *not truth-functionally valid
+```
+
+::: {.youtube .manual style="width:468px;height:218px"}
+<https://youtu.be/BY83gh0Ui5w>
+:::
+
+
+<!-- vim: set ft=carnap :-->
